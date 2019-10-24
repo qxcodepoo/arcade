@@ -1,4 +1,4 @@
-## Shell, entendendo comandos.
+## 01 Shell, entendendo comandos.
 ### Aprenda o modelo de comandos
 ![](figura.jpg)
 

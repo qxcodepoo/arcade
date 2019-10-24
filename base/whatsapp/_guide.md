@@ -1,7 +1,4 @@
----
-layout: post
-title: "Whatsapp Guide"
----
+## Whatsapp Guide
 
 # Responsabilidades e Atribuições
 

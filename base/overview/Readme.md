@@ -1,10 +1,6 @@
-## Guia de atividades
+## 00 Overview
 ## Lista de atividades e caminhos.
 ![](figura.jpg)
-
-Pensar num modelo para publicar um livro.
-Esquema de clientes reais com nome e necessidades.
-Implementação dos exemplos em python ou ts ou js.
 
 - Modelo
     - Nomes de Pessoas e Formato para figura
@@ -25,13 +21,13 @@ Implementação dos exemplos em python ou ts ou js.
     - responsabilidades
     - depois adiciona controle de transações e extrato
 
-- Null References
+- Null References - Agregação
+    - Lapiseira
     - Cinema
         - Referências Nulas
         - Pedir cadeira por indice
     - Junkfood
         - usar junkfood com espiral null
-        - 
     - Segredos
         - gerenciador de login
 

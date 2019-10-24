@@ -1,5 +1,5 @@
-## "Agenda Híbrida #agregação #manager #template #herança
-### Sua agenda telefônica agora será um aplicativo híbrido para guardar contatos e anotações'
+## 32 Agenda 3 #agregação #manager #template #herança
+### Notas e Contatos juntos
 ![](figura.jpg)
 
 Algum dia você já utilizou a agenda do seu telefone para guardar outra coisa além de contatos e telefones? Eu mesmo já utilizei a minha para guardar algumas notas e até números ou senhas. O objetivo da agenda híbrida é fazer uma agenda capaz de guardar e favoritar várias coisas além de contatos.

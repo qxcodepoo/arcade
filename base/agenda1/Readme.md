@@ -1,4 +1,4 @@
-## Agenda Telefônica 1 #composição
+## 21 Agenda 1 #composição #ordenação #lote #crud
 ###
 ![](figura.jpg)
 
@@ -7,7 +7,7 @@
 
 - Sua agenda possui vários contatos e cada contato possui vários telefones.
 - O contato possui o nome como chave. Portanto, não existem dois contatos com o mesmo nome.
-- Se tentar adicionar um contato novo contato com o nome de um contato que já existe, adicione os novos números de telefone no contato já existente.
+- Adicione os novos números de telefone no contato já existente.
 - Se tentar adicionar um número de telefone que já existe, apenas ignore e não adicione.
 - Mostre os números de telefone pela ordem de inserção.
 - Mostre os contatos da agenda pela ordem alfabética.

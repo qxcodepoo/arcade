@@ -1,5 +1,5 @@
-## Bilheteria #agregação #manager #template
-### Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI 
+## 24 Bilheteria #agregação #manager #template
+### Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI
 ![](figura.jpg)
 
 Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de shows.
