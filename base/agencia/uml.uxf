@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>192</x>
+      <y>152</y>
+      <w>272</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+*Conta*
+--
+#id: int
+#saldo: float
+#idCliente: string
+#type: string
+--
++Conta(id: string, idClient: string)
++sacar(value: float): void
++depositar(value: float): void
++transferir(other: Conta, value: float): void
+/+atualizacaoMensal(): void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>328</x>
+      <y>368</y>
+      <w>272</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+*ContaPoupanca*
+--
+#rendimento: float
+--
++ContaPoupanca(id: string, idClient: string)
++atualizacaoMensal(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>48</x>
+      <y>368</y>
+      <w>272</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+*ContaCorrente*
+--
+#tarifaMensal: float
+--
++ContaCorrente(id: string, idClient: string)
++atualizacaoMensal(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>224</x>
+      <y>296</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>384</x>
+      <y>296</y>
+      <w>24</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>152</y>
+      <w>272</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+*Cliente*
+--
+#id: string
+#contas: Conta[]
+--
++Cliente(id: string)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>368</y>
+      <w>272</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+*Agencia*
+--
+#clientes: Cliente[]
+#contas: Conta[]
+--
++Cliente(id: string)
++adicionarCliente(id: string)
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>184</y>
+      <w>176</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>456</x>
+      <y>256</y>
+      <w>240</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;280.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>232</y>
+      <w>32</w>
+      <h>152</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,36 @@
+addAlu 0023 ES rui almeida
+addAlu 0021 RC bia barbosa
+addAlu 0024 EC eva galdino
+addAlu 0020 SI may parkerr
+addPro 1323 david sena
+addPro 1312 elvis caio
+addPro 1542 josue luno
+addPro 2542 almir bico
+addDis QXD01 estrutura de dados
+addDis QXD02 fundamentos de programação
+addDis QXD03 banco de dados
+getAlu 0021
+getPro 1542
+getDis QXD03
+showAlu
+showPro
+showDis
+rmAlu 0020
+rmPro 1542
+rmDis QXD02
+showAlu
+showPro
+showDis
+addAlu 0023 mia balike
+addPro 1312 ari toleto
+addDis QXD01 fundamentos da enrolacao
+rmAlu 8888
+rmPro 9999
+rmDis QXD04
+getAlu 8888
+getPro 9999
+getDis QXD04
+showAlu
+showPro
+showDis
+end

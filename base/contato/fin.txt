@@ -1,0 +1,20 @@
+show
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+rm 2
+show
+rm 0
+show
+update mary vivo:1234 home:4321 work:4444 vivo:1235
+show
+add tim 9a9
+add tim (85)99.99
+show
+update marya vivo:893a casa:(85)88 vivo:8-93 tim:(88)99.99 vivo:b893
+show
+end

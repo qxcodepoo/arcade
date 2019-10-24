@@ -1,0 +1,62 @@
+$init 3 5
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$set 0 farofa 50 3.00
+fail: limite excedido
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$troco
+voce recebeu 9.00 RS
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$dinheiro 8
+$comprar 1
+voce comprou um xaverde
+$comprar 1
+fail: saldo insuficiente
+$comprar 0
+voce comprou um tampico
+$show
+saldo: 1.50
+0 [ tampico : 0 U : 1.50 RS]
+1 [ xaverde : 2 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$comprar 0
+fail: espiral sem produtos
+$comprar 4
+fail: indice nao existe
+$troco
+voce recebeu 1.50 RS
+$end

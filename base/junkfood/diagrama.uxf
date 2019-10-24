@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>200</y>
+      <w>170</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>**Espiral**
+bg=yellow
+--
++ nome : String
++ qtd : int
++ preco : float
+--
++ toString() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>370</y>
+      <w>600</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>**Maquina**
+bg=yellow
+--
+- espirais : List&lt;Espiral&gt;
+- saldoCliente : float
+- lucro : float
+--
++ inserirDinheiro(value : number) : boolean
++ pedirTroco() : float
++ vender(indice : int) : boolean
++ alterarEspiral(indice : int, nome : String, qtd : int, preco : float): boolean
++ getSaldo() : float
++ toString() : String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>100</x>
+      <y>300</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

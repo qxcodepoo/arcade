@@ -1,0 +1,29 @@
+$show
+vazio=>
+$init david
+$show
+david=>
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+david=>[0:oi:88][1:tim:99][2:tim:98][3:vivo:83]
+$rm 2
+$show
+david=>[0:oi:88][1:tim:99][2:vivo:83]
+$rm 0
+$show
+david=>[0:tim:99][1:vivo:83]
+$update mary vivo:1234 home:4321 work:4444 vivo:1235
+$show
+mary=>[0:vivo:1234][1:home:4321][2:work:4444][3:vivo:1235]
+$add tim 9a9
+fail: fone invalido
+$add tim (85)99.99
+$show
+mary=>[0:vivo:1234][1:home:4321][2:work:4444][3:vivo:1235][4:tim:(85)99.99]
+$update marya vivo:893a casa:(85)88 vivo:8-93 tim:(88)99.99 vivo:b893
+$show
+marya=>[0:casa:(85)88][1:tim:(88)99.99]
+$end

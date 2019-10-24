@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>60</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Nota
+bg=yellow
+--
++ titulo : String
++ texto : String
+--
++ toString() : String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>180</y>
+      <w>440</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Usuario
+bg=yellow
+--
+- username : String
+- password : String
+- notas : List&lt;Nota&gt;
+--
++ addNote(note : Nota): boolean
++ rmNote(titulo : String) : boolean
++ changePass(oldpass : String, newpass : String): boolean
++ toString() : String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>130</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>400</y>
+      <w>420</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Sistema
+bg=yellow
+--
+- usuarios : List&lt;Usuario&gt;
+--
++ addUser(username : String, password : String) : boolean
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>320</y>
+      <w>30</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>

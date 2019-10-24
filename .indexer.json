@@ -1,0 +1,29 @@
+{
+  "execute": [
+    {
+      "action": "load_folder",
+      "dir": "base"
+    },
+    {
+      "action": "board",
+      "file": "board.md"
+    },
+    {
+      "action": "links",
+      "dir": ".indexer/links"
+    },
+    {
+      "action": "thumbs",
+      "width": 320,
+      "height": 180
+    },
+    {
+      "action": "view",
+      "intro": null,
+      "file": "Readme.md",
+      "group_by": "categories",
+      "posts_per_row": 3,
+      "empty_fig": null
+    }
+  ]
+}

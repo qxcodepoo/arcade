@@ -1,0 +1,28 @@
+init 500
+addCli maria maria silva
+addCli josue josue matos
+addCli maria ana maria silva
+emprestar maria 300
+emprestar josue 50
+emprestar maria 100
+emprestar bruno 30
+emprestar josue 400
+resumo
+historico
+filtrar maria
+receber maria 1000
+receber maria 350
+historico
+receber josue 1
+receber maria 10
+addCli hugo hugo calingo
+emprestar hugo 10
+emprestar hugo 20
+receber maria 5
+receber josue 3
+historico
+filtrar josue
+matar josue
+historico
+resumo
+end
