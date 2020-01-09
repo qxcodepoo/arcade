@@ -1,4 +1,4 @@
-case=01 inicio
+case=00 soma
 input=show
 add 3
 add 5
@@ -12,9 +12,27 @@ $show
 8.00
 $end
 "
+grade reduction=100%
 
 
-case=02 multiplicacao
+case=01 all_together_p1
+input=show
+add 4
+mult 1.5
+show
+end
+output="$show
+0.00
+$add 4
+$mult 1.5
+$show
+6.00
+$end
+"
+grade reduction=100%
+
+
+case=02 multi
 input=show
 add 4 
 mult 2.5
@@ -30,6 +48,7 @@ $show
 15.00
 $end
 "
+grade reduction=100%
 
 
 case=03 div
@@ -54,6 +73,7 @@ $show
 4.40
 $end
 "
+grade reduction=100%
 
 
 case=04 addm
@@ -67,29 +87,16 @@ output="$show
 0.00
 $addm -3 -10 2 3 4 1 20 2 9
 $show
+28.00
 $addm -1 -1 -3.2 4.3
 $show
+27.10
 $end
 "
+grade reduction=100%
 
 
-case=05 all_together_p1
-input=show
-add 4
-mult 1.5
-show
-end
-output="$show
-0.00
-$add 4
-$mult 1.5
-$show
-6.00
-$end
-"
-
-
-case=06 all_together_p2
+case=05 all_together_p2
 input=show
 add 4
 mult 1.5

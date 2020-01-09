@@ -17,23 +17,23 @@ O modelo de comandos é um modelo de vários comandos dentro de um contexto pers
 - Na tabela abaixo você pode ver a entrada do sistema e a saída esperada.
 - Observe que a linha do comando de entrada é repetida na saída.
     - O objetivo é facilitar o debug de testes com uma grande quantidade de comandos.
-- Assim, os exemplos que virão nos projetos vão apresentar apenas a saída esperada.
-- Linhas em branco e comentários começando com # podem ser ignorados.
-
-Entrada do sistema                 | Saída do sistema            
------------------------ | ----------------------- 
-equal<br>sum 3<br>sum 5<br>equal<br>end<br><br><br> | $equal<br>0.00<br>$sum 3<br>$sum 5<br>$equal<br>8.00<br>$end
-
-- Cada bloco representa um novo teste e termina com $end
 
 ___
 ## SHELL
 
-```bash
-#__case inicio
-# O acumulador inicia em 0.
-# O comando "$show" mostra o valor acumulado com duas casas decimais.
-# O comando "$add V" adiciona o um valor float ao acumulador.
+- O acumulador inicia em 0.
+- O comando "show" mostra o valor acumulado com duas casas decimais.
+- O comando "add V" adiciona o um valor `V` float ao acumulador.
+- O comando "end" finaliza a execução. 
+
+```sh
+>>>>>>>> soma
+show
+add 3
+add 5
+show
+end
+========
 $show
 0.00
 $add 3
@@ -41,11 +41,20 @@ $add 5
 $show
 8.00
 $end
+<<<<<<<<<
 ```
 
+- O comando "`mult V`" multiplica o acumulado pelo valor V float.
+
 ```bash
-#__case multiplicacao
-# o comando "$mult V" multiplica o acumulado pelo valor V float.
+>>>>>>>> multi
+show
+add 4 
+mult 2.5
+mult 1.5
+show
+end
+========
 $show
 0.00
 $add 4 
@@ -54,11 +63,22 @@ $mult 1.5
 $show
 15.00
 $end
+<<<<<<<<
 ```
 
+- o comando "`div V`" divide o acumulado pelo valor. Se V for zero, informe o erro e mantenha o acumulador.
+
 ```bash
-#__case div
-# o comando "$div V" divide pelo valor. Se V for zero, informe o erro e mantenha o acumulador.
+>>>>>>>> div
+show
+add 4 
+mult 2.2
+div 2
+show
+div 0
+show
+end
+========
 $show
 0.00
 $add 4 
@@ -71,30 +91,73 @@ fail: division by zero
 $show
 4.40
 $end
+<<<<<<<<
 ```
 
+
+- o comando "`addm V [V ...]`" adiciona vários valores em linha.
+
 ```bash
-#__case addm
-# o comando "$addm V [V ...]" adiciona vários valores em linha.
+>>>>>>>> addm
+show
+addm -3 -10 2 3 4 1 20 2 9
+show
+addm -1 -1 -3.2 4.3
+show
+end
+========
 $show
 0.00
 $addm -3 -10 2 3 4 1 20 2 9
 $show
+28.00
 $addm -1 -1 -3.2 4.3
 $show
+27.10
 $end
+<<<<<<<<
 ```
 
 ```bash
-#__case all_together_p1
+>>>>>>>> 01 all_together_p1
+show
+add 4
+mult 1.5
+show
+end
+========
 $show
 0.00
 $add 4
 $mult 1.5
 $show
 6.00
+$end
+<<<<<<<<
+```
 
-#__case all_together_p2
+```bash
+>>>>>>>> 05 all_together_p2 !%
+show
+add 4
+mult 1.5
+show
+div 4
+show
+addm 1 3 -1
+show
+addm -3 -10 2 3 4 1 20 2 9
+show
+div 0
+show
+end
+========
+$show
+0.00
+$add 4
+$mult 1.5
+$show
+6.00
 $div 4
 $show
 1.50
@@ -109,23 +172,24 @@ fail: division by zero
 $show
 32.50
 $end
+<<<<<<<<
 ```
 
 ---
 ## Testando seu código
 - Você pode utilizar o Moodle ou testar diretamente no seu computador.
-- O script th.py permite você testar seu código utilizando os testes. Você pode instalá-lo através do link [https://github.com/senapk/th](https://github.com/senapk/th).
+- O script `th` permite você testar seu código utilizando os testes. Você pode instalá-lo através do link [https://github.com/senapk/th](https://github.com/senapk/th).
 
 Se você está programando em Java, não utilize nenhum pacote. Se o arquivo que contém a main for o Controller.java você poderia rodar os testes com:
 
 ```
-th.py run "java Controller.class" t.md -v
+th run "java Controller.class" t.md -v
 ```
 
 A saída esperada quando todos os testes dão certo é algo como:
 
 ```
-th.py run "java Controller.class" t.md  -v
+th run "java Controller.class" t.md  -v
 ###############################################################################################################
                                                      Run:
 ! GR: --- SUCCEED [01] t.md (inicio)

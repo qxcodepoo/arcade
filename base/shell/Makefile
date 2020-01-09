@@ -1,5 +1,5 @@
 CPPFLAGS = -Wall -std=c++14
-SOURCE = ../../_posts/0001-01-01-shell.md 
+SOURCE = Readme.md
 
 all: cpp java vpl
 
@@ -18,4 +18,3 @@ list:
 
 vpl:
 	th build tests.vpl $(SOURCE)
-	sed -n '/^```bash/,/^```/p' $(SOURCE) > t.md
