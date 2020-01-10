@@ -97,7 +97,7 @@ $end
 
 - o comando "`addm V [V ...]`" adiciona vários valores em linha.
 
-```bash
+```ruby
 >>>>>>>> addm
 show
 addm -3 -10 2 3 4 1 20 2 9
@@ -118,7 +118,7 @@ $end
 <<<<<<<<
 ```
 
-```bash
+```ruby
 >>>>>>>> 01 all_together_p1
 show
 add 4
@@ -136,7 +136,7 @@ $end
 <<<<<<<<
 ```
 
-```bash
+```ruby
 >>>>>>>> 05 all_together_p2 !%
 show
 add 4

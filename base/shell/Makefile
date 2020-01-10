@@ -13,8 +13,5 @@ java:
 	javac Solver.java
 	th run "java Solver" $(SOURCE) -v
 
-list:
-	th list $(SOURCE)
-
 vpl:
 	th build tests.vpl $(SOURCE)
