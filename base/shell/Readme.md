@@ -26,7 +26,7 @@ ___
 - O comando "add V" adiciona o um valor `V` float ao acumulador.
 - O comando "end" finaliza a execução. 
 
-```sh
+```ruby
 >>>>>>>> soma
 show
 add 3
@@ -46,7 +46,7 @@ $end
 
 - O comando "`mult V`" multiplica o acumulado pelo valor V float.
 
-```bash
+```ruby
 >>>>>>>> multi
 show
 add 4 
@@ -68,7 +68,7 @@ $end
 
 - o comando "`div V`" divide o acumulado pelo valor. Se V for zero, informe o erro e mantenha o acumulador.
 
-```bash
+```ruby
 >>>>>>>> div
 show
 add 4 
