@@ -20,7 +20,7 @@ ___
 O modo shell mostra como funcionaria seu código rodando no modo interativo interpretando os comandos do usuário.
 
 
-```bash
+```js
 #__case inicio
 # O acumulador inicia em 0.
 # O comando "$show" mostra o valor acumulado com duas casas decimais.
@@ -34,7 +34,7 @@ $show
 $end
 ```
 
-```bash
+```js
 #__case multiplicacao
 # o comando "$mult V" multiplica o acumulado pelo valor V float.
 $show
@@ -47,7 +47,7 @@ $show
 $end
 ```
 
-```bash
+```js
 #__case div
 # o comando "$div V" divide pelo valor. Se V for zero, informe o erro e mantenha o acumulador.
 $show
@@ -64,7 +64,7 @@ $show
 $end
 ```
 
-```bash
+```js
 #__case addm
 # o comando "$addm V [V ...]" adiciona vários valores em linha.
 $show
@@ -78,7 +78,7 @@ $show
 $end
 ```
 
-```bash
+```js
 #__case all_together_p1
 $show
 0.00
