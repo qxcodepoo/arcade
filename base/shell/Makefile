@@ -14,4 +14,5 @@ java:
 	th run "java Solver" $(SOURCE) -v
 
 vpl:
-	th build tests.vpl $(SOURCE)
+	th build t.vpl $(SOURCE)
+	th build t.tio $(SOURCE)
