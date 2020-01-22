@@ -1,4 +1,4 @@
-## 14 Sala de Cinema
+## ©vetores 14 Sala de Cinema
 ### Vamos ao cinema? Dá para parcelar em quantas vezes?.
 ![](figura.jpg)
 
