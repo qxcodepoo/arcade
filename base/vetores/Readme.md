@@ -1,4 +1,4 @@
-## 03 Vetores
+## 10 Vetores
 ### Treine estrutura de dados.
 ![](figura.jpg)
 
@@ -140,14 +140,14 @@ $end
 ## Código base, respostas e VPL
 
 - Código de Partida
-    - [C](https://qxcodepoo.github.io/assets/vetores/base_c.c)
-    - [C++](https://qxcodepoo.github.io/assets/vetores/base_cpp.cpp)
-    - [Java](https://qxcodepoo.github.io/assets/vetores/Controller.java)
+    - [C](base_c.c)
+    - [C++](base_cpp.cpp)
+    - [Java](Controller.java)
 - Respostas
-    - [C](https://qxcodepoo.github.io/assets/vetores/solver_c.c)
-    - [C++](https://qxcodepoo.github.io/assets/vetores/solver_cpp.cpp)
-    - [Java](https://qxcodepoo.github.io/assets/vetores/Controller_solver.java)
+    - [C](solver_c.c)
+    - [C++](solver_cpp.cpp)
+    - [Java](Controller_solver.java)
 - Testes
-    - [MD](https://qxcodepoo.github.io/assets/vetores/t.md)
+    - [MD](t.tio)
 - Para rodar os teste offline
     - [TH](https://github.com/senapk/th)

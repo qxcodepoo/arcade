@@ -1,6 +1,5 @@
-## 10 Calculadora
+## ©basic 02 Calculadora
 ### Vamos somar, dividir e lançar excessões.
-![](figura.jpg)
 
 O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma, multiplicação e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
@@ -105,9 +104,9 @@ class Calculadora
 ## Resposta
 
 - Respostas
-    - [C++](https://qxcodepoo.github.io/assets/calculadora/solver.cpp)
-    - [C++ com excessões](https://qxcodepoo.github.io/assets/calculadora/solver_ex.cpp)
-    - [Java](https://qxcodepoo.github.io/assets/calculadora/Controller.java)
+    - [C++](solver.cpp)
+    - [C++ com excessões](solver_ex.cpp)
+    - [Java](Controller.java)
 - Testes
-    - [MD](https://qxcodepoo.github.io/assets/calculadora/t.md)
+    - [MD](t.tio)
     

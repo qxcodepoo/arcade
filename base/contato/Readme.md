@@ -1,5 +1,4 @@
-## 16 Agenda 0 - Um único contato
-### Batman achou um celular na cena do crime e ligou pro único contato que tinha. O Coringa atende e pergunta "porque você está de terno Batman"? Após um silêncio sombrio do Batman ele chuta - você vem de um bat_zado?.
+## ©unidade 16 Agenda 0 - Um único contato
 ![](figura.png)
 
 

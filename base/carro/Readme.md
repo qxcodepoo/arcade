@@ -1,6 +1,5 @@
-## 11 Carro
+## ©basic 03 Carro
 ### Hora de dar uma voltinha de carro. Quero buzinar meu kalhambek.
-![](figura.jpg)
 
 Essa atividade se propõe a implementar um carro que pode andar pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar gasolina e andar.
 
@@ -100,3 +99,5 @@ class Car
 ## Resposta e testes
 - Respostas
     - [C++](solver.cpp)
+- Testes
+    - [t.tio](t.tio)

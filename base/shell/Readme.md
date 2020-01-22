@@ -1,26 +1,23 @@
-## 01 Shell, entendendo comandos.
+## ©basic 01 Shell
 ### Aprenda o modelo de comandos
-![](figura.jpg)
 
-O objetivo da atividade é treinar é aprender o modelo de comandos. Para isso você vai implementar uma calculadora simples que contém um único registrador. 
+O objetivo da atividade é treinar o modelo de comandos. Para isso você vai implementar uma calculadora simples que contém um único registrador.
 
 ---
 ## Funcionalidades
-O modelo de comandos é um modelo de vários comandos dentro de um contexto persistente.
+O modelo de comandos é um programa interativo com um contexto persistente.
 - Você pode imaginar o terminal ou o prompt de comando.
 - A primeira palavra é o comando e as outras são os parâmetros do comando.
 - Um comando pode gerar ou não uma saída.
 
 ___
 
-## [Download IO](t.tio)
 
 ## SHELL
 
 O modo shell mostra como funcionaria seu código rodando no modo interativo interpretando os comandos do usuário.
 
-
-```js
+```bash
 #__case inicio
 # O acumulador inicia em 0.
 # O comando "$show" mostra o valor acumulado com duas casas decimais.
@@ -34,7 +31,7 @@ $show
 $end
 ```
 
-```js
+```bash
 #__case multiplicacao
 # o comando "$mult V" multiplica o acumulado pelo valor V float.
 $show
@@ -47,7 +44,7 @@ $show
 $end
 ```
 
-```js
+```bash
 #__case div
 # o comando "$div V" divide pelo valor. Se V for zero, informe o erro e mantenha o acumulador.
 $show
@@ -64,7 +61,7 @@ $show
 $end
 ```
 
-```js
+```bash
 #__case addm
 # o comando "$addm V [V ...]" adiciona vários valores em linha.
 $show
@@ -78,7 +75,7 @@ $show
 $end
 ```
 
-```js
+```bash
 #__case all_together_p1
 $show
 0.00
@@ -103,11 +100,17 @@ $show
 32.50
 $end
 ```
-
 ---
+
+## Arquivo de testes
+- [Download testes](t.tio)
+
+
+
 ## Testando seu código
 - Você pode utilizar o Moodle ou testar diretamente no seu computador.
-- O script th.py permite você testar seu código utilizando os testes. Você pode instalá-lo através do link [https://github.com/senapk/th](https://github.com/senapk/th).
+- Copie o cole a entrada do teste e veja se a saída é igual.
+- O script `th` permite você testar seu código de forma automatizada. Você pode instalá-lo através do link [https://github.com/senapk/th](https://github.com/senapk/th).
 
 Se você está programando em Java, não utilize nenhum pacote. Se o arquivo que contém a main for o Controller.java você poderia rodar os testes com:
 
@@ -138,10 +141,10 @@ th.py run "java Controller.class" t.md  -v
 ## Código base, respostas e VPL
 
 - Respostas
-    - [C](https://qxcodepoo.github.io/assets/shell/code.c)
-    - [C++](https://qxcodepoo.github.io/assets/shell/solver.cpp)
-    - [Java](https://qxcodepoo.github.io/assets/shell/Solver.java)
+    - [C](code.c)
+    - [C++](solver.cpp)
+    - [Java](Solver.java)
 - Testes
-    - [MD](https://qxcodepoo.github.io/assets/shell/t.md)
+    - [MD](t.tio)
 - Para rodar os teste offline
     - [TH](https://github.com/senapk/th)
