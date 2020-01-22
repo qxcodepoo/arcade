@@ -1,7 +1,7 @@
 [](base/vetores/Readme.md)     : ## 10 Vetores                                                       : ### Treine estrutura de dados.
-[](base/cinema/Readme.md)      : ## 14 Sala de Cinema      #null                                          : ### Vamos ao cinema? Dá para parcelar em quantas vezes?.
-[](base/junkfood/Readme.md)    : ## 15 JunkFood Machine    #null                                          : ### Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem
-[](base/topic/Readme.md)       : ## 17 Topic de Luxo   #null                                              : ### Jurema Araturi via balão do Metrópole
+[](base/cinema/Readme.md)      : ## 14 Sala de Cinema                                                : ### Vamos ao cinema? Dá para parcelar em quantas vezes?.
+[](base/junkfood/Readme.md)    : ## 15 JunkFood Machine                                              : ### Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem
+[](base/topic/Readme.md)       : ## 17 Topic de Luxo                                                 : ### Jurema Araturi via balão do Metrópole
 [](base/agenda1/Readme.md)     : ## 21 Agenda 1 #composição #ordenação #lote #crud                   : ###
 [](base/agenda2/Readme.md)     : ## 22 Agenda 2 #composição #mapas #excessões #ordenação #favoritos  : ### Quinze anos atrás eu sabia o telefone e aniversário de todos os meus amigos decorado. Depois que inventaram agenda telefônica no celular, nem meu próprio número eu sei mais. Aliás, sei o da OI, mas não me pergunte o da TIM.
 [](base/agiota/Readme.md)      : ## 23 Agiota Gente Fina #arrays #mapas #crud                        : ### Ptolomeu é o agiota mais carismático de MoneyVille. Sem nenhuma razão foi denunciado e acabou indo pra cadeira. A lasqueira foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
@@ -25,6 +25,6 @@
 [](base/shell/Readme.md)       : ## ©basic 01 Shell                                                  : ### Aprenda o modelo de comandos
 [](base/calculadora/Readme.md) : ## ©basic 02 Calculadora                                            : ### Vamos somar, dividir e lançar excessões.
 [](base/carro/Readme.md)       : ## ©basic 03 Carro                                                  : ### Hora de dar uma voltinha de carro. Quero buzinar meu kalhambek.
-[](base/conta/Readme.md)       : ## ©unidade 12 Agencia Bancária 1                                   : ### Crie sua própria conta bancária com operações de saque, deposito e transferência. Adicine 20 mil na conta, veja o saldo e sorria. Lindo eu sei, só aqui mesmo né seu liso.
-[](base/contato/Readme.md)     : ## ©unidade 16 Agenda 0 - Um único contato                          : ### Batman achou um celular na cena do crime e ligou pro único contato que tinha. O Coringa atende e pergunta "porque você está de terno Batman"? Após um silêncio sombrio do Batman ele chuta - você vem de um bat_zado?.
-[](base/tamagotchi/Readme.md)  : ## ©unidade 16 Tamagotchi - Seu Pet Virtual     #get_set                    : ### Comida, limpeza, energia e diversão.
+[](base/conta/Readme.md)       : ## ©unidade 12 Agencia Bancária 1                                   : ### 
+[](base/contato/Readme.md)     : ## ©unidade 16 Agenda 0 - Um único contato                          : ### 
+[](base/tamagotchi/Readme.md)  : ## ©unidade 16 Tamagotchi - Seu Pet Virtual                         : ###

@@ -1,6 +1,8 @@
 ## ©basic 01 Shell
 ### Aprenda o modelo de comandos
 
+![](figura.jpg)
+
 O objetivo da atividade é treinar o modelo de comandos. Para isso você vai implementar uma calculadora simples que contém um único registrador.
 
 ---

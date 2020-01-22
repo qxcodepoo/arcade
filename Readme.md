@@ -49,7 +49,7 @@
 
 ## basic
 
-[![](https://placekitten.com/320/181)](base/shell/Readme.md#basic-01-shell)|[![](https://placekitten.com/320/181)](base/calculadora/Readme.md#basic-02-calculadora)|[![](https://placekitten.com/320/181)](base/carro/Readme.md#basic-03-carro)
+[![](base/.thumb/shell/Readme.jpg)](base/shell/Readme.md#basic-01-shell)|[![](base/.thumb/calculadora/Readme.jpg)](base/calculadora/Readme.md#basic-02-calculadora)|[![](base/.thumb/carro/Readme.jpg)](base/carro/Readme.md#basic-03-carro)
 -|-|-
 @shell<br>01 Shell|@calculadora<br>02 Calculadora|@carro<br>03 Carro
 
