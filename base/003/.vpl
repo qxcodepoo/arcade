@@ -1,0 +1,134 @@
+case=00 subindo e buzinando
+input=show
+buzinar
+in marcos 4
+show
+buzinar
+in marisa 2
+show
+end
+output="$show
+potencia: 1, minutos: 0, pessoa: null
+$buzinar
+fail: moto vazia
+$in marcos 4
+$show
+potencia: 1, minutos: 0, pessoa: [marcos:4]
+$buzinar
+Pem
+$in marisa 2
+fail: moto ocupada
+$show
+potencia: 1, minutos: 0, pessoa: [marcos:4]
+$end
+"
+
+
+case=01 subindo e buzinando
+input=init 5
+show
+in marcos 4
+show
+buzinar
+end
+output="$init 5
+$show
+potencia: 5, minutos: 0, pessoa: null
+$in marcos 4
+$show
+potencia: 5, minutos: 0, pessoa: [marcos:4]
+$buzinar
+Peeeeem
+$end
+"
+
+
+case=02 subindo e trocando
+input=init 7
+in heitor 6
+show
+out
+out
+in suzana 8
+show
+end
+output="$init 7
+$in heitor 6
+$show
+potencia: 7, minutos: 0, pessoa: [heitor:6]
+$out
+$out
+fail: moto vazia
+$in suzana 8
+$show
+potencia: 7, minutos: 0, pessoa: [suzana:8]
+$end
+"
+
+
+case=03 passeando
+input=init 7
+in suzana 8
+drive 10
+buy 40
+show
+drive 20
+show
+end
+output="$init 7
+$in suzana 8
+$drive 10
+fail: tempo zerado
+$buy 40
+$show
+potencia: 7, minutos: 40, pessoa: [suzana:8]
+$drive 20
+$show
+potencia: 7, minutos: 20, pessoa: [suzana:8]
+$end
+"
+
+
+case=04 nem grande nem pequeno
+input=init 7
+buy 20
+in andreina 23
+drive 15
+out
+in pedro 3
+drive 15
+show
+end
+output="$init 7
+$buy 20
+$in andreina 23
+$drive 15
+fail: muito grande para andar de moto
+$out
+$in pedro 3
+$drive 15
+fail: muito pequeno para andar de moto
+$show
+potencia: 7, minutos: 20, pessoa: [pedro:3]
+$end
+"
+
+
+case=05 acabou o tempo
+input=init 7
+buy 20
+in andreina 6
+drive 15
+show
+drive 10
+end
+output="$init 7
+$buy 20
+$in andreina 6
+$drive 15
+$show
+potencia: 7, minutos: 5, pessoa: [andreina:6]
+$drive 10
+fail: andou 5 min e acabou o tempo
+$end
+"

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>@tamagotchi 16 Tamagotchi - Seu Pet Virtual</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="tamagotchi"><span class="citation" data-cites="tamagotchi">@tamagotchi</span></h2>
+<h2 id="unit-16-tamagotchi---seu-pet-virtual">©02_unit 16 Tamagotchi - Seu Pet Virtual</h2>
+<h3 id="section"></h3>
+<p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/figura.jpg" /></p>
+<p>Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.</p>
+<hr />
+<h2 id="funcionalidades">Funcionalidades</h2>
+<p>Seu sistema deverá:</p>
+<ul>
+<li><strong>Inicializar</strong>
+<ul>
+<li>passando energia, saciedade e limpeza máximas do pet.</li>
+<li>Todos os níveis devem ser iniciados no máximo na criação do pet.</li>
+<li>Os outros atributos são
+<ul>
+<li>diamantes, que ele vai ganhar jogando.</li>
+<li>e idade que aumenta a cada ação realizada,</li>
+<li>ambos iniciando em 0.</li>
+</ul></li>
+</ul></li>
+<li><strong>Comendo, Jogando, Dormindo e tomando banho</strong>
+<ul>
+<li>Cada operação causa aumento e reduções nos atributos.</li>
+<li>Nenhum atributo pode passar do máximo ou ir abaixo de 0.</li>
+</ul></li>
+<li><strong>Morrendo</strong>
+<ul>
+<li>Se algum atributo chegar a 0, o pet morre e nenhuma ação pode ser feita a não ser mostrar os dados.</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="exemplo">Exemplo</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#__case inicio</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># O comando &quot;$init energia saciedade limpeza&quot; recebe os valores do pet.</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># O pet inicia com 0 diamantes e 0 de idade.</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Toda vez que $init é chamado, um novo pet é criado.</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="va">$init</span> <span class="ex">20</span> 10 15</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co"># O comando &quot;$show&quot; mostra os parâmetros do Pet na seguinte ordem</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Energia/Max, Saciedade/Max, Limpeza/Max, Diamantes, Idade</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="va">$show</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="ex">E</span>:20/20, S:10/10, L:15/15, D:0, I:0</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="va">$init</span> <span class="ex">10</span> 20 50</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="va">$show</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="ex">E</span>:10/10, S:20/20, L:50/50, D:0, I:0</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#__case play - Brincar </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># O comando &quot;$play&quot; altera em -2 energia, -1 saciedade, -3 limpeza, +1 diamante, +1 idade.</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="va">$init</span> <span class="ex">20</span> 10 15</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="va">$play</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="va">$show</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="ex">E</span>:18/20, S:9/10, L:12/15, D:1, I:1</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="va">$play</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="va">$show</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="ex">E</span>:16/20, S:8/10, L:9/15, D:2, I:2</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#__case comer </span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co"># O Comando &quot;$eat&quot; altera em -1 a energia, +4 a saciedade, -2 a limpeza, +0 diamantes,  +1 a idade</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="va">$eat</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="va">$show</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="ex">E</span>:15/20, S:10/10, L:7/15, D:2, I:3</span>
+<span id="cb2-16"><a href="#cb2-16"></a></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#__case dormir</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co"># O Comando &quot;$sleep&quot; aumenta energia até o máximo e idade aumenta do número de turnos que o pet dormiu.</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="co"># Os outros atributos permanecem inalterados.</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="va">$sleep</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a><span class="va">$show</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a><span class="ex">E</span>:20/20, S:9/10, L:7/15, D:2, I:8</span>
+<span id="cb2-23"><a href="#cb2-23"></a></span>
+<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#__case tomar banho</span></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co"># O comando &quot;$clean&quot; alteram em -3 energia, -1 na saciedade, MAX na limpeza, +0 diamantes, +2 na idade.</span></span>
+<span id="cb2-26"><a href="#cb2-26"></a><span class="va">$clean</span></span>
+<span id="cb2-27"><a href="#cb2-27"></a><span class="va">$show</span></span>
+<span id="cb2-28"><a href="#cb2-28"></a><span class="ex">E</span>:17/20, S:8/10, L:15/15, D:2, I:10</span>
+<span id="cb2-29"><a href="#cb2-29"></a></span>
+<span id="cb2-30"><a href="#cb2-30"></a><span class="co">#__case dormir sem sono</span></span>
+<span id="cb2-31"><a href="#cb2-31"></a><span class="co"># Para dormir, precisa ter perdido pelo menos 5 unidades de energia</span></span>
+<span id="cb2-32"><a href="#cb2-32"></a><span class="va">$sleep</span></span>
+<span id="cb2-33"><a href="#cb2-33"></a><span class="ex">fail</span>: nao esta com sono</span>
+<span id="cb2-34"><a href="#cb2-34"></a></span>
+<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#__case morrer</span></span>
+<span id="cb2-36"><a href="#cb2-36"></a><span class="co"># Se algum atributo atingir 0, o pet morre e não poderá executar nenhuma ação</span></span>
+<span id="cb2-37"><a href="#cb2-37"></a><span class="va">$play</span></span>
+<span id="cb2-38"><a href="#cb2-38"></a><span class="va">$play</span></span>
+<span id="cb2-39"><a href="#cb2-39"></a><span class="va">$play</span></span>
+<span id="cb2-40"><a href="#cb2-40"></a><span class="va">$play</span></span>
+<span id="cb2-41"><a href="#cb2-41"></a><span class="va">$show</span></span>
+<span id="cb2-42"><a href="#cb2-42"></a><span class="ex">E</span>:9/20, S:4/10, L:3/15, D:6, I:14</span>
+<span id="cb2-43"><a href="#cb2-43"></a><span class="va">$play</span></span>
+<span id="cb2-44"><a href="#cb2-44"></a><span class="ex">fail</span>: pet morreu de sujeira</span>
+<span id="cb2-45"><a href="#cb2-45"></a><span class="va">$show</span></span>
+<span id="cb2-46"><a href="#cb2-46"></a><span class="ex">E</span>:7/20, S:3/10, L:0/15, D:7, I:15</span>
+<span id="cb2-47"><a href="#cb2-47"></a><span class="va">$play</span></span>
+<span id="cb2-48"><a href="#cb2-48"></a><span class="ex">fail</span>: pet esta morto</span>
+<span id="cb2-49"><a href="#cb2-49"></a><span class="va">$eat</span></span>
+<span id="cb2-50"><a href="#cb2-50"></a><span class="ex">fail</span>: pet esta morto</span>
+<span id="cb2-51"><a href="#cb2-51"></a><span class="va">$clean</span></span>
+<span id="cb2-52"><a href="#cb2-52"></a><span class="ex">fail</span>: pet esta morto</span>
+<span id="cb2-53"><a href="#cb2-53"></a><span class="va">$sleep</span></span>
+<span id="cb2-54"><a href="#cb2-54"></a><span class="ex">fail</span>: pet esta morto</span>
+<span id="cb2-55"><a href="#cb2-55"></a><span class="va">$end</span></span></code></pre></div>
+<h1 id="exemplo-2">Exemplo 2</h1>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#__case exemplo2</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="va">$init</span> <span class="ex">5</span> 10 10</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="va">$play</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="va">$play</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="va">$play</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="ex">fail</span>: pet morreu de fraqueza</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="va">$play</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="ex">fail</span>: pet esta morto</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="va">$show</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="ex">E</span>:0/5, S:7/10, L:1/10, D:3, I:3</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="va">$end</span></span></code></pre></div>
+<h1 id="exemplo-3">Exemplo 3</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#__case exemplo3</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="va">$init</span> <span class="ex">10</span> 3 10</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="va">$play</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="va">$play</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="va">$play</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="ex">fail</span>: pet morreu de fome</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="va">$play</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="ex">fail</span>: pet esta morto</span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="va">$show</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="ex">E</span>:4/10, S:0/3, L:1/10, D:3, I:3</span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="va">$end</span></span></code></pre></div>
+<hr />
+<h2 id="raio-x">Raio X</h2>
+<ul>
+<li>Utilize funções de get e set para garantir que os atributos permaneçam na faixa permitida.</li>
+<li>Mantenha as funções set como privadas e dê acesso apenas aos métodos de ação como comer, dormir, brincar.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> Pet{</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">private</span>:</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="dt">int</span> energyMax, hungryMax, cleanMax;</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="dt">int</span> energy, hungry, clean;</span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="dt">int</span> diamonds;</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    <span class="dt">int</span> age;</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    <span class="dt">boolean</span> alive;</span>
+<span id="cb5-8"><a href="#cb5-8"></a>    <span class="co">//os metodos set são chamados pelos métodos de ação eat, sleep, ...</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>    <span class="dt">void</span> <span class="fu">setEnergy</span>(<span class="dt">int</span> value)</span>
+<span id="cb5-10"><a href="#cb5-10"></a>    <span class="dt">void</span> <span class="fu">setHungry</span>(<span class="dt">int</span> value)</span>
+<span id="cb5-11"><a href="#cb5-11"></a>    <span class="dt">void</span> <span class="fu">setClean</span>(<span class="dt">int</span> value)</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="kw">public</span>:</span>
+<span id="cb5-14"><a href="#cb5-14"></a>    <span class="fu">Pet</span>(energyMax, hungryMax, cleanMax)</span>
+<span id="cb5-15"><a href="#cb5-15"></a>    <span class="dt">int</span> <span class="fu">getClean</span>()</span>
+<span id="cb5-16"><a href="#cb5-16"></a>    <span class="dt">int</span> <span class="fu">getHungry</span>()</span>
+<span id="cb5-17"><a href="#cb5-17"></a>    <span class="dt">int</span> <span class="fu">getEnergy</span>()</span>
+<span id="cb5-18"><a href="#cb5-18"></a>    <span class="dt">int</span> <span class="fu">getEnergyMax</span>()</span>
+<span id="cb5-19"><a href="#cb5-19"></a>    <span class="dt">int</span> <span class="fu">getCleanMax</span>()</span>
+<span id="cb5-20"><a href="#cb5-20"></a>    <span class="dt">int</span> <span class="fu">getHungryMax</span>()</span>
+<span id="cb5-21"><a href="#cb5-21"></a></span>
+<span id="cb5-22"><a href="#cb5-22"></a>    string <span class="fu">toString</span>()</span>
+<span id="cb5-23"><a href="#cb5-23"></a>    <span class="dt">void</span> <span class="fu">play</span>()</span>
+<span id="cb5-24"><a href="#cb5-24"></a>    <span class="dt">void</span> <span class="fu">shower</span>()</span>
+<span id="cb5-25"><a href="#cb5-25"></a>    <span class="dt">void</span> <span class="fu">eat</span>()</span>
+<span id="cb5-26"><a href="#cb5-26"></a>    <span class="dt">void</span> <span class="fu">sleep</span>()</span>
+<span id="cb5-27"><a href="#cb5-27"></a>};</span></code></pre></div>
+<hr />
+<h2 id="resposta-e-testes">Resposta e testes</h2>
+<ul>
+<li>Respostas
+<ul>
+<li><a href="https://qxcodepoo.github.io/assets/calculadora/solver.cpp">C++</a></li>
+</ul></li>
+<li>Testes
+<ul>
+<li><a href="https://qxcodepoo.github.io/assets/calculadora/t.md">MD</a></li>
+</ul></li>
+</ul>
+</body>
+</html>

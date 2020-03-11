@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>@vetores 10 Vetores</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="vetores"><span class="citation" data-cites="vetores">@vetores</span></h2>
+<h2 id="vetores-10-vetores">©03_vetores 10 Vetores</h2>
+<h3 id="treine-estrutura-de-dados.">Treine estrutura de dados.</h3>
+<p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/figura.jpg" /></p>
+<p>O objetivo da atividade é treinar estrutura de dados.</p>
+<hr />
+<h2 id="funcionalidades">Funcionalidades</h2>
+<p>Requisito: - Utilize uma estrutura de armazenamento linear que permita elementos duplicados e mantenha a ordem de inserção. - Sugestão: - C: array - C++: vector - Java: ArrayList</p>
+<h2 id="shell">SHELL</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#__case inicio</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># O comando &quot;$show&quot; mostra os valores do vetor.</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># O comando &quot;$add V [V ...]&quot; adiciona os valores no final da estrutura.</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="va">$show</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">[ ]</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="va">$add</span> <span class="ex">1</span> 2 3 4</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="va">$show</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="bu">[</span> 1 2 3 4<span class="bu"> ]</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#__case rshow</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># O comando &quot;$rshow&quot; mostra os valores da estrutura do último para o primeiro.</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="va">$rshow</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">[ ]</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="va">$add</span> <span class="ex">1</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="va">$rshow</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">[</span> 1<span class="bu"> ]</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="va">$add</span> <span class="ex">2</span> 3 5</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="va">$rshow</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">[</span> 5 3 2 1<span class="bu"> ]</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#__case add_mais_elementos</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="va">$add</span> <span class="ex">4</span> 5 6 8 1 2 2 9</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="va">$add</span> <span class="ex">2</span> 2 2 8 9 0 1 4</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="va">$add</span> <span class="ex">3</span> 3 2 1</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="va">$show</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="bu">[</span> 4 5 6 8 1 2 2 9 2 2 2 8 9 0 1 4 3 3 2 1<span class="bu"> ]</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#__case find_elemento</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co"># o comando &quot;$find V [V ...]&quot; retorna o índice da primeira ocorrência dos valores procurado ou -1 se ele não existir.</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="va">$find</span> <span class="ex">7</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="bu">[</span> -1<span class="bu"> ]</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="va">$find</span> <span class="ex">6</span> 8 9</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="bu">[</span> 2 3 7<span class="bu"> ]</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="va">$find</span> <span class="ex">2</span> 0 1 7 10</span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="bu">[</span> 5 13 4 -1 -1<span class="bu"> ]</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#__case insert_indice</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># O comando &quot;$ins ind V&quot; insere esse valor V na posição ind da estrutura.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># Se o ind for menor que 0, não faça a inserção.</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Se ind for maior que último índice válido, insira na última posição.</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># Se ind for um índice válido, desloque todos os elementos a partir dessa posição, uma posição à frente.</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="va">$add</span> <span class="ex">3</span> 7</span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="va">$show</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="bu">[</span> 3 7<span class="bu"> ]</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a><span class="va">$ins</span> <span class="ex">0</span> 2</span>
+<span id="cb4-10"><a href="#cb4-10"></a><span class="va">$show</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="bu">[</span> 2 3 7<span class="bu"> ]</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="va">$ins</span> <span class="ex">3</span> 1</span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="va">$show</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a><span class="bu">[</span> 2 3 7 1<span class="bu"> ]</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="va">$ins</span> <span class="ex">-2</span> 5</span>
+<span id="cb4-16"><a href="#cb4-16"></a><span class="va">$show</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="bu">[</span> 2 3 7 1<span class="bu"> ]</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="va">$ins</span> <span class="ex">9</span> 5</span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="va">$show</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="bu">[</span> 2 3 7 1 5<span class="bu"> ]</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="va">$ins</span> <span class="ex">2</span> 6</span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="va">$show</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="bu">[</span> 2 3 6 7 1 5<span class="bu"> ]</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#__case remover_por_indice</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># o comando &quot;$rmi ind&quot; remove o elemento dado o índice. Se o índice não existir, informe a falha.</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="va">$add</span> <span class="ex">4</span> 5 6 8 1 2 2 9</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="va">$rmi</span> <span class="ex">0</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="va">$show</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="bu">[</span> 5 6 8 1 2 2 9<span class="bu"> ]</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="va">$rmi</span> <span class="ex">5</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="va">$show</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="bu">[</span> 5 6 8 1 2 9<span class="bu"> ]</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="va">$rmi</span> <span class="ex">5</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="va">$show</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="bu">[</span> 5 6 8 1 2<span class="bu"> ]</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="va">$rmi</span> <span class="ex">2</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="va">$show</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="bu">[</span> 5 6 1 2<span class="bu"> ]</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="va">$rmi</span> <span class="ex">-1</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="ex">fail</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="va">$rmi</span> <span class="ex">4</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="ex">fail</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="va">$show</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="bu">[</span> 5 6 1 2<span class="bu"> ]</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#__case remove_all</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># o comando &quot;$rma V&quot; remove todos os elemento que contém esse valor. Observe que você deve caminhar pela estrutura UMA ÚNICA VEZ removendo os elementos. NÃO utilize find + remover por índice.</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="va">$add</span> <span class="ex">2</span> 2 2 2</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="va">$rma</span> <span class="ex">2</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="va">$show</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="bu">[ ]</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="va">$add</span> <span class="ex">4</span> 4 4 4 2 2 2 4 4 4 1 2 3 4</span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="va">$rma</span> <span class="ex">7</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="va">$show</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="bu">[</span> 4 4 4 4 2 2 2 4 4 4 1 2 3 4<span class="bu"> ]</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="va">$rma</span> <span class="ex">2</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="va">$show</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="bu">[</span> 4 4 4 4 4 4 4 1 3 4<span class="bu"> ]</span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="va">$rma</span> <span class="ex">4</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a><span class="va">$show</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="bu">[</span> 1 3<span class="bu"> ]</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="va">$end</span></span></code></pre></div>
+<hr />
+<h2 id="código-base-respostas-e-vpl">Código base, respostas e VPL</h2>
+<ul>
+<li>Código de Partida
+<ul>
+<li><a href="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/base_c.c">C</a></li>
+<li><a href="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/base_cpp.cpp">C++</a></li>
+<li><a href="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/Controller.java">Java</a></li>
+</ul></li>
+<li>Respostas
+<ul>
+<li><a href="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/solver_c.c">C</a></li>
+<li><a href="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/solver_cpp.cpp">C++</a></li>
+<li><a href="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/Controller_solver.java">Java</a></li>
+</ul></li>
+<li>Testes
+<ul>
+<li><a href="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/t.tio">MD</a></li>
+</ul></li>
+<li>Para rodar os teste offline
+<ul>
+<li><a href="https://github.com/senapk/th">TH</a></li>
+</ul></li>
+</ul>
+</body>
+</html>

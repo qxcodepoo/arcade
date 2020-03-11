@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>@hospital 44 Hospital</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="hospital"><span class="citation" data-cites="hospital">@hospital</span></h2>
+<h2 id="after-44-hospital-nxn-repositorios">©10_after 44 Hospital #nxn #repositorios</h2>
+<h3 id="cadastrar-pacientes-médicos-e-plantões.">Cadastrar Pacientes, Médicos e Plantões.</h3>
+<p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/hospital/figura.jpg" /></p>
+<p>Na UTI do nosso hospital existem vários pacientes. Cada paciente é atendico por médicos de várias especialidades. Pacientes e médicos podem se comunicar via mensagens. O sistema deve ser capaz de:</p>
+<ul>
+<li>cadastrar pacientes e médicos.</li>
+<li>informar quais os médicos que atendem determinado paciente.</li>
+<li>informar quais pacientes que são atendidos por um médico.</li>
+<li>enviar mensagens de um paciente para seus médicos.</li>
+<li>enviar mensagens de um médicos para seus pacientes.</li>
+</ul>
+<hr />
+<h2 id="funcionalidades">Funcionalidades</h2>
+<ul>
+<li><strong>Repositórios Individuais - 3.0 P</strong>
+<ul>
+<li>Adicionar pacientes.
+<ul>
+<li>Cada paciente tem um id(nome) e uma diagnóstico.</li>
+</ul></li>
+<li>Adicionar médicos.
+<ul>
+<li>Cada médico tem um id(nome) e uma especialidade.</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
+  done
+addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
+  done
+seeAll
+  Pac: fred:fratura     Meds: []
+  Pac: alvis:avc        Meds: []
+  Pac: goku:hemorragia  Meds: []
+  Pac: silva:sinusite   Meds: []
+  Med: bisturi:cirurgia Pacs: []
+  Med: snif:alergologia Pacs: []
+  Med: facada:cirurgia  Pacs: []</code></pre>
+<ul>
+<li><strong>Vinculos - 3.0 P</strong>
+<ul>
+<li>Vincular pacientes e médicos.
+<ul>
+<li>Dois médicos da mesma especialidade não podem ser responsáveis pelo mesmo paciente.</li>
+<li>O paciente não deve entrar duas vezes na lista do médico e vice-versa.</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code># tie _med _pac _pac ...
+tie bisturi fred alvis goku
+  done
+tie snif silva alvis
+  done
+tie facada goku
+  fail: ja existe outro medico da especialidade cirurgia
+
+seeAll
+  Pac: fred:fratura     Meds: [bisturi]
+  Pac: alvis:avc        Meds: [bisturi snif]
+  Pac: goku:hemorragia  Meds: [bisturi]
+  Pac: silva:sinusite   Meds: [snif]
+  Med: bisturi:cirurgia Pacs: [fred alvis goku]
+  Med: snif:alergologia Pacs: [silva alvis]
+  Med: facada:cirurgia  Pacs: []</code></pre>
+<ul>
+<li><strong>Mensagens - 3.0 P</strong>
+<ul>
+<li>Pacientes podem enviar mensagens para seus medicos.</li>
+<li>Médicos podem enviar mensagens para seus pacientes.</li>
+<li>Qualquer pessoa pode olhar suas mensagens.</li>
+<li>Depois de ver as mensagens elas são apagadas automaticamente.</li>
+</ul></li>
+</ul>
+<pre><code>msg alvis bisturi posso tomar homeprazol?
+  done
+msg goku bisturi coceira no reto eh normal?
+  done
+inbox bisturi
+  [alvis: posso tomar homeprazol?]
+  [goku: coceira no reto eh normal?]
+msg bisturi alvis chupe limao que passa
+  done
+msg bisturi goku venha na minha sala pra eu olhar
+  done
+inbox goku
+  [bisturi: venha na minha sala pra eu olhar]
+msg goku facada
+  fail: goku nao conhece facada</code></pre>
+<h2 id="diagrama-de-classes">Diagrama de Classes</h2>
+</body>
+</html>

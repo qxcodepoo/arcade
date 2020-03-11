@@ -1,0 +1,92 @@
+case=00 inicializar
+input=show
+init 5
+show
+init 4
+show
+end
+output="$show
+[ ]
+$init 5
+$show
+[ - - - - - ]
+$init 4
+$show
+[ - - - - ]
+$end
+"
+
+
+case=01 reservas
+input=show
+init 5
+show
+init 4
+show
+reservar davi 3232 0
+reservar joao 3131 3
+show
+reservar rute 3030 0
+reservar davi 3234 2
+end
+output="$show
+[ ]
+$init 5
+$show
+[ - - - - - ]
+$init 4
+$show
+[ - - - - ]
+$reservar davi 3232 0
+$reservar joao 3131 3
+$show
+[ davi:3232 - - joao:3131 ]
+$reservar rute 3030 0
+failure: cadeira ja esta ocupada
+$reservar davi 3234 2
+failure: cliente ja esta no cinema
+$end
+"
+
+
+case=02 cancelamentos
+input=show
+init 5
+show
+init 4
+show
+reservar davi 3232 0
+reservar joao 3131 3
+show
+reservar rute 3030 0
+reservar davi 3234 2
+cancelar davi
+show
+cancelar rita
+show
+end
+output="$show
+[ ]
+$init 5
+$show
+[ - - - - - ]
+$init 4
+$show
+[ - - - - ]
+$reservar davi 3232 0
+$reservar joao 3131 3
+$show
+[ davi:3232 - - joao:3131 ]
+$reservar rute 3030 0
+failure: cadeira ja esta ocupada
+$reservar davi 3234 2
+failure: cliente ja esta no cinema
+$cancelar davi
+$show
+[ - - - joao:3131 ]
+$cancelar rita
+failure: cliente nao esta no cinema
+$show
+[ - - - joao:3131 ]
+$end
+"

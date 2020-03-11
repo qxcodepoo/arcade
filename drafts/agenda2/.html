@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>@agenda2 22 Agenda 2</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h2 id="agenda2"><span class="citation" data-cites="agenda2">@agenda2</span></h2>
+<h2 id="after-22-agenda-2-composição-mapas-excessões-ordenação-favoritos">©10_after 22 Agenda 2 #composição #mapas #excessões #ordenação #favoritos</h2>
+<h3 id="quinze-anos-atrás-eu-sabia-o-telefone-e-aniversário-de-todos-os-meus-amigos-decorado.-depois-que-inventaram-agenda-telefônica-no-celular-nem-meu-próprio-número-eu-sei-mais.-aliás-sei-o-da-oi-mas-não-me-pergunte-o-da-tim.">Quinze anos atrás eu sabia o telefone e aniversário de todos os meus amigos decorado. Depois que inventaram agenda telefônica no celular, nem meu próprio número eu sei mais. Aliás, sei o da OI, mas não me pergunte o da TIM.</h3>
+<p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda2/figura.jpg" /></p>
+<p>Ampliando a atividade de agenda 1, vamos criar uma agenda que gerencia os nossos contatos.</p>
+<h2 id="habilidades">Habilidades</h2>
+<p>O objetivo da ativade é trabalhar: - Reforçar as operações de Crud usando contatos e telefones. - Ordenação - Intrínseca atraves do uso de mapas ou utilizando métodos de ordenação de vetores. - Uso de estruturas de dados como mapas. - Poderemos utilizar os mapas como alternativa superior aos vetores. - Integridade e Redundância(mesma informação em vários lugares para agilizar o acesso) - Favoritar implica em guardar informação redundante. - Uso de referências. - Os favoritos apenas guardam as referências para os contatos. - Uso do método toString para fazer buscas de contatos.</p>
+<h2 id="funcionalidades">Funcionalidades</h2>
+<p>O sistema deverá:</p>
+<ul>
+<li><p>Adicionar contatos usando um idContato que pode ser nome ou cpf</p>
+<ul>
+<li>Não deve ser possível adicionar dois contatos com o mesmo idContato.</li>
+</ul></li>
+<li><p>Remover um contato pelo idContato.</p></li>
+<li><p>Adicionar telefones ao contato.</p>
+<ul>
+<li>Um telefone tem um idFone e um numero.</li>
+<li>idFone serão nomes como: casa, fixo, oi.</li>
+<li>Verifique se o número contém apenas os seguintes caracteres “0123456789 ().-”.</li>
+</ul></li>
+<li><p>Remover telefones do contato pelo índice.</p></li>
+<li><p>Mostrar todos os contatos.</p>
+<ul>
+<li>Ordenar os contatos pelo idContato com os contatos favoritos primeiro.</li>
+<li>Marque os contatos que são favoritados com um @ antes do idContato. Se o contato não for favorito use - antes do idContato.</li>
+<li>Coloque todos os telefones ordenados por id</li>
+</ul></li>
+<li><p>Buscar contatos por substring.</p>
+<ul>
+<li>Se o contato tiver qualquer campo que combine com a string pattern de busca, ele deve ser retornado. Se o pattern é maria, devem ser retornados os contatos como “maria julia”, “mariana”, “ana maria”, etc. Se o pattern combinar com qualquer campo do contato, ele deve fazer parte do retorno.</li>
+<li>Mostre ordenado pelo idContato com os contatos favoritos primeiro</li>
+</ul></li>
+<li><p>Favoritar contatos</p></li>
+<li><p>Desfavoritar contatos.</p></li>
+<li><p>Mostrar favoritos.</p></li>
+</ul>
+<h2 id="exemplos">Exemplos</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="va">$addContato</span> <span class="ex">eva</span> oi:8585 claro:9999</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="va">$addContato</span> <span class="ex">ana</span> tim:3434 </span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="va">$addContato</span> <span class="ex">ana</span> casa:4567 oi:8754</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="va">$addContato</span> <span class="ex">bia</span> vivo:5454</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="va">$agenda</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="ex">-</span> ana C [0:tim:3434][1:casa:4567][2:oi:8754]</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="ex">-</span> bia C [0:vivo:5454]</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ex">-</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="va">$rmFone</span> <span class="ex">ana</span> 0</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="va">$agenda</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ex">-</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="ex">-</span> bia C [0:vivo:5454]</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ex">-</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="va">$rmContato</span> <span class="ex">bia</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="va">$agenda</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="ex">-</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="ex">-</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="va">$search</span> <span class="ex">eva</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="ex">-</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="va">$search</span> <span class="ex">4567</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="ex">-</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="va">$addContato</span> <span class="ex">bia</span> vivo:5454</span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="va">$addContato</span> <span class="ex">rui</span> casa:3233</span>
+<span id="cb1-26"><a href="#cb1-26"></a><span class="va">$addContato</span> <span class="ex">zac</span> fixo:3131</span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="va">$agenda</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="ex">-</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="ex">-</span> bia C [0:vivo:5454]</span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="ex">-</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-31"><a href="#cb1-31"></a><span class="ex">-</span> rui C [0:casa:3233]</span>
+<span id="cb1-32"><a href="#cb1-32"></a><span class="ex">-</span> zac C [0:fixo:3131]</span>
+<span id="cb1-33"><a href="#cb1-33"></a></span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="va">$fav</span> <span class="ex">eva</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a><span class="va">$fav</span> <span class="ex">ana</span></span>
+<span id="cb1-36"><a href="#cb1-36"></a><span class="va">$fav</span> <span class="ex">ana</span></span>
+<span id="cb1-37"><a href="#cb1-37"></a><span class="va">$fav</span> <span class="ex">zac</span></span>
+<span id="cb1-38"><a href="#cb1-38"></a><span class="va">$fav</span> <span class="ex">rex</span></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="ex">fail</span>: contato rex nao existe</span>
+<span id="cb1-40"><a href="#cb1-40"></a></span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="va">$agenda</span></span>
+<span id="cb1-42"><a href="#cb1-42"></a><span class="ex">@</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-43"><a href="#cb1-43"></a><span class="ex">-</span> bia C [0:vivo:5454]</span>
+<span id="cb1-44"><a href="#cb1-44"></a><span class="ex">@</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="ex">-</span> rui C [0:casa:3233]</span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="ex">@</span> zac C [0:fixo:3131]</span>
+<span id="cb1-47"><a href="#cb1-47"></a></span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="va">$favorited</span></span>
+<span id="cb1-49"><a href="#cb1-49"></a><span class="ex">@</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="ex">@</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="ex">@</span> zac C [0:fixo:3131]</span>
+<span id="cb1-52"><a href="#cb1-52"></a></span>
+<span id="cb1-53"><a href="#cb1-53"></a><span class="va">$rmContato</span> <span class="ex">zac</span></span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a><span class="va">$favorited</span></span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="ex">@</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-57"><a href="#cb1-57"></a><span class="ex">@</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-58"><a href="#cb1-58"></a></span>
+<span id="cb1-59"><a href="#cb1-59"></a><span class="va">$unfav</span> <span class="ex">ana</span></span>
+<span id="cb1-60"><a href="#cb1-60"></a></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="va">$favorited</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a><span class="ex">@</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-63"><a href="#cb1-63"></a></span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="va">$agenda</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a><span class="ex">-</span> ana C [0:casa:4567][1:oi:8754]</span>
+<span id="cb1-66"><a href="#cb1-66"></a><span class="ex">-</span> bia C [0:vivo:5454]</span>
+<span id="cb1-67"><a href="#cb1-67"></a><span class="ex">@</span> eva C [0:oi:8585][1:claro:9999]</span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="ex">-</span> rui C [0:casa:3233]</span>
+<span id="cb1-69"><a href="#cb1-69"></a></span></code></pre></div>
+<h2 id="pontuação">Pontuação</h2>
+<pre><code>[ ][1.0 P] addContato
+[ ][1.0 P] rmContato
+[ ][1.0 P] addFone
+[ ][1.0 P] rmFone
+[ ][1.0 P] mostrar Contatos
+[ ][2.0 P] busca por padrão
+[ ][1.0 P] inicialização do sistema
+[ ]     Total pontos
+
+[ ][0.5 E] favoritar
+[ ][0.5 E] desfavoritar
+[ ][1.0 E] mostrar favoritos
+[ ][1.0 E] mostrar contatos ordenados
+[ ]        Total Extras</code></pre>
+<hr />
+<h2 id="orientações">Orientações</h2>
+<ul>
+<li>Na busca por padrão verifiqueo valor do padrão com o valor toString() to contato.</li>
+<li>Crie métodos toString para todas as Classes.</li>
+<li>Quando remover um contato, verifique de removê-lo dos favoritos também.</li>
+<li>Quando desfavoritar um contato, lembre de tanto remover da lista como alterar o valor do atributo favorited no próprio contato.</li>
+</ul>
+<hr />
+<h2 id="raio-x">Raio X</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> Fone</span>
+<span id="cb3-2"><a href="#cb3-2"></a>- id: string</span>
+<span id="cb3-3"><a href="#cb3-3"></a>- number: string</span>
+<span id="cb3-4"><a href="#cb3-4"></a>--</span>
+<span id="cb3-5"><a href="#cb3-5"></a>+ _validar_(number): <span class="dt">bool</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>--</span>
+<span id="cb3-7"><a href="#cb3-7"></a>+ constructor(id, number)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">class</span> Contato</span>
+<span id="cb4-2"><a href="#cb4-2"></a>- id: string</span>
+<span id="cb4-3"><a href="#cb4-3"></a>- fones: Fone[]</span>
+<span id="cb4-4"><a href="#cb4-4"></a>- favorited: <span class="dt">bool</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>--</span>
+<span id="cb4-6"><a href="#cb4-6"></a>+ addFone(id, number)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>+ rmFone(id)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>--</span>
+<span id="cb4-9"><a href="#cb4-9"></a>+ constructor(id, number)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> Agenda</span>
+<span id="cb5-2"><a href="#cb5-2"></a>- contatos: Contato[]</span>
+<span id="cb5-3"><a href="#cb5-3"></a>- favoritos: Contato[]</span>
+<span id="cb5-4"><a href="#cb5-4"></a>--</span>
+<span id="cb5-5"><a href="#cb5-5"></a>+ addContato(idContato, Contato): <span class="dt">void</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>+ rmContato(id): <span class="dt">void</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>+ getAllContatos(): Contato[]</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>+ favoritar(id)</span>
+<span id="cb5-10"><a href="#cb5-10"></a>+ desfavoritar(id)</span>
+<span id="cb5-11"><a href="#cb5-11"></a>+ getFavoritos(): Contato[]</span>
+<span id="cb5-12"><a href="#cb5-12"></a>--</span></code></pre></div>
+<h2 id="testes">Testes</h2>
+<pre><code>
+showAll
+  @ davi [oi 123][tim 321]
+  @ rui [vivo 43]
+  - lex [casa 54]
+</code></pre>
+</body>
+</html>

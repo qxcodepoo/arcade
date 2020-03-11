@@ -1,0 +1,309 @@
+case=00 cadastrar
+input=addUser goku
+addUser sara
+addUser tina
+show
+end
+output="$addUser goku
+$addUser sara
+$addUser tina
+$show
+goku
+  seguidos   [ ]
+  seguidores [ ]
+sara
+  seguidos   [ ]
+  seguidores [ ]
+tina
+  seguidos   [ ]
+  seguidores [ ]
+$end
+"
+
+
+case=01 seguir
+input=addUser goku
+addUser sara
+addUser tina
+show
+follow goku sara
+follow goku tina
+follow sara tina
+show
+end
+output="$addUser goku
+$addUser sara
+$addUser tina
+$show
+goku
+  seguidos   [ ]
+  seguidores [ ]
+sara
+  seguidos   [ ]
+  seguidores [ ]
+tina
+  seguidos   [ ]
+  seguidores [ ]
+$follow goku sara
+$follow goku tina
+$follow sara tina
+$show
+goku
+  seguidos   [ sara tina ]
+  seguidores [ ]
+sara
+  seguidos   [ tina ]
+  seguidores [ goku ]
+tina
+  seguidos   [ ]
+  seguidores [ goku sara ]
+$end
+"
+
+
+case=02 twittar
+input=addUser goku
+addUser sara
+addUser tina
+show
+follow goku sara
+follow goku tina
+follow sara tina
+show
+twittar sara hoje estou triste
+twittar tina ganhei chocolate
+twittar sara partiu ru
+twittar tina chocolate ruim
+twittar goku internet maldita
+timeline goku
+timeline tina 
+timeline sara
+end
+output="$addUser goku
+$addUser sara
+$addUser tina
+$show
+goku
+  seguidos   [ ]
+  seguidores [ ]
+sara
+  seguidos   [ ]
+  seguidores [ ]
+tina
+  seguidos   [ ]
+  seguidores [ ]
+$follow goku sara
+$follow goku tina
+$follow sara tina
+$show
+goku
+  seguidos   [ sara tina ]
+  seguidores [ ]
+sara
+  seguidos   [ tina ]
+  seguidores [ goku ]
+tina
+  seguidos   [ ]
+  seguidores [ goku sara ]
+$twittar sara hoje estou triste
+$twittar tina ganhei chocolate
+$twittar sara partiu ru
+$twittar tina chocolate ruim
+$twittar goku internet maldita
+$timeline goku
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )
+2:sara( partiu ru )
+3:tina( chocolate ruim )
+4:goku( internet maldita )
+$timeline tina 
+1:tina( ganhei chocolate )
+3:tina( chocolate ruim )
+$timeline sara
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )
+2:sara( partiu ru )
+3:tina( chocolate ruim )
+$end
+"
+
+
+case=03 like
+input=addUser goku
+addUser sara
+addUser tina
+show
+follow goku sara
+follow goku tina
+follow sara tina
+show
+twittar sara hoje estou triste
+twittar tina ganhei chocolate
+twittar sara partiu ru
+twittar tina chocolate ruim
+twittar goku internet maldita
+timeline goku
+timeline tina 
+timeline sara
+like sara 1
+like goku 1
+like sara 3
+timeline sara
+timeline goku
+end
+output="$addUser goku
+$addUser sara
+$addUser tina
+$show
+goku
+  seguidos   [ ]
+  seguidores [ ]
+sara
+  seguidos   [ ]
+  seguidores [ ]
+tina
+  seguidos   [ ]
+  seguidores [ ]
+$follow goku sara
+$follow goku tina
+$follow sara tina
+$show
+goku
+  seguidos   [ sara tina ]
+  seguidores [ ]
+sara
+  seguidos   [ tina ]
+  seguidores [ goku ]
+tina
+  seguidos   [ ]
+  seguidores [ goku sara ]
+$twittar sara hoje estou triste
+$twittar tina ganhei chocolate
+$twittar sara partiu ru
+$twittar tina chocolate ruim
+$twittar goku internet maldita
+$timeline goku
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )
+2:sara( partiu ru )
+3:tina( chocolate ruim )
+4:goku( internet maldita )
+$timeline tina 
+1:tina( ganhei chocolate )
+3:tina( chocolate ruim )
+$timeline sara
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )
+2:sara( partiu ru )
+3:tina( chocolate ruim )
+$like sara 1
+$like goku 1
+$like sara 3
+$timeline sara
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )[ sara goku ]
+2:sara( partiu ru )
+3:tina( chocolate ruim )[ sara ]
+$timeline goku
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )[ sara goku ]
+2:sara( partiu ru )
+3:tina( chocolate ruim )[ sara ]
+4:goku( internet maldita )
+$end
+"
+
+
+case=04 erros
+input=addUser goku
+addUser sara
+addUser tina
+show
+follow goku sara
+follow goku tina
+follow sara tina
+show
+twittar sara hoje estou triste
+twittar tina ganhei chocolate
+twittar sara partiu ru
+twittar tina chocolate ruim
+twittar goku internet maldita
+timeline goku
+timeline tina 
+timeline sara
+like sara 1
+like goku 1
+like sara 3
+timeline sara
+timeline goku
+timeline bruno
+follow goku kuririm
+like sara 8
+end
+output="$addUser goku
+$addUser sara
+$addUser tina
+$show
+goku
+  seguidos   [ ]
+  seguidores [ ]
+sara
+  seguidos   [ ]
+  seguidores [ ]
+tina
+  seguidos   [ ]
+  seguidores [ ]
+$follow goku sara
+$follow goku tina
+$follow sara tina
+$show
+goku
+  seguidos   [ sara tina ]
+  seguidores [ ]
+sara
+  seguidos   [ tina ]
+  seguidores [ goku ]
+tina
+  seguidos   [ ]
+  seguidores [ goku sara ]
+$twittar sara hoje estou triste
+$twittar tina ganhei chocolate
+$twittar sara partiu ru
+$twittar tina chocolate ruim
+$twittar goku internet maldita
+$timeline goku
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )
+2:sara( partiu ru )
+3:tina( chocolate ruim )
+4:goku( internet maldita )
+$timeline tina 
+1:tina( ganhei chocolate )
+3:tina( chocolate ruim )
+$timeline sara
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )
+2:sara( partiu ru )
+3:tina( chocolate ruim )
+$like sara 1
+$like goku 1
+$like sara 3
+$timeline sara
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )[ sara goku ]
+2:sara( partiu ru )
+3:tina( chocolate ruim )[ sara ]
+$timeline goku
+0:sara( hoje estou triste )
+1:tina( ganhei chocolate )[ sara goku ]
+2:sara( partiu ru )
+3:tina( chocolate ruim )[ sara ]
+4:goku( internet maldita )
+$timeline bruno
+fail: usuario nao encontrado
+$follow goku kuririm
+fail: usuario nao encontrado
+$like sara 8
+fail: tweet nao existe
+$end
+"

@@ -1,0 +1,141 @@
+case=00 inicializar
+input=show
+in
+in
+show
+in
+show
+out
+out
+out
+show
+end
+output="$show
+pass: 0, gas: 0, km: 0
+$in
+$in
+$show
+pass: 2, gas: 0, km: 0
+$in
+fail: limite de pessoas atingido
+$show
+pass: 2, gas: 0, km: 0
+$out
+$out
+$out
+fail: nao ha ninguem no carro
+$show
+pass: 0, gas: 0, km: 0
+$end
+"
+
+
+case=01 abastecer
+input=fuel 60
+show
+end
+output="$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$end
+"
+
+
+case=02 dirigir vazio
+input=fuel 60
+show
+drive 10
+end
+output="$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$end
+"
+
+
+case=03 dirigir
+input=fuel 60
+show
+drive 10
+in
+drive 10
+show
+end
+output="$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$in
+$drive 10
+$show
+pass: 1, gas: 50, km: 10
+$end
+"
+
+
+case=04 para longe
+input=fuel 60
+show
+drive 10
+in
+drive 10
+show
+drive 70
+drive 10
+show
+end
+output="$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$in
+$drive 10
+$show
+pass: 1, gas: 50, km: 10
+$drive 70
+fail: tanque vazio apos andar 50 km
+$drive 10
+fail: tanque vazio
+$show
+pass: 1, gas: 0, km: 60
+$end
+"
+
+
+case=05 enchendo o tanque
+input=fuel 60
+show
+drive 10
+in
+drive 10
+show
+drive 70
+drive 10
+show
+fuel 200
+show
+end
+output="$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$in
+$drive 10
+$show
+pass: 1, gas: 50, km: 10
+$drive 70
+fail: tanque vazio apos andar 50 km
+$drive 10
+fail: tanque vazio
+$show
+pass: 1, gas: 0, km: 60
+$fuel 200
+$show
+pass: 1, gas: 100, km: 60
+$end
+"

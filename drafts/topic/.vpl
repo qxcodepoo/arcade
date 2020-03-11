@@ -1,0 +1,154 @@
+case=00 Inicializar
+input=show
+init 5 2
+show
+end
+output="$show
+[ ]
+$init 5 2
+$show
+[ @ @ = = = ]
+$end
+"
+
+
+case=01 Embarque
+input=show
+init 5 2
+show
+in davi 17
+show
+in joao 103
+show
+in ana 35
+show
+in rex 20
+in bia 16
+show
+end
+output="$show
+[ ]
+$init 5 2
+$show
+[ @ @ = = = ]
+$in davi 17
+$show
+[ @ @ =davi:17 = = ]
+$in joao 103
+$show
+[ @joao:103 @ =davi:17 = = ]
+$in ana 35
+$show
+[ @joao:103 @ =davi:17 =ana:35 = ]
+$in rex 20
+$in bia 16
+$show
+[ @joao:103 @bia:16 =davi:17 =ana:35 =rex:20 ]
+$end
+"
+
+
+case=02 Desembarque
+input=show
+init 5 2
+show
+in davi 17
+show
+in joao 103
+show
+in ana 35
+show
+in rex 20
+in bia 16
+show
+out davi
+show
+in aragao 96
+show
+end
+output="$show
+[ ]
+$init 5 2
+$show
+[ @ @ = = = ]
+$in davi 17
+$show
+[ @ @ =davi:17 = = ]
+$in joao 103
+$show
+[ @joao:103 @ =davi:17 = = ]
+$in ana 35
+$show
+[ @joao:103 @ =davi:17 =ana:35 = ]
+$in rex 20
+$in bia 16
+$show
+[ @joao:103 @bia:16 =davi:17 =ana:35 =rex:20 ]
+$out davi
+$show
+[ @joao:103 @bia:16 = =ana:35 =rex:20 ]
+$in aragao 96
+$show
+[ @joao:103 @bia:16 =aragao:96 =ana:35 =rex:20 ]
+$end
+"
+
+
+case=03 Erros
+input=show
+init 5 2
+show
+in davi 17
+show
+in joao 103
+show
+in ana 35
+show
+in rex 20
+in bia 16
+show
+out davi
+show
+in aragao 96
+show
+in lucas 23
+out marcelo
+out ana
+in bia
+show
+end
+output="$show
+[ ]
+$init 5 2
+$show
+[ @ @ = = = ]
+$in davi 17
+$show
+[ @ @ =davi:17 = = ]
+$in joao 103
+$show
+[ @joao:103 @ =davi:17 = = ]
+$in ana 35
+$show
+[ @joao:103 @ =davi:17 =ana:35 = ]
+$in rex 20
+$in bia 16
+$show
+[ @joao:103 @bia:16 =davi:17 =ana:35 =rex:20 ]
+$out davi
+$show
+[ @joao:103 @bia:16 = =ana:35 =rex:20 ]
+$in aragao 96
+$show
+[ @joao:103 @bia:16 =aragao:96 =ana:35 =rex:20 ]
+$in lucas 23
+fail: topic lotada
+$out marcelo
+fail: pass nao esta na topic
+$out ana
+$in bia
+fail: pass ja esta na topic
+$show
+[ @joao:103 @bia:16 =aragao:96 = =rex:20 ]
+$end
+"
