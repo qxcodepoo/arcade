@@ -2,6 +2,7 @@
 ## Links
 - [basic](#basic)
 - [noobie](#noobie)
+- [rookie](#rookie)
 
 ## basic
 
@@ -12,3 +13,8 @@
 ## noobie
 
 - [@003 04 Motoca de aluguel](base/003/Readme.md#02_noobie-04-motoca-de-aluguel-sub-duas-classes-agregação-nulo) [Duas classes, agregação, nulo]
+- [@004 Lapiseira e Grafite](base/004/Readme.md#02_noobie-lapiseira-e-grafite-sub-duas-classes-agregação-null) [Duas classes, agregação, null]
+
+## rookie
+
+- [@005 Mestre dos Vetores](base/005/Readme.md#03_rookie-mestre-dos-vetores)

@@ -1,4 +1,4 @@
-## ©noobie Lapiseira e Grafite sub: Duas classes, agregação, null
+## ©02_noobie Lapiseira e Grafite sub: Duas classes, agregação, null
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
@@ -6,7 +6,9 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 - Iniciar lapiseira
     - Inicia uma lapiseira de determinado calibre sem grafite.
 - Inserir grafite
-    - Insere um grafite passando o calibre e o tamanho em cm.
+    - Insere um grafite passando
+        - o calibre
+        - o tamanho em cm.
     - Não deve aceitar um grafite de calibre não compatível.
 - Remover grafite
     - Retira o grafite se houver algum.
