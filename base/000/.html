@@ -159,28 +159,44 @@
 <span id="cb5-21"><a href="#cb5-21"></a><span class="va">$show</span></span>
 <span id="cb5-22"><a href="#cb5-22"></a><span class="ex">32.50</span></span>
 <span id="cb5-23"><a href="#cb5-23"></a><span class="va">$end</span></span></code></pre></div>
-<hr />
-<h2 id="testando-seu-código">Testando seu código</h2>
-<ul>
-<li>Você pode utilizar o Moodle ou testar diretamente no seu computador.</li>
-<li>Copie o cole a entrada do teste e veja se a saída é igual.</li>
-<li>O script <code>th</code> permite você testar seu código de forma automatizada. Você pode instalá-lo através do link <a href="https://github.com/senapk/th">https://github.com/senapk/th</a>.</li>
-</ul>
-<p>Se você está programando em Java, não utilize nenhum pacote. Se o arquivo que contém a main for o Controller.java você poderia rodar os testes com:</p>
-<pre><code>th.py run &quot;java Controller.class&quot; t.md -v</code></pre>
-<p>A saída esperada quando todos os testes dão certo é algo como:</p>
-<pre><code>th.py run &quot;java Controller.class&quot; t.md  -v
-###############################################################################################################
-                                                     Run:
-! GR: --- SUCCEED [01] t.md (inicio)
-! GR: --- SUCCEED [02] t.md (multiplicacao)
-! GR: --- SUCCEED [03] t.md (div)
-! GR: --- SUCCEED [04] t.md (all_together_p1)
-! GR: --- SUCCEED [05] t.md (all_together_p2)
-                                             You have no failures!
-###############################################################################################################
-                                                Final Grade:100
-                                              Time: 0.02 segundos</code></pre>
+<h2 id="pontos-de-partida">Pontos de partida</h2>
+<p>Em java ou em c++, você pode começar desse código que fica num loop infinito enquanto o usuário não digitar <code>end</code>.</p>
+<p><strong>Java</strong></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">//Shell.java</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">import</span><span class="im"> java.util.Scanner;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="kw">public</span> <span class="kw">class</span> Shell{</span>
+<span id="cb6-4"><a href="#cb6-4"></a>    <span class="dt">static</span> <span class="bu">Scanner</span> scanner = <span class="kw">new</span> <span class="bu">Scanner</span>(<span class="bu">System</span>.<span class="fu">in</span>);</span>
+<span id="cb6-5"><a href="#cb6-5"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span>[] args) {</span>
+<span id="cb6-6"><a href="#cb6-6"></a>        <span class="kw">while</span>(<span class="kw">true</span>){</span>
+<span id="cb6-7"><a href="#cb6-7"></a>            <span class="bu">String</span> line = scanner.<span class="fu">nextLine</span>();</span>
+<span id="cb6-8"><a href="#cb6-8"></a>            <span class="bu">String</span>[] ui = line.<span class="fu">split</span>(<span class="st">&quot; &quot;</span>);</span>
+<span id="cb6-9"><a href="#cb6-9"></a>            <span class="kw">if</span>(ui[<span class="dv">0</span>].<span class="fu">equals</span>(<span class="st">&quot;end&quot;</span>)){</span>
+<span id="cb6-10"><a href="#cb6-10"></a>                <span class="kw">break</span>;</span>
+<span id="cb6-11"><a href="#cb6-11"></a>            }<span class="kw">else</span>{</span>
+<span id="cb6-12"><a href="#cb6-12"></a>                <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;fail: comando invalido&quot;</span>);</span>
+<span id="cb6-13"><a href="#cb6-13"></a>            }</span>
+<span id="cb6-14"><a href="#cb6-14"></a>        }</span>
+<span id="cb6-15"><a href="#cb6-15"></a>    }</span>
+<span id="cb6-16"><a href="#cb6-16"></a>}</span></code></pre></div>
+<p><strong>C++</strong></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">//shell.cpp</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="pp">#include </span><span class="im">&lt;sstream&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="dt">int</span> main(){</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    string line;</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    string cmd;</span>
+<span id="cb7-8"><a href="#cb7-8"></a>    <span class="cf">while</span>(<span class="kw">true</span>){</span>
+<span id="cb7-9"><a href="#cb7-9"></a>        getline(cin, line);</span>
+<span id="cb7-10"><a href="#cb7-10"></a>        stringstream ss(line);</span>
+<span id="cb7-11"><a href="#cb7-11"></a>        ss &gt;&gt; cmd;</span>
+<span id="cb7-12"><a href="#cb7-12"></a>        <span class="cf">if</span>(line == <span class="st">&quot;end&quot;</span>){</span>
+<span id="cb7-13"><a href="#cb7-13"></a>            <span class="cf">break</span>;</span>
+<span id="cb7-14"><a href="#cb7-14"></a>        }<span class="cf">else</span>{</span>
+<span id="cb7-15"><a href="#cb7-15"></a>            puts(<span class="st">&quot;fail: command not found&quot;</span>);</span>
+<span id="cb7-16"><a href="#cb7-16"></a>        }</span>
+<span id="cb7-17"><a href="#cb7-17"></a>    }</span>
+<span id="cb7-18"><a href="#cb7-18"></a>}</span></code></pre></div>
 <hr />
 <h2 id="código-base-respostas-e-vpl">Código base, respostas e VPL</h2>
 <ul>

@@ -8,11 +8,9 @@
 
 - [@conta 12 Agencia Bancária 1](drafts/conta/Readme.md#02_unit-12-agencia-bancária-1)
 - [@contato 16 Agenda 0 - Um único contato](drafts/contato/Readme.md#02_unit-16-agenda-0---um-único-contato)
-- [@tamagotchi 16 Tamagotchi - Seu Pet Virtual](drafts/tamagotchi/Readme.md#02_unit-16-tamagotchi---seu-pet-virtual)
 
 ## vetores
 
-- [@vetores 10 Vetores](drafts/vetores/Readme.md#03_vetores-10-vetores)
 - [@cinema 14 Sala de Cinema](drafts/cinema/Readme.md#03_vetores-14-sala-de-cinema)
 - [@junkfood 15 JunkFood Machine](drafts/junkfood/Readme.md#03_vetores-15-junkfood-machine)
 - [@topic 17 Topic de Luxo](drafts/topic/Readme.md#03_vetores-17-topic-de-luxo)

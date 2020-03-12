@@ -21,4 +21,5 @@
 
 ## rookie
 
-- [@005 Mestre dos Vetores](base/005/Readme.md#03_rookie-mestre-dos-vetores)
+- [@005 Mestre dos Vetores](base/005/Readme.md#03_rookie-mestre-dos-vetores-sub-arraylist-e-vector) [ArrayList e Vector]
+- [@006 Tamagotchi - Seu Pet Virtual](base/006/Readme.md#03_rookie-tamagotchi---seu-pet-virtual-sub-tostring-getters-and-setters) [toString, getters and setters]

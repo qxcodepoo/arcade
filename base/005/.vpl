@@ -12,7 +12,29 @@ $end
 "
 
 
-case=01 rshow
+case=01 inicio
+input=show
+add 1 2 3 4
+get 0
+get 3
+set 0 9
+show
+end
+output="$show
+[ ]
+$add 1 2 3 4
+$get 0
+1
+$get 3
+4
+$set 0 9
+$show
+[ 9 2 3 4 ]
+$end
+"
+
+
+case=02 rshow
 input=rshow
 add 1
 rshow
@@ -31,7 +53,7 @@ $end
 "
 
 
-case=02 add_mais_elementos
+case=03 add_mais_elementos
 input=add 4 5 6 8 1 2 2 9
 add 2 2 2 8 9 0 1 4
 add 3 3 2 1
@@ -46,7 +68,7 @@ $end
 "
 
 
-case=03 find_elemento
+case=04 find_elemento
 input=add 4 5 6 8 1 2 2 9
 add 2 2 2 8 9 0 1 4
 add 3 3 2 1
@@ -70,7 +92,7 @@ $end
 "
 
 
-case=04 insert_indice
+case=05 insert_indice
 input=add 3 7
 show
 ins 0 2
@@ -106,7 +128,7 @@ $end
 "
 
 
-case=05 remover_por_indice
+case=06 remover_por_indice
 input=add 4 5 6 8 1 2 2 9
 rmi 0
 show
@@ -143,7 +165,7 @@ $end
 "
 
 
-case=06 remove_all
+case=07 remove_all
 input=add 2 2 2 2
 rma 2
 show

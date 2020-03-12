@@ -1,4 +1,4 @@
-## ©03_rookie Mestre dos Vetores
+## ©03_rookie Mestre dos Vetores sub: ArrayList e Vector
 ### Treine estrutura de dados.
 ![](figura.jpg)
 
@@ -150,21 +150,11 @@ $show
 $end
 ```
 
-
-
 ***
 
-## Código base, respostas e VPL
+## Respostas    
 
-- Código de Partida
-    - [C](base_c.c)
-    - [C++](base_cpp.cpp)
-    - [Java](Controller.java)
 - Respostas
-    - [C](solver_c.c)
-    - [C++](solver_cpp.cpp)
-    - [Java](Controller_solver.java)
-- Testes
-    - [MD](t.tio)
-- Para rodar os teste offline
-    - [TH](https://github.com/senapk/th)
+    - [C++](solver.cpp)
+    - [Java](Solver.java)
+

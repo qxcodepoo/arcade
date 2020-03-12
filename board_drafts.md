@@ -1,7 +1,5 @@
 [](drafts/conta/Readme.md)       : ## ©02_unit 12 Agencia Bancária 1
 [](drafts/contato/Readme.md)     : ## ©02_unit 16 Agenda 0 - Um único contato
-[](drafts/tamagotchi/Readme.md)  : ## ©02_unit 16 Tamagotchi - Seu Pet Virtual
-[](drafts/vetores/Readme.md)     : ## ©03_vetores 10 Vetores
 [](drafts/cinema/Readme.md)      : ## ©03_vetores 14 Sala de Cinema
 [](drafts/junkfood/Readme.md)    : ## ©03_vetores 15 JunkFood Machine
 [](drafts/topic/Readme.md)       : ## ©03_vetores 17 Topic de Luxo

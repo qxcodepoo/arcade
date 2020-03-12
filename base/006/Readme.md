@@ -1,3 +1,31 @@
+## ©03_rookie Tamagotchi - Seu Pet Virtual sub: toString, getters and setters
+###
+![](figura.jpg)
+
+Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
+
+***
+
+## Funcionalidades
+Seu sistema deverá:
+
+- **Inicializar**
+    - passando energia, saciedade e limpeza máximas do pet.
+    - Todos os níveis devem ser iniciados no máximo na criação do pet.
+    - Os outros atributos são 
+        - diamantes, que ele vai ganhar jogando.
+        - e idade que aumenta a cada ação realizada, 
+        - ambos iniciando em 0.
+- **Comendo, Jogando, Dormindo e tomando banho**
+    - Cada operação causa aumento e reduções nos atributos.
+    - Nenhum atributo pode passar do máximo ou ir abaixo de 0.
+- **Morrendo**
+    - Se algum atributo chegar a 0, o pet morre e nenhuma ação pode ser feita a não ser mostrar os dados.
+
+***
+
+## Exemplo
+
 ```bash
 #__case inicio
 # O comando "$init energia saciedade limpeza" recebe os valores do pet.
@@ -13,6 +41,7 @@ $show
 E:10/10, S:20/20, L:50/50, D:0, I:0
 $end
 ```
+
 ```bash
 #__case play - Brincar 
 # O comando "$play" altera em -2 energia, -1 saciedade, -3 limpeza, +1 diamante, +1 idade.
@@ -70,6 +99,8 @@ $sleep
 fail: pet esta morto
 $end
 ```
+
+# Exemplo 2
 ```bash
 #__case exemplo2
 $init 5 10 10
@@ -83,6 +114,8 @@ $show
 E:0/5, S:7/10, L:1/10, D:3, I:3
 $end
 ```
+
+# Exemplo 3
 ```bash
 #__case exemplo3
 $init 10 3 10
@@ -96,3 +129,43 @@ $show
 E:4/10, S:0/3, L:1/10, D:3, I:3
 $end
 ```
+
+***
+## Raio X
+- Utilize funções de get e set para garantir que os atributos permaneçam na faixa permitida.
+- Mantenha as funções set como privadas e dê acesso apenas aos métodos de ação como comer, dormir, brincar.
+
+```java
+class Pet{
+private:
+    int energyMax, hungryMax, cleanMax;
+    int energy, hungry, clean;
+    int diamonds;
+    int age;
+    boolean alive;
+    //os metodos set são chamados pelos métodos de ação eat, sleep, ...
+    void setEnergy(int value)
+    void setHungry(int value)
+    void setClean(int value)
+
+public:
+    Pet(energyMax, hungryMax, cleanMax)
+    int getClean()
+    int getHungry()
+    int getEnergy()
+    int getEnergyMax()
+    int getCleanMax()
+    int getHungryMax()
+
+    string toString()
+    void play()
+    void shower()
+    void eat()
+    void sleep()
+};
+```
+
+***
+## Resposta e testes
+- Respostas
+    - [C++](solver.cpp)

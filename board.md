@@ -3,4 +3,5 @@
 [](base/002/Readme.md) : ## ©01_basic  Carro sub: Uma classe e muitas ações
 [](base/004/Readme.md) : ## ©02_noobie Lapiseira e Grafite sub: Duas classes, agregação, null
 [](base/003/Readme.md) : ## ©02_noobie Motoca de aluguel sub: Duas classes, agregação, nulo
-[](base/005/Readme.md) : ## ©03_rookie Mestre dos Vetores
+[](base/005/Readme.md) : ## ©03_rookie Mestre dos Vetores sub: ArrayList e Vector
+[](base/006/Readme.md) : ## ©03_rookie Tamagotchi - Seu Pet Virtual sub: toString, getters and setters
