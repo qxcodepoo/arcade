@@ -30,6 +30,23 @@ $end
 ```
 
 ```bash
+#__case inicio
+# O comando "$get ind" mostra o valor do vetor na posicao `ind`
+# O comando "$set ind value" muda o valor da posicao `ind` para o valor `value`.
+$show
+[ ]
+$add 1 2 3 4
+$get 0
+1
+$get 3
+4
+$set 0 9
+$show
+[ 9 2 3 4 ]
+$end
+```
+
+```bash
 #__case rshow
 # O comando "$rshow" mostra os valores da estrutura do último para o primeiro.
 $rshow

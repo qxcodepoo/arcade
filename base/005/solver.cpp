@@ -51,6 +51,14 @@ int main(){
             vet_show(vet);
         }else if(cmd == "rshow"){
             vet_rshow(vet);
+        }else if(cmd == "get"){
+            int ind;
+            ss >> ind;
+            cout << vet[ind] << "\n";
+        }else if(cmd == "set"){
+            int ind, value;
+            ss >> ind >> value;
+            vet[ind] = value;
         }else if(cmd == "find"){
             //_B
             int value;

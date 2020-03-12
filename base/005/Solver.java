@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
-public class Controller{	
+public class Solver{	
 	static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -38,6 +36,17 @@ public class Controller{
 				for(int i = 1; i < ui.length; i++)
 					System.out.print(vet.indexOf(Integer.parseInt(ui[i])) + " ");
 				System.out.print("]\n");
+				//_E
+			}else if(cmd.equals("get")){
+				//_B
+				int ind = Integer.parseInt(ui[1]);
+				System.out.println(vet.get(ind));
+				//_E
+			}else if(cmd.equals("set")){
+				//_B
+				int ind = Integer.parseInt(ui[1]);
+				int value = Integer.parseInt(ui[2]);
+				vet.set(ind, value);
 				//_E
 			}else if(cmd.equals("ins")){
 				//_B

@@ -102,33 +102,50 @@ $show
 $end
 ```
 
-***
-## Testando seu código
-- Você pode utilizar o Moodle ou testar diretamente no seu computador.
-- Copie o cole a entrada do teste e veja se a saída é igual.
-- O script `th` permite você testar seu código de forma automatizada. Você pode instalá-lo através do link [https://github.com/senapk/th](https://github.com/senapk/th).
+## Pontos de partida
 
-Se você está programando em Java, não utilize nenhum pacote. Se o arquivo que contém a main for o Controller.java você poderia rodar os testes com:
+Em java ou em c++, você pode começar desse código que fica num loop infinito enquanto o usuário não digitar `end`.
 
+**Java**
+```java
+//Shell.java
+import java.util.Scanner;
+public class Shell{
+    static Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+        while(true){
+            String line = scanner.nextLine();
+            String[] ui = line.split(" ");
+            if(ui[0].equals("end")){
+                break;
+            }else{
+                System.out.println("fail: comando invalido");
+            }
+        }
+    }
+}
 ```
-th.py run "java Controller.class" t.md -v
-```
 
-A saída esperada quando todos os testes dão certo é algo como:
-
-```
-th.py run "java Controller.class" t.md  -v
-###############################################################################################################
-                                                     Run:
-! GR: --- SUCCEED [01] t.md (inicio)
-! GR: --- SUCCEED [02] t.md (multiplicacao)
-! GR: --- SUCCEED [03] t.md (div)
-! GR: --- SUCCEED [04] t.md (all_together_p1)
-! GR: --- SUCCEED [05] t.md (all_together_p2)
-                                             You have no failures!
-###############################################################################################################
-                                                Final Grade:100
-                                              Time: 0.02 segundos
+**C++**
+```cpp
+//shell.cpp
+#include <iostream>
+#include <sstream>
+using namespace std;
+int main(){
+    string line;
+    string cmd;
+    while(true){
+        getline(cin, line);
+        stringstream ss(line);
+        ss >> cmd;
+        if(line == "end"){
+            break;
+        }else{
+            puts("fail: command not found");
+        }
+    }
+}
 ```
 
 
