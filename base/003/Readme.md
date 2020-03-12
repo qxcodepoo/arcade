@@ -1,4 +1,4 @@
-## ©02_noobie 04 Motoca de aluguel sub: Duas classes, agregação, nulo
+## ©02_noobie Motoca de aluguel sub: Duas classes, agregação, nulo
 
 Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
 
@@ -14,7 +14,7 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 - Comprar tempo
     - O tempo em minutos é comprado e enquanto houver tempo, qualquer pessoa pode dirigir.
 - Dirigir tempo
-    - Se houver uma pessoa com idade entre 4 e 10 anos e houver minutos, então ela pode passear de moto.
+    - Se houver uma pessoa com 10 anos ou menos e houver minutos, então ela pode passear de moto.
     - Se o tempo acabar no meio do passeio, informe o quanto a pessoa andou.
 - Buzinar
     - Qualquer pessoa pode buzinar
@@ -115,12 +115,8 @@ $buy 20
 $in andreina 23
 $drive 15
 fail: muito grande para andar de moto
-$out
-$in pedro 3
-$drive 15
-fail: muito pequeno para andar de moto
 $show
-potencia: 7, minutos: 20, pessoa: [pedro:3]
+potencia: 7, minutos: 20, pessoa: [andreina:23]
 $end
 ```
 

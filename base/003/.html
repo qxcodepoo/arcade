@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>@003 04 Motoca de aluguel</title>
+  <title>@003 Motoca de aluguel</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@
 </head>
 <body>
 <h2 id="section"><span class="citation" data-cites="003">@003</span></h2>
-<h2 id="noobie-04-motoca-de-aluguel-sub-duas-classes-agregação-nulo">©02_noobie 04 Motoca de aluguel sub: Duas classes, agregação, nulo</h2>
+<h2 id="noobie-motoca-de-aluguel-sub-duas-classes-agregação-nulo">©02_noobie Motoca de aluguel sub: Duas classes, agregação, nulo</h2>
 <p>Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.</p>
 <h2 id="funcionalidades">Funcionalidades</h2>
 <ul>
@@ -104,7 +104,7 @@
 </ul></li>
 <li>Dirigir tempo
 <ul>
-<li>Se houver uma pessoa com idade entre 4 e 10 anos e houver minutos, então ela pode passear de moto.</li>
+<li>Se houver uma pessoa com 10 anos ou menos e houver minutos, então ela pode passear de moto.</li>
 <li>Se o tempo acabar no meio do passeio, informe o quanto a pessoa andou.</li>
 </ul></li>
 <li>Buzinar
@@ -189,13 +189,9 @@
 <span id="cb7-4"><a href="#cb7-4"></a><span class="va">$in</span> <span class="ex">andreina</span> 23</span>
 <span id="cb7-5"><a href="#cb7-5"></a><span class="va">$drive</span> <span class="ex">15</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a><span class="ex">fail</span>: muito grande para andar de moto</span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="va">$out</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="va">$in</span> <span class="ex">pedro</span> 3</span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="va">$drive</span> <span class="ex">15</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="ex">fail</span>: muito pequeno para andar de moto</span>
-<span id="cb7-11"><a href="#cb7-11"></a><span class="va">$show</span></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="ex">potencia</span>: 7, minutos: 20, pessoa: [pedro:3]</span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="va">$end</span></span></code></pre></div>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="va">$show</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="ex">potencia</span>: 7, minutos: 20, pessoa: [andreina:23]</span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="va">$end</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#__case acabou o tempo</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="va">$init</span> <span class="ex">7</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="va">$buy</span> <span class="ex">20</span></span>

@@ -1,1 +1,95 @@
+case=00 inserindo grafites
+input=init 0.5
+show
+inserir 0.7 2B 50
+inserir 0.5 2B 50
+show
+end
+output="$init 0.5
+$show
+calibre: 0.5, grafite: null
+$inserir 0.7 2B 50
+fail: calibre incompatível
+$inserir 0.5 2B 50
+$show
+calibre: 0.5, grafite: [0.5:2B:50]
+$end
+"
 
+
+case=01 inserindo e removendo
+input=init 0.3
+inserir 0.3 2B 50
+show
+inserir 0.3 4B 70
+show
+remover
+inserir 0.3 4B 70
+show
+end
+output="$init 0.3
+$inserir 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$inserir 0.3 4B 70
+fail: ja existe grafite
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$remover
+$inserir 0.3 4B 70
+$show
+calibre: 0.3, grafite: [0.3:4B:70]
+$end
+"
+
+
+case=02 escrevendo
+input=init 0.9
+write 10
+inserir 0.9 4B 30
+show
+write 6
+show
+write 10
+show
+end
+output="$init 0.9
+$write 10
+fail: nao existe grafite
+$inserir 0.9 4B 30
+$show
+calibre: 0.9, grafite: [0.9:4B:30]
+$write 6
+$show
+calibre: 0.9, grafite: [0.9:4B:18]
+$write 10
+fail: folha ficou pela metade
+fail: grafite acabou
+$show
+calibre: 0.9, grafite: null
+$end
+"
+
+
+case=03 escrevendo
+input=init 0.9
+inserir 0.9 2B 16
+show
+write 4
+show
+write 4
+show
+end
+output="$init 0.9
+$inserir 0.9 2B 16
+$show
+calibre: 0.9, grafite: [0.9:2B:16]
+$write 4
+$show
+calibre: 0.9, grafite: [0.9:2B:8]
+$write 4
+fail: grafite acabou
+$show
+calibre: 0.9, grafite: null
+$end
+"

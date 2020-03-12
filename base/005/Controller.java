@@ -1,16 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
-
 public class Controller{	
-	static Scanner scan = new Scanner(System.in);
-
 	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
 		ArrayList<Integer> vet = new ArrayList<Integer>();
-
+		
 		while(true){
-			String line = scan.nextLine();
+			String line = scanner.nextLine();
 			System.out.println("$" + line);
 			String ui[] = line.split(" ");
 			String cmd = ui[0];
@@ -34,5 +31,6 @@ public class Controller{
 				System.out.print("fail: command not found\n");
 			}
 		}
+		scanner.close();
 	}
 }

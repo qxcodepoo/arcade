@@ -45,8 +45,6 @@ class Motoca {
 	void dirigir(int tempo){
 		if(this.pessoa == null)
 			System.out.println("fail: moto vazia");
-		else if(this.pessoa.idade < 4)
-			System.out.println("fail: muito pequeno para andar de moto");
 		else if(this.pessoa.idade > 10)
 			System.out.println("fail: muito grande para andar de moto");
         else if(this.tempo == 0)

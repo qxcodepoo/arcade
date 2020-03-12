@@ -94,9 +94,6 @@ input=init 7
 buy 20
 in andreina 23
 drive 15
-out
-in pedro 3
-drive 15
 show
 end
 output="$init 7
@@ -104,12 +101,8 @@ $buy 20
 $in andreina 23
 $drive 15
 fail: muito grande para andar de moto
-$out
-$in pedro 3
-$drive 15
-fail: muito pequeno para andar de moto
 $show
-potencia: 7, minutos: 20, pessoa: [pedro:3]
+potencia: 7, minutos: 20, pessoa: [andreina:23]
 $end
 "
 

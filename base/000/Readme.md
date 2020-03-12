@@ -1,4 +1,4 @@
-## ©01_basic 01 Shell sub: Entendendo como funciona a main
+## ©00_init   Shell sub: Entendendo como funciona a main
 
 ![](figura.jpg)
 
