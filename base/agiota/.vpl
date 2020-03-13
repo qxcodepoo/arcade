@@ -1,4 +1,33 @@
-$init 500
+case=00
+input=init 500
+addCli maria maria silva
+addCli josue josue matos
+addCli maria ana maria silva
+emprestar maria 300
+emprestar josue 50
+emprestar maria 100
+emprestar bruno 30
+emprestar josue 400
+resumo
+historico
+filtrar maria
+receber maria 1000
+receber maria 350
+historico
+receber josue 1
+receber maria 10
+addCli hugo hugo calingo
+emprestar hugo 10
+emprestar hugo 20
+receber maria 5
+receber josue 3
+historico
+filtrar josue
+matar josue
+historico
+resumo
+end
+output="$init 500
 $addCli maria maria silva
 $addCli josue josue matos
 $addCli maria ana maria silva
@@ -11,8 +40,8 @@ fail: cliente nao existe
 $emprestar josue 400
 fail: fundos insuficientes
 $resumo
-maria : maria silva : 400
 josue : josue matos : 50
+maria : maria silva : 400
 saldo : 50
 $historico
 id:0 [maria 300]
@@ -38,9 +67,9 @@ $emprestar hugo 20
 $receber maria 5
 $receber josue 3
 $historico
-id:0 [maria -300]
+id:0 [maria 300]
 id:1 [josue -50]
-id:2 [maria -100]
+id:2 [maria 100]
 id:3 [maria 350]
 id:4 [josue 1]
 id:5 [maria 10]
@@ -67,3 +96,4 @@ maria : maria silva : -35
 hugo : hugo calingo : -30
 agiota : 389
 $end
+"

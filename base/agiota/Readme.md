@@ -1,4 +1,4 @@
-## ©10_after 23 Agiota Gente Fina #arrays #mapas #crud
+## ©05_master 23 Agiota Gente Fina #arrays #mapas #crud
 ### Ptolomeu é o agiota mais carismático de MoneyVille. Sem nenhuma razão foi denunciado e acabou indo pra cadeira. A lasqueira foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 ![](figura.jpg)
 
@@ -41,7 +41,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
 ## Exemplos
 
 ```bash
-#__begin__
+#__case
 # addCli _id _full_name
 # addTr _id _value
 # showAll
@@ -159,7 +159,6 @@ hugo : hugo calingo : -30
 agiota : 389
 
 $end
-#__end__
 ```
 
 ***
