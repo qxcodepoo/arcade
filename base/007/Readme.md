@@ -1,4 +1,4 @@
-## ©05_master 12 Agencia Bancária 1
+## ©05_fighter Agencia Bancária 1
 ###
 
 ![](figura.jpg)
@@ -111,6 +111,8 @@ class Operacao
 + descricao: string
 + valor: float
 + saldo: float
+--
++ Operacao(indice, descricao, valor, saldo)
 
 class Conta
 - nextId: int //id da próxima operaçao
@@ -118,9 +120,9 @@ class Conta
 - numero: int
 - extrato: Operacao[]
 --
-+ pushOperation(label: string, value: float, saldo: float) // usado para alterar saldo e extrato
-+ debitar(label: string, value: float) : boolean //usado para saque e tarifa
-+ creditar(label: string, value: float) : boolean // usado para extorno e depósito
++ salvarOperacao(label: string, value: float, saldo: float) // usado para alterar saldo e extrato
++ debitar(label: string, value: float): boolean //usado para saque e tarifa
++ creditar(label: string, value: float): boolean // usado para extorno e depósito
 + getExtratoN(N: int): Operacao[] //retorna as última n operacoes
 
 ````

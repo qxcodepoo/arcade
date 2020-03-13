@@ -85,6 +85,7 @@
 <h3 id="section-1"></h3>
 <p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/figura.jpg" /></p>
 <p>Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.</p>
+<p>O projeto deve conter pelo menos duas classes. A classe Tamagotchi e a class Jogo.</p>
 <hr />
 <h2 id="funcionalidades">Funcionalidades</h2>
 <p>Seu sistema deverá:</p>
@@ -210,33 +211,29 @@
 <li>Utilize funções de get e set para garantir que os atributos permaneçam na faixa permitida.</li>
 <li>Mantenha as funções set como privadas e dê acesso apenas aos métodos de ação como comer, dormir, brincar.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> Pet{</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">private</span>:</span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="dt">int</span> energyMax, hungryMax, cleanMax;</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="dt">int</span> energy, hungry, clean;</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="dt">int</span> diamonds;</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="dt">int</span> age;</span>
-<span id="cb5-7"><a href="#cb5-7"></a>    <span class="dt">boolean</span> alive;</span>
-<span id="cb5-8"><a href="#cb5-8"></a>    <span class="co">//os metodos set são chamados pelos métodos de ação eat, sleep, ...</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>    <span class="dt">void</span> <span class="fu">setEnergy</span>(<span class="dt">int</span> value)</span>
-<span id="cb5-10"><a href="#cb5-10"></a>    <span class="dt">void</span> <span class="fu">setHungry</span>(<span class="dt">int</span> value)</span>
-<span id="cb5-11"><a href="#cb5-11"></a>    <span class="dt">void</span> <span class="fu">setClean</span>(<span class="dt">int</span> value)</span>
-<span id="cb5-12"><a href="#cb5-12"></a></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="kw">public</span>:</span>
-<span id="cb5-14"><a href="#cb5-14"></a>    <span class="fu">Pet</span>(energyMax, hungryMax, cleanMax)</span>
-<span id="cb5-15"><a href="#cb5-15"></a>    <span class="dt">int</span> <span class="fu">getClean</span>()</span>
-<span id="cb5-16"><a href="#cb5-16"></a>    <span class="dt">int</span> <span class="fu">getHungry</span>()</span>
-<span id="cb5-17"><a href="#cb5-17"></a>    <span class="dt">int</span> <span class="fu">getEnergy</span>()</span>
-<span id="cb5-18"><a href="#cb5-18"></a>    <span class="dt">int</span> <span class="fu">getEnergyMax</span>()</span>
-<span id="cb5-19"><a href="#cb5-19"></a>    <span class="dt">int</span> <span class="fu">getCleanMax</span>()</span>
-<span id="cb5-20"><a href="#cb5-20"></a>    <span class="dt">int</span> <span class="fu">getHungryMax</span>()</span>
-<span id="cb5-21"><a href="#cb5-21"></a></span>
-<span id="cb5-22"><a href="#cb5-22"></a>    string <span class="fu">toString</span>()</span>
-<span id="cb5-23"><a href="#cb5-23"></a>    <span class="dt">void</span> <span class="fu">play</span>()</span>
-<span id="cb5-24"><a href="#cb5-24"></a>    <span class="dt">void</span> <span class="fu">shower</span>()</span>
-<span id="cb5-25"><a href="#cb5-25"></a>    <span class="dt">void</span> <span class="fu">eat</span>()</span>
-<span id="cb5-26"><a href="#cb5-26"></a>    <span class="dt">void</span> <span class="fu">sleep</span>()</span>
-<span id="cb5-27"><a href="#cb5-27"></a>};</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">class</span> Pet:</span>
+<span id="cb5-2"><a href="#cb5-2"></a>- energyMax, hungryMax, cleanMax: <span class="dt">int</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>- energy, hungry, clean: <span class="dt">int</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>- diamonds: <span class="dt">int</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>- age: <span class="dt">int</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>- alive: bool</span>
+<span id="cb5-7"><a href="#cb5-7"></a>---</span>
+<span id="cb5-8"><a href="#cb5-8"></a>+ <span class="fu">setEnergy</span>(value: <span class="dt">int</span>): <span class="dt">void</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a>+ <span class="fu">setHungry</span>(value: <span class="dt">int</span>): <span class="dt">void</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>+ <span class="fu">setClean</span>(value: <span class="dt">int</span>): <span class="dt">void</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>---</span>
+<span id="cb5-12"><a href="#cb5-12"></a>+ <span class="fu">Pet</span>(energyMax, hungryMax, cleanMax)</span>
+<span id="cb5-13"><a href="#cb5-13"></a>+ allGets</span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="kw">class</span> Jogo{</span>
+<span id="cb5-17"><a href="#cb5-17"></a>- Pet pet;</span>
+<span id="cb5-18"><a href="#cb5-18"></a>+ <span class="fu">iniciar</span>(Tamagotchi pet): <span class="dt">void</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a>+ <span class="fu">play</span>(): <span class="dt">void</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a>+ <span class="fu">shower</span>(): <span class="dt">void</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a>+ <span class="fu">eat</span>(): <span class="dt">void</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a>+ <span class="fu">sleep</span>(): <span class="dt">void</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a>+ <span class="fu">show</span>(): <span class="dt">void</span></span></code></pre></div>
 <hr />
 <h2 id="resposta-e-testes">Resposta e testes</h2>
 <ul>

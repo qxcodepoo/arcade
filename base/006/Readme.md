@@ -4,6 +4,8 @@
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
+O projeto deve conter pelo menos duas classes. A classe Tamagotchi e a class Jogo.
+
 ***
 
 ## Funcionalidades
@@ -136,33 +138,29 @@ $end
 - Mantenha as funções set como privadas e dê acesso apenas aos métodos de ação como comer, dormir, brincar.
 
 ```java
-class Pet{
-private:
-    int energyMax, hungryMax, cleanMax;
-    int energy, hungry, clean;
-    int diamonds;
-    int age;
-    boolean alive;
-    //os metodos set são chamados pelos métodos de ação eat, sleep, ...
-    void setEnergy(int value)
-    void setHungry(int value)
-    void setClean(int value)
+class Pet:
+- energyMax, hungryMax, cleanMax: int 
+- energy, hungry, clean: int
+- diamonds: int
+- age: int
+- alive: bool
+---
++ setEnergy(value: int): void
++ setHungry(value: int): void
++ setClean(value: int): void
+---
++ Pet(energyMax, hungryMax, cleanMax)
++ allGets
 
-public:
-    Pet(energyMax, hungryMax, cleanMax)
-    int getClean()
-    int getHungry()
-    int getEnergy()
-    int getEnergyMax()
-    int getCleanMax()
-    int getHungryMax()
 
-    string toString()
-    void play()
-    void shower()
-    void eat()
-    void sleep()
-};
+class Jogo{
+- Pet pet;
++ iniciar(Tamagotchi pet): void
++ play(): void
++ shower(): void
++ eat(): void
++ sleep(): void
++ show(): void
 ```
 
 ***

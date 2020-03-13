@@ -4,7 +4,8 @@
 - [basic](#basic)
 - [noobie](#noobie)
 - [rookie](#rookie)
-- [master](#master)
+- [fighter](#fighter)
+- [jedi](#jedi)
 
 ## init
 
@@ -25,7 +26,10 @@
 - [@005 Mestre dos Vetores](base/005/Readme.md#03_rookie-mestre-dos-vetores-sub-arraylist-e-vector) [ArrayList e Vector]
 - [@006 Tamagotchi - Seu Pet Virtual](base/006/Readme.md#03_rookie-tamagotchi---seu-pet-virtual-sub-tostring-getters-and-setters) [toString, getters and setters]
 
-## master
+## fighter
 
-- [@007 12 Agencia Bancária 1](base/007/Readme.md#05_master-12-agencia-bancária-1)
-- [@008 23 Agiota Gente Fina](base/008/Readme.md#05_master-23-agiota-gente-fina-arrays-mapas-crud)
+- [@007 Agencia Bancária 1](base/007/Readme.md#05_fighter-agencia-bancária-1)
+
+## jedi
+
+- [@008 Agiota Gente Fina](base/008/Readme.md#06_jedi-agiota-gente-fina-arrays-mapas-crud)

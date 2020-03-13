@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>@007 12 Agencia Bancária 1</title>
+  <title>@007 Agencia Bancária 1</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@
 </head>
 <body>
 <h2 id="section"><span class="citation" data-cites="007">@007</span></h2>
-<h2 id="master-12-agencia-bancária-1">©05_master 12 Agencia Bancária 1</h2>
+<h2 id="fighter-agencia-bancária-1">©05_fighter Agencia Bancária 1</h2>
 <h3 id="section-1"></h3>
 <p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/figura.jpg" /></p>
 <p>O objetivo dessa atividade é implementar uma classe responsável por gerenciar a conta bancária de um único cliente. Faremos operações de saque, depósito e extrato.</p>
@@ -196,16 +196,18 @@
 <span id="cb2-3"><a href="#cb2-3"></a>+ descricao: string</span>
 <span id="cb2-4"><a href="#cb2-4"></a>+ valor: <span class="dt">float</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a>+ saldo: <span class="dt">float</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a>class Conta</span>
-<span id="cb2-8"><a href="#cb2-8"></a>- nextId: <span class="dt">int</span> <span class="co">//id da próxima operaçao</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>- saldo: <span class="dt">float</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a>- numero: <span class="dt">int</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a>- extrato: Operacao[]</span>
-<span id="cb2-12"><a href="#cb2-12"></a>--</span>
-<span id="cb2-13"><a href="#cb2-13"></a>+ pushOperation(label: string, value: <span class="dt">float</span>, saldo: <span class="dt">float</span>) <span class="co">// usado para alterar saldo e extrato</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a>+ debitar(label: string, value: <span class="dt">float</span>) : boolean <span class="co">//usado para saque e tarifa</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a>+ creditar(label: string, value: <span class="dt">float</span>) : boolean <span class="co">// usado para extorno e depósito</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a>+ getExtratoN(N: <span class="dt">int</span>): Operacao[] <span class="co">//retorna as última n operacoes</span></span></code></pre></div>
+<span id="cb2-6"><a href="#cb2-6"></a>--</span>
+<span id="cb2-7"><a href="#cb2-7"></a>+ Operacao(indice, descricao, valor, saldo)</span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a>class Conta</span>
+<span id="cb2-10"><a href="#cb2-10"></a>- nextId: <span class="dt">int</span> <span class="co">//id da próxima operaçao</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>- saldo: <span class="dt">float</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>- numero: <span class="dt">int</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>- extrato: Operacao[]</span>
+<span id="cb2-14"><a href="#cb2-14"></a>--</span>
+<span id="cb2-15"><a href="#cb2-15"></a>+ salvarOperacao(label: string, value: <span class="dt">float</span>, saldo: <span class="dt">float</span>) <span class="co">// usado para alterar saldo e extrato</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>+ debitar(label: string, value: <span class="dt">float</span>): boolean <span class="co">//usado para saque e tarifa</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>+ creditar(label: string, value: <span class="dt">float</span>): boolean <span class="co">// usado para extorno e depósito</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>+ getExtratoN(N: <span class="dt">int</span>): Operacao[] <span class="co">//retorna as última n operacoes</span></span></code></pre></div>
 </body>
 </html>
