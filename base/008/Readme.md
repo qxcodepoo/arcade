@@ -41,7 +41,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
 ## Exemplos
 
 ```bash
-#__case
+#__case init
 # addCli _id _full_name
 # addTr _id _value
 # showAll
@@ -49,22 +49,16 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
 # showCli _id
 # matar _id
 
-#######################################
-# Iniciar Sistema
-#######################################
+
 $init 500
 
-#######################################
-# Cadastrar Clientes
-#######################################
+#__case cadastrar
 $addCli maria maria silva
 $addCli josue josue matos
 $addCli maria ana maria silva
 fail: cliente ja existe
 
-#######################################
-# Emprestar dinheiro
-#######################################
+#__case emprestar
 $emprestar maria 300
 $emprestar josue 50
 $emprestar maria 100
@@ -73,15 +67,14 @@ fail: cliente nao existe
 $emprestar josue 400
 fail: fundos insuficientes
 
-#######################################
+#__case resumo
 # Mostrar todos ordenados por idCli
-
-#######################################
 $resumo
 josue : josue matos : 50
 maria : maria silva : 400
 saldo : 50
 
+#__case historico
 #######################################
 # Mostrar o histórico de transações
 #######################################
@@ -90,6 +83,7 @@ id:0 [maria 300]
 id:1 [josue 50]
 id:2 [maria 100]
 
+#__case filtrar
 #######################################
 # Mostrar cliente
 #######################################
@@ -98,6 +92,7 @@ id:0 [maria 300]
 id:2 [maria 100]
 saldo: 400
 
+#__case receber
 #######################################
 # Receber dinheiro
 #######################################
@@ -107,11 +102,12 @@ $receber maria 350
 $historico
 id:0 [maria 300]
 id:1 [josue 50]
-id:2 [maria -100]
+id:2 [maria 100]
 id:3 [maria -350]
 $receber josue 1
 $receber maria 10
 
+#__case mais operacoes
 #######################################
 # Mais operacoes
 #######################################
@@ -123,40 +119,41 @@ $receber josue 3
 
 $historico
 id:0 [maria 300]
-id:1 [josue -50]
+id:1 [josue 50]
 id:2 [maria 100]
-id:3 [maria 350]
-id:4 [josue 1]
-id:5 [maria 10]
-id:6 [hugo -10]
-id:7 [hugo -20]
-id:8 [maria 5]
-id:9 [josue 3]
+id:3 [maria -350]
+id:4 [josue -1]
+id:5 [maria -10]
+id:6 [hugo 10]
+id:7 [hugo 20]
+id:8 [maria -5]
+id:9 [josue -3]
 
+#__case matar
 #######################################
 # Matando
 #######################################
 $filtrar josue
-id:1 [josue -50]
-id:4 [josue 1]
-id:9 [josue 3]
-saldo josue: -46
+id:1 [josue 50]
+id:4 [josue -1]
+id:9 [josue -3]
+saldo: 46
 
 $matar josue
 
 $historico
-id:0 [maria -300]
-id:2 [maria -100]
-id:3 [maria 350]
-id:5 [maria 10]
-id:6 [hugo -10]
-id:7 [hugo -20]
-id:8 [maria 5]
+id:0 [maria 300]
+id:2 [maria 100]
+id:3 [maria -350]
+id:5 [maria -10]
+id:6 [hugo 10]
+id:7 [hugo 20]
+id:8 [maria -5]
 
 $resumo
-maria : maria silva : -35
-hugo : hugo calingo : -30
-agiota : 389
+hugo : hugo calingo : 30
+maria : maria silva : 35
+saldo : 389
 
 $end
 ```

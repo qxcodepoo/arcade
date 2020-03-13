@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>@conta 12 Agencia Bancária 1</title>
+  <title>@007 12 Agencia Bancária 1</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -80,10 +80,10 @@
   <![endif]-->
 </head>
 <body>
-<h2 id="conta"><span class="citation" data-cites="conta">@conta</span></h2>
+<h2 id="section"><span class="citation" data-cites="007">@007</span></h2>
 <h2 id="master-12-agencia-bancária-1">©05_master 12 Agencia Bancária 1</h2>
-<h3 id="section"></h3>
-<p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/conta/figura.jpg" /></p>
+<h3 id="section-1"></h3>
+<p><img src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/figura.jpg" /></p>
 <p>O objetivo dessa atividade é implementar uma classe responsável por gerenciar a conta bancária de um único cliente. Faremos operações de saque, depósito e extrato.</p>
 <h2 id="funcionalidades">Funcionalidades</h2>
 <ul>
@@ -120,81 +120,75 @@
 </ul>
 <hr />
 <h2 id="exemplos">Exemplos</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#__begin__</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co">#######################################</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Iniciar a conta</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#######################################</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="va">$init</span> <span class="ex">100</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="va">$show</span> </span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="ex">conta</span>:100 saldo:0</span>
-<span id="cb1-8"><a href="#cb1-8"></a></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#######################################</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># Realizar operação de saque e deposito</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#######################################</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="va">$deposito</span> <span class="ex">100</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="va">$deposito</span> <span class="ex">-10</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="ex">fail</span>: valor invalido</span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="va">$show</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="ex">conta</span>:100 saldo:100</span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="va">$saque</span> <span class="ex">20</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="va">$tarifa</span> <span class="ex">10</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="va">$show</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="ex">conta</span>:100 saldo:70</span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="va">$saque</span> <span class="ex">150</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="ex">fail</span>: saldo insuficiente</span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="va">$saque</span> <span class="ex">30</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="va">$tarifa</span> <span class="ex">5</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="va">$deposito</span> <span class="ex">5</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="va">$tarifa</span> <span class="ex">1</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="va">$show</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="ex">conta</span>:100 saldo:39</span>
-<span id="cb1-29"><a href="#cb1-29"></a></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="co">#######################################</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="co"># Retornar o extrato das operações</span></span>
-<span id="cb1-32"><a href="#cb1-32"></a><span class="co">#######################################</span></span>
-<span id="cb1-33"><a href="#cb1-33"></a></span>
-<span id="cb1-34"><a href="#cb1-34"></a><span class="co">#extrato mostra todas as operações desde a abertura da conta</span></span>
-<span id="cb1-35"><a href="#cb1-35"></a><span class="va">$extrato</span></span>
-<span id="cb1-36"><a href="#cb1-36"></a> <span class="ex">0</span>: abertura:    0:    0</span>
-<span id="cb1-37"><a href="#cb1-37"></a> <span class="ex">1</span>: deposito:  100:  100</span>
-<span id="cb1-38"><a href="#cb1-38"></a> <span class="ex">2</span>:    saque:  -20:   80</span>
-<span id="cb1-39"><a href="#cb1-39"></a> <span class="ex">3</span>:   tarifa:  -10:   70</span>
-<span id="cb1-40"><a href="#cb1-40"></a> <span class="ex">4</span>:    saque:  -30:   40</span>
-<span id="cb1-41"><a href="#cb1-41"></a> <span class="ex">5</span>:   tarifa:   -5:   35</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#__case iniciar</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="va">$init</span> <span class="ex">100</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="va">$show</span> </span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="ex">conta</span>:100 saldo:0</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#__case </span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="va">$deposito</span> <span class="ex">100</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="va">$deposito</span> <span class="ex">-10</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="ex">fail</span>: valor invalido</span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="va">$show</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ex">conta</span>:100 saldo:100</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#__case debito</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="va">$saque</span> <span class="ex">20</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="va">$tarifa</span> <span class="ex">10</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="va">$show</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="ex">conta</span>:100 saldo:70</span>
+<span id="cb1-18"><a href="#cb1-18"></a><span class="va">$saque</span> <span class="ex">150</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="ex">fail</span>: saldo insuficiente</span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="va">$saque</span> <span class="ex">30</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="va">$tarifa</span> <span class="ex">5</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a><span class="va">$deposito</span> <span class="ex">5</span></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="va">$tarifa</span> <span class="ex">1</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a><span class="va">$show</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a><span class="ex">conta</span>:100 saldo:39</span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a><span class="co">#__case extrato</span></span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="co">#extrato mostra todas as operações desde a abertura da conta</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a><span class="va">$extrato</span></span>
+<span id="cb1-30"><a href="#cb1-30"></a> <span class="ex">0</span>: abertura:    0:    0</span>
+<span id="cb1-31"><a href="#cb1-31"></a> <span class="ex">1</span>: deposito:  100:  100</span>
+<span id="cb1-32"><a href="#cb1-32"></a> <span class="ex">2</span>:    saque:  -20:   80</span>
+<span id="cb1-33"><a href="#cb1-33"></a> <span class="ex">3</span>:   tarifa:  -10:   70</span>
+<span id="cb1-34"><a href="#cb1-34"></a> <span class="ex">4</span>:    saque:  -30:   40</span>
+<span id="cb1-35"><a href="#cb1-35"></a> <span class="ex">5</span>:   tarifa:   -5:   35</span>
+<span id="cb1-36"><a href="#cb1-36"></a> <span class="ex">6</span>: deposito:    5:   40</span>
+<span id="cb1-37"><a href="#cb1-37"></a> <span class="ex">7</span>:   tarifa:   -1:   39</span>
+<span id="cb1-38"><a href="#cb1-38"></a></span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="co">#__case extrato n</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a><span class="co">#extratoN mostra as ultimas N operacoes</span></span>
+<span id="cb1-41"><a href="#cb1-41"></a><span class="va">$extratoN</span> <span class="ex">2</span></span>
 <span id="cb1-42"><a href="#cb1-42"></a> <span class="ex">6</span>: deposito:    5:   40</span>
 <span id="cb1-43"><a href="#cb1-43"></a> <span class="ex">7</span>:   tarifa:   -1:   39</span>
 <span id="cb1-44"><a href="#cb1-44"></a></span>
-<span id="cb1-45"><a href="#cb1-45"></a><span class="co">#extratoN mostra as ultimas N operacoes</span></span>
-<span id="cb1-46"><a href="#cb1-46"></a><span class="va">$extratoN</span> <span class="ex">2</span></span>
-<span id="cb1-47"><a href="#cb1-47"></a> <span class="ex">6</span>: deposito:    5:   40</span>
-<span id="cb1-48"><a href="#cb1-48"></a> <span class="ex">7</span>:   tarifa:   -1:   39</span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="co">#__case extornar</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a><span class="va">$extornar</span> <span class="ex">1</span> 5 7 50</span>
+<span id="cb1-47"><a href="#cb1-47"></a><span class="ex">fail</span>: indice 1 nao e tarifa</span>
+<span id="cb1-48"><a href="#cb1-48"></a><span class="ex">fail</span>: indice 50 invalido</span>
 <span id="cb1-49"><a href="#cb1-49"></a></span>
-<span id="cb1-50"><a href="#cb1-50"></a><span class="co">#######################################</span></span>
-<span id="cb1-51"><a href="#cb1-51"></a><span class="co"># Extornar</span></span>
-<span id="cb1-52"><a href="#cb1-52"></a><span class="co">#######################################</span></span>
-<span id="cb1-53"><a href="#cb1-53"></a><span class="va">$extornar</span> <span class="ex">1</span> 5 7 50</span>
-<span id="cb1-54"><a href="#cb1-54"></a><span class="ex">fail</span>: indice 1 nao e tarifa</span>
-<span id="cb1-55"><a href="#cb1-55"></a><span class="ex">fail</span>: indice 50 invalido</span>
-<span id="cb1-56"><a href="#cb1-56"></a></span>
-<span id="cb1-57"><a href="#cb1-57"></a><span class="va">$extrato</span></span>
-<span id="cb1-58"><a href="#cb1-58"></a> <span class="ex">0</span>: abertura:    0:    0</span>
-<span id="cb1-59"><a href="#cb1-59"></a> <span class="ex">1</span>: deposito:  100:  100</span>
-<span id="cb1-60"><a href="#cb1-60"></a> <span class="ex">2</span>:    saque:  -20:   80</span>
-<span id="cb1-61"><a href="#cb1-61"></a> <span class="ex">3</span>:   tarifa:  -10:   70</span>
-<span id="cb1-62"><a href="#cb1-62"></a> <span class="ex">4</span>:    saque:  -30:   40</span>
-<span id="cb1-63"><a href="#cb1-63"></a> <span class="ex">5</span>:   tarifa:   -5:   35</span>
-<span id="cb1-64"><a href="#cb1-64"></a> <span class="ex">6</span>: deposito:    5:   40</span>
-<span id="cb1-65"><a href="#cb1-65"></a> <span class="ex">7</span>:   tarifa:   -1:   39</span>
-<span id="cb1-66"><a href="#cb1-66"></a> <span class="ex">8</span>:  extorno:    5:   44</span>
-<span id="cb1-67"><a href="#cb1-67"></a> <span class="ex">9</span>:  extorno:    1:   45</span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="co">#__case novo extrato</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a><span class="va">$extrato</span></span>
+<span id="cb1-52"><a href="#cb1-52"></a> <span class="ex">0</span>: abertura:    0:    0</span>
+<span id="cb1-53"><a href="#cb1-53"></a> <span class="ex">1</span>: deposito:  100:  100</span>
+<span id="cb1-54"><a href="#cb1-54"></a> <span class="ex">2</span>:    saque:  -20:   80</span>
+<span id="cb1-55"><a href="#cb1-55"></a> <span class="ex">3</span>:   tarifa:  -10:   70</span>
+<span id="cb1-56"><a href="#cb1-56"></a> <span class="ex">4</span>:    saque:  -30:   40</span>
+<span id="cb1-57"><a href="#cb1-57"></a> <span class="ex">5</span>:   tarifa:   -5:   35</span>
+<span id="cb1-58"><a href="#cb1-58"></a> <span class="ex">6</span>: deposito:    5:   40</span>
+<span id="cb1-59"><a href="#cb1-59"></a> <span class="ex">7</span>:   tarifa:   -1:   39</span>
+<span id="cb1-60"><a href="#cb1-60"></a> <span class="ex">8</span>:  extorno:    5:   44</span>
+<span id="cb1-61"><a href="#cb1-61"></a> <span class="ex">9</span>:  extorno:    1:   45</span>
+<span id="cb1-62"><a href="#cb1-62"></a></span>
+<span id="cb1-63"><a href="#cb1-63"></a><span class="co">#__case extrato tarifa</span></span>
+<span id="cb1-64"><a href="#cb1-64"></a><span class="va">$tarifa</span> <span class="ex">50</span></span>
+<span id="cb1-65"><a href="#cb1-65"></a><span class="va">$extratoN</span> <span class="ex">2</span></span>
+<span id="cb1-66"><a href="#cb1-66"></a> <span class="ex">9</span>:  extorno:    1:   45</span>
+<span id="cb1-67"><a href="#cb1-67"></a><span class="ex">10</span>:   tarifa:  -50:   -5</span>
 <span id="cb1-68"><a href="#cb1-68"></a></span>
-<span id="cb1-69"><a href="#cb1-69"></a><span class="va">$tarifa</span> <span class="ex">50</span></span>
-<span id="cb1-70"><a href="#cb1-70"></a><span class="va">$extratoN</span> <span class="ex">2</span></span>
-<span id="cb1-71"><a href="#cb1-71"></a> <span class="ex">9</span>:  extorno:    1:   45</span>
-<span id="cb1-72"><a href="#cb1-72"></a><span class="ex">10</span>:   tarifa:  -50:   -5</span>
-<span id="cb1-73"><a href="#cb1-73"></a></span>
-<span id="cb1-74"><a href="#cb1-74"></a><span class="va">$end</span></span>
-<span id="cb1-75"><a href="#cb1-75"></a><span class="co">#__end__</span></span></code></pre></div>
+<span id="cb1-69"><a href="#cb1-69"></a><span class="va">$end</span></span></code></pre></div>
 <hr />
 <h2 id="raio-x">Raio X</h2>
 <div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a>class Operacao</span>

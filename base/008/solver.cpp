@@ -122,7 +122,7 @@ public:
     void receber(string idCli, float value){
         Cliente& cliente = repCli.get(idCli);
         if(value > cliente.saldo)
-            throw string("fail: dinheiro demais");
+            throw string("fail: valor maior que a divida");
         cliente.saldo -= value;
         this->saldo += value;
         pushTransacao(idCli, -value);
@@ -179,7 +179,7 @@ public:
             for(auto& tr : agiota.repTr.getValues())
                 if(tr.idCli == idCli)
                     cout << tr << endl;
-            cout << "saldo : " << agiota.repCli.get(idCli).saldo  << endl;
+            cout << "saldo: " << agiota.repCli.get(idCli).saldo  << endl;
         }else if(op == "receber"){
             string nome;
             float value;

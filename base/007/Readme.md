@@ -31,22 +31,19 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 ## Exemplos
 
 ```bash
-#__begin__
-#######################################
-# Iniciar a conta
-#######################################
+#__case iniciar
 $init 100
 $show 
 conta:100 saldo:0
 
-#######################################
-# Realizar operação de saque e deposito
-#######################################
+#__case 
 $deposito 100
 $deposito -10
 fail: valor invalido
 $show
 conta:100 saldo:100
+
+#__case debito
 $saque 20
 $tarifa 10
 $show
@@ -60,10 +57,7 @@ $tarifa 1
 $show
 conta:100 saldo:39
 
-#######################################
-# Retornar o extrato das operações
-#######################################
-
+#__case extrato
 #extrato mostra todas as operações desde a abertura da conta
 $extrato
  0: abertura:    0:    0
@@ -75,18 +69,18 @@ $extrato
  6: deposito:    5:   40
  7:   tarifa:   -1:   39
 
+#__case extrato n
 #extratoN mostra as ultimas N operacoes
 $extratoN 2
  6: deposito:    5:   40
  7:   tarifa:   -1:   39
 
-#######################################
-# Extornar
-#######################################
+#__case extornar
 $extornar 1 5 7 50
 fail: indice 1 nao e tarifa
 fail: indice 50 invalido
 
+#__case novo extrato
 $extrato
  0: abertura:    0:    0
  1: deposito:  100:  100
@@ -99,13 +93,13 @@ $extrato
  8:  extorno:    5:   44
  9:  extorno:    1:   45
 
+#__case extrato tarifa
 $tarifa 50
 $extratoN 2
  9:  extorno:    1:   45
 10:   tarifa:  -50:   -5
 
 $end
-#__end__
 ```
 
 ***
