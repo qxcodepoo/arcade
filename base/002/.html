@@ -116,71 +116,71 @@
 </ul>
 <hr />
 <h2 id="shell">Shell</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#__case inicializar</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># O comando &quot;$in&quot; insere uma pessoa no carro.</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># O comando &quot;$out&quot; retira uma pessoa do carro&quot;.</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># O comando &quot;$show&quot; mostra o estado do carro.</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Deve ser emitido um erro caso não seja possível inserir ou retirar uma pessoa.</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="va">$show</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="ex">pass</span>: 0, gas: 0, km: 0</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="va">$in</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="va">$in</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="va">$show</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="ex">pass</span>: 2, gas: 0, km: 0</span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="va">$in</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="ex">fail</span>: limite de pessoas atingido</span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="va">$show</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="ex">pass</span>: 2, gas: 0, km: 0</span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="va">$out</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="va">$out</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="va">$out</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="ex">fail</span>: nao ha ninguem no carro</span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="va">$show</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="ex">pass</span>: 0, gas: 0, km: 0</span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="va">$end</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#__case abastecer</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="va">$fuel</span> <span class="ex">60</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="va">$show</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="ex">pass</span>: 0, gas: 60, km: 0</span>
-<span id="cb2-5"><a href="#cb2-5"></a></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#__case dirigir vazio</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="va">$drive</span> <span class="ex">10</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="ex">fail</span>: nao ha ninguem no carro</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#__case dirigir</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="va">$in</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="va">$drive</span> <span class="ex">10</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="va">$show</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="ex">pass</span>: 1, gas: 50, km: 10</span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#__case para longe</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="va">$drive</span> <span class="ex">70</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="ex">fail</span>: tanque vazio apos andar 50 km</span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="va">$drive</span> <span class="ex">10</span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="ex">fail</span>: tanque vazio</span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="va">$show</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="ex">pass</span>: 1, gas: 0, km: 60</span>
-<span id="cb2-23"><a href="#cb2-23"></a></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#__case enchendo o tanque</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="va">$fuel</span> <span class="ex">200</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="va">$show</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="ex">pass</span>: 1, gas: 100, km: 60</span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="va">$end</span></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="co">#__end__</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">#__case inicializar</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="co"># O comando &quot;$in&quot; insere uma pessoa no carro.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="co"># O comando &quot;$out&quot; retira uma pessoa do carro&quot;.</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="co"># O comando &quot;$show&quot; mostra o estado do carro.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="co"># Deve ser emitido um erro caso não seja possível inserir ou retirar uma pessoa.</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="ex">pass</span>: 0, gas: 0, km: 0</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="va">$in</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="va">$in</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a><span class="ex">pass</span>: 2, gas: 0, km: 0</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a><span class="va">$in</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a><span class="ex">fail</span>: limite de pessoas atingido</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a><span class="ex">pass</span>: 2, gas: 0, km: 0</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="va">$out</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a><span class="va">$out</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a><span class="va">$out</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a><span class="ex">fail</span>: nao ha ninguem no carro</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a><span class="ex">pass</span>: 0, gas: 0, km: 0</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">#__case abastecer</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="va">$fuel</span> <span class="ex">60</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="ex">pass</span>: 0, gas: 60, km: 0</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="co">#__case dirigir vazio</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">10</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="ex">fail</span>: nao ha ninguem no carro</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="co">#__case dirigir</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="va">$in</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">10</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="ex">pass</span>: 1, gas: 50, km: 10</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="co">#__case para longe</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">70</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a><span class="ex">fail</span>: tanque vazio apos andar 50 km</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">10</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a><span class="ex">fail</span>: tanque vazio</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a><span class="ex">pass</span>: 1, gas: 0, km: 60</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a><span class="co">#__case enchendo o tanque</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a><span class="va">$fuel</span> <span class="ex">200</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a><span class="ex">pass</span>: 1, gas: 100, km: 60</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a><span class="va">$end</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a><span class="co">#__end__</span></span></code></pre></div>
 <hr />
 <h2 id="raio-x">Raio X</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">class</span> Car </span>
-<span id="cb3-2"><a href="#cb3-2"></a>+ gas: <span class="dt">int</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>+ gasMax: <span class="dt">int</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>+ pass: <span class="dt">int</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>+ passMax: <span class="dt">int</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a>+ km: <span class="dt">int</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a>--</span>
-<span id="cb3-8"><a href="#cb3-8"></a>+ <span class="fu">in</span>(): bool    <span class="co">//embarcar</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a>+ <span class="fu">out</span>(): bool   <span class="co">//desembarcar</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a>+ <span class="fu">fuel</span>(value: <span class="dt">int</span>): <span class="dt">void</span> <span class="co">//abastecer</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a>+ <span class="fu">drive</span>(distance: <span class="dt">int</span>): <span class="dt">boolean</span> <span class="co">//dirigir</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a>+ <span class="fu">show</span>(): <span class="dt">void</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">class</span> Car </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>+ gas: <span class="dt">int</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>+ gasMax: <span class="dt">int</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>+ pass: <span class="dt">int</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>+ passMax: <span class="dt">int</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>+ km: <span class="dt">int</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>--</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>+ <span class="fu">in</span>(): bool    <span class="co">//embarcar</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>+ <span class="fu">out</span>(): bool   <span class="co">//desembarcar</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>+ <span class="fu">fuel</span>(value: <span class="dt">int</span>): <span class="dt">void</span> <span class="co">//abastecer</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>+ <span class="fu">drive</span>(distance: <span class="dt">int</span>): <span class="dt">boolean</span> <span class="co">//dirigir</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>+ <span class="fu">show</span>(): <span class="dt">void</span></span></code></pre></div>
 <hr />
 <h2 id="resposta-e-testes">Resposta e testes</h2>
 <ul>

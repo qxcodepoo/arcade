@@ -1,4 +1,4 @@
-case=00 inicializar
+case=inicializar
 input=show
 in
 in
@@ -28,9 +28,9 @@ $show
 pass: 0, gas: 0, km: 0
 $end
 "
+grade reduction=
 
-
-case=01 abastecer
+case=abastecer
 input=fuel 60
 show
 end
@@ -39,9 +39,9 @@ $show
 pass: 0, gas: 60, km: 0
 $end
 "
+grade reduction=
 
-
-case=02 dirigir vazio
+case=dirigir vazio
 input=fuel 60
 show
 drive 10
@@ -53,9 +53,9 @@ $drive 10
 fail: nao ha ninguem no carro
 $end
 "
+grade reduction=
 
-
-case=03 dirigir
+case=dirigir
 input=fuel 60
 show
 drive 10
@@ -74,9 +74,9 @@ $show
 pass: 1, gas: 50, km: 10
 $end
 "
+grade reduction=
 
-
-case=04 para longe
+case=para longe
 input=fuel 60
 show
 drive 10
@@ -104,9 +104,9 @@ $show
 pass: 1, gas: 0, km: 60
 $end
 "
+grade reduction=
 
-
-case=05 enchendo o tanque
+case=enchendo o tanque
 input=fuel 60
 show
 drive 10
@@ -139,3 +139,4 @@ $show
 pass: 1, gas: 100, km: 60
 $end
 "
+grade reduction=
