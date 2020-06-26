@@ -72,7 +72,7 @@ class Motoca {
     }
 }
 
-public class Controller{
+public class Solver{
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Motoca motoca  = new Motoca(1);

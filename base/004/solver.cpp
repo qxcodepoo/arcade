@@ -32,6 +32,10 @@ struct Lapiseira{
         this->calibre = calibre;
         this->grafite = nullptr;
     }
+    ~Lapiseira(){
+        if(this->grafite != nullptr)
+            delete this->grafite;
+    }
 
     string toString(){
         stringstream saida;
@@ -43,21 +47,27 @@ struct Lapiseira{
         return saida.str();
     }
 
-    void inserir(Grafite * grafite){
+    bool inserir(Grafite * grafite){
         if(this->grafite == nullptr){
-            if(this->calibre != grafite->calibre)
+            if(this->calibre != grafite->calibre){
                 cout << "fail: calibre incompatível\n";
-            else
+                return false;
+            }else{
                 this->grafite = grafite;
-        }else
-            cout << "fail: ja existe grafite\n";
+                return true;
+            }
+        }
+        cout << "fail: ja existe grafite\n";
+        return false;
     }
 
     void remover(){
         if(this->grafite == nullptr)
             cout << "fail: nao existe grafite\n";
-        else
+        else{
+            delete this->grafite;
             this->grafite = nullptr;
+        }
     }
 
     void write(int pressao){
@@ -87,7 +97,7 @@ int main(){
         if(line == "end")
             break;
         else if(cmd == "help"){
-            cout << "in; out; show; fuel _gat; drive _km" << endl;
+            cout << "init _calibre; inserir _calibre _dureza _tamanho; remover; write _pressao" << endl;
         }else if(cmd == "init"){
             float calibre;
             ss >> calibre;
@@ -97,7 +107,9 @@ int main(){
             string dureza;
             int tamanho;
             ss >> calibre >> dureza >> tamanho;
-            lapiseira.inserir(new Grafite(calibre, dureza, tamanho));
+            auto grafite = new Grafite(calibre, dureza, tamanho);
+            if(!lapiseira.inserir(grafite))
+                delete grafite;
         }else if(cmd == "remover"){
             lapiseira.remover();
         }else if(cmd == "show"){

@@ -49,7 +49,7 @@ class Calculadora {
 	}
 }
 
-class Controller{
+class Solver{
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);

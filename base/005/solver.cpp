@@ -91,10 +91,11 @@ int main(){
             //_B
             int value;
             ss >> value;
-            for(vector<int>::iterator it = vet.begin(); it != vet.end(); ++it){
+            for(vector<int>::iterator it = vet.begin(); it != vet.end();){
                 if(*it == value){
                     it = vet.erase(it);
-                    --it;
+                }else{
+                    it++;
                 }
             }
             //_E
