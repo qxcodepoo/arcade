@@ -1,4 +1,4 @@
-case=00 subindo e buzinando
+case=subindo e buzinando
 input=show
 buzinar
 in marcos 4
@@ -22,9 +22,9 @@ $show
 potencia: 1, minutos: 0, pessoa: [marcos:4]
 $end
 "
+grade reduction=
 
-
-case=01 subindo e buzinando
+case=subindo e buzinando
 input=init 5
 show
 in marcos 4
@@ -41,9 +41,9 @@ $buzinar
 Peeeeem
 $end
 "
+grade reduction=
 
-
-case=02 subindo e trocando
+case=subindo e trocando
 input=init 7
 in heitor 6
 show
@@ -64,9 +64,9 @@ $show
 potencia: 7, minutos: 0, pessoa: [suzana:8]
 $end
 "
+grade reduction=
 
-
-case=03 passeando
+case=passeando
 input=init 7
 in suzana 8
 drive 10
@@ -87,9 +87,9 @@ $show
 potencia: 7, minutos: 20, pessoa: [suzana:8]
 $end
 "
+grade reduction=
 
-
-case=04 nem grande nem pequeno
+case=nem grande nem pequeno
 input=init 7
 buy 20
 in andreina 23
@@ -105,9 +105,9 @@ $show
 potencia: 7, minutos: 20, pessoa: [andreina:23]
 $end
 "
+grade reduction=
 
-
-case=05 acabou o tempo
+case=acabou o tempo
 input=init 7
 buy 20
 in andreina 6
@@ -125,3 +125,4 @@ $drive 10
 fail: andou 5 min e acabou o tempo
 $end
 "
+grade reduction=

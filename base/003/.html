@@ -118,89 +118,89 @@
 <pre><code>- Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
 - Para buzinar, utilize o `for` gerando várias vezes o `e`. </code></pre>
 <h2 id="raio-x">Raio X</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1"></a>class Passageiro:</span>
-<span id="cb2-2"><a href="#cb2-2"></a>+ nome: string</span>
-<span id="cb2-3"><a href="#cb2-3"></a>+ idade: <span class="dt">int</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a>class Moto:</span>
-<span id="cb2-6"><a href="#cb2-6"></a>+ potencia: <span class="dt">int</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>+ pass: Passageiro</span>
-<span id="cb2-8"><a href="#cb2-8"></a>+ tempo: <span class="dt">int</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a>--</span>
-<span id="cb2-10"><a href="#cb2-10"></a>+ Moto(potencia: <span class="dt">int</span>)</span>
-<span id="cb2-11"><a href="#cb2-11"></a>+ subir(pass)</span>
-<span id="cb2-12"><a href="#cb2-12"></a>+ buzinar()</span>
-<span id="cb2-13"><a href="#cb2-13"></a>+ descer()</span>
-<span id="cb2-14"><a href="#cb2-14"></a>+ dirigir()</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>class Passageiro:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>+ nome: string</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>+ idade: <span class="dt">int</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>class Moto:</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>+ potencia: <span class="dt">int</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>+ pass: Passageiro</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>+ tempo: <span class="dt">int</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>--</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>+ Moto(potencia: <span class="dt">int</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>+ subir(pass)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>+ buzinar()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>+ descer()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>+ dirigir(tempo)</span></code></pre></div>
 <h2 id="testes">Testes</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#__case subindo e buzinando</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="va">$show</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="ex">potencia</span>: 1, minutos: 0, pessoa: null</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="va">$buzinar</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="ex">fail</span>: moto vazia</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="va">$in</span> <span class="ex">marcos</span> 4</span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="va">$show</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="ex">potencia</span>: 1, minutos: 0, pessoa: [marcos:4]</span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="va">$buzinar</span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="ex">Pem</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="va">$in</span> <span class="ex">marisa</span> 2</span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="ex">fail</span>: moto ocupada</span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="va">$show</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="ex">potencia</span>: 1, minutos: 0, pessoa: [marcos:4]</span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="va">$end</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#__case subindo e buzinando</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="va">$init</span> <span class="ex">5</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="va">$show</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="ex">potencia</span>: 5, minutos: 0, pessoa: null</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="va">$in</span> <span class="ex">marcos</span> 4</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="va">$show</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="ex">potencia</span>: 5, minutos: 0, pessoa: [marcos:4]</span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="va">$buzinar</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="ex">Peeeeem</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="va">$end</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#__case subindo e trocando</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="va">$init</span> <span class="ex">7</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="va">$in</span> <span class="ex">heitor</span> 6</span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="va">$show</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="ex">potencia</span>: 7, minutos: 0, pessoa: [heitor:6]</span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="va">$out</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="va">$out</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="ex">fail</span>: moto vazia</span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="va">$in</span> <span class="ex">suzana</span> 8</span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="va">$show</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="ex">potencia</span>: 7, minutos: 0, pessoa: [suzana:8]</span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="va">$end</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#__case passeando</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="va">$init</span> <span class="ex">7</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="va">$in</span> <span class="ex">suzana</span> 8</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="va">$drive</span> <span class="ex">10</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="ex">fail</span>: tempo zerado</span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="va">$buy</span> <span class="ex">40</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="va">$show</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="ex">potencia</span>: 7, minutos: 40, pessoa: [suzana:8]</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="va">$drive</span> <span class="ex">20</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="va">$show</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="ex">potencia</span>: 7, minutos: 20, pessoa: [suzana:8]</span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="va">$end</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#__case nem grande nem pequeno</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="va">$init</span> <span class="ex">7</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="va">$buy</span> <span class="ex">20</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="va">$in</span> <span class="ex">andreina</span> 23</span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="va">$drive</span> <span class="ex">15</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="ex">fail</span>: muito grande para andar de moto</span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="va">$show</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="ex">potencia</span>: 7, minutos: 20, pessoa: [andreina:23]</span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="va">$end</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#__case acabou o tempo</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="va">$init</span> <span class="ex">7</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="va">$buy</span> <span class="ex">20</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="va">$in</span> <span class="ex">andreina</span> 6</span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="va">$drive</span> <span class="ex">15</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="va">$show</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="ex">potencia</span>: 7, minutos: 5, pessoa: [andreina:6]</span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="va">$drive</span> <span class="ex">10</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="ex">fail</span>: andou 5 min e acabou o tempo</span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="co">#__case subindo e buzinando</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="ex">potencia</span>: 1, minutos: 0, pessoa: null</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="va">$buzinar</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="ex">fail</span>: moto vazia</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">marcos</span> 4</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="ex">potencia</span>: 1, minutos: 0, pessoa: [marcos:4]</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="va">$buzinar</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a><span class="ex">Pem</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">marisa</span> 2</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a><span class="ex">fail</span>: moto ocupada</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a><span class="ex">potencia</span>: 1, minutos: 0, pessoa: [marcos:4]</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">#__case subindo e buzinando</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="va">$init</span> <span class="ex">5</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="ex">potencia</span>: 5, minutos: 0, pessoa: null</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">marcos</span> 4</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="ex">potencia</span>: 5, minutos: 0, pessoa: [marcos:4]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a><span class="va">$buzinar</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a><span class="ex">Peeeeem</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">#__case subindo e trocando</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="va">$init</span> <span class="ex">7</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">heitor</span> 6</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="ex">potencia</span>: 7, minutos: 0, pessoa: [heitor:6]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="va">$out</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="va">$out</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="ex">fail</span>: moto vazia</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">suzana</span> 8</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a><span class="ex">potencia</span>: 7, minutos: 0, pessoa: [suzana:8]</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co">#__case passeando</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="va">$init</span> <span class="ex">7</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">suzana</span> 8</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">10</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="ex">fail</span>: tempo zerado</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="va">$buy</span> <span class="ex">40</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="ex">potencia</span>: 7, minutos: 40, pessoa: [suzana:8]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">20</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a><span class="ex">potencia</span>: 7, minutos: 20, pessoa: [suzana:8]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co">#__case nem grande nem pequeno</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="va">$init</span> <span class="ex">7</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="va">$buy</span> <span class="ex">20</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">andreina</span> 23</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">15</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a><span class="ex">fail</span>: muito grande para andar de moto</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="ex">potencia</span>: 7, minutos: 20, pessoa: [andreina:23]</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="va">$end</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co">#__case acabou o tempo</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="va">$init</span> <span class="ex">7</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="va">$buy</span> <span class="ex">20</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="va">$in</span> <span class="ex">andreina</span> 6</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">15</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="va">$show</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a><span class="ex">potencia</span>: 7, minutos: 5, pessoa: [andreina:6]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a><span class="va">$drive</span> <span class="ex">10</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="ex">fail</span>: andou 5 min e acabou o tempo</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a><span class="va">$end</span></span></code></pre></div>
 </body>
 </html>

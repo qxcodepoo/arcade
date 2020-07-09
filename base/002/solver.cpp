@@ -12,12 +12,15 @@ struct Carro{
     int gasMax; // limite do tanque
     int km; // quantidade de quilometragem
 
-    Carro(int pass = 0, int passMax = 2, int gas = 0,int gasMax = 100,int km = 0){
+    Carro(int pass = 0, int passMax = 2, int gas = 0,int gasMax = 100, int km = 0){
         this->pass = pass; // Passageiros
         this->passMax = passMax; // limite de Passageiros
         this->gas = gas; // tanque
         this->gasMax = gasMax; // limite do tanque
         this->km = km; // quantidade de quilometragem
+    }
+
+    ~Carro(){
     }
 
     string toString(){
@@ -65,8 +68,30 @@ struct Carro{
     }    
 };
 
+/*
 int main(){
-    Carro car;
+    //java
+    Carro fusca1 = new Carro(0, 5, 0, 30, 100000);
+    Carro fusca2 = new Carro(0, 5, 0, 30, 100000);
+    Carro fusca3 = fusca2;
+    Carro ferrari = new Carro(0, 2, 60, 60, 0);
+
+    //c++ dinamico
+    Carro * fusca1 = new Carro(0, 5, 0, 30, 100000);
+    Carro * fusca2 = new Carro(0, 5, 0, 30, 100000);
+    fusca1 == fusca2
+    Carro * fusca3 = fusca2;
+    Carro * ferrari = new Carro(0, 2, 60, 60, 0);
+
+    //c++ estático
+    Carro fusca1(0, 5, 0, 30, 100000);
+    Carro fusca2(0, 5, 0, 30, 100000);
+    fusca1 == fusca2
+}
+*/
+
+int main(){
+    Carro * car = new Carro(0, 0, 0, 0, 0);
     string line;
     while(true){
         getline(cin, line);
@@ -74,27 +99,40 @@ int main(){
         string cmd;
         cout << "$" << line << endl;
         ss >> cmd;
-        if(line == "end")
+        if(line == "end"){
             break;
-        else if(cmd == "help")
-            cout << "in; out; show; fuel _gat; drive _km" << endl;
+        }else if(cmd == "init"){//init 0 5 0 40 10000
+            int pass, maxPass, gas, maxGas, km;
+            ss >> pass >> maxPass >> gas >> maxGas >> km;
+            if(car != nullptr){
+                delete car;
+                car = nullptr;
+            }
+            car = new Carro(pass, maxPass, gas, maxGas, km);
+        }else if(cmd == "help")
+            cout << "in; out; show; fuel _gas; drive _km" << endl;
         else if(cmd == "in"){
-            car.in();
+            car->in();
         }else if(cmd == "out"){
-            car.out();
+            car->out();
         }else if(cmd == "show"){
-            cout << car.toString() << endl;
+            cout << car->toString() << endl;
         }else if (cmd == "drive"){
             int km;
             ss >> km;
-            car.drive(km);
+            car->drive(km);
         }else if (cmd == "fuel"){
             int gas;
             ss >> gas;
-            car.fuel(gas);
+            car->fuel(gas);
         }else
             cout << "fail: comando invalido" << endl;
     }
+    if(car != nullptr){
+        delete car;
+        car = nullptr;
+    }
     return 0;
 }
+
 

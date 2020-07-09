@@ -41,7 +41,7 @@ class Moto:
 + subir(pass)
 + buzinar()
 + descer()
-+ dirigir()
++ dirigir(tempo)
 ```
 
 ## Testes

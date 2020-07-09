@@ -24,6 +24,7 @@
 ## rookie
 
 - [@005 Mestre dos Vetores](base/005/Readme.md#03_rookie-mestre-dos-vetores-sub-arraylist-e-vector) [ArrayList e Vector]
+- [@009 Parquinho: Hora do pula pula](base/009/Readme.md#03_rookie-parquinho-hora-do-pula-pula)
 - [@006 Tamagotchi - Seu Pet Virtual](base/006/Readme.md#03_rookie-tamagotchi---seu-pet-virtual-sub-tostring-getters-and-setters) [toString, getters and setters]
 
 ## fighter

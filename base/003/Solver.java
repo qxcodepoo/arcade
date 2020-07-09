@@ -22,24 +22,34 @@ class Motoca {
 	public Motoca(int potencia){
         this.potencia = potencia;
         this.tempo = 0;
-    }
+	}
+	~Motoca(){
+		if(pessoa)
+			delete pessoa;
+	}
     
     void comprar(int tempo){
         this.tempo += tempo;
     }
 	
-	void embarcar(Pessoa pessoa) {
-		if(this.pessoa == null)
+	bool embarcar(Pessoa * pessoa) {
+		if(this.pessoa == null){
 			this.pessoa = pessoa;
-		else
-			System.out.println("fail: moto ocupada");
+			return true;
+		}
+		System.out.println("fail: moto ocupada");
+		return false;
 	}
 	
-	void desembarcar() {
-		if(this.pessoa != null)
-			this.pessoa = null;
-		else
+	Pessoa * desembarcar() {
+		if(this.pessoa != nullptr){
+			Pessoa * pessoa = this.pessoa;
+			this->pessoa = null;
+			return pessoa;
+		}else{
 			System.out.println("fail: moto vazia");
+			return nullptr;
+		}
 	}
 
 	void dirigir(int tempo){
@@ -78,7 +88,7 @@ public class Solver{
 		Motoca motoca  = new Motoca(1);
 		while(true) {
 			String line = scanner.nextLine();
-            String ui[] = line.split(" ");
+            String ui[] = line.split(" "); //ui user input eh um vetor de strings
             System.out.println("$" + line);
 			if(ui[0].equals("end")) {
 				break;
@@ -86,12 +96,15 @@ public class Solver{
 				Pessoa pessoa = motoca.pessoa;
 				motoca = new Motoca(Integer.parseInt(ui[1]));
 				motoca.embarcar(pessoa);
-			}else if(ui[0].equals("in")) { //nome  idade
+			}else if(ui[0].equals("in")) { //in nome idade
 				int idade = Integer.parseInt(ui[2]);
-				Pessoa pessoa = new Pessoa(ui[1], idade);
-				motoca.embarcar(pessoa);
+				Pessoa * pessoa = new Pessoa(ui[1], idade);
+				if(!motoca.embarcar(pessoa))
+					delete pessoa;
 			}else if(ui[0].equals("out")) {
-				motoca.desembarcar();
+				Pessoa * pessoa = motoca.desembarcar();
+				if(pessoa)
+					delete pessoa;
 			}else if(ui[0].equals("show")) {
 				System.out.println(motoca);
 			}else if(ui[0].equals("drive")) {
@@ -104,6 +117,7 @@ public class Solver{
 				System.out.println("Comando invalido");
 			}
 		}
+		delete motoca;
 		scanner.close();
 	}
 }

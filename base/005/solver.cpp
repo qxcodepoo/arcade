@@ -7,10 +7,20 @@ using namespace std;
 //mostra o vetor
 void vet_show(vector<int>& vet){
     cout << "[ ";
-    for(size_t i = 0; i < vet.size(); i++)
-        cout << vet[i] << " ";
+//    for(size_t i = 0; i < vet.size(); i++)
+//        cout << vet[i] << " ";
+    for(int value : vet)
+        cout << value << " ";
     cout << "]\n";
 }
+
+int funcao(int * a){
+}
+int main(){
+    int value = 4;
+    funcao(&value);
+}
+
 
 void vet_rshow(vector<int>& vet){
 //_B
