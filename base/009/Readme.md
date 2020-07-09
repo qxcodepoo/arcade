@@ -1,4 +1,4 @@
-## ©03_rookie Parquinho: Hora do pula pula
+## ©03_rookie Parquinho: Hora do pula pula sub: agregação, vetores e implementação livre
 
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho.
 
