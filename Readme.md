@@ -1,3 +1,4 @@
+## TOC []()
 
 <!--TOC_BEGIN-->
 - [Entendendo a main](#entendendo-a-main)
