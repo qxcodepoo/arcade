@@ -71,8 +71,6 @@ class Trampoline{
         return saida;
     }
 
-
-
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Trampoline tramp = new Trampoline();

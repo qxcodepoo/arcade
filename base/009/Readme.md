@@ -1,9 +1,10 @@
-## ©03_rookie Parquinho: Hora do pula pula sub: agregação, vetores e implementação livre
+## #03_rookie Parquinho: Hora do pula pula
 
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho.
 
 
 ```bash
+#__case unico
 # $chegou _nome _idade
 # insere uma criança na fila de entrada do brinquedo
 $chegou mario 5
@@ -27,7 +28,11 @@ $show
 $sair
 $show
 => mario:5 luana:3 => [ livia:4 ]
+$end
 ```
+
+inserir_monitor bragança
+remover_monitor
 
 ## Ideias de implementações:
 ```sh

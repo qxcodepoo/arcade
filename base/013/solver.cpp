@@ -15,6 +15,7 @@ struct Conta{
     Conta(int id, string idCliente){
         this->id = id;
         this->idCliente = idCliente;
+        this->saldo = 0;
     }
 
     virtual void atualizarMes() = 0;

@@ -1,2 +1,3 @@
-indexer
-indexer -c .drafts.ini
+indexer board
+indexer manual Readme.md
+indexer links

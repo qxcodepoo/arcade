@@ -10,7 +10,7 @@ private:
     int age;
     string name;
 public:
-    Kid(int age, string name){
+    Kid(string name, int age){
         this->age = age;
         this->name = name;
     }
@@ -44,6 +44,11 @@ public:
     Trampoline(){
     }
     ~Trampoline(){
+        for(Kid * kid : playing)
+            delete kid;
+        for(Kid * kid : waiting)
+            delete kid;
+        
     }
     
     void arrive(Kid * kid){
@@ -74,10 +79,10 @@ public:
         string saida = "=> ";
         for(Kid * kid : waiting)
             saida += kid->toString() + " ";
-        saida += "=> ";
+        saida += "=> [ ";
         for(Kid * kid : playing)
             saida += kid->toString() + " ";
-        return saida;
+        return saida + "]";
     }
 };
 
@@ -87,8 +92,22 @@ int main(){
     while(true){
         getline(cin, line);
         stringstream ss(line);
+        cout << "$" << line << endl;
         string cmd;
         ss >> cmd;
-
+        if(cmd == "end"){
+            break;
+        }else if(cmd == "chegou"){
+            string nome;
+            int idade;
+            ss >> nome >> idade;
+            tramp.arrive(new Kid(nome, idade));
+        }else if(cmd == "show"){
+            cout << tramp.toString() << endl;
+        }else if(cmd == "entrar"){
+            tramp.in();
+        }else if(cmd == "sair"){
+            tramp.out();
+        }
     }
 }

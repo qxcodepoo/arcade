@@ -1,4 +1,4 @@
-## ©01_basic  Carro sub: Uma classe e muitas ações
+## #01_basic  Carro sub: Uma classe e muitas ações
 
 ![](figura.jpg)
 

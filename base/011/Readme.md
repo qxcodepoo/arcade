@@ -1,4 +1,4 @@
-## ©03_vetores 15 JunkFood Machine
+## #03_vetores JunkFood Machine
 ### Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem
 ![](figura.jpg)
 

@@ -23,16 +23,12 @@ class Motoca {
         this.potencia = potencia;
         this.tempo = 0;
 	}
-	~Motoca(){
-		if(pessoa)
-			delete pessoa;
-	}
     
     void comprar(int tempo){
         this.tempo += tempo;
     }
 	
-	bool embarcar(Pessoa * pessoa) {
+	boolean embarcar(Pessoa pessoa) {
 		if(this.pessoa == null){
 			this.pessoa = pessoa;
 			return true;
@@ -41,14 +37,14 @@ class Motoca {
 		return false;
 	}
 	
-	Pessoa * desembarcar() {
-		if(this.pessoa != nullptr){
-			Pessoa * pessoa = this.pessoa;
-			this->pessoa = null;
+	Pessoa desembarcar() {
+		if(this.pessoa != null){
+			Pessoa pessoa = this.pessoa;
+			this.pessoa = null;
 			return pessoa;
 		}else{
 			System.out.println("fail: moto vazia");
-			return nullptr;
+			return null;
 		}
 	}
 
@@ -98,13 +94,10 @@ public class Solver{
 				motoca.embarcar(pessoa);
 			}else if(ui[0].equals("in")) { //in nome idade
 				int idade = Integer.parseInt(ui[2]);
-				Pessoa * pessoa = new Pessoa(ui[1], idade);
-				if(!motoca.embarcar(pessoa))
-					delete pessoa;
+				Pessoa pessoa = new Pessoa(ui[1], idade);
+				motoca.embarcar(pessoa);
 			}else if(ui[0].equals("out")) {
-				Pessoa * pessoa = motoca.desembarcar();
-				if(pessoa)
-					delete pessoa;
+				motoca.desembarcar();
 			}else if(ui[0].equals("show")) {
 				System.out.println(motoca);
 			}else if(ui[0].equals("drive")) {
@@ -117,7 +110,6 @@ public class Solver{
 				System.out.println("Comando invalido");
 			}
 		}
-		delete motoca;
 		scanner.close();
 	}
 }

@@ -1,4 +1,4 @@
-## ©06_jedi Agiota Gente Fina #arrays #mapas #crud
+## #06_jedi Agiota Gente Fina #arrays #mapas #crud
 ### Ptolomeu é o agiota mais carismático de MoneyVille. Sem nenhuma razão foi denunciado e acabou indo pra cadeira. A lasqueira foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 ![](figura.jpg)
 

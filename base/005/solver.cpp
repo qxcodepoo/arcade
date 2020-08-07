@@ -14,13 +14,6 @@ void vet_show(vector<int>& vet){
     cout << "]\n";
 }
 
-int funcao(int * a){
-}
-int main(){
-    int value = 4;
-    funcao(&value);
-}
-
 
 void vet_rshow(vector<int>& vet){
 //_B

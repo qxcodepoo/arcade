@@ -1,4 +1,4 @@
-## ©02_noobie Motoca de aluguel sub: Duas classes, agregação, nulo
+## #02_noobie Motoca de aluguel sub: Duas classes, agregação, nulo
 
 Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
 

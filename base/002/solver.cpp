@@ -91,7 +91,7 @@ int main(){
 */
 
 int main(){
-    Carro * car = new Carro(0, 0, 0, 0, 0);
+    Carro * car = new Carro;
     string line;
     while(true){
         getline(cin, line);

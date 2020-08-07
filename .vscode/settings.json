@@ -4,5 +4,6 @@
         "iosfwd": "cpp",
         "new": "cpp",
         "list": "cpp"
-    }
+    },
+    "extensions.ignoreRecommendations": true
 }

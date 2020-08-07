@@ -1,4 +1,4 @@
-## ©01_basic  Calculadora sub: Um modelo persistente com uma classe
+## #01_basic  Calculadora sub: Um modelo persistente com uma classe
 
 
 ![](figura.jpg)

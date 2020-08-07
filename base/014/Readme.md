@@ -1,4 +1,4 @@
-## ©02_unit 16 Agenda 0 - Um único contato
+## Agenda 0 - Um único contato
 ###
 ![](figura.png)
 

@@ -1,0 +1,6 @@
+.vscode
+solver
+*.class
+solver.cpp.out
+.html
+.vpl

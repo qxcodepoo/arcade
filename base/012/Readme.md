@@ -1,4 +1,4 @@
-## ©03_vetores 17 Topic de Luxo
+## #03_vetores Topic de Luxo
 ### Jurema Araturi via balão do Metrópole
 ![](figura.jpg)
 

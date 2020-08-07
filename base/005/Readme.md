@@ -1,4 +1,4 @@
-## ©03_rookie Mestre dos Vetores sub: ArrayList e Vector
+## #03_rookie Mestre dos Vetores
 ### Treine estrutura de dados.
 ![](figura.jpg)
 

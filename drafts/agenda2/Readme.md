@@ -1,4 +1,4 @@
-## ©10_after 22 Agenda 2 #composição #mapas #excessões #ordenação #favoritos
+## Agenda 2 #composição #mapas #excessões #ordenação #favoritos
 ### Quinze anos atrás eu sabia o telefone e aniversário de todos os meus amigos decorado. Depois que inventaram agenda telefônica no celular, nem meu próprio número eu sei mais. Aliás, sei o da OI, mas não me pergunte o da TIM.
 
 ![](figura.jpg)

@@ -1,4 +1,4 @@
-## ©03_vetores 14 Sala de Cinema
+## #03_vetores Sala de Cinema
 ### Vamos ao cinema? Dá para parcelar em quantas vezes?.
 ![](figura.jpg)
 
@@ -76,12 +76,8 @@ class Cinema
 + reservar(id, fone, indice): bool    //reservar
 + cancelar(id): bool   //cancelar
 --
-+ contructor(lotacao)
++ constructor(lotacao)
 ```
-## Respostas
-
-
-[C++](solver.cpp)
 
 
 
