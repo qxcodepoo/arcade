@@ -1,8 +1,7 @@
 ## TOC []()
 
 <!--TOC_BEGIN-->
-- [Entendendo a main](#entendendo-a-main)
-- [Uma classe](#uma-classe)
+- [Uma classe mudando de estado](#uma-classe-mudando-de-estado)
 - [Duas classes usando agregação ou composição](#duas-classes-usando-agregação-ou-composição)
 - [Get e Set](#get-e-set)
 - [Vetores](#vetores)
@@ -15,22 +14,19 @@
 
 <!--TOC_END-->
 
-## Entendendo a main
-- [@000   Shell sub: Entendendo como funciona a main](base/000/Readme.md#00_init---shell-sub-entendendo-como-funciona-a-main)  [](#00_init)
+## Uma classe mudando de estado
 
-## Uma classe
-
-- [@001  Calculadora sub: Um modelo persistente com uma classe](base/001/Readme.md#01_basic--calculadora-sub-um-modelo-persistente-com-uma-classe)  [](#01_basic)
-- [@002  Carro sub: Uma classe e muitas ações](base/002/Readme.md#01_basic--carro-sub-uma-classe-e-muitas-ações)  [](#01_basic)
+- [@001 Calculadora com bateria](base/001/Readme.md#01_basic-calculadora-com-bateria)  [](#01_basic)
+- [@002 Carro com pessoas](base/002/Readme.md#01_basic-carro-com-pessoas)  [](#01_basic)
 
 ## Duas classes usando agregação ou composição
 
-- [@004 Lapiseira e Grafite sub: Duas classes, agregação, null](base/004/Readme.md#02_noobie-lapiseira-e-grafite-sub-duas-classes-agregação-null)  [](#02_noobie)
-- [@003 Motoca de aluguel sub: Duas classes, agregação, nulo](base/003/Readme.md#02_noobie-motoca-de-aluguel-sub-duas-classes-agregação-nulo)  [](#02_noobie)
+- [@004 Agregação: Lapiseira e Grafite](base/004/Readme.md#02_noobie-agregação-lapiseira-e-grafite)  [](#02_noobie)
+- [@003 Agregação: Motoca infantil no parque](base/003/Readme.md#02_noobie-agregação-motoca-infantil-no-parque)  [](#02_noobie)
 
-## Get e Set
+## Construtores, Get e Set
+
 - [@006 Tamagotchi - Seu Pet Virtual sub: toString, getters and setters](base/006/Readme.md#03_rookie-tamagotchi---seu-pet-virtual-sub-tostring-getters-and-setters)  [](#03_rookie)
-
 
 ## Vetores
 - Dominando operações em vetores

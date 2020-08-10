@@ -1,4 +1,4 @@
-## #02_noobie Lapiseira e Grafite sub: Duas classes, agregação, null
+## #02_noobie Agregação: Lapiseira e Grafite
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 

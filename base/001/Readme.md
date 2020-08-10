@@ -1,13 +1,21 @@
-## #01_basic  Calculadora sub: Um modelo persistente com uma classe
-
+# #01_basic Calculadora com bateria
 
 ![](figura.jpg)
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+- [Raio X](#raio-x)
+- [Ajuda](#ajuda)
+- [Resposta](#resposta)
+
+<!--TOC_END-->
 
 O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma, multiplicação e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
 
 ***
-## Funcionalidades
+## Requisitos
 
 - Mostrar bateria da calculadora.
 - Recarregar a bateria.
@@ -16,7 +24,7 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 - Se o resultado da divisão for zero, deve ser notificado o erro.
 
 ***
-## Exemplos
+## Shell
 
 ```bash
 #__case iniciar mostrar e recarregar
@@ -104,16 +112,9 @@ class Calculadora
 + getBattery()
 ```
 
-***
+***    
 
-## Resposta
-
-- Respostas
-    - [C++](solver.cpp)
-    - [Java](Controller.java)
-    
-
-## Dicas
+## Ajuda
 
 Você pode formatar floats com duas casas decimais em java usando essa classe
 
@@ -128,3 +129,9 @@ class Decimals {
   }
 }
 ```
+
+## Resposta
+
+- Respostas
+    - [C++](solver.cpp)
+    - [Java](Controller.java)

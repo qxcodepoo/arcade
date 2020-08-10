@@ -1,4 +1,4 @@
-## #03_rookie Tamagotchi - Seu Pet Virtual sub: toString, getters and setters
+## #03_rookie Tamagotchi - Matando de Fome o bichinho
 ###
 ![](figura.jpg)
 
