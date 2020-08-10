@@ -3,17 +3,17 @@
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
-- [Funcionalidades](#funcionalidades)
-- [Shell](#shell)
+- [Requisitos](#requisitos)
 - [Raio X](#raio-x)
-- [Resposta e testes](#resposta-e-testes)
+- [Shell](#shell)
+- [Respostas](#respostas)
 
 <!--TOC_END-->
 
 Essa atividade se propõe a implementar um carro ecológico que pode passear pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
 
-## Funcionalidades
+## Requisitos
 Seu sistema deverá:
 
 - Inicializar.
@@ -30,6 +30,24 @@ Seu sistema deverá:
     - Caso haja pelo menos uma pessoa no carro e **algum combustível**, ele deve gastar combustível andando e aumentar a quilometragem.
     - Nosso carro faz um kilômetro por litro de água.
     - Caso não exista combustível suficiente para completar a viagem inteira, dirija o que for possível e emita uma mensagem indicando quanto foi percorrido.
+
+***
+## Raio X
+
+```java
+class Car 
++ gas: int
++ gasMax: int
++ pass: int
++ passMax: int
++ km: int
+--
++ in(): bool    //embarcar
++ out(): bool   //desembarcar
++ fuel(value: int): void //abastecer
++ drive(distance: int): boolean //dirigir
++ show(): void
+```
 
 ***
 ## Shell
@@ -92,25 +110,5 @@ $end
 ```
 
 ***
-## Raio X
-
-```java
-class Car 
-+ gas: int
-+ gasMax: int
-+ pass: int
-+ passMax: int
-+ km: int
---
-+ in(): bool    //embarcar
-+ out(): bool   //desembarcar
-+ fuel(value: int): void //abastecer
-+ drive(distance: int): boolean //dirigir
-+ show(): void
-```
-
-***
-
-## Resposta e testes
-- Respostas
-    - [C++](solver.cpp)
+## Respostas
+- [C++](solver.cpp)

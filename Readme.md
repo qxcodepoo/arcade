@@ -3,7 +3,7 @@
 <!--TOC_BEGIN-->
 - [Uma classe mudando de estado](#uma-classe-mudando-de-estado)
 - [Duas classes usando agregação ou composição](#duas-classes-usando-agregação-ou-composição)
-- [Get e Set](#get-e-set)
+- [Construtores, Get e Set](#construtores-get-e-set)
 - [Vetores](#vetores)
 - [Vetores de Null](#vetores-de-null)
 - [Pensando em polimorfismo](#pensando-em-polimorfismo)
@@ -17,7 +17,7 @@
 ## Uma classe mudando de estado
 
 - [@001 Calculadora com bateria](base/001/Readme.md#01_basic-calculadora-com-bateria)  [](#01_basic)
-- [@002 Carro com pessoas](base/002/Readme.md#01_basic-carro-com-pessoas)  [](#01_basic)
+- [@002 Carro com pessoas](base/002/Readme.md#carro-com-pessoas) 
 
 ## Duas classes usando agregação ou composição
 
@@ -26,7 +26,7 @@
 
 ## Construtores, Get e Set
 
-- [@006 Tamagotchi - Seu Pet Virtual sub: toString, getters and setters](base/006/Readme.md#03_rookie-tamagotchi---seu-pet-virtual-sub-tostring-getters-and-setters)  [](#03_rookie)
+- [@006 Tamagotchi - Matando de Fome o bichinho](base/006/Readme.md#03_rookie-tamagotchi---matando-de-fome-o-bichinho)  [](#03_rookie)
 
 ## Vetores
 - Dominando operações em vetores

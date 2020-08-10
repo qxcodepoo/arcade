@@ -1,8 +1,15 @@
-## #02_noobie Agregação: Lapiseira e Grafite
+# #02_noobie Agregação: Lapiseira e Grafite
+
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+
+<!--TOC_END-->
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-## Funcionalidade
+## Requisitos
 - Iniciar lapiseira
     - Inicia uma lapiseira de determinado calibre sem grafite.
 - Inserir grafite
@@ -25,7 +32,7 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
     - Avise quando o grafite acabar.
 
 
-## Testes
+## Shell
 
 ```bash
 #__case inserindo grafites

@@ -1,8 +1,17 @@
-## #02_noobie Agregação: Motoca infantil no parque
+# #02_noobie Agregação: Motoca infantil no parque
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+    - [Opcional](#opcional)
+- [Ajuda](#ajuda)
+- [Raio X](#raio-x)
+- [Shell](#shell)
+
+<!--TOC_END-->
 
 Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
 
-## Funcionalidades
+## Requisitos
 
 - Você deverá implementar a classe `Pessoa` e a class `Moto`.
 - Iniciar
@@ -16,12 +25,14 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 - Dirigir tempo
     - Se houver uma pessoa com 10 anos ou menos e houver minutos, então ela pode passear de moto.
     - Se o tempo acabar no meio do passeio, informe o quanto a pessoa andou.
+
+### Opcional
 - Buzinar
     - Qualquer pessoa pode buzinar
     - O barulho da buzina é "Pem", porém o número de `e` é igual ao valor da potência.
     - Ex: se a potência for 5, buzinar deve gerar: Peeeeem
 
-## Dicas
+## Ajuda
     - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
     - Para buzinar, utilize o `for` gerando várias vezes o `e`. 
 
@@ -44,7 +55,7 @@ class Moto:
 + dirigir(tempo)
 ```
 
-## Testes
+## Shell
 
 ```bash
 

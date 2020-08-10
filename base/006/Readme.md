@@ -1,6 +1,17 @@
-## #03_rookie Tamagotchi - Matando de Fome o bichinho
-###
+# #03_rookie Tamagotchi - Matando de Fome o bichinho
+
 ![](figura.jpg)
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+    - [Exemplo 1](#exemplo-1)
+    - [Exemplo 2](#exemplo-2)
+    - [Exemplo 3](#exemplo-3)
+- [Raio X](#raio-x)
+- [Respostas](#respostas)
+
+<!--TOC_END-->
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
@@ -8,7 +19,7 @@ O projeto deve conter pelo menos duas classes. A classe Tamagotchi e a class Jog
 
 ***
 
-## Funcionalidades
+## Requisitos
 Seu sistema deverá:
 
 - **Inicializar**
@@ -26,7 +37,8 @@ Seu sistema deverá:
 
 ***
 
-## Exemplo
+## Shell
+### Exemplo 1
 
 ```bash
 #__case inicio
@@ -102,7 +114,7 @@ fail: pet esta morto
 $end
 ```
 
-# Exemplo 2
+### Exemplo 2
 ```bash
 #__case exemplo2
 $init 5 10 10
@@ -117,7 +129,7 @@ E:0/5, S:7/10, L:1/10, D:3, I:3
 $end
 ```
 
-# Exemplo 3
+### Exemplo 3
 ```bash
 #__case exemplo3
 $init 10 3 10
@@ -164,6 +176,5 @@ class Jogo{
 ```
 
 ***
-## Resposta e testes
-- Respostas
-    - [C++](solver.cpp)
+## Respostas
+- [C++](solver.cpp)

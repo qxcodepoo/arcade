@@ -1,11 +1,10 @@
-[](base/000/Readme.md) : ## #00_init   Shell sub: Entendendo como funciona a main
-[](base/001/Readme.md) : ## #01_basic Calculadora com bateria
-[](base/002/Readme.md) : ## #01_basic Carro com pessoas
-[](base/004/Readme.md) : ## #02_noobie Agregação: Lapiseira e Grafite
-[](base/003/Readme.md) : ## #02_noobie Agregação: Motoca infantil no parque
+[](base/001/Readme.md) : # #01_basic Calculadora com bateria
+[](base/004/Readme.md) : # #02_noobie Agregação: Lapiseira e Grafite
+[](base/003/Readme.md) : # #02_noobie Agregação: Motoca infantil no parque
+[](base/006/Readme.md) : # #03_rookie Tamagotchi - Matando de Fome o bichinho
+[](base/002/Readme.md) : # Carro com pessoas
 [](base/005/Readme.md) : ## #03_rookie Mestre dos Vetores
 [](base/009/Readme.md) : ## #03_rookie Parquinho: Hora do pula pula
-[](base/006/Readme.md) : ## #03_rookie Tamagotchi - Seu Pet Virtual sub: toString, getters and setters
 [](base/011/Readme.md) : ## #03_vetores JunkFood Machine
 [](base/010/Readme.md) : ## #03_vetores Sala de Cinema
 [](base/012/Readme.md) : ## #03_vetores Topic de Luxo

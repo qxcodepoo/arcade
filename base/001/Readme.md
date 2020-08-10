@@ -4,10 +4,10 @@
 
 <!--TOC_BEGIN-->
 - [Requisitos](#requisitos)
-- [Shell](#shell)
 - [Raio X](#raio-x)
+- [Shell](#shell)
 - [Ajuda](#ajuda)
-- [Resposta](#resposta)
+- [Respostas](#respostas)
 
 <!--TOC_END-->
 
@@ -22,6 +22,26 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 - Realizar operações matemáticas de soma e divisão.
 - Se o usuário tentar realizar operações e a bateria estiver vazia, deverá ser mostrada uma notificação sobre falta de bateria.
 - Se o resultado da divisão for zero, deve ser notificado o erro.
+
+
+***
+## Raio X
+
+```java
+class Calculadora  
++ battery: int
++ maxBattery: int
++ display: float
+--
++ charge(value: int): void
++ useBattery(): void
++ sum(a: int, b: int): string
++ div(a: int, b: int): string
++ show(): void
+--
++ constructor(batteryMax)
++ getBattery()
+```
 
 ***
 ## Shell
@@ -93,24 +113,7 @@ display = 3.50, battery = 0
 $end
 ```
 
-***
-## Raio X
 
-```java
-class Calculadora  
-+ battery: int
-+ maxBattery: int
-+ display: float
---
-+ charge(value: int): void
-+ useBattery(): void
-+ sum(a: int, b: int): string
-+ div(a: int, b: int): string
-+ show(): void
---
-+ constructor(batteryMax)
-+ getBattery()
-```
 
 ***    
 
@@ -130,7 +133,7 @@ class Decimals {
 }
 ```
 
-## Resposta
+## Respostas
 
 - Respostas
     - [C++](solver.cpp)
