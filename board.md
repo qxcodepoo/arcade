@@ -1,6 +1,8 @@
 [](base/007/Readme.md) : # Agencia Bancária 1 - Extrato, Saldo, Tarifas
 [](base/014/Readme.md) : # Agenda 0 - Um único contato
 [](base/015/Readme.md) : # Agenda 1 - Varios contatos com vários telefones TODO Raio X
+[](base/016/Readme.md) : # Agenda 2 Favoritos - Lidando com redundâncias
+[](base/017/Readme.md) : # Agenda 3 - Tratando notas e contatos como entradas da agenda
 [](base/008/Readme.md) : # Agiota Gente Fina
 [](base/004/Readme.md) : # Agregação: Lapiseira e Grafite - TODO RAIO X
 [](base/003/Readme.md) : # Agregação: Motoca infantil no parque

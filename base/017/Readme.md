@@ -1,11 +1,19 @@
-## ©10_after 32 Agenda 3 #agregação #manager #template #herança
-### Notas e Contatos juntos
+# Agenda 3 - Tratando notas e contatos como entradas da agenda - TODO: solver
 ![](figura.jpg)
 
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+- [Raio X](#raio-x)
+
+<!--TOC_END-->
+
+## Requisitos
 Algum dia você já utilizou a agenda do seu telefone para guardar outra coisa além de contatos e telefones? Eu mesmo já utilizei a minha para guardar algumas notas e até números ou senhas. O objetivo da agenda híbrida é fazer uma agenda capaz de guardar e favoritar várias coisas além de contatos.
 
 Você vai partir do projeto da agenda de contatos e seguir a seguinte sequência de implementações do projeto.
 
+## Shell
 ```bash
 #__begin__
 # adicionava o contato e vários telefones ao contato

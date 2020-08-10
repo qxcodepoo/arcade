@@ -43,6 +43,8 @@
 ## Ordenando: sort ou mapas
 - [@015 Agenda 1 - Varios contatos com vários telefones TODO Raio X](base/015/Readme.md#agenda-1---varios-contatos-com-vários-telefones-todo-raio-x) 
 - [@008 Agiota Gente Fina](base/008/Readme.md#agiota-gente-fina) 
+- [@016 Agenda 2 Favoritos - Lidando com redundâncias](base/016/Readme.md#agenda-2-favoritos---lidando-com-redundâncias) 
 
 ## Herança
 - [@013 Agencia Bancária 2](base/013/Readme.md#agencia-bancária-2-heranca)  [](#heranca)
+- [@017 Agenda 3 - Tratando notas e contatos como entradas da agenda](base/017/Readme.md#agenda-3---tratando-notas-e-contatos-como-entradas-da-agenda) 

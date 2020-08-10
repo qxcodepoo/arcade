@@ -1,7 +1,15 @@
-## Agenda 2 #composição #mapas #excessões #ordenação #favoritos
-### Quinze anos atrás eu sabia o telefone e aniversário de todos os meus amigos decorado. Depois que inventaram agenda telefônica no celular, nem meu próprio número eu sei mais. Aliás, sei o da OI, mas não me pergunte o da TIM.
+# Agenda 2 Favoritos - Lidando com redundâncias - TODO: solver
 
 ![](figura.jpg)
+
+<!--TOC_BEGIN-->
+- [Habilidades](#habilidades)
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+- [Ajuda](#ajuda)
+- [Raio X](#raio-x)
+
+<!--TOC_END-->
 
 Ampliando a atividade de agenda 1, vamos criar uma agenda que gerencia os nossos contatos.
 
@@ -18,7 +26,7 @@ O objetivo da ativade é trabalhar:
     - Os favoritos apenas guardam as referências para os contatos.
 - Uso do método toString para fazer buscas de contatos.
 
-## Funcionalidades
+## Requisitos
 
 O sistema deverá:
 
@@ -38,6 +46,7 @@ O sistema deverá:
     - Ordenar os contatos pelo idContato com os contatos favoritos primeiro.
     - Marque os contatos que são favoritados com um @ antes do idContato. Se o contato não for favorito use - antes do idContato.
     - Coloque todos os telefones ordenados por id
+
 - Buscar contatos por substring.
     - Se o contato tiver qualquer campo que combine com a string pattern de busca, ele deve ser retornado. Se o pattern é maria, devem ser retornados os contatos como "maria julia", "mariana", "ana maria", etc. Se o pattern combinar com qualquer campo do contato, ele deve fazer parte do retorno.
     - Mostre ordenado pelo idContato com os contatos favoritos primeiro
@@ -48,7 +57,7 @@ O sistema deverá:
 
 - Mostrar favoritos.
 
-## Exemplos
+## Shell
 
 ```bash
 $addContato eva oi:8585 claro:9999
@@ -119,30 +128,11 @@ $agenda
 - bia C [0:vivo:5454]
 @ eva C [0:oi:8585][1:claro:9999]
 - rui C [0:casa:3233]
-
-
 ```
-## Pontuação
 
-```
-[ ][1.0 P] addContato
-[ ][1.0 P] rmContato
-[ ][1.0 P] addFone
-[ ][1.0 P] rmFone
-[ ][1.0 P] mostrar Contatos
-[ ][2.0 P] busca por padrão
-[ ][1.0 P] inicialização do sistema
-[ ]     Total pontos
-
-[ ][0.5 E] favoritar
-[ ][0.5 E] desfavoritar
-[ ][1.0 E] mostrar favoritos
-[ ][1.0 E] mostrar contatos ordenados
-[ ]        Total Extras
-```
 
 ***
-## Orientações
+## Ajuda
 - Na busca por padrão verifiqueo valor do padrão com o valor toString() to contato.
 - Crie métodos toString para todas as Classes.
 - Quando remover um contato, verifique de removê-lo dos favoritos também.
@@ -187,15 +177,3 @@ class Agenda
 + getFavoritos(): Contato[]
 --
 ```
-
-## Testes
-
-```
-
-showAll
-  @ davi [oi 123][tim 321]
-  @ rui [vivo 43]
-  - lex [casa 54]
-
-```
-
