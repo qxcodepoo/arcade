@@ -1,4 +1,4 @@
-## #03_vetores Sala de Cinema
+## #03_vetores Sala de Cinema ⭐
 ### Vamos ao cinema? Dá para parcelar em quantas vezes?.
 ![](figura.jpg)
 
