@@ -1,4 +1,4 @@
-# #03_rookie Tamagotchi - Matando de Fome o bichinho
+# Tamagotchi - Matando de Fome o bichinho
 
 ![](figura.jpg)
 

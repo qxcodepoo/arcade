@@ -1,11 +1,13 @@
-# #02_noobie Agregação: Motoca infantil no parque
+# Agregação: Motoca infantil no parque
+![](figura.jpg)
+
 
 <!--TOC_BEGIN-->
 - [Requisitos](#requisitos)
     - [Opcional](#opcional)
 - [Ajuda](#ajuda)
-- [Raio X](#raio-x)
 - [Shell](#shell)
+- [Raio X](#raio-x)
 
 <!--TOC_END-->
 
@@ -36,24 +38,6 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
     - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
     - Para buzinar, utilize o `for` gerando várias vezes o `e`. 
 
-## Raio X
-
-```c
-class Passageiro:
-+ nome: string
-+ idade: int
-
-class Moto:
-+ potencia: int
-+ pass: Passageiro
-+ tempo: int
---
-+ Moto(potencia: int)
-+ subir(pass)
-+ buzinar()
-+ descer()
-+ dirigir(tempo)
-```
 
 ## Shell
 
@@ -143,3 +127,25 @@ $drive 10
 fail: andou 5 min e acabou o tempo
 $end
 ```
+
+
+## Raio X
+
+```c
+class Passageiro:
++ nome: string
++ idade: int
+
+class Moto:
++ potencia: int
++ pass: Passageiro
++ tempo: int
+--
++ Moto(potencia: int)
++ subir(pass)
++ buzinar()
++ descer()
++ dirigir(tempo)
+```
+
+

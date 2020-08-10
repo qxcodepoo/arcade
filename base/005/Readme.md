@@ -1,11 +1,18 @@
-## #03_rookie Mestre dos Vetores
-### Treine estrutura de dados.
+# Mestre dos Vetores
 ![](figura.jpg)
+
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+- [Respostas](#respostas)
+
+<!--TOC_END-->
 
 O objetivo da atividade é treinar estrutura de dados.
 
 ***
-## Funcionalidades
+## Requisitos
 
 Requisito:
 - Utilize uma estrutura de armazenamento linear que permita elementos duplicados e mantenha a ordem de inserção.
@@ -15,7 +22,7 @@ Requisito:
     - Java: ArrayList
 
 
-## SHELL
+## Shell
 
 ```bash
 #__case inicio
@@ -152,9 +159,8 @@ $end
 
 ***
 
-## Respostas    
+## Respostas
 
-- Respostas
-    - [C++](solver.cpp)
-    - [Java](Solver.java)
+- [C++](solver.cpp)
+- [Java](Solver.java)
 

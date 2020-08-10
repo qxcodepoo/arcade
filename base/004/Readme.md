@@ -1,5 +1,5 @@
-# #02_noobie Agregação: Lapiseira e Grafite
-
+# Agregação: Lapiseira e Grafite - TODO RAIO X
+![](figura.jpg)
 
 <!--TOC_BEGIN-->
 - [Requisitos](#requisitos)

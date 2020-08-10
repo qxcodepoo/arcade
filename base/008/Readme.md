@@ -1,6 +1,17 @@
-## #06_jedi Agiota Gente Fina #arrays #mapas #crud
-### Ptolomeu é o agiota mais carismático de MoneyVille. Sem nenhuma razão foi denunciado e acabou indo pra cadeira. A lasqueira foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
+# Agiota Gente Fina
+
+Ptolomeu é o agiota mais carismático de MoneyVille. Sem nenhuma razão foi denunciado e acabou indo pra cadeira. A lasqueira foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
+
 ![](figura.jpg)
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Opcional](#opcional)
+- [Exemplos](#exemplos)
+- [Diagrama](#diagrama)
+- [Fim da história](#fim-da-história)
+
+<!--TOC_END-->
 
 Seu Plutolomeu é um agiota que empresta dinheiro a juros 0. Ele é uma pessoa muito carismática e amiga de todos. De sorriso largo sempre aberto, Plutolomeu é amigo da vizinhança. Inclusive esse ano, ele ganhou uma festa de aniversário surpresa de todos os seus devedores. Só quem é gente muito fina ganha festa surpresa né?
 
@@ -8,7 +19,7 @@ Seu Plutolomeu é um agiota que empresta dinheiro a juros 0. Ele é uma pessoa m
 
 Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de emprestimos que ele tinha instalado em seu computador.
 
-## Funcionalidades
+## Requisitos
 
 - Iniciar Sistema.
     - Inicia o sistema com uma certa quantidade de dinheiro.
@@ -24,10 +35,8 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
     - Cada transação deve receber do sistema um identificador numérico crescente.
     - A primeira transação tem id 0. A segunda tem id 1 e etc.
     - Ptolomeu não pode emprestar dinheiro se não tiver dinheiro suficiente.
+
 - Mostrar o histórico de transações.
-- Mostrar cliente. 
-    - Mostra apenas as transações daquele cliente e o saldo.
-- Mostrar todos os clientes com o saldo de cada um.
 
 - Receber dinheiro.
     - Clientes pagam os empréstimos aos poucos.
@@ -36,6 +45,13 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
 - Matar um cliente.    
     - As vezes Ptolomeu dá um chá de sumiço em quem não paga suas dívidas. Pra não deixar pontas soltas ele precisa apagar as transações do histórico e remover o cliente da lista. 
     - Apagar as transações não altera o saldo de ptolomeu.
+
+## Opcional
+
+- Mostrar cliente. 
+    - Mostra apenas as transações daquele cliente e o saldo.
+- Mostrar todos os clientes com o saldo de cada um.
+
 
 
 ## Exemplos

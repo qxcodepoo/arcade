@@ -1,11 +1,10 @@
 # Carro com pessoas
-
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
 - [Requisitos](#requisitos)
-- [Raio X](#raio-x)
 - [Shell](#shell)
+- [Raio X](#raio-x)
 - [Respostas](#respostas)
 
 <!--TOC_END-->
@@ -31,23 +30,6 @@ Seu sistema deverá:
     - Nosso carro faz um kilômetro por litro de água.
     - Caso não exista combustível suficiente para completar a viagem inteira, dirija o que for possível e emita uma mensagem indicando quanto foi percorrido.
 
-***
-## Raio X
-
-```java
-class Car 
-+ gas: int
-+ gasMax: int
-+ pass: int
-+ passMax: int
-+ km: int
---
-+ in(): bool    //embarcar
-+ out(): bool   //desembarcar
-+ fuel(value: int): void //abastecer
-+ drive(distance: int): boolean //dirigir
-+ show(): void
-```
 
 ***
 ## Shell
@@ -108,6 +90,26 @@ pass: 1, gas: 100, km: 60
 $end
 #__end__
 ```
+
+***
+## Raio X
+
+```java
+class Car 
++ gas: int
++ gasMax: int
++ pass: int
++ passMax: int
++ km: int
+--
++ in(): bool    //embarcar
++ out(): bool   //desembarcar
++ fuel(value: int): void //abastecer
++ drive(distance: int): boolean //dirigir
++ show(): void
+```
+
+
 
 ***
 ## Respostas

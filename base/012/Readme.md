@@ -1,10 +1,16 @@
-## #03_vetores Topic de Luxo ⭐⭐⭐
-### Jurema Araturi via balão do Metrópole
+# Topic de Luxo ⭐⭐⭐
 ![](figura.jpg)
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+- [Raio X](#raio-x)
+
+<!--TOC_END-->
 
 O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com algumas variações. Aqui, vamos implementar um sistema de alocação de passageiros em uma topic. Nossa topic tem uma quantidade máxima de passageiros, mas também define alguns assentos preferenciais.
 
-## Funcionalidades
+## Requisitos
 Seu sistema deverá:
 
 - **[3.0 P] Inicializar e Mostrar.** 
@@ -28,7 +34,7 @@ Seu sistema deverá:
     - Remover passageiros por id
 
 ***
-## Exemplos
+## Shell
 
 ```bash
 
@@ -90,7 +96,7 @@ $end
 ```
 
 ***
-## Raio - X
+## Raio X
 ```java
 class Pass
 + id: string

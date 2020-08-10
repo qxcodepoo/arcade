@@ -1,10 +1,19 @@
-## #03_vetores JunkFood Machine ⭐⭐
-### Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem
+# JunkFood Machine ⭐⭐
 ![](figura.jpg)
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Shell](#shell)
+- [Raio X](#raio-x)
+- [Ajuda](#ajuda)
+
+<!--TOC_END-->
+
+Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 
 O objetivo dessa atividade é implementar uma classe responsável por uma máquina de vender JunkFood. Na máquina existem várias espirais. Uma espiral contém uma certa quantidade de produtos do mesmo tipo e mesmo preço. O usuário coloca o dinheiro, compra o produto e recebe o troco.
 
-## Funcionalidades
+## Requisitos
 
 Seu sistema deverá ser capaz de:
 
@@ -35,7 +44,7 @@ Seu sistema deverá ser capaz de:
     - Quando o cliente pedir o troco, mostre o quanto ele tinha de saldo e zere o saldo.
 
 ***
-## Exemplos
+## Shell
 
 ```bash
 #__begin__
@@ -136,10 +145,33 @@ $end
 #__end__
 ```
 
+***
+## Raio X
+
+````java
+class Espiral
++ nome: String
++ qtd: int
++ preco: float
+--
++ toString(): String
+
+class Maquina
+- espirais: List<Espiral>
+- saldoCliente: float
+- lucro: float
+--
++ inserirDinheiro(value: number): boolean
++ pedirTroco(): float
++ vender(indice: int): boolean
++ alterarEspiral(indice: int, nome: String, qtd : int, preco :float) : boolean
++ getSaldo(): float
++ toString() String
+````
 
 
 ***
-## Orientações
+## Ajuda
 
 - Faça primeiro a classe Espiral. Garanta que existe um construtor default seja sem parâmetros ou com todos os parametros com valores default.
 - No contrutor da class Maquina receba a quantidade de espirais. Para iniciar o vetor de espirais você pode fazer um laço inserindo qtd Espirais no vetor.
@@ -195,26 +227,4 @@ public:
     }
 }
 ```
-***
-## Raio X
 
-````java
-class Espiral
-+ nome: String
-+ qtd: int
-+ preco: float
---
-+ toString(): String
-
-class Maquina
-- espirais: List<Espiral>
-- saldoCliente: float
-- lucro: float
---
-+ inserirDinheiro(value: number): boolean
-+ pedirTroco(): float
-+ vender(indice: int): boolean
-+ alterarEspiral(indice: int, nome: String, qtd : int, preco :float) : boolean
-+ getSaldo(): float
-+ toString() String
-````

@@ -1,6 +1,12 @@
-## #03_vetores Sala de Cinema ⭐
-### Vamos ao cinema? Dá para parcelar em quantas vezes?.
+# Sala de Cinema ⭐
 ![](figura.jpg)
+
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Raio X](#raio-x)
+- [Shell](#shell)
+
+<!--TOC_END-->
 
 O objetivo dessa atividade é implementar o sistema de alocação de uma única sala de cinema. Se existem cadeiras livres, os clientes podem reservá-las. Também podem desistir da reserva. O sistema deve mostrar quem está sentado em cada cadeira.
 
@@ -9,7 +15,7 @@ Nessa atividade, você deverá criar:
 - Uma classe que representa a sala de cinema e guarda os clientes.
 - Uma classe que controle o fluxo de entrada e saída e processe as chamadas.
 
-## Funcionalidades
+## Requisitos
 Seu sistema deverá:
 
 - **[3.0 P] Inicializando.** 
@@ -24,6 +30,26 @@ Seu sistema deverá:
         - atualize a função show para mostrar os clientes onde estiverem sentados.
 - **[3.0 P] Cancelamentos.** 
     - Cancele reserva passando o id do cliente.
+
+***
+## Raio X
+
+```java
+class Cliente
++ id: string
++ fone: string
+
+class Cinema 
++ cadeiras:Cliente[]
+--
++ reservar(id, fone, indice): bool    //reservar
++ cancelar(id): bool   //cancelar
+--
++ constructor(lotacao)
+```
+
+
+## Shell
 
 ```bash
 #__case inicializar
@@ -62,22 +88,6 @@ $end
 ```
 
 
-***
-## Raio X
-
-```java
-class Cliente
-+ id: string
-+ fone: string
-
-class Cinema 
-+ cadeiras:Cliente[]
---
-+ reservar(id, fone, indice): bool    //reservar
-+ cancelar(id): bool   //cancelar
---
-+ constructor(lotacao)
-```
 
 
 

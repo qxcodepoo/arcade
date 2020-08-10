@@ -1,30 +1,29 @@
-## Agenda 1 - Vários contatos
-###
+# Agenda 1 - Varios contatos com vários telefones TODO Raio X
 ![](figura.jpg)
 
+<!--TOC_BEGIN-->
+- [Requisitos](#requisitos)
+- [Opcional](#opcional)
+- [Shell](#shell)
 
+<!--TOC_END-->
+
+Sua agenda possui vários contatos e cada contato possui vários telefones.
 ***
+## Requisitos
 
-- Sua agenda possui vários contatos e cada contato possui vários telefones.
-- O contato possui o nome como chave. Portanto, não existem dois contatos com o mesmo nome.
-- Adicione os novos números de telefone no contato já existente.
-- Se tentar adicionar um número de telefone que já existe, apenas ignore e não adicione.
-- Mostre os números de telefone pela ordem de inserção.
-- Mostre os contatos da agenda pela ordem alfabética.
-- Remova contato pela chave.
-- Remova o telefone pelo índice.
-- Faça uma busca por padrão em todos os atributos do contato, nome e telefones.
+- O contato possui o nome como chave. Portanto, não permita que existam dois contatos com o mesmo nome.
+- Adicionar os novos números de telefone no contato já existente.
+- Mostrar os números de telefone pela ordem de inserção.
+- Mostrar os contatos da agenda pela ordem alfabética.
+- Remover contato pela chave.
 
-## Habilidades necessárias
+## Opcional
+- Remover o telefone pelo índice.
+- Fazaer uma busca por padrão em todos os atributos do contato, nome e telefones.
 
-- Ordenação de vetor ou uso de estruturas de chave-valor(Mapas)
-- Processamento de string em lotes
-- Método toString()
-- Crud
-- Inserção, Remoção, Obtenção e Filtragem de elementos em estruturas de dados
 
-## Habilidades sugeridas
-
+## Shell
 
 ```bash
 #__begin__
@@ -38,8 +37,6 @@ $agenda
 - eva [0:8585][1:9999][2:2221]
 
 # como ana ja existe, apenas adicione o telefone
-$addContato ana 4567
-# nao adiciona telefone duplicado
 $addContato ana 4567 8754
 
 $agenda
