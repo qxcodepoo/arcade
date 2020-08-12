@@ -47,6 +47,7 @@ $chegou luana 3
 $show
 => luana:3 livia:4 mario:5 => [ ]
 
+#__case entrando
 # entrar
 # tira a primeira criança da fila de entrada e insere no pula pula
 
@@ -56,6 +57,8 @@ $show
 $entrar
 $show
 => luana:3 => [ livia:4 mario:5 ]
+
+#__case saindo
 $sair
 $show
 => mario:5 luana:3 => [ livia:4 ]

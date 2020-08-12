@@ -1,8 +1,4 @@
-# Agenda 7 - Login Multiusuário
-
-
-<!--TOC_BEGIN-->
-<!--TOC_END-->
+## Agenda 7 - Login Multiusuário
 
 ## Shell
 

@@ -1,4 +1,4 @@
-# Agenda 3 - Tratando notas e contatos como entradas da agenda - TODO: solver
+# Agenda 4 - Tratando notas e contatos como entradas da agenda - TODO: solver
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
@@ -13,99 +13,60 @@ Algum dia você já utilizou a agenda do seu telefone para guardar outra coisa a
 
 Você vai partir do projeto da agenda de contatos e seguir a seguinte sequência de implementações do projeto.
 
+- Utilize o nome do contato e o título da nota como chave única da entrada.
+- Tanto na apresentação da agenda como da lista de favoritos, a lista deve ser apresentada ordenada pela chave.
+- Na formação toString da entrada utilize:
+    - `-` para marcar as entradas normais e `@` para as entradas favoritadas.
+    - `C` para marcar os contatos e `N` para marcar as notas.
+
 ## Shell
 ```bash
-#__begin__
+#__case init contatos
 # adicionava o contato e vários telefones ao contato
 # se o contato ja existir, apenas adicione os novos telefones
-
 $addContato eva oi:8585 claro:9999
 $addContato ana tim:3434 casa:4567 oi:8754
-$addContato bia vivo:5454
-$agenda
-- ana C [0:tim:3434][1:casa:4567][2:oi:8754]
-- bia C [0:vivo:5454]
-- eva C [0:oi:8585][1:claro:9999]
-$rmFone ana 0
-$agenda
-- ana C [0:casa:4567][1:oi:8754]
-- bia C [0:vivo:5454]
-- eva C [0:oi:8585][1:claro:9999]
-$rmContato bia
-$agenda
-- ana C [0:casa:4567][1:oi:8754]
-- eva C [0:oi:8585][1:claro:9999]
-$search eva
-- eva C [0:oi:8585][1:claro:9999]
-$search 4567
-- ana C [0:casa:4567][1:oi:8754]
-
-
-$addContato bia vivo:5454
-$addContato rui casa:3233
-$addContato zac fixo:3131
-$agenda
-- ana C [0:casa:4567][1:oi:8754]
-- bia C [0:vivo:5454]
-- eva C [0:oi:8585][1:claro:9999]
-- rui C [0:casa:3233]
-- zac C [0:fixo:3131]
-
-$fav eva
-$fav ana
-$fav ana
-$fav zac
-$fav rex
-fail: contato rex nao existe
-
-$agenda
-@ ana C [0:casa:4567][1:oi:8754]
-- bia C [0:vivo:5454]
-@ eva C [0:oi:8585][1:claro:9999]
-- rui C [0:casa:3233]
-@ zac C [0:fixo:3131]
-
-$favorited
-@ ana C [0:casa:4567][1:oi:8754]
-@ eva C [0:oi:8585][1:claro:9999]
-@ zac C [0:fixo:3131]
-
-$rmContato zac
-
-$favorited
-@ ana C [0:casa:4567][1:oi:8754]
-@ eva C [0:oi:8585][1:claro:9999]
-
-$unfav ana
-
-$favorited
-@ eva C [0:oi:8585][1:claro:9999]
-
-$agenda
-- ana C [0:casa:4567][1:oi:8754]
-- bia C [0:vivo:5454]
-@ eva C [0:oi:8585][1:claro:9999]
-- rui C [0:casa:3233]
-
-$addNote mercantil ovo chiclete fandangos
-$addNote mercantil pao
-$la
-@ C dani [0:recado:324]
-- C joao [1:oi:8775]
-+ N mercantil (ovo chiclete fandangos pao)
-
 $addContato xuxa claro:99
 $agenda
-@ C dani [0:recado:324]
-- C joao [1:oi:8775]
+- C ana [0:tim:3434][1:casa:4567][2:oi:8754]
+- C eva [0:oi:8585][1:claro:9999]
+- C xuxa [0:claro:99]
+
+#__case fav contatos
+$fav eva
+$fav ana
+@ C ana [0:tim:3434][1:casa:4567][2:oi:8754]
+@ C eva [0:oi:8585][1:claro:9999]
+- C xuxa [0:claro:99]
+
+#__case lista favoritos
+$favorited
+@ C ana [0:casa:4567][1:oi:8754]
+@ C eva [0:oi:8585][1:claro:9999]
+
+#__case add notes
+$addNote mercantil ovo chiclete fandangos
+$addNote mercantil pao
+$agenda
+@ C ana [0:tim:3434][1:casa:4567][2:oi:8754]
+@ C eva [0:oi:8585][1:claro:9999]
 - N mercantil (ovo chiclete fandangos pao)
 - C xuxa [0:claro:99]
 
+#__case fav notes
 $fav mercantil
 $favorited
-@ C dani [0:recado:324]
+@ C ana [0:tim:3434][1:casa:4567][2:oi:8754]
+@ C eva [0:oi:8585][1:claro:9999]
 @ N mercantil (ovo chiclete fandangos pao)
-#__end__
+
+$agenda
+@ C ana [0:tim:3434][1:casa:4567][2:oi:8754]
+@ C eva [0:oi:8585][1:claro:9999]
+@ N mercantil (ovo chiclete fandangos pao)
+- C xuxa [0:claro:99]
+
+$end
 ```
 
 ## Raio X
@@ -116,7 +77,6 @@ abstract class Entry{
     id: string
     favorited: bool
 
-    ***
     setId(value: string, type: Type): void
     getId(): string
     isFavorited(): bool

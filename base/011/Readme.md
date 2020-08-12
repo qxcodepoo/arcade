@@ -47,10 +47,7 @@ Seu sistema deverá ser capaz de:
 ## Shell
 
 ```bash
-#__begin__
-#######################################
-# Iniciando a máquina
-#######################################
+#__case init
 
 # init _espirais _max_produtos
 $init 3 5
@@ -60,10 +57,7 @@ saldo: 0.00
 1 [   empty : 0 U : 0.00 RS]
 2 [   empty : 0 U : 0.00 RS]
 
-#######################################
-# Algo pra comer
-#######################################
-
+#__case inserindo comida
 # set _ind _nome _qtd _valor 
 $set 2 todinho 3 2.50
 $show
@@ -80,10 +74,7 @@ saldo: 0.00
 1 [ xaverde : 3 U : 5.00 RS]
 2 [ todinho : 3 U : 2.50 RS]
 
-#######################################
-# Limpando e Tratando erros de insercao
-#######################################
-
+#__case limpando
 # limpar _ind
 $limpar 2
 $show
@@ -96,11 +87,7 @@ fail: indice nao existe
 $set 0 farofa 50 3.00
 fail: limite excedido
 
-#######################################
-# Dinheiro vai
-#######################################
-
-# inserindo dinheiro
+#__case dinheiro
 # dinheiro _valor
 $dinheiro 5
 $dinheiro 4
@@ -110,10 +97,7 @@ saldo: 9.00
 1 [ xaverde : 3 U : 5.00 RS]
 2 [   empty : 0 U : 0.00 RS]
 
-#######################################
-# Comida vem, Dinheiro vem, Erros também
-#######################################
-
+#__case troco
 $troco
 voce recebeu 9.00 RS
 $show
@@ -123,6 +107,7 @@ saldo: 0.00
 2 [   empty : 0 U : 0.00 RS]
 $dinheiro 8
 
+#__case comprar
 # comprar _ind
 $comprar 1
 voce comprou um xaverde

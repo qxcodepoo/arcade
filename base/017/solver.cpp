@@ -161,20 +161,6 @@ public:
 };
 
 
-Fone format_fone(string sfone){
-    stringstream ss(sfone);
-    string id, fone;
-    getline(ss, id, '-');
-    ss >> fone;
-    return Fone(id, fone);
-}
-
-template <class T>
-T get(stringstream& ss){
-    T value;
-    ss >> value;
-    return value;
-}
 
 int main(){
     Agenda agenda;
@@ -187,30 +173,19 @@ int main(){
             if(cmd == "help"){
                 cout << HELP_TEXT << endl;
             }
-            else if(cmd == "add"){
-                string name = get<string>(ss);
-                vector<Fone> fones;
-                string fonestr;
-                while(ss >> fonestr)
-                    fones.push_back(format_fone(fonestr));
-
-                Contato * contato = agenda.getContato(name);
-                if(contato == nullptr){
-                    Contato cont(name);
-                    for(Fone fone : fones)
-                        cont.addFone(fone);
-                    agenda.addContato(cont);
-                }else{
-                    for(Fone fone : fones)
-                        contato->addFone(fone);
-                }
+            else if(cmd == "addContato"){
+                agenda.addContato(Contato(ui[1]));
             }
             else if(cmd == "rmContato"){
-                agenda.rmContato(get<string>(ss));
+                agenda.rmContato(ui[1]);
+            }
+            else if(cmd == "addFone"){
+                Contato * cont = agenda.getContato(ui[1]);
+                cont->addFone(Fone(ui[2], ui[3]));
             }
             else if(cmd == "rmFone"){
-                Contato * cont = agenda.getContato(get<string>(ss));
-                cont->rmFone(get<int>(ss));
+                Contato * cont = agenda.getContato(ui[1]);
+                cont->rmFone(ui[2]);
             }
             else if(cmd == "show"){
                 agenda.getContato(ui[1])->toString();

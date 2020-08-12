@@ -1,5 +1,5 @@
-## ©10_after 52 Serviço de Anotações #composição #login #ordenação
-### Sinto saudades do meu finado palmtop, onde escrevia de canetinha todos os meus insights. Com essa parada de smathphone e trocentos aplicativos de anotações, perdeu foi a graça.
+# Serviço de Anotações
+
 ![](figura.jpg)
 
 
