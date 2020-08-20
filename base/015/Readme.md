@@ -1,9 +1,10 @@
-# Agenda 2 - Varios contatos TODO Raio X, fone com ID
+# Agenda 2 - Varios contatos ordenados
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
 - [Requisitos Novos](#requisitos-novos)
 - [Shell](#shell)
+- [Raio X](#raio-x)
 - [Ajuda](#ajuda)
 
 <!--TOC_END-->
@@ -85,6 +86,8 @@ $end
 
 #__end__
 ```
+
+## Raio X
 
 ## Ajuda
 - Inserção

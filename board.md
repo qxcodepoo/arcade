@@ -1,6 +1,6 @@
 [](base/007/Readme.md) : # Agencia Bancária 1 - Extrato, Saldo, Tarifas
 [](base/014/Readme.md) : # Agenda 1 - Um único contato
-[](base/015/Readme.md) : # Agenda 2 - Varios contatos TODO Raio X, fone com ID
+[](base/015/Readme.md) : # Agenda 2 - Varios contatos ordenados
 [](base/016/Readme.md) : # Agenda 3 Favoritos - Lidando com redundâncias - TODO: solver
 [](base/017/Readme.md) : # Agenda 4 - Tratando notas e contatos como entradas da agenda - TODO: solver
 [](base/019/Readme.md) : # Agenda 5 - Serviço de Ligações TODO solver raiox diagrama

@@ -15,6 +15,7 @@
 - Inserindo fone com id
 - Removendo fone por índice
 - Validando número de fone
+- Métodos estáticos
 
 ## Agenda 2 - Vários contatos
 - [Link](../015/Readme.md)

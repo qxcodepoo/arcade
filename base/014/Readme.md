@@ -41,8 +41,6 @@ Seu programa deve:
 
 ```bash
 #__case definindo nome
-$show
-- 
 $init david
 $show
 - david
@@ -53,22 +51,22 @@ $add tim 99
 $add tim 98
 $add vivo 83
 $show
-- david [0:oi:88][1:tim:99][2:tim:98][3:vivo:83]
+- david [0:oi:88] [1:tim:99] [2:tim:98] [3:vivo:83]
 
 #__case removendo telefone por indice
 $rm 2
 $show
-- david [0:oi:88][1:tim:99][2:vivo:83]
+- david [0:oi:88] [1:tim:99] [2:vivo:83]
 $rm 0
 $show
-- david [0:tim:99][1:vivo:83]
+- david [0:tim:99] [1:vivo:83]
 
 #__case validando numero de fone
 $add tim 9a9
 fail: fone invalido
 $add tim (85)99.99
 $show
-- david [0:tim:99][1:vivo:83][2:tim:(85)99.99]
+- david [0:tim:99] [1:vivo:83] [2:tim:(85)99.99]
 $end
 #__end__
 ```
@@ -78,20 +76,25 @@ $end
 
 ````java
 class Fone
-+ label: string
-+ numero: string
++ id: string
++ number: string
 --
-+ validate(): bool
++ _validate(number):_ bool
 + toString(): string
+--
+Fone(id, number)
 
 class Contato
-- nome: string
+- name: string
 - fones: Fone[]
 --
 + addFone(fone: Fone) : boolean
 + rmFone(ind: int) : boolean
++ toString()
 --
-+ constructor(nome: fone)
+Contato(name)
+getName(): string
+getFones(): Fone[]
 ````
 
 ## Ajuda

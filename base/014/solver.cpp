@@ -1,116 +1,107 @@
 #include <iostream>
 #include <vector>
+#include <list>
 #include <sstream>
+#include <algorithm>
 using namespace std;
 
-struct Fone{
-    string label;
+class Fone{
+    string id;
     string fone;
+public:
 
-    Fone(string label = "", string fone = ""){
-        this->label = label;
+    Fone(string id = "", string fone = ""){
+        this->id = id;
         this->fone = fone;
     }
-    static bool validate(string fone){
-        string valid = "0123456789().";
-        for(auto c: fone)
-            if(valid.find(c) == string::npos) //nao encontrou
+
+    static bool validar(string number){
+        string valid = "0123456789()-.";
+        for(char c : number)
+            if(valid.find(c) == string::npos)
                 return false;
         return true;
     }
-
-    string toString(){
-        stringstream ss;
-        ss << this->label << ":" << this->fone;
-        return ss.str();
+    friend ostream& operator<<(ostream& out, const Fone& fone){
+        out << fone.id << ":" << fone.fone;
+        return out;
     }
 };
+    
 
-struct Contato{
+class Contato{
+    string name;
     vector<Fone> fones;
-    string nome;
-    Contato(string nome = "vazio"):
-        nome(nome){
+public:
+    Contato(string name = "", vector<Fone> fones = vector<Fone>()):
+        name(name), fones(fones){
+    }
+    string getName(){
+        return name;
+    }
+    void addFone(string id, string fone){
+        if(Fone::validar(fone))
+            fones.push_back(Fone(id, fone));
+        else
+            cout << "fail: fone invalido" << endl;
+    }
+    void rmFone(int index){
+        if(index < 0 || index >= (int) fones.size())
+            return;
+        fones.erase(fones.begin() + index);
+    }
+    vector<Fone> getFones(){
+        return fones;
     }
 
-    void add(Fone fone){
-        fones.push_back(fone);
-    }
-
-    bool rm(int indice){
-        if(indice < 0 || indice >= (int) fones.size()){
-            cout << "fail: indice invalido" << endl;
-            return false;
+    friend ostream& operator<<(ostream& out, Contato& contato){
+        out << "- " << contato.getName();
+        int i = 0;
+        for(Fone fone : contato.getFones()){
+            out << " [" << i << ":" << fone << "]";
+            i++;
         }
-        fones.erase(fones.begin() + indice);
-        return true;
-    }
-
-    string toString(){
-        stringstream ss;
-        ss << this->nome << "=>";
-        for(int i = 0; i < (int) fones.size(); i++)
-            ss << "[" << i << ":" << fones[i].label << ":" << fones[i].fone << "]";
-        return ss.str();
+        return out;
     }
 };
 
-struct Controller{
-    Contato cont;
-    Controller(){
-    }
-    void shell(string line){
-        stringstream in(line);
-        string op;
-        in >> op;
-        if(op == "show"){
-            cout << cont.toString() << endl;
-        }else if(op == "init"){
-            string nome;
-            in >> nome;
-            cont.nome = nome;
-        }else if(op == "add"){
-            string label, fone;
-            in >> label >> fone;
-            if(!Fone::validate(fone))
-                cout << "fail: fone invalido" << endl;
-            else{
-                cont.add(Fone(label, fone));
-            }
-        }else if(op == "rm"){
-            int indice;
-            in >> indice;
-            cont.rm(indice);
-        }else if(op == "update"){
-            string nome;
-            in >> nome;
-            cont = Contato(nome);
-            string fone_serial;
-            while(in >> fone_serial){
-                stringstream ss(fone_serial);
-                string label, fone;
-                getline(ss, label, ':');
-                getline(ss, fone);
-                if(Fone::validate(fone))
-                    cont.add(Fone(label, fone));
-            }
+
+
+
+template <class T>
+T get(stringstream& ss){
+    T t;
+    ss >> t;
+    return t;
+}
+
+int main(int argc, char const *argv[]){
+    Contato contato;
+    while(true){
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
+        stringstream ss(line);
+        ss >> cmd;
+        if(cmd == "end"){
+            break;
+        }
+        else if(cmd == "init"){//name
+            contato = Contato(get<string>(ss));
+        }
+        else if(cmd == "add"){//id fone
+            string id = get<string>(ss);
+            string fone = get<string>(ss);
+            contato.addFone(id, fone);
+        }
+        else if(cmd == "rm"){//id
+            contato.rmFone(get<int>(ss));
+        }
+        else if(cmd == "show"){
+            cout << contato << "\n";
+        }
+        else{
+            cout << "fail: comando invalido";
         }
     }
-
-    void exec(){
-        string line;
-        while(true){
-            getline(cin, line);
-            cout << "$" << line << endl;
-            if(line == "end")
-                return;
-            shell(line);
-        }
-    }
-};
-
-int main(){
-    Controller c;
-    c.exec();
-    return 0;
 }

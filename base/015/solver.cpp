@@ -5,61 +5,88 @@
 #include <sstream>
 using namespace std;
 
-class Contato {
+
+class Fone{
+    string id;
+    string fone;
 public:
-    string m_id;
-    vector<string> m_fones;
-
-    Contato(string id = ""){
-        this->m_id = id;
+    Fone(string id = "", string fone = ""){
+        this->id = id;
+        this->fone = fone;
     }
 
-    void addFone(string number){
-        if(std::find(m_fones.begin(), m_fones.end(), number) == m_fones.end())
-            m_fones.push_back(number);
+    static bool validar(string number){
+        string valid = "0123456789()-.";
+        for(char c : number)
+            if(valid.find(c) == string::npos)
+                return false;
+        return true;
     }
-
-    void rmFone(int ind){
-        if(ind >= 0 && ind <= (int) m_fones.size())
-            m_fones.erase(m_fones.begin() + ind);
+    friend ostream& operator<<(ostream& out, const Fone& fone){
+        out << fone.id << ":" << fone.fone;
+        return out;
     }
+};
+    
 
-    vector<string> getFones(){
-        return m_fones;
+class Contato{
+    string name;
+    vector<Fone> fones;
+public:
+    Contato(string name = "", vector<Fone> fones = vector<Fone>()):
+        name(name), fones(fones){
     }
-
-    string toString(){
-        string saida = "- " + m_id + " ";
+    string getName(){
+        return name;
+    }
+    void addFone(string id, string fone){
+        if(Fone::validar(fone))
+            fones.push_back(Fone(id, fone));
+        else
+            cout << "fail: fone invalido" << endl;
+    }
+    void rmFone(int index){
+        if(index < 0 || index >= (int) fones.size())
+            return;
+        fones.erase(fones.begin() + index);
+    }
+    vector<Fone> getFones(){
+        return fones;
+    }
+    friend ostream& operator<<(ostream& out, Contato& contato){
+        out << "- " << contato.getName();
         int i = 0;
-        for(auto fone: m_fones)
-            saida += "[" + to_string(i++) + ":" + fone + "]";
-        return saida;
+        for(Fone fone : contato.getFones()){
+            out << " [" << i << ":" << fone << "]";
+            i++;
+        }
+        return out;
     }
 };
 
-class Agenda {
-    vector<Contato> m_contatos;
+bool compare_contato(Contato one, Contato two){
+    return one.getName() < two.getName();
+}
 
-    vector<Contato>::iterator getIterator(string id){
-        for(auto it = m_contatos.begin(); it != m_contatos.end(); it++)
-            if(it->m_id == id)
-                return it;
-        throw string("fail: contato " + id + " nao existe");
+
+class Agenda {
+    vector<Contato> contatos;
+
+    int findContato(string id){
+        for(int i = 0; i < contatos.size(); i++)
+            if(contatos[i].getName() == id)
+                return i;
+        return -1;
     }
 
 public:
     //add ou merge de contato
-    void addContato(Contato contato) {
-        try{
-            auto it = getIterator(contato.m_id);
-            if(it != m_contatos.end()){
-                for(auto fone : contato.m_fones)
-                    it->addFone(fone);
-            }
-        }catch(string e){
-            m_contatos.push_back(contato);
+    void addContato(string name, vector<Fone> fones) {
+        int ind = findContato(name);
+        if(ind == -1){
+            contatos.push_back(Contato(name, fones));
         }
-        std::sort(m_contatos.begin(), m_contatos.end(), [](auto a, auto b){return a.m_id < b.m_id;});
+        //std::sort(contatos.begin(), contatos.end(), [](auto a, auto b){return a.name < b.name;});
     }
 
     void rmContato(string id) {
