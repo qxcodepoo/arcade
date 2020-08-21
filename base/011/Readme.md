@@ -1,4 +1,4 @@
-# JunkFood Machine ⭐⭐
+# JunkFood Machine
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->

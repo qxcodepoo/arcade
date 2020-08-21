@@ -1,4 +1,4 @@
-# Tamagotchi - Matando de Fome o bichinho
+# Tamagotchi - Matando de Fome
 
 ![](figura.jpg)
 

@@ -1,4 +1,4 @@
-# Agregação: Motoca infantil no parque
+# Motoca infantil no parque
 ![](figura.jpg)
 
 

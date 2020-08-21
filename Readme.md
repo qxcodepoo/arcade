@@ -23,24 +23,24 @@
 
 ## Duas classes usando agregação
 
-- [@004 Agregação: Lapiseira e Grafite - TODO RAIO X](base/004/Readme.md) 
-- [@003 Agregação: Motoca infantil no parque](base/003/Readme.md) 
+- [@004 Lapiseira e Grafite](base/004/Readme.md) 
+- [@003 Motoca infantil no parque](base/003/Readme.md) 
 
 ## Construtores, Get e Set
-- [@006 Tamagotchi - Matando de Fome o bichinho](base/006/Readme.md) 
+
+- [@006 Tamagotchi - Matando de Fome](base/006/Readme.md) 
 
 ## Manipulação de dados em lsitas
 - [@005 Mestre dos Vetores](base/005/Readme.md) 
-- [@009 Parquinho: Hora do pula pula](base/009/Readme.md) 
+- [@009 Pula pula no parquinho](base/009/Readme.md) 
 
 ## 2 classes, Vetores de Null, agregação
-- [@010 Sala de Cinema ⭐](base/010/Readme.md) 
-- [@011 JunkFood Machine ⭐⭐](base/011/Readme.md) 
-- [@012 Topic de Luxo ⭐⭐⭐](base/012/Readme.md) 
+- [@010 Sala de Cinema](base/010/Readme.md) 
+- [@011 JunkFood Machine](base/011/Readme.md) 
 
 ## 2 classes, Vetores, composição, responsabilidades
 - [@014 Agenda 1 - Um único contato](base/014/Readme.md) 
-- [@007 Agencia Bancária 1 - Extrato, Saldo, Tarifas](base/007/Readme.md) 
+- [@007 Agência 1 - Extrato, Saldo, Tarifas](base/007/Readme.md) 
 
 ## Progressões
 - [@018 Progressão Agenda](base/018/Readme.md) 
@@ -48,6 +48,8 @@
 ## Ordenando: sort em vetor, mapas, excessões
 - [@015 Agenda 2 - Varios contatos ordenados](base/015/Readme.md) 
     - processamento de texto em lote
+    - ordenação de vetor
+    - controle de Id
 - [@008 Agiota Gente Fina](base/008/Readme.md) 
 
 ## Acoplamento

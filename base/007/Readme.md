@@ -1,4 +1,4 @@
-# Agencia Bancária 1 - Extrato, Saldo, Tarifas
+# Agência 1 - Extrato, Saldo, Tarifas
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
@@ -26,9 +26,6 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
         - Retornar todas as movimentações da conta desde a abertura
         - A descrição pode ser "abertura", "saque", "deposito", "tarifa", "extorno".
         - Os saques devem ter valor negativo e os depósitos positivos.
-    
-## Opcional
-
 - **Extrato parcial**
       - Mostre as últimas N operações do extrato.
 - **Extornar tarifas**.

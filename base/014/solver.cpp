@@ -7,12 +7,11 @@ using namespace std;
 
 class Fone{
     string id;
-    string fone;
+    string number;
 public:
-
-    Fone(string id = "", string fone = ""){
+    Fone(string id = "", string number= ""){
         this->id = id;
-        this->fone = fone;
+        this->number = number;
     }
 
     static bool validar(string number){
@@ -23,7 +22,7 @@ public:
         return true;
     }
     friend ostream& operator<<(ostream& out, const Fone& fone){
-        out << fone.id << ":" << fone.fone;
+        out << fone.id << ":" << fone.number;
         return out;
     }
 };
@@ -39,9 +38,9 @@ public:
     string getName(){
         return name;
     }
-    void addFone(string id, string fone){
-        if(Fone::validar(fone))
-            fones.push_back(Fone(id, fone));
+    void addFone(string id, string number){
+        if(Fone::validar(number))
+            fones.push_back(Fone(id, number));
         else
             cout << "fail: fone invalido" << endl;
     }
@@ -53,7 +52,6 @@ public:
     vector<Fone> getFones(){
         return fones;
     }
-
     friend ostream& operator<<(ostream& out, Contato& contato){
         out << "- " << contato.getName();
         int i = 0;

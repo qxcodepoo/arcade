@@ -1,4 +1,4 @@
-# Sala de Cinema ⭐
+# Sala de Cinema
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
@@ -45,7 +45,7 @@ class Cinema
 + reservar(id, fone, indice): bool    //reservar
 + cancelar(id): bool   //cancelar
 --
-+ constructor(lotacao)
++ Cinema(lotacao)
 ```
 
 

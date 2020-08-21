@@ -1,9 +1,10 @@
-# Agregação: Lapiseira e Grafite - TODO RAIO X
+# Lapiseira e Grafite
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
 - [Requisitos](#requisitos)
 - [Shell](#shell)
+- [Raio X](#raio-x)
 
 <!--TOC_END-->
 
@@ -97,4 +98,30 @@ fail: grafite acabou
 $show
 calibre: 0.9, grafite: null
 $end
+```
+
+## Raio X
+
+``` java
+class Grafite
+--
++ calibre: float
++ dureza: string
++ tamanho: int
+--
++ Grafite(calibre, dureza, tamanho)
++ toString(): String
+
+class Lapiseira
+--
++ calibre: float
++ grafite: Grafite
+--
++ inserir(grafite: Grafite): bool
++ remover(): bool
++ escrever(pressao: int): bool
+--
++ Lapiseira(calibre: float)
++ toString(): String
+
 ```

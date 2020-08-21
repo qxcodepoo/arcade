@@ -7,12 +7,17 @@ using namespace std;
 
 
 class Fone{
-    string id;
-    string fone;
 public:
-    Fone(string id = "", string fone = ""){
+    string id;
+    string number;
+    Fone(string serial = ""){
+        stringstream ss(serial);
+        getline(ss, this->id, ':');
+        ss >> this->number;
+    }
+    Fone(string id, string number){
         this->id = id;
-        this->fone = fone;
+        this->number = number;
     }
 
     static bool validar(string number){
@@ -23,7 +28,7 @@ public:
         return true;
     }
     friend ostream& operator<<(ostream& out, const Fone& fone){
-        out << fone.id << ":" << fone.fone;
+        out << fone.id << ":" << fone.number;
         return out;
     }
 };
@@ -33,15 +38,15 @@ class Contato{
     string name;
     vector<Fone> fones;
 public:
-    Contato(string name = "", vector<Fone> fones = vector<Fone>()):
-        name(name), fones(fones){
+    Contato(string name = ""):
+        name(name){
     }
     string getName(){
         return name;
     }
-    void addFone(string id, string fone){
-        if(Fone::validar(fone))
-            fones.push_back(Fone(id, fone));
+    void addFone(string id, string number){
+        if(Fone::validar(number))
+            fones.push_back(Fone(id, number));
         else
             cout << "fail: fone invalido" << endl;
     }
@@ -73,109 +78,113 @@ class Agenda {
     vector<Contato> contatos;
 
     int findContato(string id){
-        for(int i = 0; i < contatos.size(); i++)
+        for(int i = 0; i < (int) contatos.size(); i++)
             if(contatos[i].getName() == id)
                 return i;
         return -1;
     }
 
 public:
-    //add ou merge de contato
+    //add contato que não existe ou adicionar fones ao contato que existe
     void addContato(string name, vector<Fone> fones) {
         int ind = findContato(name);
         if(ind == -1){
-            contatos.push_back(Contato(name, fones));
+            contatos.push_back(Contato(name));
+            //opcao 1
+            //std::sort(contatos.begin(), contatos.end(), [](auto a, auto b){return a.name < b.name;});
+            std::sort(contatos.begin(), contatos.end(), compare_contato);
+            ind = findContato(name);
         }
-        //std::sort(contatos.begin(), contatos.end(), [](auto a, auto b){return a.name < b.name;});
+        for(Fone fone : fones)
+            contatos[ind].addFone(fone.id, fone.number);
+        
     }
 
-    void rmContato(string id) {
-        m_contatos.erase(getIterator(id));
+    void rmContato(string name) {
+        int ind = findContato(name);
+        if(ind != -1)
+            contatos.erase(contatos.begin() + ind);
     }
 
     Contato * getContato(string id) {
-        return &*getIterator(id);
+        int ind = findContato(id);
+        if(ind != -1)
+            return &contatos[ind];
+        return nullptr;
     }
 
     vector<Contato> getContatos() {
-        return m_contatos;
+        return contatos; //retorna a cópia
     }
 
     vector<Contato> search(string pattern) {
         vector<Contato> resp;
-        for(auto& cont : m_contatos)
-            if(cont.toString().find(pattern) != string::npos)
+        for(auto& cont : contatos){
+            stringstream ss;
+            ss << cont;
+            if(ss.str().find(pattern) != string::npos)
                 resp.push_back(cont);
+        }
         return resp;
     }
-    string toString(){
-        string saida;
-        for(auto contato : m_contatos)
-            saida += contato.toString() + "\n";
-        return saida;
+    friend ostream& operator<<(ostream& out, Agenda& agenda){
+        for(auto contato : agenda.contatos)
+            out << contato << "\n";
+        return out;
     }
 };
 
-class Controller {
+template <class T>
+T get(stringstream& ss){
+    T t;
+    ss >> t;
+    return t;
+}
+
+int main(int argc, char const *argv[]){
     Agenda agenda;
-
-    //recebe uma linha de comando e retorna a saida
-    void shell(string line) {
+    while(true){
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
         stringstream ss(line);
-        string op;
-        ss >> op;
-
-        if(op == "addContato"){
-            string id, number;
-            ss >> id;
-            Contato contato(id);
-            while(ss >> number){
-                contato.addFone(number);
-            }
-            agenda.addContato(contato);
+        ss >> cmd;
+        if(cmd == "end"){
+            break;
         }
-        else if(op == "rmContato"){
+        else if(cmd == "add"){//name id:fone id:fone ...
+            string name, serial;
+            ss >> name;
+            vector<Fone> fones;
+            while(ss >> serial){
+                fones.push_back(Fone(serial));
+            }
+            agenda.addContato(name, fones);
+        }
+        else if(cmd == "agenda"){
+            cout << agenda;
+        }
+        else if(cmd == "rmFone"){//id index
+            string id;
+            int index;
+            ss >> id >> index;
+            Contato * contato = agenda.getContato(id);
+            if(contato != nullptr)
+                contato->rmFone(index);
+        }
+        else if(cmd == "rmContato"){//id
             string id;
             ss >> id;
             agenda.rmContato(id);
         }
-        else if(op == "rmFone"){
-            string id;
-            int ind;
-            ss >> id >> ind;
-            agenda.getContato(id)->rmFone(ind);
-        }
-        else if(op == "agenda"){
-            cout << agenda.toString();
-        }
-        else if(op == "search"){
+        else if(cmd == "search"){//pattern
             string pattern;
             ss >> pattern;
-            for(auto contato : agenda.search(pattern))
-                cout << contato.toString() << "\n";
+            for(Contato contato : agenda.search(pattern))
+                cout << contato << endl;
         }
-        else 
-            cout << "comando invalido\n";
-    }
-
-public:
-    void exec(){
-        string line = "";
-        while(true){
-            getline(cin, line);
-            cout << "$" << line << "\n";
-            if(line == "end")
-                break;
-            try{
-                shell(line);
-            }catch(string s){
-                cout << s << "\n";
-            }
+        else{
+            cout << "fail: comando invalido\n";
         }
     }
-};
-
-int main(){
-    Controller c;
-    c.exec();
 }
