@@ -3,7 +3,6 @@
 
 <!--TOC_BEGIN-->
 - [Requisitos](#requisitos)
-- [Opcional](#opcional)
 - [Shell](#shell)
 - [Raio X](#raio-x)
 

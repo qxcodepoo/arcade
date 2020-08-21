@@ -74,7 +74,7 @@ $end
 ***
 ## Raio X
 
-````java
+```java
 class Fone
 + id: string
 + number: string

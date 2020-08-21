@@ -47,10 +47,12 @@
 
 ## Ordenando: sort em vetor, mapas, excessões
 - [@015 Agenda 2 - Varios contatos ordenados](base/015/Readme.md) 
-    - processamento de texto em lote
-    - ordenação de vetor
     - controle de Id
+    - ordenação de vetor
+    - processamento de texto em lote
 - [@008 Agiota Gente Fina](base/008/Readme.md) 
+    - controle de Id
+    - ordenação de vetor
 
 ## Acoplamento
 - [@020 Agenda 7 - Login Multiusuário](base/020/Readme.md) 

@@ -6,7 +6,6 @@ Ptolomeu é o agiota mais carismático de MoneyVille. Sem nenhuma razão foi den
 
 <!--TOC_BEGIN-->
 - [Requisitos](#requisitos)
-- [Opcional](#opcional)
 - [Exemplos](#exemplos)
 - [Diagrama](#diagrama)
 - [Fim da história](#fim-da-história)
@@ -23,18 +22,19 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
 
 - Iniciar Sistema.
     - Inicia o sistema com uma certa quantidade de dinheiro.
-    - Apaga todos os registros de transações que existam.
-    - Inicialize o sistema com valores válidos.
+
 
 - Cadastrar Clientes
     - Cada cliente tem um apelido (clienteId) que é sua chave no sistema e um nome que pode ter várias palavras.
 
 - Emprestar Dinheiro.
-    - Uma transação tem um clienteId e um valor numérico.
-    - Empréstimos são salvos com valor negativo de transação.
+    - Empréstimos são salvos com valor positivo de transação.
     - Cada transação deve receber do sistema um identificador numérico crescente.
     - A primeira transação tem id 0. A segunda tem id 1 e etc.
     - Ptolomeu não pode emprestar dinheiro se não tiver dinheiro suficiente.
+    - Uma transação tem um clienteId e um valor numérico.
+
+- Mostrar todos os clientes com o saldo de cada um.
 
 - Mostrar o histórico de transações.
 
@@ -46,11 +46,6 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
     - As vezes Ptolomeu dá um chá de sumiço em quem não paga suas dívidas. Pra não deixar pontas soltas ele precisa apagar as transações do histórico e remover o cliente da lista. 
     - Apagar as transações não altera o saldo de ptolomeu.
 
-## Opcional
-
-- Mostrar cliente. 
-    - Mostra apenas as transações daquele cliente e o saldo.
-- Mostrar todos os clientes com o saldo de cada um.
 
 
 
@@ -58,14 +53,6 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
 
 ```bash
 #__case init
-# addCli _id _full_name
-# addTr _id _value
-# showAll
-# showTr
-# showCli _id
-# matar _id
-
-
 $init 500
 
 #__case cadastrar
@@ -84,34 +71,19 @@ $emprestar josue 400
 fail: fundos insuficientes
 
 #__case resumo
-# Mostrar todos ordenados por idCli
+# Mostrar todos ordenados por codenome
 $resumo
 josue : josue matos : 50
 maria : maria silva : 400
 saldo : 50
 
 #__case historico
-#######################################
-# Mostrar o histórico de transações
-#######################################
 $historico
 id:0 [maria 300]
 id:1 [josue 50]
 id:2 [maria 100]
 
-#__case filtrar
-#######################################
-# Mostrar cliente
-#######################################
-$filtrar maria
-id:0 [maria 300]
-id:2 [maria 100]
-saldo: 400
-
-#__case receber
-#######################################
-# Receber dinheiro
-#######################################
+#__case receber dinheiro
 $receber maria 1000
 fail: valor maior que a divida
 $receber maria 350
@@ -123,38 +95,7 @@ id:3 [maria -350]
 $receber josue 1
 $receber maria 10
 
-#__case mais operacoes
-#######################################
-# Mais operacoes
-#######################################
-$addCli hugo hugo calingo
-$emprestar hugo 10
-$emprestar hugo 20
-$receber maria 5
-$receber josue 3
-
-$historico
-id:0 [maria 300]
-id:1 [josue 50]
-id:2 [maria 100]
-id:3 [maria -350]
-id:4 [josue -1]
-id:5 [maria -10]
-id:6 [hugo 10]
-id:7 [hugo 20]
-id:8 [maria -5]
-id:9 [josue -3]
-
 #__case matar
-#######################################
-# Matando
-#######################################
-$filtrar josue
-id:1 [josue 50]
-id:4 [josue -1]
-id:9 [josue -3]
-saldo: 46
-
 $matar josue
 
 $historico
@@ -162,14 +103,10 @@ id:0 [maria 300]
 id:2 [maria 100]
 id:3 [maria -350]
 id:5 [maria -10]
-id:6 [hugo 10]
-id:7 [hugo 20]
-id:8 [maria -5]
 
 $resumo
-hugo : hugo calingo : 30
-maria : maria silva : 35
-saldo : 389
+maria : maria silva : 40
+saldo : 411
 
 $end
 ```
