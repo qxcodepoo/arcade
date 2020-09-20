@@ -1,8 +1,3 @@
-***
-layout: post
-title: Matricula Guide
-***
-
 ## Orientacoes
 
 Temos algumas complicações aqui. Vamos fazer a matricula chamando
@@ -60,7 +55,6 @@ class Aluno:
     # a lista que guarda os alunos
     # sugiro que implemente como Map<string, Discp>
     m_discp 
-    
     idAluno #nome do aluno
 
     def constructor(idAluno)

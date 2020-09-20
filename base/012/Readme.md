@@ -1,4 +1,4 @@
-# Topic de Luxo ⭐⭐⭐
+# Topic de Luxo
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->

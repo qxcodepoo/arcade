@@ -96,7 +96,7 @@ class TOC:
             print("Create an entry with the text:")
             print(tag_begin)
             print(tag_end)
-            print("in your file.")
+            print("in the file", path)
             print("Use '[]()' string in the lines that you want to hide in toc")
 
 def main():

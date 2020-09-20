@@ -1,4 +1,9 @@
-# Agenda 5 - Serviço de Ligações TODO solver raiox diagrama
+# Agenda 5 - Serviço de Ligações
+
+- TODO
+    - solver
+    - raiox
+    - diagrama
 
 ![](figura.jpg)
 

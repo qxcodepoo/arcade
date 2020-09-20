@@ -4,15 +4,14 @@
 - [Uma classe mudando de estado](#uma-classe-mudando-de-estado)
 - [Duas classes usando agregação](#duas-classes-usando-agregação)
 - [Construtores, Get e Set](#construtores-get-e-set)
-- [Manipulação de dados em lsitas](#manipulação-de-dados-em-lsitas)
+- [Manipulação de dados em listas](#manipulação-de-dados-em-listas)
 - [2 classes, Vetores de Null, agregação](#2-classes-vetores-de-null-agregação)
 - [2 classes, Vetores, composição, responsabilidades](#2-classes-vetores-composição-responsabilidades)
 - [Progressões](#progressões)
-- [Ordenando: sort em vetor, mapas, excessões](#ordenando-sort-em-vetor-mapas-excessões)
-- [Acoplamento](#acoplamento)
-- [Redundâncias](#redundâncias)
+- [Composição, 3 camadas, ordenação](#composição-3-camadas-ordenação)
+- [Redundâncias, uso de mapas](#redundâncias-uso-de-mapas)
+- [Associação](#associação)
 - [Herança](#herança)
-- [Padrão Observer](#padrão-observer)
 
 <!--TOC_END-->
 
@@ -28,9 +27,9 @@
 
 ## Construtores, Get e Set
 
-- [@006 Tamagotchi - Matando de Fome](base/006/Readme.md) 
+- [@006 Tamagotchi](base/006/Readme.md) 
 
-## Manipulação de dados em lsitas
+## Manipulação de dados em listas
 - [@005 Mestre dos Vetores](base/005/Readme.md) 
 - [@009 Pula pula no parquinho](base/009/Readme.md) 
 
@@ -45,24 +44,16 @@
 ## Progressões
 - [@018 Progressão Agenda](base/018/Readme.md) 
 
-## Ordenando: sort em vetor, mapas, excessões
+## Composição, 3 camadas, ordenação
 - [@015 Agenda 2 - Varios contatos ordenados](base/015/Readme.md) 
-    - controle de Id
-    - ordenação de vetor
-    - processamento de texto em lote
 - [@008 Agiota Gente Fina](base/008/Readme.md) 
-    - controle de Id
-    - ordenação de vetor
 
-## Acoplamento
-- [@020 Agenda 7 - Login Multiusuário](base/020/Readme.md) 
+## Redundâncias, uso de mapas
+- [@016 Agenda 3 - Favoritos](base/016/Readme.md) 
 
-## Redundâncias
-- [@016 Agenda 3 Favoritos - Lidando com redundâncias - TODO: solver](base/016/Readme.md) 
+## Associação
+- [@021 Época de Matrícula - Associação NxN](base/021/Readme.md) 
 
 ## Herança
-- [@013 Agencia Bancária 2](base/013/Readme.md)  [](#heranca)
-- [@017 Agenda 4 - Tratando notas e contatos como entradas da agenda - TODO: solver](base/017/Readme.md) 
-
-## Padrão Observer
-- [@019 Agenda 5 - Serviço de Ligações TODO solver raiox diagrama](base/019/Readme.md) 
+- [@013 Agência 2 - Conta Poupança e Corrente](base/013/Readme.md) 
+- [@017 Agenda 4 - Híbrida com notas e contatos](base/017/Readme.md) 

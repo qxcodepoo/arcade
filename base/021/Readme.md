@@ -3,7 +3,9 @@
 <!--TOC_BEGIN-->
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
-- [Raio X](#raio-x)
+- [Raio X em Java](#raio-x-em-java)
+- [Raio X em C++](#raio-x-em-c)
+- [Main em C++](#main-em-c)
 
 <!--TOC_END-->
 
@@ -99,42 +101,146 @@ $end
 ```
 
 ***
-## Raio X
+## Raio X em Java
 
 ````java
 class Aluno
-- idAluno: String
-~ m_discp: Map<String, Discp>
+- id: String
+- m_discp: Map<String, Discp>
 --
 + matricular(discp: Discp): void
-+ desmatricular(idAluno: String): void
++ desmatricular(idDiscp: String): void
 + getDisciplinas(): List<Discp>
 --
 + Aluno(idAluno)
-+ getIdAluno(): String
-````
++ getId(): String
 
-````java
+
 class Discp
-- idDiscp: String
-~ m_aluno: Map<String, Aluno>
+- id: String
+- m_aluno: Map<String, Aluno>
 --
 + matricular(aluno: Aluno): void
 + desmatricular(idAluno: String): void
 + getAlunos(): List<Aluno>
 --
-+ Discp(idDiscp)
-+ getIdDiscp(): String
-````
++ Discp(id)
++ getId(): String
 
-````java
 class Sistema
 - alunos: Map<String, Aluno>
 - discps: Map<String, Discp>
 --
 + addAluno(idAluno: String): void
 + addDiscp(idDiscp: String): void
-+ matricular(idAluno: String, idDisc: List<String>): void
-+ desmatricular(idAluno: String, idDisc: List<String>): void
++ matricular(idAluno: String, idDisc: String): void
++ desmatricular(idAluno: String, idDisc: String): void
 + rmAluno(idAluno: String): void
 ````
+
+***
+## Raio X em C++
+
+````java
+class Discp{
+    string id;
+    map<string, Aluno*> m_aluno;
+public:
+    Discp(string nome = "");
+    string getId();
+    void addAluno(Aluno* aluno);
+    void rmAluno(Aluno* aluno);
+    friend ostream& operator<<(ostream& os, Discp& discp);
+};
+
+class Aluno{
+    string id;
+    map<string, Discp*> m_discp;
+public:
+    Aluno(string nome = "");
+    string getId();
+    vector<Discp*> getDiscps();
+    friend ostream& operator<<(ostream& os, Aluno& aluno);
+    friend void Discp::addAluno(Aluno*);
+    friend void Discp::rmAluno(Aluno*);
+};
+
+class Sistema {
+    map<string, Aluno> m_aluno;
+    map<string, Discp> m_discp;
+
+public:
+    void addAluno(string idAluno);
+    void addDiscp(string idDiscp);
+    void matricular(string idAluno, string idDiscp);
+    void desmatricular(string idAluno, string idDiscp);
+    void rmAluno(string idAluno);
+    friend ostream& operator<<(ostream& os, Sistema& sis);
+};
+
+
+````
+
+***
+## Main em C++
+
+```c++
+template <class T>
+T get(stringstream& ss){
+    T value;
+    ss >> value;
+    return value;
+}
+
+struct Solver{
+    Sistema sistema;
+
+    void exec(){
+        while (true){
+            string line;
+            getline(cin, line);
+            cout << "$" << line<< "\n";
+            if(line == "end")
+                break;
+            else{
+                try{
+                    shell(line);
+                }catch(exception &e){
+                    cout << e.what() << "\n";
+                }
+            }
+        }
+    }
+
+    void shell(string line){
+        stringstream ss(line);
+        string cmd, value;
+        ss >> cmd;
+        if(cmd == "nwalu"){
+            while(ss >> value)
+                sistema.addAluno(value);
+        }else if(cmd == "nwdis"){
+            while(ss >> value)
+                sistema.addDiscp(value);
+        }else if(cmd == "show"){
+            cout << sistema;
+        }else if(cmd == "tie"){
+            string aluno = get<string>(ss);
+            while(ss >> value)
+                sistema.matricular(aluno, value);
+        }else if(cmd == "untie"){
+            string aluno = get<string>(ss);
+            while(ss >> value)
+                sistema.desmatricular(aluno, value);
+        }else if(cmd == "rmalu"){
+            sistema.rmAluno(get<string>(ss));
+        }else{
+            cout << "comando invalido " << "[" << cmd << "]\n";
+        }
+    }
+};
+
+int main(){
+    Solver().exec();
+}
+```

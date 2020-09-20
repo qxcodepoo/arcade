@@ -54,7 +54,14 @@ public:
     string toString(){
         return "[" + this->idFone + " " + this->numero + "]";
     }
+
+    friend ostream& operator<<(ostream& out, Fone fone){
+        out << "[" << fone.idFone << " " << fone.numero + "]";
+        return out;
+    }
 };
+    
+
 
 class Contato {
 public:
@@ -63,78 +70,71 @@ public:
     bool favorited;
     Contato(string id = ""){
         this->id = id;
-        this->favorited = true;
+        this->favorited = false;
     }
 
     void addFone(Fone fone){
-        for(auto elem : fones)
-            if(elem.idFone == fone.idFone)
-                throw "fone " + fone.idFone + " ja existe";
         fones.push_back(fone);
     }
 
-    void rmFone(string idFone){
-        for(int i = 0; i < (int) fones.size(); i++){
-            if(fones[i].idFone == idFone){
-                fones.erase(fones.begin() + i);
-                return;
-            }
-        }
-        throw "fone " + idFone + " nao existe";
+    void rmFone(int index){
+        fones.erase(fones.begin() + index);
     }
 
     vector<Fone> getAllFones(){
         return fones;
     }
 
-    string toString(){
-        string saida = favorited ? "@" : "-";
-        saida += " " + id + " ";
-        for(auto fone: fones)
-            saida += fone.toString();
-        return saida;
+
+    friend ostream& operator<<(ostream& out, Contato contato){
+        out << (contato.favorited ? "@" : "-");
+        out << " " << contato.id << " ";
+        for(auto fone: contato.fones)
+            out << fone.toString();
+        return out;
     }
 };
 
+template <class T>
+string toString(T t){
+    stringstream ss;
+    ss << t;
+    return ss.str();
+}
+
+#include <algorithm>
+
 class Agenda {
-    map<string, Contato> contatos;
+    map<string, Contato*> contatos; //vetor
     map<string, Contato*> favoritos;
 
 public:
-    void addContato(Contato contato){
-        if(contatos.count(contato.id))
-            throw "contato " + contato.id + " ja existe";
-        contatos[contato.id] = contato;
+    void addContato(string id, vector<Fone> fones){
+        //se nao existe, adicione
+
+        std::sort(contatos.begin(), contatos.end(), [](Contato one, Contato two) -> bool {
+            return one.id < two.id;
+        });
     }
 
     void rmContato(string nome) {
         if(contatos.erase(nome))
             favoritos.erase(nome);
-        else
-            throw "contato " + nome + " nao existe";
     }
 
     Contato * getContato(string nome){
         auto it = contatos.find(nome);
         if(it == contatos.end())
-            throw "contato " + nome + " nao existe";
-        return &it->second;
+            return nullptr;
+        return it->second;
     }
 
     void favoritar(string nome) {
-        Contato * contato = getContato(nome);
-        if(contato->favorited)
-            return;
-        contato->favorited = true;
-        favoritos[nome] = contato;
+        
     }
 
     void desfavoritar(string nome){
-        Contato * contato = getContato(nome);
-        if(!contato->favorited)
-            return;
-        contato->favorited = false;
-        favoritos.erase(nome);
+        
     }
 
     vector<Contato> getFavoritos(){
@@ -147,15 +147,16 @@ public:
     vector<Contato> getContatos(){
         vector<Contato> resp;
         for(auto par : contatos)
-            resp.push_back(par.second);
+            resp.push_back(*par.second);
         return resp;
     }
 
     vector<Contato> search(string pattern){
         vector<Contato> resp;
-        for(auto par : contatos)
-            if(par.second.toString().find(pattern) != string::npos)
-                resp.push_back(par.second);
+        for(auto par : contatos){
+            if(toString(*par.second).find(pattern) != string::npos)
+                resp.push_back(*par.second);
+        }
         return resp;
     }
 };
@@ -187,7 +188,7 @@ int main(){
             if(cmd == "help"){
                 cout << HELP_TEXT << endl;
             }
-            else if(cmd == "add"){
+            else if(cmd == "add"){ //id label-fone label-fone label-fone
                 string name = get<string>(ss);
                 vector<Fone> fones;
                 string fonestr;

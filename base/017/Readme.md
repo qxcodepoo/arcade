@@ -1,4 +1,4 @@
-# Agenda 4 - Tratando notas e contatos como entradas da agenda - TODO: solver
+# Agenda 4 - Híbrida com notas e contatos
 ![](figura.jpg)
 
 <!--TOC_BEGIN-->
