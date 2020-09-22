@@ -3,9 +3,9 @@
 <!--TOC_BEGIN-->
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
+- [Comandos de Teste](#comandos-de-teste)
 - [Diagrama](#diagrama)
 - [Raio X em C++](#raio-x-em-c)
-- [Comandos de Teste](#comandos-de-teste)
 - [Main não interativa em C++](#main-não-interativa-em-c)
 
 <!--TOC_END-->
