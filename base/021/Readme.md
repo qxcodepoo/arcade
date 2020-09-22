@@ -142,7 +142,7 @@ class Sistema
 ***
 ## Raio X em C++
 
-````java
+````c++
 class Discp{
     string id;
     map<string, Aluno*> m_aluno;
