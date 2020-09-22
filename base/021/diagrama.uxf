@@ -116,7 +116,7 @@ m2=0..n
       <w>54</w>
       <h>99</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
 m1=0..n
 m2=1
 </panel_attributes>
@@ -130,7 +130,7 @@ m2=1
       <w>54</w>
       <h>108</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;&gt;
 m1=0..n
 m2=1
 </panel_attributes>
