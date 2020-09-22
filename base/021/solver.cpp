@@ -1,10 +1,9 @@
-using namespace std;
-
-#include <functional> //reference_wrapper
 #include <iostream>
 #include <vector>
 #include <sstream>
 #include <map>
+using namespace std;
+
 
 class Aluno; //forward declaration
 
@@ -15,7 +14,7 @@ public:
     Discp(string nome = ""): id {nome} {};
     string getId(){return id;};
     void addAluno(Aluno* aluno);    //after
-    void rmAluno(Aluno* aluno);   //after
+    void rmAluno(string idAluno);   //after
     friend ostream& operator<<(ostream& os, Discp& discp); //after
 };
 
@@ -39,7 +38,7 @@ public:
         return os;
     }
     friend void Discp::addAluno(Aluno*);
-    friend void Discp::rmAluno(Aluno*);
+    friend void Discp::rmAluno(string);
 };
 
 void Discp::addAluno(Aluno* aluno){
@@ -49,11 +48,12 @@ void Discp::addAluno(Aluno* aluno){
     aluno->m_discp[this->getId()] = this;
 }
 
-void Discp::rmAluno(Aluno* aluno){
-    if(this->m_aluno.count(aluno->getId()) == 0) //nao existe
+void Discp::rmAluno(string idAluno){
+    auto it = this->m_aluno.find(idAluno);
+    if(it == m_aluno.end()) //nao existe
         return;
-    this->m_aluno.erase(aluno->getId());
-    aluno->m_discp.erase(this->getId());
+    this->m_aluno.erase(it);
+    it->second->m_discp.erase(this->getId());
 }
 
 ostream& operator<<(ostream& os, Discp& discp){
@@ -63,7 +63,6 @@ ostream& operator<<(ostream& os, Discp& discp){
     os << "]";
     return os;
 }
-
 
 template <class T>
 T& get(map<string, T>& m, string key){
@@ -91,12 +90,12 @@ public:
         m_discp.at(idDiscp).addAluno(&m_aluno.at(idAluno));
     }
     void desmatricular(string idAluno, string idDiscp){
-        m_discp.at(idDiscp).rmAluno(&m_aluno.at(idAluno));
+        m_discp.at(idDiscp).rmAluno(idAluno);
     }
     void rmAluno(string idAluno){
         Aluno& aluno = get(m_aluno, idAluno);
         for(auto* discp : aluno.getDiscps())
-            discp->rmAluno(&aluno);
+            discp->rmAluno(idAluno);
         this->m_aluno.erase(idAluno);
     }
     friend ostream& operator<<(ostream& os, Sistema& sis){
@@ -166,6 +165,66 @@ struct Solver{
     }
 };
 
-int main(){
+int main2(){
     Solver().exec();
+    return 0;
+}
+
+int main(){
+    Sistema sys;
+    for(auto aluno : {"alice", "edson", "bruno"})
+        sys.addAluno(aluno);
+    for(auto discp : {"fup", "aps", "poo"})
+        sys.addDiscp(discp);
+    cout << sys;
+/*
+alunos:
+    alice [ ]
+    bruno [ ]
+    edson [ ]
+discps:
+    aps [ ]
+    fup [ ]
+    poo [ ]
+*/
+    for(auto discp : {"fup", "aps", "poo"})
+        sys.matricular("bruno", discp);
+    for(auto discp : {"fup", "poo"})
+        sys.matricular("alice", discp);
+    sys.matricular("edson", "fup");
+    cout << sys;
+/*
+alunos:
+    alice [ fup poo ]
+    bruno [ aps fup poo ]
+    edson [ fup ]
+discps:
+    aps [ bruno ]
+    fup [ alice bruno edson ]
+    poo [ alice bruno ]
+*/
+    sys.desmatricular("bruno", "poo");
+    sys.desmatricular("bruno", "aps");
+    cout << sys;
+/*
+alunos:
+    alice [ fup poo ]
+    bruno [ fup ]
+    edson [ fup ]
+discps:
+    aps [ ]
+    fup [ alice bruno edson ]
+    poo [ alice ]
+*/
+    sys.rmAluno("alice");
+    cout << sys;
+/*
+alunos:
+    bruno [ fup ]
+    edson [ fup ]
+discps:
+    aps [ ]
+    fup [ bruno edson ]
+    poo [ ]
+*/
 }

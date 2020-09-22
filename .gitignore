@@ -4,3 +4,6 @@ solver
 solver.cpp.out
 .html
 .vpl
+build*
+*.pro
+*.pro.user
