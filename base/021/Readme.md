@@ -3,10 +3,7 @@
 <!--TOC_BEGIN-->
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
-- [Comandos de Teste](#comandos-de-teste)
-- [Diagrama](#diagrama)
-- [Raio X em C++](#raio-x-em-c)
-- [Main não interativa em C++](#main-não-interativa-em-c)
+- [Recursos Extras](#recursos-extras)
 
 <!--TOC_END-->
 
@@ -102,14 +99,17 @@ $end
 ```
 
 ***
-## Comandos de Teste
-[LINK](.t.tio)
-
-***
-## Diagrama
-![](diagrama.png)
+## Recursos Extras
+- [Comandos de teste](.t.tio)
+- [Diagrama UML](diagrama.png)
+- [Modelo em C++](raiox.cpp)
+- [Exemplo Main em C++](exemplo_main.cpp)
 
 <!--
+***
+## Diagrama []()
+![](diagrama.png)
+
 ***
 ## Raio X em Java []()
 
@@ -147,10 +147,10 @@ class Sistema
 + desmatricular(idAluno: String, idDisc: String): void
 + rmAluno(idAluno: String): void
 ````
--->
+
 
 ***
-## Raio X em C++
+## Raio X em C++ []()
 
 ````c++
 class Discp{
@@ -255,11 +255,11 @@ int main(){
 }
 ```
 
--->
+
 
 
 ***
-## Main não interativa em C++
+## Exemplo em C++ []()
 
 ```c++
 int main(){
@@ -321,3 +321,4 @@ discps:
 */
 }
 ```
+-->
