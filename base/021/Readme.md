@@ -165,7 +165,7 @@ poo [ ]
 ```
 
 ## Diagrama []()
-![](diagrama.png)
+![](resources/diagrama.png)
 
 ***
 ## Recursos Extras
