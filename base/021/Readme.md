@@ -3,6 +3,7 @@
 <!--TOC_BEGIN-->
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
+- [Diagrama](#diagrama)
 - [Raio X em Java](#raio-x-em-java)
 - [Raio X em C++](#raio-x-em-c)
 - [Main interativa em C++](#main-interativa-em-c)
