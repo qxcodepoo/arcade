@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.2">
+<diagram program="umlet" version="14.3.0">
   <help_text>// Uncomment the following line to change the fontsize and font:
 fontsize=14
 fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
@@ -28,111 +28,112 @@ fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>45</x>
-      <y>198</y>
-      <w>405</w>
+      <x>558</x>
+      <y>9</y>
+      <w>324</w>
       <h>162</h>
     </coordinates>
     <panel_attributes>*Discp*
 bg=yellow
 --
-- idDiscp: string
-~ m_aluno: List&lt;Aluno*&gt;
+- id: String
+- m_aluno: Map&lt;String, Aluno&gt;
 --
-+ matricular(aluno: Aluno*): void
-+ desmatricular(idAluno: string): void
-+ get alunos(): List&lt;Aluno*&gt;
++ matricular(aluno: Aluno): void
++ desmatricular(idAluno: String): void
++ getAlunos(): List&lt;Aluno&gt;
 --
-Note:
-constructor(idDiscp)
-get idDiscp
++ Discp(id)
++ getId(): String
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>45</x>
-      <y>387</y>
-      <w>405</w>
-      <h>234</h>
+      <x>288</x>
+      <y>252</y>
+      <w>432</w>
+      <h>171</h>
     </coordinates>
-    <panel_attributes>*Repository&lt;T&gt;*
+    <panel_attributes>*Sistema*
 bg=yellow
 --
-- typename: string
-- mapa: Map &lt;string, T&gt;
+- alunos: Map&lt;String, Aluno&gt;
+- discps: Map&lt;String, Discp&gt;
 --
-+ add(key: string, t: T): T*
-+ get(key: string): T*
-+ rm (key: string): void
-+ has(key: string): boolean
-+ keys()  : List&lt;string&gt;
-+ values(): List&lt;T&gt;
---
-Note:
-constructor(typename)
-lançe excessões: 
-  em add caso a chave já exista.
-  em rm e get caso a chave não exista.
++ addAluno(idAluno: String): void
++ addDiscp(idDiscp: String): void
++ matricular(idAluno: String, idDisc: String): void
++ desmatricular(idAluno: String, idDisc: String): void
++ rmAluno(idAluno: String): void
           </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>45</x>
+      <x>99</x>
       <y>9</y>
-      <w>405</w>
+      <w>315</w>
       <h>171</h>
     </coordinates>
     <panel_attributes>*Aluno*
 bg=yellow
 --
-- idAluno: string
-~ m_discp: List&lt;Discp*&gt;
+- id: String
+- m_discp: Map&lt;String, Discp&gt;
 --
-+ matricular(discp: Discp*): void
-+ desmatricular(idAluno: string): void
-+ get disciplinas(): List&lt;Discp*&gt;
++ matricular(discp: Discp): void
++ desmatricular(idDiscp: String): void
++ getDisciplinas(): List&lt;Discp&gt;
 --
-Note:
-constructor(idAluno)
-get idAluno
++ Aluno(idAluno)
++ getId(): String
+
 </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLNote</id>
+    <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>18</y>
-      <w>378</w>
-      <h>99</h>
+      <x>405</x>
+      <y>72</y>
+      <w>171</w>
+      <h>45</h>
     </coordinates>
-    <panel_attributes>Note..
-bg=blue
-Coloquei os * em alguns lugares para
-facilitar a vida dos programadores c++.
-Se sua linguagem é outra, apenas ignore
-os *.</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;-&gt;
+m1=0..n
+m2=0..n
+</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>UMLClass</id>
+    <id>Relation</id>
     <coordinates>
-      <x>531</x>
-      <y>144</y>
-      <w>387</w>
-      <h>126</h>
+      <x>333</x>
+      <y>171</y>
+      <w>54</w>
+      <h>99</h>
     </coordinates>
-    <panel_attributes>*Controller*
-bg=yellow
---
-- r_alu: Repository&lt;Aluno&gt;
-- r_dis: Repository&lt;Discp&gt;
---
-        </panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m1=0..n
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>621</x>
+      <y>162</y>
+      <w>54</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-&gt;
+m1=0..n
+m2=1
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
   </element>
 </diagram>

@@ -102,6 +102,10 @@ $end
 ```
 
 ***
+## Diagrama
+![](diagrama.png)
+
+***
 ## Raio X em Java
 
 ````java
