@@ -252,7 +252,7 @@ int main(){
 
 ***
 ## Comandos de Teste
-[comandos](.t.tio)
+[LINK](.t.tio)
 
 ***
 ## Main não interativa em C++
