@@ -4,9 +4,7 @@
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
 - [Diagrama](#diagrama)
-- [Raio X em Java](#raio-x-em-java)
 - [Raio X em C++](#raio-x-em-c)
-- [Main interativa em C++](#main-interativa-em-c)
 - [Comandos de Teste](#comandos-de-teste)
 - [Main não interativa em C++](#main-não-interativa-em-c)
 
@@ -109,7 +107,7 @@ $end
 
 <!--
 ***
-## Raio X em Java ()[]
+## Raio X em Java []()
 
 ````java
 class Aluno
@@ -190,7 +188,7 @@ public:
 
 <!--
 ***
-## Main interativa em C++ ()[]
+## Main interativa em C++ []()
 
 ```c++
 template <class T>
