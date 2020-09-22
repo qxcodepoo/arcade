@@ -4,6 +4,7 @@
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
 - [Main em Java](#main-em-java)
+- [Diagrama UML](#diagrama-uml)
 - [Recursos Extras](#recursos-extras)
 
 <!--TOC_END-->
@@ -164,7 +165,7 @@ poo [ ]
 }
 ```
 
-## Diagrama []()
+## Diagrama UML
 ![](resources/diagrama.png)
 
 ***
