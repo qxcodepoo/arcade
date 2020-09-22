@@ -7,6 +7,7 @@
 - [Raio X em Java](#raio-x-em-java)
 - [Raio X em C++](#raio-x-em-c)
 - [Main interativa em C++](#main-interativa-em-c)
+- [Comandos de Teste](#comandos-de-teste)
 - [Main não interativa em C++](#main-não-interativa-em-c)
 
 <!--TOC_END-->
@@ -248,6 +249,10 @@ int main(){
     Solver().exec();
 }
 ```
+
+***
+## Comandos de Teste
+[comandos](.t.tio)
 
 ***
 ## Main não interativa em C++
