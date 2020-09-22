@@ -102,6 +102,10 @@ $end
 ```
 
 ***
+## Comandos de Teste
+[LINK](.t.tio)
+
+***
 ## Diagrama
 ![](diagrama.png)
 
@@ -252,9 +256,7 @@ int main(){
 ```
 
 -->
-***
-## Comandos de Teste
-[LINK](.t.tio)
+
 
 ***
 ## Main não interativa em C++
