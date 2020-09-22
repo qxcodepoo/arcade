@@ -3,6 +3,7 @@
 <!--TOC_BEGIN-->
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
+- [Main em Java](#main-em-java)
 - [Recursos Extras](#recursos-extras)
 
 <!--TOC_END-->
@@ -96,6 +97,71 @@ discps:
     fup [ bruno edson ]
     poo [ ]
 $end
+```
+
+## Main em Java
+```java
+
+public class Solver {
+    public static void main(String[] args) {
+        Sistema sys = new Sistema();
+        for(String id : Arrays.asList("alice", "edson", "bruno"))
+            sys.addAluno(id);
+        for(String id : Arrays.asList("fup", "aps", "poo"))
+            sys.addDiscp(id);
+        System.out.println(sys);
+/*
+alunos:
+    alice [ ]
+    bruno [ ]
+    edson [ ]
+discps:
+    aps [ ]
+    fup [ ]
+    poo [ ]
+*/
+        for(String id : Arrays.asList("fup", "aps", "poo"))
+            sys.matricular("bruno", id);
+        for(String id : Arrays.asList("fup", "poo"))
+            sys.matricular("alice", id);
+        sys.matricular("edson", "fup");
+        System.out.println(sys);
+/*
+alunos:
+    alice [ fup poo ]
+    bruno [ aps fup poo ]
+    edson [ fup ]
+discps:
+    aps [ bruno ]
+    fup [ alice bruno edson ]
+    poo [ alice bruno ]
+*/
+        sys.desmatricular("bruno", "poo");
+        sys.desmatricular("bruno", "aps");
+        System.out.println(sys);
+/*
+alunos:
+    alice [ fup poo ]
+    bruno [ fup ]
+    edson [ fup ]
+discps:
+    aps [ ]
+    fup [ alice bruno edson ]
+    poo [ alice ]
+*/
+        sys.rmAluno("alice");
+        System.out.println(sys);
+/*
+alunos:
+bruno [ fup ]
+edson [ fup ]
+discps:
+aps [ ]
+fup [ bruno edson ]
+poo [ ]
+*/
+    }
+}
 ```
 
 ## Diagrama []()
