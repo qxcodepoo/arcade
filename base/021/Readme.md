@@ -107,8 +107,9 @@ $end
 ## Diagrama
 ![](diagrama.png)
 
+<!--
 ***
-## Raio X em Java
+## Raio X em Java ()[]
 
 ````java
 class Aluno
@@ -144,6 +145,7 @@ class Sistema
 + desmatricular(idAluno: String, idDisc: String): void
 + rmAluno(idAluno: String): void
 ````
+-->
 
 ***
 ## Raio X em C++
@@ -186,8 +188,9 @@ public:
 
 ````
 
+<!--
 ***
-## Main interativa em C++
+## Main interativa em C++ ()[]
 
 ```c++
 template <class T>
@@ -250,6 +253,7 @@ int main(){
 }
 ```
 
+-->
 ***
 ## Comandos de Teste
 [LINK](.t.tio)
