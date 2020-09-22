@@ -98,17 +98,17 @@ discps:
 $end
 ```
 
+## Diagrama []()
+![](diagrama.png)
+
 ***
 ## Recursos Extras
 - [Comandos de teste](resources/testes.tio)
-- [Diagrama UML](resources/diagrama.png)
 - [Modelo em C++](resources/raiox.cpp)
 - [Exemplo Main em C++](resources/exemplo_main.cpp)
 
 <!--
 ***
-## Diagrama []()
-![](diagrama.png)
 
 ***
 ## Raio X em Java []()
