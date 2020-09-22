@@ -100,10 +100,10 @@ $end
 
 ***
 ## Recursos Extras
-- [Comandos de teste](.t.tio)
-- [Diagrama UML](diagrama.png)
-- [Modelo em C++](raiox.cpp)
-- [Exemplo Main em C++](exemplo_main.cpp)
+- [Comandos de teste](resources/testes.tio)
+- [Diagrama UML](resources/diagrama.png)
+- [Modelo em C++](resources/raiox.cpp)
+- [Exemplo Main em C++](resources/exemplo_main.cpp)
 
 <!--
 ***
