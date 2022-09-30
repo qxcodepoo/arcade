@@ -2,7 +2,7 @@
 
 skinparam defaultFontName Hasklig
 skinparam dpi 150
-
+left to right direction
 Livro -- Editora : é publicado por
 
 @enduml

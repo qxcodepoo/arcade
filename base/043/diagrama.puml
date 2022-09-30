@@ -50,8 +50,7 @@ package com.qxcode {
     - volumeMax : int
     __
     + Pig(volumeMax  : int)
-    + addCoin(moeda  : Coin) : boolean
-    + addItem(item   : Valuable) : boolean
+    + addValuable(valuable : Valuable) : boolean
     + breakPig()     : boolean
     __
     + getCoins()     : ArrayList<Coin>

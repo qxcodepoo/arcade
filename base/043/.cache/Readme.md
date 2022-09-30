@@ -14,21 +14,21 @@ O sistema deverá:
 
 - Gerenciar um cofrinho do tipo Porquinho capaz de guardar moedas e itens.
 - As moedas devem ser criadas através de uma `enum`.
-- Ambos moedas e itens tem um método getVolume() e getDescription().
+- Ambos moedas e itens deve implementar a Interaface Valuable.
 - O volume do cofre incrementa conforme ele recebe itens e moedas.
 - A lógica da utilização do cofre é:
-    - Para inserir moedas e itens o cofre deve estar inteiro.
-    - Para obter moedas e itens o cofre deve estar quebrado.
+    - Para inserir moedas e itens, o cofre deve estar inteiro.
+    - Para obter moedas e itens, o cofre deve estar quebrado.
     - Ao quebrar, o volume do porco deve ser zerado e o status de broken deve ser alterado para true.
-    - Ao obter moedas e itens, os atribuitos `valor` e `itens` do porco devem ser zerados.
+    - Ao obter moedas e itens, você deve retornar os objetos armazenados.
+    - Calcular o valor e o volume atual do porco deve ser feito através do método getValue() e getVolume().
+    - Moedas e Itens devem ser armazenados em uma mesma lista de Valuables.
 
 ***
 ## Guide
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.png)
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/.cache/draft.java), [Shell.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/./Shell.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/.cache/draft.ts), [shell.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/./shell.ts)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/.cache/draft.java)
 
 ***
 ## Shell
@@ -42,20 +42,20 @@ $show
 #__case insert
 $addCoin 10
 $show
-[] : 0.10$ : 1/20 : unbroken
+[M10:0.10:1] : 0.10$ : 1/20 : unbroken
 
 $addCoin 50
 $show
-[] : 0.60$ : 4/20 : unbroken
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : unbroken
 
 #__case itens
-$addItem ouro 3
+$addItem ouro 3 50.0
 $show
-[ouro] : 0.60$ : 7/20 : unbroken
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : unbroken
 
-$addItem passaporte 2
+$addItem passaporte 2 0.0
 $show
-[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : unbroken
 
 #__case failed break
 $getItems
@@ -64,28 +64,28 @@ fail: you must break the pig first
 
 $getCoins
 fail: you must break the pig first
-0.00
+[]
 
 $show
-[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : unbroken
 
 #__case breaking
 $break
 $show
-[ouro, passaporte] : 0.60$ : 0/20 : broken
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 0/20 : broken
 
 #__case getItems
 
 $getItems
-[ouro, passaporte]
+[ouro:50.00:3, passaporte:0.00:2]
 
 $show
-[] : 0.60$ : 0/20 : broken
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 0/20 : broken
 
 #__case getCoins
 
 $getCoins
-0.60
+[M10:0.10:1, M50:0.50:3]
 
 $show
 [] : 0.00$ : 0/20 : broken
@@ -104,7 +104,7 @@ fail: the pig is broken
 $show
 [] : 0.00$ : 0/10 : broken
 
-$addItem bilhete 2
+$addItem bilhete 2 0.00
 fail: the pig is broken
 
 $show
@@ -120,25 +120,25 @@ $init 5
 $addCoin 10
 $addCoin 25
 $show
-[] : 0.35$ : 3/5 : unbroken
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : unbroken
 
 $addCoin 50
 fail: the pig is full
 
 $show
-[] : 0.35$ : 3/5 : unbroken
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : unbroken
 
 #__case full item
-$addItem ouro 1
+$addItem ouro 1 100.0
 
 $show
-[ouro] : 0.35$ : 4/5 : unbroken
+[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : unbroken
 
-$addItem pirulito 2
+$addItem pirulito 2 5.00
 fail: the pig is full
 
 $show
-[ouro] : 0.35$ : 4/5 : unbroken
+[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : unbroken
 
 $end
 ```
