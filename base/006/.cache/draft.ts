@@ -1,5 +1,3 @@
-import {evaluate, puts, write} from "./shell";
-
 
 class Pet { //todo
     private energyMax: number;
@@ -36,10 +34,13 @@ class Pet { //todo
     public setClean(value: number) { //todo
     }
 
-    private testAlive() { //todo
+    private testAlive(): boolean { //todo
     }
     public toString(): string {
-        return `E:${this.energy}/${this.energyMax}, S:${this.hungry}/${this.hungryMax}, L:${this.clean}/${this.cleanMax}, D:${this.diamonds}, I:${this.age}`;
+        return  `E:${this.energy}/${this.energyMax}` 
+            + `, S:${this.hungry}/${this.hungryMax}` 
+            + `, L:${this.clean}/${this.cleanMax}` 
+            + `, D:${this.diamonds}, I:${this.age}`;
     }
 
     public play() {
@@ -57,23 +58,28 @@ class Pet { //todo
     }
     public sleep() { //todo
     }
-
-    public getClean() { //todo
+    public getClean() {
+        return this.clean;
     }
-    public getHungry() { //todo
+    public getHungry() {
+        return this.hungry;
     }
-    public getEnergy() { //todo
+    public getEnergy() {
+        return this.energy;
     }
-    public getDiamonds() { //todo
+    public getDiamonds() {
+        return this.diamonds;
     }
-    public getAge() { //todo
+    public getAge() {
+        return this.age;
     }
-    public getAlive() { //todo
+    public getAlive() {
+        return this.alive;
     }
 
 }
 
-function main() { //todo
+function main() {
     let chain = new Map();
     let param: string[] = [];
     let pet = new Pet(0, 0, 0);
@@ -86,6 +92,33 @@ function main() { //todo
 
     evaluate(chain, param);
 };
+
+import { readFileSync } from "fs";
+let __lines = readFileSync(0).toString().split("\n");
+let input = () => { 
+    let a = __lines.shift(); 
+    return a === undefined ? "" : a; 
+};
+let write = (text: any) => process.stdout.write("" + text);
+let puts = (text: any) => console.log(text);
+
+function evaluate(chain: Map<string, Function>, param: string[]) {
+    while (true) {
+        let line = input();
+        puts("$" + line);
+        param.splice(0); //apagar tudo
+        line.split(" ").forEach((x: string) => param.push(x));
+
+        let cmd = param[0];
+        if (cmd == "end") {
+            return;
+        } else if (chain.has(cmd)) {
+            chain.get(cmd)!();
+        } else {
+            puts("fail: command not found");
+        }
+    }
+}
 
 main()
 

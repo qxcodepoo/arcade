@@ -40,7 +40,7 @@ Seu sistema deverá:
 
 - [solver.cpp ](.cache/draft.cpp)
 - [solver.java](.cache/draft.java), [Shell.java](./java/Shell.java)
-- [solver.ts  ](.cache/draft.ts), [shell.ts](./ts/shell.ts)
+- [solver.ts  ](.cache/draft.ts)
 
 ***
 ## Shell
