@@ -1,0 +1,41 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+left to right direction
+
+Cliente "1" --> "0..*" Pedido : faz
+Pedido "1" --> "1..*" Item : contém
+Item "0..*" x--> "1" Produto : contém
+
+class Cliente {
+    - id : String
+    - nome : String
+    - endereco : Endereco
+    - dataNascimento : Date
+    - pedidos : Pedido[0..*]
+}
+
+class Pedido {
+    - id : String
+    - status : String
+    - item : Item[0..*]
+}
+
+class Item {
+    - produto : Produto
+    - quantidade : int
+    - valor : double
+}
+
+class Produto {
+    - id : String
+    - nome : String
+    - descricao : String
+    - valor : double
+    - dataFabricacao : Date
+    - dataValidade : Date
+}
+
+@enduml

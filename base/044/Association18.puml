@@ -1,0 +1,14 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+left to right direction
+
+Funcionario "0..* -supervisionado" --> "1 -supervisor" Funcionario : é supervisionado
+
+class Funcionario {
+  - supervisor : Funcionario
+}
+
+@enduml
