@@ -47,6 +47,8 @@ Association9.png
 livro.png
 lotado.png
 Association15.png
+.comments/cover.jpg.xml
+.comments
 Association17.png
 Association15.puml
 endereço.png
