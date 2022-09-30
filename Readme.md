@@ -28,8 +28,8 @@
 ---------------- | ------------------------
 ![](.thumbs/038.jpg) | [@038 Introdução ao git](base/038/Readme.md)
 ![](---------------) | [Configuração C++]()
-![](---------------) | [Configuração Typescript]()
-![](.thumbs/044.jpg) | [Plantuml e Diagrama de Classes](base/044/Readme.md)
+![](.thumbs/045.jpg) | [@045 Instalação Typescript](base/045/Readme.md)
+![](.thumbs/044.jpg) | [@044 Relacionamentos](base/044/Readme.md)
 ![](---------------) | [Rodando os exercícios e os testes no Replit]()
 
 ## 01. Lógica
