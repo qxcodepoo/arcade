@@ -24,7 +24,7 @@ Abra o PowerShell e execute
 npm install -g typescript
 npm install -g ts-node
 ```
-Isso vai habilitar o typescript globalmente para todos os projetos. E habilitar o comando `tsc` no terminal.
+Isso vai habilitar o typescript globalmente para todos os projetos. E habilitar o comando `tsc` e `ts-node` no terminal.
 
 ## 03. Executando um arquivo typescript
 
