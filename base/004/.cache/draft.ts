@@ -1,5 +1,3 @@
-import {evaluate, puts} from "./shell"
-
 
 class Lead {
     private thickness: number;
@@ -50,7 +48,7 @@ class Lead {
 }
 
 
-//agregação
+
 class Pencil { //todo
     private thickness: number;
     private tip: Lead | null;
@@ -70,23 +68,52 @@ class Pencil { //todo
     writePage(): void { //todo
     }
 
-    public toString(): string { //todo
+    public toString(): string {
+        return "calibre: " + this.thickness + ", grafite: " +
+                (this.tip != null ? "[" + this.tip.toString() + "]" : "null");
     }
 
 }
-
-function main() { //todo
+function main() {
     let chain = new Map();
     let param: string[] = [];
     let pencil = new Pencil(0.5);
 
-    chain.set("show",   () => { //todo puts(pencil.toString())                                   });
-    chain.set("init",   () => { //todo pencil = new Pencil(+(param[1]))                          });
-    chain.set("insert", () => { //todo pencil.insert(new Lead(+param[1], param[2], +param[3]))});
-    chain.set("remove", () => { //todo pencil.remove()                                           });
-    chain.set("write",  () => { //todo pencil.writePage()                                        });
+    chain.set("show",   () => { puts(pencil.toString())                                   });
+    chain.set("init",   () => { pencil = new Pencil(+(param[1]))                          });
+    chain.set("insert", () => { pencil.insert(new Lead(+param[1], param[2], +param[3]))});
+    chain.set("remove", () => { pencil.remove()                                           });
+    chain.set("write",  () => { pencil.writePage()                                        });
 
     evaluate(chain, param);
+}
+
+import { readFileSync } from "fs";
+
+let __lines = readFileSync(0).toString().split("\n");
+let input = () => { 
+    let a = __lines.shift(); 
+    return a === undefined ? "" : a; 
+};
+let write = (text: any) => process.stdout.write("" + text);
+let puts = (text: any) => console.log(text);
+
+function evaluate(chain: Map<string, Function>, ui: string[]) {
+    while (true) {
+        let line = input();
+        puts("$" + line);
+        ui.splice(0); //apagar tudo
+        line.split(" ").forEach((x: string) => ui.push(x));
+
+        let cmd = ui[0];
+        if (cmd == "end") {
+            return;
+        } else if (chain.has(cmd)) {
+            chain.get(cmd)!();
+        } else {
+            puts("fail: command not found");
+        }
+    }
 }
 
 main()

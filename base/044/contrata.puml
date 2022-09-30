@@ -1,0 +1,12 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+Organizacao "contratante" -- "contratado" Empregado : contrata
+
+class Organizacao {
+  - contratados : Empregado[0..*]
+}
+
+@enduml

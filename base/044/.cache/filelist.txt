@@ -4,11 +4,13 @@ Association18.png
 conta.png
 Association9.eps
 gerencia.png
+contrata.puml
 dependente2.png
 publicado.puml
 motoca.png
 Association9-eps-converted-to.pdf
 Readme.md
+departamento.puml
 Association31.eps
 cover.jpg
 publicado.png
@@ -18,6 +20,7 @@ conserto.png
 conserto.puml
 conectividade.png
 publicado2.png
+conta.puml
 Aeroporto.puml
 contrata.png
 socio.png
@@ -25,8 +28,10 @@ escreve
 todo_parte.png
 pedido.png
 Association18.puml
+atua.puml
 escreve.png
 Lapiseira.png
+Association31.puml
 Association22.puml
 Association22.png
 Association9.puml
