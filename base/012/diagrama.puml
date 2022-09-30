@@ -1,0 +1,39 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  class Pass {
+    - age  : int
+    - name : string
+    __
+    + Pass(name : string, age : int)
+    __
+    + getAge()     : int
+    + getName()    : string
+    + isPriority() : boolean
+    + setAge(age : int)
+    + setName(name : string)
+    __
+    + toString() : string
+  }
+
+  class Topic {
+    - normalSeats   : Array<Pass | null>
+    - prioritySeats : Array<Pass | null>
+    __
+    - findFree(list : List<Pass | null>) : int {static}
+    - findName(list : List<Pass | null>, name : string) : int {static}
+    - insert  (list : List<Pass | null>, pass : Pass)   : boolean {static}
+    - remove  (list : List<Pass | null>, name : string) : boolean {static}
+    __
+    + Topic(capacity : int, qtdPriority : int)
+    + insert(pass : Pass) : boolean
+    + remove(name : string) : boolean
+    __
+    + toString() : string
+  }
+}
+Topic "1" o-- "0..*" Pass
+@enduml

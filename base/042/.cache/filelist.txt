@@ -1,0 +1,9 @@
+shell.ts
+diagrama.puml
+diagrama.png
+Readme.md
+cover.jpg
+Makefile
+.a.out
+local.sh
+

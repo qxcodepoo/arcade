@@ -1,0 +1,59 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  enum Coin {
+    + M10  {static}
+    + M100 {static}
+    + M25  {static}
+    + M50  {static}
+    + value  : double
+    + volume : int
+    + label  : string
+    __
+    - Coin(value : double, volume : int, label: string)
+    + toString() : string
+    __
+    + getValue()  : double
+    + getVolume() : int
+    + getLabel()  : string
+  }
+
+  class Item {
+    - label  : string
+    - volume : int
+    __
+    + Item(label : string, volume : int)
+    __
+    + getLabel()  : string
+    + getVolume() : int
+    + setLabel (label  : string)
+    + setVolume(volume : int)
+    __
+    + toString() : String
+  }
+
+  class Pig {
+    - broken    : boolean
+    - items     : Array<string>
+    - value     : double
+    - volume    : int
+    - volumeMax : int
+    __
+    + Pig(volumeMax : int)
+    + addCoin(coin  : Coin) : boolean
+    + addItem(item  : Item) : boolean
+    + getCoins() : double
+    + getItems() : Array<String>
+    + breakPig() : boolean
+    + toString() : String
+    __
+    + getVolume()    : int
+    + getVolumeMax() : int
+    + isBroken()     : boolean
+  }
+}
+
+@enduml

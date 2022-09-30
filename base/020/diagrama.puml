@@ -1,0 +1,38 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  class Lead {
+    - thickness : float
+    - hardness  : string
+    - size      : int
+    __
+    + Lead(thickness : float, hardness : string, size : int)
+    + usagePerSheet() : int
+    + toString()      : string
+    __
+    + getHardness()  : string
+    + getSize()      : int
+    + getThickness() : float
+    + setSize(size : int)
+    __
+  }
+  class Pencil {
+    - thickness : float
+    - tip       : Lead | null
+    - barrel    : List<Lead>
+    __
+    + Pencil(thickness : float)
+    __
+    + insert(lead : Lead) : boolean
+    + pull()              : boolean
+    + remove()            : Lead | null
+    + writePage()
+    __
+    + toString() : string
+  }
+}
+Pencil "1" o--  "0..*" Lead : > Stores
+@enduml

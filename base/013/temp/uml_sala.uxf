@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>220</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+*Cliente*
+--
+- id: String
+- contas: Contas[]
+--
++ Cliente(id: String)
++ addConta(conta: Conta)
++ getContas(): Conta[]
++ toString(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>30</x>
+      <y>50</y>
+      <w>240</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Abstract&gt;&gt;
+bg=orange
+/Conta/
+--
+#id: int
+#saldo: double
+--
++Conta(id: int)
++depositar(value: double): void
++sacar(value: double): void
++transferir(value: double, contaPara: Conta): void
+/+atualizacaoMensal(): void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>280</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>bg=orange
+ContaPoupanca
+--
+- taxaDeRendimento: double
+--
++Conta(id: int)
++atualizacaoMensal(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>310</x>
+      <y>70</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>bg=orange
+ContaCorrente
+--
+- taxadeAdministracao: double
+--
++Conta(id: int)
++atualizacaoMensal(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>120</x>
+      <y>220</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>100</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>440</y>
+      <w>210</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+*Agencia*
+--
+- clientes: Cliente[]
+- contas: Contas[]
+--
++ addCliente(id: String)
++ atualizacaoMensal(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>350</y>
+      <w>60</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>220</y>
+      <w>110</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=0..n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;220.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>150</y>
+      <w>100</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=2
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,0 +1,11 @@
+shell.ts
+diagrama.puml
+diagrama.png
+Readme.md
+cover.jpg
+Makefile
+imagem.jpg
+local.sh
+.comments/figura.jpg.xml
+.comments
+

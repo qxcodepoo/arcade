@@ -1,0 +1,5 @@
+diagrama.png
+Readme.md
+cover.jpg
+figura.png
+

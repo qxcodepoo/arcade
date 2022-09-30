@@ -1,0 +1,170 @@
+>>>>>>>> adicionando alunos ao sistema !%
+nwalu alice edson bruno
+nwdis poo aps
+nwdis fup
+show
+end
+========
+$nwalu alice edson bruno
+$nwdis poo aps
+$nwdis fup
+$show
+alunos:
+    alice [ ]
+    bruno [ ]
+    edson [ ]
+discps:
+    aps [ ]
+    fup [ ]
+    poo [ ]
+$end
+<<<<<<<<
+
+>>>>>>>> matriculando alunos !%
+nwalu alice edson bruno
+nwdis poo aps
+nwdis fup
+show
+tie bruno fup aps poo
+tie alice fup poo
+tie edson fup
+show
+end
+========
+$nwalu alice edson bruno
+$nwdis poo aps
+$nwdis fup
+$show
+alunos:
+    alice [ ]
+    bruno [ ]
+    edson [ ]
+discps:
+    aps [ ]
+    fup [ ]
+    poo [ ]
+$tie bruno fup aps poo
+$tie alice fup poo
+$tie edson fup
+$show
+alunos:
+    alice [ fup poo ]
+    bruno [ aps fup poo ]
+    edson [ fup ]
+discps:
+    aps [ bruno ]
+    fup [ alice bruno edson ]
+    poo [ alice bruno ]
+$end
+<<<<<<<<
+
+>>>>>>>> desmatriculando alunos !%
+nwalu alice edson bruno
+nwdis poo aps
+nwdis fup
+show
+tie bruno fup aps poo
+tie alice fup poo
+tie edson fup
+show
+untie bruno poo aps
+show
+end
+========
+$nwalu alice edson bruno
+$nwdis poo aps
+$nwdis fup
+$show
+alunos:
+    alice [ ]
+    bruno [ ]
+    edson [ ]
+discps:
+    aps [ ]
+    fup [ ]
+    poo [ ]
+$tie bruno fup aps poo
+$tie alice fup poo
+$tie edson fup
+$show
+alunos:
+    alice [ fup poo ]
+    bruno [ aps fup poo ]
+    edson [ fup ]
+discps:
+    aps [ bruno ]
+    fup [ alice bruno edson ]
+    poo [ alice bruno ]
+$untie bruno poo aps
+$show
+alunos:
+    alice [ fup poo ]
+    bruno [ fup ]
+    edson [ fup ]
+discps:
+    aps [ ]
+    fup [ alice bruno edson ]
+    poo [ alice ]
+$end
+<<<<<<<<
+
+>>>>>>>> removendo alunos do sistema !%
+nwalu alice edson bruno
+nwdis poo aps
+nwdis fup
+show
+tie bruno fup aps poo
+tie alice fup poo
+tie edson fup
+show
+untie bruno poo aps
+show
+rmalu alice
+show
+end
+========
+$nwalu alice edson bruno
+$nwdis poo aps
+$nwdis fup
+$show
+alunos:
+    alice [ ]
+    bruno [ ]
+    edson [ ]
+discps:
+    aps [ ]
+    fup [ ]
+    poo [ ]
+$tie bruno fup aps poo
+$tie alice fup poo
+$tie edson fup
+$show
+alunos:
+    alice [ fup poo ]
+    bruno [ aps fup poo ]
+    edson [ fup ]
+discps:
+    aps [ bruno ]
+    fup [ alice bruno edson ]
+    poo [ alice bruno ]
+$untie bruno poo aps
+$show
+alunos:
+    alice [ fup poo ]
+    bruno [ fup ]
+    edson [ fup ]
+discps:
+    aps [ ]
+    fup [ alice bruno edson ]
+    poo [ alice ]
+$rmalu alice
+$show
+alunos:
+    bruno [ fup ]
+    edson [ fup ]
+discps:
+    aps [ ]
+    fup [ bruno edson ]
+    poo [ ]
+$end
+<<<<<<<<

@@ -1,0 +1,105 @@
+>>>>>>>> inserir !%
+addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
+addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
+show
+end
+========
+$addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
+$addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
+$show
+Pac: alvis:avc        Meds: []
+Pac: fred:fratura     Meds: []
+Pac: goku:hemorragia  Meds: []
+Pac: silva:sinusite   Meds: []
+Med: bisturi:cirurgia Pacs: []
+Med: facada:cirurgia  Pacs: []
+Med: snif:alergologia Pacs: []
+$end
+<<<<<<<<
+
+>>>>>>>> vincular !%
+addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
+addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
+show
+tie bisturi fred alvis goku
+tie snif silva alvis
+tie facada goku
+show
+end
+========
+$addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
+$addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
+$show
+Pac: alvis:avc        Meds: []
+Pac: fred:fratura     Meds: []
+Pac: goku:hemorragia  Meds: []
+Pac: silva:sinusite   Meds: []
+Med: bisturi:cirurgia Pacs: []
+Med: facada:cirurgia  Pacs: []
+Med: snif:alergologia Pacs: []
+$tie bisturi fred alvis goku
+$tie snif silva alvis
+$tie facada goku
+fail: ja existe outro medico da especialidade cirurgia
+$show
+Pac: alvis:avc        Meds: [bisturi, snif]
+Pac: fred:fratura     Meds: [bisturi]
+Pac: goku:hemorragia  Meds: [bisturi]
+Pac: silva:sinusite   Meds: [snif]
+Med: bisturi:cirurgia Pacs: [alvis, fred, goku]
+Med: facada:cirurgia  Pacs: []
+Med: snif:alergologia Pacs: [alvis, silva]
+$end
+<<<<<<<<
+
+>>>>>>>> mensagens !%
+addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
+addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
+show
+tie bisturi fred alvis goku
+tie snif silva alvis
+tie facada goku
+show
+msg alvis bisturi posso tomar homeprazol?
+msg goku bisturi coceira no reto eh normal?
+inbox bisturi
+msg bisturi alvis chupe limao que passa
+inbox goku
+msg goku facada
+end
+========
+$addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
+$addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
+$show
+Pac: alvis:avc        Meds: []
+Pac: fred:fratura     Meds: []
+Pac: goku:hemorragia  Meds: []
+Pac: silva:sinusite   Meds: []
+Med: bisturi:cirurgia Pacs: []
+Med: facada:cirurgia  Pacs: []
+Med: snif:alergologia Pacs: []
+$tie bisturi fred alvis goku
+$tie snif silva alvis
+$tie facada goku
+fail: ja existe outro medico da especialidade cirurgia
+$show
+Pac: alvis:avc        Meds: [bisturi, snif]
+Pac: fred:fratura     Meds: [bisturi]
+Pac: goku:hemorragia  Meds: [bisturi]
+Pac: silva:sinusite   Meds: [snif]
+Med: bisturi:cirurgia Pacs: [alvis, fred, goku]
+Med: facada:cirurgia  Pacs: []
+Med: snif:alergologia Pacs: [alvis, silva]
+$msg alvis bisturi posso tomar homeprazol?
+$msg goku bisturi coceira no reto eh normal?
+$inbox bisturi
+[alvis: posso tomar homeprazol?]
+[goku: coceira no reto eh normal?]
+$msg bisturi alvis chupe limao que passa
+msg bisturi goku venha na minha sala pra eu olhar
+$inbox goku
+[bisturi: venha na minha sala pra eu olhar]
+$msg goku facada
+fail: goku nao conhece facada
+$end
+<<<<<<<<

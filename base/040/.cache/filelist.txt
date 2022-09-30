@@ -1,0 +1,6 @@
+shell.ts
+Readme.md
+cover.jpg
+Makefile
+local.sh
+

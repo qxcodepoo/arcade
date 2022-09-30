@@ -1,0 +1,22 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  class Car {
+    + gas     : int
+    + gasMax  : int
+    + km      : int
+    + pass    : int
+    + passMax : int
+    __
+    + Car()
+    + enter()
+    + leave()
+    + drive(km : int)
+    + fuel(gas : int)
+    + toString() : string
+  }
+}
+@enduml

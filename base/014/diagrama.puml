@@ -1,0 +1,36 @@
+@startuml
+package com.qxcode {
+  ~class Contact {
+    # prefix : String
+    - fones : List<Fone>
+    - name : String
+    __
+    + Contact(name : String, fones : List<Fone>)
+    + addFone(fone : Fone)
+    + rmFone(index : int)
+    + toString() : String
+    __
+    + getFones() : List<Fone>
+    + getName() : String
+    + setFones(fones : List<Fone>)
+    + setName(name : String)
+
+  }
+  ~class Fone {
+    - id : String
+    - number : String
+    __
+    + Fone(id : String, number : String)
+    + isValid() : boolean
+    + validate(number : String) : boolean {static}
+    + toString() : String
+    __
+    + getId() : String
+    + getNumber() : String
+    + setId(id : String)
+    + setNumber(number : String)
+
+  }
+}
+Contact -->  "-fones" Fone
+@enduml

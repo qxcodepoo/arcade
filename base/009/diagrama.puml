@@ -1,0 +1,35 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  class Kid {
+    - age : int
+    - name : string
+    __
+    + Kid(name : string, age : int)
+    + toString() : string
+    __
+    + getAge()  : int
+    + getName() : string
+    + setAge(age : int)
+    + setName(name : string)
+  }
+  class Trampoline {
+    - playing : List<Kid>
+    - waiting : List<Kid>
+    __
+    - {static} removeKid(name : string, list : List<Kid>) : Kid | null
+    __
+    + Trampoline()
+    + toString() : string
+    __
+    + arrive(kid : Kid)
+    + enter()
+    + leave()
+    + remove(name : string) : Kid | null
+  }
+}
+Trampoline "1" o--  "0..*" Kid : > stores
+@enduml

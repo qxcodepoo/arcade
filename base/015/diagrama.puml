@@ -1,0 +1,56 @@
+@startuml
+
+package com.qxcode {
+    class Fone {
+    - id : String
+    - number : String
+    __
+    + Fone(id : String, number : String)
+    + toString() : String
+    __
+    + validate(number : String) : boolean {static}
+    + isValid() : boolean
+    __
+    + getId() : String
+    + getNumber() : String
+    + setId(id : String)
+    + setNumber(number : String)
+  }
+
+  class Contact {
+    # prefix : String
+    - fones : List<Fone>
+    - name : String
+    __
+    + Contact(name : String, fones : List<Fone>)
+    + toString() : String
+    __
+    + addFone(fone : Fone)
+    + rmFone(index : int)
+    __
+    + getFones() : List<Fone>
+    + getName() : String
+    + setFones(fones : List<Fone>)
+    + setName(name : String)
+  }
+
+  class Agenda {
+    - contacts : List<Contact>
+    __
+    - findPosByName(name : String) : int
+    __
+    + Agenda()
+    + toString() : String
+    __
+    + addContact (name : String, fones : List<Fone>)
+    + findContact(name : String) : Contact
+    + rmContact  (name : String)
+    + search     (pattern : String) : List<Contact>
+    __
+    + getContacts() : List<Contact>
+  }
+}
+
+Fone "0..*" *-- "1" Contact
+Contact "0..*" *-- "1" Agenda
+@enduml

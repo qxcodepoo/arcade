@@ -1,0 +1,7 @@
+diagrama.puml
+diagrama.png
+diagrama.uxf
+Readme.md
+cover.jpg
+auxiliar.hpp
+

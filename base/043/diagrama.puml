@@ -1,0 +1,71 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  ~interface Valuable {
+    + getLabel() : String {abstract}
+    + getValue() : double {abstract}
+    + getVolume() : int {abstract}
+    __
+    + toString() : String
+  }
+
+  enum Coin {
+    + M10 {static}
+    + M100 {static}
+    + M25 {static}
+    + M50 {static}
+    - label  : String
+    - value  : double
+    - volume : int
+    __
+    + getLabel()  : String
+    + getValue()  : double
+    + getVolume() : int
+    __
+    + toString() : String
+  }
+
+  class Item {
+    - label : String
+    - value : double
+    - volume : int
+    __
+    + Item(label : String, volume : int, value : double)
+    __
+    + getLabel()  : String
+    + getValue()  : double
+    + getVolume() : int
+    + setLabel(label : String)
+    + setVolume(volume : int)
+    __
+    + toString() : String
+  }
+
+  class Pig {
+    - broken    : boolean
+    - valuables : ArrayList<Valuable>
+    - volumeMax : int
+    __
+    + Pig(volumeMax  : int)
+    + addCoin(moeda  : Coin) : boolean
+    + addItem(item   : Valuable) : boolean
+    + breakPig()     : boolean
+    __
+    + getCoins()     : ArrayList<Coin>
+    + getItems()     : ArrayList<Item>
+    + getValue()     : double
+    + getVolume()    : int
+    + getVolumeMax() : int
+    + isBroken()     : boolean
+    __
+    + toString()     : String
+  }
+
+}
+Pig "1" o--> "0..*" Valuable
+Coin ..|> Valuable 
+Item ..|> Valuable 
+@enduml

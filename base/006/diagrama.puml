@@ -1,0 +1,39 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  +class Pet {
+    - alive     : boolean
+    - clean     : int
+    - cleanMax  : int
+    - energy    : int
+    - energyMax : int
+    - hungry    : int
+    - hungryMax : int
+    - age       : int
+    - diamonds  : int
+    __
+    - testAlive() : boolean
+    __
+    + Pet(energy : int, hungry : int, clean : int)
+    + toString() : string
+    __
+    + eat()
+    + play()
+    + shower()
+    + sleep()
+    __
+    + getClean()      : int
+    + getCleanMax()   : int
+    + getEnergy()     : int
+    + getEnergyMax()  : int
+    + getHungry()     : int
+    + getHungryMax()  : int
+    + setClean (value : int)
+    + setEnergy(value : int)
+    + setHungry(value : int)
+  }
+}
+@enduml

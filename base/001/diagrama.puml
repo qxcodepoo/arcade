@@ -1,0 +1,20 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  class Calculator {
+    + battery    : int
+    + batteryMax : int
+    + display    : float
+    __
+    + Calculator(batteryMax : int)
+    + charge(value : int)
+    + sum(a : int, b : int)
+    + division(num : int, den : int)
+    + useBattery(): boolean
+    + toString(): string
+  }
+}
+@enduml

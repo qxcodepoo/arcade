@@ -1,0 +1,24 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  class Time {
+    - hour   : int
+    - minute : int
+    - second : int
+    __
+    + Time(hour : int, minute : int, second : int)
+    + nextSecond()
+    + toString() : string
+    __
+    + getHour()   : int
+    + getMinute() : int
+    + getSecond() : int
+    + setHour  (hour   : int)
+    + setMinute(minute : int)
+    + setSecond(second : int)
+  }
+}
+@enduml

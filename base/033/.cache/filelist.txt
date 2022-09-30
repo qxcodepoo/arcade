@@ -1,0 +1,6 @@
+diagrama.png
+diagrama.uxf
+Readme.md
+cover.jpg
+diagrama.asta
+

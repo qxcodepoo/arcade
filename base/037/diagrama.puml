@@ -1,0 +1,32 @@
+@startuml diagrama
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+package com.qxcode {
+  class Pessoa {
+    - nome : string
+    __
+    + Pessoa(nome : string)
+    + toString() : string
+    __
+    + getNome() : string
+    + setNome(nome : string)
+  }
+
+  class Mercantil {
+    - caixas    : Array<Pessoa | null>
+    - esperando : List <Pessoa>
+    __
+    - validarIndice(indice : int): boolean
+    __
+    + Mercantil(qtdCaixas : int)
+    + toString() : string
+    __
+    + chegar   (pessoa : Pessoa)
+    + chamar   (indice : int): boolean
+    + finalizar(indice : int): Pessoa | null
+  }
+}
+Pessoa "0..*" --o  "1" Mercantil
+@enduml
