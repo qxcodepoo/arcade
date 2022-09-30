@@ -1,5 +1,3 @@
-import {evaluate, write, puts} from "./shell";
-
 class Car{
     private pass: number; // Passageiros
     private passMax: number; // limite de Passageiros
@@ -43,12 +41,11 @@ class Car{
             puts("fail: nao ha ninguem no carro");
         } else if(this.gas == 0) {
             puts("fail: tanque vazio");
-        }
-        else if(this.gas < km) {
+        } else if(this.gas < km) {
             puts("fail: tanque vazio apos andar " + this.gas + " km");
             this.setKm(this.km + this.gas);
             this.gas = 0;
-        } else{
+        } else {
             this.gas = this.gas - km;
             this.km = this.km + km;
         }
@@ -73,6 +70,32 @@ function main() {
     chain.set("help",       () => puts("show, enter, leave, drive, fuel, help, end"));
 
     evaluate(chain, param);
+}
+
+let __lines = readFileSync(0).toString().split("\n");
+let input = () => { 
+    let a = __lines.shift(); 
+    return a === undefined ? "" : a; 
+};
+export let write = (text: any) => process.stdout.write("" + text);
+export let puts = (text: any) => console.log(text);
+
+export function evaluate(chain: Map<string, Function>, ui: string[]) {
+    while (true) {
+        let line = input();
+        puts("$" + line);
+        ui.splice(0); //apagar tudo
+        line.split(" ").forEach((x: string) => ui.push(x));
+
+        let cmd = ui[0];
+        if (cmd == "end") {
+            return;
+        } else if (chain.has(cmd)) {
+            chain.get(cmd)!();
+        } else {
+            puts("fail: command not found");
+        }
+    }
 }
 
 main()

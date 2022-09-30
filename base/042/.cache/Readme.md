@@ -103,7 +103,6 @@ pass: 1, gas: 0, km: 60
 
 #__case enchendo o tanque
 $fuel 200
-fail: tanque cheio
 $show
 pass: 1, gas: 100, km: 60
 $end
