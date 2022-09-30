@@ -27,7 +27,7 @@
 \________________ | \______________________ 
 ---------------- | ------------------------
 ![](.thumbs/038.jpg) | [@038 Introdução ao git](base/038/Readme.md)
-![](---------------) | [Configuração C++]()
+![](.thumbs/046.jpg) | [@046 Configuração do C++](base/046/Readme.md)
 ![](.thumbs/045.jpg) | [@045 Instalação Typescript](base/045/Readme.md)
 ![](.thumbs/044.jpg) | [@044 Relacionamentos](base/044/Readme.md)
 ![](---------------) | [Rodando os exercícios e os testes no Replit]()
