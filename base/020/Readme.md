@@ -47,7 +47,9 @@ Faça o modelo de uma lapiseira que pode conter vários.
 ![](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
-- [Solver.cpp](.cache/draft.cpp)
+- [solver.cpp ](.cache/draft.cpp)
+- [solver.ts  ](.cache/draft.ts)
+
 ***
 ## Shell
 

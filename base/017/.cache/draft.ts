@@ -1,37 +1,25 @@
-import {evaluate, puts, write} from "./shell";
-
-
 //create enumeration
-enum Coin {
-    M10,
-    M25,
-    M50,
-    M100
+enum Cents {
+    C10,
+    C25,
+    C50,
+    C100
 }
 
-class CoinValues {
-    public value: number;
-    public volume: number;
-    public label: string;
+class Coin { //todo
+    private value: number;
+    private volume: number;
+    private label: string;
     
-    private static map = new Map<Coin, CoinValues>([
-            [Coin.M10 , new CoinValues(0.10, 1, "M10")],
-            [Coin.M25 , new CoinValues(0.25, 2, "M25")],
-            [Coin.M50 , new CoinValues(0.50, 3, "M50")],
-            [Coin.M100, new CoinValues(1.00, 4, "M100")]]);
-
-    private constructor(value: number, volume: number, label: string) {
-        this.value = value;
-        this.volume = volume;
-        this.label = label;
+    public constructor(cents: Cents) { //todo
     }
-
-    public static get(coin: Coin): CoinValues {
-        return this.map.get(coin)!;
+    public toString(): string { //todo
     }
-    
-    public toString(): string {
-        return `value: ${this.value}, volume: ${this.volume}, label: ${this.label}`;
+    public getValue(): number { //todo
+    }
+    public getVolume(): number { //todo
+    }
+    public getLabel(): string { //todo
     }
 }
 
@@ -99,6 +87,22 @@ function main() { //todo
     chain.set("show",     () => puts(pig.toString())                );
 
     evaluate(chain, param);
+}
+
+import { //todo readFileSync } from "fs";
+
+let __lines = readFileSync(0).toString().split("\n");
+let input = () => { //todo 
+    let a = __lines.shift(); 
+    return a === undefined ? "" : a; 
+};
+let write = (text: any) => process.stdout.write("" + text);
+let puts = (text: any) => console.log(text);
+
+function evaluate(chain: Map<string, Function>, ui: string[]) { //todo
+    while (true) { //todo
+
+    }
 }
 
 main()

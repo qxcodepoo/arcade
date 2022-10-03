@@ -3,23 +3,31 @@
 #include <utility>
 #include <aux.hpp>
 
-enum Coin {M10, M25, M50, M100};
+enum Cents {C10, C25, C50, C100};
 
-struct CoinDef {
+class Coin {
     float value;
     int volume;
     std::string label;
-};
-
-CoinDef getDef(Coin coin) {
-    switch (coin) {
-        case M10 : return {0.10, 1, "M10" };
-        case M25 : return {0.25, 2, "M25" };
-        case M50 : return {0.50, 3, "M50" };
-        case M100: return {1.00, 4, "M100"};
+public:
+    Coin(Cents v) { 
+        switch (v) {
+            case C10: value = 0.10; volume = 1; label = "C10"; break;
+            case C25: value = 0.25; volume = 2; label = "C25"; break;
+            case C50: value = 0.50; volume = 3; label = "C50"; break;
+            case C100: value = 1.0; volume = 4; label = "C100"; break;
+        }
     }
-    return {0, 0, ""};
-}
+    float getValue() const { 
+        return value; 
+    }
+    int getVolume() const { 
+        return volume; 
+    }
+    std::string getLabel() const { 
+        return label; 
+    }
+};
 
 
 class Item {
@@ -102,10 +110,10 @@ int main() {
     auto toint = aux::to<int>;
 
     chain["addCoin"] = [&]() { 
-        if      (par[1] == "10") pig.addCoin(M10);
-        else if (par[1] == "25") pig.addCoin(M25);
-        else if (par[1] == "50") pig.addCoin(M50);
-        else if (par[1] == "100") pig.addCoin(M100);
+        if      (par[1] == "10") pig.addCoin(Coin(C10));
+        else if (par[1] == "25") pig.addCoin(Coin(C25));
+        else if (par[1] == "50") pig.addCoin(Coin(C50));
+        else if (par[1] == "100") pig.addCoin(Coin(C100));
     };
     chain["init"]     = [&]() { pig = Pig(toint(par[1])); };
     chain["addItem"]  = [&]() { pig.addItem(Item(par[1], toint(par[2]))); };

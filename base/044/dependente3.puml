@@ -1,0 +1,20 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+left to right direction 
+
+Socio "1" <--> "0..*" Dependente : possui
+
+class Socio {
+  - nome : String
+  - dependente : Dependentes[0..*]
+}
+
+class Dependente {
+  - nome : String
+  - socio : Socio
+}
+
+@enduml

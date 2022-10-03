@@ -1,0 +1,39 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+left to right direction 
+
+Pencil "1" -- "0..1" Lead : usa
+
+class Pencil {
+  - thickness : float
+  - tip : Lead
+  + Pencil(thickness : float)
+  + hasGrafite() : boolean
+  + insert(grafite : Lead) : boolean
+  + remove() : Lead
+  + writePage()
+  __
+  + getThickness() : float
+  --
+  + toString() : String
+}
+
+class Lead {
+  - hardness : String
+  - size : int
+  - thickness : float
+  + Lead(thickness : float, hardness : String, size : int)
+  + usagePerSheet() : int
+  __
+  + getHardness() : String
+  + getSize() : int
+  + getThickness() : float
+  + setSize(size : int)
+  --
+  + toString() : String
+}
+
+@enduml

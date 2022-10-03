@@ -28,8 +28,6 @@ public:
 
     std::string str() {
         return {}; // todo
-       std::stringstream ss;
-       ss << "pass: " << pass << ", gas: " << gas << ", km: " << km << "";
     }
 };
 

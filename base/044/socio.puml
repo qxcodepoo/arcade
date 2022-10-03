@@ -3,8 +3,6 @@
 skinparam defaultFontName Hasklig
 skinparam dpi 150
 
-left to right direction
-
-Livro -- Editora : é publicado por
+Clube "0..*" o-- "0..*" Socio : sociedade
 
 @enduml

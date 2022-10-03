@@ -12,6 +12,7 @@
 - [Agregação e Composição](#agregação-e-composição)
 - [Agregação](#agregação)
 - [Composição](#composição)
+- [Agregação](#agregação)
 - [Classes Associativas](#classes-associativas)
 - [Exercícios](#exercícios)
 [](toc)
@@ -273,18 +274,21 @@ Read more: http://www.linhadecodigo.com.br/artigo/943/uml-unified-modeling-langu
 
 Na composição, os objetos parte pertencem a um único todo. Por essa razão, a composição é também denominada agregação não compartilhada.
 
-Por outro lado, em uma agregação, pode ser que um objeto participe como componente de vários outros objetos. Por essa razão, a agregação é também denominada agregação compartilhada.
-
 ![](frame.png)
 
-
-Os objetos das classes Button, TextField, Label, List não tem existência fora do Frame que eles estão conectados.
+Os objetos das classes Button, TextField, Label, List não tem existência fora do Frame que eles estão conectados. Um Button não pode estar ao mesmo tempo em dois frames.
 
 ![](pedido.png)
 
-Os itens não têm existência independente do pedido ao qual estão
-conectados. Quando o pedido deixa de existir, o mesmo acontece com os
-seus itens.
+Os itens não têm existência independente do pedido ao qual estão conectados. Quando o pedido deixa de existir, o mesmo acontece com os seus itens.
+
+## Agregação
+
+Por outro lado, em uma agregação, pode ser que um objeto participe como componente de vários outros objetos. Por essa razão, a agregação é também denominada agregação compartilhada.
+
+Ou também que o objeto possa existir fora do todo ao qual está agregado. A lapiseira tem grafites, mas esses não são criados por ela e podem existir fora dela.
+
+![](lapiseira.png)
 
 ## Classes Associativas
 

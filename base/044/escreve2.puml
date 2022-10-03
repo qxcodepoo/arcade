@@ -1,0 +1,18 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+left to right direction 
+
+Pessoa -- Livro : escreve
+
+class Pessoa {
+  - nome : String
+}
+
+class Livro {
+  - autor : Pessoa
+}
+
+@enduml

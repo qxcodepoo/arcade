@@ -1,0 +1,24 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+left to right direction
+
+Livro -- Editora : é publicado por
+
+class Livro {
+  - codigo : int
+  - descLivro : Strign
+  - ISBN : String
+  - editora : Editora
+}
+
+class Editora {
+  - codEditora : int
+  - razaoSocial : String
+  - contato : String
+  - telefone : String
+}
+
+@enduml

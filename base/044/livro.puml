@@ -5,6 +5,7 @@ skinparam dpi 150
 
 left to right direction
 
-Livro -- Editora : é publicado por
+Livro "1" *-- "*" Capitulo : contém
+Capitulo "1" *-- "*" Secao : contém
 
 @enduml

@@ -3,19 +3,38 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.Locale;
 
+enum Cents {
+    C10, C25, C50, C100;
+}
 
-enum Coin {
-    M10(0.10, 1),
-    M25(0.25, 2),
-    M50(0.50, 3),
-    M100(1.00, 4);
-
+class Coin {
     private double value;
     private int volume;
+    private String label;
     
-    private Coin(double value, int volume) {
-        this.value = value;
-        this.volume = volume;
+    public Coin(Cents cents) {
+        switch (cents) {
+            case C10:
+                value = 0.1;
+                volume = 1;
+                label = "C10";
+                break;
+            case C25:
+                value = 0.25;
+                volume = 2;
+                label = "C25";
+                break;
+            case C50:
+                value = 0.5;
+                volume = 3;
+                label = "C50";
+                break;
+            case C100:
+                value = 1;
+                volume = 4;
+                label = "C100";
+                break;
+        }
     }
     
     public int getVolume() {
@@ -113,10 +132,10 @@ public class Solver {
     public static void main(String[] args) {
         sh.addCmd("addCoin",    () -> {
             String value = sh.getStr(1);
-            if     (value.equals("10"))  pig.addCoin(Coin.M10);
-            else if(value.equals("25"))  pig.addCoin(Coin.M25);
-            else if(value.equals("50"))  pig.addCoin(Coin.M50);
-            else if(value.equals("100")) pig.addCoin(Coin.M100);
+            if     (value.equals("10"))  pig.addCoin(new Coin(Cents.C10));
+            else if(value.equals("25"))  pig.addCoin(new Coin(Cents.C25));
+            else if(value.equals("50"))  pig.addCoin(new Coin(Cents.C50));
+            else if(value.equals("100")) pig.addCoin(new Coin(Cents.C100));
         });
         sh.addCmd("init",     () -> pig = new Pig(sh.getInt(1)));
         sh.addCmd("addItem",  () -> pig.addItem(new Item(sh.getStr(1), sh.getInt(2))));

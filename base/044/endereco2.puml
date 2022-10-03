@@ -1,0 +1,21 @@
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+left to right direction 
+
+Pessoa "0..*" --> "1..1" Endereco : tem um
+
+class Pessoa {
+  - nome : String
+  - endereco : Endereco
+}
+
+class Endereco {
+  - rua : String
+  - cidade : String
+  - CEP : String
+}
+
+@enduml

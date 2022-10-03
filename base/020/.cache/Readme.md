@@ -47,7 +47,9 @@ Faça o modelo de uma lapiseira que pode conter vários.
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/diagrama.png)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/.cache/draft.java)
-- [Solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/.cache/draft.cpp)
+- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/.cache/draft.cpp)
+- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/.cache/draft.ts)
+
 ***
 ## Shell
 
