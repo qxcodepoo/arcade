@@ -2,6 +2,7 @@ publicado3.png
 endereco.puml
 dependente.png
 conta.png
+lapiseira.png
 old/Association18.png
 old/Association9.eps
 old/Association9-eps-converted-to.pdf

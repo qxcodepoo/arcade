@@ -5,35 +5,21 @@ skinparam dpi 150
 
 left to right direction 
 
-Pencil "1" -- "0..1" Lead : usa
+Lapiseira "1" o-- "0..*" Grafite : usa
 
-class Pencil {
-  - thickness : float
-  - tip : Lead
-  + Pencil(thickness : float)
-  + hasGrafite() : boolean
-  + insert(grafite : Lead) : boolean
-  + remove() : Lead
-  + writePage()
+class Lapiseira {
+  - calibre : float
+  - ponta : Grafite | null
+  - barril: Array<Lead>
   __
-  + getThickness() : float
-  --
-  + toString() : String
+  + inserir(grafite : Grafite) : boolean
+  + remover() : Grafite | null
 }
 
-class Lead {
-  - hardness : String
-  - size : int
-  - thickness : float
-  + Lead(thickness : float, hardness : String, size : int)
-  + usagePerSheet() : int
-  __
-  + getHardness() : String
-  + getSize() : int
-  + getThickness() : float
-  + setSize(size : int)
-  --
-  + toString() : String
+class Grafite {
+  - calibre : float
+  - dureza  : String
+  - tamanho : float
 }
 
 @enduml

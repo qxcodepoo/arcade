@@ -1,4 +1,4 @@
-## @004 Grafite & Lapiseira com um único grafite
+## @004 Grafite 🎥 & Lapiseira com um único grafite
 
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/cover.jpg)
 

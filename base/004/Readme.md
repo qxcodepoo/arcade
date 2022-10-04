@@ -1,4 +1,4 @@
-# Grafite & Lapiseira com um único grafite
+# Grafite 🎥 & Lapiseira com um único grafite
 
 ![](cover.jpg)
 

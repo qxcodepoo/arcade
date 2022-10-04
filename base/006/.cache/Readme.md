@@ -1,4 +1,4 @@
-## @006 Tamagotchi & Utilizando sets para controlar a variação dos status do bichinho
+## @006 Tamagotchi 💎 & Utilizando sets para controlar a variação dos status do bichinho
 
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/cover.jpg)
 
@@ -41,6 +41,8 @@ Seu sistema deverá:
 - [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.cpp)
 - [solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.java), [Shell.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/./java/Shell.java)
 - [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.ts)
+
+[![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 ## Shell

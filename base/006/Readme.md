@@ -1,4 +1,4 @@
-# Tamagotchi & Utilizando sets para controlar a variação dos status do bichinho
+# Tamagotchi 💎 & Utilizando sets para controlar a variação dos status do bichinho
 
 ![](cover.jpg)
 
@@ -41,6 +41,8 @@ Seu sistema deverá:
 - [solver.cpp ](.cache/draft.cpp)
 - [solver.java](.cache/draft.java), [Shell.java](./java/Shell.java)
 - [solver.ts  ](.cache/draft.ts)
+
+[![](../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 ## Shell

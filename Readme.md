@@ -54,7 +54,7 @@ A partir desse módulo, você deve estar atento aos modificadores de acesso `pub
 \________________ | \______________________ 
 ---------------- | ------------------------
 ![](.thumbs/036.jpg) | [@036 Relógio ](base/036/Readme.md)
-![](.thumbs/006.jpg) | [@006 Tamagotchi ](base/006/Readme.md)
+![](.thumbs/006.jpg) | [@006 Tamagotchi 💎 ](base/006/Readme.md)
 ![](.thumbs/017.jpg) | [@017 Porquinho ](base/017/Readme.md)
 ![](.thumbs/042.jpg) | [@042 Carro Get e Set](base/042/Readme.md)
 
@@ -65,7 +65,7 @@ A partir desse módulo, você precisará estar atento às relações entre class
 
 \________________ | \______________________ 
 ---------------- | ------------------------
-![](.thumbs/004.jpg) | [@004 Grafite ](base/004/Readme.md)
+![](.thumbs/004.jpg) | [@004 Grafite 🎥 ](base/004/Readme.md)
 ![](.thumbs/003.jpg) | [@003 Motoca ](base/003/Readme.md)
 
 ## 05. ArrayList I - Arrays
