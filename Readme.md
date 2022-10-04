@@ -44,10 +44,6 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 
 ## 02. Uma classe
-Nesse módulo, vamos aprender como criar uma classe e como se relacionam atributos e métodos.
-- No **Carro**, você controla as pessoas que entram e saem, a gasolina e sai para passear.
-- Na **Calculadora**, você pode realizar operações desde que haja bateria, o resultado pode ser consultado no visor.
-
 \________________ | \______________________ 
 ---------------- | ------------------------
 ![](.thumbs/001.jpg) | [@001 Calculadora ](base/001/Readme.md)
@@ -55,10 +51,6 @@ Nesse módulo, vamos aprender como criar uma classe e como se relacionam atribut
 
 ## 03. Modificadores de Acesso
 A partir desse módulo, você deve estar atento aos modificadores de acesso `public` e `private`. Utilize os métodos `set` para controlar as alterações realizadas nos atributos. 
-- No **Tamagotchi**, o setFome(valor) garante que a fome nunca seja maior que o máximo ou menor que 0 e muda o flag para morto caso chegue a 0.
-- No **Relógio**, o setHora(valor) garante que a hora sempre será um valor entre 0 e 23.
-- No **Porquinho**, o getValor() só deve retornar o valor se o porco estiver quebrado.
-
 \________________ | \______________________ 
 ---------------- | ------------------------
 ![](.thumbs/036.jpg) | [@036 Relógio ](base/036/Readme.md)
@@ -68,7 +60,7 @@ A partir desse módulo, você deve estar atento aos modificadores de acesso `pub
 
 ## 04. Agregação Simples
 A partir desse módulo, você precisará estar atento às relações entre classes e objetos. Na agregação, a relação entre eles não define vínculos de tempo de vida. Caso o todo seja destruído, o objeto que está sendo agregado não é destruído.
-- A **Lapiseria** recebe o objeto grafite, enquanto estiver escrevendo, ela vai gastando o grafite e quando o grafite for muito pequeno e não der mais para escrever ela remove o objeto grafite ficando com `null` na referência. A lapiseira não "cria" o grafite, ela apenas recebe o objeto. Também não o destroi, mas devolve sua referência.
+- A **Lapiseira** recebe o objeto grafite, enquanto estiver escrevendo, ela vai gastando o grafite e quando o grafite for muito pequeno e não der mais para escrever ela remove o objeto grafite ficando com `null` na referência. A lapiseira não "cria" o grafite, ela apenas recebe o objeto. Também não o destroi, mas devolve sua referência.
 - Na **Motoca**, a moto recebe e referencia a criança que está a utilizando para passear no parque.
 
 \________________ | \______________________ 
