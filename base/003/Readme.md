@@ -41,6 +41,7 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
 
 
 ***
@@ -102,17 +103,28 @@ $end
 ```s
 #__case no time
 $init 7
-$enter suzana 8
+$buy 30
+$show
+power:7, time:30, person:(empty)
+$buy 10
+$show
+power:7, time:40, person:(empty)
+$end
+```
+
+```s
+#__case buy time 
+$init 7
 $drive 10
 fail: buy time first
-
-#__case buying
-$buy 40
-$show
-power:7, time:40, person:(suzana:8)
+$buy 50
+#__case empty
+$drive
+fail: empty motorcycle
+$enter suzana 8
 
 #__case driving
-$drive 20
+$drive 30
 $show
 power:7, time:20, person:(suzana:8)
 $end

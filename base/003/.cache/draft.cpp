@@ -20,12 +20,9 @@ public:
         return {}; // todo
     }
     std::string str() {
-        std::ostringstream oss;
-        oss << name << ":" << age;
-        return oss.str();
+        return {}; // todo
     }
 };
-
 std::ostream& operator<<(std::ostream& os, Person& p) {
     return os << p.str();
 }
@@ -39,7 +36,6 @@ public:
     Motorcycle(int power = 1) { //todo power {power} {
     }
 
-
     bool insertPerson(std::shared_ptr<Person> p) {
         return {}; // todo
     }
@@ -48,7 +44,7 @@ public:
         return {}; // todo
     }
 
-    std::shared_ptr<Person> removePerson() {
+    std::shared_ptr<Person> remove() {
         return {}; // todo
     }
 
@@ -58,7 +54,7 @@ public:
     void drive(int time) {
     }
 
-    std::string str() const{
+    std::string str() {
         std::ostringstream os;
         os << "power:" << power << ", time:" << time;
         os << ", person:(" << (person == nullptr ? "empty" : person->str()) << ")";
@@ -66,7 +62,7 @@ public:
     }
 };
 
-std::ostream& operator<<(std::ostream& os, const Motorcycle& m) {
+std::ostream& operator<<(std::ostream& os, Motorcycle m) {
     return os << m.str();
 }
 
@@ -77,21 +73,20 @@ int main() {
 
     Motorcycle m(1);
 
-
-    auto __int = [&](int index) { return aux::to<int>(param[index]); };
+    auto INT = aux::to<int>;
 
     chain["show"]  = [&]() { aux::show << m; };
     chain["leave"] = [&]() { 
-        auto person = m.removePerson(); 
+        auto person = m.remove(); 
         if (person != nullptr) {
             aux::show << *person;
         }
     };
     chain["honk"]  = [&]() { aux::show << m.honk(); };
-    chain["init"]  = [&]() { m = Motorcycle(__int(1));};
-    chain["enter"] = [&]() { m.insertPerson(std::make_shared<Person>(param[1], __int(2))); };
-    chain["buy"]   = [&]() { m.buyTime(__int(1)); };
-    chain["drive"] = [&]() { m.drive  (__int(1)); };
+    chain["init"]  = [&]() { m = Motorcycle(INT(param.at(1)));};
+    chain["enter"] = [&]() { m.insertPerson(std::make_shared<Person>(param.at(1), INT(param.at(2)))); };
+    chain["buy"]   = [&]() { m.buyTime(INT(param.at(1))); };
+    chain["drive"] = [&]() { m.drive  (INT(param.at(1))); };
 
     aux::execute(chain, param);
 }
