@@ -56,7 +56,6 @@ A partir desse módulo, você deve estar atento aos modificadores de acesso `pub
 ![](.thumbs/036.jpg) | [@036 Relógio ](base/036/Readme.md)
 ![](.thumbs/006.jpg) | [@006 Tamagotchi 💎 ](base/006/Readme.md)
 ![](.thumbs/017.jpg) | [@017 Porquinho ](base/017/Readme.md)
-![](.thumbs/042.jpg) | [@042 Carro Get e Set](base/042/Readme.md)
 
 ## 04. Agregação Simples
 A partir desse módulo, você precisará estar atento às relações entre classes e objetos. Na agregação, a relação entre eles não define vínculos de tempo de vida. Caso o todo seja destruído, o objeto que está sendo agregado não é destruído.

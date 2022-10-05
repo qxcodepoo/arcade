@@ -27,9 +27,8 @@ O sistema deverá:
 ![](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.js](.cache/draft.js)
-- [solver.ts](.cache/draft.ts)
+- [solver.cpp ](.cache/draft.cpp)
+- [solver.ts  ](.cache/draft.ts)
 
 ***
 ## Shell
@@ -39,25 +38,43 @@ O sistema deverá:
 $show
 00:00:00
 
+#__case set
+
 $set 10 02 30
 $show 
 10:02:30
 
+#__case set2
+$set 15 50 59
+$show
+15:50:59
+
 #__case error
 
-$set 25 70 90
+$set 25 10 30
 fail: hora invalida
-fail: minuto invalido
-fail: segundo invalido
 
 $show
-10:02:30
+15:10:30
 
+#__case error2
+$set 1 70 50
+fail: minuto invalido
+$show
+01:10:50
+
+#__case error3
+$set 23 59 70
+fail: segundo invalido
+$show
+23:59:50
 
 #__case next
 $set 15 59 59
 $show
 15:59:59
+
+#__case next2
 
 $next
 $show
@@ -68,19 +85,15 @@ $end
 
 ```bash
 #__case set
+$set 23 59 59
 $show
-00:00:00
+23:59:59
 
-$set 10 60 59
-fail: minuto invalido
-
-
-$show
-10:00:59
+#__case next3
 
 $next
 $show
-10:01:00
+00:00:00
 
 $end
 ```

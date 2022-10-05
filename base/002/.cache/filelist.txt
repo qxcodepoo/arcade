@@ -1,4 +1,3 @@
-shell.ts
 diagrama.puml
 diagrama.png
 Readme.md

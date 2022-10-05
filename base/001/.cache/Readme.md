@@ -26,9 +26,9 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 ## Guide
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/diagrama.png)
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.java), [Shell.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/./java/Shell.java)
-- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.cpp), [shell.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/./cpp/shell.cpp)
-- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.ts), [shell.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/./ts/shell.ts)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.java)
+- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.cpp)
+- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.ts)
 
 
 ***

@@ -39,15 +39,42 @@ public class Solver {
     static Calculator calc = new Calculator(0);
 
     public static void main(String[] args) {
+        var chain = sh.chain;
+        var param = sh.param;
 
-        sh.addCmd("show",   () -> { System.out.println(calc);                          });
-        sh.addCmd("init",   () -> { calc = new Calculator(sh.getInt(1)              ); });
-        sh.addCmd("charge", () -> {    calc.chargeBattery(sh.getInt(1)              ); });
-        sh.addCmd("sum",    () -> {              calc.sum(sh.getInt(1), sh.getInt(2)); });
-        sh.addCmd("div",    () -> {         calc.division(sh.getInt(1), sh.getInt(2)); });
+        chain.put("show",   () -> { System.out.println(calc);                    });
+        chain.put("init",   () -> { calc = new Calculator(parInt(1)           ); });
+        chain.put("charge", () -> {    calc.chargeBattery(parInt(1)           ); });
+        chain.put("sum",    () -> {              calc.sum(parInt(1), parInt(2)); });
+        chain.put("div",    () -> {         calc.division(parInt(1), parInt(2)); });
 
-        sh.evaluate();
+        sh.execute();
+    }
+    static int parInt(int index) {
+        return Integer.parseInt(sh.param.get(index));
     }
 }
 
-
+class Shell {    
+    public Scanner scanner = new Scanner(System.in);
+    public HashMap<String, Runnable> chain = new HashMap<>();
+    public ArrayList<String> param = new ArrayList<>();
+    public Shell() {
+        Locale.setDefault(new Locale("en", "US"));
+    }
+    public void execute() {
+        while(true) {
+            param.clear();
+            String line = scanner.nextLine();
+            Collections.addAll(param, line.split(" "));
+            System.out.println("$" + line);
+            if(param.get(0).equals("end")) {
+                break;
+            } else if (chain.containsKey(param.get(0))) {
+                chain.get(param.get(0)).run();
+            } else {
+                System.out.println("fail: comando invalido");
+            }
+        }
+    }
+}

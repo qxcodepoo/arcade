@@ -3,7 +3,6 @@ diagrama.png
 Readme.md
 cover.jpg
 Makefile
-Shell.java
 imagem.jpg
 local.sh
 

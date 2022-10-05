@@ -43,7 +43,8 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.png)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
+- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
+- [solver.ts ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
 
 ***
 ## Shell

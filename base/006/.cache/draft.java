@@ -96,12 +96,40 @@ public class Solver{
     static Shell sh = new Shell();
     static Pet pet = new Pet(0,0,0);
     public static void main(String[] args) {
-        sh.addCmd("init",    () -> pet = new Pet(sh.getInt(1), sh.getInt(2), sh.getInt(3)));
-        sh.addCmd("play",    () -> pet.play());
-        sh.addCmd("eat",     () -> pet.eat());
-        sh.addCmd("clean",   () -> pet.shower());
-        sh.addCmd("sleep",   () -> pet.sleep());
-        sh.addCmd("show",    () -> System.out.println(pet.toString()));
-        sh.evaluate();
+        sh.chain.put("init",    () -> pet = new Pet(getInt(1), getInt(2), getInt(3)));
+        sh.chain.put("play",    () -> pet.play());
+        sh.chain.put("eat",     () -> pet.eat());
+        sh.chain.put("shower",  () -> pet.shower());
+        sh.chain.put("sleep",   () -> pet.sleep());
+        sh.chain.put("show",    () -> System.out.println(pet.toString()));
+        sh.execute();
+    }
+
+    static int getInt(int index) {
+        return Integer.parseInt(sh.param.get(index));
+    }
+}
+
+class Shell {    
+    public Scanner scanner = new Scanner(System.in);
+    public HashMap<String, Runnable> chain = new HashMap<>();
+    public ArrayList<String> param = new ArrayList<>();
+    public Shell() {
+        Locale.setDefault(new Locale("en", "US"));
+    }
+    public void execute() {
+        while(true) {
+            param.clear();
+            String line = scanner.nextLine();
+            Collections.addAll(param, line.split(" "));
+            System.out.println("$" + line);
+            if(param.get(0).equals("end")) {
+                break;
+            } else if (chain.containsKey(param.get(0))) {
+                chain.get(param.get(0)).run();
+            } else {
+                System.out.println("fail: comando invalido");
+            }
+        }
     }
 }

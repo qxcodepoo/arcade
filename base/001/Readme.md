@@ -26,9 +26,9 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 ## Guide
 ![](diagrama.png)
 
-- [Solver.java](.cache/draft.java), [Shell.java](./java/Shell.java)
-- [solver.cpp ](.cache/draft.cpp ), [shell.cpp ](./cpp/shell.cpp  )
-- [solver.ts  ](.cache/draft.ts  ), [shell.ts  ](./ts/shell.ts    )
+- [Solver.java](.cache/draft.java)
+- [solver.cpp ](.cache/draft.cpp )
+- [solver.ts  ](.cache/draft.ts  )
 
 
 ***

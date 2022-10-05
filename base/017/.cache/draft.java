@@ -130,21 +130,52 @@ public class Solver {
     static Shell sh = new Shell();
     static Pig pig = new Pig(0);
     public static void main(String[] args) {
-        sh.addCmd("addCoin",    () -> {
-            String value = sh.getStr(1);
+        var chain = sh.chain;
+        var param = sh.param;
+
+        chain.put("addCoin",    () -> {
+            String value = param.get(1);
             if     (value.equals("10"))  pig.addCoin(new Coin(Cents.C10));
             else if(value.equals("25"))  pig.addCoin(new Coin(Cents.C25));
             else if(value.equals("50"))  pig.addCoin(new Coin(Cents.C50));
             else if(value.equals("100")) pig.addCoin(new Coin(Cents.C100));
         });
-        sh.addCmd("init",     () -> pig = new Pig(sh.getInt(1)));
-        sh.addCmd("addItem",  () -> pig.addItem(new Item(sh.getStr(1), sh.getInt(2))));
-        sh.addCmd("break",    () -> pig.breakPig());
-        sh.addCmd("getCoins", () -> System.out.println(String.format("%.02f", pig.getCoins())));
-        sh.addCmd("getItems", () -> System.out.println("[" + pig.getItens().stream().collect(Collectors.joining(", ")) + "]"));
-        sh.addCmd("show",     () -> System.out.println(pig));
+        chain.put("init",     () -> pig = new Pig(parInt(1)));
+        chain.put("addItem",  () -> pig.addItem(new Item(param.get(1), parInt(2))));
+        chain.put("break",    () -> pig.breakPig());
+        chain.put("getCoins", () -> System.out.println(String.format("%.02f", pig.getCoins())));
+        chain.put("getItems", () -> System.out.println("[" + pig.getItens().stream().collect(Collectors.joining(", ")) + "]"));
+        chain.put("show",     () -> System.out.println(pig));
 
-        sh.evaluate();
+        sh.execute();
     }
+
+    static int parInt(int index) {
+        return Integer.parseInt(sh.param.get(index));
+    }
+
 }
 
+class Shell {    
+    public Scanner scanner = new Scanner(System.in);
+    public HashMap<String, Runnable> chain = new HashMap<>();
+    public ArrayList<String> param = new ArrayList<>();
+    public Shell() {
+        Locale.setDefault(new Locale("en", "US"));
+    }
+    public void execute() {
+        while(true) {
+            param.clear();
+            String line = scanner.nextLine();
+            Collections.addAll(param, line.split(" "));
+            System.out.println("$" + line);
+            if(param.get(0).equals("end")) {
+                break;
+            } else if (chain.containsKey(param.get(0))) {
+                chain.get(param.get(0)).run();
+            } else {
+                System.out.println("fail: comando invalido");
+            }
+        }
+    }
+}

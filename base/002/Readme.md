@@ -38,9 +38,8 @@ Seu sistema deverá:
 ![](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.js](.cache/draft.js)
-- [solver.ts](.cache/draft.ts)
+- [solver.cpp ](.cache/draft.cpp)
+- [solver.ts  ](.cache/draft.ts)
 
 ***
 ## Shell

@@ -1,9 +1,5 @@
 import java.text.DecimalFormat;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Collections;
-
+import java.util.*;
 
 class Lead { //todo
     private float thickness; //calibre
@@ -79,19 +75,48 @@ class Pencil { //todo
 }
 
 
-
 public class Solver {
     static Shell sh = new Shell();
     static Pencil lap = new Pencil(0.5f);
 
     public static void main(String[] args) {
-        sh.addCmd("init",   () -> lap = new Pencil(sh.getFloat(1)));
-        sh.addCmd("insert", () -> lap.insert(new Lead(sh.getFloat(1), sh.getStr(2), sh.getInt(3))));
-        sh.addCmd("remove", () -> lap.remove());
-        sh.addCmd("write",  () -> lap.writePage());
-        sh.addCmd("show",   () -> System.out.println(lap.toString()));
+        sh.chain.put("init",   () -> lap = new Pencil(getFloat(1)));
+        sh.chain.put("insert", () -> lap.insert(new Lead(getFloat(1), sh.param.get(2), getInt(3))));
+        sh.chain.put("remove", () -> lap.remove());
+        sh.chain.put("write",  () -> lap.writePage());
+        sh.chain.put("show",   () -> System.out.println(lap.toString()));
 
-        sh.evaluate();
+        sh.execute();
+    }
+    static float getFloat(int index) {
+        return Float.parseFloat(sh.param.get(index));
+    }
+    static int getInt(int index) {
+        return Integer.parseInt(sh.param.get(index));
+    }
+}
+
+class Shell {    
+    public Scanner scanner = new Scanner(System.in);
+    public HashMap<String, Runnable> chain = new HashMap<>();
+    public ArrayList<String> param = new ArrayList<>();
+    public Shell() {
+        Locale.setDefault(new Locale("en", "US"));
+    }
+    public void execute() {
+        while(true) {
+            param.clear();
+            String line = scanner.nextLine();
+            Collections.addAll(param, line.split(" "));
+            System.out.println("$" + line);
+            if(param.get(0).equals("end")) {
+                break;
+            } else if (chain.containsKey(param.get(0))) {
+                chain.get(param.get(0)).run();
+            } else {
+                System.out.println("fail: comando invalido");
+            }
+        }
     }
 }
 

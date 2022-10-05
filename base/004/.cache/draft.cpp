@@ -5,7 +5,6 @@
 #include <utility> //exchange
 #include <aux.hpp>
 
-
 class Lead {
     float thickness;
     std::string hardness;

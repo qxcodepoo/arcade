@@ -86,7 +86,7 @@ function main() {
     chain.set("init",   () => pet = new Pet(+param[1], +param[2], +param[3]));
     chain.set("show",   () => puts(pet.toString()));
     chain.set("play",   () => pet.play());
-    chain.set("clean",  () => pet.shower());
+    chain.set("shower", () => pet.shower());
     chain.set("eat",    () => pet.eat());
     chain.set("sleep",  () => pet.sleep());
 

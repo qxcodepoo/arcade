@@ -3,11 +3,5 @@ diagrama.png
 Readme.md
 cover.jpg
 Makefile
-ts/shell.ts
-ts
-java/Shell.java
-java
 local.sh
-cpp/shell.hpp
-cpp
 

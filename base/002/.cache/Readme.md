@@ -38,9 +38,8 @@ Seu sistema deverá:
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.png)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.cpp)
-- [solver.js](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.js)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.ts)
+- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.cpp)
+- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.ts)
 
 ***
 ## Shell

@@ -32,48 +32,40 @@ public class Solver {
     static Car car = new Car();
 
     public static void main(String[] args) {
+        var chain = sh.chain;
+        var param = sh.param;
 
-        sh.setfn("show",   () -> { System.out.println(car);    });
-        sh.setfn("enter",  () -> { car.enter();                });
-        sh.setfn("leave",  () -> { car.leave();                });
-        sh.setfn("drive",  () -> { car.drive(toInt(sh.par(1)));});
-        sh.setfn("fuel",   () -> {  car.fuel(toInt(sh.par(1)));});
+        chain.put("show",   () -> { System.out.println(car);    });
+        chain.put("enter",  () -> { car.enter();                });
+        chain.put("leave",  () -> { car.leave();                });
+        chain.put("drive",  () -> { car.drive(parInt(1));});
+        chain.put("fuel",   () -> {  car.fuel(parInt(1));});
 
         sh.execute();
     }
 
-    static int toInt(String s) {
-        return Integer.parseInt(s);
+    static int parInt(int index) {
+        return Integer.parseInt(param.get(index));
     }
 }
 
 class Shell {    
-    private Scanner scanner = new Scanner(System.in);
-    private HashMap<String, Runnable> chain = new HashMap<>();
-    private ArrayList<String> ui = new ArrayList<>();
-
+    public Scanner scanner = new Scanner(System.in);
+    public HashMap<String, Runnable> chain = new HashMap<>();
+    public ArrayList<String>         param = new ArrayList<>();
     public Shell() {
         Locale.setDefault(new Locale("en", "US"));
     }
-
-    public void setfn(String key, Runnable value) {
-        chain.put(key, value);
-    }
-
-    public String par(int index) {
-        return ui.get(index);
-    }
-
     public void execute() {
         while(true) {
-            ui.clear();
+            param.clear();
             String line = scanner.nextLine();
-            Collections.addAll(ui, line.split(" "));
+            Collections.addAll(param, line.split(" "));
             System.out.println("$" + line);
-            if(ui.get(0).equals("end")) {
+            if(param.get(0).equals("end")) {
                 break;
-            } else if (chain.containsKey(ui.get(0))) {
-                chain.get(ui.get(0)).run();
+            } else if (chain.containsKey(param.get(0))) {
+                chain.get(param.get(0)).run();
             } else {
                 System.out.println("fail: comando invalido");
             }

@@ -28,6 +28,7 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 ## Guide
 ![](diagrama.png)
 
+- [solver.cpp](.cache/draft.cpp)
 
 ***
 ## Shell

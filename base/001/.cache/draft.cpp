@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include "shell.hpp"
+#include "aux.hpp"
 
 struct Calculator {
     int batteryMax;
@@ -48,14 +48,14 @@ int main() {
     aux::Param param;
 
     // função para obter um parâmetro convertido para inteiro
-    auto __int = [&param](int index) { return aux::str2<int>(param[index]); };
+    auto par_int = [&param](int index) { return aux::to<int>(param[index]); };
 
     chain["show"]   = [&]() { std::cout << c << std::endl;         };
-    chain["init"]   = [&]() {  c = Calculator(__int(1)          ); };
-    chain["charge"] = [&]() { c.chargeBattery(__int(1)          ); };
-    chain["sum"]    = [&]() {           c.sum(__int(1), __int(2)); };
-    chain["div"]    = [&]() {      c.division(__int(1), __int(2)); };
+    chain["init"]   = [&]() {  c = Calculator(par_int(1)          ); };
+    chain["charge"] = [&]() { c.chargeBattery(par_int(1)          ); };
+    chain["sum"]    = [&]() {           c.sum(par_int(1), par_int(2)); };
+    chain["div"]    = [&]() {      c.division(par_int(1), par_int(2)); };
 
-    aux::evaluate(chain, param);
+    aux::execute(chain, param);
 }
 

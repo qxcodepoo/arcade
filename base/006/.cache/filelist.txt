@@ -3,7 +3,5 @@ diagrama.png
 Readme.md
 cover.jpg
 Makefile
-java/Shell.java
-java
 local.sh
 

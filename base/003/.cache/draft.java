@@ -51,19 +51,51 @@ class Solver{
     static Motorcycle motoca  = new Motorcycle(1);
 
     public static void main(String[] args) {    
-        sh.addCmd("show",   () -> System.out.println(motoca));
-        sh.addCmd("init",   () -> motoca = new Motorcycle(sh.getInt(1)));
-        sh.addCmd("buy",    () ->              motoca.buy(sh.getInt(1)));
-        sh.addCmd("drive",  () ->            motoca.drive(sh.getInt(1)));
-        sh.addCmd("enter",  () -> motoca.enter(new Person(sh.getStr(1), sh.getInt(2))));
-        sh.addCmd("honk",   () ->            motoca.honk());
-        sh.addCmd("leave",  () ->  {
+        sh.chain.put("show",   () -> System.out.println(motoca));
+        sh.chain.put("init",   () -> motoca = new Motorcycle(getInt(1)));
+        sh.chain.put("buy",    () ->              motoca.buy(getInt(1)));
+        sh.chain.put("drive",  () ->            motoca.drive(getInt(1)));
+        sh.chain.put("enter",  () -> motoca.enter(new Person(getStr(1), getInt(2))));
+        sh.chain.put("honk",   () ->            motoca.honk());
+        sh.chain.put("leave",  () ->  {
             Person person = motoca.leave();
             if(person != null) {
                 System.out.println(person.toString());
             }
         });
     
-        sh.evaluate();
+        sh.execute();
+    }
+
+    static int getInt(int index) {
+        return Integer.parseInt(sh.param.get(index));
+    }
+    static String getStr(int index) {
+        return sh.param.get(index);
     }
 }
+
+class Shell {    
+    public Scanner scanner = new Scanner(System.in);
+    public HashMap<String, Runnable> chain = new HashMap<>();
+    public ArrayList<String> param = new ArrayList<>();
+    public Shell() {
+        Locale.setDefault(new Locale("en", "US"));
+    }
+    public void execute() {
+        while(true) {
+            param.clear();
+            String line = scanner.nextLine();
+            Collections.addAll(param, line.split(" "));
+            System.out.println("$" + line);
+            if(param.get(0).equals("end")) {
+                break;
+            } else if (chain.containsKey(param.get(0))) {
+                chain.get(param.get(0)).run();
+            } else {
+                System.out.println("fail: comando invalido");
+            }
+        }
+    }
+}
+

@@ -2,22 +2,33 @@
 
 skinparam defaultFontName Hasklig
 skinparam dpi 150
+left to right direction
 
 package com.qxcode {
+  enum Hardness {
+    HB
+    2B
+    4B
+    6B
+  }
+  
   class Lead {
-    - hardness  : string
-    - size      : int
     - thickness : float
+    - hardness  : Hardness
+    - size      : int
+    - usagePerSheet: int
     __
-    + Lead(thickness : float, hardness : string, size : int)
-    + usagePerSheet() : int
+    + Lead(thickness : float, hardness : Hardness, size : int)
     + toString() : string
     __
-    + getHardness()  : string
-    + getSize()      : int
-    + getThickness() : float
     + setSize(size : int)
+    __
+    + getHardness()      : Hardness
+    + getSize()          : int
+    + getThickness()     : float
+    + getUsagePerSheet() : int
   }
+
   class Pencil {
     - thickness : float
     - tip : Lead | null
@@ -26,11 +37,12 @@ package com.qxcode {
     + hasGrafite()        : boolean
     + insert(lead : Lead) : boolean
     + remove()            : Lead | null
-    + writePage()
-    + toString() : string
+    + writePage()         : void
+    + toString()          : string
     __
-    + getThickness() : float
+    + getThickness()      : float
   }
 }
 Pencil "1" --> "0..1" Lead
+Lead -- Hardness
 @enduml

@@ -39,7 +39,7 @@ Seu sistema deverá:
 ![](diagrama.png)
 
 - [solver.cpp ](.cache/draft.cpp)
-- [solver.java](.cache/draft.java), [Shell.java](./java/Shell.java)
+- [solver.java](.cache/draft.java)
 - [solver.ts  ](.cache/draft.ts)
 
 [![](../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
@@ -89,8 +89,8 @@ $show
 E:20/20, S:9/10, L:7/15, D:2, I:8
 
 #__case tomar banho
-# O comando "$clean" alteram em -3 energia, -1 na saciedade, MAX na limpeza, +0 diamantes, +2 na idade.
-$clean
+# O comando "$shower" alteram em -3 energia, -1 na saciedade, MAX na limpeza, +0 diamantes, +2 na idade.
+$shower
 $show
 E:17/20, S:8/10, L:15/15, D:2, I:10
 
@@ -115,7 +115,7 @@ $play
 fail: pet esta morto
 $eat
 fail: pet esta morto
-$clean
+$shower
 fail: pet esta morto
 $sleep
 fail: pet esta morto

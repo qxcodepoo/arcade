@@ -26,9 +26,9 @@ O sistema deverá:
 ## Guide
 ![](diagrama.png)
 
-- [Solver.java](.cache/draft.java), [Shell.java](./Shell.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts), [shell.ts](./shell.ts)
+- [Solver.java](.cache/draft.java)
+- [solver.cpp ](.cache/draft.cpp)
+- [solver.ts  ](.cache/draft.ts)
 
 ***
 ## Shell

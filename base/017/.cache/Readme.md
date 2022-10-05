@@ -26,9 +26,9 @@ O sistema deverá:
 ## Guide
 ![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java), [Shell.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/./Shell.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts), [shell.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/./shell.ts)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java)
+- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
+- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)
 
 ***
 ## Shell
