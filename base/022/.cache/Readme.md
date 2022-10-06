@@ -1,6 +1,6 @@
 ## @022 Hospital I
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/cover.jpg)
 
 [](toc)
 
@@ -22,6 +22,7 @@ Na UTI do nosso hospital existem vários pacientes. Cada paciente é atendico po
 
 
 ***
+
 ## Funcionalidades
 
 - **Repositórios Individuais - 3.0 P**
@@ -68,10 +69,12 @@ $end
 ```
 
 ***
+
 ## Diagrama de Classes
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/diagrama.png)
 
 ***
+
 ## Esqueleto
 <!--FILTER Solver.java java-->
 ```java

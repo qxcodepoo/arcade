@@ -1,6 +1,6 @@
 # Ligações - Agenda 4
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 - TODO
     - solver

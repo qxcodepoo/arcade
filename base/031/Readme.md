@@ -1,6 +1,6 @@
 # Clinica Veterinária
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -110,6 +110,7 @@ saldo
 ```
 
 ***
+
 ## Raio X
 
 ````java

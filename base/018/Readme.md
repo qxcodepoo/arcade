@@ -1,6 +1,6 @@
 # Hospital II
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -78,10 +78,12 @@ $end
 ```
 
 ***
+
 ## Diagrama de Classes
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ***
+
 ## Esqueleto
 <!--FILTER Solver.java java-->
 ```java

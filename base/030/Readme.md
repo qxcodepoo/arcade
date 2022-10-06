@@ -1,6 +1,6 @@
 # ContatoStar & Agenda 4 (herança)
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -89,8 +89,9 @@ $end
 
 
 ***
+
 ## Diagrama UML
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 
 ## Esqueleto

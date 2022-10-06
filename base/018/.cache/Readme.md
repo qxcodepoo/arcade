@@ -1,6 +1,6 @@
 ## @018 Hospital II
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/cover.jpg)
 
 [](toc)
 
@@ -78,10 +78,12 @@ $end
 ```
 
 ***
+
 ## Diagrama de Classes
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/diagrama.png)
 
 ***
+
 ## Esqueleto
 <!--FILTER Solver.java java-->
 ```java

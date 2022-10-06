@@ -1,6 +1,6 @@
 ## @007 Tarifas & Banco 1: Saque, Transferência, Depósito, Extrato, Tarifas e Extorno
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/cover.jpg)
 
 [](toc)
 
@@ -35,6 +35,7 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
     - Apenas efetue a operação de extorno dos índices válidos que forem tarifas.
 
 ***
+
 ## Shell
 
 ```bash
@@ -110,12 +111,14 @@ $end
 ```
 
 ***
+
 ## Diagrama UML
 Os gets e sets estão marcados em separado para facilitar a visualização dos métodos importantes.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.png)
 
 ***
+
 ## Esqueleto
 <!--FILTER Solver.java java-->
 ```java

@@ -1,6 +1,6 @@
 ## @025 Twitter & Associação reflexiva, envio de mensagens
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/cover.jpg)
 
 [](toc)
 
@@ -16,10 +16,12 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 
 ***
+
 ## Vídeo com a explicação do projeto
 [![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/player.png)](https://www.youtube.com/watch?v=75-YyuNrOsc)
 
 ***
+
 ## Módulos
 
 - cadastrar
@@ -51,6 +53,7 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
     - Se um tweet é deletado, nos rt deve aparecer "esse tweet foi removido".
 
 ***
+
 ## Comandos e Exemplos
 
 ```bash
@@ -244,11 +247,13 @@ $end
 ```
 
 ***
+
 ## Diagrama
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/diagrama.png)
 
 
 ***
+
 ## Métodos
 
 <!--FILTER diagrama.puml plantuml-->
@@ -488,6 +493,7 @@ Inbox "1" --o "0..*" Tweet
 <!--FILTER_END-->
 
 ***
+
 ## Esqueleto C++
 
 - A biblioteca auxiliar.hpp pode ser encontrada aqui: [LINK](https://github.com/qxcodepoo/arcade/blob/master/base/025/auxiliar.hpp)

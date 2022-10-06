@@ -46,6 +46,9 @@ int main() {
         time.setMinute(INT(param[2]));
         time.setSecond(INT(param[3]));
     };
+    chain["init"] = [&]() {
+        time = Time(INT(param[1]), INT(param[2]), INT(param[3]));
+    };
     chain["show"] = [&]() {
         std::cout << time.str() << '\n';
     };

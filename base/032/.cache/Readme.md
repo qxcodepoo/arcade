@@ -1,6 +1,6 @@
 ## @032 Estressados C: Tranformações
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 [](toc)
 
 ***
+
 ## Intro
 
 ### filter

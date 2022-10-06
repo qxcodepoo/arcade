@@ -1,6 +1,6 @@
 ## @046 Configuração do C++
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/cover.jpg)
 
 ## Caminho mais fácil
 

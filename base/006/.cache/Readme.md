@@ -1,6 +1,6 @@
 ## @006 Tamagotchi 💎 & Utilizando sets para controlar a variação dos status do bichinho
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/cover.jpg)
 
 [](toc)
 
@@ -17,6 +17,7 @@ Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brin
 
 
 ***
+
 ## Intro
 Seu sistema deverá:
 
@@ -35,8 +36,9 @@ Seu sistema deverá:
 
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.png)
 
 - [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.cpp)
 - [solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.java)
@@ -45,6 +47,7 @@ Seu sistema deverá:
 [![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
+
 ## Shell
 ### Exemplo 1
 

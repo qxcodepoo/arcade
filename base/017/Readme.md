@@ -1,6 +1,6 @@
 # Porquinho & Utilizando enum para definir as moedas e um bool para controlar o estado do porco
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -23,14 +23,16 @@ O sistema deverá:
     - Ao obter moedas e itens, os atribuitos `valor` e `itens` do porco devem ser zerados.
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp ](.cache/draft.cpp)
 - [solver.ts  ](.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```sh

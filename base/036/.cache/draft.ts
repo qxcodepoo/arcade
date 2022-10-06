@@ -42,6 +42,7 @@ function main() {
         time.setMinute(+param[2]); 
         time.setSecond(+param[3]);
     });
+    chain.set("init", () => { time = new Time(+param[1], +param[2], +param[3]); });
     chain.set("show", () => { puts(time.toString()); });
     chain.set("next", () => {      time.nextSecond();});
     evaluate(chain, param);

@@ -1,6 +1,6 @@
 # Trem 2 & Trem com passageiros e carga.
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -125,6 +125,7 @@ movimentacao
 ```
 
 ***
+
 ## Raio X
 
 ```java

@@ -1,6 +1,6 @@
 # Tabuleiro
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -29,13 +29,15 @@ ___
 Questão adaptada da maratona ACM 2003 por @WladimirTavares
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 
 - [solver.ts](.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```s

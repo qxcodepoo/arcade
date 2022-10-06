@@ -1,6 +1,6 @@
 ## @039 Estressados D: Controles
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 [](toc)
 
 ***
+
 ## Intro
 
 ### pares

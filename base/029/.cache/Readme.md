@@ -1,6 +1,6 @@
 ## @029 Anotações
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/cover.jpg)
 
 [](toc)
 
@@ -93,7 +93,7 @@ $end
 ```
 
 ## Diagrama
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/diagrama.png)
 
 ## Ajuda
 - O objetivo é dividir as responsabilidades entre o Sistema e o Gerenciador de Login.

@@ -1,6 +1,6 @@
 # Instalação Typescript
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 ## 01. Instalação do Node no Windows
 

@@ -1,6 +1,6 @@
 ## @014 Contato & Agenda 1: Gerenciando um único contato
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/cover.jpg)
 
 [](toc)
 
@@ -37,6 +37,7 @@ Seu programa deve:
     - Se o usuário tentar inserir individualmente um telefone invalido, avise e não insira o telefone.
 
 ***
+
 ## Shell
 
 ```bash
@@ -72,8 +73,9 @@ $end
 ```
 
 ***
+
 ## Diagrama UML
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/diagrama.png)
 
 
 ## Esqueleto

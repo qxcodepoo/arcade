@@ -1,6 +1,6 @@
 ## @016 Favoritos & Agenda 3: cache e redundância
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/cover.jpg)
 
 [](toc)
 
@@ -95,8 +95,9 @@ $end
 ```
 
 ***
+
 ## Diagrama UML
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/diagrama.png)
 
 ## Esqueleto
 <!--FILTER Solver.java java-->

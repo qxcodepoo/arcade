@@ -1,6 +1,6 @@
 ## @027 Whatsapp II - Chat Pessoa
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/cover.jpg)
 
 [](toc)
 
@@ -61,7 +61,7 @@ $end
 
 ## Guia de Atividade
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/diagrama.png)
 
 
 ## Créditos

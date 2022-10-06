@@ -1,6 +1,6 @@
 ## @033 Trem 1 & Trem de passageiros
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/033/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/033/cover.jpg)
 
 [](toc)
 
@@ -124,6 +124,7 @@ $end
 ```
 
 ***
+
 ## Raio X
 
 ```java

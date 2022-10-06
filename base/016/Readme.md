@@ -1,6 +1,6 @@
 # Favoritos & Agenda 3: cache e redundância
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -95,8 +95,9 @@ $end
 ```
 
 ***
+
 ## Diagrama UML
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ## Esqueleto
 <!--FILTER Solver.java java-->

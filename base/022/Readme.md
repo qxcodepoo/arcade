@@ -1,6 +1,6 @@
 # Hospital I
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -22,6 +22,7 @@ Na UTI do nosso hospital existem vários pacientes. Cada paciente é atendico po
 
 
 ***
+
 ## Funcionalidades
 
 - **Repositórios Individuais - 3.0 P**
@@ -68,10 +69,12 @@ $end
 ```
 
 ***
+
 ## Diagrama de Classes
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ***
+
 ## Esqueleto
 <!--FILTER Solver.java java-->
 ```java

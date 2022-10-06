@@ -1,6 +1,6 @@
 ## @020 Lapiseira & Com vários grafites utilizando lista
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/cover.jpg)
 
 [](toc)
 
@@ -43,14 +43,16 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/diagrama.png)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/.cache/draft.java)
 - [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/.cache/draft.cpp)
 - [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```bash

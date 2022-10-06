@@ -1,6 +1,6 @@
 ## @005 Mestre dos Vetores (manipulação arraylist)
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/005/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/005/cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 O objetivo da atividade é treinar estrutura de dados.
 
 ***
+
 ## Requisitos
 
 Requisito:
@@ -161,6 +162,7 @@ $end
 ```
 
 ***
+
 ## Dica
 - **boolean add(Object element)**: Adiciona o elemento especificado no final da lista.
 - **void add(int index, Object element)**: Insere o elemento especificado na posição indicada da lista.

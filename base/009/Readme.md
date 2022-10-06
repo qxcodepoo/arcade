@@ -1,6 +1,6 @@
 # Pula pula & Movendo objetos entre duas listas
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -19,13 +19,15 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho.
 
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 - [solver.cpp](.cache/draft.cpp)
 - [Solver.java](.cache/draft.java)
 
 ***
+
 ## Shell
 ```bash
 #__case unico

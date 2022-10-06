@@ -1,6 +1,6 @@
 ## @009 Pula pula & Movendo objetos entre duas listas
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/cover.jpg)
 
 [](toc)
 
@@ -19,13 +19,15 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho.
 
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.png)
 
 - [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.cpp)
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.java)
 
 ***
+
 ## Shell
 ```bash
 #__case unico

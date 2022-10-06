@@ -1,6 +1,6 @@
 ## @042 Carro Get e Set
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 Essa atividade se propõe a implementar um carro ecológico que pode passear pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
 ***
+
 ## Intro
 Seu sistema deverá:
 
@@ -34,12 +35,14 @@ Seu sistema deverá:
 
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/diagrama.png)
 
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```bash

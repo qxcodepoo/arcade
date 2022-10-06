@@ -1,6 +1,6 @@
 ## @013 Cadastro & Banco 2 (herança, método abstrato, polimorfismo)
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/cover.jpg)
 
 [](toc)
 
@@ -131,11 +131,13 @@ $end
 ```
 
 ***
+
 ## Diagrama
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.png)
 
 ***
+
 ## Esqueleto
 <!--FILTER Solver.java java-->
 ```java

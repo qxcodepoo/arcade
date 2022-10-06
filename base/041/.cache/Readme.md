@@ -1,6 +1,6 @@
 ## @041 Tabuleiro
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/cover.jpg)
 
 [](toc)
 
@@ -29,13 +29,15 @@ ___
 Questão adaptada da maratona ACM 2003 por @WladimirTavares
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.png)
 
 
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```s

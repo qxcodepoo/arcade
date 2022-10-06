@@ -1,6 +1,6 @@
 ## @028 Bilheteria
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/cover.jpg)
 
 [](toc)
 
@@ -98,9 +98,10 @@ orappa
 $end
 ```
 ***
+
 ## Diagrama
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/diagrama.png)
  
 ---
 

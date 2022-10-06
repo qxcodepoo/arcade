@@ -1,6 +1,6 @@
 ## @030 ContatoStar & Agenda 4 (herança)
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/030/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/030/cover.jpg)
 
 [](toc)
 
@@ -89,8 +89,9 @@ $end
 
 
 ***
+
 ## Diagrama UML
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/030/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/030/diagrama.png)
 
 
 ## Esqueleto

@@ -1,6 +1,6 @@
 ## @035 Clínica Veterinária
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/cover.jpg)
 
 [](toc)
 
@@ -75,9 +75,10 @@ $getAllAtitudes
 $end
 ```
 ***
+
 ## Diagrama
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/diagrama.png)
  
 ---
 

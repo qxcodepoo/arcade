@@ -1,6 +1,6 @@
 # Motoca & Motoca de parquinho com uma criança
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -32,8 +32,9 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 
 - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
@@ -45,6 +46,7 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 
 ***
+
 ## Shell
 
 ```s

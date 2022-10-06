@@ -1,6 +1,6 @@
 ## @019 Ligações - Agenda 4
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/019/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/019/cover.jpg)
 
 - TODO
     - solver

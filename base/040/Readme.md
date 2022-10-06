@@ -1,6 +1,6 @@
 # Estressados B: Contagem
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -10,6 +10,7 @@
 [](toc)
 
 ***
+
 ## Intro
 
 - **count**: quantas vezes o valor X apareceu na fila?

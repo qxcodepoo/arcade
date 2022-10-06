@@ -1,6 +1,6 @@
 ## @037 Budega & Gerenciando uma fila de espera e um vetor de nulos
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/cover.jpg)
 
 [](toc)
 
@@ -25,12 +25,14 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
     - Os clientes devem ser criados dinamicamente e gerenciados por um shared_ptr.
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/diagrama.png)
 
 - [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/.cache/draft.cpp)
 
 ***
+
 ## Shell
 
 

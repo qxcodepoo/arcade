@@ -1,6 +1,6 @@
 ## @043 Cofre & Utilizando enum para definir as moedas e um bool para controlar o estado do porco
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/cover.jpg)
 
 [](toc)
 
@@ -25,12 +25,14 @@ O sistema deverá:
     - Moedas e Itens devem ser armazenados em uma mesma lista de Valuables.
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.png)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/.cache/draft.java)
 
 ***
+
 ## Shell
 
 ```sh

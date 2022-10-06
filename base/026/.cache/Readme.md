@@ -1,6 +1,6 @@
 ## @026 Whatsapp I & Chat Grupo
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/cover.jpg)
 
 [](toc)
 
@@ -166,7 +166,7 @@ $end
 ## Guia de Resolução
 [GUIA](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/_guide.md)
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/diagrama.png)
  
 ---
 

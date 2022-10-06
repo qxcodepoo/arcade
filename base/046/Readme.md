@@ -1,6 +1,6 @@
 # Configuração do C++
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 ## Caminho mais fácil
 

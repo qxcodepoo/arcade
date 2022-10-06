@@ -1,6 +1,6 @@
 ## @017 Porquinho & Utilizando enum para definir as moedas e um bool para controlar o estado do porco
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/cover.jpg)
 
 [](toc)
 
@@ -23,14 +23,16 @@ O sistema deverá:
     - Ao obter moedas e itens, os atribuitos `valor` e `itens` do porco devem ser zerados.
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java)
 - [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
 - [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```sh

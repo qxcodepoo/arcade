@@ -1,6 +1,6 @@
 # Contato & Agenda 1: Gerenciando um único contato
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -37,6 +37,7 @@ Seu programa deve:
     - Se o usuário tentar inserir individualmente um telefone invalido, avise e não insira o telefone.
 
 ***
+
 ## Shell
 
 ```bash
@@ -72,8 +73,9 @@ $end
 ```
 
 ***
+
 ## Diagrama UML
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 
 ## Esqueleto

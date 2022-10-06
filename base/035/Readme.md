@@ -1,6 +1,6 @@
 # Clínica Veterinária
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -75,9 +75,10 @@ $getAllAtitudes
 $end
 ```
 ***
+
 ## Diagrama
 
-![](diagrama.png)
+![diagrama](diagrama.png)
  
 ---
 

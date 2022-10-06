@@ -1,6 +1,6 @@
 # Calculadora & Utilizando uma calculora que gasta e recarrega bateria
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 
 ***
+
 ## Intro
 
 - Mostrar bateria da calculadora.
@@ -23,8 +24,9 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 - Se for tentada divisão por zero, deve ser notificado o erro.
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp ](.cache/draft.cpp )
@@ -32,6 +34,7 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 
 ***
+
 ## Shell
 
 ```bash

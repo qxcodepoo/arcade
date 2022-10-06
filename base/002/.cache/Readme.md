@@ -1,6 +1,6 @@
 ## @002 Carro & Controla a quantidade de pessoas e sai para passear
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 Essa atividade se propõe a implementar um carro ecológico que pode passear pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
 ***
+
 ## Intro
 Seu sistema deverá:
 
@@ -34,14 +35,16 @@ Seu sistema deverá:
 
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.png)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.java)
 - [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.cpp)
 - [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```bash

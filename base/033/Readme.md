@@ -1,6 +1,6 @@
 # Trem 1 & Trem de passageiros
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -124,6 +124,7 @@ $end
 ```
 
 ***
+
 ## Raio X
 
 ```java

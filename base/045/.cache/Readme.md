@@ -1,6 +1,6 @@
 ## @045 Instalação Typescript
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/045/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/045/cover.jpg)
 
 ## 01. Instalação do Node no Windows
 

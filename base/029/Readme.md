@@ -1,6 +1,6 @@
 # Anotações
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -93,7 +93,7 @@ $end
 ```
 
 ## Diagrama
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ## Ajuda
 - O objetivo é dividir as responsabilidades entre o Sistema e o Gerenciador de Login.

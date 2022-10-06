@@ -1,6 +1,6 @@
 # Whatsapp II - Chat Pessoa
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -61,7 +61,7 @@ $end
 
 ## Guia de Atividade
 
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 
 ## Créditos

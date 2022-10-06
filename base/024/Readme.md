@@ -1,6 +1,6 @@
 # Mensagens
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 Essa atividade é a base conceitual para simplificar a troca de mensagens entre dois usuários de um sistema. Cada usuário deve conter um _inbox_ que guarda as mensagens recebidas.
 
 ***
+
 ## Requisitos
 
 - Adicionar usuários usando o nome como chave única.
@@ -21,6 +22,7 @@ Essa atividade é a base conceitual para simplificar a troca de mensagens entre 
 - Ler as mensagens não lidas de um usuário.
 
 ***
+
 ## Shell
 
 ```python
@@ -48,6 +50,7 @@ $end
 ## Main
 
 ***
+
 ## Diagrama
 
-![](diagrama.png)
+![diagrama](diagrama.png)

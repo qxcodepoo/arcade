@@ -1,6 +1,6 @@
 # Matrícula & Associação NxN
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -134,7 +134,7 @@ public static void main(String[] args) {
 ```
 
 ## Diagrama UML
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 
 ## Métodos
@@ -309,6 +309,7 @@ int main(){
 
 
 ***
+
 ## Recursos Extras
 - [Comandos de teste](resources/testes.tio)
 - [Modelo em C++](resources/raiox.cpp)

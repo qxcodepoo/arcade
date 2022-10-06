@@ -1,6 +1,6 @@
 # Agiota
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -23,6 +23,7 @@ Seu Plutolomeu é um agiota que empresta dinheiro a juros 0. Ele é uma pessoa m
 Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de emprestimos que ele tinha instalado em seu computador.
 
 ***
+
 ## Requisitos
 
 - Iniciar Sistema.
@@ -54,6 +55,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empre
 
 
 ***
+
 ## Shell
 
 ```bash
@@ -137,10 +139,12 @@ $end
 ```
 
 ***
+
 ## Diagrama
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ***
+
 ## Main
 ```java
     Agiota ag = new Agiota(500);
@@ -175,6 +179,7 @@ $end
 ```
 
 ***
+
 ## Fim da história
 
 - Então assim ficou Ptolomeu, depois de conseguir explicar pra polícia que tudo não passou me um mal entendido. 

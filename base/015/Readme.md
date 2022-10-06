@@ -1,6 +1,6 @@
 # Busca & Agenda 2: ordenação de vetores, operação de filtragem
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -15,6 +15,7 @@ Sua agenda possui vários contatos e cada contato possui vários telefones.
 Implemente a classe Contact e Fone utilizando as regras descritas no projeto Contato ou reaproveite o código que você fez.
 
 ***
+
 ## Requisitos Novos
 - Adicionar
     - O contato possui o nome como chave.
@@ -89,8 +90,9 @@ $end
 #__end__
 ```
 ***
+
 ## Diagrama
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ## Esqueleto
 

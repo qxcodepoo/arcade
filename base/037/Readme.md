@@ -1,6 +1,6 @@
 # Budega & Gerenciando uma fila de espera e um vetor de nulos
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -25,12 +25,14 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
     - Os clientes devem ser criados dinamicamente e gerenciados por um shared_ptr.
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 - [solver.cpp](.cache/draft.cpp)
 
 ***
+
 ## Shell
 
 

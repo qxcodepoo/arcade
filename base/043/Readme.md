@@ -1,6 +1,6 @@
 # Cofre & Utilizando enum para definir as moedas e um bool para controlar o estado do porco
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -25,12 +25,14 @@ O sistema deverá:
     - Moedas e Itens devem ser armazenados em uma mesma lista de Valuables.
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
 
 ***
+
 ## Shell
 
 ```sh

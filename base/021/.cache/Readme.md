@@ -1,6 +1,6 @@
 ## @021 Matrícula & Associação NxN
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/cover.jpg)
 
 [](toc)
 
@@ -134,7 +134,7 @@ public static void main(String[] args) {
 ```
 
 ## Diagrama UML
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.png)
 
 
 ## Métodos
@@ -309,6 +309,7 @@ int main(){
 
 
 ***
+
 ## Recursos Extras
 - [Comandos de teste](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/resources/testes.tio)
 - [Modelo em C++](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/resources/raiox.cpp)

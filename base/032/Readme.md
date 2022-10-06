@@ -1,6 +1,6 @@
 # Estressados C: Tranformações
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 [](toc)
 
 ***
+
 ## Intro
 
 ### filter

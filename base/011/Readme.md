@@ -1,7 +1,7 @@
 # JunkFood & Vendendo comida ruim a um preço péssimo
 [](solver.cpp)
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -47,6 +47,7 @@ Seu sistema deverá ser capaz de:
     - Quando o cliente pedir o troco, mostre o quanto ele tinha de saldo e zere o saldo.
 
 ***
+
 ## Shell
 
 ```bash
@@ -132,8 +133,9 @@ $end
 ```
 
 ***
+
 ## Diagrama
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ## Métodos
 
@@ -202,6 +204,7 @@ VendingMachine "1" o-- "1..*" Slot
 <!--ADD_END-->
 
 ***
+
 ## Ajuda
 
 - Faça primeiro a classe Espiral.
@@ -251,6 +254,7 @@ public:
 
 
 ***
+
 ## Main não interativa
 ```java
 //case init

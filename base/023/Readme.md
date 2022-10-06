@@ -1,6 +1,6 @@
 # Salário & Herança, Polimorfismo
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -102,10 +102,12 @@ $end
 - As classes filhas devem sobrescrever os métodos herdados da classe pai sempre que você achar necessário.
 
 ***
+
 ## Diagrama
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ***
+
 ## Esqueleto
 
 <!--FILTER Solver.java java-->

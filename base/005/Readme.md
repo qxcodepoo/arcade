@@ -1,6 +1,6 @@
 # Mestre dos Vetores (manipulação arraylist)
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -14,6 +14,7 @@
 O objetivo da atividade é treinar estrutura de dados.
 
 ***
+
 ## Requisitos
 
 Requisito:
@@ -161,6 +162,7 @@ $end
 ```
 
 ***
+
 ## Dica
 - **boolean add(Object element)**: Adiciona o elemento especificado no final da lista.
 - **void add(int index, Object element)**: Insere o elemento especificado na posição indicada da lista.

@@ -1,6 +1,6 @@
 ## @031 Clinica Veterinária
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/031/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/031/cover.jpg)
 
 [](toc)
 
@@ -110,6 +110,7 @@ saldo
 ```
 
 ***
+
 ## Raio X
 
 ````java

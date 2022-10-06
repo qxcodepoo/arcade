@@ -1,6 +1,6 @@
 # Lapiseira & Com vários grafites utilizando lista
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -43,14 +43,16 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp ](.cache/draft.cpp)
 - [solver.ts  ](.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```bash

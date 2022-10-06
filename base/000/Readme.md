@@ -1,6 +1,6 @@
 # Estressados A: Busca
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -10,6 +10,7 @@
 [](toc)
 
 ***
+
 ## Intro
 
 - Na entrada de um evento de um experimento social, os participantes ganhavam uma pulseira especial que precisavam ficar utilizando.
@@ -18,12 +19,11 @@
 - Para fazer uma representação lógica de homens e mulheres em um vetor de inteiros, os números positivos representam os homens e os números negativos representam mulheres.
 - Precisamos escrever os algorítmos que identifiquem informações importantes sobre os participantes da fila.
 
-**Exemplos:** 
+**Exemplos:**
 
 - `{}` equivale a uma fila vazia.
 - `{-1, -50, -99}` equivale a uma mulher totalmente tranquila, uma mulher médio estressada e uma mulher extremamente estressada.
 - `{80, 70, 90, -4}` equivale a três homens estressados e uma mulher tranquila. 
-
 
 **Funções**:
 
@@ -34,12 +34,15 @@
 - **find_min_if**: qual a posição do homem mais calmo?
 
 ***
+
 ## Guide
+
 - [solver.cpp](.cache/draft.cpp), [aux.hpp](https://raw.githubusercontent.com/senapk/cppaux/master/aux.hpp)
 - [solver.js](.cache/draft.js)
 - [solver.ts](.cache/draft.ts)
 
 ***
+
 ## Shell
 
 ```sh

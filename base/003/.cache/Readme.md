@@ -1,6 +1,6 @@
 ## @003 Motoca & Motoca de parquinho com uma criança
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/cover.jpg)
 
 [](toc)
 
@@ -32,8 +32,9 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/diagrama.png)
 
 
 - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
@@ -45,6 +46,7 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 
 ***
+
 ## Shell
 
 ```s

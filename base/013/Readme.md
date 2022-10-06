@@ -1,6 +1,6 @@
 # Cadastro & Banco 2 (herança, método abstrato, polimorfismo)
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -131,11 +131,13 @@ $end
 ```
 
 ***
+
 ## Diagrama
 
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 ***
+
 ## Esqueleto
 <!--FILTER Solver.java java-->
 ```java

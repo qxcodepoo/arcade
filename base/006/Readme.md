@@ -1,6 +1,6 @@
 # Tamagotchi 💎 & Utilizando sets para controlar a variação dos status do bichinho
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -17,6 +17,7 @@ Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brin
 
 
 ***
+
 ## Intro
 Seu sistema deverá:
 
@@ -35,8 +36,9 @@ Seu sistema deverá:
 
 
 ***
+
 ## Guide
-![](diagrama.png)
+![diagrama](diagrama.png)
 
 - [solver.cpp ](.cache/draft.cpp)
 - [solver.java](.cache/draft.java)
@@ -45,6 +47,7 @@ Seu sistema deverá:
 [![](../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
+
 ## Shell
 ### Exemplo 1
 

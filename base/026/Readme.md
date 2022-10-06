@@ -1,6 +1,6 @@
 # Whatsapp I & Chat Grupo
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -166,7 +166,7 @@ $end
 ## Guia de Resolução
 [GUIA](_guide.md)
 
-![](diagrama.png)
+![diagrama](diagrama.png)
  
 ---
 

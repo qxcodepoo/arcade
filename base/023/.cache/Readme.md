@@ -1,6 +1,6 @@
 ## @023 Salário & Herança, Polimorfismo
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/cover.jpg)
 
 [](toc)
 
@@ -102,10 +102,12 @@ $end
 - As classes filhas devem sobrescrever os métodos herdados da classe pai sempre que você achar necessário.
 
 ***
+
 ## Diagrama
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/diagrama.png)
 
 ***
+
 ## Esqueleto
 
 <!--FILTER Solver.java java-->

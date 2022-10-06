@@ -1,6 +1,6 @@
 # Bilheteria
 
-![](cover.jpg)
+![cover](cover.jpg)
 
 [](toc)
 
@@ -98,9 +98,10 @@ orappa
 $end
 ```
 ***
+
 ## Diagrama
 
-![](diagrama.png)
+![diagrama](diagrama.png)
  
 ---
 

@@ -1,6 +1,6 @@
 ## @040 Estressados B: Contagem
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/040/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/040/cover.jpg)
 
 [](toc)
 
@@ -10,6 +10,7 @@
 [](toc)
 
 ***
+
 ## Intro
 
 - **count**: quantas vezes o valor X apareceu na fila?
