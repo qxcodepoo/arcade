@@ -48,14 +48,14 @@ public:
 
     std::string str() const {
         int i = 0;
+        auto fn = [&i](auto p) {
+            std::stringstream ss; 
+            ss << " " << i++ << ":"<< std::setw(5) << (p == nullptr ? "-----" : p->getNome()) << " ";
+            return ss.str();
+        };
         std::stringstream os;
-        os  << "Caixas: |"
-            << join(this->caixas, "|", [&i](auto p) {
-                std::stringstream ss; 
-                ss << " " << i++ << ":"<< std::setw(5) << (p == nullptr ? "-----" : p->getNome()) << " ";
-                return ss.str();
-            })  
-            << "|\nEspera: " (esperando | join(this->esperando, ", ", [](auto x) { return *x;}) << "]";
+        os  << "Caixas: |" << (caixas | aux::MAP(fn) | aux::JOIN("|")) << "|\n"    
+            << "Espera: " << (esperando | aux::MAP(FX(*x)) | aux::FMT());
         return os.str();
     }
 };
@@ -63,10 +63,6 @@ public:
 std::ostream& operator<<(std::ostream& os, const Mercantil& b) {
     return (os << b.str());
 }
-
-
-#include <ranges>
-using namespace std::ranges;
 
 int main() {
     aux::Chain chain;
@@ -77,20 +73,10 @@ int main() {
     chain["init"]   = [&]() {   bank = Mercantil(aux::to<int>(par[1])); };
     chain["call"]   = [&]() { bank.chamarNoCaixa(aux::to<int>(par[1])); };
     chain["finish"] = [&]() {     bank.finalizar(aux::to<int>(par[1])); };
-    chain["arrive"] = [&]() { bank.chegar(make_shared<Pessoa>(par[1])); };
+    chain["arrive"] = [&]() { bank.chegar(std::make_shared<Pessoa>(par[1])); };
     chain["show"]   = [&]() { aux::show << bank; };
 
     aux::execute(chain, par);    
-}
-
-template <class CONTAINER, class LAMBDA>
-std::string join(CONTAINER container, const std::string& delimiter, LAMBDA fn) {
-    if(container.size() == 0)
-        return "";
-    std::ostringstream ss;
-    for (const auto& item : container)
-        ss << delimiter << fn(item);
-    return ss.str().substr(delimiter.size());
 }
 
 
