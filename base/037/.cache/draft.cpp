@@ -46,7 +46,18 @@ public:
         return {}; // todo
     }
 
-    std::string str() const;
+    std::string str() const {
+        int i = 0;
+        std::stringstream os;
+        os  << "Caixas: |"
+            << join(this->caixas, "|", [&i](auto p) {
+                std::stringstream ss; 
+                ss << " " << i++ << ":"<< std::setw(5) << (p == nullptr ? "-----" : p->getNome()) << " ";
+                return ss.str();
+            })  
+            << "|\nEspera: " (esperando | join(this->esperando, ", ", [](auto x) { return *x;}) << "]";
+        return os.str();
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const Mercantil& b) {
@@ -82,16 +93,5 @@ std::string join(CONTAINER container, const std::string& delimiter, LAMBDA fn) {
     return ss.str().substr(delimiter.size());
 }
 
-std::string Mercantil::str() const {
-    int i = 0;
-    std::stringstream os;
-    os  << "Caixas: |"
-        << join(this->caixas, "|", [&i](auto p) {
-            std::stringstream ss; 
-            ss << " " << i++ << ":"<< std::setw(5) << (p == nullptr ? "-----" : p->getNome()) << " ";
-            return ss.str();
-        })  
-        << "|\nEspera: [" << join(this->esperando, ", ", [](auto x) { return *x;}) << "]";
-    return os.str();
-}
+
 
