@@ -1,48 +1,57 @@
+'--
 @startuml
-
 skinparam defaultFontName Hasklig
 skinparam dpi 150
 left to right direction
 
-package com.qxcode {
-  enum Hardness {
-    HB
-    2B
-    4B
-    6B
-  }
-  
-  class Lead {
-    - thickness : float
-    - hardness  : Hardness
-    - size      : int
-    - usagePerSheet: int
-    __
-    + Lead(thickness : float, hardness : Hardness, size : int)
-    + toString() : string
-    __
-    + setSize(size : int)
-    __
-    + getHardness()      : Hardness
-    + getSize()          : int
-    + getThickness()     : float
-    + getUsagePerSheet() : int
-  }
-
-  class Pencil {
-    - thickness : float
-    - tip : Lead | null
-    __
-    + Pencil(thickness : float)
-    + hasGrafite()        : boolean
-    + insert(lead : Lead) : boolean
-    + remove()            : Lead | null
-    + writePage()         : void
-    + toString()          : string
-    __
-    + getThickness()      : float
-  }
+'==
+class Lead {
+  - thickness : float
+  - hardness  : string
+  - size      : int
+  __
+  + Lead(thickness : float, hardness : string, size : int)
+  ' retorna o gasto em milímetros para uma página escrita
+  ' 1mm para HB
+  ' 2mm para 2B
+  ' 4mm para 4B
+  ' 6mm para 6B
+  + usagePerSheet() : int
+  __
+  + setSize(size : int)
+  __
+  + getHardness()      : string
+  + getSize()          : int
+  + getThickness()     : float
 }
+
+class Pencil {
+  - thickness : float
+  - tip : Lead | null
+  __
+  + Pencil(thickness : float)
+  '
+  + hasGrafite()        : boolean
+  '
+  ' verifica se ja tem grafite
+  ' se nao tiver, coloca o grafite na lapiseira
+  + insert(lead : Lead) : boolean
+  '
+  ' se houver grafite, remove e retorna o grafite
+  ' se nao houver grafite, retorna null
+  + remove()            : Lead | null
+  '
+  ' verifica se tem grafite
+  ' verifica se tem mais de 10mm
+  ' se tiver menos que o necessário para página, escreve parcialmente
+  ' se tiver mais que o necessário para página, escreve totalmente
+  + writePage()         : void
+  '
+  + toString()          : string
+  __
+  + getThickness()      : float
+}
+'--
+
 Pencil "1" --> "0..1" Lead
-Lead -- Hardness
 @enduml

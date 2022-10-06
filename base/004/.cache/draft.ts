@@ -4,6 +4,7 @@ class Lead {
     private hardness: string;
     private size: number;
     
+    
     public constructor(calibre: number, dureza: string, tamanho: number) {
         this.thickness = calibre;
         this.hardness = dureza;

@@ -1,7 +1,6 @@
 # Grafite 🎥 & Lapiseira com um único grafite
 
-![](cover.jpg)
-
+![cover](cover.jpg)
 
 [](toc)
 
@@ -12,41 +11,97 @@
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-[![](../_images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
+[![explicação](../_images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
 
 ***
+
 ## Intro
+
 - Iniciar lapiseira
-    - Inicia uma lapiseira de determinado calibre sem grafite no bico.
+  - Inicia uma lapiseira de determinado calibre sem grafite no bico.
 - Inserir grafite
-    - Insere um grafite passando
-        - o calibre: float.
-        - a dureza: string.
-        - o tamanho em mm: int.
-    - Não deve aceitar um grafite de calibre não compatível.
+  - Insere um grafite passando
+    - o calibre: float.
+    - a dureza: string.
+    - o tamanho em mm: int.
+  - Não deve aceitar um grafite de calibre não compatível.
 - Remover grafite
-    - Retira o grafite se houver algum.
+  - Retira o grafite se houver algum.
 - Escrever folha
-    - Não é possível escrever se não há grafite ou o grafite tem tamanho menor ou igual a 10mm.
-    - Quanto mais macio o grafite, mais rapidamente ele se acaba. Para simplificar, use a seguinte regra:
-        - Grafite HB: 1mm por folha.
-        - Grafite 2B: 2mm por folha.
-        - Grafite 4B: 4mm por folha.
-        - Grafite 6B: 6mm por folha.
-        
+  - Não é possível escrever se não há grafite ou o grafite tem tamanho menor ou igual a 10mm.
+  - Quanto mais macio o grafite, mais rapidamente ele se acaba. Para simplificar, use a seguinte regra:
+    - Grafite HB: 1mm por folha.
+    - Grafite 2B: 2mm por folha.
+    - Grafite 4B: 4mm por folha.
+    - Grafite 6B: 6mm por folha.
     - O último centímetro de um grafite não pode ser aproveitado, quando o grafite estiver com 10mm, não é mais possível escrever.
     - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
 
-
 ***
+
 ## Guide
-![](diagrama.png)
+
+![diagrama](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp ](.cache/draft.cpp)
-- [solver.ts ](.cache/draft.ts )
+- [solver.ts  ](.cache/draft.ts )
+
+[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+
+```plantuml
+class Lead {
+  - thickness : float
+  - hardness  : string
+  - size      : int
+  __
+  + Lead(thickness : float, hardness : string, size : int)
+  ' retorna o gasto em milímetros para uma página escrita
+  ' 1mm para HB
+  ' 2mm para 2B
+  ' 4mm para 4B
+  ' 6mm para 6B
+  + usagePerSheet() : int
+  __
+  + setSize(size : int)
+  __
+  + getHardness()      : string
+  + getSize()          : int
+  + getThickness()     : float
+}
+
+class Pencil {
+  - thickness : float
+  - tip : Lead | null
+  __
+  + Pencil(thickness : float)
+  '
+  + hasGrafite()        : boolean
+  '
+  ' verifica se ja tem grafite
+  ' se nao tiver, coloca o grafite na lapiseira
+  + insert(lead : Lead) : boolean
+  '
+  ' se houver grafite, remove e retorna o grafite
+  ' se nao houver grafite, retorna null
+  + remove()            : Lead | null
+  '
+  ' verifica se tem grafite
+  ' verifica se tem mais de 10mm
+  ' se tiver menos que o necessário para página, escreve parcialmente
+  ' se tiver mais que o necessário para página, escreve totalmente
+  + writePage()         : void
+  '
+  + toString()          : string
+  __
+  + getThickness()      : float
+}
+```
+
+[](load)
 
 ***
+
 ## Shell
 
 ```bash
