@@ -48,7 +48,8 @@ namespace aux {
     // auto fn = [](auto v){return *v;};
     // std::vector<int*> vi = {new int(1), new int(2), new int(3)};
     // std::cout << aux::join(vi, ", ", fn) << '\n';
-    std::string join(const auto& container, const std::string& delimiter, auto fn) {
+    template <class CONTAINER, class LAMBDA>
+    std::string join(const auto& container, const std::string& delimiter, LAMBDA fn) {
         if(container.size() == 0)
             return "";
         std::ostringstream ss;
@@ -60,7 +61,7 @@ namespace aux {
     // junta todos os elementos de um container numa string separando com o delimiter
     // join({"a", "b", "c"}, ",") -> "a,b,c"
     // join(std::vector<int>{1, 2, 3}, ",") -> "1,2,3"
-    auto join(const auto& container, const std::string& delimiter) {
+    std::string join(const auto& container, const std::string& delimiter) {
         return join(container, delimiter, fn_identity);
     }
 

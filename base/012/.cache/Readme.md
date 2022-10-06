@@ -1,7 +1,8 @@
 ## @012 Topic & Gerenciando acesso em 2 vetores
+
 [](solver.cpp)
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/cover.jpg)
 
 [](toc)
 
@@ -14,38 +15,105 @@
 O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com algumas variações. Aqui, vamos implementar um sistema de alocação de passageiros em uma topic. Nossa topic tem uma quantidade máxima de passageiros, mas também define alguns assentos preferenciais.
 
 ***
+
 ## Intro
+
 Seu sistema deverá:
 
 - **Inicializar e Mostrar.** 
-    - Iniciar a topic solicitando a lotação máxima e a quantidade de cadeiras preferenciais.
-    - Mostrar o estado do trem
-        - Coloque @ na frente das cadeiras preferenciais
-        - Coloque = na frente das cadeiras normais.
+  - Iniciar a topic solicitando a lotação máxima e a quantidade de cadeiras preferenciais.
+  - Mostrar o estado do trem
+    - Coloque @ na frente das cadeiras preferenciais
+    - Coloque = na frente das cadeiras normais.
 - **Inserir.** 
-    - Inserir passageiros informando id e idade
-        - Se o passageiro for idoso:
-            - Se houver cadeiras preferenciais
-                - O coloque na primeira cadeira preferência.
-            - Senão
-                - O coloque na primeira cadeira normal.
-        - Se o passageiro não for idoso.
-            - Se houver cadeiras não preferenciais
-                - O coloque na primeira não preferencial.
-            - Se não
-                - O coloque na primeira cadeira preferencial.
-- **Remover.** 
-    - Remover passageiros por id
+  - Inserir passageiros informando id e idade
+    - Se o passageiro for idoso:
+      - Se houver cadeiras preferenciais
+        - O coloque na primeira cadeira preferência.
+    - Senão
+      - O coloque na primeira cadeira normal.
+    - Se o passageiro não for idoso.
+      - Se houver cadeiras não preferenciais
+        - O coloque na primeira não preferencial.
+      - Se não
+        - O coloque na primeira cadeira preferencial.
+- **Remover.**
+  - Remover passageiros por id
 
 Existe uma lista para as cadeiras normais e outra para as preferenciais. Para facilitar nas operações de busca e inserção, você deverá criar vários métodos privados para simplificar a lógica dos métodos principais.
 
-
 ***
+
 ## Guide
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.png)
 
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.png)
+
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.puml)[](fenced:filter:plantuml)
+
+```plantuml
+class Pass {
+  - age  : int
+  - name : string
+  __
+  + Pass(name : string, age : int)
+  __
+  + getAge()     : int
+  + getName()    : string
+  + isPriority() : boolean
+  + setAge(age : int)
+  + setName(name : string)
+  __
+  + toString() : string
+}
+
+class Topic {
+  - prioritySeats : Array<Pass | null>
+  - normalSeats   : Array<Pass | null>
+  __
+  '
+  ' inicia prioritySeats com qtdPriority nulls
+  ' inicia normalSeats com (capacity - qtdPriority) nulls
+  + Topic(capacity : int, qtdPriority : int)
+  '
+  ' verifica se já está na topic
+  ' utilize o método estático para realizar as inserções
+  ' se for prioridade 
+  '     tenta primeiro na prioridade, depois na normal
+  ' se não for prioridade
+  '     tenta primeiro na normal, depois na prioridade
+  ' se nao conseguir
+  '     avisa que esta lotado
+  + insert(pass : Pass) : boolean
+  ' 
+  ' chama o método remover privado estático para 
+  ' tentar remover de ambas as listas
+  + remove(name : string) : boolean
+  __
+  '
+  ' procura pela primeira posição vazia ou -1
+  - findFree(list : List<Pass | null>) : int {static}
+  '
+  ' procura por nome nos elementos não nulos e retorna o indice ou -1 
+  - findName(list : List<Pass | null>, name : string) : int {static}
+  '
+  ' usa o método findFree para encontrar a posição vazia e inserir o passageiro
+  - insert  (list : List<Pass | null>, pass : Pass)   : boolean {static}
+  '
+  ' usa o método findName para encontrar o passageiro e remover
+  - remove  (list : List<Pass | null>, name : string) : boolean {static}
+  __
+  __
+  + toString() : string
+}
+```
+
+[](load)
+
+-[Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.java)
+-[solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.cpp)
 
 ***
+
 ## Shell
 
 ```bash
@@ -60,50 +128,60 @@ $init 5 2
 $show
 [@ @ = = =]
 
-#######################################
 #__case Embarque
-#######################################
 
 $in davi 17
 $show
 [@ @ =davi:17 = =]
+
+#__case Embarque 2
+
 $in joao 103
 $show
 [@joao:103 @ =davi:17 = =]
+
+#__case Embarque 3
+
 $in ana 35
 $show
 [@joao:103 @ =davi:17 =ana:35 =]
+
+#__case Embarque 4
+
 $in rex 20
 $in bia 16
 $show
 [@joao:103 @bia:16 =davi:17 =ana:35 =rex:20]
 
-#######################################
 #__case Desembarque
-#######################################
-
 $out davi
 $show
 [@joao:103 @bia:16 = =ana:35 =rex:20]
+
+#__ case vaga
 $in aragao 96
 $show
 [@joao:103 @bia:16 =aragao:96 =ana:35 =rex:20]
 
-#######################################
-#__case Erros
-#######################################
-
+#__case lotada
 $in lucas 23
 fail: topic lotada
+
+#__case não existe
 $out marcelo
-fail: pass nao esta na topic
+fail: marcelo nao esta na topic
+
 $out ana
+
+#__case dobrado
 $in bia 13
-fail: pass ja esta na topic
+fail: bia ja esta na topic
+
+
+#__ final
 $show
 [@joao:103 @bia:16 =aragao:96 = =rex:20]
 $end
-#__end__
 ```
 
 

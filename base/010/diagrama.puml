@@ -1,33 +1,55 @@
+'--
 @startuml
 
 skinparam defaultFontName Hasklig
 skinparam dpi 150
 
-package com.qxcode {
-  class Client {
-    - fone : string
-    - id   : string
-    __
-    + Client(id : string, fone : string)
-    __
-    + getFone() : string
-    + getId()   : string
-    + setFone(fone : string)
-    + setId(id : string)
-    __
-    + toString() : string
-  }
-  class Sala {
-    - cadeiras : Array<Client | null>
-    __
-    + Sala(capacidade : int)
-    + cancelar(id : string)
-    + reservar(id : string, fone : string, ind : int) : boolean
-    __
-    + getCadeiras() : Array<Client | null>
-    __
-    + toString() : string
-  }
+'==
+class Client {
+  - fone : string
+  - id   : string
+  __
+  + Client(id : string, fone : string)
+  __
+  + getFone() : string
+  + getId()   : string
+  + setFone(fone : string)
+  + setId(id : string)
+  __
+  + toString() : string
 }
+
+class Sala {
+  '
+  - cadeiras : Array<Client | null>
+  '
+  ' procura em todas as cadeiras não nulas
+  ' pelo nome do cliente e se encontrar
+  ' retorna o índice ou então -1
+  - procurar(nome: string): int
+  '
+  ' verifica se o indice da cadeira é válido
+  - verificarIndice(indice: int): boolean
+  __
+  '
+  ' inicia todas as cadeiras como null
+  + Sala(capacidade : int)
+  '
+  ' verifica se o índice é válido (use o método verificarIndice)
+  ' verifica se a cadeira está ocupada
+  ' verifica se o cliente já está na sala (use o método procurar)
+  ' cria o cliente e coloca na cadeira
+  + reservar(id : string, fone : string, ind : int) : boolean
+  '
+  ' procura o cliente pelo nome (use o método procurar)
+  ' remover o cliente da cadeira
+  + cancelar(id : string)
+  __
+  + getCadeiras() : Array<Client | null>
+  __
+  + toString() : string
+}
+'--
+
 Sala "1" o-- "0..*" Client
 @enduml
