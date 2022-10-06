@@ -43,10 +43,6 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.png)
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.java)
-- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
-- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
-
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
@@ -55,7 +51,10 @@ class Lead {
   - hardness  : string
   - size      : int
   __
+  '
+  ' inicializa os atributos do grafite
   + Lead(thickness : float, hardness : string, size : int)
+  '
   ' retorna o gasto em milímetros para uma página escrita
   ' 1mm para HB
   ' 2mm para 2B
@@ -74,12 +73,17 @@ class Pencil {
   - thickness : float
   - tip : Lead | null
   __
+  '
+  ' inicializa os atributos da lapiseira
+  ' lembre de inicializar tip como null
   + Pencil(thickness : float)
   '
+  ' retorna true se tem grafite na lapiseira
   + hasGrafite()        : boolean
   '
   ' verifica se ja tem grafite
-  ' se nao tiver, coloca o grafite na lapiseira
+  ' verifica se o grafite tem espessura compatível
+  ' insere o grafite na lapiseira
   + insert(lead : Lead) : boolean
   '
   ' se houver grafite, remove e retorna o grafite
@@ -99,6 +103,10 @@ class Pencil {
 ```
 
 [](load)
+
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.java)
+- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
+- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
 
 ***
 
