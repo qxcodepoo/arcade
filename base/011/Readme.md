@@ -1,4 +1,5 @@
-    # JunkFood & Vendendo comida ruim a um preço péssimo
+# JunkFood
+
 [](solver.cpp)
 
 ![cover](cover.jpg)
@@ -18,30 +19,30 @@ O objetivo dessa atividade é implementar uma classe responsável por uma máqui
 
 Seu sistema deverá ser capaz de:
 
-- **[3.0 P] Iniciando a máquina** 
-    - Iniciar a máquina definindo o número de espirais e a quantidade máxima de produtos em uma espiral.
-        - Se já houver uma máquina, então apague tudo e inicie uma nova máquina.
-    - Mostrar o conteúdo de cada espiral
-        - indice, nome do produto, quantidade de produtos e preço.
-        - Coloque um "-" no nome do produto para informar que não há produto definido.
+- **[3.0 P] Iniciando a máquina**
+  - Iniciar a máquina definindo o número de espirais e a quantidade máxima de produtos em uma espiral.
+    - Se já houver uma máquina, então apague tudo e inicie uma nova máquina.
+  - Mostrar o conteúdo de cada espiral
+    - indice, nome do produto, quantidade de produtos e preço.
+    - Coloque um "-" no nome do produto para informar que não há produto definido.
 
-- **[2.0 P] Algo pra comer** 
-    - Definir quais produtos há em cada espiral passando as informações do produto.
-- **[2.0 P] Resetar uma espiral** 
-    - Limpar todas as informações da espiral voltando ao seu estado original. 
+- **[2.0 P] Algo pra comer**
+  - Definir quais produtos há em cada espiral passando as informações do produto.
+- **[2.0 P] Resetar uma espiral**
+  - Limpar todas as informações da espiral voltando ao seu estado original.
 
-- **[1.0 P] Dinheiro vai** 
-    - Inserir dinheiro na espiral.
-        - Abstraia como o dinheiro vai. Crédito, débito, bitcoin, cédula nova ou velha, ficha de fliperama. Não importa.
-    - Receba o dinheiro do usuário e vá adicionando ao saldo.
-    - Alterar o mostrar máquina para mostrar o saldo também.
+- **[1.0 P] Dinheiro vai**
+  - Inserir dinheiro na espiral.
+    - Abstraia como o dinheiro vai. Crédito, débito, bitcoin, cédula nova ou velha, ficha de fliperama. Não importa.
+  - Receba o dinheiro do usuário e vá adicionando ao saldo.
+  - Alterar o mostrar máquina para mostrar o saldo também.
 
-- **[2.0 P] Comida vem, Dinheiro vem, Erros também** 
-    - Permitir que o cliente possa comprar um produto de uma espiral.
-        - Verificar se existe o produto e se o valor do pagamento é suficiente.
-        - Tratar todos esses erros.
-        - Mostrar o nome do produto que ele pediu.
-    - Quando o cliente pedir o troco, mostre o quanto ele tinha de saldo e zere o saldo.
+- **[2.0 P] Comida vem, Dinheiro vem, Erros também**
+  - Permitir que o cliente possa comprar um produto de uma espiral.
+    - Verificar se existe o produto e se o valor do pagamento é suficiente.
+    - Tratar todos esses erros.
+    - Mostrar o nome do produto que ele pediu.
+  - Quando o cliente pedir o troco, mostre o quanto ele tinha de saldo e zere o saldo.
 
 ***
 
@@ -114,7 +115,6 @@ class VendingMachine {
 [](load)
 
 ***
-
 
 - Faça primeiro a classe Espiral.
 - No contrutor da class Maquina receba a quantidade de espirais. Para iniciar o vetor de espirais você pode fazer um laço inserindo qtd Espirais no vetor (Java).
@@ -244,4 +244,3 @@ voce recebeu 1.50 RS
 $end
 #__end__
 ```
-

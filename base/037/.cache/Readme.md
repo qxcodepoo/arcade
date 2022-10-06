@@ -1,4 +1,4 @@
-## @037 Budega & Gerenciando uma fila de espera e um vetor de nulos
+## @037 Budega
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/cover.jpg)
 
@@ -20,10 +20,10 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 - As operações são entrar, chamarNoCaixa e finalizarAtendimento.
 
 - Em Java
-    - Os caixas devem ser implementados com um ArrayList e a fila de espera como um LinkedList.
+  - Os caixas devem ser implementados com um ArrayList e a fila de espera como um LinkedList.
 - Em C++
-    - Os caixas devem ser implementados com um vector e a fila de espera como um list.
-    - Os clientes devem ser criados dinamicamente e gerenciados por um shared_ptr.
+  - Os caixas devem ser implementados com um vector e a fila de espera como um list.
+  - Os clientes devem ser criados dinamicamente e gerenciados por um shared_ptr.
 
 ***
 

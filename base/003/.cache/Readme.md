@@ -1,4 +1,4 @@
-## @003 Motoca & Motoca de parquinho com uma criança
+## @003 Motoca
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/cover.jpg)
 
@@ -15,21 +15,20 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 - Você deverá implementar a classe `Pessoa` e a class `Moto`.
 - Iniciar
-    - A moto inicia com 1 de potência, sem minutos e sem ninguém.
+  - A moto inicia com 1 de potência, sem minutos e sem ninguém.
 - Subir
-    - Só pode estar uma pessoa na moto por vez. Para subir, informe nome e idade de quem está subindo.
+  - Só pode estar uma pessoa na moto por vez. Para subir, informe nome e idade de quem está subindo.
 - Descer
-    - Só pode descer se tiver alguém na moto.
+  - Só pode descer se tiver alguém na moto.
 - Comprar tempo
-    - O tempo em minutos é comprado e enquanto houver tempo, qualquer pessoa pode dirigir.
+  - O tempo em minutos é comprado e enquanto houver tempo, qualquer pessoa pode dirigir.
 - Dirigir tempo
-    - Se houver uma pessoa com 10 anos ou menos e houver minutos, então ela pode passear de moto.
-    - Se o tempo acabar no meio do passeio, informe o quanto a pessoa andou.
+  - Se houver uma pessoa com 10 anos ou menos e houver minutos, então ela pode passear de moto.
+  - Se o tempo acabar no meio do passeio, informe o quanto a pessoa andou.
 - Buzinar
-    - Qualquer pessoa pode buzinar(honk)
-    - O barulho da buzina é "Pem", porém o número de `e` é igual ao valor da potência.
-    - Ex: se a potência for 5, buzinar deve gerar: Peeeeem
-
+  - Qualquer pessoa pode buzinar(honk)
+  - O barulho da buzina é "Pem", porém o número de `e` é igual ao valor da potência.
+  - Ex: se a potência for 5, buzinar deve gerar: Peeeeem
 
 ***
 
@@ -96,12 +95,11 @@ class Person {
 [](load)
 
 - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
-- Para buzinar, utilize o `for` gerando várias vezes o `e`. 
+- Para buzinar, utilize o `for` gerando várias vezes o `e`.
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.ts)
-
+- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.cpp)
+- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.ts)
 
 ***
 
@@ -227,8 +225,3 @@ $honk
 Peeeeem
 $end
 ```
-
-
-
-
-

@@ -1,4 +1,4 @@
-# Grafite 🎥 & Lapiseira com um único grafite
+# Grafite 🎥
 
 ![cover](cover.jpg)
 
@@ -105,8 +105,8 @@ class Pencil {
 [](load)
 
 - [Solver.java](.cache/draft.java)
-- [solver.cpp ](.cache/draft.cpp)
-- [solver.ts  ](.cache/draft.ts )
+- [solver.cpp_](.cache/draft.cpp)
+- [solver.ts__](.cache/draft.ts)
 
 ***
 

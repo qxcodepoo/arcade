@@ -1,4 +1,4 @@
-# Pula pula & Movendo objetos entre duas listas
+# Pula pula
 
 ![cover](cover.jpg)
 
@@ -9,18 +9,18 @@
 - [Shell](#shell)
 [](toc)
 
-
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho.
 
 ## Intro
+
 - Inserir crianças na fila de espera do pula pula
 - Mover a primeira criança da fila de espera do pula pula para dentro do pula pula.
 - Mover a primeira criança que entrou no pula pula para o final da fila de espera.
 
-
 ***
 
 ## Guide
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
@@ -78,6 +78,7 @@ package com.qxcode {
 ***
 
 ## Shell
+
 ```bash
 #__case unico
 # $chegou _nome _idade

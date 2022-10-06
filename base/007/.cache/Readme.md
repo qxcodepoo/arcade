@@ -1,4 +1,4 @@
-## @007 Tarifas & Banco 1: Saque, Transferência, Depósito, Extrato, Tarifas e Extorno
+## @007 Tarifas
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/cover.jpg)
 
@@ -14,31 +14,29 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 ## Intro
 
 - **Iniciar**
-    - Iniciar a account passando número da account.
-    - Se a account já existir, resete todos os valores para uma nova account.
-    - Inicia a account com a operação de "abertura".
-    - Para facilitar a visualização dos dados, utilize inteiros para registrar as operações financeiras.
+  - Iniciar a account passando número da account.
+  - Se a account já existir, resete todos os valores para uma nova account.
+  - Inicia a account com a operação de "abertura".
+  - Para facilitar a visualização dos dados, utilize inteiros para registrar as operações financeiras.
 - **Saque, Depósito e Tarifas**
-    - Verifique se o valor é válido.
-    - No caso da tarifa, o valor final de saldo poderá ser negativo.
-    - No caso do withdraw, verifique se há saldo suficiente efetuar a operação. 
+  - Verifique se o valor é válido.
+  - No caso da tarifa, o valor final de saldo poderá ser negativo.
+  - No caso do withdraw, verifique se há saldo suficiente efetuar a operação.
 - **Retornar o extrato**.
-    - Extrato completo
-        - Retornar todas as movimentações da conta desde a abertura
-        - A descrição pode ser "opening", "withdraw", "deposit", "fee", "reverse".
-        - Os saques devem ter valor negativo e os depósitos positivos.
-- **Extrato parcial**
-      - Mostre as últimas N operações do extrato.
+  - Extrato completo
+    - Retornar todas as movimentações da conta desde a abertura
+    - A descrição pode ser "opening", "withdraw", "deposit", "fee", "reverse".
+    - Os saques devem ter valor negativo e os depósitos positivos.
+  - **Extrato parcial**
+    - Mostre as últimas N operações do extrato.
 - **Extornar tarifas**.
-    - Deve ser possível extornar, pagando de volta, tarifas passando uma lista de índices.
-    - Apenas efetue a operação de extorno dos índices válidos que forem tarifas.
-
-***
-
+  - Deve ser possível extornar, pagando de volta, tarifas passando uma lista de índices.
+  - Apenas efetue a operação de extorno dos índices válidos que forem tarifas.
 
 ***
 
 ## Guide
+
 Os gets e sets estão marcados em separado para facilitar a visualização dos métodos importantes.
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.png)
@@ -206,4 +204,3 @@ $extractN 2
 
 $end
 ```
-

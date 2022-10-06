@@ -1,4 +1,6 @@
-## @001 Calculadora & Utilizando uma calculora que gasta e recarrega bateria
+## @001 Calculadora
+
+Utilizando uma calculora que gasta e recarrega bateria
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/cover.jpg)
 

@@ -1,4 +1,4 @@
-## @017 Porquinho & Utilizando enum para definir as moedas e um bool para controlar o estado do porco
+## @017 Porquinho
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/cover.jpg)
 
@@ -10,6 +10,7 @@
 [](toc)
 
 ## Intro
+
 O sistema deverá:
 
 - Gerenciar um cofrinho do tipo Porquinho capaz de guardar moedas e itens.
@@ -17,14 +18,15 @@ O sistema deverá:
 - Ambos moedas e itens tem um método getVolume() e getDescription().
 - O volume do cofre incrementa conforme ele recebe itens e moedas.
 - A lógica da utilização do cofre é:
-    - Para inserir moedas e itens o cofre deve estar inteiro.
-    - Para obter moedas e itens o cofre deve estar quebrado.
-    - Ao quebrar, o volume do porco deve ser zerado e o status de broken deve ser alterado para true.
-    - Ao obter moedas e itens, os atribuitos `valor` e `itens` do porco devem ser zerados.
+  - Para inserir moedas e itens o cofre deve estar inteiro.
+  - Para obter moedas e itens o cofre deve estar quebrado.
+  - Ao quebrar, o volume do porco deve ser zerado e o status de broken deve ser alterado para true.
+  - Ao obter moedas e itens, os atribuitos `valor` e `itens` do porco devem ser zerados.
 
 ***
 
 ## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
@@ -104,8 +106,8 @@ class Pig {
 [](load)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java)
-- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
-- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)
+- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
+- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)
 
 ***
 

@@ -1,4 +1,6 @@
-## @036 Relógio & Utilizando os comandos set para manter a hora correta
+## @036 Relógio
+
+Utilizando os comandos set para manter a hora correta
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/cover.jpg)
 
@@ -76,8 +78,8 @@ class Time {
 [](load)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.java)
-- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.cpp)
-- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.ts)
+- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.cpp)
+- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.ts)
 
 ***
 

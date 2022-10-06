@@ -1,4 +1,4 @@
-# Topic & Gerenciando acesso em 2 vetores
+# Topic
 
 [](solver.cpp)
 
@@ -10,7 +10,6 @@
 - [Guide](#guide)
 - [Shell](#shell)
 [](toc)
-
 
 O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com algumas variações. Aqui, vamos implementar um sistema de alocação de passageiros em uma topic. Nossa topic tem uma quantidade máxima de passageiros, mas também define alguns assentos preferenciais.
 
@@ -184,6 +183,3 @@ $show
 [@joao:103 @bia:16 =aragao:96 = =rex:20]
 $end
 ```
-
-
-

@@ -1,4 +1,6 @@
-## @006 Tamagotchi 💎 & Utilizando sets para controlar a variação dos status do bichinho
+## @006 Tamagotchi 💎
+
+Utilizando sets para controlar a variação dos status do bichinho.
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/cover.jpg)
 
@@ -7,37 +9,33 @@
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-    - [Exemplo 1](#exemplo-1)
-    - [Exemplo 2](#exemplo-2)
-    - [Exemplo 3](#exemplo-3)
 [](toc)
 
-
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
-
 
 ***
 
 ## Intro
+
 Seu sistema deverá:
 
 - **Inicializar**
-    - passando energia, saciedade e limpeza máximas do pet.
-    - Todos os níveis devem ser iniciados no máximo na criação do pet.
-    - Os outros atributos são 
-        - diamantes, que ele vai ganhar jogando.
-        - e idade que aumenta a cada ação realizada, 
-        - ambos iniciando em 0.
+  - passando energia, saciedade e limpeza máximas do pet.
+  - Todos os níveis devem ser iniciados no máximo na criação do pet.
+  - Os outros atributos são
+    - diamantes, que ele vai ganhar jogando.
+    - e idade que aumenta a cada ação realizada,
+    - ambos iniciando em 0.
 - **Comendo, Jogando, Dormindo e tomando banho**
-    - Cada operação causa aumento e reduções nos atributos.
-    - Nenhum atributo pode passar do máximo ou ir abaixo de 0.
+  - Cada operação causa aumento e reduções nos atributos.
+  - Nenhum atributo pode passar do máximo ou ir abaixo de 0.
 - **Morrendo**
-    - Se algum atributo chegar a 0, o pet morre e nenhuma ação pode ser feita a não ser mostrar os dados.
-
+  - Se algum atributo chegar a 0, o pet morre e nenhuma ação pode ser feita a não ser mostrar os dados.
 
 ***
 
 ## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.puml)[](plantuml:fenced:filter)
@@ -105,16 +103,15 @@ package com.qxcode {
 
 [](load)
 
-- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.cpp)
+- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.cpp)
 - [solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.java)
-- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.ts)
+- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.ts)
 
-[![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 
 ## Shell
-### Exemplo 1
 
 ```bash
 #__case inicio
@@ -190,7 +187,6 @@ fail: pet esta morto
 $end
 ```
 
-### Exemplo 2
 ```bash
 #__case fraqueza
 $init 5 10 10
@@ -206,7 +202,6 @@ E:0/5, S:7/10, L:1/10, D:3, I:3
 $end
 ```
 
-### Exemplo 3
 ```bash
 #__case fome
 $init 10 3 10
@@ -220,4 +215,3 @@ $show
 E:4/10, S:0/3, L:1/10, D:3, I:3
 $end
 ```
-

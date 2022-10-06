@@ -1,4 +1,4 @@
-## @014 Contato & Agenda 1: Gerenciando um único contato
+## @014 Contato
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/cover.jpg)
 
@@ -9,31 +9,32 @@
 - [Shell](#shell)
 [](toc)
 
-
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
 ## Intro
+
 Seu programa deve:
 
 - **Definir nome**
-    - Poder inicializar o contato passando o nome.
-        - Se já houver contato, inicie um novo contato.
-        - Se não houver nome, o nome default é "".
-- **Inserir telefones no contato** 
-    - Um telefone tem um label e um fone.
-    - Labels serão nomes como: casa, fixo, oi.
-    - Labels podem ser duplicados.
-    - Adapte o print para apresentar os índices.
+  - Poder inicializar o contato passando o nome.
+    - Se já houver contato, inicie um novo contato.
+    - Se não houver nome, o nome default é "".
+- **Inserir telefones no contato**
+  - Um telefone tem um label e um fone.
+  - Labels serão nomes como: casa, fixo, oi.
+  - Labels podem ser duplicados.
+  - Adapte o print para apresentar os índices.
+
 ```sh
 # Exemplo de saída
 - ana [0:tim:3434] [1:casa:4567] [2:oi:8754] [3:casa:4567] [4:oi:8754]
 ```
 
-- **Remover telefones do contato.**    
-    - Remove os telefones pelo indice.
+- **Remover telefones do contato.**
+  - Remove os telefones pelo indice.
 - **Validando os números de telefone.**
-    - Processe os telefones para apenas permitir nos telefones os seguintes caracteres "0123456789()."
-    - Se o usuário tentar inserir individualmente um telefone invalido, avise e não insira o telefone.
+  - Processe os telefones para apenas permitir nos telefones os seguintes caracteres "0123456789()."
+  - Se o usuário tentar inserir individualmente um telefone invalido, avise e não insira o telefone.
 
 ***
 
@@ -136,4 +137,3 @@ $show
 $end
 #__end__
 ```
-

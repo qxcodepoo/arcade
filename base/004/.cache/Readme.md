@@ -1,4 +1,4 @@
-## @004 Grafite 🎥 & Lapiseira com um único grafite
+## @004 Grafite 🎥
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/cover.jpg)
 
@@ -105,8 +105,8 @@ class Pencil {
 [](load)
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.java)
-- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
-- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
+- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
+- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
 
 ***
 

@@ -1,4 +1,6 @@
-# Calculadora & Utilizando uma calculora que gasta e recarrega bateria
+# Calculadora
+
+Utilizando uma calculora que gasta e recarrega bateria
 
 ![cover](cover.jpg)
 

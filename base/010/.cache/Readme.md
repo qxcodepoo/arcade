@@ -1,10 +1,10 @@
-## @010 Cinema & Vetor de null
+## @010 Cinema
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/cover.jpg)
 
 [](toc)
 
-- [Requisitos](#requisitos)
+- [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
 [](toc)
@@ -16,7 +16,7 @@ Nessa atividade, você deverá criar:
 1. Uma classe que representa o cliente.
 2. Uma classe que representa a sala de cinema e guarda os clientes.
 
-## Requisitos
+## Intro
 
 Seu sistema deverá:
 
