@@ -27,30 +27,23 @@ class Topic { //todo
     private List<Pass> normalSeats;
     public Topic(int capacity, int qtdPriority) { //todo
     }
-    //return the first free pos or -1
+
     private static int findFirstFreePos(List<Pass> list) { //todo
     }
     
-    //search in list using name and return position or return -1
     private static int findByName(String name, List<Pass> list) { //todo
     }
     
-    //use the findFirstFreePos to search a free position
-    //if exists, insert the pass and return true
-    //else return false
     private static boolean insertOnList(Pass pass, List<Pass> list) { //todo
     }
-    //use the findByName method to locate pos in list, if found, remore the person
-    //setting the pos location to null
+
     private static boolean removeFromList(String name, List<Pass> list) { //todo
     }
 
-    //use findByName to test if the pass is already in the topic
-    //use the insertOnList method to insert in the right list based in
-    //the pass.isPriority result
+
     public boolean insert(Pass pass) { //todo
     }
-    //use the removeFromList method to try to remove from both lists
+
     public boolean remove(String name) { //todo
     }
     public String toString() {

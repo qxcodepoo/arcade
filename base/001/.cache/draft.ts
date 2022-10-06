@@ -4,15 +4,12 @@ class Calculator { //todo
     battery: number;
     display: number;
 
-    //Inicia os atributos, battery e display começam com o zero.
     constructor(batteryMax: number) { //todo
     }
 
-    //Aumenta a bateria, porém não além do máximo.
     chargeBattery(value: number) { //todo
     }
 
-    //Tenta gastar uma unidade da bateria e emite um erro se não conseguir.
     useBattery(): boolean { //todo
     }
 
@@ -23,7 +20,6 @@ class Calculator { //todo
 
     division(num: number, den: number) { //todo
     }
-    //Retorna o conteúdo do display com duas casas decimais.
     toString() {
         return "display = " + this.display.toFixed(2) + ", battery = " + this.battery;
     }

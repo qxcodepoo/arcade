@@ -20,12 +20,12 @@ O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com al
 
 Seu sistema deverá:
 
-- **Inicializar e Mostrar.** 
+- **Inicializar e Mostrar.**
   - Iniciar a topic solicitando a lotação máxima e a quantidade de cadeiras preferenciais.
   - Mostrar o estado do trem
     - Coloque @ na frente das cadeiras preferenciais
     - Coloque = na frente das cadeiras normais.
-- **Inserir.** 
+- **Inserir.**
   - Inserir passageiros informando id e idade
     - Se o passageiro for idoso:
       - Se houver cadeiras preferenciais
@@ -59,6 +59,8 @@ class Pass {
   __
   + getAge()     : int
   + getName()    : string
+  '
+  ' return true se o passageiro tem mais de 64 anos
   + isPriority() : boolean
   + setAge(age : int)
   + setName(name : string)
@@ -101,7 +103,6 @@ class Topic {
   '
   ' usa o método findName para encontrar o passageiro e remover
   - remove  (list : List<Pass | null>, name : string) : boolean {static}
-  __
   __
   + toString() : string
 }

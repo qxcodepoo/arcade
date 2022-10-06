@@ -9,9 +9,7 @@
 - [Shell](#shell)
 [](toc)
 
-
 O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma, multiplicação e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
-
 
 ***
 
@@ -26,12 +24,50 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 ***
 
 ## Guide
+
 ![diagrama](diagrama.png)
+
+[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+
+```plantuml
+class Calculator {
+  + battery    : int
+  + batteryMax : int
+  + display    : float
+  __
+  '
+  ' inicia os atributos batteryMax utilizando o parametro passado
+  ' battery e display começam com o zero
+  + Calculator(batteryMax : int)
+  '
+  ' aumenta a bateria value, porém não além do máximo.
+  + charge(value : int)
+  '
+  ' tenta gastar bateria usando o método useBattery
+  ' verifica o resultado do retorno
+  ' armazene a soma no atributo display.
+  + sum(a : int, b : int)
+  '
+  ' tenta gastar bateria usando o método useBattery
+  ' verifica o resultado do retorno
+  ' verifica se não é divisão por zero
+  ' armazena o resultado no display
+  + division(num : int, den : int)
+  '
+  ' tenta gastar uma unidade da bateria e emite um erro se não conseguir.
+  ' retorna se conseguiu gastar ou não.
+  + useBattery(): boolean
+  '
+  '
+  + toString(): string
+}
+```
+
+[](load)
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp ](.cache/draft.cpp )
 - [solver.ts  ](.cache/draft.ts  )
-
 
 ***
 
@@ -67,8 +103,9 @@ display = 0.00, battery = 2
 $charge 3
 $show
 display = 0.00, battery = 4
-$end	
+$end
 ```	
+
 ```bash
 #__case somando
 $init 2

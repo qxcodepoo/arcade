@@ -13,6 +13,8 @@ class Pass {
   __
   + getAge()     : int
   + getName()    : string
+  '
+  ' return true se o passageiro tem mais de 64 anos
   + isPriority() : boolean
   + setAge(age : int)
   + setName(name : string)
@@ -55,7 +57,6 @@ class Topic {
   '
   ' usa o método findName para encontrar o passageiro e remover
   - remove  (list : List<Pass | null>, name : string) : boolean {static}
-  __
   __
   + toString() : string
 }

@@ -27,55 +27,35 @@ class Mercantil {
     std::vector<std::shared_ptr<Pessoa>> caixas; //caixas do supermercado
     std::list  <std::shared_ptr<Pessoa>> esperando; //lista de clientes esperando
 
-    //verifica se o indice é válido para acessar os caixas
     bool validarIndice(int indice) {
         return {}; // todo
     }
 
 public:
-    //inicializa esperando como uma lista de tamanho vazio
-    //inicializa caixas como um vetor de tamanho qtd_caixas com todas as posições iguais a null
-    Mercantil(int qtd_caixas) { //todo //número de caixas no mercado
+    Mercantil(int qtd_caixas) { //todo
     }
     
-    //adiciona um cliente à lista de espera
     void chegar(const std::shared_ptr<Pessoa>& person) {
     }
 
-    //1. verifica se o indice é válido
-    //2. verifica se o caixa chamado está vazio
-    //3. verifica se existe alguém na lista de espera
-    //4. se tudo estiver ok, o primeiro cliente da lista de espera é movido para este caixa
     bool chamarNoCaixa(int indice) {
         return {}; // todo
     }
-    //1. verifica se o indice é válido
-    //2. verifica se este caixa possui um cliente
-    //Se tudo estiver ok, o cliente é removido do caixa e o caixa volta a ser null para indicar que está vazio
+    
     std::shared_ptr<Pessoa> finalizar(int indice) {
         return {}; // todo
     }
 
-    std::string str() const {
-        std::stringstream os;
-        os << "Caixas: |";
-        for (int i = 0; i < (int) this->caixas.size(); i++) {
-            auto& caixa = this->caixas[i];
-            os << " " <<  i << ":" ;
-            if (caixa != nullptr)
-                os << std::setw(5) << *caixa;
-            else
-                os << "-----";
-            os << " |";
-        }
-        os << "\nEspera: " << aux::fmt(aux::map(this->esperando, [](auto x) { return *x;}), ", ");
-        return os.str();
-    }
+    std::string str() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Mercantil& b) {
     return (os << b.str());
 }
+
+
+#include <ranges>
+using namespace std::ranges;
 
 int main() {
     aux::Chain chain;
@@ -90,5 +70,28 @@ int main() {
     chain["show"]   = [&]() { aux::show << bank; };
 
     aux::execute(chain, par);    
+}
+
+template <class CONTAINER, class LAMBDA>
+std::string join(CONTAINER container, const std::string& delimiter, LAMBDA fn) {
+    if(container.size() == 0)
+        return "";
+    std::ostringstream ss;
+    for (const auto& item : container)
+        ss << delimiter << fn(item);
+    return ss.str().substr(delimiter.size());
+}
+
+std::string Mercantil::str() const {
+    int i = 0;
+    std::stringstream os;
+    os  << "Caixas: |"
+        << join(this->caixas, "|", [&i](auto p) {
+            std::stringstream ss; 
+            ss << " " << i++ << ":"<< std::setw(5) << (p == nullptr ? "-----" : p->getNome()) << " ";
+            return ss.str();
+        })  
+        << "|\nEspera: [" << join(this->esperando, ", ", [](auto x) { return *x;}) << "]";
+    return os.str();
 }
 
