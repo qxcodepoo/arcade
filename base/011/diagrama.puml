@@ -1,4 +1,6 @@
+'--
 @startuml
+'==
 class Slot {
     - name : String
     - price : float
@@ -15,6 +17,7 @@ class Slot {
     __
     + toString() : String
 }
+
 class VendingMachine {
     - slots : Array<Slot>
     - profit : float
@@ -55,5 +58,6 @@ class VendingMachine {
     --
     + toString() : String
 }
+'--
 VendingMachine "1" o-- "1..*" Slot
 @enduml

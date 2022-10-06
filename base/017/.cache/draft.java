@@ -80,28 +80,21 @@ class Pig{
     private int volumeMax;
     private boolean broken = false;
     
-    //inicializa o volumeMax
     public Pig(int volumeMax) { //todo
     }
 
-    //se nao estiver quebrado e couber, adicione o value e o volume
     public boolean addCoin(Coin moeda){
     }
 
-    //se não estiver quebrado e couber, adicione no volume e na descrição
     public boolean addItem(Item item) { //todo
     }
 
-    //quebre o pig, zere o volume
     public boolean breakPig(){
     }
 
-    //se estiver quebrado, pegue e retorne o value
     public double getCoins(){
     }
-
-    //se estiver quebrado, pegue e retorno os itens
-    //se não estiver quebrado, emita o erro e retorne uma lista vazia
+    
     public ArrayList<String> getItens(){
     }
 

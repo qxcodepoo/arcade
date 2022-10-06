@@ -13,7 +13,6 @@ class Player { //todo
     public getPos(): number { //todo
     }
 
-    // tenta andar e retorna se conseguiu aproveitar a jogada
     public setPos(pos: number) { //todo
     }
 
@@ -32,7 +31,7 @@ class Player { //todo
 
 class Board {
     trapList: number[]; // posição das armadilhas
-    running: boolean;  // se o jogo acabou
+    running: boolean;   // se o jogo acabou
     size    : number;   // tamanho do tabuleiro
     players : Player[]; // lista de jogadores
 

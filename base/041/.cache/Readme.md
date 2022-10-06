@@ -33,6 +33,39 @@ Questão adaptada da maratona ACM 2003 por @WladimirTavares
 ## Guide
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.png)
 
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.puml)[](fenced:filter:plantuml)
+
+```plantuml
+  class Player {
+    - label: int  
+    - pos  : int
+    - free : boolean
+    __
+    + Player(label: int)
+    + isFree()   : boolean
+    + toString() : string
+    __
+    + getLabel() : int
+    + getPos()   : int
+    + setPos(pos : int)
+    + setFree(free : boolean)
+  }
+
+  class Board {
+    - trapList  : Array<int>
+    - players   : Array<Player>
+    - running   : boolean
+    - boardSize : int
+    __
+    + Board(nPlayers : int, boardSize : int)
+    + toString() : string
+    __
+    + addTrap(pos : int)
+    + rollDice(value : int)
+  }
+```
+
+[](load)
 
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/.cache/draft.ts)
 

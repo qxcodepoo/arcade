@@ -40,6 +40,71 @@ Seu sistema deverá:
 ## Guide
 ![diagrama](diagrama.png)
 
+[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+
+```plantuml
+package com.qxcode {
+  +class Pet {
+    - alive     : boolean
+    - clean     : int
+    - cleanMax  : int
+    - energy    : int
+    - energyMax : int
+    - hungry    : int
+    - hungryMax : int
+    - age       : int
+    - diamonds  : int
+    __
+    - testAlive() : boolean
+    __
+    + Pet(energy : int, hungry : int, clean : int)
+    + toString() : string
+    __
+    + eat()
+    '
+    ' invoca o método testAlive para verificar se o pet esta vivo
+    ' se estiver vivo, altere os atributos utilizando os métodos set e get
+    + play()
+    '
+    ' o pet só pode tomar banho se estiver vivo
+    ' o pet vai ficar totalmente limpo após o banho
+    ' para tomar banho o pet gasta 3 de energia e 1 de fome
+    + shower()
+    '
+    ' o pet só deve dormir se estiver vivo
+    ' o pet fica com sua eneriga máxima
+    ' idade aumenta do número de turnos que o pet dormiu
+    ' ao dormit o pet perde 1 de saciedade
+    + sleep()
+    __
+    + getClean()      : int
+    + getCleanMax()   : int
+    + getEnergy()     : int
+    + getEnergyMax()  : int
+    + getHungry()     : int
+    + getHungryMax()  : int
+    ' 
+    ' se o valor for menor que 0 o pet morre de sujo
+    ' o valor não pode ser maior que o cleanMax
+    + setClean (value : int)
+    '
+    ' atribui o valor de energia
+    ' se o valor ficar abaixo de 0, o pet morre de fraqueza
+    ' garanta que os valores ficarão no interalo 0 - max
+    ' use esse modelo para fazer os outros métodos set
+    + setEnergy(value : int)
+    '
+    ' atribui o valor da hungry
+    ' se o valor for menor ou igual a 0 o pet morre de fome
+    ' o valor não pode ser maior que o hungryMax
+    ' senão hungry vai ser igual ao valor
+    + setHungry(value : int)
+  }
+}
+```
+
+[](load)
+
 - [solver.cpp ](.cache/draft.cpp)
 - [solver.java](.cache/draft.java)
 - [solver.ts  ](.cache/draft.ts)

@@ -10,11 +10,6 @@ class Pet{
     public Pet(int energy, int hungry, int clean){
     }
 
-
-    // Atribui o valor de energia
-    // Se o valor ficar abaixo de 0, o pet morre de fraqueza
-    // Garanta que os valores ficarão no interalo 0 - max
-    // Use esse modelo para fazer os outros métodos set
     void setEnergy(int value){
         if(value <= 0){
             this.energy = 0;
@@ -49,9 +44,6 @@ class Pet{
         return ss;
     }
 
-    
-    // Invoca o método testAlive para verificar se o pet esta vivo
-    // Se estiver vivo, altere os atributos utilizando os métodos set e get
     public void play(){
         if(!testAlive())
             return;

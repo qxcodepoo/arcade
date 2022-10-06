@@ -1,9 +1,9 @@
+'--
 @startuml
 
 skinparam defaultFontName Hasklig
 skinparam dpi 150
-
-package com.qxcode {
+'==
   class Player {
     - label: int  
     - pos  : int
@@ -31,6 +31,6 @@ package com.qxcode {
     + addTrap(pos : int)
     + rollDice(value : int)
   }
-}
+'--
 Board "1" *--  "2..*" Player : > has
 @enduml

@@ -34,8 +34,66 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 ***
 
 ## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/diagrama.png)
 
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/diagrama.puml)[](plantuml:fenced:filter)
+
+```plantuml
+class Motorcycle {
+  - person : Person | null
+  - power  : int
+  - time   : int
+  __
+  '
+  ' a moto inicia com 1 de potência, sem minutos e sem ninguém
+  + Motorcycle(power : int)
+  '
+  ' só pode estar uma pessoa na moto por vez
+  ' para subir, informe nome e idade de quem está subindo
+  + insertPerson(person : Person) : boolean
+  ' 
+  ' só pode descer se estiver alguém na moto
+  + remove() : Person | null
+  + buyTime(time : int)
+  '
+  ' só pessoas de 10 anos ou menos podem passear na moto
+  ' uma pessoa só pode passear na moto se a moto estiver tempo
+  ' se o tempo acabar no meio do passeio, informe o quanto a pessoa andou
+  + drive(time : int)
+  '
+  ' qualquer pessoa pode buzinar a moto
+  ' o barulho da buzina é "Pem"
+  ' o "e" deve ser repetido power vezes
+  + honk()
+  __
+  + getPerson() : Person
+  + getPower()  : int
+  + getTime()   : int
+  __
+  '
+  ' retorna o tempo, potencia e o nome da pessoa
+  ' ex: power:5, time:0, person:(marcos:4)
+  + toString()  : string
+}
+  
+class Person {
+  - age  : int
+  - name : string
+  __
+  + Person(name : string, age : int)
+  __
+  + getAge()  : int
+  + getName() : string
+  __
+  '
+  ' retorna o nome e a idade da pessoa
+  ' nome:idade
+  + toString() : string
+}
+```
+
+[](load)
 
 - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
 - Para buzinar, utilize o `for` gerando várias vezes o `e`. 

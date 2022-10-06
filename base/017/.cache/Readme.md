@@ -27,6 +27,82 @@ O sistema deverá:
 ## Guide
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
+
+```plantuml
+enum Cents{
+  C10, 
+  C25,
+  C50,
+  C100;
+}
+
+class Coin {
+  - value  : double
+  - volume : int
+  - label  : string
+  __
+  + Coin(cents: Cents)
+  + toString() : string
+  __
+  + getValue()  : double
+  + getVolume() : int
+  + getLabel()  : string
+}
+
+class Item {
+  - label  : string
+  - volume : int
+  __
+  + Item(label : string, volume : int)
+  __
+  + getLabel()  : string
+  + getVolume() : int
+  + setLabel (label  : string)
+  + setVolume(volume : int)
+  __
+  + toString() : String
+}
+
+class Pig {
+  - broken    : boolean
+  - items     : Array<string>
+  - value     : double
+  - volume    : int
+  - volumeMax : int
+  __
+  '
+  ' inicializa o volumeMax
+  + Pig(volumeMax : int)
+  '
+  ' se nao estiver quebrado e couber, adicione o value e o volume
+  + addCoin(coin  : Coin) : boolean
+  '
+  ' se não estiver quebrado e couber, adicione no volume e na descrição
+  + addItem(item  : Item) : boolean
+  '
+  ' quebre o pig, zere o volume
+  + breakPig() : boolean
+  '
+  ' se estiver quebrado, pegue e retorne o value
+  + getCoins() : double
+  '
+  ' se estiver quebrado, pegue e retorno os itens
+  ' se não estiver quebrado, emita o erro e retorne uma lista vazia
+  + getItems() : Array<String>
+  '
+  ' retorna uma string com uma lista de itens, valor, volume / volumeMax, 
+  ' e se o porquinho está quebrado ou não
+  + toString() : String
+  __
+  + getVolume()    : int
+  + getVolumeMax() : int
+  + isBroken()     : boolean
+}
+```
+
+[](load)
+
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java)
 - [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
 - [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)

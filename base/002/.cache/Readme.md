@@ -39,6 +39,42 @@ Seu sistema deverá:
 ## Guide
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.png)
 
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.puml)[](plantuml:fenced:filter)
+
+```plantuml
+class Car {
+  + gas     : int
+  + gasMax  : int
+  + km      : int
+  + pass    : int
+  + passMax : int
+  __
+  '
+  ' inicializar com tanque vazio
+  ' 0 passageiros
+  ' 0 de quilometragem
+  + Car()
+  '
+  ' só embarca se o carro não estiver lotado
+  ' embarca uma pessoa por vez
+  + enter()
+  '
+  ' só desembar se houver alguém no carro
+  ' desembarca uma pessoa por vez
+  + leave()
+  '
+  ' só pode dirigir se houver algém no carro e algum combustível
+  ' o carro faz 1km por litro
+  + drive(km : int)
+  '
+  ' caso tente abastecer acima do limite, o valor em excesso deve ser descartado
+  + fuel(gas : int)
+  + toString() : string
+}
+```
+
+[](load)
+
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.java)
 - [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.cpp)
 - [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.ts)

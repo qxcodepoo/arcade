@@ -33,7 +33,8 @@ class Calculator {
   ' retorna se conseguiu gastar ou não.
   + useBattery(): boolean
   '
-  '
+  ' retorna uma string com o formato
+  ' display = 0.00, bateria = 0
   + toString(): string
 }
 '--
