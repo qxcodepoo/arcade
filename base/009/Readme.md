@@ -39,11 +39,15 @@ package com.qxcode {
     + setAge(age : int)
     + setName(name : string)
   }
+  
   class Trampoline {
     - playing : List<Kid>
     - waiting : List<Kid>
     __
-    - {static} removeKid(name : string, list : List<Kid>) : Kid | null
+    '
+    ' procura por uma criança na lista do parâmetro e se
+    ' encontrar, remove a criança e a retorna
+    - {static} removeFromList(name : string, list : List<Kid>) : Kid | null
     __
     + Trampoline()
     + toString() : string
@@ -61,11 +65,9 @@ package com.qxcode {
     ' e insere no final da lista de espera
     + leave()
     '
-    ' procura nas lista passada por parametro a criança
-    ' utilizando o nome
-    ' se encontrar, remove a criança da lista e retorna
-    ' retorna null se não encontrar
-    + remove_kid(name : string) : Kid | null
+    ' utilize o método estático removeFromList
+    ' para tentar remover a criança das duas listas
+    + removeKid(name : string) : Kid | null
   }
 }
 ```
@@ -90,7 +92,7 @@ $arrive luana 3
 # show
 # mostra a fila de entrada e o pula pula
 $show
-=> luana:3 livia:4 mario:5 => [ ]
+[luana:3, livia:4, mario:5] => []
 
 #__case entrando
 # entrar
@@ -98,54 +100,54 @@ $show
 
 $enter
 $show
-=> luana:3 livia:4 => [ mario:5 ]
+[luana:3, livia:4] => [mario:5]
 
 #__case segunda pessoa
 $enter
 $show
-=> luana:3 => [ livia:4 mario:5 ]
+[luana:3] => [livia:4, mario:5]
 
 #__case saindo
 $leave
 $show
-=> mario:5 luana:3 => [ livia:4 ]
+[mario:5, luana:3] => [livia:4]
 
 #__case remove
 $remove luana
 
 $show
-=> mario:5 => [ livia:4 ]
+[mario:5] => [livia:4]
 $remove livia
 $show
-=> mario:5 => [ ]
+[mario:5] => []
 $end
 ```
 
 ```bash
 #__case 2
 $show
-=> => [ ]
+[] => []
 $arrive mario 5
 $show
-=> mario:5 => [ ]
+[mario:5] => []
 #__case empty enter
 $enter
 $show
-=> => [ mario:5 ]
+[] => [mario:5]
 #__case empty leave
 $leave
 $show
-=> mario:5 => [ ]
+[mario:5] => []
 $leave
 $show
-=> mario:5 => [ ]
+[mario:5] => []
 #__case remove from waiting
 $remove mario
 $show
-=> => [ ]
+[] => []
 #__case remove empty
 $remove rebeca
 $show
-=> => [ ]
+[] => []
 $end
 ```

@@ -3,35 +3,42 @@
 #include <sstream>
 #include <memory>
 #include <aux.hpp>
+
 class Kid {
 private:
     int age;
     std::string name;
 public:
     Kid(std::string name, int age) {
+        this->age = age;
+        this->name = name;
     }
     int getAge() {
-        return {}; // todo
+        return age;
     }
     std::string getName() {
-        return {}; // todo
+        return name;
     }
     std::string str() {
-        return {}; // todo
+        return name + ":" + std::to_string(age);
     }
 };
+
 using PtrKid = std::shared_ptr<Kid>;
+
+std::ostream& operator<<(std::ostream& os,  PtrKid kid) {
+    return (os << kid->str());
+}
+
 class Trampoline {
     std::list<PtrKid> waiting;
     std::list<PtrKid> playing;
     
-    PtrKid remove_kid(std::string name, std::list<PtrKid>& lista) {
+    PtrKid removeFromList(std::string name, std::list<PtrKid>& lista) {
     }
 
 public:
     Trampoline() {
-    }
-    ~Trampoline() {
     }
     
     void arrive(PtrKid kid) {
@@ -43,16 +50,10 @@ public:
     void leave() {
     }
 
-    PtrKid remove(std::string name) {
+    PtrKid removeKid(std::string name) {
     }
     std::string str() {
-        std::string saida = "=> ";
-        for(auto kid : waiting)
-            saida += kid->str() + " ";
-        saida += "=> [ ";
-        for(auto kid : playing)
-            saida += kid->str() + " ";
-        return saida + "]";
+        return (waiting | aux::FMT()) + " => " + (playing | aux::FMT());
     }
 };
 
@@ -63,7 +64,7 @@ int main() {
     chain["arrive"] = [&]() { tr.arrive(std::make_shared<Kid>(param[1], aux::to<int>(param[2]))); };
     chain["enter"]  = [&]() { tr.enter(); };
     chain["leave"]  = [&]() { tr.leave(); };
-    chain["remove"] = [&]() { tr.remove(param[1]); };
+    chain["remove"] = [&]() { tr.removeKid(param[1]); };
     chain["show"]   = [&]() { std::cout << tr.str() << std::endl; };
 
     aux::execute(chain, param);
