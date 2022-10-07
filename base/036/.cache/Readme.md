@@ -31,8 +31,8 @@ O sistema deverá:
 ## Guide
 
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.java)
-- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.cpp)
-- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.ts)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.ts)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/diagrama.png)
 

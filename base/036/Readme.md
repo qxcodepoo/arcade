@@ -31,8 +31,8 @@ O sistema deverá:
 ## Guide
 
 - [Solver.java](.cache/draft.java)
-- [solver.cpp_](.cache/draft.cpp)
-- [solver.ts__](.cache/draft.ts)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
 
 ![diagrama](diagrama.png)
 

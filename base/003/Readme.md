@@ -35,8 +35,8 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 ## Guide
 
 - [Solver.java](.cache/draft.java)
-- [solver.cpp_](.cache/draft.cpp)
-- [solver.ts__](.cache/draft.ts)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
 
 ![diagrama](diagrama.png)
 
