@@ -1,5 +1,5 @@
 '--
-@startuml
+@startuml diagrama
 
 skinparam defaultFontName Hasklig
 skinparam dpi 150
@@ -42,11 +42,13 @@ class Car {
   ' gasta um litro de gas para cada km de distancia
   ' verifique se tem alguém no carro
   ' verifique se tem gasolina suficiente
-  + drive(value : int)
+
+  + drive(value : int): void
   
   ' incrementa gasolina no tanque de value
   ' caso tente abastecer acima do limite de gasMax
   '   o valor em excesso deve ser descartado
+  
   + fuel(value : int)
 
   + toString() : string

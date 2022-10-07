@@ -30,6 +30,10 @@ O sistema deverá:
 
 ## Guide
 
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.java)
+- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.cpp)
+- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.ts)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/diagrama.puml)[](plantuml:fenced:filter)
@@ -40,34 +44,38 @@ class Time {
   - minute : int
   - second : int
   __
-  '
+  
   ' inicializa os atributos todos para 0
   ' invoca os métodos setHour, setMinute e setSecond
   ' para tentar atribuir valores válidos
   + Time(hour : int, minute : int, second : int)
-  '
+  
   ' retorna string no formato hh:mm:ss
   + toString() : string
   __
-  '
+  
   ' apenas retorna o valor dos atributos
   + getHour()   : int
   + getMinute() : int
   + getSecond() : int
   __
-  ' 
-  ' se valor for válido, atribui ao atributo hour
+  
+  ' se valor for válido
+  '  atribui ao atributo hour
   ' emite erro se for inválido
   + setHour  (value   : int)
-  '
-  ' se valor for válido, atribui ao atributo minute
+  
+  ' se valor for válido
+  '   atribui ao atributo minute
   ' emite erro se for inválido
   + setMinute(value : int)
-  '
-  ' se valor for válido, atribui ao atributo second
+  
+  ' se valor for válido
+  '   atribui ao atributo second
+  ' emite erro se for inválido
   + setSecond(value : int)
   __
-  '
+  
   ' incrementa o atributo second em um segundo
   ' então, se necessário, incrementa o atributo minute
   ' e, se necessário, incrementa o atributo hour
@@ -76,10 +84,6 @@ class Time {
 ```
 
 [](load)
-
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.java)
-- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.cpp)
-- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/.cache/draft.ts)
 
 ***
 

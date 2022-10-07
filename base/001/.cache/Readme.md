@@ -1,15 +1,13 @@
 ## @001 Calculadora
 
-Utilizando uma calculora que gasta e recarrega bateria
-
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/cover.jpg)
-
 [](toc)
 
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
 [](toc)
+
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/cover.jpg)
 
 O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma, multiplicação e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
@@ -26,6 +24,10 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 ***
 
 ## Guide
+
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.ts)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/diagrama.png)
 
@@ -74,10 +76,6 @@ class Calculator {
 ```
 
 [](load)
-
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.java)
-- [solver.cpp ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.cpp)
-- [solver.ts  ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.ts)
 
 ***
 

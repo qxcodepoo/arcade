@@ -1,32 +1,3 @@
-class Car{
-    pass: number; // Passageiros
-    passMax: number; // limite de Passageiros
-    gas: number; // tanque
-    gasMax: number; // limite do tanque
-    km: number; // quantidade de quilometragem
-
-    constructor() { //todo
-    }
-
-
-
-    enter() { //todo
-    }
-
-    leave() { //todo
-    }
-    
-    fuel(gas: number) { //todo
-    }
-
-    drive (km: number) { //todo
-    }    
-
-    toString() {
-        return "pass: " + this.pass + ", gas: " + this.gas + ", km: " + this.km;
-    }
-};
-
 
 function main() {
     let chain = new Map();

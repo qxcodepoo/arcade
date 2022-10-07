@@ -1,15 +1,13 @@
 # Carro
 
-Controla a quantidade de pessoas e sai para passear
-
-![cover](cover.jpg)
-
 [](toc)
 
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
 [](toc)
+
+![cover](cover.jpg)
 
 Essa atividade se propõe a implementar um carro ecológico que pode passear pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
@@ -85,11 +83,13 @@ class Car {
   ' gasta um litro de gas para cada km de distancia
   ' verifique se tem alguém no carro
   ' verifique se tem gasolina suficiente
-  + drive(value : int)
+
+  + drive(value : int): void
   
   ' incrementa gasolina no tanque de value
   ' caso tente abastecer acima do limite de gasMax
   '   o valor em excesso deve ser descartado
+  
   + fuel(value : int)
 
   + toString() : string
