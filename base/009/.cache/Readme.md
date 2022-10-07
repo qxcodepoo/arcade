@@ -47,7 +47,7 @@ package com.qxcode {
     - playing : List<Kid>
     - waiting : List<Kid>
     __
-    '
+    
     ' procura por uma criança na lista do parâmetro e se
     ' encontrar, remove a criança e a retorna
     - {static} removeFromList(name : string, list : List<Kid>) : Kid | null
@@ -55,19 +55,19 @@ package com.qxcode {
     + Trampoline()
     + toString() : string
     __
-    ' 
+    
     ' insere na lista de espera
     + arrive(kid : Kid)
-    '
+    
     ' se existir alguém na lista de espera
     ' remove o que estiver na frente da lista
     ' e insere na no fim da lista de playing
     + enter()
-    '
+    
     ' se existir alguém em playing, remove o primeiro da lista
     ' e insere no final da lista de espera
     + leave()
-    '
+    
     ' utilize o método estático removeFromList
     ' para tentar remover a criança das duas listas
     + removeKid(name : string) : Kid | null
