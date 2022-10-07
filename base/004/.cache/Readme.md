@@ -41,6 +41,10 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Guide
 
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.puml)[](plantuml:fenced:filter)
@@ -125,10 +129,6 @@ class Pencil {
 ```
 
 [](load)
-
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.java)
-- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
-- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
 
 ***
 

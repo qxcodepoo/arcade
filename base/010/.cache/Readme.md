@@ -37,6 +37,9 @@ Seu sistema deverá:
 
 ## Guide
 
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/.cache/draft.cpp)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/.cache/draft.java)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/diagrama.puml)[](plantuml:fenced:filter)
@@ -89,9 +92,6 @@ class Sala {
 ```
 
 [](load)
-
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/.cache/draft.cpp)
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/.cache/draft.java)
 
 ***
 

@@ -34,6 +34,10 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ## Guide
 
+- [Solver.java](.cache/draft.java)
+- [solver.cpp_](.cache/draft.cpp)
+- [solver.ts__](.cache/draft.ts)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
@@ -96,10 +100,6 @@ class Person {
 
 - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
 - Para buzinar, utilize o `for` gerando várias vezes o `e`.
-
-- [Solver.java](.cache/draft.java)
-- [solver.cpp_](.cache/draft.cpp)
-- [solver.ts__](.cache/draft.ts)
 
 ***
 

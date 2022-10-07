@@ -36,6 +36,10 @@ Seu sistema deverá:
 
 ## Guide
 
+- [solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.ts)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.puml)[](plantuml:fenced:filter)
@@ -102,10 +106,6 @@ package com.qxcode {
 ```
 
 [](load)
-
-- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.cpp)
-- [solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.java)
-- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.ts)
 
 [![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 

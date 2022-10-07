@@ -37,6 +37,9 @@ Seu sistema deverá:
 
 ## Guide
 
+- [solver.cpp](.cache/draft.cpp)
+- [Solver.java](.cache/draft.java)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
@@ -89,9 +92,6 @@ class Sala {
 ```
 
 [](load)
-
-- [solver.cpp](.cache/draft.cpp)
-- [Solver.java](.cache/draft.java)
 
 ***
 

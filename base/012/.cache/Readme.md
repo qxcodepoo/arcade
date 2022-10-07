@@ -45,6 +45,9 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ## Guide
 
+-[Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.java)
+-[solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.cpp)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.puml)[](fenced:filter:plantuml)
@@ -108,9 +111,6 @@ class Topic {
 ```
 
 [](load)
-
--[Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.java)
--[solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.cpp)
 
 ***
 

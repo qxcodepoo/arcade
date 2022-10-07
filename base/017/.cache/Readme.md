@@ -27,6 +27,10 @@ O sistema deverá:
 
 ## Guide
 
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
@@ -104,10 +108,6 @@ class Pig {
 ```
 
 [](load)
-
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java)
-- [solver.cpp_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
-- [solver.ts__](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)
 
 ***
 

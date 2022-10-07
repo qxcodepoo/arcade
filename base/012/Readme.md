@@ -45,6 +45,9 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ## Guide
 
+-[Solver.java](.cache/draft.java)
+-[solver.cpp](.cache/draft.cpp)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](fenced:filter:plantuml)
@@ -108,9 +111,6 @@ class Topic {
 ```
 
 [](load)
-
--[Solver.java](.cache/draft.java)
--[solver.cpp](.cache/draft.cpp)
 
 ***
 

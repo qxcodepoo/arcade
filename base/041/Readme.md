@@ -23,26 +23,38 @@ Haverá exatamente três armadilhas na trilha.
 O vencedor do jogo é o jogador cuja peça chega primeiro ao final da trilha. O fim da trilha é depois da última casa do tabuleiro. Considere, por exemplo, a placa da figura acima, que tem quadrados numerados de 1 a 48. No início, as peças são posicionadas no local marcado como 'Início', ou seja, antes do quadrado número 1. Portanto, se um jogador rolar um 7, sua peça é posicionada na casa número 7 no final da primeira rodada do jogo.
 Além disso, se a peça de um jogador estiver posicionada na casa 41, o jogador precisa de um resultado de rolagem de pelo menos 8 para chegar ao final da trilha e ganhar o jogo. Observe também que não haverá empate no jogo.
 
-
-
 ___
 Questão adaptada da maratona ACM 2003 por @WladimirTavares
 
 ***
 
 ## Guide
+
+- [solver.ts](.cache/draft.ts)
+  
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
   class Player {
+
+    ' numero do jogador
     - label: int  
+
+    ' posição dele no tabuleiro
     - pos  : int
+
+    ' se ele poderá andar no proximo roll ou ainda esta preso
     - free : boolean
     __
+
+    ' inicialize o jogador
     + Player(label: int)
+
+    ' retorna this.free
     + isFree()   : boolean
+
     + toString() : string
     __
     + getLabel() : int
@@ -52,24 +64,52 @@ Questão adaptada da maratona ACM 2003 por @WladimirTavares
   }
 
   class Board {
+    
+    ' lista com as posições do tabuleiro que tem armadilhas
     - trapList  : Array<int>
+
+    ' lista com os jogadores
     - players   : Array<Player>
+
+    ' se o jogo ainda esta acontecendo ou ja acabou
     - running   : boolean
+
+    ' o tamanho do tabuleiro
     - boardSize : int
     __
+    
+    ' inicialize o tabuleiro
+    ' crie uma lista vazia para as armadilhas
+    ' crie uma lista vazia para os jogadores
+    ' faça um laço criando os jogadores e adicionado à lista de jogadores
+    ' inicialize o tamanho do tabuleiro em boardSize + 1
+    ' pois o tabuleiro começa em 0
     + Board(nPlayers : int, boardSize : int)
+
+    ' imprime o tabuleiro
     + toString() : string
     __
+    ' adiciona uma armadilha na posição pos
+    ' trapList.push(pos)
     + addTrap(pos : int)
+
+    ' faz toda a lógica da jogada
+    ' verifique se o jogo ainda está em andamento
+    ' pegue o primeiro jogador
+    ' se ele estiver preso
+    '   veja se a jogada é par e liberta ele
+    ' se ele estiver livre
+    '   faça ele andar
+    '   veja se ele caiu em uma armadilha
+    '   ou se ele chegou no final do tabuleiro
+    ' mande o player par o fim da lista de jogadores
     + rollDice(value : int)
   }
 ```
 
 [](load)
 
-- [solver.ts](.cache/draft.ts)
-
-***
+___
 
 ## Shell
 

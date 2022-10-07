@@ -27,6 +27,10 @@ O sistema deverá:
 
 ## Guide
 
+- [Solver.java](.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
@@ -104,10 +108,6 @@ class Pig {
 ```
 
 [](load)
-
-- [Solver.java](.cache/draft.java)
-- [solver.cpp_](.cache/draft.cpp)
-- [solver.ts__](.cache/draft.ts)
 
 ***
 

@@ -41,6 +41,10 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Guide
 
+- [Solver.java](.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
@@ -125,10 +129,6 @@ class Pencil {
 ```
 
 [](load)
-
-- [Solver.java](.cache/draft.java)
-- [solver.cpp_](.cache/draft.cpp)
-- [solver.ts__](.cache/draft.ts)
 
 ***
 

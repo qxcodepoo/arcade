@@ -36,6 +36,10 @@ Seu sistema deverá:
 
 ## Guide
 
+- [solver.java](.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
@@ -102,10 +106,6 @@ package com.qxcode {
 ```
 
 [](load)
-
-- [solver.cpp_](.cache/draft.cpp)
-- [solver.java](.cache/draft.java)
-- [solver.ts__](.cache/draft.ts)
 
 [![_](../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 

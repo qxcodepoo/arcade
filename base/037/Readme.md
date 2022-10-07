@@ -29,6 +29,8 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ## Guide
 
+- [solver.cpp](.cache/draft.cpp)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](fenced:filter:plantuml)
@@ -86,8 +88,6 @@ class Mercantil {
 ```
 
 [](load)
-
-- [solver.cpp](.cache/draft.cpp)
 
 ***
 

@@ -21,6 +21,9 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho.
 
 ## Guide
 
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.cpp)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.java)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.png)
 
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.puml)[](plantuml:fenced:filter)
@@ -73,9 +76,6 @@ package com.qxcode {
 ```
 
 [](load)
-
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.cpp)
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.java)
 
 ***
 
