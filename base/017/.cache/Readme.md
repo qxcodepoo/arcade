@@ -77,26 +77,26 @@ class Pig {
   - volume    : int
   - volumeMax : int
   __
-  '
+  
   ' inicializa o volumeMax
   + Pig(volumeMax : int)
-  '
+  
   ' se nao estiver quebrado e couber, adicione o value e o volume
   + addCoin(coin  : Coin) : boolean
-  '
+  
   ' se não estiver quebrado e couber, adicione no volume e na descrição
   + addItem(item  : Item) : boolean
-  '
+  
   ' quebre o pig, zere o volume
   + breakPig() : boolean
-  '
+  
   ' se estiver quebrado, pegue e retorne o value
   + getCoins() : double
-  '
+  
   ' se estiver quebrado, pegue e retorno os itens
   ' se não estiver quebrado, emita o erro e retorne uma lista vazia
   + getItems() : Array<String>
-  '
+  
   ' retorna uma string com uma lista de itens, valor, volume / volumeMax, 
   ' e se o porquinho está quebrado ou não
   + toString() : String
