@@ -84,10 +84,27 @@ class Mercantil {
   ' verifica se caixa[indice] tem alguém
   ' coloca o caixa[indice] como vazio
   + finalizar(indice : int): Pessoa | null
+
+  '
+  ' tenta colocar o furão na frente do besta na fila de espera
+  ' procure pela posição do besta e se encontrar, 
+  '   coloque o furão na frente do besta
+  + furarFila(furao: Pessoa, besta: string): boolean
+
+  ' procura pela pessoa na fila de espera
+  ' e a remove da fila de espera
+  + desistir(desistente: string): boolean
+
+  ' o cliente que estava no caixa se revoltou com
+  ' o preco do produto e fugiu no meio do atendimento
+  ' procure o cliente por nome nos caixas e remova
+  + revoltar(nome: string): boolean
 }
 ```
 
 [](load)
+
+[![_](../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 
 ***
 
