@@ -47,40 +47,40 @@ class Pessoa {
 }
 
 class Mercantil {
-  '
+  
   ' se estiver em java , utilize ArrayList<Pessoa>
   ' se estiver em c++  , utilize vector<shared_ptr<Pessoa>>
   ' se estiver em ts   , utilize Array<Pessoa|null>
   - caixas    : Array<Pessoa | null>
-  '
+  
   ' se estiver em java, utilize LinkedList<Pessoa>
   ' se estiver em c++ , utilize list<shared_ptr<Pessoa>>
   ' se estiver em ts  , utilize Array<Pessoa>
   - esperando : List <Pessoa>
   __
-  '
+  
   ' verifica se existe essa posição no caixa
   ' emite erro se não existir
   - validarIndice(indice : int): boolean
   __
-  '
+  
   ' inicializa os caixas com qtdCaixas posições iguais a null
   ' inicializa esperando como uma lista vazia
   + Mercantil(qtdCaixas : int)
-  '
+  
   + toString() : string
   __
-  '
+  
   ' adicione um cliente na fila de espera
   + chegar   (pessoa : Pessoa)
-  '
-  ' verifica se indive é valido
+  
+  ' verifica se indice é valido
   ' verifica se caixa[indice] está vazio
   ' verifica se tem alguém na fila de espera
   ' move o primeiro da fila de espera para o caixa[indice]
   + chamar   (indice : int): boolean
-  '
-  ' verifica se indive é valido
+  
+  ' verifica se indice é valido
   ' verifica se caixa[indice] tem alguém
   ' coloca o caixa[indice] como vazio
   + finalizar(indice : int): Pessoa | null

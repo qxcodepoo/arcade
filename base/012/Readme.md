@@ -61,7 +61,7 @@ class Pass {
   __
   + getAge()     : int
   + getName()    : string
-  '
+  
   ' return true se o passageiro tem mais de 64 anos
   + isPriority() : boolean
   + setAge(age : int)
@@ -74,11 +74,11 @@ class Topic {
   - prioritySeats : Array<Pass | null>
   - normalSeats   : Array<Pass | null>
   __
-  '
+  
   ' inicia prioritySeats com qtdPriority nulls
   ' inicia normalSeats com (capacity - qtdPriority) nulls
   + Topic(capacity : int, qtdPriority : int)
-  '
+  
   ' verifica se já está na topic
   ' utilize o método estático para realizar as inserções
   ' se for prioridade 
@@ -88,21 +88,21 @@ class Topic {
   ' se nao conseguir
   '     avisa que esta lotado
   + insert(pass : Pass) : boolean
-  ' 
+  
   ' chama o método remover privado estático para 
   ' tentar remover de ambas as listas
   + remove(name : string) : boolean
   __
-  '
+  
   ' procura pela primeira posição vazia ou -1
   - findFree(list : List<Pass | null>) : int {static}
-  '
+  
   ' procura por nome nos elementos não nulos e retorna o indice ou -1 
   - findName(list : List<Pass | null>, name : string) : int {static}
-  '
+  
   ' usa o método findFree para encontrar a posição vazia e inserir o passageiro
   - insert  (list : List<Pass | null>, pass : Pass)   : boolean {static}
-  '
+  
   ' usa o método findName para encontrar o passageiro e remover
   - remove  (list : List<Pass | null>, name : string) : boolean {static}
   __
