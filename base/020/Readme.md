@@ -37,19 +37,107 @@ Faça o modelo de uma lapiseira que pode conter vários.
     - Grafite 2B: 2mm por folha.
     - Grafite 4B: 4mm por folha.
     - Grafite 6B: 6mm por folha.
-    - O último centímetro de um grafite não pode ser aproveitado, quando o grafite estiver com 10mm, não é mais possível escrever e o grafite deve ser retirado.
-    - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
-    - Avise quando o grafite acabar.
+  - O último centímetro de um grafite não pode ser aproveitado, quando o grafite estiver com 10mm, não é mais possível escrever e o grafite deve ser retirado.
+  - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
 
 ***
 
 ## Guide
 
+- [Solver.java](.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+
 ![diagrama](diagrama.png)
 
-- [Solver.java](.cache/draft.java)
-- [solver.cpp_](.cache/draft.cpp)
-- [solver.ts__](.cache/draft.ts)
+[](load)[](diagrama.puml)[](fenced:filter:plantuml)
+
+```plantuml
+' Grafite
+class Lead {
+    
+    ' calibre do grafite
+    - thickness : float
+    
+    ' dureza do grafite HB, 2B, 4B, 6B
+    - hardness  : string
+
+    ' tamanho do grafite em milímetros
+    - size      : int
+    __
+  
+    ' inicializa os atributos do grafite
+    + Lead(thickness : float, hardness : string, size : int)
+    
+    ' gastoPorFolha
+    ' retorna o gasto em milímetros para uma página escrita
+    ' 1mm para HB
+    ' 2mm para 2B
+    ' 4mm para 4B
+    ' 6mm para 6B
+    + usagePerSheet() : int
+    __
+    
+    ' apenas os métodos get
+    + getHardness()  : string
+    + getSize()      : int
+    + getThickness() : float
+
+    __
+    + setSize(size : int)
+    __
+    + toString()      : string
+}
+
+' Lapiseira
+class Pencil {
+    
+    ' calibre da lapiseira
+    - thickness : float
+
+    ' guarda o grafite que está na ponta da lapiseira
+    ' um valor nulo indica que a lapiseira está sem grafite
+    - tip       : Lead | null
+
+    ' tambor da lapiseira, guarda os grafites
+    - barrel    : List<Lead>
+    __
+
+    ' inicializa os atributos da lapiseira
+    ' tip para null
+    ' barrel para uma lista vazia
+    + Pencil(thickness : float)
+    __
+
+    ' insere um grafite no final do tambor
+    ' verifica se o grafite tem calibre compatível
+    + insert(lead : Lead) : boolean
+
+    ' remove o grafite da ponta
+    ' verifica se existe grafite na ponta
+    ' retorna o grafite removido
+    ' ou null se não tinha grafite
+    ' remover significa colocar o atributo tip para null
+    + remove()            : Lead | null
+
+    ' remove primeiro grafite do tambor e insere na ponta
+    ' precisa existir algum grafite no tambor
+    ' precisa a ponta estar vazia
+    + pull()              : boolean
+
+    ' escreve na folha gastando o grafite
+    ' verifica se existe grafite na ponta
+    ' tenta diminuir o tamanho do grafite 
+    '   utilizando os métodos getSize() e setSize()
+    '   escrever uma folha gasta tip.usagePerSheet() mm
+    ' verifica se existe tamanho para escrever a folha inteira
+    + writePage()
+    __
+    + toString() : string
+}
+```
+
+[](load)
 
 ***
 

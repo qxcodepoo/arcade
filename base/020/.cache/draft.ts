@@ -1,32 +1,45 @@
 
-class Lead { //todo
+class Lead {
     private thickness: number;
     private hardness: string;
     private size: number;
 
-    public constructor(calibre: number, dureza:string, tamanho: number) { //todo
+    public constructor(calibre: number, dureza:string, tamanho: number) {
+        this.thickness = calibre;
+        this.hardness = dureza;
+        this.size = tamanho;
     }
 
-    public toString(): string { //todo
-
+    public toString(): string {
+        return `${this.thickness}:${this.hardness}:${this.size}`;
     }
 
-    public usagePerSheet(): number { //todo
+    public usagePerSheet(): number {
+        if (this.hardness === 'HB')
+            return 1;
+        if (this.hardness === '2B')
+            return 2;
+        if (this.hardness === '4B')
+            return 4;
+        return 6;
     }
 
-    public getThickness(): number { //todo
+    public getThickness(): number {
+        return this.thickness;
     }
 
-    public getHardness(): string { //todo
+    public getHardness(): string {
+        return this.hardness;
     }
 
-    public getSize(): number { //todo
+    public getSize(): number {
+        return this.size;
     }
 
-    public setSize(size: number): void { //todo
+    public setSize(size: number): void {
+        this.size = size;
     }
 }
-
 class Pencil { //todo
     private thickness: number;
     private tip: Lead | null; //lead da ponta
@@ -35,27 +48,27 @@ class Pencil { //todo
     public constructor(thickness: number) { //todo
     }
 
-    public toString(): string { //todo
-
-
-    }
-
-    //insere um lead no barril
     public insert(lead: Lead): boolean { //todo
     }
 
-    //remove e retorna o lead da ponta
     public remove(): Lead | null { //todo
     }
 
-    //se a ponta estiver vazia, puxa o próximo lead do barril
     public pull(): boolean { //todo
     }
 
-    //se tiver grafite suficiente no bico, gaste e retorn true
-    //lembre que os últimos 10mm não podem ser utilizados
     public writePage(): void { //todo
 
+    }
+    public toString(): string {
+        let saida =  "calibre: " + this.thickness + ", bico: " +
+                (this.tip != null ? "[" + this.tip + "]" : "[]") + ", tambor: {";
+        for(let g of this.barrel) {
+            saida += "[" + g + "]";
+        }  
+        saida += "}";
+
+        return saida;
     }
 }
 

@@ -38,47 +38,65 @@ Seu sistema deverá:
 
 ## Guide
 
+- [Solver.java](.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Car {
-  + gas     : int
-  + gasMax  : int
-  + km      : int
+  ' quantidade de passageiros no carro
   + pass    : int
+
+  ' máximo de passageiros que o carro suporta
   + passMax : int
+
+  ' gasolina atual do carro
+  + gas     : int
+
+  ' máximo de gasolina que o carro suporta
+  + gasMax  : int
+
+  ' quilometragem atual do carro
+  + km      : int
+
   __
-  '
+  
+  ' inicializar todos os atributos
   ' inicializar com tanque vazio
   ' 0 passageiros
   ' 0 de quilometragem
+  ' máximo de 2 pessoas
+  ' máximo de 100 litros de gasolina
   + Car()
-  '
-  ' só embarca se o carro não estiver lotado
-  ' embarca uma pessoa por vez
+
+  ' embarca uma pessoa no carro
+  ' verifique se o carro não estiver lotado
   + enter()
-  '
-  ' só desembar se houver alguém no carro
+  
   ' desembarca uma pessoa por vez
+  ' verifique se tem alguém no carro
   + leave()
-  '
-  ' só pode dirigir se houver algém no carro e algum combustível
-  ' o carro faz 1km por litro
-  + drive(km : int)
-  '
-  ' caso tente abastecer acima do limite, o valor em excesso deve ser descartado
-  + fuel(gas : int)
+  
+  ' percorre value quilometros com o carro
+  ' gasta um litro de gas para cada km de distancia
+  ' verifique se tem alguém no carro
+  ' verifique se tem gasolina suficiente
+  + drive(value : int)
+  
+  ' incrementa gasolina no tanque de value
+  ' caso tente abastecer acima do limite de gasMax
+  '   o valor em excesso deve ser descartado
+  + fuel(value : int)
+
   + toString() : string
 }
 ```
 
 [](load)
-
-- [Solver.java](.cache/draft.java)
-- [solver.cpp ](.cache/draft.cpp)
-- [solver.ts  ](.cache/draft.ts)
 
 ***
 

@@ -6,50 +6,53 @@
 #include <iomanip> //setprecision
 #include <aux.hpp>
 
-
-struct Grafite{
+class Grafite{
     float calibre;
     std::string dureza;
     int tamanho;
-
+public:
     Grafite(float calibre, std::string dureza, int tamanho) {
         this->calibre = calibre;
         this->dureza = dureza;
         this->tamanho = tamanho;
     }
-
+    int desgastePorFolha() {
+        if (dureza == "HB")
+            return 1;
+        if (dureza == "2B")
+            return 2;
+        if (dureza == "4B")
+            return 4;
+        return 6;
+    }
+    float getCalibre() {
+        return calibre;
+    }
+    std::string getDureza() {
+        return dureza;
+    }
+    int getTamanho() {
+        return tamanho;
+    }
+    void setTamanho(int tamanho) {
+        this->tamanho = tamanho;
+    }
     std::string str() const {
         std::ostringstream os;
         os << std::fixed << std::setprecision(1) << calibre << ":" << dureza << ":" << tamanho;
         return os.str();
     }
-
-    int desgastePorFolha() {
-        if (dureza == "HB")
-            return 1;
-        else if (dureza == "2B")
-            return 2;
-        else if (dureza == "4B")
-            return 4;
-        else
-            return 6;
-    }
 };
 std::ostream& operator<<(std::ostream& os, Grafite g) {
     return os << g.str();
 }
+
 struct Lapiseira{
     float calibre {0.f};
     std::shared_ptr<Grafite> grafite {nullptr};
     std::list<std::shared_ptr<Grafite>> tambor;
 
-    Lapiseira(float calibre = 0.0) { //todo calibre{calibre} {
-    }
-    ~Lapiseira() {
-    }
-
-    std::string str() const {
-        return {}; // todo
+    Lapiseira(float calibre = 0.0) { //todo
     }
 
     bool inserir(std::shared_ptr<Grafite> grafite) {
@@ -64,6 +67,9 @@ struct Lapiseira{
     void write() {
     }
     void puxar() {
+    }
+    std::string str() const {
+        return {}; // todo
     }
 };
 

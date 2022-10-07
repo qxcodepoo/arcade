@@ -3,61 +3,82 @@
 skinparam defaultFontName Hasklig
 skinparam dpi 150
 left to right direction
-
 '==
+' Grafite
 class Lead {
-  - thickness : float
-  - hardness  : string
-  - size      : int
-  __
-  '
-  ' inicializa os atributos do grafite
-  + Lead(thickness : float, hardness : string, size : int)
-  '
-  ' retorna o gasto em milímetros para uma página escrita
-  ' 1mm para HB
-  ' 2mm para 2B
-  ' 4mm para 4B
-  ' 6mm para 6B
-  + usagePerSheet() : int
-  __
-  + setSize(size : int)
-  __
-  + getHardness()      : string
-  + getSize()          : int
-  + getThickness()     : float
+    ' calibre do grafite
+    - thickness : float
+    
+    ' dureza do grafite HB, 2B, 4B, 6B
+    - hardness  : string
+
+    ' tamanho do grafite em milímetros
+    - size      : int
+    __
+  
+    ' inicializa os atributos do grafite
+    + Lead(thickness : float, hardness : string, size : int)
+    
+    ' gastoPorFolha
+    ' retorna o gasto em milímetros para uma página escrita
+    ' 1mm para HB
+    ' 2mm para 2B
+    ' 4mm para 4B
+    ' 6mm para 6B
+    + usagePerSheet() : int
+    __
+    
+    ' apenas os métodos get
+    + getHardness()  : string
+    + getSize()      : int
+    + getThickness() : float
+
+    __
+    + setSize(size : int)
+    __
+    + toString()      : string
 }
 
+
 class Pencil {
-  - thickness : float
-  - tip : Lead | null
-  __
-  '
-  ' inicializa os atributos da lapiseira
-  ' lembre de inicializar tip como null
-  + Pencil(thickness : float)
-  '
-  ' retorna true se tem grafite na lapiseira
-  + hasGrafite()        : boolean
-  '
-  ' verifica se ja tem grafite
-  ' verifica se o grafite tem espessura compatível
-  ' insere o grafite na lapiseira
-  + insert(lead : Lead) : boolean
-  '
-  ' se houver grafite, remove e retorna o grafite
-  ' se nao houver grafite, retorna null
-  + remove()            : Lead | null
-  '
-  ' verifica se tem grafite
-  ' verifica se tem mais de 10mm
-  ' se tiver menos que o necessário para página, escreve parcialmente
-  ' se tiver mais que o necessário para página, escreve totalmente
-  + writePage()         : void
-  '
-  + toString()          : string
-  __
-  + getThickness()      : float
+    
+    ' calibre da lapiseira
+    - thickness : float
+
+    ' guarda o grafite que está na ponta da lapiseira
+    ' um valor nulo indica que a lapiseira está sem grafite
+    - tip       : Lead | null
+    __
+
+    ' inicializa os atributos da lapiseira
+    ' tip para null
+    + Pencil(thickness : float)
+    
+    ' retorna true se tem grafite na lapiseira
+    + hasGrafite()        : boolean
+    
+    ' insere o grafite na lapiseira
+    ' verifica se ja tem grafite
+    ' verifica se o grafite tem calibre compatível
+    + insert(lead : Lead) : boolean
+    
+    ' remove o grafite da ponta
+    ' verifica se existe grafite na ponta
+    ' retorna o grafite removido
+    ' ou null se não tinha grafite
+    ' remover significa colocar o atributo tip para null
+    + remove()            : Lead | null
+
+    ' escreve na folha gastando o grafite
+    ' verifica se existe grafite na ponta
+    ' tenta diminuir o tamanho do grafite 
+    '   utilizando os métodos getSize() e setSize()
+    '   escrever uma folha gasta tip.usagePerSheet() mm
+    ' verifica se existe tamanho para escrever a folha inteira
+    + writePage()         : void
+    
+    __
+    + toString()          : string
 }
 '--
 

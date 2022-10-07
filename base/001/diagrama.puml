@@ -6,33 +6,40 @@ skinparam dpi 150
 
 '==
 class Calculator {
+
+  ' a bateria atual
   + battery    : int
+
+  ' o máximo de bateria suportado
   + batteryMax : int
+
+  ' guarda o resultado da última operação
   + display    : float
   __
-  '
+
   ' inicia os atributos batteryMax utilizando o parametro passado
   ' battery e display começam com o zero
   + Calculator(batteryMax : int)
-  '
-  ' aumenta a bateria value, porém não além do máximo.
+
+  ' aumenta a bateria de value, porém não além do máximo.
   + charge(value : int)
-  '
-  ' tenta gastar bateria usando o método useBattery
-  ' verifica o resultado do retorno
-  ' armazene a soma no atributo display.
+  
+  ' realiza a soma de dois número e coloca o resultado no display
+  ' tenta gastar bateria usando o método useBattery()
+  '   verifica o resultado do retorno
   + sum(a : int, b : int)
-  '
-  ' tenta gastar bateria usando o método useBattery
-  ' verifica o resultado do retorno
+  
+  ' realiza a divisão de dois números e armazena o resultado no display
+  ' tenta gastar bateria usando o método useBattery()
+  '   verifica o resultado do retorno
   ' verifica se não é divisão por zero
-  ' armazena o resultado no display
   + division(num : int, den : int)
-  '
-  ' tenta gastar uma unidade da bateria e emite um erro se não conseguir.
+  
+  ' tenta gastar uma unidade da bateria
+  '   emite um erro se não conseguir.
   ' retorna se conseguiu gastar ou não.
   + useBattery(): boolean
-  '
+  
   ' retorna uma string com o formato
   ' display = 0.00, bateria = 0
   + toString(): string
