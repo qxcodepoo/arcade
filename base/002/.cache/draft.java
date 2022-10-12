@@ -77,7 +77,7 @@ public class Solver {
     }
 
     static int parInt(int index) {
-        return Integer.parseInt(param.get(index));
+        return Integer.parseInt(sh.param.get(index));
     }
 }
 

@@ -9,7 +9,7 @@
 - [Shell](#shell)
 [](toc)
 
-Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho.
+Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, controlando as pessoas que entram e saem do pula pula, além de coordenar as pessoas que estão na fila de espera.
 
 ## Intro
 
@@ -61,15 +61,15 @@ package com.qxcode {
     
     ' se existir alguém na lista de espera
     ' remove o que estiver na frente da lista
-    ' e insere na no fim da lista de playing
+    ' e insere no fim da lista de playing
     + enter()
     
     ' se existir alguém em playing, remove o primeiro da lista
-    ' e insere no final da lista de espera
+    ' e insere no final da fila de espera
     + leave()
     
     ' utilize o método estático removeFromList
-    ' para tentar remover a criança das duas listas
+    ' para tentar remover a criança das duas filas
     + removeKid(name : string) : Kid | null
   }
 }
