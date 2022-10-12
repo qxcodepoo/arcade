@@ -50,7 +50,7 @@ public:
         int i = 0;
         auto fn = [&i](auto p) {
             std::stringstream ss; 
-            ss << " " << i++ << ":"<< std::setw(5) << (p == nullptr ? "-----" : p->getNome()) << " ";
+            ss << " " << i++ << ":" << (p == nullptr ? "-----" : p->getNome()) << " ";
             return ss.str();
         };
         std::stringstream os;

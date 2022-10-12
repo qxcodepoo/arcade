@@ -118,25 +118,25 @@ Caixas: | 0:----- | 1:----- |
 Espera: []
 
 #__case arrive
-$arrive joao
+$arrive carla
 $arrive maria
-$arrive ana
+$arrive rubia
 
 $show
 Caixas: | 0:----- | 1:----- |
-Espera: [joao, maria, ana]
+Espera: [carla, maria, rubia]
 
 #__case call
 $call 0
 $show
-Caixas: | 0: joao | 1:----- |
-Espera: [maria, ana]
+Caixas: | 0:carla | 1:----- |
+Espera: [maria, rubia]
 
 #__case finish
 $finish 0
 $show
 Caixas: | 0:----- | 1:----- |
-Espera: [maria, ana]
+Espera: [maria, rubia]
 
 $end
 
@@ -149,25 +149,25 @@ $show
 Caixas: | 0:----- | 1:----- | 2:----- |
 Espera: []
 
-$arrive joao
+$arrive carla
 $arrive maria
 
 $show
 Caixas: | 0:----- | 1:----- | 2:----- |
-Espera: [joao, maria]
+Espera: [carla, maria]
 
 #__case call
 $call 0
 $call 0
 fail: caixa ocupado
 $show
-Caixas: | 0: joao | 1:----- | 2:----- |
+Caixas: | 0:carla | 1:----- | 2:----- |
 Espera: [maria]
 
 #__case empty waiting
 $call 1
 $show
-Caixas: | 0: joao | 1:maria | 2:----- |
+Caixas: | 0:carla | 1:maria | 2:----- |
 Espera: []
 
 #__case empty waiting
