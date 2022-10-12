@@ -177,7 +177,7 @@ $drive 10
 fail: buy time first
 $buy 50
 #__case empty
-$drive
+$drive 10
 fail: empty motorcycle
 $enter suzana 8
 
