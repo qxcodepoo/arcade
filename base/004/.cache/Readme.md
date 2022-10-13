@@ -17,17 +17,17 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Intro
 
-- Iniciar lapiseira
+- Iniciar lapiseira.
   - Inicia uma lapiseira de determinado calibre sem grafite no bico.
-- Inserir grafite
+- Inserir grafite.
   - Insere um grafite passando
     - o calibre: float.
     - a dureza: string.
     - o tamanho em mm: int.
   - Não deve aceitar um grafite de calibre não compatível.
-- Remover grafite
+- Remover grafite.
   - Retira o grafite se houver algum.
-- Escrever folha
+- Escrever folha.
   - Não é possível escrever se não há grafite ou o grafite tem tamanho menor ou igual a 10mm.
   - Quanto mais macio o grafite, mais rapidamente ele se acaba. Para simplificar, use a seguinte regra:
     - Grafite HB: 1mm por folha.
