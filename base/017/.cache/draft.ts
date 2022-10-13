@@ -66,18 +66,22 @@ class Pig { //todo
 
     public getItems(): string { //todo
     }
-
-    public toString(): string { //todo
+    public toString(): string {
+        let aux = "[" + this.items.join(", ") + "]";
+        return `${aux} : ${this.value.toFixed(2)}\$ : ${this.volume}/${this.volumeMax} : ${this.broken ? "broken" : "unbroken"}`;
     }
 }
 
-function main() { //todo
+function main() {
     let chain = new Map();
     let param: string[] = [];
     let pig = new Pig(0);
 
 
-    chain.set("addCoin", () => { //todo
+    chain.set("addCoin", () => {
+        if      (param[1] == "10") pig.addCoin(new Coin(Cents.C10));
+        else if (param[1] == "25") pig.addCoin(new Coin(Cents.C25));
+        else if (param[1] == "50") pig.addCoin(new Coin(Cents.C50));
     });
     chain.set("init",     () => pig = new Pig(+param[1])               );
     chain.set("addItem",  () => pig.addItem(new Item(param[1], +param[2])));
@@ -89,19 +93,31 @@ function main() { //todo
     evaluate(chain, param);
 }
 
-import { //todo readFileSync } from "fs";
+import { readFileSync } from "fs";
 
 let __lines = readFileSync(0).toString().split("\n");
-let input = () => { //todo 
+let input = () => { 
     let a = __lines.shift(); 
     return a === undefined ? "" : a; 
 };
 let write = (text: any) => process.stdout.write("" + text);
 let puts = (text: any) => console.log(text);
 
-function evaluate(chain: Map<string, Function>, ui: string[]) { //todo
-    while (true) { //todo
+function evaluate(chain: Map<string, Function>, ui: string[]) {
+    while (true) {
+        let line = input();
+        puts("$" + line);
+        ui.splice(0); //apagar tudo
+        line.split(" ").forEach((x: string) => ui.push(x));
 
+        let cmd = ui[0];
+        if (cmd == "end") {
+            return;
+        } else if (chain.has(cmd)) {
+            chain.get(cmd)!();
+        } else {
+            puts("fail: command not found");
+        }
     }
 }
 
