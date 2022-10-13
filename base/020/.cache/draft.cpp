@@ -47,21 +47,26 @@ std::ostream& operator<<(std::ostream& os, Grafite g) {
     return os << g.str();
 }
 
+using PGrafite = std::shared_ptr<Grafite>;
+
+std::ostream& operator<<(std::ostream& os, PGrafite g) {
+    return os << "[" << (g == nullptr ? "" : g->str()) << "]";
+}
+
 struct Lapiseira{
     float calibre {0.f};
-    std::shared_ptr<Grafite> grafite {nullptr};
-    std::list<std::shared_ptr<Grafite>> tambor;
+    PGrafite grafite {nullptr};
+    std::list<PGrafite> tambor;
 
     Lapiseira(float calibre = 0.0) { //todo
     }
 
-    bool inserir(std::shared_ptr<Grafite> grafite) {
+    bool inserir(PGrafite grafite) {
         return {}; // todo
 
     }
 
-    std::shared_ptr<Grafite> remover() {
-        return {}; // todo
+    PGrafite remover() {
     }
 
     void write() {
@@ -69,7 +74,11 @@ struct Lapiseira{
     void puxar() {
     }
     std::string str() const {
-        return {}; // todo
+        std::ostringstream os;
+        os << "calibre: " << calibre 
+           << ", bico: " << grafite
+           << ", tambor: {" << (tambor | aux::JOIN("")) << "}";
+        return os.str();
     }
 };
 
@@ -87,7 +96,7 @@ int main() {
 
     chain["init"]   = [&]() { lapiseira = Lapiseira(FLOAT(1)); };
     chain["show"]   = [&]() { std::cout << lapiseira << std::endl; };
-    chain["insert"] = [&]() { lapiseira.inserir(make_shared<Grafite>(FLOAT(1), param[2], __INT(3))); };
+    chain["insert"] = [&]() { lapiseira.inserir(std::make_shared<Grafite>(FLOAT(1), param[2], __INT(3))); };
     chain["remove"] = [&]() { lapiseira.remover(); };
     chain["pull"]   = [&]() { lapiseira.puxar(); };
     chain["write"]  = [&]() { lapiseira.write(); };
