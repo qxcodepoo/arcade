@@ -84,27 +84,27 @@ class VendingMachine {
     ' se houver slot nessa posição, retorne
     ' se não, retorne null ou lançe uma excessão
     + getSlot(index: int) : Slot
-    
+
     ' altere o valor slot nessa posição
     + setSlot(index: int, slot: Slot) : void
-    
+
     ' limpe as informações do slot nessa posição
     + clearSlot(index: int) : void
     __
 
     ' adicione dinheiro no cash da máquina
     + insertCash(cash: float) : void
-    
+
     ' retorne o valor do cash da máquina e zere o cash
     + withdrawCash() : float
-    
+
     ' informe o valor do cash sem zerar o cash
     + getCash() : float
-    
+
     ' informe o valor apurado com todas as vendas
     + getProfit() : float
     __
-    
+
     ' se existir produto nessa posição
     ' se o dinheiro do cash for suficiente
     ' se a quantidade do produto for maior que zero

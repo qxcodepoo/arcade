@@ -8,7 +8,7 @@
 - [03. Agregação Simples](#03-agregação-simples)
 - [04. ArrayList I - Listas](#04-arraylist-i---listas)
 - [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
-- [08. ArrayList III - Organização](#08-arraylist-iii---organização)
+- [08. ArrayList III - Composição](#08-arraylist-iii---composição)
 - [10. Excessões](#10-excessões)
 - [11. Mapas Excessões](#11-mapas-excessões)
 - [12. Herança I](#12-herança-i)
@@ -73,15 +73,15 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ---------------- | ------------------------
 ![_](.thumbs/010.jpg) | [@010 Cinema](base/010/Readme.md#cinema)
 ![_](.thumbs/012.jpg) | [@012 Topic](base/012/Readme.md#topic)
-![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
 
-## 08. ArrayList III - Organização
+## 08. ArrayList III - Composição
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/014.jpg) | [@014 Contato](base/014/Readme.md#contato)
 ![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
+![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
 ![_](.thumbs/024.jpg) | [@024 Mensagens](base/024/Readme.md#mensagens)
+![_](.thumbs/014.jpg) | [@014 Contato](base/014/Readme.md#contato)
 ![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
 
 ## 10. Excessões

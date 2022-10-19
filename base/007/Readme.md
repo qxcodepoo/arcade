@@ -49,17 +49,17 @@ class Account {
   - id : int
   __
   + Account(id : int)
-  '
+
   ' adiciona valor à conta
   + deposit(label : Label, value : int) : boolean
-  '
+
   ' retira o dinheiro, mesmo que o balance fique negativo
   + fee(value : int) : boolean
-  '
+
   ' se o índice for válido e representar uma operação de fee
   ' adicione o mesmo valor tarifado, mas com label de reverse
   + reverse(index : int) : boolean
-  '
+
   ' só realiza a operação se houver dinheiro suficiente na conta
   + withdraw(value : int) : boolean
   + toString() : String
@@ -74,7 +74,7 @@ class BalanceManager {
   - nextId : int
   __
   + BalanceManager()
-  '
+
   ' adiciona value ao balance
   ' crie operação e adiciona ao vetor de operações
   ' incrementa o nextId
@@ -82,7 +82,7 @@ class BalanceManager {
   + toString() : String
   __
   + getBalance() : int
-  '
+
   ' metodo sobrescrito para retornar apenas as últimas qtdOp operações
   + getExtract() : List<Operation>
   + getExtract(qtdOp : int) : List<Operation>
@@ -109,12 +109,12 @@ class Operation {
   - balance : int
   - index : int
   - label : Label
-  '
+
   ' valor em negativo se for débito
   - value : int
   __
   + Operation(index : int, label : Label, value : int, balance : int)
-  '
+
   ' faz o preenchimento da string com espaços em branco até completar o length
   + pad(string : String, length : int) : String {static}
   + toString() : String
