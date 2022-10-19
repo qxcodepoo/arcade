@@ -56,35 +56,41 @@ class Account {
   ' retira o dinheiro, mesmo que o balance fique negativo
   + fee(value : int) : boolean
 
-  ' se o índice for válido e representar uma operação de fee
-  ' adicione o mesmo valor tarifado, mas com label de reverse
+  ' se o índice for válido e representar uma operação de tarifa
+  ' adicione o mesmo valor tarifado, mas com label de reverse(extorno)
   + reverse(index : int) : boolean
 
   ' só realiza a operação se houver dinheiro suficiente na conta
   + withdraw(value : int) : boolean
   + toString() : String
   __
+  ' em c++, retorne a referencia
   + getBalanceManager() : BalanceManager
 }
-'
+
 ' nessa classe são efetivadas e registradas as alterações no saldo
 class BalanceManager {
-  - balance : int
+
+  ' saldo do cliente
+  - balance : int 
+
+  ' extrato
   - extract : List<Operation>
+  
+  ' id da próxima operação
   - nextId : int
   __
   + BalanceManager()
 
   ' adiciona value ao balance
-  ' crie operação e adiciona ao vetor de operações
+  ' crie operação e adicione ao vetor de operações
   ' incrementa o nextId
   + addOperation(label : Label, value : int)
   + toString() : String
   __
   + getBalance() : int
 
-  ' metodo sobrescrito para retornar apenas as últimas qtdOp operações
-  + getExtract() : List<Operation>
+  ' se qtdOp for 0, valor default, retornar todo o extrato
   + getExtract(qtdOp : int) : List<Operation>
 }
 '
@@ -95,28 +101,22 @@ enum Label {
   + opening {static}
   + reverse {static}
   + withdraw {static}
-  - name : String
-  __
-  + valueOf(name : String) : Label {static}
-  + values() : Label[] {static}
-  + toString() : String
-  __
-  + getName() : String
 }
 '
 ' operação guarda os dados de uma única operação
 class Operation {
-  - balance : int
   - index : int
+
   - label : Label
 
-  ' valor em negativo se for débito
+  ' valor em negativo se estiver diminuindo o saldo
   - value : int
+
+  ' saldo residual apos operação
+  - balance : int
   __
   + Operation(index : int, label : Label, value : int, balance : int)
 
-  ' faz o preenchimento da string com espaços em branco até completar o length
-  + pad(string : String, length : int) : String {static}
   + toString() : String
   __
   + getBalance() : int
