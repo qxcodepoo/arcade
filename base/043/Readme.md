@@ -1,4 +1,4 @@
-# Cofre & Utilizando enum para definir as moedas e um bool para controlar o estado do porco
+# Cofre
 
 ![cover](cover.jpg)
 

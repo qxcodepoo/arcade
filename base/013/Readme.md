@@ -1,4 +1,4 @@
-# Cadastro & Banco 2 (herança, método abstrato, polimorfismo)
+# Cadastro
 
 ![cover](cover.jpg)
 
@@ -15,7 +15,7 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ## Vídeo explicativo
 
-[![](video.png)](https://youtu.be/AfJ--C8ZqPY)
+[![_](video.png)](https://youtu.be/AfJ--C8ZqPY)
 
 ## Requisitos
 

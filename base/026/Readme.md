@@ -1,4 +1,4 @@
-# Whatsapp I & Chat Grupo
+# Whatsapp
 
 ![cover](cover.jpg)
 

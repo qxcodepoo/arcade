@@ -1,4 +1,4 @@
-## @047 Gerenciador de figuras
+## @047 Shapes
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/cover.jpg)
 

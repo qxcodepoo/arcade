@@ -1,4 +1,4 @@
-# Clinica Veterinária
+# Pets
 
 ![cover](cover.jpg)
 

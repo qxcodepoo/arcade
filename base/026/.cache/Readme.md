@@ -1,4 +1,4 @@
-## @026 Whatsapp I & Chat Grupo
+## @026 Whatsapp
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/cover.jpg)
 

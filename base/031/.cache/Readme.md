@@ -1,4 +1,4 @@
-## @031 Clinica Veterinária
+## @031 Pets
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/031/cover.jpg)
 

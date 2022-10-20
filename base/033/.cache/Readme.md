@@ -1,4 +1,4 @@
-## @033 Trem 1 & Trem de passageiros
+## @033 Trem
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/033/cover.jpg)
 

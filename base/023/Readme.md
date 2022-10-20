@@ -1,4 +1,4 @@
-# Salário & Herança, Polimorfismo
+# Salário
 
 ![cover](cover.jpg)
 

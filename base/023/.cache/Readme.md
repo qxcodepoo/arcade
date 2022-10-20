@@ -1,4 +1,4 @@
-## @023 Salário & Herança, Polimorfismo
+## @023 Salário
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/cover.jpg)
 

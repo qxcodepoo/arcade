@@ -1,4 +1,4 @@
-## @022 Hospital I
+## @022 Hospital
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/cover.jpg)
 

@@ -1,4 +1,4 @@
-# Hospital I
+# Hospital
 
 ![cover](cover.jpg)
 

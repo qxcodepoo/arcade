@@ -1,4 +1,4 @@
-## @021 Matrícula & Associação NxN
+## @021 Matrícula
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/cover.jpg)
 

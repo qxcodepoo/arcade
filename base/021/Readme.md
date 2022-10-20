@@ -1,4 +1,4 @@
-# Matrícula & Associação NxN
+# Matrícula
 
 ![cover](cover.jpg)
 

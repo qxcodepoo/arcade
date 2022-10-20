@@ -1,4 +1,4 @@
-## @043 Cofre & Utilizando enum para definir as moedas e um bool para controlar o estado do porco
+## @043 Cofre
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/cover.jpg)
 

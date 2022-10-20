@@ -1,4 +1,4 @@
-# Twitter & Associação reflexiva, envio de mensagens
+# Twitter
 
 ![cover](cover.jpg)
 

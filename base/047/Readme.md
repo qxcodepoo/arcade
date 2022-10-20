@@ -1,4 +1,4 @@
-# Gerenciador de figuras
+# Shapes
 
 ![cover](cover.jpg)
 

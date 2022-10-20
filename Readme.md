@@ -10,7 +10,7 @@
 - [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
 - [08. ArrayList III - Composição](#08-arraylist-iii---composição)
 - [10. Excessões](#10-excessões)
-- [11. Mapas Excessões](#11-mapas-excessões)
+- [11. Mapas Exceções](#11-mapas-exceções)
 - [12. Herança I](#12-herança-i)
 - [13. Lógica I](#13-lógica-i)
 - [14. Herança II](#14-herança-ii)
@@ -91,47 +91,46 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/008.jpg) | [@008 Agiota](base/008/Readme.md#agiota)
 ![_](.thumbs/028.jpg) | [@028 Bilheteria](base/028/Readme.md#bilheteria)
 
-## 11. Mapas Excessões
+## 11. Mapas Exceções
 
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/029.jpg) | [@029 Anotações](base/029/Readme.md#anotações)
-![_](.thumbs/031.jpg) | [@031 Clinica Veterinária](base/031/Readme.md#clinica-veterinária)
+![_](.thumbs/031.jpg) | [@031 Pets](base/031/Readme.md#pets)
 
 ## 12. Herança I
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/047.jpg) | [@047 Gerenciador de figuras](base/047/Readme.md#gerenciador-de-figuras)
-![_](.thumbs/013.jpg) | [@013 Cadastro ](base/013/Readme.md#cadastro--banco-2-herança-método-abstrato-polimorfismo)
-![_](.thumbs/030.jpg) | [@030 ContatoStar ](base/030/Readme.md#contatostar--agenda-4-herança)
-![_](.thumbs/043.jpg) | [@043 Cofre ](base/043/Readme.md#cofre--utilizando-enum-para-definir-as-moedas-e-um-bool-para-controlar-o-estado-do-porco)
+![_](.thumbs/047.jpg) | [@047 Shapes](base/047/Readme.md#shapes)
+![_](.thumbs/013.jpg) | [@013 Cadastro](base/013/Readme.md#cadastro)
+![_](.thumbs/043.jpg) | [@043 Cofre](base/043/Readme.md#cofre)
 
 ## 13. Lógica I
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/021.jpg) | [@021 Matrícula ](base/021/Readme.md#matrícula--associação-nxn)
-![_](.thumbs/025.jpg) | [@025 Twitter ](base/025/Readme.md#twitter--associação-reflexiva-envio-de-mensagens)
+![_](.thumbs/021.jpg) | [@021 Matrícula](base/021/Readme.md#matrícula)
+![_](.thumbs/025.jpg) | [@025 Twitter](base/025/Readme.md#twitter)
 
 ## 14. Herança II
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/023.jpg) | [@023 Salário ](base/023/Readme.md#salário--herança-polimorfismo)
-![_](.thumbs/022.jpg) | [@022 Hospital I](base/022/Readme.md#hospital-i)
+![_](.thumbs/023.jpg) | [@023 Salário](base/023/Readme.md#salário)
+![_](.thumbs/022.jpg) | [@022 Hospital](base/022/Readme.md#hospital)
 
 ## 15. Lógica II
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/026.jpg) | [@026 Whatsapp I ](base/026/Readme.md#whatsapp-i--chat-grupo)
-![_](.thumbs/033.jpg) | [@033 Trem 1 ](base/033/Readme.md#trem-1--trem-de-passageiros)
+![_](.thumbs/026.jpg) | [@026 Whatsapp](base/026/Readme.md#whatsapp)
+![_](.thumbs/033.jpg) | [@033 Trem](base/033/Readme.md#trem)
 
 ## 16. Herança III
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/034.jpg) | [@034 Trem 2 ](base/034/Readme.md#trem-2--trem-com-passageiros-e-carga)
-![_](.thumbs/027.jpg) | [@027 Whatsapp II - Chat Pessoa](base/027/Readme.md#whatsapp-ii---chat-pessoa)
+![_](.thumbs/034.jpg) | [@034 Carga](base/034/Readme.md#carga)
+![_](.thumbs/027.jpg) | [@027 Grupos](base/027/Readme.md#grupos)
 

@@ -1,4 +1,4 @@
-# Trem 1 & Trem de passageiros
+# Trem
 
 ![cover](cover.jpg)
 

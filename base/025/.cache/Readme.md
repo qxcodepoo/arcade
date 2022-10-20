@@ -1,4 +1,4 @@
-## @025 Twitter & Associação reflexiva, envio de mensagens
+## @025 Twitter
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/cover.jpg)
 

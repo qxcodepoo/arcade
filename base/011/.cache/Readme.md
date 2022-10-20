@@ -19,26 +19,28 @@ O objetivo dessa atividade é implementar uma classe responsável por uma máqui
 
 Seu sistema deverá ser capaz de:
 
-- **[3.0 P] Iniciando a máquina**
-  - Iniciar a máquina definindo o número de espirais e a quantidade máxima de produtos em uma espiral.
+- **Iniciando a máquina**
+  - Iniciar a máquina definindo o número de espirais.
     - Se já houver uma máquina, então apague tudo e inicie uma nova máquina.
-  - Mostrar o conteúdo de cada espiral
-    - indice, nome do produto, quantidade de produtos e preço.
-    - Coloque um "-" no nome do produto para informar que não há produto definido.
+  - Mostrar o conteúdo de cada espiral.
+    - Indice, nome do produto, quantidade de produtos e preço.
+    - Coloque um "empty" no nome do produto para informar que não há produto definido.
 
-- **[2.0 P] Algo pra comer**
+- **Algo pra comer**
   - Definir quais produtos há em cada espiral passando as informações do produto.
-- **[2.0 P] Resetar uma espiral**
+
+- **Resetar uma espiral**
   - Limpar todas as informações da espiral voltando ao seu estado original.
 
-- **[1.0 P] Dinheiro vai**
+- **Dinheiro vai**
   - Inserir dinheiro na espiral.
-    - Abstraia como o dinheiro vai. Crédito, débito, bitcoin, cédula nova ou velha, ficha de fliperama. Não importa.
+    - Abstraia como o dinheiro vai. Crédito, débito, bitcoin, cédula nova ou velha.
   - Receba o dinheiro do usuário e vá adicionando ao saldo.
   - Alterar o mostrar máquina para mostrar o saldo também.
 
-- **[2.0 P] Comida vem, Dinheiro vem, Erros também**
+- **Comida vem, Dinheiro vem, Erros também**
   - Permitir que o cliente possa comprar um produto de uma espiral.
+    - Verificar se a espiral existe.
     - Verificar se existe o produto e se o valor do pagamento é suficiente.
     - Tratar todos esses erros.
     - Mostrar o nome do produto que ele pediu.
@@ -121,7 +123,7 @@ class VendingMachine {
 ***
 
 - Faça primeiro a classe Espiral.
-- No contrutor da class Maquina receba a quantidade de espirais. Para iniciar o vetor de espirais você pode fazer um laço inserindo qtd Espirais no vetor (Java).
+- No construtor da class Maquina receba a quantidade de espirais. Para iniciar o vetor de espirais você pode fazer um laço inserindo qtd Espirais no vetor (Java).
 
 - Exemplo em Java
 
@@ -136,10 +138,10 @@ class Espiral{
 class Machine{
     ...
     espirais : ArrayList<Espiral>;
-    public Machine(nespirais : number, ...){ //mostrando apenas o parametro
+    public Machine(nespirais : number){
         this.espirais = new ArrayList<>();
         for(int i = 0; i < nespirais; i++){
-            this.espirais.add(new Espiral("", 0, 0f)); //adicionando nespirais vazias
+            this.espirais.add(new Espiral("empty", 0, 0f)); //adicionando nespirais vazias
         }
     }
 }
@@ -230,8 +232,12 @@ $dinheiro 8
 # comprar _ind
 $comprar 1
 voce comprou um xaverde
+
+#__case comprar sem dinheiro
 $comprar 1
 fail: saldo insuficiente
+
+#__case comprar
 $comprar 0
 voce comprou um tampico
 $show
@@ -239,10 +245,15 @@ saldo: 1.50
 0 [ tampico : 0 U : 1.50 RS]
 1 [ xaverde : 2 U : 5.00 RS]
 2 [   empty : 0 U : 0.00 RS]
+
+#__case comprar sem produtos
 $comprar 0
 fail: espiral sem produtos
+
+#__case comprar fora do indice
 $comprar 4
 fail: indice nao existe
+
 $troco
 voce recebeu 1.50 RS
 $end

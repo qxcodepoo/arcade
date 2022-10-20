@@ -1,4 +1,4 @@
-## @013 Cadastro & Banco 2 (herança, método abstrato, polimorfismo)
+## @013 Cadastro
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/cover.jpg)
 
@@ -15,7 +15,7 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ## Vídeo explicativo
 
-[![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/video.png)](https://youtu.be/AfJ--C8ZqPY)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/video.png)](https://youtu.be/AfJ--C8ZqPY)
 
 ## Requisitos
 
