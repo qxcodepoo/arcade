@@ -2,8 +2,6 @@
 #include <algorithm>
 #include <vector>
 #include <map>
-#include <aux.hpp>
-using namespace aux;
 
 std::vector<std::pair<int, int>> occurr(std::vector<int> vet) {
     return {}; // todo
@@ -42,19 +40,26 @@ std::vector<int> clear(std::vector<int> vet, int value) {
 }
 
 
+#include <aux.hpp>
+using namespace aux;
+
 //loop principal
 int main(){
     Chain chain;
     Param ui;
 
-    chain["occurr"] = [&] { show << occurr(to_vet<int>(ui[1])); };
-    chain["mnext"]  = [&] { show <<  mnext(to_vet<int>(ui[1])); };
-    chain["alone"]  = [&] { show <<  alone(to_vet<int>(ui[1])); };
-    chain["couple"] = [&] { show << couple(to_vet<int>(ui[1])); };
-    chain["teams"]  = [&] { show <<  teams(to_vet<int>(ui[1])); };
-    chain["subseq"] = [&] { show << subseq(to_vet<int>(ui[1]), to_vet<int>(ui[2])); };
-    chain["erase"]  = [&] { show <<  erase(to_vet<int>(ui[1]), to_vet<int>(ui[2])); };
-    chain["clear"]  = [&] { show <<  clear(to_vet<int>(ui[1]), to<int>(ui[2])); };
+    auto par2int   = LAMBDAE(&ui, i, ui.at(i) | aux::STR2<int>());                            //converte de string para int
+    auto par2vet   = LAMBDAE(&ui, i, ui.at(i) | COPY(1, -1) | SPLIT(',') | MAP(STR2<int>())); //converte de string para vetor de int
+    auto pair2str  = LAMBDA(p, STREAM() | p.first | ":" | p.second | COLLECT()); //converte de pair para string
+
+    chain["occurr"] = [&] { occurr(par2vet(1)) | MAP(pair2str) | FMT() | PRINT(); };
+    chain["teams"]  = [&] {  teams(par2vet(1)) | MAP(pair2str) | FMT() | PRINT(); };
+    chain["mnext"]  = [&] {  mnext(par2vet(1))                 | FMT() | PRINT(); };
+    chain["alone"]  = [&] {  alone(par2vet(1))                 | FMT() | PRINT(); };
+    chain["erase"]  = [&] {  erase(par2vet(1), par2vet(2))     | FMT() | PRINT(); };
+    chain["clear"]  = [&] {  clear(par2vet(1), par2int(2))     | FMT() | PRINT(); };
+    chain["subseq"] = [&] { subseq(par2vet(1), par2vet(2))             | PRINT(); };
+    chain["couple"] = [&] { couple(par2vet(1))                         | PRINT(); };
 
     execute(chain, ui);
 }

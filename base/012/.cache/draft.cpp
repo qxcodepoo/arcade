@@ -102,7 +102,7 @@ std::string join(CONTAINER container, const std::string& delimiter, LAMBDA fn) {
 }
 
 std::string Topic::str() {
-    auto all = aux::map(preferenciais, [](auto x) { return "@" + (x == nullptr ? "" : x->str()); });
+    auto all = preferenciais |  [](auto x) { return "@" + (x == nullptr ? "" : x->str()); });
     auto norm = aux::map(normais     , [](auto x) { return "=" + (x == nullptr ? "" : x->str()); });
     all.insert(all.end(), norm.begin(), norm.end());
     return aux::fmt(all, " ");

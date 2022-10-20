@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 #include <aux.hpp>
 
 class Time {
@@ -39,7 +40,7 @@ int main() {
     aux::Param param;
     Time time;
 
-    auto INT = aux::to<int>;
+    auto INT = aux::STR2<int>();
 
     chain["set"] = [&]() {
         time.setHour(INT(param[1]));

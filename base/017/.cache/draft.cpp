@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <utility>
+#include <iomanip>
 #include <aux.hpp>
 
 enum Cents {C10, C25, C50, C100};
@@ -89,8 +90,8 @@ public:
 
     std::string str() const {
         std::stringstream ss;
-        ss << aux::fmt(this->itens) << " : "
-           << aux::fmt(value) << "$ : "
+        ss << (this->itens | aux::FMT()) << " : "
+           << std::fixed << std::setprecision(2) << value << "$ : "
            << volume <<  "/" << volumeMax << " : " 
            <<  (broken ? "broken" : "unbroken");
         return ss.str();
@@ -107,7 +108,8 @@ int main() {
 
     Pig pig;
     
-    auto toint = aux::to<int>;
+    auto toint = aux::STR2<int>();
+    auto fmtdouble = aux::PIPE(LAMBDA(x, x | aux::STR("%.2f")));
 
     chain["addCoin"] = [&]() { 
         if      (par[1] == "10") pig.addCoin(Coin(C10));
@@ -118,9 +120,9 @@ int main() {
     chain["init"]     = [&]() { pig = Pig(toint(par[1])); };
     chain["addItem"]  = [&]() { pig.addItem(Item(par[1], toint(par[2]))); };
     chain["break"]    = [&]() { pig.breakPig(); };
-    chain["getCoins"] = [&]() { aux::show << pig.getCoins(); };
-    chain["getItems"] = [&]() { aux::show << pig.getItems(); };
-    chain["show"]     = [&]() { aux::show << pig.str(); };
+    chain["getCoins"] = [&]() { pig.getCoins() | fmtdouble | aux::PRINT(); };
+    chain["getItems"] = [&]() { pig.getItems() | aux::PRINT(); };
+    chain["show"]     = [&]() { pig.str()      | aux::PRINT(); };
 
     aux::execute(chain, par);
 }

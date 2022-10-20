@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <aux.hpp> 
-using namespace aux;
+
 
 
 int count(std::vector<int> vet, int x) {
@@ -28,19 +27,24 @@ std::string sex_battle(const std::vector<int>& vet) {
     return {}; // todo
 }
 
-
+#include <aux.hpp>
+using namespace aux;
 
 //loop principal
 int main(){
     Chain chain;
     Param ui;
 
-    chain["count"]        = [&] { show <<        count(to_vet<int>(ui[1]), to<int>(ui[2])); };
-    chain["sum"]          = [&] { show <<          sum(to_vet<int>(ui[1])                ); };
-    chain["average"]      = [&] { show <<      average(to_vet<int>(ui[1])                ); };
-    chain["more_men"]     = [&] { show <<     more_men(to_vet<int>(ui[1])                ); };
-    chain["half_compare"] = [&] { show << half_compare(to_vet<int>(ui[1])                ); };
-    chain["sex_battle"]   = [&] { show <<   sex_battle(to_vet<int>(ui[1])                ); };
+    auto float2str= LAMBDA(x, x | aux::STR("%.2f"));                            //converte de float para string com 2 casas
+    auto INT      = LAMBDA(x, x | aux::STR2<int>());                            //converte de string para int
+    auto VET      = LAMBDA(x, x | COPY(1, -1) | SPLIT(',') | MAP(STR2<int>())); //converte de string para vetor de int
+
+    chain["count"]        = [&] {        count(VET(ui[1]), INT(ui[2])) | PRINT(); };
+    chain["sum"]          = [&] {          sum(VET(ui[1])            ) | PRINT(); };
+    chain["average"]      = [&] {      average(VET(ui[1])            ) | PIPE(float2str) | PRINT(); };
+    chain["more_men"]     = [&] {     more_men(VET(ui[1])            ) | PRINT(); };
+    chain["half_compare"] = [&] { half_compare(VET(ui[1])            ) | PRINT(); };
+    chain["sex_battle"]   = [&] {   sex_battle(VET(ui[1])            ) | PRINT(); };
 
     execute(chain, ui);
 }

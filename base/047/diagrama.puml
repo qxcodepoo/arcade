@@ -1,0 +1,40 @@
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
+class Math {
+    + static distance(a: V2D, b: V2D): float
+}
+
+class Shape {
+    + area: double
+    + perimeter: double
+    + inside(V2D: point): boolean
+}
+
+class Circle {
+    + radius: double
+    + center: V2D
+}
+
+class Rectangle {
+    ' posicao esquerda superior
+    + position: V2D
+    ' dimensoes
+    + size: V2D
+}
+
+class V2D {
+    - x: number
+    - y: number
+}
+
+'--
+Circle --|> Shape
+Rectangle --|> Shape
+V2D  --  Circle
+V2D  --  Rectangle
+@enduml

@@ -97,7 +97,8 @@ int main() {
     aux::Chain chain;
     aux::Param ui;
     Pet pet;
-    auto toint = aux::to<int>;
+    auto toint = aux::STR2<int>();
+    
     chain["show"]   = [&]() { std::cout << pet.toString() << '\n'; };
     chain["init"]   = [&]() { pet = Pet(toint(ui[1]), toint(ui[2]), toint(ui[3])); };
     chain["play"]   = [&]() { pet.play(); };

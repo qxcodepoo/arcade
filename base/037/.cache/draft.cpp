@@ -54,8 +54,8 @@ public:
             return ss.str();
         };
         std::stringstream os;
-        os  << "Caixas: |" << (caixas | aux::MAP(fn) | aux::JOIN("|")) << "|\n"    
-            << "Espera: " << (esperando | aux::MAP(FX(*x)) | aux::FMT());
+        os  << "Caixas: |" << (caixas | aux::MAP(fn) | aux::JOIN("|")) << "|\n"
+            << "Espera: " << (esperando | aux::MAP(LAMBDA(x, *x)) | aux::FMT());
         return os.str();
     }
 };
@@ -74,7 +74,7 @@ int main() {
     chain["call"]   = [&]() { bank.chamarNoCaixa(aux::to<int>(par[1])); };
     chain["finish"] = [&]() {     bank.finalizar(aux::to<int>(par[1])); };
     chain["arrive"] = [&]() { bank.chegar(std::make_shared<Pessoa>(par[1])); };
-    chain["show"]   = [&]() { aux::show << bank; };
+    chain["show"]   = [&]() { std::cout << bank << '\n'; };
 
     aux::execute(chain, par);    
 }

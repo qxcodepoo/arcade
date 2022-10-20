@@ -102,6 +102,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 \________________ | \______________________
 ---------------- | ------------------------
+![_](.thumbs/047.jpg) | [@047 Gerenciador de figuras](base/047/Readme.md#gerenciador-de-figuras)
 ![_](.thumbs/013.jpg) | [@013 Cadastro ](base/013/Readme.md#cadastro--banco-2-herança-método-abstrato-polimorfismo)
 ![_](.thumbs/030.jpg) | [@030 ContatoStar ](base/030/Readme.md#contatostar--agenda-4-herança)
 ![_](.thumbs/043.jpg) | [@043 Cofre ](base/043/Readme.md#cofre--utilizando-enum-para-definir-as-moedas-e-um-bool-para-controlar-o-estado-do-porco)

@@ -75,14 +75,14 @@ int main() {
 
     auto INT = aux::to<int>;
 
-    chain["show"]  = [&]() { aux::show << m; };
+    chain["show"]  = [&]() { m | aux::PRINT(); };
     chain["leave"] = [&]() { 
         auto person = m.remove(); 
         if (person != nullptr) {
-            aux::show << *person;
+            *person | aux::PRINT();
         }
     };
-    chain["honk"]  = [&]() { aux::show << m.honk(); };
+    chain["honk"]  = [&]() { m.honk()  | aux::PRINT(); };
     chain["init"]  = [&]() { m = Motorcycle(INT(param.at(1)));};
     chain["enter"] = [&]() { m.insertPerson(std::make_shared<Person>(param.at(1), INT(param.at(2)))); };
     chain["buy"]   = [&]() { m.buyTime(INT(param.at(1))); };

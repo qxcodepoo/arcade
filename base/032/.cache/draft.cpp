@@ -1,8 +1,6 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <aux.hpp>
-using namespace aux;
 
 
 std::vector<int> get_men(std::vector<int> vet) {
@@ -38,23 +36,29 @@ std::vector<int> repeated(std::vector<int> vet) {
 }
 
 
+#include <aux.hpp>
+using namespace aux;
+
 //loop principal
 int main(){
     Chain chain;
     Param ui;
 
-    chain["get_men"]         = [&] { show <<        get_men(to_vet<int>(ui[1])); };
-    chain["get_calm_women"]  = [&] { show << get_calm_women(to_vet<int>(ui[1])); };
-    chain["sort"]            = [&] { show <<           sort(to_vet<int>(ui[1])); };
-    chain["sort_stress"]     = [&] { show <<    sort_stress(to_vet<int>(ui[1])); };
-    chain["reverse"]         = [&] { show <<        reverse(to_vet<int>(ui[1])); };
+    auto VET  = LAMBDA(x, x | COPY(1, -1) | SPLIT(',') | MAP(STR2<int>())); //converte de string para vetor de int
+    auto par2vet = LAMBDAE(&, index, VET(ui.at(index)));
+
+    chain["get_men"]         = [&] {        get_men(par2vet(1)) | FMT() | PRINT(); };
+    chain["get_calm_women"]  = [&] { get_calm_women(par2vet(1)) | FMT() | PRINT(); };
+    chain["sort"]            = [&] {           sort(par2vet(1)) | FMT() | PRINT(); };
+    chain["sort_stress"]     = [&] {    sort_stress(par2vet(1)) | FMT() | PRINT(); };
+    chain["reverse"]         = [&] {        reverse(par2vet(1)) | FMT() | PRINT(); };
+    chain["repeated"]        = [&] {       repeated(par2vet(1)) | FMT() | PRINT(); };
+    chain["unique"]          = [&] {         unique(par2vet(1)) | FMT() | PRINT(); };
     chain["reverse_inplace"] = [&] { 
-        auto vet = to_vet<int>(ui[1]);
+        auto vet = par2vet(1);
         reverse_inplace(vet);
-        show << (vet);
+        vet | FMT() | PRINT();
     };
-    chain["unique"]          = [&] { show <<         unique(to_vet<int>(ui[1])); };
-    chain["repeated"]        = [&] { show <<       repeated(to_vet<int>(ui[1])); };
 
     execute(chain, ui);
 }

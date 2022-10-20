@@ -24,16 +24,21 @@ int find_min_if(const std::vector<int>& vet) {
 }
 
 
-//loop principal
+using namespace aux;
+
 int main(){
     Chain chain;
     Param ui;
 
-    chain["in"]           = [&] { show <<          in(to_vet<int>(ui[1]), to<int>(ui[2])); };
-    chain["index_of"]     = [&] { show <<    index_of(to_vet<int>(ui[1]), to<int>(ui[2])); };
-    chain["find_if"]      = [&] { show <<     find_if(to_vet<int>(ui[1])                ); };
-    chain["min_element"]  = [&] { show << min_element(to_vet<int>(ui[1])                ); };
-    chain["find_min_if"]  = [&] { show << find_min_if(to_vet<int>(ui[1])                ); };
+    auto bool2str = LAMBDA(x, x ? "true" : "false"); //converte de bool para string true or false
+    auto INT  = LAMBDA(x, x | aux::STR2<int>());                            //converte de string para int
+    auto VET  = LAMBDA(x, x | COPY(1, -1) | SPLIT(',') | MAP(STR2<int>())); //converte de string para vetor de int
+
+    chain["in"]           = [&] {          in(VET(ui.at(1)), INT(ui.at(2))) | PIPE(bool2str) | PRINT(); };
+    chain["index_of"]     = [&] {    index_of(VET(ui.at(1)), INT(ui.at(2))) | PRINT(); };
+    chain["find_if"]      = [&] {     find_if(VET(ui.at(1))               ) | PRINT(); };
+    chain["min_element"]  = [&] { min_element(VET(ui.at(1))               ) | PRINT(); };
+    chain["find_min_if"]  = [&] { find_min_if(VET(ui.at(1))               ) | PRINT(); };
 
     execute(chain, ui);
 }

@@ -8,12 +8,13 @@ int main() {
 
     Car car;
 
-    chain["help"]  = [&](){ aux::show << "show; enter; leave; fuel _gas; drive _km; end"; };
-    chain["show"]  = [&](){ aux::show << car.str(); };
+    auto par2int   = LAMBDAE(&ui, index, ui.at(index) | aux::STR2<int>()); //converte de string para int
+
+    chain["show"]  = [&](){ car.str() | aux::PRINT(); };
     chain["enter"] = [&](){ car.enter(); };
     chain["leave"] = [&](){ car.leave(); };
-    chain["fuel"]  = [&](){ car.fuel(aux::to<int>(ui[1])); };
-    chain["drive"] = [&](){ car.drive(aux::to<int>(ui[1])); };
+    chain["fuel"]  = [&](){ car.fuel(par2int(1)); };
+    chain["drive"] = [&](){car.drive(par2int(1)); };
 
     aux::execute(chain, ui);
 }

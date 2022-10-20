@@ -1,7 +1,6 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include "aux.hpp"
 
 struct Calculator {
     int batteryMax;
@@ -36,20 +35,22 @@ std::ostream& operator<<(std::ostream& os, Calculator c) {
     return (os << c.str());
 }
 
+#include <aux.hpp>
+
 int main() {
     Calculator c(0);
     aux::Chain chain;
-    aux::Param param;
+    aux::Param ui;
 
     // função para obter um parâmetro convertido para inteiro
-    auto par_int = [&param](int index) { return aux::to<int>(param[index]); };
+    auto par2int   = LAMBDAE(&ui, index, ui.at(index) | aux::STR2<int>());                            //converte de string para int
 
     chain["show"]   = [&]() { std::cout << c << std::endl;         };
-    chain["init"]   = [&]() {  c = Calculator(par_int(1)          ); };
-    chain["charge"] = [&]() { c.chargeBattery(par_int(1)          ); };
-    chain["sum"]    = [&]() {           c.sum(par_int(1), par_int(2)); };
-    chain["div"]    = [&]() {      c.division(par_int(1), par_int(2)); };
+    chain["init"]   = [&]() {  c = Calculator(par2int(1)          ); };
+    chain["charge"] = [&]() { c.chargeBattery(par2int(1)          ); };
+    chain["sum"]    = [&]() {           c.sum(par2int(1), par2int(2)); };
+    chain["div"]    = [&]() {      c.division(par2int(1), par2int(2)); };
 
-    aux::execute(chain, param);
+    aux::execute(chain, ui);
 }
 
