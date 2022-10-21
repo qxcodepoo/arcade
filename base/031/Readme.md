@@ -8,8 +8,7 @@
 - [Raio X](#raio-x)
 [](toc)
 
-Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, servicos e vendas.
-
+Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, serviços e vendas.
 
 Você deve desenvolver o sistema de uma clínica veterinária que deve ser capaz de:
 

@@ -23,12 +23,10 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
   - No caso da tarifa, o valor final de saldo poderá ser negativo.
   - No caso do saque, verifique se há saldo suficiente efetuar a operação.
 - **Retornar o extrato**.
-  - Extrato completo
-    - Retornar todas as movimentações da conta desde a abertura.
-    - A descrição pode ser "abertura", "saque", "seposito", "tarifa", "extorno".
-    - Os saques devem ter valor negativo e os depósitos positivos.
-  - **Extrato parcial**
-    - Mostre as últimas N operações do extrato.
+  - Retornar todas as movimentações da conta.
+  - A descrição pode ser "opening", "withdraw", "deposit", "fee", "reverse", "error".
+  - Os saques devem ter valor negativo e os depósitos positivos.
+  - Se a quantidade for fornecida, retorne apenas as últimas movimentações.
 - **Extornar tarifas**.
   - Deve ser possível extornar, pagando de volta, tarifas passando uma lista de índices.
   - Apenas efetue a operação de extorno dos índices válidos que forem tarifas.
@@ -49,17 +47,17 @@ class Account {
   + Account(id : int)
 
   ' adiciona valor à conta
-  + deposit(label : Label, value : int) : boolean
+  + deposit(label : Label, value : int) : void
 
   ' retira o dinheiro, mesmo que o balance fique negativo
-  + fee(value : int) : boolean
+  + fee(value : int) : void
 
   ' se o índice for válido e representar uma operação de tarifa
   ' adicione o mesmo valor tarifado, mas com label de reverse(extorno)
-  + reverse(index : int) : boolean
+  + reverse(index : int) : void
 
   ' só realiza a operação se houver dinheiro suficiente na conta
-  + withdraw(value : int) : boolean
+  + withdraw(value : int) : void
   + toString() : String
   __
   ' em c++, retorne a referencia

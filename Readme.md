@@ -9,8 +9,7 @@
 - [04. ArrayList I - Listas](#04-arraylist-i---listas)
 - [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
 - [08. ArrayList III - Composição](#08-arraylist-iii---composição)
-- [10. Excessões](#10-excessões)
-- [11. Mapas Exceções](#11-mapas-exceções)
+- [10. Mapas e Exceções](#10-mapas-e-exceções)
 - [12. Herança I](#12-herança-i)
 - [13. Lógica I](#13-lógica-i)
 - [14. Herança II](#14-herança-ii)
@@ -80,23 +79,14 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ---------------- | ------------------------
 ![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
 ![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
-![_](.thumbs/024.jpg) | [@024 Mensagens](base/024/Readme.md#mensagens)
-![_](.thumbs/014.jpg) | [@014 Contato](base/014/Readme.md#contato)
 ![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
 
-## 10. Excessões
+## 10. Mapas e Exceções
 
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/008.jpg) | [@008 Agiota](base/008/Readme.md#agiota)
 ![_](.thumbs/028.jpg) | [@028 Bilheteria](base/028/Readme.md#bilheteria)
-
-## 11. Mapas Exceções
-
-\________________ | \______________________
----------------- | ------------------------
-![_](.thumbs/029.jpg) | [@029 Anotações](base/029/Readme.md#anotações)
-![_](.thumbs/031.jpg) | [@031 Pets](base/031/Readme.md#pets)
 
 ## 12. Herança I
 

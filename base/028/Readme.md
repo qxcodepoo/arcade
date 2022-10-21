@@ -4,7 +4,7 @@
 
 [](toc)
 
-- [Requisitos](#requisitos)
+- [Intro](#intro)
 - [Diagrama](#diagrama)
 - [Main não interativa](#main-não-interativa)
 [](toc)
@@ -13,11 +13,11 @@ Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado par
 
 Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de shows.
 
-## Requisitos
+## Intro
 
 - Cadastrar uma pessoa pelo nome.
-    - nome da pessoa é único
-    - a pessoa pode ou não pagar meia
+  - nome da pessoa é único
+  - a pessoa pode ou não pagar meia
 - Mostrar todos os clientes
 
 ```sh

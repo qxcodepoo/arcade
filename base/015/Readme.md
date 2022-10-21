@@ -11,13 +11,17 @@
 
 Sua agenda possui vários contatos e cada contato possui vários telefones.
 
-Implemente a classe Contact e Fone utilizando as regras descritas no projeto Contato ou reaproveite o código que você fez.
-
 ***
 
 ## Intro
 
-- Adicionar
+- Criar contatos
+  - Contatos possuem um nome e uma lista de telefones
+- Um telefone possui um label e um número
+  - Labels serão nomes como: casa, fixo, oi.
+  - Labels podem ser duplicados.
+  - Números só podem conter dígitos, parenteses e hifens.
+- Adicionar contato
   - O contato possui o nome como chave.
   - Se tentar adicionar outro contato com o mesmo nome, adicione os telefones ao contato existente.
   - Adicionar os novos números de telefone no contato já existente.

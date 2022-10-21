@@ -12,17 +12,17 @@ class Account {
   + Account(id : int)
 
   ' adiciona valor à conta
-  + deposit(label : Label, value : int) : boolean
+  + deposit(label : Label, value : int) : void
 
   ' retira o dinheiro, mesmo que o balance fique negativo
-  + fee(value : int) : boolean
+  + fee(value : int) : void
 
   ' se o índice for válido e representar uma operação de tarifa
   ' adicione o mesmo valor tarifado, mas com label de reverse(extorno)
-  + reverse(index : int) : boolean
+  + reverse(index : int) : void
 
   ' só realiza a operação se houver dinheiro suficiente na conta
-  + withdraw(value : int) : boolean
+  + withdraw(value : int) : void
   + toString() : String
   __
   ' em c++, retorne a referencia

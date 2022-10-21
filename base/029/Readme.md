@@ -93,9 +93,11 @@ $end
 ```
 
 ## Diagrama
+
 ![diagrama](diagrama.png)
 
 ## Ajuda
+
 - O objetivo é dividir as responsabilidades entre o Sistema e o Gerenciador de Login.
 - Ambos compartilham a mesma estrutura de dados que contém os usuários `users: map<string, User>`.
 - O Sistema é responsável por adicionar e remover Usuários e Notas.
