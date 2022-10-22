@@ -47,7 +47,7 @@ class Account {
   + Account(id : int)
 
   ' adiciona valor à conta
-  + deposit(label : Label, value : int) : void
+  + deposit(value : int) : void
 
   ' retira o dinheiro, mesmo que o balance fique negativo
   + fee(value : int) : void
