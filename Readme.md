@@ -9,9 +9,9 @@
 - [04. ArrayList I - Listas](#04-arraylist-i---listas)
 - [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
 - [08. ArrayList III - Composição](#08-arraylist-iii---composição)
-- [10. Mapas e Exceções](#10-mapas-e-exceções)
+- [10. Mapas, Ordenação e Exceções](#10-mapas-ordenação-e-exceções)
 - [12. Herança I](#12-herança-i)
-- [13. Lógica I](#13-lógica-i)
+- [13. Referências Cruzadas](#13-referências-cruzadas)
 - [14. Herança II](#14-herança-ii)
 - [15. Lógica II](#15-lógica-ii)
 - [16. Herança III](#16-herança-iii)
@@ -28,7 +28,7 @@
 ![_](.thumbs/045.jpg) | [@045 Instalação Typescript](base/045/Readme.md#instalação-typescript)
 ![_](.thumbs/044.jpg) | [@044 Relacionamentos](base/044/Readme.md#relacionamentos)
 ![_](---------------) | [Rodando os exercícios e os testes no Replit]()
-
+![_](.thumbs/049.jpg) | [@049 Códigos auxiliares para C++](base/049/Readme.md#códigos-auxiliares-para-c)
 ## 01. Lógica
 
 Exercícios de fup para aquecer o coração e o cérebro.
@@ -77,15 +77,14 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
 ![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
-![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
+![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
 
-## 10. Mapas e Exceções
+## 10. Mapas, Ordenação e Exceções
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/008.jpg) | [@008 Agiota](base/008/Readme.md#agiota)
+![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
 ![_](.thumbs/028.jpg) | [@028 Bilheteria](base/028/Readme.md#bilheteria)
 
 ## 12. Herança I
@@ -96,7 +95,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/013.jpg) | [@013 Cadastro](base/013/Readme.md#cadastro)
 ![_](.thumbs/043.jpg) | [@043 Cofre](base/043/Readme.md#cofre)
 
-## 13. Lógica I
+## 13. Referências Cruzadas
 
 \________________ | \______________________
 ---------------- | ------------------------

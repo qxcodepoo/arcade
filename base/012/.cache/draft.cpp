@@ -83,27 +83,3 @@ int main(){
     };
     aux::execute(chain, param);
 }
-
-
-// aplica a função fn sobre cada elemento do container
-// depois junta os resultados em uma string
-// separando os elementos com o delimiter
-// auto fn = [](auto v){return *v;};
-// std::vector<int*> vi = {new int(1), new int(2), new int(3)};
-// std::cout << aux::join(vi, ", ", fn) << '\n';
-template <class CONTAINER, class LAMBDA>
-std::string join(CONTAINER container, const std::string& delimiter, LAMBDA fn) {
-    if(container.size() == 0)
-        return "";
-    std::ostringstream ss;
-    for (const auto& item : container)
-        ss << delimiter << fn(item);
-    return ss.str().substr(delimiter.size());
-}
-
-std::string Topic::str() {
-    auto all = preferenciais |  [](auto x) { return "@" + (x == nullptr ? "" : x->str()); });
-    auto norm = aux::map(normais     , [](auto x) { return "=" + (x == nullptr ? "" : x->str()); });
-    all.insert(all.end(), norm.begin(), norm.end());
-    return aux::fmt(all, " ");
-}

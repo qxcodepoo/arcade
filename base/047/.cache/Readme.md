@@ -9,7 +9,9 @@
 - [Shell](#shell)
 [](toc)
 
-Faça um programa para gerenciar figuras geométricas. Devemos conseeguir obter a área e o perímetro de cada figura. Também devemos conseguir checar se um ponto está dentro de uma figura.
+- Faça um programa para gerenciar figuras geométricas.
+- Deve ser possível conseguir obter a área e o perímetro de cada figura.
+- Também deve ser possível checar se um ponto está dentro de uma figura ou não.
 
 ## Intro
 
@@ -30,14 +32,19 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 ## Shell
 
 ```sh
-circle 2 3 5
-$circle 2 3 5
-rect 1 1 3 3 
-$rect 1 1 3 3 
-show
+$circle (2,3) 5
+$rect (1,1) (3,3) 
+$rect (2,4.53) (5,10)
+$circle (1,1) 1.5
+
+$names
+circle
+rect
+rect
+circle 
+
 $show
-Circle: (2.00, 3.00), R=5.00, Area=78.50, Perimetro=31.40
-Rectangle: (1.00, 1.00) (3.00, 3.00), Area=4.00, Perimetro=8.00
-end
+Circle: C=(2.00, 3.00), R=5.00
+Rectangle: LU=(1.00, 1.00) BD=(3.00, 3.00)
 $end
 ```

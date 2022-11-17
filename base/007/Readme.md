@@ -132,7 +132,7 @@ class Operation {
 ```bash
 #__case iniciar
 $init 100
-$show 
+$show
 account:100 balance:0
 
 #__case depositar

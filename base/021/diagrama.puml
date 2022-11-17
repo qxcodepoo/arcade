@@ -3,120 +3,96 @@ skinparam defaultFontName "JetBrains Mono Medium"
 
 
 class Aluno {
-    '
+
     - id: str
-    '
+
     - discps: map<str, Discp>
     __
-    '
+
     + Aluno(id: str)
-    '
-    + getId(): int
-    '
+
+    + getId(): str
+
     + getDiscps(): List<Discp>
-    '
+
     ' retorna o nome do aluno e o nome das disciplinas matriculadas
     + toString(): str
     '
     __vincular__
-    ' 
+
     ' cria o vínculo bidirecional aluno disciplina
     + matricular(discp: Discp)
-    '
+
     __desvincular__
-    '
+
     + desmatricular(idDiscp: str)
 }
 
 class Discp {
-    '
+
     - id: str
-    '
+
     - alunos: map<str, Aluno>
     __
-    '
+
     + Discp(id: str)
-    '
-    + getId(): int
-    '
+
+    + getId(): str
+
     + getAlunos(): List<Aluno>
-    '
+
     ' mostra o id da disciplina e o nome dos alunos matriculados
     + toString(): str
-    '
+
     __vincular__
-    ' 
+
     ' cria o vínculo bidirecional aluno disciplina
     + matricular(aluno: Aluno)
-    '
+
     __desvincular__
     '
     + desmatricular(idAluno: str)
 }
 
-
-class Manager <V> {
-    '
-    - map: map<V>
-    '
-    + Manager()
-    '
-    ' adiciona se não existir e lança exceção se já existir
-    + add(key: str, value: V)
-    '
-    ' remove se existir e lança exceção se não existir
-    + get(key: str): V
-    '
-    ' remove se existir e lança exceção se não existir
-    + rm(key: str)
-    '
-    + keys(): List<str>
-    '
-    + values(): List<V>
-    '
-    ' retorna o texto dos valores inseridos
-    + toString(): str
-}
-
 class Sistema {
     '
-    - discps: Manager<Discp>
+    - discps: map<str, Discp>
     '
-    - alunos: Manager<Aluno>
+    - alunos: map<str, Aluno>
     '
     __
     '
-    + Sistema(username : str)
-    '
+    + Sistema()
+
     ' mostra os alunos e disciplinas cadastradas
     + toString(): str
-    '
+
     __cadastrar__
-    '
+
     ' adiciona um aluno com esse id no sistema
     + addAluno(idAluno: str)
-    '
+
     ' adiciona uma disciplina com esse id no sistema
     + addDiscp(idDiscp: str)
-    '
+    
     __vincular__
-    '
-    + getAlunos(): Manager<Aluno>
-    '
-    + getDiscps(): Manager<Discp>
-    ' 
+    
+    + getAlunos(): List<Aluno>
+    
+    + getDiscps(): List<Discp>
+    
     ' recupera os objetos aluno e disciplina e vincula-os
     + matricular(idAluno: str, idDiscp: str)
-    '
+    
     __desvincular__
-    '
+    
     + desmatricular(idAluno: str, idDiscp: str)
     '
     __remover__
-    '
+    
     ' remove um aluno com esse id do sistema desfazendo todos os vínculos
     + removerAluno(idAluno: str)
-    '
+    
     ' remove uma disciplina com esse id do sistema desfazendo todos os vínculos
     + removerDiscp(idDiscp: str)
 }
@@ -124,6 +100,6 @@ class Sistema {
 Sistema "1" -* "0..*" Aluno
 Sistema "1" -* "0..*" Discp
 Aluno "1" --o "0..*" Discp
-Aluno "1" o-- "0..*" Discp
+Discp "1" o-- "0..*" Aluno
 
 @enduml
