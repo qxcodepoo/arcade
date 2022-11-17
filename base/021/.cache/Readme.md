@@ -38,10 +38,6 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 [](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
 
 ```plantuml
-@startuml
-skinparam defaultFontName "JetBrains Mono Medium"
-
-
 class Aluno {
 
     - id: str
@@ -136,14 +132,6 @@ class Sistema {
     ' remove uma disciplina com esse id do sistema desfazendo todos os vínculos
     + removerDiscp(idDiscp: str)
 }
-
-Sistema "1" -* "0..*" Aluno
-Sistema "1" -* "0..*" Discp
-Aluno "1" --o "0..*" Discp
-Discp "1" o-- "0..*" Aluno
-
-@enduml
-
 ```
 
 [](load)

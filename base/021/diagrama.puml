@@ -1,7 +1,9 @@
+'--
 @startuml
-skinparam defaultFontName "JetBrains Mono Medium"
 
-
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+'==
 class Aluno {
 
     - id: str
@@ -96,7 +98,7 @@ class Sistema {
     ' remove uma disciplina com esse id do sistema desfazendo todos os vínculos
     + removerDiscp(idDiscp: str)
 }
-
+'--
 Sistema "1" -* "0..*" Aluno
 Sistema "1" -* "0..*" Discp
 Aluno "1" --o "0..*" Discp

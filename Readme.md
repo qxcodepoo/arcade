@@ -27,8 +27,11 @@
 ![_](.thumbs/046.jpg) | [@046 Configuração do C++](base/046/Readme.md#configuração-do-c)
 ![_](.thumbs/045.jpg) | [@045 Instalação Typescript](base/045/Readme.md#instalação-typescript)
 ![_](.thumbs/044.jpg) | [@044 Relacionamentos](base/044/Readme.md#relacionamentos)
-![_](---------------) | [Rodando os exercícios e os testes no Replit]()
 ![_](.thumbs/049.jpg) | [@049 Códigos auxiliares para C++](base/049/Readme.md#códigos-auxiliares-para-c)
+<!--
+![_](---------------) | [Rodando os exercícios e os testes no Replit]()
+como construir a main
+-->
 ## 01. Lógica
 
 Exercícios de fup para aquecer o coração e o cérebro.
@@ -80,18 +83,22 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
 ![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
 
+<!--
 ## 10. Mapas, Ordenação e Exceções
 
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
 ![_](.thumbs/028.jpg) | [@028 Bilheteria](base/028/Readme.md#bilheteria)
+-->
 
 ## 12. Herança I
 
 \________________ | \______________________
 ---------------- | ------------------------
+<!--
 ![_](.thumbs/047.jpg) | [@047 Shapes](base/047/Readme.md#shapes)
+-->
 ![_](.thumbs/013.jpg) | [@013 Cadastro](base/013/Readme.md#cadastro)
 ![_](.thumbs/043.jpg) | [@043 Cofre](base/043/Readme.md#cofre)
 
@@ -100,6 +107,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/021.jpg) | [@021 Matrícula](base/021/Readme.md#matrícula)
+<!--
 ![_](.thumbs/025.jpg) | [@025 Twitter](base/025/Readme.md#twitter)
 
 ## 14. Herança II
@@ -123,3 +131,4 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/034.jpg) | [@034 Carga](base/034/Readme.md#carga)
 ![_](.thumbs/027.jpg) | [@027 Grupos](base/027/Readme.md#grupos)
 
+-->
