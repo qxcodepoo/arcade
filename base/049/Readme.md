@@ -9,15 +9,22 @@
 - Em java
   - Código: [Main.java](Main.java)
 
+- Em typescript:
+  - Código: [main.ts](main.ts)
+
 ## Shell
 
-```
+```s
 #__case teste simples
 $show
 []
+
+#__case inserindo vários números em lote
 $push 1 4 3 2
 $show
 [1, 4, 3, 2]
+
+#__case apagando por índice
 $erase 1
 $show
 [1, 3, 2]

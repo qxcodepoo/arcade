@@ -3,7 +3,8 @@
 #include <vector>
 
 namespace aux {
-    double operator+(std::string text) {
+
+    double number(std::string text) {
         std::stringstream ss(text);
         double value {};
         if (ss >> value) {
@@ -11,6 +12,9 @@ namespace aux {
         }
         std::cout << "fail: (" << text << ") is not a number\n";
         return 0.0;
+    }
+    double operator+(std::string text) {
+        return number(text);
     }
 
     std::vector<std::string> split(std::string line, char delimiter = ' ') {
