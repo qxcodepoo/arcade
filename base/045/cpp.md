@@ -1,6 +1,6 @@
-## @046 Configuração do C++
+# Configuração do C++
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/cover.jpg)
+![cover](cpp.jpg)
 
 ## Caminho mais fácil
 

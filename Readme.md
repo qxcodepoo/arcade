@@ -20,8 +20,7 @@
 \________________ | \______________________ 
 ---------------- | ------------------------
 ![_](.thumbs/038.jpg) | [@038 Introdução ao git](base/038/Readme.md#introdução-ao-git)
-![_](.thumbs/046.jpg) | [@046 Configuração do C++](base/046/Readme.md#configuração-do-c)
-![_](.thumbs/045.jpg) | [@045 Instalação Typescript](base/045/Readme.md#instalação-typescript)
+![_](.thumbs/045.jpg) | [@045 Instalação C++ e TS](base/045/Readme.md#instalação-c-e-ts)
 ![_](.thumbs/044.jpg) | [@044 Relacionamentos](base/044/Readme.md#relacionamentos)
 ![_](.thumbs/049.jpg) | [@049 Criando a Main](base/049/Readme.md#criando-a-main)
 ![_](.thumbs/050.jpg) | [@050 Rodando questões no Replit](base/050/Readme.md#rodando-questões-no-replit)
