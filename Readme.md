@@ -27,7 +27,7 @@
 ![_](.thumbs/046.jpg) | [@046 Configuração do C++](base/046/Readme.md#configuração-do-c)
 ![_](.thumbs/045.jpg) | [@045 Instalação Typescript](base/045/Readme.md#instalação-typescript)
 ![_](.thumbs/044.jpg) | [@044 Relacionamentos](base/044/Readme.md#relacionamentos)
-![_](.thumbs/049.jpg) | [@049 Códigos auxiliares para C++](base/049/Readme.md#códigos-auxiliares-para-c)
+![_](.thumbs/049.jpg) | [@049 Criando a Main](base/049/Readme.md#criando-a-main)
 <!--
 ![_](---------------) | [Rodando os exercícios e os testes no Replit]()
 como construir a main
@@ -97,9 +97,9 @@ Exercícios de fup para aquecer o coração e o cérebro.
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/043.jpg) | [@043 Cofre](base/043/Readme.md#cofre)
+![_](.thumbs/013.jpg) | [@013 Cadastro](base/013/Readme.md#cadastro)
 
 <!--
-![_](.thumbs/013.jpg) | [@013 Cadastro](base/013/Readme.md#cadastro)
 ![_](.thumbs/047.jpg) | [@047 Shapes](base/047/Readme.md#shapes)
 -->
 
