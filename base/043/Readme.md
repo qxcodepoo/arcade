@@ -10,26 +10,117 @@
 [](toc)
 
 ## Intro
+
 O sistema deverá:
 
 - Gerenciar um cofrinho do tipo Porquinho capaz de guardar moedas e itens.
 - As moedas devem ser criadas através de uma `enum`.
-- Ambos moedas e itens deve implementar a Interaface Valuable.
+- Ambos moedas e itens deve implementar a Interaface `Valuable`.
 - O volume do cofre incrementa conforme ele recebe itens e moedas.
 - A lógica da utilização do cofre é:
-    - Para inserir moedas e itens, o cofre deve estar inteiro.
-    - Para obter moedas e itens, o cofre deve estar quebrado.
-    - Ao quebrar, o volume do porco deve ser zerado e o status de broken deve ser alterado para true.
-    - Ao obter moedas e itens, você deve retornar os objetos armazenados.
-    - Calcular o valor e o volume atual do porco deve ser feito através do método getValue() e getVolume().
-    - Moedas e Itens devem ser armazenados em uma mesma lista de Valuables.
+  - Para inserir moedas e itens, o cofre deve estar inteiro.
+  - Para obter moedas e itens, o cofre deve estar quebrado.
+  - Ao quebrar, o volume do porco deve ser zerado e o status de broken deve ser alterado para `true`.
+  - Ao obter moedas e itens, você deve retornar os objetos armazenados.
+  - Calcular o valor e o volume atual do porco deve ser feito através do método getValue() e getVolume().
+  - Moedas e Itens devem ser armazenados em uma mesma lista de Valuables.
 
 ***
 
 ## Guide
+
 ![diagrama](diagrama.png)
 
 - [Solver.java](.cache/draft.java)
+
+[](load)[](diagrama.puml)[](fenced:plantuml:filter)
+
+```plantuml
+
+~interface Valuable {
+  + getLabel() : String {abstract}
+  + getValue() : double {abstract}
+  + getVolume() : int {abstract}
+  __
+  + toString() : String
+}
+
+enum Coin {
+  + M10 {static}
+  + M100 {static}
+  + M25 {static}
+  + M50 {static}
+  - label  : String
+  - value  : double
+  - volume : int
+  __
+  + getLabel()  : String
+  + getValue()  : double
+  + getVolume() : int
+  __
+  + toString() : String
+}
+
+class Item {
+  - label : String
+  - value : double
+  - volume : int
+  __
+  + Item(label : String, volume : int, value : double)
+  __
+  + getLabel()  : String
+  + getValue()  : double
+  + getVolume() : int
+  + setLabel(label : String)
+  + setVolume(volume : int)
+  __
+  + toString() : String
+}
+
+class Pig {
+  - broken    : boolean
+  - valuables : ArrayList<Valuable>
+  - volumeMax : int
+  __
+  
+  ' inicializa as variaveis
+  + Pig(volumeMax  : int)
+  
+  ' verifica se ainda cabe e se couber
+  ' adiciona o elemento no final da lista
+  + addValuable(valuable : Valuable) : boolean
+  
+  ' quebra se já não estiver quebrado
+  + breakPig()     : boolean
+  __
+  
+  ' se estiver quebrado
+  ' pega apenas as moedas, retira-as
+  ' da lista de valuables e as retorna
+  + getCoins()     : List<Coin>
+
+  ' retira e retorna apenas os itens
+  + getItems()     : List<Item>
+
+  ' percorre o vetor de valuables
+  ' somando o valor de todos os elementos
+  + calcValue()     : double
+
+  ' percorre o vetor de valuables
+  ' somando o volume de todos os elementos
+  + getVolume()    : int
+
+  ' retorna o volume max
+  + getVolumeMax() : int
+
+  ' retorna se esta quebrado
+  + isBroken()     : boolean
+  __
+  + toString()     : String
+}
+```
+
+[](load)
 
 ***
 

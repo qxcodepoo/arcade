@@ -20,10 +20,10 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 ## Requisitos
 
 - Cadastrar um cliente com idCliente único
-    - Quando o cliente é cadastrado no sistema, automaticamente é aberta uma conta corrente e uma conta poupança para ele.
+  - Quando o cliente é cadastrado no sistema, automaticamente é aberta uma conta corrente e uma conta poupança para ele.
 - Mensalmente:
-    - Contas corrente vão receber uma tarifa de **20 reais** podendo inclusive ficar negativas.
-    - Contas poupança vão aumentar de 1 porcento.
+  - Contas corrente vão receber uma tarifa de **20 reais** podendo inclusive ficar negativas.
+  - Contas poupança vão aumentar de 1 porcento.
 - Sua agência deve ter um mapa de clientes e um mapa de contas.
 - O cliente só tem duas contas, mas imagine que no futuro ele poderá ter várias.
 - As contas devem ser tratadas utilizando polimorfismo.
