@@ -2,11 +2,11 @@
 
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/049/cover.jpg)
 
-- Em c++: 
+- Em c++:
   - Código: [main.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/049/main.cpp)
   - Vídeo explicando as funções auxiliares funções lambda, template e funções auxiliares [vídeo](https://youtu.be/u4FwmKEwGBo)
 
-- Em java
+- Em java:
   - Código: [Main.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/049/Main.java)
 
 - Em typescript:
