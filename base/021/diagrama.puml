@@ -23,11 +23,11 @@ class Aluno {
     __vincular__
 
     ' cria o vínculo bidirecional aluno disciplina
-    + matricular(discp: Discp)
+    + addDiscp(discp: Discp)
 
     __desvincular__
 
-    + desmatricular(idDiscp: str)
+    + rmDiscp(idDiscp: str)
 }
 
 class Discp {
@@ -49,11 +49,11 @@ class Discp {
     __vincular__
 
     ' cria o vínculo bidirecional aluno disciplina
-    + matricular(aluno: Aluno)
+    + addAluno(aluno: Aluno)
 
     __desvincular__
     '
-    + desmatricular(idAluno: str)
+    + rmAluno(idAluno: str)
 }
 
 class Sistema {
@@ -99,9 +99,13 @@ class Sistema {
     + removerDiscp(idDiscp: str)
 }
 '--
-Sistema "1" -* "0..*" Aluno
-Sistema "1" -* "0..*" Discp
-Aluno "1" --o "0..*" Discp
+
+left to right direction
+
+Sistema "1" *-- "0..*" Aluno
+Sistema "1" *-- "0..*" Discp
+
+Discp "0..*" --o "1" Aluno
 Discp "1" o-- "0..*" Aluno
 
 @enduml

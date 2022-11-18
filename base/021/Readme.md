@@ -57,11 +57,11 @@ class Aluno {
     __vincular__
 
     ' cria o vínculo bidirecional aluno disciplina
-    + matricular(discp: Discp)
+    + addDiscp(discp: Discp)
 
     __desvincular__
 
-    + desmatricular(idDiscp: str)
+    + rmDiscp(idDiscp: str)
 }
 
 class Discp {
@@ -83,11 +83,11 @@ class Discp {
     __vincular__
 
     ' cria o vínculo bidirecional aluno disciplina
-    + matricular(aluno: Aluno)
+    + addAluno(aluno: Aluno)
 
     __desvincular__
     '
-    + desmatricular(idAluno: str)
+    + rmAluno(idAluno: str)
 }
 
 class Sistema {
