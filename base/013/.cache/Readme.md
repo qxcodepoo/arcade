@@ -6,9 +6,9 @@
 
 - [Vídeo explicativo](#vídeo-explicativo)
 - [Requisitos](#requisitos)
+- [Guide](#guide)
 - [Shell](#shell)
-- [Diagrama](#diagrama)
-- [Esqueleto](#esqueleto)
+- [Main](#main)
 [](toc)
 
 O objetivo dessa atividade é implementar uma agência bancária simplificada. Deve ser capaz de cadastrar cliente. Cada cliente inicia com uma conta poupança e uma conta corrente. Contas correntes tem taxa de administração e contas poupanças rendem juros.
@@ -28,6 +28,142 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 - O cliente só tem duas contas, mas imagine que no futuro ele poderá ter várias.
 - As contas devem ser tratadas utilizando polimorfismo.
 
+## Guide
+
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.png)
+
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.puml)[](filter:fenced:plantuml)
+
+```plantuml
+
+class Account {
+    # balance: double
+    # accId: int
+    # clientId: str
+
+    ' typeId {CC, CP}
+    # typeId: str
+    --
+    ' inicializa os atributos
+    ' saldo inicial é 0
+    + Account(accId: int, clientId: str, typeId: str)
+
+    ' realiza o depósito
+    + deposit(value: double)
+
+    ' realiza o saque
+    ' verifique se há saldo suficiente
+    + withdraw(value: double)
+
+    ' realiza a transferência da conta this para conta other
+    ' verifique se há saldo suficiente na conta this
+    + transfer(other: Account, value: double)
+
+    ' retorna as informações na conta no formato
+    ' "accId:clientId:balance:typeId"
+    + toString(): str
+    --
+
+    ' retorna o saldo
+    + getBalance(): double
+
+    ' retorna o id
+    + getId(): int
+
+    ' retorna o id do cliente
+    + getClientId(): str
+
+    ' retorna o tipo da conta
+    + getTypeId(): str
+    --
+    
+    ' método abstrato que realiza a atualização mensal da conta
+    ' o método deve ser implementado nas subclasses
+    + {static} updateMonthly(): void
+}
+
+class CheckingAccount {
+    ' taxa de manutenção da conta
+    # monthlyFee: double
+    --
+    ' chama o construtor da superclasse
+    ' repassando os valores accId, clientId e typeId = CC
+    + CheckingAccount(accId: int, clientId: str)
+
+    ' decrementa o saldo da conta em monthlyFee
+    + updateMonthly(): void
+}
+
+class SavingsAccount {
+    ' taxa de rendimento mensal
+    # monthlyInterest: double
+
+    --
+    ' chama o construtor da superclasse
+    ' repassando os valores accId, clientId e typeId = CP
+    + SavingsAccount(accId: int, clientId: str)
+
+    ' incrementa o saldo da conta em monthlyInterest %
+    + updateMonthly(): void  
+}
+
+class Client {
+    # clientId: str
+    # accounts: list[Account]
+    --
+    + Client(name: str, clientId: str)
+
+    ' adiciona uma conta à lista de contas do cliente
+    + addAccount(acc: Account)
+
+    ' retorna a lista de contas do cliente
+    + getAccounts(): list[Account]
+
+    ' retorna o id do cliente
+    + getClientId(): str
+
+    ' retorna o nome do cliente e a lista com os ids das contas no formato
+    ' nome [id1, id2, ...]
+    + toString(): str
+}
+
+class Agency {
+    - accounts: Map<int, Account>
+    - clients : Map<str, Client>
+    - nextAccountId: int
+    --
+
+    ' busca pela conta e dispara excessão se não encontrar
+    - getAccount(int accountId): Account
+    --
+    ' inicializa os atributos
+    + BankAgency()
+
+    ' cria uma conta para o cliente
+    ' cria um objeto cliente e insere no mapa de clientes
+    ' cria uma conta corrente e uma conta polpança e insere no mapa de contas
+    ' faz o vínculo cruzado colocando as contas dentro do objeto do cliente
+    + addClient(clientId: str): void
+
+    ' procura pela conta usando o getAccount e realiza a operação de depósito
+    ' utiliza o método deposit da classe Account
+    + deposit(accId: int, value: double): void
+
+    ' procura pela conta e realiza a operação de saque
+    ' utiliza o método withdraw da classe Account
+    + withdraw(accId: int, value: double): void
+
+    ' procura pela conta e realiza a operação de transferência
+    ' utiliza o método transfer da classe Account
+    + transfer(fromAccId: int, toAccId: int, value: double): void
+
+    ' realiza a operação de atualização mensal em todas as contas
+    + updateMonthly(): void
+}
+
+```
+
+[](load)
 
 ## Shell
 
@@ -76,11 +212,11 @@ $saque 1 300
 fail: saldo insuficiente
 
 $show
-Clients:
-- Almir [0, 1]
-- Julia [2, 3]
-- Maria [4, 5]
-Accounts:
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
 0:Almir:30.00:CC
 1:Almir:200.00:CP
 2:Julia:50.00:CC
@@ -96,11 +232,11 @@ $transf 2 8 10
 fail: conta nao encontrada
 
 $show
-Clients:
-- Almir [0, 1]
-- Julia [2, 3]
-- Maria [4, 5]
-Accounts:
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
 0:Almir:5.00:CC
 1:Almir:200.00:CP
 2:Julia:50.00:CC
@@ -115,134 +251,69 @@ Accounts:
 $update
 
 $show
-Clients:
-- Almir [0, 1]
-- Julia [2, 3]
-- Maria [4, 5]
-Accounts:
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
 0:Almir:-15.00:CC
 1:Almir:202.00:CP
 2:Julia:30.00:CC
 3:Julia:50.50:CP
 4:Maria:5.00:CC
 5:Maria:202.00:CP
+
 $end
 
 ```
 
-***
-
-## Diagrama
-
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.png)
 
 ***
 
-## Esqueleto
-<!--FILTER Solver.java java-->
+## Main
+
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/Solver.java)[](fenced:java:filter)
+
 ```java
-//excessão lançada em quaisquer erros relacionados à conta
-class AccountException extends RuntimeException {
-    public AccountException(String message) {
-        super(message);
-    }
-}
-abstract class Account {
-    protected int id;
-    protected float balance;
-    protected String clientId;
-    protected String type; //CC or CP
-    public Account(int id, String clientId);
-    //abstract method
-    public abstract void monthlyUpdate();
-    //saque
-    public void withdraw(float value);
-    //deposito
-    public void deposit(float value);
-    //transferencia para outra conta
-    public void transfer(Account other, float value);
-    public String toString();
-    //GETS and SETS
-    int getId();
-    float getBalance();
-    String getClientId();
-    String getType();
-}
-class CheckingAccount extends Account {
-    //inicializa conta.type com "CC"
-    public CheckingAccount(int id, String idClient);
-    //retira 20 do saldo
-    public void monthlyUpdate();
-}
-class SavingsAccount extends Account {
-    public SavingsAccount(int id, String idClient);
-    //aumenta saldo em 1%
-    public void monthlyUpdate();
-}
-class Client {
-    private String clientId;
-    private List<Account> accounts;
-    public Client(String clientId);
-    public void addAccount(Account account);
-    public java.lang.String toString();
-    //GETS and SETS
-    String getClientId();
-    void setClientId(String clientId);
-    List<Account> getAccounts();
-    void setAccounts(List<Account> accounts);
-};
-class BankAgency {
-    private Map<String, Client> clients;
-    private Map<Integer, Account> accounts;
-    private int nextAccountId = 0;
-    //obtém conta ou lança excessão
-    private Account getAccount(int id);
-    public BankAgency();
-    //se o cliente não existir
-    //cria o cliente
-    //cria uma conta poupança e uma conta corrent para o cliente
-    //adiciona essas contas no vetor de contas e no vetor do cliente
-    //adiciona o cliente no mapa de clientes
-    public void addClient(String clientId);
-    //obtem o cliente e invoca as ações
-    public void withdraw(int idConta, float value);
-    public void deposit(int idConta, float value);
-    public void transfer(int contaDe, int contaPara, float value);
-    public void monthlyUpdate();
-    public String toString();
-};
 class Solver{
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void main(String[] s) {
         BankAgency agency = new BankAgency();
         while(true){
             try {
-                String line = scanner.nextLine();
-                System.out.println("$" + line);
-                String ui[] = line.split(" ");
+                var line = input();
+                write("$" + line);
+                var args = line.split(" ");
+
                 if(line.equals("end")) {
                     break;
-                } else if(ui[0].equals("show")) {
-                    System.out.println(agency);
-                } else if(ui[0].equals("addCli")) {
-                    agency.addClient(ui[1]);
-                } else if(ui[0].equals("saque")) { //accountId value
-                    agency.withdraw(Integer.parseInt(ui[1]), Float.parseFloat(ui[2]));
-                } else if(ui[0].equals("deposito")) {//accountId value
-                    agency.deposit(Integer.parseInt(ui[1]), Float.parseFloat(ui[2]));
-                } else if(ui[0].equals("transf")) {//from to value
-                    agency.transfer(Integer.parseInt(ui[1]), Integer.parseInt(ui[2]), Float.parseFloat(ui[3]));
-                } else if(ui[0].equals("update")) {
+                } else if(args[0].equals("show")) {
+                    write("" + agency);
+                } else if(args[0].equals("addCli")) {
+                    agency.addClient(args[1]);
+                } else if(args[0].equals("saque")) { //accountId value
+                    agency.withdraw((int) number(args[1]), number(args[2]));
+                } else if(args[0].equals("deposito")) {//accountId value
+                    agency.deposit((int) number(args[1]), number(args[2]));
+                } else if(args[0].equals("transf")) {//from to value
+                    agency.transfer((int) number(args[1]), (int) number(args[2]), number(args[3]));
+                } else if(args[0].equals("update")) {
                     agency.monthlyUpdate();
                 } else {
-                    System.out.println("fail: comando invalido");
+                    write("fail: comando invalido");
                 }
-            } catch (AccountException ae) {
-                System.out.println(ae.getMessage());
+            } catch (Exception e) {
+                write(e.getMessage());
             }
         }
-        scanner.close();
     }
+    private static Scanner scanner = new Scanner(System.in);
+    private static String  input()              { return scanner.nextLine(); }
+    private static double  number(String value) { return Double.parseDouble(value); }
+    private static void    write(String value)  { System.out.println(value); }
 }
+//!OFF
+
+
 ```
-<!--FILTER_END-->
+
+[](load)
