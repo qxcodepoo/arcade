@@ -3,7 +3,6 @@
 #include <vector>
 
 namespace aux {
-
     double number(std::string text) {
         std::stringstream ss(text);
         double value {};
@@ -13,6 +12,7 @@ namespace aux {
         std::cout << "fail: (" << text << ") is not a number\n";
         return 0.0;
     }
+    
     double operator+(std::string text) {
         return number(text);
     }
@@ -59,22 +59,10 @@ int main() {
         write("$" + line);
         auto args = split(line);
 
-        if (args[0] == "end") {
-            break;
-        }
-        else if (args[0] == "push") {
-            for (size_t i = 1; i < args.size(); ++i) {
-                vet.push_back(args[i]);
-            }
-        }
-        else if (args[0] == "show") {
-            write("["s + join(vet, ", ") + "]");
-        }
-        else if(args[0] == "erase") {
-            vet.erase(vet.begin() + (int) +args[1]);
-        }
-        else {
-            write("fail: invalid command");
-        }
+        if      (args[0] == "end")   { break; }
+        else if (args[0] == "push")  { for (size_t i = 1; i < args.size(); ++i) { vet.push_back(args[i]); } }
+        else if (args[0] == "show")  { write("["s + join(vet, ", ") + "]"); }
+        else if (args[0] == "erase") { vet.erase(vet.begin() + (int) +args[1]); }
+        else                         { write("fail: invalid command"); }
     }
 }

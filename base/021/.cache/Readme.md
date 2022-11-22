@@ -29,7 +29,7 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 
 - **Removendo alunos e disciplinas do sistema**
   - Remover aluno mantendo a integridade das relações.
-  - Remover disciplinas mantendo a integridade das relações
+  - Remover disciplinas mantendo a integridade das relações.
 
 ## Guide
 
@@ -196,7 +196,7 @@ $show
 - alunos
 bruno [fup]
 edson [fup]
-- discps:
+- discps
 aps []
 fup [bruno, edson]
 poo []
