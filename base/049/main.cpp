@@ -59,10 +59,10 @@ int main() {
         write("$" + line);
         auto args = split(line);
 
-        if      (args[0] == "end")   { break; }
+        if      (args[0] == "end")   { break;                                                               }
         else if (args[0] == "push")  { for (size_t i = 1; i < args.size(); ++i) { vet.push_back(args[i]); } }
-        else if (args[0] == "show")  { write("["s + join(vet, ", ") + "]"); }
-        else if (args[0] == "erase") { vet.erase(vet.begin() + (int) +args[1]); }
-        else                         { write("fail: invalid command"); }
+        else if (args[0] == "show")  { write("["s + join(vet, ", ") + "]");                                 }
+        else if (args[0] == "erase") { vet.erase(vet.begin() + (int) +args[1]);                             }
+        else                         { write("fail: invalid command");                                      }
     }
 }

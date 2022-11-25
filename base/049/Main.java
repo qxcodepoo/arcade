@@ -12,15 +12,11 @@ public class Main {
             write("$" + line);
             var args = line.split(" ");
 
-            if (args[0].equals("end"))        { break;                                      }
-            else if(args[0].equals("push"))   {
-                for (int i = 1; i < args.length; i++) {
-                    vet.add(args[i]);
-                }
-            }
-            else if (args[0].equals("show"))  { write("[" + String.join(", ", vet) + "]"); }
-            else if (args[0].equals("erase")) { vet.remove((int) number(args[1]));         }
-            else                              { write("fail: comando invalido");     }
+            if      (args[0].equals("end"))   { break;                                                      }
+            else if (args[0].equals("push"))  { for (int i = 1; i < args.length; i++) { vet.add(args[i]); } }
+            else if (args[0].equals("show"))  { write("[" + String.join(", ", vet) + "]");                  }
+            else if (args[0].equals("erase")) { vet.remove((int) number(args[1]));                          }
+            else                              { write("fail: comando invalido");                      }
         }
     }
 

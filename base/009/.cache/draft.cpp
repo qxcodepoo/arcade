@@ -2,7 +2,57 @@
 #include <list>
 #include <sstream>
 #include <memory>
-#include <aux.hpp>
+#include <vector>
+
+namespace aux {
+    double number(std::string text) {
+        std::stringstream ss(text);
+        double value {};
+        if (ss >> value) {
+            return value;
+        }
+        std::cout << "fail: (" << text << ") is not a number\n";
+        return 0.0;
+    }
+    
+    double operator+(std::string text) {
+        return number(text);
+    }
+
+    std::vector<std::string> split(std::string line, char delimiter = ' ') {
+        std::stringstream ss(line);
+        std::vector<std::string> result;
+        std::string token;
+        while (std::getline(ss, token, delimiter)) {
+            result.push_back(token);
+        }
+        return result;
+    }
+
+    template <class T, class FN> std::string join(T container, std::string sep, FN fn) { 
+        std::stringstream ss;
+        for (auto it = container.begin(); it != container.end(); ++it) {
+            ss << (it == container.begin() ? "" : sep) << fn(*it);
+        }
+        return ss.str();
+    }
+
+    template <class T> std::string join(T container, std::string sep = ", ") {
+        return join(container, sep, [](auto item) { return item; });
+    }
+
+    std::string input() {
+        std::string line;
+        std::getline(std::cin, line);
+        return line;
+    }
+
+    template <class T> void write(T data, std::string end = "\n") {
+        std::cout << data << end;
+    }
+}
+using namespace aux;
+using namespace std::string_literals;
 
 class Kid {
 private:
@@ -27,7 +77,7 @@ public:
 using PtrKid = std::shared_ptr<Kid>;
 
 std::ostream& operator<<(std::ostream& os,  PtrKid kid) {
-    return (os << kid->str());
+    return os << kid->str();
 }
 
 class Trampoline {
@@ -53,19 +103,24 @@ public:
     PtrKid removeKid(std::string name) {
     }
     std::string str() {
-        return (waiting | aux::FMT()) + " => " + (playing | aux::FMT());
+        return "["s + join(waiting) + "] => [" + join(playing) + "]";
     }
 };
 
 int main() {
-    aux::Chain chain;
-    aux::Param param;
     Trampoline tr;
-    chain["arrive"] = [&]() { tr.arrive(std::make_shared<Kid>(param[1], aux::to<int>(param[2]))); };
-    chain["enter"]  = [&]() { tr.enter(); };
-    chain["leave"]  = [&]() { tr.leave(); };
-    chain["remove"] = [&]() { tr.removeKid(param[1]); };
-    chain["show"]   = [&]() { std::cout << tr.str() << std::endl; };
 
-    aux::execute(chain, param);
+    while (true) {
+        auto line = input();
+        write("$" + line);
+        auto args = split(line);
+
+        if      (args[0] == "end"   ) { break;                                                     }
+        else if (args[0] == "arrive") { tr.arrive(std::make_shared<Kid>(args[1], (int) +args[2])); }
+        else if (args[0] == "enter" ) { tr.enter();                                                }
+        else if (args[0] == "leave" ) { tr.leave();                                                }
+        else if (args[0] == "remove") { tr.removeKid(args[1]);                                     }
+        else if (args[0] == "show"  ) { write(tr.str());                                           }
+        else                          { write("fail: invalid command");                            }
+    }
 }
