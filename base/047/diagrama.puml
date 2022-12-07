@@ -5,36 +5,92 @@ skinparam defaultFontName Hasklig
 skinparam dpi 150
 
 '==
+
+class Point2D {
+    + x: double
+    + y: double
+
+    ' gera uma string no formato
+    ' (0.00, 0.00)
+    + toString(): string
+}
+
 class Math {
-    + static distance(a: V2D, b: V2D): float
+    ' método estático para calcular a distância entre dois pontos
+    + {static} distance(a: Point2D, b: Point2D): double
 }
 
 class Shape {
-    + area: double
-    + perimeter: double
-    + inside(V2D: point): boolean
+    + name: string
+
+    + Shape(name: string)
+    
+    ' getName(): string
+    + getName(): string
+
+    ' os métodos abaixo não são implementadas
+    ' na classe Shape, apenas nas classes filhas
+
+    ' retorna se o ponto está dentro da forma
+    + {abstract} inside(Point2D: point): boolean
+
+    ' retorna a área da forma
+    + {abstract} getArea(): double
+
+    ' retorna o perímetro da forma
+    + {abstract} getPerimeter(): double
+
+    ' retorna apenas o nome
+    + toString(): string
 }
 
 class Circle {
+    + center: Point2D
     + radius: double
-    + center: V2D
+
+    __
+    ' invoca o construtor da superclasse
+    ' passando o nome Circ
+    ' guarda os outros valores nos atributos
+    ' da classe Circle
+    + Circle(center: Point2D, radius: double)
+
+    ' implementa os métodos abstratos
+    + inside(point: Point2D): boolean
+    + getArea(): double
+    + getPerimeter(): double
+
+    ' retorna o nome da classe e os valores no seguinte formato
+    ' Circ: C=(0.00, 0.00), R=0.00
+    ' O ponto deve ser gerado pelo método toString da classe Point2D
+    + toString(): string
 }
 
 class Rectangle {
-    ' posicao esquerda superior
-    + position: V2D
-    ' dimensoes
-    + size: V2D
-}
+    ' ponto superior esquerdo
+    + P1: Point2D
+    ' ponto inferior direito
+    + P2: Point2D
 
-class V2D {
-    - x: number
-    - y: number
+    __
+    ' invoca o construtor da superclasse
+    ' passando o nome Rect
+    ' inicializa o resto dos atributos
+    + Rectangle(P1: Point2D, P2: Point2D)
+
+    ' implementa os métodos abstratos
+    + inside(point: Point2D): boolean
+    + getArea(): double
+    + getPerimeter(): double
+
+    ' retorna o nome da classe e os valores no seguinte formato
+    ' Rect: P1=(0.00, 0.00) P2=(0.00, 0.00)
+    + toString(): string
 }
 
 '--
 Circle --|> Shape
 Rectangle --|> Shape
-V2D  --  Circle
-V2D  --  Rectangle
+Point2D  --*  Circle
+Point2D  --*  Rectangle
 @enduml

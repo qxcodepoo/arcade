@@ -94,7 +94,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ---------------- | ------------------------
 ![_](.thumbs/043.jpg) | [@043 Cofre](base/043/Readme.md#cofre)
 ![_](.thumbs/013.jpg) | [@013 Cadastro](base/013/Readme.md#cadastro)
-![_](.thumbs/047.jpg) | [@047 Shapes](base/047/Readme.md#shapes)
+![_](.thumbs/047.jpg) | [@047 ](base/047/Readme.md#)
 
 <!--
 ![_](.thumbs/048.jpg) | [@048 Estacionamento](base/048/Readme.md#estacionamento)
