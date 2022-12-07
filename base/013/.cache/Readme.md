@@ -179,11 +179,11 @@ $addCli Maria
 # show mostra as contas do banco, com id:usuario:saldo:tipo
 # em tipo use CC para conta corrente e CP para conta poupança.
 $show
-Clients:
-- Almir [0, 1]
-- Julia [2, 3]
-- Maria [4, 5]
-Accounts:
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
 0:Almir:0.00:CC
 1:Almir:0.00:CP
 2:Julia:0.00:CC
@@ -266,7 +266,6 @@ Maria [4, 5]
 $end
 
 ```
-
 
 ***
 

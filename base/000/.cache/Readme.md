@@ -37,8 +37,7 @@
 
 ## Guide
 
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.cpp), [aux.hpp](https://raw.githubusercontent.com/senapk/cppaux/master/aux.hpp)
-- [solver.js](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.js)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.cpp)
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.ts)
 
 ***

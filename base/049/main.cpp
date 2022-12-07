@@ -50,7 +50,6 @@ namespace aux {
     }
 }
 using namespace aux;
-using namespace std::string_literals;
 
 int main() {
     std::vector<std::string> vet;
@@ -60,8 +59,12 @@ int main() {
         auto args = split(line);
 
         if      (args[0] == "end")   { break;                                                               }
-        else if (args[0] == "push")  { for (size_t i = 1; i < args.size(); ++i) { vet.push_back(args[i]); } }
-        else if (args[0] == "show")  { write("["s + join(vet, ", ") + "]");                                 }
+        else if (args[0] == "push")  { 
+            for (size_t i = 1; i < args.size(); ++i) { 
+                vet.push_back(args[i]); 
+            } 
+        }
+        else if (args[0] == "show")  { write("[" + join(vet, ", ") + "]");                                  }
         else if (args[0] == "erase") { vet.erase(vet.begin() + (int) +args[1]);                             }
         else                         { write("fail: invalid command");                                      }
     }
