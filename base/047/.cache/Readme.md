@@ -1,5 +1,4 @@
-## @047
-# Shapes
+## @047 Shapes
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/cover.jpg)
 

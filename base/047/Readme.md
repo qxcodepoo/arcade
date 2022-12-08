@@ -1,4 +1,3 @@
-
 # Shapes
 
 ![cover](cover.jpg)
