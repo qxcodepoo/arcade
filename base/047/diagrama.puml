@@ -15,7 +15,7 @@ class Point2D {
     + toString(): string
 }
 
-class Math {
+class Calc {
     ' método estático para calcular a distância entre dois pontos
     + {static} distance(a: Point2D, b: Point2D): double
 }
