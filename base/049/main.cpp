@@ -12,10 +12,6 @@ namespace aux {
         std::cout << "fail: (" << text << ") is not a number\n";
         return 0.0;
     }
-    
-    double operator+(std::string text) {
-        return number(text);
-    }
 
     std::vector<std::string> split(std::string line, char delimiter = ' ') {
         std::stringstream ss(line);
@@ -48,11 +44,18 @@ namespace aux {
     template <class T> void write(T data, std::string end = "\n") {
         std::cout << data << end;
     }
+
+    template <class DATA>
+    std::string format(std::string format, DATA data) {
+        char buffer[100];
+        sprintf(buffer, format.c_str(), data);
+        return buffer;
+    }
 }
 using namespace aux;
 
 int main() {
-    std::vector<std::string> vet;
+    std::vector<int> vet;
     while (true) {
         auto line = input();
         write("$" + line);
@@ -61,11 +64,18 @@ int main() {
         if      (args[0] == "end")   { break;                                                               }
         else if (args[0] == "push")  { 
             for (size_t i = 1; i < args.size(); ++i) { 
-                vet.push_back(args[i]); 
+                vet.push_back((int) number(args[i])); 
             } 
         }
         else if (args[0] == "show")  { write("[" + join(vet, ", ") + "]");                                  }
-        else if (args[0] == "erase") { vet.erase(vet.begin() + (int) +args[1]);                             }
+        else if (args[0] == "erase") { vet.erase(vet.begin() + (int) number(args[1]));                      }
+        else if (args[0] == "media") {
+            double sum = 0;
+            for (auto item : vet) {
+                sum += item;
+            }
+            write(format("%.2f", sum / vet.size()));
+        }
         else                         { write("fail: invalid command");                                      }
     }
 }

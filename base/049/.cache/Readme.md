@@ -59,5 +59,10 @@ $show
 $erase 1
 $show
 [1, 3, 2]
+
+#__case calculando a media
+$media
+2.33
+
 $end
 ```

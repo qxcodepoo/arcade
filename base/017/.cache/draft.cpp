@@ -2,23 +2,76 @@
 #include <vector>
 #include <utility>
 #include <iomanip>
-#include <aux.hpp>
 
-enum Cents {C10, C25, C50, C100};
+namespace aux {
+    double number(std::string text) {
+        std::stringstream ss(text);
+        double value {};
+        if (ss >> value) {
+            return value;
+        }
+        std::cout << "fail: (" << text << ") is not a number\n";
+        return 0.0;
+    }
+
+    std::vector<std::string> split(std::string line, char delimiter = ' ') {
+        std::stringstream ss(line);
+        std::vector<std::string> result;
+        std::string token;
+        while (std::getline(ss, token, delimiter)) {
+            result.push_back(token);
+        }
+        return result;
+    }
+
+    template <class T, class FN> std::string join(T container, std::string sep, FN fn) { 
+        std::stringstream ss;
+        for (auto it = container.begin(); it != container.end(); ++it) {
+            ss << (it == container.begin() ? "" : sep) << fn(*it);
+        }
+        return ss.str();
+    }
+
+    template <class T> std::string join(T container, std::string sep = ", ") {
+        return join(container, sep, [](auto item) { return item; });
+    }
+
+    std::string input() {
+        std::string line;
+        std::getline(std::cin, line);
+        return line;
+    }
+
+    template <class T> void write(T data, std::string end = "\n") {
+        std::cout << data << end;
+    }
+
+    //format data using sprinf
+    template <class DATA>
+    std::string format(std::string format, DATA data) {
+        char buffer[100];
+        sprintf(buffer, format.c_str(), data);
+        return buffer;
+    }
+}
+using namespace aux;
+using namespace std::string_literals;
+
 
 class Coin {
     float value;
     int volume;
     std::string label;
-public:
-    Coin(Cents v) { 
-        switch (v) {
-            case C10: value = 0.10; volume = 1; label = "C10"; break;
-            case C25: value = 0.25; volume = 2; label = "C25"; break;
-            case C50: value = 0.50; volume = 3; label = "C50"; break;
-            case C100: value = 1.0; volume = 4; label = "C100"; break;
-        }
+
+    Coin(double value, int volume, std::string label) :
+        value(value), volume(volume), label(label) {
     }
+public:
+    const static Coin C10;
+    const static Coin C25;
+    const static Coin C50;
+    const static Coin C100;
+
     float getValue() const { 
         return value; 
     }
@@ -29,6 +82,11 @@ public:
         return label; 
     }
 };
+
+const Coin Coin::C10 {0.10, 1, "C10"};
+const Coin Coin::C25 {0.25, 2, "C25"};
+const Coin Coin::C50 {0.50, 3, "C50"};
+const Coin Coin::C100 {1.00, 4, "C100"};
 
 
 class Item {
@@ -89,41 +147,37 @@ public:
     }
 
     std::string str() const {
-        std::stringstream ss;
-        ss << (this->itens | aux::FMT()) << " : "
-           << std::fixed << std::setprecision(2) << value << "$ : "
-           << volume <<  "/" << volumeMax << " : " 
-           <<  (broken ? "broken" : "unbroken");
-        return ss.str();
+        return {}; // todo
     }
 };
 
 std::ostream& operator<<(std::ostream& os, const Pig& pig) {
+        return {}; // todo
     return os << pig.str();
 }
 
+
 int main() {
-    aux::Chain chain;
-    aux::Param par;
 
     Pig pig;
-    
-    auto toint = aux::STR2<int>();
-    auto fmtdouble = aux::PIPE(LAMBDA(x, x | aux::STR("%.2f")));
+    while (true) {
+        auto line = input();
+        write("$" + line);
+        auto args = split(line);
 
-    chain["addCoin"] = [&]() { 
-        if      (par[1] == "10") pig.addCoin(Coin(C10));
-        else if (par[1] == "25") pig.addCoin(Coin(C25));
-        else if (par[1] == "50") pig.addCoin(Coin(C50));
-        else if (par[1] == "100") pig.addCoin(Coin(C100));
-    };
-    chain["init"]     = [&]() { pig = Pig(toint(par[1])); };
-    chain["addItem"]  = [&]() { pig.addItem(Item(par[1], toint(par[2]))); };
-    chain["break"]    = [&]() { pig.breakPig(); };
-    chain["getCoins"] = [&]() { pig.getCoins() | fmtdouble | aux::PRINT(); };
-    chain["getItems"] = [&]() { pig.getItems() | aux::PRINT(); };
-    chain["show"]     = [&]() { pig.str()      | aux::PRINT(); };
-
-    aux::execute(chain, par);
+        if      (args[0] == "end"    ) { break; }
+        else if (args[0] == "addCoin") { 
+            if      (args[1] == "10" ) pig.addCoin(Coin::C10);
+            else if (args[1] == "25" ) pig.addCoin(Coin::C25);
+            else if (args[1] == "50" ) pig.addCoin(Coin::C50);
+            else if (args[1] == "100") pig.addCoin(Coin::C100);
+        }
+        else if (args[0] == "init"    ) { pig = Pig( (int) number(args[1])); }
+        else if (args[0] == "addItem" ) { pig.addItem(Item(args[1], (int) number(args[2]))); }
+        else if (args[0] == "break"   ) { pig.breakPig(); }
+        else if (args[0] == "getCoins") { write(format("%.2f", pig.getCoins())); }
+        else if (args[0] == "getItems") { write(pig.getItems()); }
+        else if (args[0] == "show"    ) { write(pig); }
+        else                            { write("fail: invalid command"); }
+    }
 }
-
