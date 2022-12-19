@@ -105,11 +105,10 @@ Exercícios de fup para aquecer o coração e o cérebro.
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/021.jpg) | [@021 Matrícula](base/021/Readme.md#matrícula)
-
-<!--
 ![_](.thumbs/025.jpg) | [@025 Twitter](base/025/Readme.md#twitter)
 
-14. Herança II
+<!--
+1.  Herança II
 
 \________________ | \______________________
 ---------------- | ------------------------

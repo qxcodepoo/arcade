@@ -7,7 +7,6 @@ diagrama.png
 player.png
 Readme.md
 cover.jpg
-auxiliar.hpp
-update.sh
 parsediag.py
+local.sh
 

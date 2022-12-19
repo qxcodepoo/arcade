@@ -13,6 +13,10 @@ namespace aux {
         return 0.0;
     }
 
+    double operator+(std::string text) {
+        return number(text);
+    }
+
     std::vector<std::string> split(std::string line, char delimiter = ' ') {
         std::stringstream ss(line);
         std::vector<std::string> result;
@@ -50,6 +54,30 @@ namespace aux {
         char buffer[100];
         sprintf(buffer, format.c_str(), data);
         return buffer;
+    }
+
+    template<typename CONTAINER, typename FUNCTION>
+    auto map(CONTAINER container, FUNCTION fn) {
+        std::vector<decltype(fn(*container.begin()))> aux;
+        std::transform(container.begin(), container.end(), std::back_inserter(aux), fn);
+        return aux;
+    }
+
+    template<typename DATA>
+    std::vector<DATA> slice(std::vector<DATA> container, int start, int end) {
+        int size = container.size();
+        if (start < 0) start = size + start;
+        if (end < 0) end = size + end;
+        std::vector<DATA> aux;
+        for (int i = start; i < end; i++) {
+            aux.push_back(container[i]);
+        }
+        return aux;
+    }
+
+    template<typename DATA>
+    std::vector<DATA> slice(std::vector<DATA> container, int start = 0) {
+        return slice(container, start, container.size());
     }
 }
 using namespace aux;

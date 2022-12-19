@@ -1,168 +1,174 @@
+'--
 @startuml
-skinparam defaultFontName "JetBrains Mono Medium"
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
 class TweetException {
     '
 }
 
+'==
+
 class Tweet {
-    '
+    
     - id: int
-    '
+    
     - username: str
-    '
+    
     - msg: str
-    '
+    
     ' guarda os username dos usuarios que deram like
     - likes: set<str>
-    '
+    
     ' guarda o tweet original que foi retweetado
     - rt: Tweet
-    '
+    
     __
-    '
+    
     + Tweet(id: int, username: str, msg: str)
-    '
+    
     + getId(): int
-    '
+    
     + getSender(): str
-    '
+    
     + getMsg(): str
-    '
+    
     ' retorna as informacoes do tweet
     ' no modulo de likes e retweet
     ' esse método deve ser alterado conforme requisitos
     + toString() : str
-    '
+    
     __like__
-    '
+    
     ' adiciona o nome do usuario na lista de likes
     + like(username : str)
-    '
+    
     ' retorna o nome dos usuarios que deram like
     + getLikes() : set<str>
     '
     __retweet__
-    '
+    
     ' define que tw é o tweet original que está sendo retuitado
     ' o metodo toString deve mostrar o tweet original
     + setRt(tw : Tweet)
-    '
+    
     __remover__
-    '
+    
     ' marca se o tweet foi deletado
     - deleted: boolean
-    '
+    
     ' marca o tweet como deletado
     ' substitui o texto da mensagem por "esse tweet foi deletado"
     ' apaga o username
     ' limpa a lista de likes
     + setDeleted()
-    '
+    
     ' retorna true se o tweet foi deletado
     + isDeleted() : boolean
     '
 }
 
 class Inbox {
-    '
+    
     - timeline: map<int, Tweet>
-    '
+    
     - myTweets: map<int, Tweet>
     '
     __
-    '
+    
     + Inbox()
-    '
+    
     __twittar__
-    '
+    
     ' adiciona um tweet na timeline
     + storeInTimeline(tweet : Tweet)
-    '
+    
     ' retornam todos os tweets da timeline que não estiverem deletados
     ' os tweets mais recentes devem ficar primeiro na lista
     + getTimeline() : List<Tweet>
-    '
+    
     ' retorna a timeline do usuario
     + toString(): str
-    '
+    
     __like__
-    '
+    
     ' obtem e retorna o tweet com o id passado da timeline
     ' ou dispara uma exceção se ele não existir
     + getTweet(id : int) : Tweet
-    '
+    
     __unfollow__
-    '
+    
     ' remove todos os tweets emitidos por esse usuario da sua timeline
     ' quando alguem deixa de seguir um usario, apaga todos os tweets 
     ' dele na sua timeline
     + rmMsgsFrom(username : str)
-    '
+    
     __remover__
-    '
+    
     ' adiciona um tweet no myTweets do usuario
     + storeInMyTweets(tweet : Tweet)
-    '
+    
     ' retorna todos os tweets emitidos pelo usuario
     + getMyTweets() : List<Tweet>
     '
 }
 
 class User {
-    '
+    
     - username: str
-    '
+    
     - inbox: Inbox
-    '
+    
     - followers: map<str, User>
-    '
+    
     - following: map<str, User>
-    '
+    
     __
-    '
+    
     + User(username : str)
-    '
+    
     ' mostra o nome dos seguidos e o nome dos seguires
     + toString(): str
-    '
+    
     __follow__
-    '
+    
     ' voce não pode seguir a voce mesmo
     ' se ainda nao estiver seguindo o usuario other
     '   adiciona other na lista de seguidos
     '   adiciona voce na lista de seguidores de other
     + follow(other : User)
-    '
+    
     __twittar__
-    '
+    
     + getInbox() : Inbox
     '
     ' coloca o tw no myTweets do usuario
     ' coloca o tw na timeline do usuario
     ' coloca o tw na timeline de todos os seguidores do usuario
     + sendTweet(tw : Tweet)
-    '
+    
     __unfollow__
-    '
+    
     ' se estiver seguindo esse username
     '   obtenha o objeto User correspondente na sua lista de seguidos
     '   remova ele da sua lista de seguidos
     '   remova todas as mensagens dele da sua timeline utilizando o metodo inbox.rmMsgsFrom(username)
     '   se remova da lista de seguidores dele
     + unfollow(other : str)
-    '
+    
     __like__
-    '
+    
     ' recupera o tweet com esse id da timeline do usuario
     ' invoca o método like do tweet
     + like(idTw : int)
-    '
+    
     __remover__
-    '
+    
     ' remove todos os seus seguidos
     ' se removendo também da lista de seguidores deles
     + unfollowAll()
-    '
+    
     ' remove todos os seus seguidores
     ' se removendo também da lista de seguidos deles
     + rejectAll()
@@ -170,62 +176,62 @@ class User {
 }
 
 class Controller {
-    '
+    
     ' armazena o id para o proximo tweet a ser criado
     - nextTweetId: int
-    '
+    
     ' armazena todos os usuarios do sistema
     - users: map<str, User>
-    '
+    
     ' armazena todos os tweets do sistema
     - tweets: map<int, Tweet>
-    '
+    
     __
-    '
+    
     + Controller()
-    '
+    
     ' se nao existe um usuario com esse username
     ' cria o usuario e armazena no mapa de usuarios
     + addUser(username : str)
-    '
+    
     ' imprime todos os objetos usuarios do sistema
     + toString(): str
-    '
+    
     __twittar__
-    '
+    
     ' cria um novo objeto tweet com os dados passado
     ' utiliza o atributo nextTwId para gerar o id do tweet
     ' incrementa o atributo nextTwId
     ' armazena esse tweet no mapa de tweets
     ' retorna a referencia para o tweet criado
     - createTweet(sender: str, msg: str): Tweet
-    '
+    
     ' retorna uma referencia para o objeto do usuario com esse username
     ' dispara uma excecao se o usuario nao existir
     + getUser(username : str) : User
-    '
+
     ' utiliza this.getUser para recuperar o objeto do usuario
     ' cria o tweet utilizando o this.createTweet e chama
     ' user.sendTweet(tweet) para entrega dos tweets nas timelines
     + sendTweet(username : str, msg : str)
-    '
+    
     __retweet__
-    '
+    
     ' recupera o user utilizando o this.getUser
     ' recupera o tweet original utilizando o user.getTweet
     ' cria um novo tweet com o tweet original e os outros parametros
     ' invoca user.sendTweet(tweet) para entrega dos tweets nas timelines
     + sendRt(username : str, twId : int, rtMsg : str)
-    '
+    
     __remover__
-    '
+    
     ' recupera o user utilizando o this.getUser
     ' remove todos os vínculos de seguidos e seguidores
     ' utilizando o user.unfollowAll() e user.rejectAll()
     ' marca todos os tweets de user.myTweets como deletados
     ' remove o user do mapa de usuarios
     + rmUser(username : str)
-    '
+    
 }
 
 Controller "1" -* "0..*" Tweet
