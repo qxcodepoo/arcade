@@ -126,7 +126,7 @@ $show
 Circ: C=(2.00, 3.00), R=5.00
 
 #__case creating more figures
-$rect 1 1 3 3 
+$rect 1 1 3 3
 $rect 2 4.53 5 10
 $circle 1 1 1.5
 
@@ -140,10 +140,10 @@ Circ: C=(1.00, 1.00), R=1.50
 
 #__case showing area and perimeter
 $info
-Circ: A=31.42 P=78.54
+Circ: A=78.54 P=31.42
 Rect: A=4.00 P=-8.00
 Rect: A=16.41 P=-16.94
-Circ: A=9.42 P=7.07
+Circ: A=7.07 P=9.42
 
 $end
 ```
