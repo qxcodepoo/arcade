@@ -62,7 +62,7 @@ $show
 
 #__case calculando a media
 $media
-2.33
+2.00
 
 $end
 ```
