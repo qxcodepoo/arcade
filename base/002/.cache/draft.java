@@ -58,51 +58,33 @@ class Car{
     }    
 };
 
+
 public class Solver {
+    public static void main(String[] a) {
+        Car car = new Car();
+        
+        while (true) {
+            var line = input();
+            write("$" + line);
+            var args = line.split(" ");
 
-    static Shell sh = new Shell();
-    static Car car = new Car();
-
-    public static void main(String[] args) {
-        var chain = sh.chain;
-        var param = sh.param;
-
-        chain.put("show",   () -> { System.out.println(car);    });
-        chain.put("enter",  () -> { car.enter();                });
-        chain.put("leave",  () -> { car.leave();                });
-        chain.put("drive",  () -> { car.drive(parInt(1));});
-        chain.put("fuel",   () -> {  car.fuel(parInt(1));});
-
-        sh.execute();
-    }
-
-    static int parInt(int index) {
-        return Integer.parseInt(sh.param.get(index));
-    }
-}
-
-class Shell {    
-    public Scanner scanner = new Scanner(System.in);
-    public HashMap<String, Runnable> chain = new HashMap<>();
-    public ArrayList<String>         param = new ArrayList<>();
-    public Shell() {
-        Locale.setDefault(new Locale("en", "US"));
-    }
-    public void execute() {
-        while(true) {
-            param.clear();
-            String line = scanner.nextLine();
-            Collections.addAll(param, line.split(" "));
-            System.out.println("$" + line);
-            if(param.get(0).equals("end")) {
-                break;
-            } else if (chain.containsKey(param.get(0))) {
-                chain.get(param.get(0)).run();
-            } else {
-                System.out.println("fail: comando invalido");
-            }
+            if      (args[0].equals("end"))   { break; }
+            else if (args[0].equals("show"))  { System.out.println(car); }
+            else if (args[0].equals("enter")) { car.enter(); }
+            else if (args[0].equals("leave")) { car.leave(); }
+            else if (args[0].equals("drive")) { car.drive((int) number(args[1])); }
+            else if (args[0].equals("fuel"))  { car.fuel((int) number(args[1])); }
+            else { write("fail: comando invalido"); }
         }
     }
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static String  input()              { return scanner.nextLine(); }
+    private static double  number(String value) { return Double.parseDouble(value); }
+    private static void    write(String value)  { System.out.println(value); }
 }
+
+
+
 
 

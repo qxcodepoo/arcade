@@ -18,7 +18,14 @@ public class Main {
             }
             else if (args[0].equals("show"))  { write("[" + String.join(", ", vet) + "]");                  }
             else if (args[0].equals("erase")) { vet.remove((int) number(args[1]));                          }
-            else                              { write("fail: comando invalido");                      }
+            else if (args[0].equals("media")) {
+                double soma = 0;
+                for (int i = 0; i < vet.size(); i++) {
+                    soma += number(vet.get(i));
+                }
+                write(String.format("%.2f", soma / vet.size()));
+            }
+            else                              { write("fail: comando invalido");                            }
         }
     }
 

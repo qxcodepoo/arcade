@@ -1,20 +1,26 @@
-#include <iostream>
-#include <sstream>
-#include <aux.hpp>
+#include <fn.hpp>
 
 int main() {
-    aux::Chain chain;
-    aux::Param ui;
-
     Car car;
+    while (true) {
+        auto line = fn::input();
+        auto args = fn::split(line, ' ');
+        fn::write("$" + line);
 
-    auto par2int   = LAMBDAE(&ui, index, ui.at(index) | aux::STR2<int>()); //converte de string para int
-
-    chain["show"]  = [&](){ car.str() | aux::PRINT(); };
-    chain["enter"] = [&](){ car.enter(); };
-    chain["leave"] = [&](){ car.leave(); };
-    chain["fuel"]  = [&](){ car.fuel(par2int(1)); };
-    chain["drive"] = [&](){car.drive(par2int(1)); };
-
-    aux::execute(chain, ui);
+        if (args[0] == "end") {
+            break;
+        } else if (args[0] == "show") {
+            fn::write(car.str());
+        } else if (args[0] == "enter") {
+            car.enter();
+        } else if (args[0] == "leave") {
+            car.leave();
+        } else if (args[0] == "fuel") {
+            car.fuel(+args[1]);
+        } else if (args[0] == "drive") {
+            car.drive(+args[1]);
+        } else {
+            fn::write("fail: comando invalido");
+        }
+    }
 }

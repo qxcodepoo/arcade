@@ -1,6 +1,4 @@
-let _cin_: string[] = require("fs").readFileSync(0).toString().split("\n");
-let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
-let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
+let input,write;
 
 function main() {
     let vet = new Array<string>();
@@ -18,6 +16,14 @@ function main() {
         }
         else if (args[0] === "show")  { write ("[" + vet.join(", ") + "]");                          }
         else if (args[0] === "erase") { vet.splice(+args[1], 1);                                     }
+        else if (args[0] === "media") {
+            let soma = 0;
+            for (let i = 0; i < vet.length; i++) {
+                soma += +vet[i];
+            }
+            // imprime a soma com duas casas decimais
+            write((soma / vet.length).toFixed(2));
+        }
         else                          { write("fail: comando invalido");                             }
     }
 }
