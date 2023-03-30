@@ -1,74 +1,82 @@
 import java.util.*;
 import java.text.*;
 
-class Calculator { //todo
+class Calculator {
     public int batteryMax;
     public int battery;
     public float display;
 
-    public Calculator(int batteryMax) { //todo
+    public Calculator(int batteryMax) {
+        this.batteryMax = batteryMax;
+        this.battery = 0;
+        this.display = 0.0f;
     }
 
-    public void chargeBattery(int value) { //todo 
+    public void chargeBattery(int value) { 
+        if (value < 0)
+            return;
+        this.battery += value;
+        if (this.battery > this.batteryMax)
+            this.battery = this.batteryMax;
     }
 
-    public boolean useBattery() { //todo 
+    public boolean useBattery() { 
+        if (this.battery == 0){
+            System.out.println("fail: bateria insuficiente");
+            return false;
+        }
+        this.battery -= 1;
+        return true;
     }
 
-    public void sum(int a, int b) { //todo 
+    public void sum(int a, int b) { 
+        if (useBattery())
+            this.display = (a + b);
     }
 
-    public void division(int num, int den) { //todo
+    public void division(int num, int den) {
+        if (!useBattery())
+            return;
+        if (den == 0){
+            System.out.println("fail: divisao por zero");
+        }
+        else
+            this.display = (float) num / den;
     }
 
     public String toString() { 
         DecimalFormat form = new DecimalFormat("0.00");
-        return "display = " + form.format(this.display).replace(",",".") + ", battery = " + this.battery;
+        return "display = " + form.format(this.display).replace(",", ".") + ", battery = " + this.battery;
     }
 }
 
 public class Solver {
-
-    static Shell sh = new Shell();
     static Calculator calc = new Calculator(0);
 
     public static void main(String[] args) {
-        var chain = sh.chain;
-        var param = sh.param;
+        while (true)
+        {
+            String line = input();
+            String[] argsL = line.split(" ");
+            write('$' + line);
 
-        chain.put("show",   () -> { System.out.println(calc);                    });
-        chain.put("init",   () -> { calc = new Calculator(parInt(1)           ); });
-        chain.put("charge", () -> {    calc.chargeBattery(parInt(1)           ); });
-        chain.put("sum",    () -> {              calc.sum(parInt(1), parInt(2)); });
-        chain.put("div",    () -> {         calc.division(parInt(1), parInt(2)); });
-
-        sh.execute();
-    }
-    static int parInt(int index) {
-        return Integer.parseInt(sh.param.get(index));
-    }
-}
-
-class Shell {    
-    public Scanner scanner = new Scanner(System.in);
-    public HashMap<String, Runnable> chain = new HashMap<>();
-    public ArrayList<String> param = new ArrayList<>();
-    public Shell() {
-        Locale.setDefault(new Locale("en", "US"));
-    }
-    public void execute() {
-        while(true) {
-            param.clear();
-            String line = scanner.nextLine();
-            Collections.addAll(param, line.split(" "));
-            System.out.println("$" + line);
-            if(param.get(0).equals("end")) {
-                break;
-            } else if (chain.containsKey(param.get(0))) {
-                chain.get(param.get(0)).run();
-            } else {
-                System.out.println("fail: comando invalido");
-            }
+            if      ("show".equals(argsL[0]))    { write(calc.toString());                            }
+            else if ("init".equals(argsL[0]))    { calc = new Calculator(number(argsL[1]));           }   
+            else if ("charge".equals(argsL[0]))  { calc.chargeBattery(number(argsL[1]));              }
+            else if ("sum".equals(argsL[0]))     { calc.sum(number(argsL[1]), number(argsL[2]));      }
+            else if ("div".equals(argsL[0]))     { calc.division(number(argsL[1]), number(argsL[2])); }
+            else if ("end".equals(argsL[0]))     { break;                                             }
+            else                                 { write("fail: comando invalido");             }
         }
     }
+
+    public static String input() { 
+        Scanner scanner = new Scanner(System.in); 
+        String input = scanner.nextLine(); 
+        scanner.close(); 
+        return input; 
+    }
+
+    public static void write(String value) { System.out.println(value);                }
+    public static int number(String str)   { return Integer.parseInt(str);             }
 }

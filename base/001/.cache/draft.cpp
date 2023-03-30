@@ -35,22 +35,25 @@ std::ostream& operator<<(std::ostream& os, Calculator c) {
     return (os << c.str());
 }
 
-#include <aux.hpp>
+#include <fn.hpp>
+using namespace fn;
 
 int main() {
     Calculator c(0);
-    aux::Chain chain;
-    aux::Param ui;
 
-    // função para obter um parâmetro convertido para inteiro
-    auto par2int   = LAMBDAE(&ui, index, ui.at(index) | aux::STR2<int>());                            //converte de string para int
+    while(true)
+    {
+        std::string line = input();
+        auto args = split(line, ' ');
+        write('$' + line);
 
-    chain["show"]   = [&]() { std::cout << c << std::endl;         };
-    chain["init"]   = [&]() {  c = Calculator(par2int(1)          ); };
-    chain["charge"] = [&]() { c.chargeBattery(par2int(1)          ); };
-    chain["sum"]    = [&]() {           c.sum(par2int(1), par2int(2)); };
-    chain["div"]    = [&]() {      c.division(par2int(1), par2int(2)); };
-
-    aux::execute(chain, ui);
+        if      (args[0] == "show")     { std::cout << c << std::endl;                        }
+        else if (args[0] == "init")     { c = Calculator(number(args[1]));                    }
+        else if (args[0] == "charge")   { c.chargeBattery(number(args[1]));                   }
+        else if (args[0] == "sum")      { c.sum(number(args[1]), number(args[2]));            }
+        else if (args[0] == "div")      { c.division(number(args[1]), number(args[2]));       }
+        else if (args[0] == "end")      { break;                                              }
+        else                            { std::cout << "fail: comando inválido" << std::endl; }  
+    }
 }
 

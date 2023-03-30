@@ -1,7 +1,8 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include <aux.hpp>
+#include <fn.hpp>
+using namespace fn;
 
 class Time {
 private:
@@ -27,35 +28,32 @@ public:
     void nextSecond() {
     }
     std::string str() {
-        std::stringstream ss;
-        ss << std::setfill('0') << std::setw(2) << hour << ":"
-           << std::setfill('0') << std::setw(2) << minute << ":"
-           << std::setfill('0') << std::setw(2) << second;
-        return ss.str();
+        return fn::format("{%02d}:{%02d}:{%02d}", hour, minute, second);
     }
 };
 
 int main() {
-    aux::Chain chain;
-    aux::Param param;
-    Time time;
+    Time time(0, 0, 0);
+    while (true) {
+        auto line = fn::input();
+        auto args = fn::split(line, ' ');
 
-    auto INT = aux::STR2<int>();
+        write("$" + line);
 
-    chain["set"] = [&]() {
-        time.setHour(INT(param[1]));
-        time.setMinute(INT(param[2]));
-        time.setSecond(INT(param[3]));
-    };
-    chain["init"] = [&]() {
-        time = Time(INT(param[1]), INT(param[2]), INT(param[3]));
-    };
-    chain["show"] = [&]() {
-        std::cout << time.str() << '\n';
-    };
-    chain["next"] = [&]() {
-        time.nextSecond();
-    };
-
-    aux::execute(chain, param);
+        if (args[0] == "end") {
+            break;
+        } else if (args[0] == "set") {
+            time.setHour(+args[1]);
+            time.setMinute(+args[2]);
+            time.setSecond(+args[3]);
+        } else if (args[0] == "init") {
+            time = Time(+args[1], +args[2], +args[3]);
+        } else if (args[0] == "show") {
+            fn::write(time.str());
+        } else if (args[0] == "next") {
+            time.nextSecond();
+        } else {
+            fn::write("fail: comando invalido");
+        }
+    }
 }

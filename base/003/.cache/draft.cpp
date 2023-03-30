@@ -1,7 +1,6 @@
 #include <iostream>
 #include <sstream>
 #include <memory>
-#include <aux.hpp>
 
 class Person {
     std::string name; //atributo
@@ -53,7 +52,6 @@ public:
 
     void drive(int time) {
     }
-
     std::string str() {
         std::ostringstream os;
         os << "power:" << power << ", time:" << time;
@@ -66,27 +64,29 @@ std::ostream& operator<<(std::ostream& os, Motorcycle m) {
     return os << m.str();
 }
 
+#include <fn.hpp>
+using namespace fn;
 
 int main() {
-    aux::Chain chain;
-    aux::Param param;
-
     Motorcycle m(1);
 
-    auto INT = aux::to<int>;
+    while (true) {
+        std::string line = input();
+        auto args = split(line, ' ');
+        write('$' + line);
 
-    chain["show"]  = [&]() { m | aux::PRINT(); };
-    chain["leave"] = [&]() { 
-        auto person = m.remove(); 
-        if (person != nullptr) {
-            *person | aux::PRINT();
+        if      (args[0] == "show")   { write(m.str());                                                     }
+        else if (args[0] == "leave")  { 
+            auto person = m.remove(); 
+            if (person != nullptr)
+                write(person->str());
         }
-    };
-    chain["honk"]  = [&]() { m.honk()  | aux::PRINT(); };
-    chain["init"]  = [&]() { m = Motorcycle(INT(param.at(1)));};
-    chain["enter"] = [&]() { m.insertPerson(std::make_shared<Person>(param.at(1), INT(param.at(2)))); };
-    chain["buy"]   = [&]() { m.buyTime(INT(param.at(1))); };
-    chain["drive"] = [&]() { m.drive  (INT(param.at(1))); };
-
-    aux::execute(chain, param);
+        else if (args[0] == "honk")   { write(m.honk());                                                    }
+        else if (args[0] == "init")   { m = Motorcycle(number(args[1]));                                    }
+        else if (args[0] == "enter")  { m.insertPerson(std::make_shared<Person>(args[1], number(args[2]))); }
+        else if (args[0] == "buy")    { m.buyTime(number(args[1]));                                         }
+        else if (args[0] == "drive")  { m.drive(number(args[1]));                                           }
+        else if (args[0] == "end")    { break;                                                              }
+        else                          { write("fail: invalid command");                                     }
+    }
 }

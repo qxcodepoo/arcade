@@ -4,7 +4,6 @@
 
 - Em c++:
   - Código: [main.cpp](main.cpp)
-  - Vídeo explicando as funções auxiliares funções lambda, template e funções auxiliares [vídeo](https://youtu.be/u4FwmKEwGBo)
 
 - Em java:
   - Código: [Main.java](Main.java)

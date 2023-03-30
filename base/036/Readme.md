@@ -177,6 +177,5 @@ fail: segundo invalido
 $show
 00:00:00
 
-
 $end
 ```

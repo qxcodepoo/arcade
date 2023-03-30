@@ -3,6 +3,7 @@ diagrama.png
 Readme.md
 cover.jpg
 Makefile
+t.tio
 local.sh
 .comments/figura.jpg.xml
 .comments

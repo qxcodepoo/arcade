@@ -3,7 +3,7 @@
 #include <memory>  //sharedptr
 #include <iomanip> //setprecision
 #include <utility> //exchange
-#include <aux.hpp>
+#include <fn.hpp>
 
 class Lead {
     float thickness;
@@ -81,20 +81,21 @@ std::ostream& operator<<(std::ostream& os, Pencil l) {
     return os << l.str();
 }
 
-int main() {
-    aux::Chain chain;
-    aux::Param ui;
+using namespace fn;
 
+int main() {
     Pencil pencil;
 
-    auto tofloat = aux::to<float>;
-    auto toint   = aux::to<int>;
+    while (true) {
+        auto line = input();
+        write("$" + line);
+        auto args = split(line);
 
-    chain["show"]   = [&]() { std::cout << pencil << std::endl; };
-    chain["init"]   = [&]() { pencil = Pencil(tofloat(ui[1])); };
-    chain["insert"] = [&]() { pencil.insert(std::make_shared<Lead>(tofloat(ui[1]), ui[2], toint(ui[3]))); };
-    chain["remove"] = [&]() { pencil.remove(); };
-    chain["write"]  = [&]() { pencil.writePage(); };
-
-    aux::execute(chain, ui);
+        if      (args[0] == "end"   ) { break;                                                                                  }
+        else if (args[0] == "show"  ) { write(pencil);                                                                    }
+        else if (args[0] == "init"  ) { pencil = Pencil(number(args[1]));                                                       }
+        else if (args[0] == "insert") { pencil.insert(std::make_shared<Lead>(number(args[1]), args[2], (int) number(args[3]))); }
+        else if (args[0] == "remove") { pencil.remove();                                                                        }
+        else if (args[0] == "write" ) { pencil.writePage();                                                                     }
+    }
 }
