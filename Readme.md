@@ -24,6 +24,7 @@
 ![_](.thumbs/044.jpg) | [@044 Relacionamentos](base/044/Readme.md#relacionamentos)
 ![_](.thumbs/046.jpg) | [@046 Codificação / Relatórios / Planilha](base/046/Readme.md#codificação--relatórios--planilha)
 ![_](.thumbs/049.jpg) | [@049 Criando a Main](base/049/Readme.md#criando-a-main)
+![_](.thumbs/051.jpg) | [@051 Instalando e configurando o tk e o fn.cpp](base/051/Readme.md#instalando-e-configurando-o-tk-e-o-fncpp)
 ![_](.thumbs/050.jpg) | [@050 Rodando questões no Replit](base/050/Readme.md#rodando-questões-no-replit)
 
 ## 01. Lógica
