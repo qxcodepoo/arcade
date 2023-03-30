@@ -1,40 +1,23 @@
 import java.util.Scanner;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.Locale;
 
-enum Cents {
-    C10, C25, C50, C100;
-}
+enum Coin {
 
-class Coin {
+    //initializing the enum C10, C25, C50, C100
+    C10(0.10, 1, "C10"),
+    C25(0.25, 2, "C25"),
+    C50(0.50, 3, "C50"),
+    C100(1.00, 4, "C100");
+
     private double value;
     private int volume;
     private String label;
-    
-    public Coin(Cents cents) {
-        switch (cents) {
-            case C10:
-                value = 0.1;
-                volume = 1;
-                label = "C10";
-                break;
-            case C25:
-                value = 0.25;
-                volume = 2;
-                label = "C25";
-                break;
-            case C50:
-                value = 0.5;
-                volume = 3;
-                label = "C50";
-                break;
-            case C100:
-                value = 1;
-                volume = 4;
-                label = "C100";
-                break;
-        }
+
+    private Coin(double value, int volume, String label) {
+        this.value = value;
+        this.volume = volume;
+        this.label = label;
     }
     
     public int getVolume() {
@@ -95,7 +78,7 @@ class Pig{
     public double getCoins(){
     }
     
-    public ArrayList<String> getItens(){
+    public String getItems(){
     }
 
     public int getVolume() { //todo
@@ -118,57 +101,37 @@ class Pig{
 
 
 
-public class Solver {
+class Solver {
+    public static void main(String[] a) {
+        Pig pig = new Pig(0);
+        
+        while (true) {
+            var line = input();
+            write("$" + line);
+            var args = line.split(" ");
 
-    static Shell sh = new Shell();
-    static Pig pig = new Pig(0);
-    public static void main(String[] args) {
-        var chain = sh.chain;
-        var param = sh.param;
-
-        chain.put("addCoin",    () -> {
-            String value = param.get(1);
-            if     (value.equals("10"))  pig.addCoin(new Coin(Cents.C10));
-            else if(value.equals("25"))  pig.addCoin(new Coin(Cents.C25));
-            else if(value.equals("50"))  pig.addCoin(new Coin(Cents.C50));
-            else if(value.equals("100")) pig.addCoin(new Coin(Cents.C100));
-        });
-        chain.put("init",     () -> pig = new Pig(parInt(1)));
-        chain.put("addItem",  () -> pig.addItem(new Item(param.get(1), parInt(2))));
-        chain.put("break",    () -> pig.breakPig());
-        chain.put("getCoins", () -> System.out.println(String.format("%.02f", pig.getCoins())));
-        chain.put("getItems", () -> System.out.println("[" + pig.getItens().stream().collect(Collectors.joining(", ")) + "]"));
-        chain.put("show",     () -> System.out.println(pig));
-
-        sh.execute();
-    }
-
-    static int parInt(int index) {
-        return Integer.parseInt(sh.param.get(index));
-    }
-
-}
-
-class Shell {    
-    public Scanner scanner = new Scanner(System.in);
-    public HashMap<String, Runnable> chain = new HashMap<>();
-    public ArrayList<String> param = new ArrayList<>();
-    public Shell() {
-        Locale.setDefault(new Locale("en", "US"));
-    }
-    public void execute() {
-        while(true) {
-            param.clear();
-            String line = scanner.nextLine();
-            Collections.addAll(param, line.split(" "));
-            System.out.println("$" + line);
-            if(param.get(0).equals("end")) {
-                break;
-            } else if (chain.containsKey(param.get(0))) {
-                chain.get(param.get(0)).run();
-            } else {
-                System.out.println("fail: comando invalido");
+            if (args[0].equals("end"))        { break;                                      }
+            else if(args[0].equals("init"))   { pig = new Pig((int) number(args[1]));        }
+            else if(args[0].equals("addCoin")){
+                var value = args[1];
+                if (value.equals("10"))  { pig.addCoin(Coin.C10);  }
+                if (value.equals("25"))  { pig.addCoin(Coin.C25);  }
+                if (value.equals("50"))  { pig.addCoin(Coin.C50);  }
+                if (value.equals("100")) { pig.addCoin(Coin.C100); }
             }
+            else if(args[0].equals("addItem")){ pig.addItem(new Item(args[1], (int) number(args[2])));}
+            else if(args[0].equals("break"))  { pig.breakPig();                             }
+            else if(args[0].equals("getCoins")){ write(String.format("%.02f", pig.getCoins()));}
+            else if(args[0].equals("getItems")){ write(pig.getItems()); }
+            else if(args[0].equals("show"))   { write(pig.toString());                      }
+            else                              { write("fail: invalid command");              }
         }
     }
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static String  input()              { return scanner.nextLine(); }
+    private static double  number(String value) { return Double.parseDouble(value); }
+    private static void    write(String value)  { System.out.println(value); }
 }
+
+
