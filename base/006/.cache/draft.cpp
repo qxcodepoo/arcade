@@ -1,8 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <sstream>
-#include <iomanip>
-#include <aux.hpp>
+#include <fn.hpp>
 
 
 class Pet{
@@ -16,14 +12,14 @@ private:
     bool testAlive() {
         if (alive)
             return true;
-        std::cout << "fail: pet esta morto" << '\n';
+        fn::write("fail: pet esta morto");
         return false;
     }
 
     void setHungry(int value) {
         if (value <= 0) {
             hungry = 0;
-            std::cout << "fail: pet morreu de fome" << '\n';
+            fn::write("fail: pet morreu de fome");
             alive = false;
         } else if (value > hungryMax) {
             hungry = hungryMax;
@@ -82,29 +78,37 @@ public:
     }
 
     std::string toString() {
-        std::stringstream ss;
-        ss <<  "E:" << energy << "/" << energyMax << ", "
-           <<  "S:" << hungry << "/" << hungryMax << ", "
-           <<  "L:" << clean << "/" << cleanMax << ", "
-           <<  "D:" << diamonds << ", " << "I:"  << age;
-        return ss.str();
+        return fn::format("E:{}/{}, S:{}/{}, L:{}/{}, D:{}, I:{}", 
+            energy, energyMax, hungry, hungryMax, clean, cleanMax, diamonds, age);
     }
 
 };
 
 
 int main() {
-    aux::Chain chain;
-    aux::Param ui;
     Pet pet;
-    auto toint = aux::STR2<int>();
-    
-    chain["show"]   = [&]() { std::cout << pet.toString() << '\n'; };
-    chain["init"]   = [&]() { pet = Pet(toint(ui[1]), toint(ui[2]), toint(ui[3])); };
-    chain["play"]   = [&]() { pet.play(); };
-    chain["eat"]    = [&]() { pet.eat(); };
-    chain["shower"] = [&]() { pet.shower(); };
-    chain["sleep"]  = [&]() { pet.sleep(); };
-    
-    aux::execute(chain, ui);
-};
+    while (true) {
+        auto line = fn::input();
+        auto args = fn::split(line, ' ');
+
+        fn::write("$" + line);
+
+        if (args[0] == "end") {
+            break;
+        } else if (args[0] == "init") {
+            pet = Pet(+args[1], +args[2], +args[3]);
+        } else if (args[0] == "show") {
+            fn::write(pet.toString());
+        } else if (args[0] == "play") {
+            pet.play();
+        } else if (args[0] == "eat") {
+            pet.eat();
+        } else if (args[0] == "sleep") {
+            pet.sleep();
+        } else if (args[0] == "shower") {
+            pet.shower();
+        } else {
+            fn::write("fail: comando invalido");
+        }
+    }
+}

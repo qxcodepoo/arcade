@@ -86,7 +86,9 @@ public class Solver {
             else if (args[0].equals("init")) {
                 time = new Time((int)number(args[1]), (int)number(args[2]), (int)number(args[3]));
             }
-            else { write("fail: comando invalido"); }
+            else { 
+                write("fail: comando invalido"); 
+            }
         }
     }
 

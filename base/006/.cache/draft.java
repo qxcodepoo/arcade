@@ -84,44 +84,28 @@ class Pet{
 }
 
 
-public class Solver{
-    static Shell sh = new Shell();
-    static Pet pet = new Pet(0,0,0);
-    public static void main(String[] args) {
-        sh.chain.put("init",    () -> pet = new Pet(getInt(1), getInt(2), getInt(3)));
-        sh.chain.put("play",    () -> pet.play());
-        sh.chain.put("eat",     () -> pet.eat());
-        sh.chain.put("shower",  () -> pet.shower());
-        sh.chain.put("sleep",   () -> pet.sleep());
-        sh.chain.put("show",    () -> System.out.println(pet.toString()));
-        sh.execute();
-    }
+public class Solver {
+    public static void main(String[] a) {
+        Pet pet = new Pet(0, 0, 0);
+        
+        while (true) {
+            var line = input();
+            write("$" + line);
+            var args = line.split(" ");
 
-    static int getInt(int index) {
-        return Integer.parseInt(sh.param.get(index));
-    }
-}
-
-class Shell {    
-    public Scanner scanner = new Scanner(System.in);
-    public HashMap<String, Runnable> chain = new HashMap<>();
-    public ArrayList<String> param = new ArrayList<>();
-    public Shell() {
-        Locale.setDefault(new Locale("en", "US"));
-    }
-    public void execute() {
-        while(true) {
-            param.clear();
-            String line = scanner.nextLine();
-            Collections.addAll(param, line.split(" "));
-            System.out.println("$" + line);
-            if(param.get(0).equals("end")) {
-                break;
-            } else if (chain.containsKey(param.get(0))) {
-                chain.get(param.get(0)).run();
-            } else {
-                System.out.println("fail: comando invalido");
-            }
+            if      (args[0].equals("end"))   { break;                                                                           }
+            else if (args[0].equals("show"))  { write(pet.toString());                                                           }
+            else if (args[0].equals("init"))  { pet = new Pet((int)number(args[1]), (int)number(args[2]), (int)number(args[3])); }
+            else if (args[0].equals("play"))  { pet.play();                                                                      }
+            else if (args[0].equals("eat"))   { pet.eat();                                                                       }
+            else if (args[0].equals("sleep")) { pet.sleep();                                                                     }
+            else if (args[0].equals("shower")){ pet.shower();                                                                    }
+            else                              { write("fail: comando invalido");                                                 }
         }
     }
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static String  input()              { return scanner.nextLine(); }
+    private static double  number(String value) { return Double.parseDouble(value); }
+    private static void    write(String value)  { System.out.println(value); }
 }

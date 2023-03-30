@@ -79,46 +79,27 @@ class Pet { //todo
 
 }
 
+let _cin_: string[] = require("fs").readFileSync(0).toString().split("\n");
+let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
+let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
+
 function main() {
-    let chain = new Map();
-    let param: string[] = [];
     let pet = new Pet(0, 0, 0);
-    chain.set("init",   () => pet = new Pet(+param[1], +param[2], +param[3]));
-    chain.set("show",   () => puts(pet.toString()));
-    chain.set("play",   () => pet.play());
-    chain.set("shower", () => pet.shower());
-    chain.set("eat",    () => pet.eat());
-    chain.set("sleep",  () => pet.sleep());
 
-    evaluate(chain, param);
-};
-
-import { readFileSync } from "fs";
-let __lines = readFileSync(0).toString().split("\n");
-let input = () => { 
-    let a = __lines.shift(); 
-    return a === undefined ? "" : a; 
-};
-let write = (text: any) => process.stdout.write("" + text);
-let puts = (text: any) => console.log(text);
-
-function evaluate(chain: Map<string, Function>, param: string[]) {
     while (true) {
         let line = input();
-        puts("$" + line);
-        param.splice(0); //apagar tudo
-        line.split(" ").forEach((x: string) => param.push(x));
+        write("$" + line);
+        let args = line.split(" ");
 
-        let cmd = param[0];
-        if (cmd == "end") {
-            return;
-        } else if (chain.has(cmd)) {
-            chain.get(cmd)!();
-        } else {
-            puts("fail: command not found");
-        }
+        if      (args[0] === "end")   { break;                                                            }
+        else if (args[0] === "init")  { pet = new Pet(Number(args[1]), Number(args[2]), Number(args[3])); }
+        else if (args[0] === "show")  { write(pet.toString());                                            }
+        else if (args[0] === "play")  { pet.play();                                                       }
+        else if (args[0] === "eat")   { pet.eat();                                                        }
+        else if (args[0] === "sleep") { pet.sleep();                                                      }
+        else if (args[0] === "shower"){ pet.shower();                                                     }
+        else                          { write("fail: comando invalido");                                  }
     }
 }
 
-main()
-
+main();
