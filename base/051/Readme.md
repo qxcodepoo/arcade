@@ -2,12 +2,13 @@
 
 ![](cover.jpg)
 
-## fn.cpp
+## fn.hpp
 
 [LINK](https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp)
 
 - Opção 1: colocar na pasta /usr/local/include
 - Opção 2: colocar na pasta do projeto usando o include entre aspas para indicar que é um arquivo local.
+- Para compilar um código com o fn.hpp, usar o comando `g++ -std=c++17 main.cpp -o main`
 
 ```cpp
 #include "fn.hpp"

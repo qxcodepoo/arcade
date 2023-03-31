@@ -6,37 +6,23 @@
 using namespace fn;
 
 std::vector<int> get_men(std::vector<int> vet) {
-        return {}; // todo
-    std::vector<int> unique;
-    for (auto elem : vet)
-    return unique;
+    return {}; // todo
 }
 
 std::vector<int> get_calm_women(std::vector<int> vet) {
-        return {}; // todo
-    std::vector<int> unique;
-    for (auto elem : vet)
-    return unique;
+    return {}; // todo
 }
 
 std::vector<int> sort(std::vector<int> vet) {
-        return {}; // todo
-    std::sort(vet.begin(), vet.end());
-    return vet;
+    return {}; // todo
 }
 
 std::vector<int> sort_stress(std::vector<int> vet) {
-        return {}; // todo
-    std::sort(vet.begin(), vet.end(), [] (int a, int b) {
-        return {}; // todo
-    });
-    return vet;
+    return {}; // todo
 }
 
 std::vector<int> reverse(std::vector<int> vet) {
-        return {}; // todo
-    std::reverse(vet.begin(), vet.end());
-    return vet;
+    return {}; // todo
 }
 
 std::vector<int> unique(std::vector<int> vet) {

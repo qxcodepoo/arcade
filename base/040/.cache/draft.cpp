@@ -2,59 +2,27 @@
 #include <vector>
 
 int count(std::vector<int> vet, int x) {
-        return {}; // todo
-    int count { 0 };
-    for (auto elem : vet)
-    return count;
+    return {}; // todo
 }
 
 int sum(std::vector<int> vet) {
-        return {}; // todo
-    int total { 0 };
-    for (auto elem : vet)
-    return total;
+    return {}; // todo
 }
 
 double average(const std::vector<int>& vet) {
-        return {}; // todo
-    double sum = 0.0;
-    for (auto value : vet)
-    return sum / vet.size();
+    return {}; // todo
 }
 
 std::string more_men(const std::vector<int>& vet) {
-        return {}; // todo
-    int men { 0 };
-    int women { 0 };
-    for (auto elem : vet) {
-        return {}; // todo
-    }
-    return men == women ? "draw" : (men > women ? "men" : "women");
+    return {}; // todo
 }
 
 std::string half_compare(const std::vector<int>& vet) {
-        return {}; // todo
-    int first { 0 };
-    int second { 0 };
-    int size = vet.size(); 
-    int half = size / 2;
-    for (int i = 0; i < size; i++) {
-        return {}; // todo
-    }
-    return first == second ? "draw" : (first > second ? "first" : "second");
+    return {}; // todo
 }
 
 std::string sex_battle(const std::vector<int>& vet) {
-        return {}; // todo
-    int men_sum {0}, women_sum {0};
-    int men {0}, women {0};
-    for (auto elem : vet) {
-        return {}; // todo
-    }
-    men_sum /= men;
-    women_sum /= women;
-    
-    return men_sum == women_sum ? "draw" : (men_sum > women_sum ? "men" : "women");
+    return {}; // todo
 }
 
 

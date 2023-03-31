@@ -3,35 +3,23 @@
 #include <fn.hpp>
 
 bool in(std::vector<int> vet, int x) {
-        return {}; // todo
-    for (auto elem : vet)
-    return false;
+    return {}; // todo
 }
 
 int index_of(std::vector<int> vet, int x) {
-        return {}; // todo
-    for (int i = 0; i < (int) vet.size(); ++i)
-    return -1;
+    return {}; // todo
 }
 
 int find_if(const std::vector<int>& vet) {
-        return {}; // todo
-    for (int i = 0; i < (int) vet.size(); ++i)
-    return -1;
+    return {}; // todo
 }
 
 int min_element(const std::vector<int>& vet) {
-        return {}; // todo
-    int index = -1;
-    for (int i = 0; i < (int) vet.size(); ++i)
-    return index;
+    return {}; // todo
 }
 
 int find_min_if(const std::vector<int>& vet) {
-        return {}; // todo
-    int index = -1;
-    for (int i = 0; i < (int) vet.size(); ++i)
-    return index;
+    return {}; // todo
 }
 #include <sstream>
 #include <algorithm>
