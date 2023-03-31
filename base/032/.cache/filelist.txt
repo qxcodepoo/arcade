@@ -1,4 +1,3 @@
-shell.ts
 Readme.md
 cover.jpg
 Makefile

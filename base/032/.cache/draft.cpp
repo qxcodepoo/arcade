@@ -1,29 +1,42 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <fn.hpp>
 
+using namespace fn;
 
 std::vector<int> get_men(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    std::vector<int> unique;
+    for (auto elem : vet)
+    return unique;
 }
 
 std::vector<int> get_calm_women(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    std::vector<int> unique;
+    for (auto elem : vet)
+    return unique;
 }
 
 std::vector<int> sort(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    std::sort(vet.begin(), vet.end());
+    return vet;
 }
 
 std::vector<int> sort_stress(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    std::sort(vet.begin(), vet.end(), [] (int a, int b) {
+        return {}; // todo
+    });
+    return vet;
 }
 
 std::vector<int> reverse(std::vector<int> vet) {
-    return {}; // todo
-}
-
-void reverse_inplace(std::vector<int> &vet) {
+        return {}; // todo
+    std::reverse(vet.begin(), vet.end());
+    return vet;
 }
 
 std::vector<int> unique(std::vector<int> vet) {
@@ -36,31 +49,23 @@ std::vector<int> repeated(std::vector<int> vet) {
 }
 
 
-#include <aux.hpp>
-using namespace aux;
+int main() {
+    auto strToVet = [](auto s) { return s.substr(1, s.size() - 2) | SPLIT(',') | MAP(FNT(x, (int)+x)); };
 
-//loop principal
-int main(){
-    Chain chain;
-    Param ui;
+    while(true) {
+        std::string line = input();
+        auto args = split(line, ' ');
+        write('$' + line);
 
-    auto VET  = LAMBDA(x, x | COPY(1, -1) | SPLIT(',') | MAP(STR2<int>())); //converte de string para vetor de int
-    auto par2vet = LAMBDAE(&, index, VET(ui.at(index)));
-
-    chain["get_men"]         = [&] {        get_men(par2vet(1)) | FMT() | PRINT(); };
-    chain["get_calm_women"]  = [&] { get_calm_women(par2vet(1)) | FMT() | PRINT(); };
-    chain["sort"]            = [&] {           sort(par2vet(1)) | FMT() | PRINT(); };
-    chain["sort_stress"]     = [&] {    sort_stress(par2vet(1)) | FMT() | PRINT(); };
-    chain["reverse"]         = [&] {        reverse(par2vet(1)) | FMT() | PRINT(); };
-    chain["repeated"]        = [&] {       repeated(par2vet(1)) | FMT() | PRINT(); };
-    chain["unique"]          = [&] {         unique(par2vet(1)) | FMT() | PRINT(); };
-    chain["reverse_inplace"] = [&] { 
-        auto vet = par2vet(1);
-        reverse_inplace(vet);
-        vet | FMT() | PRINT();
-    };
-
-    execute(chain, ui);
+        if     (args[0] == "get_men"        ) { write(get_men(strToVet(args[1])));        }
+        else if(args[0] == "get_calm_women" ) { write(get_calm_women(strToVet(args[1]))); }
+        else if(args[0] == "sort"           ) { write(sort(strToVet(args[1])));           }
+        else if(args[0] == "sort_stress"    ) { write(sort_stress(strToVet(args[1])));    }
+        else if(args[0] == "reverse"        ) { write(reverse(strToVet(args[1])));        }
+        else if(args[0] == "unique"         ) { write(unique(strToVet(args[1])));         }
+        else if(args[0] == "repeated"       ) { write(repeated(strToVet(args[1])));       }
+        else if(args[0] == "end"            ) { break;                                    }
+    }
 }
 
 

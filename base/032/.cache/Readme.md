@@ -18,25 +18,29 @@
 ## Intro
 
 ### filter
+
 - **get_men**: retorne uma lista com os homens.
 - **get_calm_women**: retorne uma lista com as mulheres stress menor que 10.
 
 ### sort
+
 - **sort**: ordene a lista pelo valor real
 - **sort_stress**: ordene a lista por nível de stress
 
 ### reverse
+
 - **reverse**: faça uma função que não altere a lista original, mas retorne uma nova lista invertida
-- **reverse_inplace**: faça uma função que inverta a lista original
 
 ### set
+
 - **unicos**: retorne uma nova lista sem repetição de valores
 - **repetidos**: retorne uma nova lista apenas com os valores repetidos
 
 ___
+
 ## Guide
 
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/.cache/draft.cpp), [aux.hpp](https://raw.githubusercontent.com/senapk/cppaux/master/aux.hpp)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/.cache/draft.cpp)
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/.cache/draft.ts)
 
 ## Shell
@@ -87,16 +91,6 @@ $reverse []
 []
 $end
 ```
-
-```sh
-#__case reverse_inplace
-$reverse_inplace [5,3,-1,-50,-1,-99]
-[-99, -1, -50, -1, 3, 5]
-$reverse_inplace []
-[]
-$end
-```
-
 
 ```sh
 #__case unique

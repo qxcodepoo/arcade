@@ -1,140 +1,84 @@
 #include <iostream>
 #include <vector>
 
-
-
 int count(std::vector<int> vet, int x) {
-    return {}; // todo
+        return {}; // todo
+    int count { 0 };
+    for (auto elem : vet)
+    return count;
 }
 
 int sum(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    int total { 0 };
+    for (auto elem : vet)
+    return total;
 }
 
 double average(const std::vector<int>& vet) {
-    return {}; // todo
+        return {}; // todo
+    double sum = 0.0;
+    for (auto value : vet)
+    return sum / vet.size();
 }
 
 std::string more_men(const std::vector<int>& vet) {
-    return {}; // todo
+        return {}; // todo
+    int men { 0 };
+    int women { 0 };
+    for (auto elem : vet) {
+        return {}; // todo
+    }
+    return men == women ? "draw" : (men > women ? "men" : "women");
 }
 
 std::string half_compare(const std::vector<int>& vet) {
-    return {}; // todo
+        return {}; // todo
+    int first { 0 };
+    int second { 0 };
+    int size = vet.size(); 
+    int half = size / 2;
+    for (int i = 0; i < size; i++) {
+        return {}; // todo
+    }
+    return first == second ? "draw" : (first > second ? "first" : "second");
 }
 
 std::string sex_battle(const std::vector<int>& vet) {
-    return {}; // todo
-}
-
-
-#include <iostream>
-#include <sstream>
-#include <algorithm>
-#include <vector>
-#define fmap(x, fx) [](auto x){return fx;}
-
-namespace aux {
-    double number(std::string text) {
-        std::stringstream ss(text);
-        double value {};
-        if (ss >> value) {
-            return value;
-        }
-        std::cout << "fail: (" << text << ") is not a number\n";
-        return 0.0;
+        return {}; // todo
+    int men_sum {0}, women_sum {0};
+    int men {0}, women {0};
+    for (auto elem : vet) {
+        return {}; // todo
     }
+    men_sum /= men;
+    women_sum /= women;
     
-    double operator+(std::string text) {
-        return number(text);
-    }
-
-    std::vector<std::string> split(std::string line, char delimiter = ' ') {
-        std::stringstream ss(line);
-        std::vector<std::string> result;
-        std::string token;
-        while (std::getline(ss, token, delimiter)) {
-            result.push_back(token);
-        }
-        return result;
-    }
-
-    template <class T, class FN> std::string join(T container, std::string sep, FN fn) { 
-        std::stringstream ss;
-        for (auto it = container.begin(); it != container.end(); ++it) {
-            ss << (it == container.begin() ? "" : sep) << fn(*it);
-        }
-        return ss.str();
-    }
-
-    template <class T> std::string join(T container, std::string sep = ", ") {
-        return join(container, sep, [](auto item) { return item; });
-    }
-
-    std::string input() {
-        std::string line;
-        if (std::getline(std::cin, line))
-            return line;
-        std::cout << "fail: input error\n";
-        return "";
-    }
-
-    template <class T> T write(T data, std::string end = "\n") {
-        std::cout << data << end;
-        return data;
-    }
-
-    template<typename CONTAINER, typename FN>
-    auto map(CONTAINER container, FN fn) {
-        std::vector<decltype(fn(*container.begin()))> aux;
-        for (auto item : container) {
-            aux.push_back(fn(item));
-        }
-        return aux;
-    };
-
-
+    return men_sum == women_sum ? "draw" : (men_sum > women_sum ? "men" : "women");
 }
-using namespace aux;
+
+
+#include <fn.hpp>
+using namespace fn;
 
 int main() {
 
-    std::vector<int> vet = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-    auto BOOL2STR = fmap(x, x ? "true" : "false");
-    auto STRTOVET = [](auto s) { return map(split(s.substr(1, s.size() - 2), ','), fmap(x, (int)+x)); };
+    auto str2vet = [](auto s) { return s.substr(1, s.size() - 2) | SPLIT(',') | MAP(FNT(x, (int)+x)); };
 
     while (true) {
         auto line = input();
         write("$" + line);
         auto args = split(line);
 
-        if      (args[0] == "end"        ) { break; }
-        else if (args[0] == "in"         ) { write(BOOL2STR(in(STRTOVET(args[1]), +args[2]))); }
-        else if (args[0] == "index_of"   ) { write(   index_of(STRTOVET(args[1]), +args[2])); }
-        else if (args[0] == "find_if"    ) { write(    find_if(STRTOVET(args[1]))); }
-        else if (args[0] == "min_element") { write(min_element(STRTOVET(args[1]))); }
-        else if (args[0] == "find_min_if") { write(find_min_if(STRTOVET(args[1]))); }
-        else                               { write("fail: unknown command"); }
-    }    
+        if      (args[0] == "end"              ) { break;                                              }
+        else if (args[0] == "count"            ) { count(str2vet(args[1]), +args[2])         | WRITE();}
+        else if (args[0] == "sum"              ) { sum(str2vet(args[1]))                     | WRITE();}
+        else if (args[0] == "more_men"         ) { more_men(str2vet(args[1]))                | WRITE();} 
+        else if (args[0] == "half_compare"     ) { half_compare(str2vet(args[1]))            | WRITE();}
+        else if (args[0] == "more_men_or_women") { more_men(str2vet(args[1]))                | WRITE();}
+        else if (args[0] == "sex_battle"       ) { sex_battle(str2vet(args[1]))              | WRITE();}
+        else if (args[0] == "average"          ) { average(str2vet(args[1])) | TOSTR("%.2f") | WRITE();}
+        else                                     { "fail: unknown command"                   | WRITE();}
+    }     
 }
 
-
-//loop principal
-int main(){
-    Chain chain;
-    Param ui;
-
-    auto float2str= LAMBDA(x, x | aux::STR("%.2f"));                            //converte de float para string com 2 casas
-    auto INT      = LAMBDA(x, x | aux::STR2<int>());                            //converte de string para int
-    auto VET      = LAMBDA(x, x | COPY(1, -1) | SPLIT(',') | MAP(STR2<int>())); //converte de string para vetor de int
-
-    chain["count"]        = [&] {        count(VET(ui[1]), INT(ui[2])) | PRINT(); };
-    chain["sum"]          = [&] {          sum(VET(ui[1])            ) | PRINT(); };
-    chain["average"]      = [&] {      average(VET(ui[1])            ) | PIPE(float2str) | PRINT(); };
-    chain["more_men"]     = [&] {     more_men(VET(ui[1])            ) | PRINT(); };
-    chain["half_compare"] = [&] { half_compare(VET(ui[1])            ) | PRINT(); };
-    chain["sex_battle"]   = [&] {   sex_battle(VET(ui[1])            ) | PRINT(); };
-
-    execute(chain, ui);
-}

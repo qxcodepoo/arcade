@@ -22,8 +22,7 @@
 
 ## Guide
 
-- [solver.cpp](.cache/draft.cpp), [aux.hpp](https://raw.githubusercontent.com/senapk/cppaux/master/aux.hpp)
-- [solver.js](.cache/draft.js)
+- [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
 
 ## Shell
