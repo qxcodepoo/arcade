@@ -1,4 +1,4 @@
-## @032 Estressados C: Tranformações
+## @032 Estressados C: Transformações
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/cover.jpg)
 

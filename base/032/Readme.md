@@ -1,4 +1,4 @@
-# Estressados C: Tranformações
+# Estressados C: Transformações
 
 ![cover](cover.jpg)
 

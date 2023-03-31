@@ -45,11 +45,6 @@ function main() {
         else if (args[0] === "reverse")         { write(fmt(reverse(       to_vet(args[1])))); }
         else if (args[0] === "unique")          { write(fmt(unique(        to_vet(args[1])))); }
         else if (args[0] === "repeated")        { write(fmt(repeated(      to_vet(args[1])))); }
-        else if (args[0] === "reverse_inplace") { 
-            let vet = to_vet(args[1]);
-            reverse_inplace(vet);
-            write(fmt(vet)); 
-        }
         else                                    { write("fail: comando invalido");                             }
     }
 }
