@@ -1,4 +1,4 @@
-## @039 @039 Estressados D: Controles
+## @039 Estressados D: Controles
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/cover.jpg)
 
