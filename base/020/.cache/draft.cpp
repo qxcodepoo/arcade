@@ -4,7 +4,8 @@
 #include <sstream>
 #include <utility>
 #include <iomanip> //setprecision
-#include <aux.hpp>
+#include <fn.hpp>
+using namespace fn;
 
 class Grafite{
     float calibre;
@@ -43,15 +44,12 @@ public:
         return os.str();
     }
 };
+
 std::ostream& operator<<(std::ostream& os, Grafite g) {
     return os << g.str();
 }
 
 using PGrafite = std::shared_ptr<Grafite>;
-
-std::ostream& operator<<(std::ostream& os, PGrafite g) {
-    return os << "[" << (g == nullptr ? "" : g->str()) << "]";
-}
 
 struct Lapiseira{
     float calibre {0.f};
@@ -74,10 +72,11 @@ struct Lapiseira{
     void puxar() {
     }
     std::string str() const {
+        auto fngr = [](PGrafite g) { return "[" + (g == nullptr ? "" : g->str()) + "]"; };
         std::ostringstream os;
         os << "calibre: " << calibre 
-           << ", bico: " << grafite
-           << ", tambor: {" << (tambor | aux::JOIN("")) << "}";
+           << ", bico: " << fngr(grafite)
+           << ", tambor: {" << (tambor | MAP(fngr) | JOIN("")) << "}";
         return os.str();
     }
 };
@@ -87,19 +86,28 @@ std::ostream& operator<<(std::ostream& os, const Lapiseira& l) {
 }
 
 int main() {
-    aux::Chain chain;
-    aux::Param param;
     Lapiseira lapiseira;
+    while (true) {
+        auto line = fn::input();
+        auto args = fn::split(line, ' ');
+        fn::write("$" + line);
 
-    auto FLOAT = [&param](int index) {return aux::to<float>(param[index]);};
-    auto __INT = [&param](int index) {return aux::to<int>(param[index]);};
-
-    chain["init"]   = [&]() { lapiseira = Lapiseira(FLOAT(1)); };
-    chain["show"]   = [&]() { std::cout << lapiseira << std::endl; };
-    chain["insert"] = [&]() { lapiseira.inserir(std::make_shared<Grafite>(FLOAT(1), param[2], __INT(3))); };
-    chain["remove"] = [&]() { lapiseira.remover(); };
-    chain["pull"]   = [&]() { lapiseira.puxar(); };
-    chain["write"]  = [&]() { lapiseira.write(); };
-
-    aux::execute(chain, param);
+        if (args[0] == "end") {
+            break;
+        } else if (args[0] == "show") {
+            fn::write(lapiseira.str());
+        } else if (args[0] == "init") {
+            lapiseira = Lapiseira((float) +args[1]);
+        } else if (args[0] == "insert") {
+            lapiseira.inserir(std::make_shared<Grafite>((float) +args[1], args[2], +args[3]));
+        } else if (args[0] == "remove") {
+            lapiseira.remover();
+        } else if (args[0] == "pull") {
+            lapiseira.puxar();
+        } else if (args[0] == "write") {
+            lapiseira.write();
+        } else {
+            fn::write("fail: comando invalido");
+        }
+    }
 }
