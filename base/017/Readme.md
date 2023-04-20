@@ -36,17 +36,17 @@ O sistema deverá:
 [](load)[](diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
-enum Cents{
-  C10, 
-  C25,
-  C50,
-  C100;
-}
 
 class Coin {
   - value  : double
   - volume : int
   - label  : string
+  __
+  ' static const Coin C10; //c++
+  + {static} C10  : Coin
+  + {static} C25  : Coin
+  + {static} C50  : Coin
+  + {static} C100 : Coin
   __
   + Coin(cents: Cents)
   + toString() : string
