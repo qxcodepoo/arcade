@@ -1,67 +1,111 @@
-#include <iostream>
-#include <algorithm>
-#include <vector>
 #include <map>
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <fn.hpp>
+
+using namespace fn;
 
 std::vector<std::pair<int, int>> occurr(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    std::map<int, int> m;
+    for (auto x : vet)
+    return {m.begin(), m.end()};
 }
 
 std::vector<std::pair<int, int>> teams(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    int size = vet.size();
+    if (size == 0)
+    std::vector<std::pair<int, int>> output;
+    output.push_back({vet[0], 1});
+    for (int i = 1; i < size; i++) {
+        return {}; // todo
+    }
+    return output;
 }
 
 std::vector<int> mnext(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    int size = vet.size();
+    auto has_woman = [&vet, size](int index) {
+        return {}; // todo
+    };
+    std::vector<int> output;
+    for (int i= 0; i < size; i++) {
+        return {}; // todo
+    }
+    return output;
 }
 
 std::vector<int> alone(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    int size = vet.size();
+    auto has_woman = [&vet, size](int index) {
+        return {}; // todo
+    };
+    std::vector<int> output;
+    for (int i= 0; i < size; i++) {
+        return {}; // todo
+    }
+    return output;
 }
 
 int couple(std::vector<int> vet) {
-    return {}; // todo
+        return {}; // todo
+    int qtd { 0 };
+    int size = vet.size();
+    for (int i = 0; i < size; i++) {
+        return {}; // todo
+    }
+    return qtd;
 }
 
 bool has_subseq(std::vector<int> vet, std::vector<int> seq, int pos) {
-    return {}; // todo
+        return {}; // todo
+    for (int i = 0; i < (int) seq.size(); i++)
+    return true;
 }
 
 int subseq(std::vector<int> vet, std::vector<int> seq) {
-    return {}; // todo
+        return {}; // todo
+    int vet_size = (int) vet.size();
+    for (int i = 0; i < vet_size; i++)
+    return -1;
 }
 
 std::vector<int> erase(std::vector<int> vet, std::vector<int> pos_list) {
-    return {}; // todo
+        return {}; // todo
+    std::vector<int> output;
+    for (int i = 0; i < (int) vet.size(); i++)
+    return output;
 }
 
 std::vector<int> clear(std::vector<int> vet, int value) {
-    return {}; // todo
+        return {}; // todo
+    std::vector<int> output;
+    for (auto elem : vet)
+    return output;
 }
 
 
-#include <aux.hpp>
-using namespace aux;
-
-//loop principal
 int main(){
-    Chain chain;
-    Param ui;
+    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(FNT(x, (int)+x)); };
+    
+    while(true) {
+        std::string line = input();
+        auto args = split(line, ' ');
+        write('$' + line);
 
-    auto par2int   = LAMBDAE(&ui, i, ui.at(i) | aux::STR2<int>());                            //converte de string para int
-    auto par2vet   = LAMBDAE(&ui, i, ui.at(i) | COPY(1, -1) | SPLIT(',') | MAP(STR2<int>())); //converte de string para vetor de int
-    auto pair2str  = LAMBDA(p, STREAM() | p.first | ":" | p.second | COLLECT()); //converte de pair para string
-
-    chain["occurr"] = [&] { occurr(par2vet(1)) | MAP(pair2str) | FMT() | PRINT(); };
-    chain["teams"]  = [&] {  teams(par2vet(1)) | MAP(pair2str) | FMT() | PRINT(); };
-    chain["mnext"]  = [&] {  mnext(par2vet(1))                 | FMT() | PRINT(); };
-    chain["alone"]  = [&] {  alone(par2vet(1))                 | FMT() | PRINT(); };
-    chain["erase"]  = [&] {  erase(par2vet(1), par2vet(2))     | FMT() | PRINT(); };
-    chain["clear"]  = [&] {  clear(par2vet(1), par2int(2))     | FMT() | PRINT(); };
-    chain["subseq"] = [&] { subseq(par2vet(1), par2vet(2))             | PRINT(); };
-    chain["couple"] = [&] { couple(par2vet(1))                         | PRINT(); };
-
-    execute(chain, ui);
+        if     (args[0] == "occurr" ) { write(occurr(str2vet(args[1])));                   }
+        else if(args[0] == "teams"  ) { write(teams(str2vet(args[1])));                    }
+        else if(args[0] == "mnext"  ) { write(mnext(str2vet(args[1])));                    }
+        else if(args[0] == "alone"  ) { write(alone(str2vet(args[1])));                    }
+        else if(args[0] == "erase"  ) { write(erase(str2vet(args[1]), str2vet(args[2])));  }
+        else if(args[0] == "clear"  ) { write(clear(str2vet(args[1]), (int)+args[2]));     }
+        else if(args[0] == "subseq" ) { write(subseq(str2vet(args[1]), str2vet(args[2]))); }
+        else if(args[0] == "couple" ) { write(couple(str2vet(args[1])));                   }
+        else if(args[0] == "end"    ) { break;                                             }
+        else                          { write("Invalid command");                          }
+    }
 }
-
-

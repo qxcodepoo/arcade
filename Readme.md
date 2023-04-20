@@ -36,7 +36,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/000.jpg) | [@000 Estressados A: Busca](base/000/Readme.md#estressados-a-busca)
 ![_](.thumbs/040.jpg) | [@040 Estressados B: Contagem](base/040/Readme.md#estressados-b-contagem)
 ![_](.thumbs/032.jpg) | [@032 Estressados C: Transformações](base/032/Readme.md#estressados-c-transformações)
-![_](.thumbs/039.jpg) | [@039 Estressados D: Controles](base/039/Readme.md#estressados-d-controles)
+![_](.thumbs/039.jpg) | [@039 @039 Estressados D: Controles](base/039/Readme.md#039-estressados-d-controles)
 
 ## 02. Introdução e Modificadores de Acesso
 

@@ -1,4 +1,4 @@
-## @039 Estressados D: Controles
+## @039 @039 Estressados D: Controles
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/cover.jpg)
 
@@ -18,22 +18,27 @@
 ## Intro
 
 ### pares
+
 - **occurr**: Faça uma contagem de quantas vezes cada nível de stress aparece e retorne essa contagem ordenado pelo nível de stress.
 - **times** Uma ou mais pessoas de mesmo stress seguidas formam um time. Gere um vetor compactado indicando o nível de stress e quantas pessoas tem em cada time?
 
 ### proximidade
+
 - **mnext**: Apresente um mapa colocando 1 nas posições que existem homens ao lado de pelo menos uma mulher.
 - **alone**: quais posições existem homens que não estão do lado de nenhuma mulher?
 
 ### duplo for
+
 - **couple**: Casais são formados quando quando um homem e uma mulher com o mesmo nível de stress se encontram. Retorne a quantidade de casais que podem ser formados.
 - **subseq**: Dada uma sequência de valores, procure essa sequência na fila e retorne a primeira posição onde ela começar.
 
 ### remoções
+
 - **erase**: dado a lista com os índices de todas as pessoas que saíram da fila, qual a fila resultante?
 - **clear**: dado um valor, remova todas as vezes que esse valor aparece na lista.
 
 ___
+
 ## Guide
 
 - [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/.cache/draft.cpp), [help.h](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/help.h)
@@ -45,11 +50,11 @@ ___
 ```sh
 #__case occur
 $occurr [1,3,-1]
-[1:2, 3:1]
+[(1, 2), (3, 1)]
 $occurr [-2,1,-2,4]
-[1:1, 2:2, 4:1]
+[(1, 1), (2, 2), (4, 1)]
 $occurr [1,2,5,9,-1,-1,5,5]
-[1:3, 2:1, 5:3, 9:1]
+[(1, 3), (2, 1), (5, 3), (9, 1)]
 $end
 ```
 
@@ -58,15 +63,15 @@ $end
 $teams []
 []
 $teams [5]
-[5:1]
+[(5, 1)]
 $teams [5,5]
-[5:2]
+[(5, 2)]
 $teams [3,5,5,5]
-[3:1, 5:3]
+[(3, 1), (5, 3)]
 $teams [5,5,2,2,2,4,4]
-[5:2, 2:3, 4:2]
+[(5, 2), (2, 3), (4, 2)]
 $teams [5,5,7,1,5]
-[5:2, 7:1, 1:1, 5:1]
+[(5, 2), (7, 1), (1, 1), (5, 1)]
 $end
 ```
 

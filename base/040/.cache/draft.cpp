@@ -31,7 +31,7 @@ using namespace fn;
 
 int main() {
 
-    auto str2vet = [](auto s) { return s.substr(1, s.size() - 2) | SPLIT(',') | MAP(FNT(x, (int)+x)); };
+    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(FNT(x, (int)+x)); };
 
     while (true) {
         auto line = input();

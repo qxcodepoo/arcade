@@ -4,8 +4,7 @@
 #include <list>
 #include <string>
 #include <utility>
-#include <aux.hpp>
-
+#include <fn.hpp>
 
 class Pessoa {
     std::string nome;
@@ -47,16 +46,8 @@ public:
     }
 
     std::string str() const {
-        int i = 0;
-        auto fn = [&i](auto p) {
-            std::stringstream ss; 
-            ss << " " << i++ << ":" << (p == nullptr ? "-----" : p->getNome()) << " ";
-            return ss.str();
-        };
-        std::stringstream os;
-        os  << "Caixas: |" << (caixas | aux::MAP(fn) | aux::JOIN("|")) << "|\n"
-            << "Espera: " << (esperando | aux::MAP(LAMBDA(x, *x)) | aux::FMT());
-        return os.str();
+        auto caixas_str = caixas | fn::MAP(FNT(c, c == nullptr ? "-----" : c->getNome()));
+        return "Caixas: " + fn::tostr(caixas_str) + "\n" + "Espera: " + fn::tostr(esperando);
     }
 };
 
@@ -65,19 +56,20 @@ std::ostream& operator<<(std::ostream& os, const Mercantil& b) {
 }
 
 int main() {
-    aux::Chain chain;
-    aux::Param par;
-    
     Mercantil bank(0);
+    while (true) {
+        auto line = fn::input();
+        auto args = fn::split(line, ' ');
+        fn::write("$" + line);
 
-    chain["init"]   = [&]() {   bank = Mercantil(aux::to<int>(par[1])); };
-    chain["call"]   = [&]() { bank.chamarNoCaixa(aux::to<int>(par[1])); };
-    chain["finish"] = [&]() {     bank.finalizar(aux::to<int>(par[1])); };
-    chain["arrive"] = [&]() { bank.chegar(std::make_shared<Pessoa>(par[1])); };
-    chain["show"]   = [&]() { std::cout << bank << '\n'; };
-
-    aux::execute(chain, par);    
+        if      (args[0] == "end"   ) { break;                                          }
+        else if (args[0] == "init"  ) { bank = Mercantil(+args[1]);                     }
+        else if (args[0] == "call"  ) { bank.chamarNoCaixa(+args[1]);                   }
+        else if (args[0] == "finish") { bank.finalizar(+args[1]);                       }
+        else if (args[0] == "arrive") { bank.chegar(std::make_shared<Pessoa>(args[1])); }
+        else if (args[0] == "show"  ) { fn::write(bank);                                }
+        else                          { fn::write("fail: comando invalido");            }
+        
+    }
 }
-
-
 

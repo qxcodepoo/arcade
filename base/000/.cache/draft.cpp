@@ -28,7 +28,7 @@ using namespace fn;
 
 int main() {
 
-    auto STRTOVET = [](auto s) { return map(split(s.substr(1, s.size() - 2), ','), FNT(x, (int)+x)); };
+    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(FNT(x, (int)+x)); };
 
     while (true) {
         auto line = input();
@@ -36,11 +36,11 @@ int main() {
         auto args = split(line);
 
         if      (args[0] == "end"        ) { break;                                            }
-        else if (args[0] == "in"         ) { write(   tostr(in(STRTOVET(args[1]), +args[2]))); }
-        else if (args[0] == "index_of"   ) { write(   index_of(STRTOVET(args[1]), +args[2]));  }
-        else if (args[0] == "find_if"    ) { write(    find_if(STRTOVET(args[1])));            }
-        else if (args[0] == "min_element") { write(min_element(STRTOVET(args[1])));            }
-        else if (args[0] == "find_min_if") { write(find_min_if(STRTOVET(args[1])));            }
+        else if (args[0] == "in"         ) { write(   tostr(in(str2vet(args[1]), +args[2]))); }
+        else if (args[0] == "index_of"   ) { write(   index_of(str2vet(args[1]), +args[2]));  }
+        else if (args[0] == "find_if"    ) { write(    find_if(str2vet(args[1])));            }
+        else if (args[0] == "min_element") { write(min_element(str2vet(args[1])));            }
+        else if (args[0] == "find_min_if") { write(find_min_if(str2vet(args[1])));            }
         else                               { write("fail: unknown command");                   }
     }     
 }

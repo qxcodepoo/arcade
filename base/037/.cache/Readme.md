@@ -114,7 +114,7 @@ class Mercantil {
 #__case iniciar
 $init 2
 $show
-Caixas: | 0:----- | 1:----- |
+Caixas: [-----, -----]
 Espera: []
 
 #__case arrive
@@ -123,19 +123,19 @@ $arrive maria
 $arrive rubia
 
 $show
-Caixas: | 0:----- | 1:----- |
+Caixas: [-----, -----]
 Espera: [carla, maria, rubia]
 
 #__case call
 $call 0
 $show
-Caixas: | 0:carla | 1:----- |
+Caixas: [carla, -----]
 Espera: [maria, rubia]
 
 #__case finish
 $finish 0
 $show
-Caixas: | 0:----- | 1:----- |
+Caixas: [-----, -----]
 Espera: [maria, rubia]
 
 $end
@@ -146,14 +146,14 @@ $end
 #__case iniciar2
 $init 3
 $show
-Caixas: | 0:----- | 1:----- | 2:----- |
+Caixas: [-----, -----, -----]
 Espera: []
 
 $arrive carla
 $arrive maria
 
 $show
-Caixas: | 0:----- | 1:----- | 2:----- |
+Caixas: [-----, -----, -----]
 Espera: [carla, maria]
 
 #__case call
@@ -161,24 +161,28 @@ $call 0
 $call 0
 fail: caixa ocupado
 $show
-Caixas: | 0:carla | 1:----- | 2:----- |
+Caixas: [carla, -----, -----]
 Espera: [maria]
 
 #__case empty waiting
-$call 1
+$call 2
 $show
-Caixas: | 0:carla | 1:maria | 2:----- |
+Caixas: [carla, -----, maria]
 Espera: []
 
 #__case empty waiting
-$call 2
+$call 1
 fail: sem clientes
 
 #__case finish
 $finish 0
-$finish 1
 $show
-Caixas: | 0:----- | 1:----- | 2:----- |
+Caixas: [-----, -----, maria]
+Espera: []
+
+$finish 2
+$show
+Caixas: [-----, -----, -----]
 Espera: []
 
 #__case error
