@@ -26,11 +26,11 @@ public:
     }
 };
 
-using PtrKid = std::shared_ptr<Kid>;
-
-std::ostream& operator<<(std::ostream& os,  PtrKid kid) {
-    return os << kid->str();
+std::ostream& operator<<(std::ostream& os,  Kid kid) {
+    return os << kid.str();
 }
+
+using PtrKid = std::shared_ptr<Kid>;
 
 class Trampoline {
     std::list<PtrKid> waiting;
@@ -55,7 +55,7 @@ public:
     PtrKid removeKid(std::string name) {
     }
     std::string str() {
-        return "["s + join(waiting) + "] => [" + join(playing) + "]";
+        return fn::tostr(waiting) + " => " + fn::tostr(playing);
     }
 };
 
