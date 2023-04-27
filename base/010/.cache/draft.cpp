@@ -3,7 +3,6 @@
 #include <sstream>
 #include <memory>
 #include <sstream>
-#include <aux.hpp>
 
 struct Cliente{
     std::string id;
@@ -48,13 +47,4 @@ public:
     }
 };
 
-int main() {
-    aux::Chain chain;
-    aux::Param param;
-    Sala sala;
-    chain["init"]     = [&]() { sala = Sala(aux::to<int>(param[1])); };
-    chain["reservar"] = [&]() { sala.reservar(param[1], param[2], aux::to<int>(param[3])); };
-    chain["cancelar"] = [&]() { sala.cancelar(param[1]); };
-    chain["show"]     = [&]() { std::cout << sala.str() << std::endl; };
-    aux::execute(chain, param);
-}
+

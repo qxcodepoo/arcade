@@ -8,7 +8,7 @@
 - [03. Agregação Simples](#03-agregação-simples)
 - [04. ArrayList I - Listas](#04-arraylist-i---listas)
 - [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
-- [06. ArrayList III - Composição](#06-arraylist-iii---composição)
+- [06. ArrayList III - Composição e Enum](#06-arraylist-iii---composição-e-enum)
 - [07. Herança I](#07-herança-i)
 - [08. Referências Cruzadas](#08-referências-cruzadas)
 [](toc)
@@ -37,6 +37,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/040.jpg) | [@040 Estressados B: Contagem](base/040/Readme.md#estressados-b-contagem)
 ![_](.thumbs/032.jpg) | [@032 Estressados C: Transformações](base/032/Readme.md#estressados-c-transformações)
 ![_](.thumbs/039.jpg) | [@039 Estressados D: Controles](base/039/Readme.md#estressados-d-controles)
+![_](.thumbs/052.jpg) | [@052 Pesquisa sobre alocação de memória](base/052/Readme.md#pesquisa-sobre-alocação-de-memória)
 
 ## 02. Introdução e Modificadores de Acesso
 
@@ -46,7 +47,6 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/002.jpg) | [@002 Carro](base/002/Readme.md#carro)
 ![_](.thumbs/036.jpg) | [@036 Relógio](base/036/Readme.md#relógio)
 ![_](.thumbs/006.jpg) | [@006 Tamagotchi 💎](base/006/Readme.md#tamagotchi-)
-![_](.thumbs/017.jpg) | [@017 Porquinho](base/017/Readme.md#porquinho)
 
 ## 03. Agregação Simples
 
@@ -71,10 +71,11 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/010.jpg) | [@010 Cinema](base/010/Readme.md#cinema)
 ![_](.thumbs/012.jpg) | [@012 Topic](base/012/Readme.md#topic)
 
-## 06. ArrayList III - Composição
+## 06. ArrayList III - Composição e Enum
 
 \________________ | \______________________
 ---------------- | ------------------------
+![_](.thumbs/017.jpg) | [@017 Porquinho](base/017/Readme.md#porquinho)
 ![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
 ![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
 
