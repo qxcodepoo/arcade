@@ -16,7 +16,7 @@ std::ostream& operator<<(std::ostream& os, Cliente c) {
         return {}; // todo
     return os << c.str();
 }
-j
+
 class Sala{
     std::vector<std::shared_ptr<Cliente>> cadeiras;
     int procurar(std::string nome) {

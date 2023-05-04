@@ -18,11 +18,13 @@ class Coin {
   + {static} C100 : Coin
   __
   + Coin(cents: Cents)
-  + toString() : string
   __
   + getValue()  : double
   + getVolume() : int
   + getLabel()  : string
+  __
+  ' retorna value:volume
+  + toString() : string
 }
 
 class Item {
@@ -36,42 +38,56 @@ class Item {
   + setLabel (label  : string)
   + setVolume(volume : int)
   __
+  ' retorna label:volume
   + toString() : String
 }
 
 class Pig {
   - broken    : boolean
-  - items     : Array<string>
-  - value     : double
-  - volume    : int
+
+  - coins     : Array<Coin>
+  - items     : Array<Item>
+
   - volumeMax : int
   __
   
   ' inicializa o volumeMax
   + Pig(volumeMax : int)
   
-  ' se nao estiver quebrado e couber, adicione o value e o volume
+  ' se nao estiver quebrado e couber, adicione a moeda ao vetor de moedas
   + addCoin(coin  : Coin) : boolean
   
-  ' se não estiver quebrado e couber, adicione no volume e na descrição
+  ' se não estiver quebrado e couber, adicione o item ao vetor de itens
   + addItem(item  : Item) : boolean
   
-  ' quebre o pig, zere o volume
+  ' se o porco não estiver quebrado, quebre o porco
   + breakPig() : boolean
   
-  ' se estiver quebrado, pegue e retorne o value
-  + getCoins() : double
+  ' se estiver quebrado, pegue e retorne as moedas
+  ' se não estiver quebrado, retorne um vetor vazio
+  + extractCoins() : double
   
-  ' se estiver quebrado, pegue e retorno os itens
-  ' se não estiver quebrado, emita o erro e retorne uma lista vazia
-  + getItems() : Array<String>
+  ' se estiver quebrado, pegue e retorne os itens
+  ' se não estiver quebrado, retorne um vetor vazio
+  + extractItems() : Array<String>
   
   ' retorna uma string com uma lista de itens, valor, volume / volumeMax, 
   ' e se o porquinho está quebrado ou não
   + toString() : String
   __
+  ' se estiver quebrado
+    ' retorne zero
+  ' se não estiver quebrado
+    ' percorre o vetor de moedas e o vetor de itens somando o volume de cada um
   + getVolume()    : int
+
+  ' percorre o vetor de moedas somando o valor de cada moeda
+  + getValue()     : double
+
+  ' retorna o volumeMax
   + getVolumeMax() : int
+
+  ' retorna se o porquinho está quebrado ou não
   + isBroken()     : boolean
 }
 '--

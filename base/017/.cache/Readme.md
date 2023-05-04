@@ -1,6 +1,6 @@
 ## @017 Porquinho
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/017/cover.jpg)
 
 [](toc)
 
@@ -15,25 +15,23 @@ O sistema deverá:
 
 - Gerenciar um cofrinho do tipo Porquinho capaz de guardar moedas e itens.
 - As moedas devem ser criadas através de uma `enum`.
-- Ambos moedas e itens tem um método getVolume() e getDescription().
+- Ambos moedas e itens tem um método getVolume() e getLabel().
 - O volume do cofre incrementa conforme ele recebe itens e moedas.
 - A lógica da utilização do cofre é:
   - Para inserir moedas e itens o cofre deve estar inteiro.
-  - Para obter moedas e itens o cofre deve estar quebrado.
+  - Para extrair moedas e itens o cofre deve estar quebrado.
   - Ao quebrar, o volume do porco deve ser zerado e o status de broken deve ser alterado para true.
-  - Ao obter moedas e itens, os atribuitos `valor` e `itens` do porco devem ser zerados.
+  - Ao extrair moedas e itens, os atribuitos `valor` e `itens` devem se tornar listas vazias.
 
 ***
 
 ## Guide
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/017/.cache/draft.cpp)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/017/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 
@@ -49,11 +47,13 @@ class Coin {
   + {static} C100 : Coin
   __
   + Coin(cents: Cents)
-  + toString() : string
   __
   + getValue()  : double
   + getVolume() : int
   + getLabel()  : string
+  __
+  ' retorna value:volume
+  + toString() : string
 }
 
 class Item {
@@ -67,42 +67,56 @@ class Item {
   + setLabel (label  : string)
   + setVolume(volume : int)
   __
+  ' retorna label:volume
   + toString() : String
 }
 
 class Pig {
   - broken    : boolean
-  - items     : Array<string>
-  - value     : double
-  - volume    : int
+
+  - coins     : Array<Coin>
+  - items     : Array<Item>
+
   - volumeMax : int
   __
   
   ' inicializa o volumeMax
   + Pig(volumeMax : int)
   
-  ' se nao estiver quebrado e couber, adicione o value e o volume
+  ' se nao estiver quebrado e couber, adicione a moeda ao vetor de moedas
   + addCoin(coin  : Coin) : boolean
   
-  ' se não estiver quebrado e couber, adicione no volume e na descrição
+  ' se não estiver quebrado e couber, adicione o item ao vetor de itens
   + addItem(item  : Item) : boolean
   
-  ' quebre o pig, zere o volume
+  ' se o porco não estiver quebrado, quebre o porco
   + breakPig() : boolean
   
-  ' se estiver quebrado, pegue e retorne o value
-  + getCoins() : double
+  ' se estiver quebrado, pegue e retorne as moedas
+  ' se não estiver quebrado, retorne um vetor vazio
+  + extractCoins() : double
   
-  ' se estiver quebrado, pegue e retorno os itens
-  ' se não estiver quebrado, emita o erro e retorne uma lista vazia
-  + getItems() : Array<String>
+  ' se estiver quebrado, pegue e retorne os itens
+  ' se não estiver quebrado, retorne um vetor vazio
+  + extractItems() : Array<String>
   
   ' retorna uma string com uma lista de itens, valor, volume / volumeMax, 
   ' e se o porquinho está quebrado ou não
   + toString() : String
   __
+  ' se estiver quebrado
+    ' retorne zero
+  ' se não estiver quebrado
+    ' percorre o vetor de moedas e o vetor de itens somando o volume de cada um
   + getVolume()    : int
+
+  ' percorre o vetor de moedas somando o valor de cada moeda
+  + getValue()     : double
+
+  ' retorna o volumeMax
   + getVolumeMax() : int
+
+  ' retorna se o porquinho está quebrado ou não
   + isBroken()     : boolean
 }
 ```
@@ -113,64 +127,63 @@ class Pig {
 
 ## Shell
 
-```sh
+```py
 #__case init
 $init 20
 $show
-[] : 0.00$ : 0/20 : unbroken
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
 
 #__case insert
 $addCoin 10
-$show
-[] : 0.10$ : 1/20 : unbroken
-
 $addCoin 50
 $show
-[] : 0.60$ : 4/20 : unbroken
+state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
 
 #__case itens
 $addItem ouro 3
 $show
-[ouro] : 0.60$ : 7/20 : unbroken
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
 
 $addItem passaporte 2
 $show
-[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
 
 #__case failed break
-$getItems
+$extractItems
 fail: you must break the pig first
 []
 
-$getCoins
+$extractCoins
 fail: you must break the pig first
-0.00
+[]
 
 $show
-[ouro, passaporte] : 0.60$ : 9/20 : unbroken
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
 
 #__case breaking
 $break
 $show
-[ouro, passaporte] : 0.60$ : 0/20 : broken
+state=broken : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=0/20
 
 #__case getItems
 
-$getItems
-[ouro, passaporte]
+$extractItems
+[ouro:3, passaporte:2]
 
 $show
-[] : 0.60$ : 0/20 : broken
+state=broken : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=0/20
 
 #__case getCoins
 
-$getCoins
-0.60
+$extractCoins
+[0.10:1, 0.50:3]
 
 $show
-[] : 0.00$ : 0/20 : broken
+state=broken : coins=[] : items=[] : value=0.00 : volume=0/20
 $end
 ```
+
+***
 
 ```sh
 #__case
@@ -181,17 +194,20 @@ $break
 $addCoin 10
 fail: the pig is broken
 
+
 $show
-[] : 0.00$ : 0/10 : broken
+state=broken : coins=[] : items=[] : value=0.00 : volume=0/10
 
 $addItem bilhete 2
 fail: the pig is broken
 
 $show
-[] : 0.00$ : 0/10 : broken
+state=broken : coins=[] : items=[] : value=0.00 : volume=0/10
 
 $end
 ```
+
+***
 
 ```sh
 #__case full coin
@@ -200,25 +216,25 @@ $init 5
 $addCoin 10
 $addCoin 25
 $show
-[] : 0.35$ : 3/5 : unbroken
+state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
 
 $addCoin 50
 fail: the pig is full
 
 $show
-[] : 0.35$ : 3/5 : unbroken
+state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
 
 #__case full item
 $addItem ouro 1
 
 $show
-[ouro] : 0.35$ : 4/5 : unbroken
+state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
 
 $addItem pirulito 2
 fail: the pig is full
 
 $show
-[ouro] : 0.35$ : 4/5 : unbroken
+state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
 
 $end
 ```

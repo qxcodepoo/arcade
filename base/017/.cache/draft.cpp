@@ -3,7 +3,7 @@
 
 
 class Coin {
-    float value;
+    double value;
     int volume;
     std::string label;
 
@@ -16,7 +16,7 @@ public:
     const static Coin C50;
     const static Coin C100;
 
-    float getValue() const { 
+    double getValue() const { 
         return value; 
     }
     int getVolume() const { 
@@ -25,6 +25,10 @@ public:
     std::string getLabel() const { 
         return label; 
     }
+
+    std::string str() const {
+        return fn::format("{%.2f}:{}", value, volume);
+    }
 };
 
 const Coin Coin::C10 {0.10, 1, "C10"};
@@ -32,6 +36,9 @@ const Coin Coin::C25 {0.25, 2, "C25"};
 const Coin Coin::C50 {0.50, 3, "C50"};
 const Coin Coin::C100 {1.00, 4, "C100"};
 
+std::ostream& operator<<(std::ostream& os, const Coin& coin) {
+    return os << coin.str();
+}
 
 class Item {
     std::string label;
@@ -59,9 +66,9 @@ std::ostream& operator<<(std::ostream& os, const Item& item) {
 }
 
 class Pig {
-    std::vector<std::string> itens;
-    double value {0};
-    int volume {0};
+    std::vector<Item> itens;
+    std::vector<Coin> coins;
+
     int volumeMax {0};
     bool broken {false};
 
@@ -82,11 +89,19 @@ public:
         return {}; // todo
     }
 
-    double getCoins() {
+    std::vector<Coin> extractCoins() {
         return {}; // todo
     }
 
-    std::string getItems() {
+    std::vector<Item> extractItems() {
+        return {}; // todo
+    }
+
+    double getValue() const {
+        return {}; // todo
+    }
+
+    int getVolume() const {
         return {}; // todo
     }
 
@@ -116,12 +131,12 @@ int main() {
             else if (args[1] == "50" ) pig.addCoin(Coin::C50);
             else if (args[1] == "100") pig.addCoin(Coin::C100);
         }
-        else if (args[0] == "init"    ) { pig = Pig( (int) +(args[1]));                 }
-        else if (args[0] == "addItem" ) { pig.addItem(Item(args[1], (int) +(args[2]))); }
-        else if (args[0] == "break"   ) { pig.breakPig();                               }
-        else if (args[0] == "getCoins") { fn::write(fn::tostr(pig.getCoins(), "%.2f")); }
-        else if (args[0] == "getItems") { fn::write(pig.getItems());                    }
-        else if (args[0] == "show"    ) { fn::write(pig);                               }
-        else                            { fn::write("fail: invalid command"); }
+        else if (args[0] == "init"        ) { pig = Pig( (int) +(args[1]));                 }
+        else if (args[0] == "addItem"     ) { pig.addItem(Item(args[1], (int) +(args[2]))); }
+        else if (args[0] == "break"       ) { pig.breakPig();                               }
+        else if (args[0] == "extractCoins") { fn::write(pig.extractCoins());                }
+        else if (args[0] == "extractItems") { fn::write(pig.extractItems());                }
+        else if (args[0] == "show"        ) { fn::write(pig);                               }
+        else                                { fn::write("fail: invalid command");           }
     }
 }
