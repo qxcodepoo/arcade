@@ -1,6 +1,6 @@
 ## @039 Estressados D: Controles
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/039/cover.jpg)
 
 [](toc)
 
@@ -41,9 +41,9 @@ ___
 
 ## Guide
 
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/.cache/draft.cpp), [help.h](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/help.h)
-- [solver.js](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/.cache/draft.js)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/039/draft.cpp)
+- [solver.js](https://github.com/qxcodepoo/arcade/blob/master/base/039/draft.js)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/039/draft.ts)
 
 ## Shell
 

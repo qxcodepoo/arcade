@@ -1,7 +1,5 @@
-shell.ts
 Readme.md
 cover.jpg
 Makefile
-help.h
 local.sh
 
