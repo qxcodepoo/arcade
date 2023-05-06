@@ -36,6 +36,10 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 
 ## Guide
 
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/015/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/015/.cache/draft.ts)
+
+
 ![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/015/diagrama.png)
 
 [](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/015/diagrama.puml)[](fenced:filter:puml)

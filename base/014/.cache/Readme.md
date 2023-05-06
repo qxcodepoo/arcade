@@ -44,6 +44,9 @@ Seu programa deve:
 
 ## Guide
 
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/014/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/014/.cache/draft.ts)
+
 ![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/014/diagrama.png)
 
 [](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/014/diagrama.puml)[](filter:fenced:plantuml)

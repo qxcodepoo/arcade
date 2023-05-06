@@ -36,6 +36,10 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 
 ## Guide
 
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](fenced:filter:puml)

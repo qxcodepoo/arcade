@@ -5,82 +5,53 @@ let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end)
 
 
 class Fone { //todo
-  private id: string;
-  private number: string;
-
-  constructor(id: string = "", number: string = "") { //todo
-    this.id = id;
-    this.number = number;
-  }
-
-  getId(): string { //todo
-    return this.id;
-  }
-
-  getNumber(): string { //todo
-    return this.number;
-  }
-
-  isValid(): boolean { //todo
-    const valid = "0123456789()-.";
-    for (const c of this.number) { //todo
-      if (!valid.includes(c)) { //todo
-      }
+    private id: string;
+    private number: string;
+    
+    constructor(id: string = "", number: string = "") { //todo
     }
-    return true;
-  }
-
-  toString(): string { //todo
-    return `${this.id}:${this.number}`;
-  }
+    
+    getId(): string { //todo
+    }
+    
+    getNumber(): string { //todo
+    }
+    
+    isValid(): boolean { //todo
+    }
+    
+    toString(): string { //todo
+    }
 }
 
 class Contact { //todo
-  private name: string;
-  private favorited: boolean;
-  private fones: Fone[];
-
-  constructor(name: string = "") { //todo
-    this.name = name;
-    this.favorited = false;
-    this.fones = [];
-  }
-
-  getName(): string { //todo
-    return this.name;
-  }
-
-  getFones(): Fone[] { //todo
-    return this.fones;
-  }
-
-  addFone(id: string, number: string): void { //todo
-    const fone = new Fone(id, number);
-    if (fone.isValid()) { //todo
-      this.fones.push(new Fone(id, number));
-    } else { //todo
-      write("fail: invalid number");
+    private name: string;
+    private favorited: boolean;
+    private fones: Fone[];
+    
+    constructor(name: string = "") { //todo
     }
-  }
-
-  rmFone(index: number): void { //todo
-    if (index < 0 || index >= this.fones.length) { //todo
-      return;
+    
+    getName(): string { //todo
     }
-    this.fones.splice(index, 1);
-  }
-
-  toogleFavorited(): void { //todo
-    this.favorited = !this.favorited;
-  }
-
-  isFavorited(): boolean { //todo
-    return this.favorited;
-  }
-
-  toString(): string { //todo
-    return `${this.favorited ? "@" : "-"} ${this.name} [${this.fones.join(", ")}]`;
-  }
+    
+    getFones(): Fone[] { //todo
+    }
+    
+    addFone(id: string, number: string): void { //todo
+    }
+    
+    rmFone(index: number): void { //todo
+    }
+    
+    toogleFavorited(): void { //todo
+    }
+    
+    isFavorited(): boolean { //todo
+    }
+    
+    toString(): string { //todo
+    }
 }
 
 
@@ -90,7 +61,7 @@ function main() {
         let line = input();
         write("$" + line);
         let args = line.split(" ");
-
+        
         if (args[0] === "end") {
             break;
         } else if (args[0] === "init") {

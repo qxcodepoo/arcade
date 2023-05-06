@@ -44,6 +44,9 @@ Seu programa deve:
 
 ## Guide
 
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+
 ![diagrama](diagrama.png)
 
 [](load)[](diagrama.puml)[](filter:fenced:plantuml)
