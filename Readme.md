@@ -9,7 +9,8 @@
 - [04. ArrayList I - Listas](#04-arraylist-i---listas)
 - [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
 - [06. ArrayList III - Composição e Enum](#06-arraylist-iii---composição-e-enum)
-- [07. Herança I](#07-herança-i)
+- [07.  Mapas, Ordenação e Exceções](#07--mapas-ordenação-e-exceções)
+- [08. Herança I](#08-herança-i)
 - [08. Referências Cruzadas](#08-referências-cruzadas)
 [](toc)
 
@@ -69,28 +70,23 @@ Exercícios de fup para aquecer o coração e o cérebro.
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/010.jpg) | [@010 Cinema](base/010/Readme.md#cinema)
-![_](.thumbs/012.jpg) | [@012 Topic](base/012/Readme.md#topic)
+![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
 
 ## 06. ArrayList III - Composição e Enum
 
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/017.jpg) | [@017 Porquinho](base/017/Readme.md#porquinho)
-![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
 ![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
 
-<!--
-11.  Mapas, Ordenação e Exceções
+## 07.  Mapas, Ordenação e Exceções
 
 \________________ | \______________________
 ---------------- | ------------------------
-![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
-![_](.thumbs/028.jpg) | [@028 Bilheteria](base/028/Readme.md#bilheteria)
-![_](.thumbs/016.jpg) | [@016 Favoritos ](base/016/Readme.md#favoritos--agenda-3-cache-e-redundância)
 ![_](.thumbs/014.jpg) | [@014 Contato](base/014/Readme.md#contato)
--->
+![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
 
-## 07. Herança I
+## 08. Herança I
 
 \________________ | \______________________
 ---------------- | ------------------------
@@ -100,6 +96,8 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 <!--
 ![_](.thumbs/048.jpg) | [@048 Estacionamento](base/048/Readme.md#estacionamento)
+![_](.thumbs/016.jpg) | [@016 Favoritos ](base/016/Readme.md#favoritos--agenda-3-cache-e-redundância)
+![_](.thumbs/028.jpg) | [@028 Bilheteria](base/028/Readme.md#bilheteria)
 -->
 
 ## 08. Referências Cruzadas
