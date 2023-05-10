@@ -1,126 +1,82 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.Collections;
 
-class Fone {
+
+class Fone { //todo
     private String id;
     private String number;
-    public Fone(String id, String number) {
-        this.id = id;
-        this.number = number;
+
+    public Fone(String id, String number) { //todo
     }
 
-    public static boolean validate(String number) {
-        String validos = "()-.0123456789";
-        for(int i = 0; i < number.length(); i++)
-            if(!validos.contains("" + number.charAt(i)))
-                return false;
-        return true;
+    public String getId() { //todo
     }
 
-    public boolean isValid() {
-        return validate(number);
+    public String getNumber() { //todo
     }
 
-    @Override
-    public String toString() {
-        return getId()+ ":" + getNumber();
+    public boolean isValid() { //todo
     }
 
-    //GETS e SETS
-    public String getId() {
-        return this.id;
+    public String str() { //todo
     }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getNumber() {
-        return this.number;
-    }
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-
 }
 
-class Contact {
+class Contact { //todo
     private String name;
+    private boolean favorited;
     private List<Fone> fones;
-    protected String prefix = "-"; //utilizado no toString
-    
-    public Contact(String name, List<Fone> fones) {
-        this.name = name;
-        this.fones = new ArrayList<>();
-        if(fones != null)
-        //     for(Fone fone : fones)
-        //         this.addFone(fone);
-            fones.stream().forEach((fone) -> {this.addFone(fone);});
+
+    public Contact(String name) { //todo
     }
 
-    public void addFone(Fone fone) {
-        if(Fone.validate(fone.getNumber()))
-            this.fones.add(fone);
-        else
-            System.out.println("fail: invalid number");
+    public String getName() { //todo
     }
 
-    public void rmFone(int index){
-        if(index < 0 || index >= (int) fones.size())
-            return;
-        fones.remove(index);
+    public List<Fone> getFones() { //todo
     }
 
-    @Override
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.prefix + " " + this.getName());
-        for(int i = 0; i < fones.size(); i++)
-            sb.append( " [" + i + ":" + fones.get(i) + "]");
-        return sb.toString();
+    public void addFone(String id, String number) { //todo
     }
 
-    //GETS e SETS
-    public String getName() {
-        return this.name;
+    public void rmFone(int index) { //todo
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public void toogleFavorited() { //todo
     }
-    public List<Fone> getFones() {
-        return this.fones;
+
+    public boolean isFavorited() { //todo
     }
-    
-    public void setFones(List<Fone> fones) {
-        this.fones.clear();
-        fones.stream().forEach((fone) -> {this.addFone(fone);});
+
+    public String str() { //todo
     }
 }
 
-public class Solver {
-//!KEEP
-    public static void main(String[] args) {
+
+public class Solver{
+
+    public static void main(String[] Args) {
         Scanner scanner = new Scanner(System.in);
-        Contact contact = new Contact("", null);
-        while(true){
+        Contact contact = new Contact("");
+
+        while (true) {
             String line = scanner.nextLine();
-            System.out.println("$" + line);
-            String ui[] = line.split(" ");
-            if(ui[0].equals("end")) {
-                break;
-            } else if(ui[0].equals("init")) { //name
-                contact = new Contact(ui[1], null);
-            } else if(ui[0].equals("add")) {  //id fone
-                contact.addFone(new Fone(ui[1], ui[2]));
-            } else if(ui[0].equals("rm")) {   //index
-                contact.rmFone(Integer.parseInt(ui[1]));
-            } else if(ui[0].equals("show")) {
-                System.out.println(contact);
-            } else {
-                System.out.println("fail: invalid command");
-            }
+            write("$" + line);
+            String[] args = line.split(" ");
+            
+            if      (args[0].equals("end"))     { break;                             }
+            else if (args[0].equals("init"))    { contact = new Contact(args[1]);    }
+            else if (args[0].equals("show"))    { write(contact.str());              }
+            else if (args[0].equals("add"))     { contact.addFone(args[1], args[2]); }
+            else if (args[0].equals("rm"))      { contact.rmFone(number(args[1]));   }
+            else if (args[0].equals("tfav"))    { contact.toogleFavorited();         }
+            else                                { write("fail: invalid command");}
         }
         scanner.close();
     }
+    public static int number(String number) { return Integer.parseInt(number); }
+    public static void write(String str)    { System.out.println(str);         }
 }
-//!OFF

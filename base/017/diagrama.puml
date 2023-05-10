@@ -17,7 +17,7 @@ class Coin {
   + {static} C50  : Coin
   + {static} C100 : Coin
   __
-  + Coin(cents: Cents)
+  - Coin(value: double, volume: int, label: string)
   __
   + getValue()  : double
   + getVolume() : int

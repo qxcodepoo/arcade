@@ -12,11 +12,6 @@ struct Cliente{
     }
 };
 
-std::ostream& operator<<(std::ostream& os, Cliente c) {
-        return {}; // todo
-    return os << c.str();
-}
-
 class Sala{
     std::vector<std::shared_ptr<Cliente>> cadeiras;
     int procurar(std::string nome) {
@@ -39,11 +34,9 @@ public:
     }
 };
 
-std::ostream& operator<<(std::ostream& os, Sala c) {
-        return {}; // todo
-    return os << c.str();
-}
 
+std::ostream& operator<<(std::ostream& os, Cliente c) { return os << c.str(); }
+std::ostream& operator<<(std::ostream& os, Sala    c) { return os << c.str(); }
 
 int main() {
     Sala sala;
