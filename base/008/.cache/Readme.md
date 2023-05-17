@@ -4,9 +4,10 @@
 
 [](toc)
 
+- [Explicação](#explicação)
 - [Intro](#intro)
-- [Shell](#shell)
 - [Guide](#guide)
+- [Shell](#shell)
 - [Fim da história](#fim-da-história)
 [](toc)
 
@@ -17,6 +18,10 @@ Seu Plutolomeu é um agiota que empresta dinheiro a juros de 10%. Ele é uma pes
 Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empréstimos que ele tinha instalado em seu computador.
 
 ***
+
+## Explicação
+
+[![_](https://github.com/qxcodepoo/arcade/blob/master/base/008/play.png)]([Vídeo](https://youtu.be/5pnagWZvjBE))
 
 ## Intro
 
@@ -49,7 +54,11 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
   - O mesmo objeto transação é compartilhado entre o histórico do agiota e o histórico do cliente correspondente.
 - A lista dos mortos não são mortos de verdade, estão mortos no coração de Ptolomeu apenas, porque ele desistiu de cobrar a dívida. É o que ele disse pra polícia.
 
-***
+## Guide
+
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/008/.cache/draft.cpp)
+
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/008/diagrama.png)
 
 ## Shell
 
@@ -187,12 +196,6 @@ $show
 
 $end
 ```
-
-## Guide
-
-[draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/008/.cache/draft.cpp)
-
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/008/diagrama.png)
 
 ## Fim da história
 
