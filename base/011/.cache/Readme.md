@@ -1,4 +1,4 @@
-## @011 JunkFood
+## @011 JunkFood \u{1F4B0}
 
 [](solver.cpp)
 
@@ -9,6 +9,7 @@
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
+- [Resolução](#resolução)
 [](toc)
 
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
@@ -23,7 +24,7 @@ Seu sistema deverá ser capaz de:
   - Iniciar a máquina definindo o número de espirais.
     - Se já houver uma máquina, então apague tudo e inicie uma nova máquina.
   - Mostrar o conteúdo de cada espiral.
-    - Indice, nome do produto, quantidade de produtos e preço.
+    - Índice, nome do produto, quantidade de produtos e preço.
     - Coloque um "empty" no nome do produto para informar que não há produto definido.
 
 - **Algo pra comer**
@@ -259,3 +260,7 @@ voce recebeu 1.50 RS
 $end
 #__end__
 ```
+
+## Resolução
+
+Não assista sem antes tentar resolver o problema: [LINK](https://youtu.be/wabygPIeP2w)

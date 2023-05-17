@@ -1,21 +1,18 @@
 ## @008 Agiota
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/008/cover.jpg)
 
 [](toc)
 
 - [Intro](#intro)
 - [Shell](#shell)
-- [Diagrama](#diagrama)
-- [Main](#main)
+- [Guide](#guide)
 - [Fim da história](#fim-da-história)
 [](toc)
 
-Ptolomeu é o agiota mais carismático de MoneyVille. Sem nenhuma razão foi denunciado e acabou indo pra cadeira. A lasqueira foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
+Ptolomeu é o agiota mais carismático de MoneyVille. Sem "nenhuma razão" foi denunciado e acabou indo pra cadeira. O problema foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 
-Seu Plutolomeu é um agiota que empresta dinheiro a juros 0. Ele é uma pessoa muito carismática e amiga de todos. De sorriso largo sempre aberto, Plutolomeu é amigo da vizinhança. Inclusive esse ano, ele ganhou uma festa de aniversário surpresa de todos os seus devedores. Só quem é gente muito fina ganha festa surpresa né?
-
-**Um, pelo menos foi isso que ele disse pra polícia quando foi pego em flagrante com 50 mil reais escondidos debaixo do colchão!**
+Seu Plutolomeu é um agiota que empresta dinheiro a juros de 10%. Ele é uma pessoa "muito carismática e amiga de todos". De vez em quando os clientes dele desaparecem, mas ele diz que é só coincidência. "A vida é um sopro e basta estar vivo pra morrer", segundo ele.
 
 Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empréstimos que ele tinha instalado em seu computador.
 
@@ -23,160 +20,184 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Intro
 
-- Iniciar Sistema.
-  - Inicia o sistema com uma certa quantidade de dinheiro.
-
 - Cadastrar Clientes
   - Cada cliente cadastrado tem um codenome único e um limite de crédito que ele pode ficar devendo ao agiota.
-
 - Emprestar Dinheiro.
-  - Empréstimos são salvos com valor positivo de transação.
+  - Empréstimos são salvos como Transações de GIVE (porque ele dá com todo carinho) e são armazenadas tanto na lista do agiota como nos objetos dos clientes.
   - Cada transação deve receber do sistema um identificador numérico crescente.
   - A primeira transação tem id 0. A segunda tem id 1 e etc.
-  - Ptolomeu não pode emprestar dinheiro se não tiver dinheiro suficiente.
-  - Uma transação tem um clienteId e um valor numérico.
-
+  - Uma transação tem um id inteiro, um nome de cliente, um label e um valor numérico.
+  - Os labels das transções podem ser
+    - GIVE: quando o agiota dá dinheiro pra pessoa.
+    - TAKE: quando o agiota "pega" o dinheiro da pessoa.
+    - PLUS: quando o agiota decide que é hora de cobrar juros e as dívidas de todos aumentam em 10%.
+  - Os valores das transações sempre são positivos. Ptolomeu não entende números negativos. O que define se é entrada ou saída é o label.
 - Mostrar todos os clientes com o saldo de cada um.
-
 - Mostrar o histórico de transações de Ptolomeu.
-
 - Receber dinheiro.
-  - Clientes pagam os empréstimos aos poucos.
-  - O cliente não pode pagar mais do que está devendo.
-
+  - Clientes pagam os empréstimos aos poucos. (As vezes, eles não pagam, mas seu Ptolomeu dá um jeito de pegar).
 - Matar um cliente.
-  - As vezes Ptolomeu dá um chá de sumiço em quem não paga suas dívidas. Pra não deixar pontas soltas ele precisa apagar as transações do histórico e remover o cliente da lista.
-  - Apagar as transações não altera o saldo de Ptolomeu.
+  - As vezes Ptolomeu dá um chá de sumiço em quem não paga suas dívidas.
+    - Pra não deixar pontas soltas ele move o cliente da lista de clientes vivos para a lista de clientes mortos.
+    - Também retira as transações relacionadas ao cliente morto do histórico de transações dos vivos e move para o histórico de transações dos mortos.
+    - Ele disse que quando você implmentou, você queria apagar complementamente os mortos do sistema, mas ele disse que ia ficar com saudade, por isso pediu a lista dos mortos.
+- O Classe cliente:
+  - Não possui um objeto saldo. Para calcular o saldo, percorra o vetor de operações do cliente somando o que for entrada (GIVE) e retirando do que for saída (TAKE, PLUS).
+- Na hora de efetuar os juros.
+  - Se por acaso alguém, por causa dos juros, tiver devendo mais do que o limite, essa pessoa também vai pro saco. Perdão, pra lista do mortos.
+- As transações:
+  - O mesmo objeto transação é compartilhado entre o histórico do agiota e o histórico do cliente correspondente.
+- A lista dos mortos não são mortos de verdade, estão mortos no coração de Ptolomeu apenas, porque ele desistiu de cobrar a dívida. É o que ele disse pra polícia.
 
 ***
 
 ## Shell
 
 ```bash
-#__case init
-$init 500
-
 #__case cadastrar
 $addCli maria 500
-$addCli josue 60
+$addCli rubia 60
 $addCli maria 300
 fail: cliente ja existe
 
 #__case emprestar
-$lend maria 300
-$lend josue 50
-$lend maria 100
+$give maria 300
+$give rubia 50
+$give maria 100
 
 #__case show
 # Mostra os cliente ordenados por codenome
 # Mostra as operações pela ordem que elas ocorreram
 $show
-clients:
-- josue:50/60
-- maria:400/500
-transactions:
-- id:0 maria:300
-- id:1 josue:50
-- id:2 maria:100
-balance: 50
+
+:) maria 400/500
+:) rubia 50/60
++ id:0 give:maria 300
++ id:1 give:rubia 50
++ id:2 give:maria 100
 
 # __case erros no emprestimo
-$lend bruno 30
+$give bruno 30
 fail: cliente nao existe
 
-$lend maria 60
-fail: fundos insuficientes
-
-$lend josue 30
+$give rubia 30
 fail: limite excedido
 
 $show
-clients:
-- josue:50/60
-- maria:400/500
-transactions:
-- id:0 maria:300
-- id:1 josue:50
-- id:2 maria:100
-balance: 50
+:) maria 400/500
+:) rubia 50/60
++ id:0 give:maria 300
++ id:1 give:rubia 50
++ id:2 give:maria 100
 
 #__case receber dinheiro
-$receive maria 1000
-fail: valor maior que a divida
-$receive maria 350
-$receive josue 1
-$receive maria 10
+$take maria 350
+$take rubia 1
+$take maria 10
+
 $show
-clients:
-- josue:49/60
-- maria:40/500
-transactions:
-- id:0 maria:300
-- id:1 josue:50
-- id:2 maria:100
-- id:3 maria:-350
-- id:4 josue:-1
-- id:5 maria:-10
-balance: 411
+:) maria 40/500
+:) rubia 49/60
++ id:0 give:maria 300
++ id:1 give:rubia 50
++ id:2 give:maria 100
++ id:3 take:maria 350
++ id:4 take:rubia 1
++ id:5 take:maria 10
+
+#__case getCli
+$showCli maria
+maria 40/500
+id:0 give:maria 300
+id:2 give:maria 100
+id:3 take:maria 350
+id:5 take:maria 10
 
 #__case matar
 $kill maria
 $show
-clients:
-- josue:49/60
-transactions:
-- id:1 josue:50
-- id:4 josue:-1
-balance: 411
+:) rubia 49/60
++ id:1 give:rubia 50
++ id:4 take:rubia 1
+:( maria 40/500
+- id:0 give:maria 300
+- id:2 give:maria 100
+- id:3 take:maria 350
+- id:5 take:maria 10
 
 $end
 ```
 
 ***
 
-## Diagrama
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/diagrama.png)
+```bash
+#__case cadastrar
+$addCli maria 500
+$addCli rubia 60
+$addCli josue 200
 
-***
+$give maria 430
+$give josue 170
+$give rubia 30
 
-## Main
-```java
-    Agiota ag = new Agiota(500);
-    ag.addCli("maria", 500);
-    ag.addCli("josue", 60);
-    ag.addCli("maria", 300); //fail
+#__case show
+$show
+:) josue 170/200
+:) maria 430/500
+:) rubia 30/60
++ id:0 give:maria 430
++ id:1 give:josue 170
++ id:2 give:rubia 30
 
-    ag.lend("maria", 300);
-    ag.lend("josue", 50);
-    ag.lend("maria", 100);
+# aumenta a divida de todos de 10%
+# arredondado pra cima
+#__case rendimento
+$plus
 
-    System.out.println(ag); //check
+$show
+:) josue 187/200
+:) maria 473/500
+:) rubia 33/60
++ id:0 give:maria 430
++ id:1 give:josue 170
++ id:2 give:rubia 30
++ id:3 plus:josue 17
++ id:4 plus:maria 43
++ id:5 plus:rubia 3
 
-    ag.lend("bruno", 30);//fail
-    ag.lend("maria", 60);//fail
-    ag.lend("josue", 30);//fail
+#__case cobrar e matar
+# se na hora do juros, o valor passar
+# do limite, eles morrem
 
-    System.out.println(ag); //check
+$plus
 
-    ag.receive("maria", 1000);//fail
-    ag.receive("maria", 350);
-    ag.receive("josue", 1);
-    ag.receive("maria", 10);
+$show
+:) rubia 37/60
++ id:2 give:rubia 30
++ id:5 plus:rubia 3
++ id:8 plus:rubia 4
+:( josue 206/200
+:( maria 521/500
+- id:1 give:josue 170
+- id:3 plus:josue 17
+- id:6 plus:josue 19
+- id:0 give:maria 430
+- id:4 plus:maria 43
+- id:7 plus:maria 48
 
-    System.out.println(ag); //check
-
-    ag.kill("maria");
-
-    System.out.println(ag); //check
-}
-
+$end
 ```
 
-***
+## Guide
+
+[draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/008/.cache/draft.cpp)
+
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/008/diagrama.png)
 
 ## Fim da história
 
-- Então assim ficou Ptolomeu, depois de conseguir explicar pra polícia que tudo não passou me um mal entendido. 
-    - *Essa explicação custou 20.000 reais*, mas isso é detalhe, ninguém comenta.
+- Então assim ficou Ptolomeu, depois de ir para a prisão e ver sua fortuna confiscada.
+- Se foi presídio, zoológico ou hospital psiquiátrico, ninguém comenta, só sabemos que ele nunca mais foi visto. Pelo menos não em Moneyville.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/ptolomeu.jpg)
+![_](https://github.com/qxcodepoo/arcade/blob/master/base/008/ptolomeu.jpg)
+

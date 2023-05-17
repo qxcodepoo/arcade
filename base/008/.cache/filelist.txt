@@ -1,5 +1,8 @@
+diagrama.puml
 diagrama.png
 Readme.md
 cover.jpg
 ptolomeu.jpg
+local.sh
+student.cpp
 

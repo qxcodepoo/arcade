@@ -70,7 +70,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/010.jpg) | [@010 Cinema](base/010/Readme.md#cinema)
-![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
+![_](.thumbs/011.jpg) | [@011 JunkFood \u{1F4B0}](base/011/Readme.md#junkfood-u1f4b0)
 
 ## 06. ArrayList III - Composição e Enum
 
@@ -85,6 +85,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ---------------- | ------------------------
 ![_](.thumbs/014.jpg) | [@014 Contato](base/014/Readme.md#contato)
 ![_](.thumbs/015.jpg) | [@015 Busca](base/015/Readme.md#busca)
+![_](.thumbs/008.jpg) | [@008 Agiota](base/008/Readme.md#agiota)
 
 ## 08. Herança I
 
