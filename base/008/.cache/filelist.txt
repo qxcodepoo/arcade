@@ -3,7 +3,6 @@ diagrama.png
 Readme.md
 cover.jpg
 ptolomeu.jpg
-584JjRp5QMuKbyduM_2k5RlXFqHJtQ0qLIPZpwbUjMJmgzZngHcam5JMuZQxyzGMV5ljwJRl0Q=s176-c-k-c0x00ffffff-no-rj
 play.png
 local.sh
 student.cpp

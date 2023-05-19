@@ -21,7 +21,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Explicação
 
-[![_](play.png)]([Vídeo](https://youtu.be/5pnagWZvjBE))
+[![_](play.png)](https://youtu.be/5pnagWZvjBE)
 
 ## Intro
 

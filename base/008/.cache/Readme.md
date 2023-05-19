@@ -21,7 +21,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Explicação
 
-[![_](https://github.com/qxcodepoo/arcade/blob/master/base/008/play.png)]([Vídeo](https://youtu.be/5pnagWZvjBE))
+[![_](https://github.com/qxcodepoo/arcade/blob/master/base/008/play.png)](https://youtu.be/5pnagWZvjBE)
 
 ## Intro
 
