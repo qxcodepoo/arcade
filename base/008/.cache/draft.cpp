@@ -224,33 +224,29 @@ int main() {
         auto line = fn::input();
         auto args = fn::split(line, ' ');
         fn::write("$" + line);
-        
-        try{
-            if(args[0] == "end") {
-                break;
-            } else if(args[0] == "addCli") {
-                agiota.addClient(args[1], +args[2]);
-            } else if(args[0] == "show") {
-                agiota | fn::WRITE();
-            } else if(args[0] == "showCli") {
-                auto cli = agiota.getClient(args[1]);
-                if (cli != nullptr) {
-                    cli->str() | fn::WRITE();
-                    cli->getOperations() | fn::JOIN("\n") | fn::WRITE();
-                }
-            } else if(args[0] == "kill") {
-                agiota.kill(args[1]);
-            } else if(args[0] == "give") {
-                agiota.give(args[1], +args[2]);
-            } else if(args[0] == "take") {
-                agiota.take(args[1], +args[2]);
-            } else if(args[0] == "plus") {
-                agiota.plus();
-            } else {
-                fn::write("fail: comando invalido");
+
+        if(args[0] == "end") {
+            break;
+        } else if(args[0] == "addCli") {
+            agiota.addClient(args[1], +args[2]);
+        } else if(args[0] == "show") {
+            agiota | fn::WRITE();
+        } else if(args[0] == "showCli") {
+            auto cli = agiota.getClient(args[1]);
+            if (cli != nullptr) {
+                cli->str() | fn::WRITE();
+                cli->getOperations() | fn::JOIN("\n") | fn::WRITE();
             }
-        } catch(std::string s) {
-            fn::write(s);
+        } else if(args[0] == "kill") {
+            agiota.kill(args[1]);
+        } else if(args[0] == "give") {
+            agiota.give(args[1], +args[2]);
+        } else if(args[0] == "take") {
+            agiota.take(args[1], +args[2]);
+        } else if(args[0] == "plus") {
+            agiota.plus();
+        } else {
+            fn::write("fail: comando invalido");
         }
     }
 }
