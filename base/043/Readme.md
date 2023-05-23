@@ -130,54 +130,52 @@ class Pig {
 #__case init
 $init 20
 $show
-[] : 0.00$ : 0/20 : unbroken
+[] : 0.00$ : 0/20 : intact
 
 #__case insert
 $addCoin 10
 $show
-[M10:0.10:1] : 0.10$ : 1/20 : unbroken
+[M10:0.10:1] : 0.10$ : 1/20 : intact
 
 $addCoin 50
 $show
-[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : unbroken
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
 
 #__case itens
-$addItem ouro 3 50.0
+$addItem ouro 50.0 3
 $show
-[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : unbroken
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
 
-$addItem passaporte 2 0.0
+$addItem passaporte 0.0 2
 $show
-[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : unbroken
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
 
 #__case failed break
-$getItems
+$extractItems
 fail: you must break the pig first
-[]
 
-$getCoins
+$extractCoins
 fail: you must break the pig first
-[]
 
 $show
-[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : unbroken
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
 
 #__case breaking
 $break
 $show
 [M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 0/20 : broken
 
-#__case getItems
+#__case extractItems
 
-$getItems
+$extractItems
 [ouro:50.00:3, passaporte:0.00:2]
 
 $show
 [M10:0.10:1, M50:0.50:3] : 0.60$ : 0/20 : broken
 
-#__case getCoins
+#__case extractCoins
 
-$getCoins
+$extractCoins
 [M10:0.10:1, M50:0.50:3]
 
 $show
@@ -197,7 +195,7 @@ fail: the pig is broken
 $show
 [] : 0.00$ : 0/10 : broken
 
-$addItem bilhete 2 0.00
+$addItem bilhete 0.00 2
 fail: the pig is broken
 
 $show
@@ -213,25 +211,25 @@ $init 5
 $addCoin 10
 $addCoin 25
 $show
-[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : unbroken
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
 
 $addCoin 50
 fail: the pig is full
 
 $show
-[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : unbroken
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
 
 #__case full item
-$addItem ouro 1 100.0
+$addItem ouro 100.0 1
 
 $show
-[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : unbroken
+[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : intact
 
-$addItem pirulito 2 5.00
+$addItem pirulito 5.50 2
 fail: the pig is full
 
 $show
-[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : unbroken
+[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : intact
 
 $end
 ```

@@ -1,14 +1,13 @@
 #include <fn.hpp>
 #include <utility>
 
-
 class Coin {
+    std::string label;
     double value;
     int volume;
-    std::string label;
 
-    Coin(double value, int volume, std::string label) :
-        value(value), volume(volume), label(label) {
+    Coin(std::string label, double value, int volume) :
+        label(label), value(value), volume(volume) {
     }
 public:
     const static Coin C10;
@@ -31,10 +30,10 @@ public:
     }
 };
 
-const Coin Coin::C10 {0.10, 1, "C10"};
-const Coin Coin::C25 {0.25, 2, "C25"};
-const Coin Coin::C50 {0.50, 3, "C50"};
-const Coin Coin::C100 {1.00, 4, "C100"};
+const Coin Coin::C10  { "C10", 0.10, 1};
+const Coin Coin::C25  { "C25", 0.25, 2};
+const Coin Coin::C50  { "C50", 0.50, 3};
+const Coin Coin::C100 {"C100", 1.00, 4};
 
 std::ostream& operator<<(std::ostream& os, const Coin& coin) {
     return os << coin.str();
