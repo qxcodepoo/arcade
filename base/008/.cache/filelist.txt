@@ -2,6 +2,7 @@ diagrama.puml
 diagrama.png
 Readme.md
 cover.jpg
+solver_maps.cpp
 ptolomeu.jpg
 play.png
 local.sh
