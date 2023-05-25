@@ -16,6 +16,6 @@ drafts
 scripts
 trash
 .config.ini
-Solver.*
-solver.*
+Solver*
+solver*
 __*
