@@ -1,6 +1,6 @@
 ## @047 Shapes
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/047/cover.jpg)
 
 [](toc)
 
@@ -23,9 +23,9 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/047/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/047/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
 
@@ -141,8 +141,8 @@ Circ: C=(1.00, 1.00), R=1.50
 #__case showing area and perimeter
 $info
 Circ: A=78.54 P=31.42
-Rect: A=4.00 P=-8.00
-Rect: A=16.41 P=-16.94
+Rect: A=4.00 P=8.00
+Rect: A=16.41 P=16.94
 Circ: A=7.07 P=9.42
 
 $end

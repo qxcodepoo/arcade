@@ -1,6 +1,6 @@
 ## @025 Twitter
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/025/cover.jpg)
 
 [](toc)
 
@@ -18,7 +18,7 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ## Vídeo com a explicação do projeto
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/player.png)](https://www.youtube.com/watch?v=75-YyuNrOsc)
+[![_](https://github.com/qxcodepoo/arcade/blob/master/base/025/player.png)](https://www.youtube.com/watch?v=75-YyuNrOsc)
 
 ***
 
@@ -250,13 +250,13 @@ $end
 
 ## Diagrama
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/025/diagrama.png)
 
 ***
 
 ## Métodos
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/diagrama.puml)[](filter:fenced:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/025/diagrama.puml)[](filter:fenced:plantuml)
 
 ```plantuml
 
@@ -499,7 +499,7 @@ Inbox "1" --o "0..*" Tweet
 
 ## Esqueleto C++
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/solver.cpp)[](fenced:cpp:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/025/solver.cpp)[](fenced:cpp:filter)
 
 ```cpp
 #include <iostream>
@@ -613,23 +613,19 @@ class Tweet {
 
 public:
 
-    Tweet(int id, const std::string& username, const std::string& msg) { //todo 
+    Tweet(int id, const std::string& username, const std::string& msg) : 
     }
 
-    int getId() const {
-        return {}; // todo 
+    int getId() const { 
     }
 
     std::string getSender() const {
-        return {}; // todo
     }
 
     std::string getMsg() const {
-        return {}; // todo
     }
 
     std::string str() const {
-        return {}; // todo
     }
 
     // __like__
@@ -638,7 +634,6 @@ public:
     }
 
     std::set<std::string> getLikes() const {
-        return {}; // todo
     }
     
     // __retweet__
@@ -654,7 +649,6 @@ public:
     }
 
     bool isDeleted() const {
-        return {}; // todo
     }
 };
 

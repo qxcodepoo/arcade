@@ -613,23 +613,19 @@ class Tweet {
 
 public:
 
-    Tweet(int id, const std::string& username, const std::string& msg) { //todo 
+    Tweet(int id, const std::string& username, const std::string& msg) : 
     }
 
-    int getId() const {
-        return {}; // todo 
+    int getId() const { 
     }
 
     std::string getSender() const {
-        return {}; // todo
     }
 
     std::string getMsg() const {
-        return {}; // todo
     }
 
     std::string str() const {
-        return {}; // todo
     }
 
     // __like__
@@ -638,7 +634,6 @@ public:
     }
 
     std::set<std::string> getLikes() const {
-        return {}; // todo
     }
     
     // __retweet__
@@ -654,7 +649,6 @@ public:
     }
 
     bool isDeleted() const {
-        return {}; // todo
     }
 };
 

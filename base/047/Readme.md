@@ -141,8 +141,8 @@ Circ: C=(1.00, 1.00), R=1.50
 #__case showing area and perimeter
 $info
 Circ: A=78.54 P=31.42
-Rect: A=4.00 P=-8.00
-Rect: A=16.41 P=-16.94
+Rect: A=4.00 P=8.00
+Rect: A=16.41 P=16.94
 Circ: A=7.07 P=9.42
 
 $end
