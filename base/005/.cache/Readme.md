@@ -1,14 +1,13 @@
 ## @005 Mestre dos Vetores (manipulação arraylist)
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/005/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/005/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos](#requisitos)
 - [Shell](#shell)
 - [Dica](#dica)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 
 O objetivo da atividade é treinar estrutura de dados.

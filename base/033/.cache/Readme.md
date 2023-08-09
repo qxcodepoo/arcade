@@ -1,16 +1,15 @@
 ## @033 Trem
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/033/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/033/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Funcionalidades](#funcionalidades)
   - [Parte 1 - Trem e Vagões](#parte-1---trem-e-vagões)
   - [Parte 2 - Embarque e Desembarque](#parte-2---embarque-e-desembarque)
   - [Parte 3 - Cadastro de Passeiros e Registro de Embarque](#parte-3---cadastro-de-passeiros-e-registro-de-embarque)
 - [Exemplos](#exemplos)
 - [Raio X](#raio-x)
-[](toc)
+<!-- toc -->
 
 O objetivo desta atividade é imprementar um sistema que aloca passageiros em vagões de um trem. O trem é formado por uma série de vagões. É possível embarcar, desembarcar passageiros, ver quem está embarcado e a lista de passageiros que já passaram pelo nosso trem.
 

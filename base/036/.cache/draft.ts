@@ -1,30 +1,30 @@
-class Time { //todo
+class Time {
     private hour: number;
     private minute: number;
     private second: number;
 
-    constructor(hour: number, minute: number, second: number) { //todo
+    constructor(hour: number, minute: number, second: number) {
     }
 
-    setHour(hour: number): void { //todo
+    setHour(hour: number): void {
     }
 
-    setMinute(minute: number): void { //todo
+    setMinute(minute: number): void {
     }
 
-    setSecond(second: number): void { //todo
+    setSecond(second: number): void {
     }
 
-    getHour(): number { //todo
+    getHour(): number {
     }
 
-    getMinute(): number { //todo
+    getMinute(): number {
     }
 
-    getSecond(): number { //todo
+    getSecond(): number {
     }
 
-    nextSecond(): void { //todo
+    nextSecond(): void {
     }
     toString() {
         let p2 = n => ("" + n).padStart(2, "0");

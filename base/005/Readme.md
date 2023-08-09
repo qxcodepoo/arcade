@@ -2,13 +2,12 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos](#requisitos)
 - [Shell](#shell)
 - [Dica](#dica)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 
 O objetivo da atividade é treinar estrutura de dados.

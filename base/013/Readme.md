@@ -2,14 +2,13 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Vídeo explicativo](#vídeo-explicativo)
 - [Requisitos](#requisitos)
 - [Guide](#guide)
 - [Shell](#shell)
 - [Main](#main)
-[](toc)
+<!-- toc -->
 
 O objetivo dessa atividade é implementar uma agência bancária simplificada. Deve ser capaz de cadastrar cliente. Cada cliente inicia com uma conta poupança e uma conta corrente. Contas correntes tem taxa de administração e contas poupanças rendem juros.
 

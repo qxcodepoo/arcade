@@ -1,7 +1,6 @@
 # Repositório de POO
 
-[](toc)
-
+<!-- toc -->
 - [00. Introdução](#00-introdução)
 - [01. Lógica](#01-lógica)
 - [02. Introdução e Modificadores de Acesso](#02-introdução-e-modificadores-de-acesso)
@@ -9,10 +8,11 @@
 - [04. ArrayList I - Listas](#04-arraylist-i---listas)
 - [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
 - [06. ArrayList III - Composição e Enum](#06-arraylist-iii---composição-e-enum)
-- [07.  Mapas, Ordenação e Exceções](#07--mapas-ordenação-e-exceções)
+- [07.  Mapas && Exceções](#07--mapas--exceções)
 - [08. Herança I](#08-herança-i)
-- [08. Referências Cruzadas](#08-referências-cruzadas)
-[](toc)
+- [09. Mapas && Excessões II](#09-mapas--excessões-ii)
+- [10. Referências Cruzadas](#10-referências-cruzadas)
+<!-- toc -->
 
 ---
 
@@ -70,7 +70,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/010.jpg) | [@010 Cinema](base/010/Readme.md#cinema)
-![_](.thumbs/011.jpg) | [@011 JunkFood \u{1F4B0}](base/011/Readme.md#junkfood-u1f4b0)
+![_](.thumbs/011.jpg) | [@011 JunkFood](base/011/Readme.md#junkfood)
 
 ## 06. ArrayList III - Composição e Enum
 
@@ -79,7 +79,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/017.jpg) | [@017 Porquinho](base/017/Readme.md#porquinho)
 ![_](.thumbs/007.jpg) | [@007 Tarifas](base/007/Readme.md#tarifas)
 
-## 07.  Mapas, Ordenação e Exceções
+## 07.  Mapas && Exceções
 
 \________________ | \______________________
 ---------------- | ------------------------
@@ -96,12 +96,19 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ![_](.thumbs/047.jpg) | [@047 Shapes](base/047/Readme.md#shapes)
 
 <!--
-![_](.thumbs/048.jpg) | [@048 Estacionamento](base/048/Readme.md#estacionamento)
 ![_](.thumbs/016.jpg) | [@016 Favoritos ](base/016/Readme.md#favoritos--agenda-3-cache-e-redundância)
-![_](.thumbs/028.jpg) | [@028 Bilheteria](base/028/Readme.md#bilheteria)
+![_](.thumbs/048.jpg) | [@048 Estacionamento](base/048/Readme.md#estacionamento)
+![_](.thumbs/033.jpg) | [@033 Trem](base/033/Readme.md#trem)
 -->
 
-## 08. Referências Cruzadas
+## 09. Mapas && Excessões II
+
+\________________ | \______________________
+---------------- | ------------------------
+![_](.thumbs/028.jpg) | [@028 Bilheteria I](base/028/Readme.md#bilheteria-i)
+![_](.thumbs/053.jpg) | [@053 Bilheteria II](base/053/Readme.md#bilheteria-ii)
+
+## 10. Referências Cruzadas
 
 \________________ | \______________________
 ---------------- | ------------------------
@@ -121,7 +128,6 @@ Exercícios de fup para aquecer o coração e o cérebro.
 \________________ | \______________________
 ---------------- | ------------------------
 ![_](.thumbs/026.jpg) | [@026 Whatsapp](base/026/Readme.md#whatsapp)
-![_](.thumbs/033.jpg) | [@033 Trem](base/033/Readme.md#trem)
 
 16. Herança III
 

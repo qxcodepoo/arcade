@@ -1,5 +1,5 @@
 #!/bin/bash
-filter solver.cpp -o .cache/draft.cpp
-filter solver.ts -o .cache/draft.ts
+cp draft.cpp .cache/draft.cpp
+filter draft.ts -o .cache/draft.ts
 filter Solver.java -o .cache/draft.java
 

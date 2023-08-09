@@ -1,8 +1,7 @@
 # Relacionamentos
 
 
-[](toc)
-
+<!-- toc -->
 - [Caracterı́sticas das Associações](#caracterısticas-das-associações)
 - [Multiplicidades](#multiplicidades)
 - [Conectividade](#conectividade)
@@ -15,7 +14,7 @@
 - [Agregação](#agregação)
 - [Classes Associativas](#classes-associativas)
 - [Exercícios](#exercícios)
-[](toc)
+<!-- toc -->
 
 Todos os diagramas desse tutorial foram criados com o plantuml. Você pode ver mais em [LINK](https://plantuml.com/class-diagram).
 

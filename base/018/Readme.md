@@ -2,13 +2,12 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos](#requisitos)
 - [Guia](#guia)
 - [Diagrama de Classes](#diagrama-de-classes)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 
 ## Requisitos

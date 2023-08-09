@@ -1,60 +1,36 @@
-#include <iostream>
 #include <algorithm>
-#include <vector>
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 using namespace fn;
 
 std::vector<int> get_men(std::vector<int> vet) {
-        return {}; // todo
-    std::vector<int> unique;
-    for (auto elem : vet)
-    return unique;
 }
 
 std::vector<int> get_calm_women(std::vector<int> vet) {
-        return {}; // todo
-    std::vector<int> unique;
-    for (auto elem : vet)
-    return unique;
 }
 
 std::vector<int> sort(std::vector<int> vet) {
-        return {}; // todo
-    std::sort(vet.begin(), vet.end());
-    return vet;
 }
 
 std::vector<int> sort_stress(std::vector<int> vet) {
-        return {}; // todo
-    std::sort(vet.begin(), vet.end(), [] (int a, int b) {
-        return {}; // todo
-    });
-    return vet;
 }
 
 std::vector<int> reverse(std::vector<int> vet) {
-        return {}; // todo
-    std::reverse(vet.begin(), vet.end());
-    return vet;
 }
 
 void reverse_inplace(std::vector<int> &vet) {
-    std::reverse(vet.begin(), vet.end());
 }
 
 std::vector<int> unique(std::vector<int> vet) {
-    return {}; // todo
 }
 
 std::vector<int> repeated(std::vector<int> vet) {
-    return {}; // todo
 
 }
 
 
 int main() {
-    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(FNT(x, (int)+x)); };
+    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP([](auto x){return (int)+x;}); };
 
     while(true) {
         std::string line = input();

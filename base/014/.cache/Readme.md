@@ -2,12 +2,11 @@
 
 ![cover](https://github.com/qxcodepoo/arcade/blob/master/base/014/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 

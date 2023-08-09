@@ -1,22 +1,20 @@
-import {evaluate, puts} from "./shell";
 
-
-function count(vet: number[], value: number): number { //todo
+function count(vet: number[], value: number): number {
 }
 
-function sum(vet: number[]): number { //todo
+function sum(vet: number[]): number {
 }
 
-function average(vet: number[]): number { //todo
+function average(vet: number[]): number {
 }
 
-function more_men(vet: number[]): string { //todo
+function more_men(vet: number[]): string {
 }
 
-function half_compare(vet: number[]): string { //todo
+function half_compare(vet: number[]): string {
 }
 
-function sex_battle(vet: number[]): string { //todo
+function sex_battle(vet: number[]): string {
 
 
 }

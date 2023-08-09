@@ -1,24 +1,24 @@
 
-class Calculator { //todo
+class Calculator {
     batteryMax: number;
     battery: number;
     display: number;
 
-    constructor(batteryMax: number) { //todo
+    constructor(batteryMax: number) {
     }
 
-    chargeBattery(value: number) { //todo
+    chargeBattery(value: number) {
     }
 
-    useBattery(): boolean { //todo
-    }
-
-
-    sum(a: number, b: number) { //todo 
+    useBattery(): boolean {
     }
 
 
-    division(num: number, den: number) { //todo
+    sum(a: number, b: number) { 
+    }
+
+
+    division(num: number, den: number) {
     }
     toString() {
         return "display = " + this.display.toFixed(2) + ", battery = " + this.battery;

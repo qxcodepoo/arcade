@@ -1,14 +1,13 @@
 ## @018 Hospital II
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/018/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos](#requisitos)
 - [Guia](#guia)
 - [Diagrama de Classes](#diagrama-de-classes)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 
 ## Requisitos
@@ -80,7 +79,7 @@ $end
 ***
 
 ## Diagrama de Classes
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/018/diagrama.png)
 
 ***
 

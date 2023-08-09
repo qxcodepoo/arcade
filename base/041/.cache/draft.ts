@@ -1,25 +1,25 @@
 
-class Player { //todo
+class Player {
     private label: number;     // indice do player   
     private pos: number;       // posição dele no tabuleiro
     private free: boolean;
 
-    constructor(label: number) { //todo
+    constructor(label: number) {
     }
 
-    public getLabel(): number { //todo
+    public getLabel(): number {
     }
 
-    public getPos(): number { //todo
+    public getPos(): number {
     }
 
-    public setPos(pos: number) { //todo
+    public setPos(pos: number) {
     }
 
-    public setFree(free: boolean): void { //todo
+    public setFree(free: boolean): void {
     }
 
-    public isFree(): boolean { //todo
+    public isFree(): boolean {
     }
 
 
@@ -45,10 +45,10 @@ class Board {
         }
     }
 
-    addTrap(pos: number) { //todo
+    addTrap(pos: number) {
     }
 
-    rollDice(value: number) { //todo
+    rollDice(value: number) {
     }
     
     toString() {

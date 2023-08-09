@@ -2,11 +2,10 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Guia de Atividade](#guia-de-atividade)
 - [Créditos](#créditos)
-[](toc)
+<!-- toc -->
 
 - Usuários podem ser adicionados ao sistema e devem ter id único.
 - Os usuários podem criar grupos e convidar outros usuários do sistema.

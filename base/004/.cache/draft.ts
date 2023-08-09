@@ -50,23 +50,23 @@ class Lead {
 
 
 
-class Pencil { //todo
+class Pencil {
     private thickness: number;
     private tip: Lead | null;
 
-    public constructor(thickness: number) { //todo 
+    public constructor(thickness: number) { 
     }
 
-    public hasGrafite() { //todo
+    public hasGrafite() {
     }
 
-    public insert(grafite: Lead): boolean { //todo
+    public insert(grafite: Lead): boolean {
     }
 
-    public remove(): Lead | null { //todo
+    public remove(): Lead | null {
     }
 
-    writePage(): void { //todo
+    writePage(): void {
     }
 
     public toString(): string {

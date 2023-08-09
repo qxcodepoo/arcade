@@ -1,139 +1,166 @@
-# Bilheteria
+# Bilheteria I
 
 ![cover](cover.jpg)
 
-[](toc)
+<!-- toc -->
+- [Diagrama de classes](#diagrama-de-classes)
+- [Draft](#draft)
+- [Descrição dos métodos](#descrição-dos-métodos)
+- [Shell](#shell)
+<!-- toc -->
 
-- [Intro](#intro)
-- [Diagrama](#diagrama)
-- [Main não interativa](#main-não-interativa)
-[](toc)
-
-Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI
+Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI.
 
 Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de shows.
 
-## Intro
+## Diagrama de classes
 
-- Cadastrar uma pessoa pelo nome.
-  - nome da pessoa é único
-  - a pessoa pode ou não pagar meia
-- Mostrar todos os clientes
+![diagrama](diagrama.png)
+
+## Draft
+
+- Main em typescript: [draft.ts](.cache/draft.ts)
+
+## Descrição dos métodos
+
+[](load)[](diagrama.puml)[](fenced:puml:filter)
+
+```puml
+
+class Bilheteria {
+  - repVendas: Venda[]
+  - repPessoas: Map<string, Pessoa>
+  - repEventos: Map<string, Evento>
+  __
+
+  + constructor()    
+
+  ' retorna a lista das vendas
+  + getVendas(): Venda[]
+
+  ' retorna a lista das pessoas como array
+  + getPessoas(): Pessoa[]
+
+  ' retorna a lista dos eventos como array
+  + getEventos(): Evento[]
+  
+  __
+
+  ' lançar exceção se a pessoa não existir
+  + getPessoa(nome: string): Pessoa
+
+  ' lançar exceção se o evento não existir
+  + getEvento(nome: string): Evento
+
+  __
+
+  ' lançar exceção se nome for repetido
+  + addPessoa(nome: string, meia:bool):void 
+  
+  ' lançar exceção se nome for repetido
+  + addEvento(nome: string, preco: valor):void 
+  
+  ' esse método usa os métodos getPessoa e getEvento
+  ' para fazer a venda, não é necessário lançar exceção aqui
+  + vender(nome_pessoa: string, nome_evento: string):void 
+}
+
+class Pessoa {
+  - nome: string
+  - meia: boolean
+  __
+  + constructor(nome:string, meia:boolean)
+  + getNome():string
+  + getMeia():boolean
+  + toString():string
+}
+
+class Evento {
+  - nome: string
+  - preco: number
+  __
+  + constructor(nome: string, preco: number)
+  + getNome():string
+  + getPreco():number
+  + toString():string
+}
+
+class Venda {
+  - pessoa: Pessoa
+  - evento: Evento
+  - valor: number
+  __
+
+  ' o valor da venda é calculado no construtor
+  + constructor(pessoa: Pessoa, evento: Evento)
+
+  + getPessoa():Pessoa
+  + getEvento():Evento
+  + getValor():number
+  + toString():string
+}
+
+```
+
+[](load)
+
+## Shell
 
 ```sh
 #__case cadastro pessoas
 # addPessoa _nome _meia
-$addPessoa steve inteira
-$addPessoa tony meia
-$addPessoa steve meia
-fail: pessoa steve ja existe
+$addPessoa bruno meia
+$addPessoa chico meia
+$addPessoa aline inteira
+
+#__case cadastro duplicado
+
+$addPessoa chico meia
+fail: pessoa chico ja existe
+
+#__case show pessoas
+# imprima os dados ordenados pela chave
 $pessoas
-[steve, inteira]
-[tony, meia]
+[aline:inteira, bruno:meia, chico:meia]
 
-#- Cadastrar evento pelo nome.
-#    - Assim como pessoa, nome do evento é único
-#    - Um evento pode ter vários setores
-#- Cadastrar setor pelo nome.
-#    - Setor tem nome e preço
-#    - Setores do MESMO EVENTO não podem ter o mesmo nome
-#- Mostrar evento e setores de um evento cadastrados
+#__case cadastro eventos
 
-#__case cadastro eventos e setores
+# addEvento _nome _preco: inteiro
+$addEvento samba 70
+$addEvento forro 50
+$addEvento piano 15
 
-# addEvento _nome
-$addEvento orappa
-# addSetor _nome-evento _nome _preco _capacidade
-$addSetor orappa front 70 5
-$addSetor orappa pista 35 3
+#__case show eventos
+# imprima ordenado pelo nome
 $eventos
-orappa
-- [front:70.0:0/5]
-- [pista:35.0:0/3]
+[forro:50.00, piano:15.00, samba:70.00]
 
-# addEvento _nome
-$addEvento discoteca
-# addSetor _nome-evento _nome _preco
-$addSetor discoteca camarote 100 5
-$addSetor discoteca arquibancade 50 2
-$eventos
-discoteca
-- [arquibancade:50.0:0/2]
-- [camarote:100.0:0/5]
-orappa
-- [front:70.0:0/5]
-- [pista:35.0:0/3]
-
-#- Realizar venda
-#    - Uma venda deve ter pessoa, evento, setor
-#    - O identificador único da venda é o nome do cliente(Pessoa)
-#    - O valor da venda deve ser contabilizado em um caixa
-#- Mostrar vendas realizadas e o valor atual em caixa
+#__case cadastro duplicado
+$addEvento samba 90
+fail: evento samba ja existe
 
 #__case vender ingressos
 
-# vender _Pessoa _Evento _Setor
-$vender tony orappa front
+# vender _pessoa _evento
+# se a pessoa for meia, aplique 50% de desconto no preço do evento
+$vender bruno samba
 $vendas
-[tony, orappa, front]
-R$ 35.0
+[bruno:samba:35.00]
 
-$vender steve orappa camarote
-fail: setor camarote nao existe
-
-$vender steve orappa front
+$vender chico samba
+$vender aline samba
 $vendas
-[tony, orappa, front]
-[steve, orappa, front]
-R$ 105.0
+[bruno:samba:35.00, chico:samba:35.00, aline:samba:70.00]
 
-$eventos
-discoteca
-- [arquibancade:50.0:0/2]
-- [camarote:100.0:0/5]
-orappa
-- [front:70.0:2/5]
-- [pista:35.0:0/3]
+$vender chico piano
+$vendas
+[bruno:samba:35.00, chico:samba:35.00, aline:samba:70.00, chico:piano:7.50]
 
+#__case erro nas vendas
+$vender chico arraia
+fail: evento arraia nao existe
+
+$vender joao samba
+fail: pessoa joao nao existe
 $end
-```
-***
-
-## Diagrama
-
-![diagrama](diagrama.png)
- 
----
-
-## Main não interativa
-
-```java
-Bilheteria bilheteria = new Bilheteria();
-bilheteria.addPessoa(new Pessoa("steve", 32, false));
-bilheteria.addPessoa(new Pessoa("steve", 32, false));
-bilheteria.addPessoa(new Pessoa("tony", 43, true));
-bilheteria.addPessoa(new Pessoa("steve", 24, true));
-//fail: pessoa steve ja existe
-bilheteria.showPessoas();
-//[tony, 43, sim],
-//[steve, 32, nao]
-
-bilheteria.addEvento(new Evento("orappa"));
-bilheteria.addSetor("orappa", new Setor("front", 70f));
-bilheteria.addSetor("orappa", new Setor("pista", 35));
-bilheteria.showEvento();
-//[orappa]
-bilheteria.showSetor("orappa");
-//[front],
-//[pista]
-
-bilheteria.vender("tony", "orappa", "front");
-bilheteria.vender("steve", "orappa", "camarote");
-//fail: setor camarote nao existe
-
-bilheteria.showVenda();
-//[tony, orappa, front, 35,00]
-
-bilheteria.showCaixa();
-//R$ 35,00
 ```

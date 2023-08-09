@@ -1,4 +1,4 @@
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 class Valuable {
 public:
@@ -52,21 +52,15 @@ const Coin Coin::C100 {"M100", 1.00, 4};
 
 class Item : public Valuable {
 public:
-    Item(const std::string& label, double value, int volume) { //todo
-    }
+    Item(const std::string& label, double value, int volume) {}
 
-    std::string getLabel() const override {
-    }
+    std::string getLabel() const override { return {}; }
 
-    int getVolume() const override {
-    }
+    int getVolume() const override { return {}; }
 
-    double getValue() const override {
-    }
+    double getValue() const override { return {}; }
 
-    std::string str() const {
-        return {}; // todo
-    }
+    std::string str() const { return {}; }
 
 private:
     std::string label;
@@ -79,34 +73,22 @@ class Pig {
     bool broken;
     std::vector<std::shared_ptr<Valuable>> valuables;
 public:
-    Pig(int volumeMax) { //todo 
-    }
+    Pig(int volumeMax) : 
 
 
-    void addValuable(const std::shared_ptr<Valuable>& val) {
-    }
+    void addValuable(const std::shared_ptr<Valuable>& val) { return {}; }
 
-    void breakPig() {
-    }
+    void breakPig() { return {}; }
 
-    std::vector<std::shared_ptr<Coin>> extractCoins() {
-        return {}; // todo
-    }
+    std::vector<std::shared_ptr<Coin>> extractCoins() { return {}; }
 
-    std::vector<std::shared_ptr<Item>> extractItems() {
-        return {}; // todo
-    }
+    std::vector<std::shared_ptr<Item>> extractItems() { return {}; }
 
-    int getVolume() const {
-        return {}; // todo
-    }
+    int getVolume() const { return {}; }
 
-    double getValue() const {
-        return {}; // todo
-    }
+    double getValue() const { return {}; }
 
     std::string str() const{
-    }
 };
 
 

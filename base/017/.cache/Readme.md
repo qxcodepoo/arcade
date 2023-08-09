@@ -2,12 +2,11 @@
 
 ![cover](https://github.com/qxcodepoo/arcade/blob/master/base/017/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 ## Intro
 

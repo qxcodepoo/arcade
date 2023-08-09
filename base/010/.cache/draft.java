@@ -35,17 +35,17 @@ class Sala{
     private List<Client> cadeiras;
 
 
-    public Sala(int capacidade) { //todo
+    public Sala(int capacidade) {
     }
 
-    public List<Client> getCadeiras() { //todo
+    public List<Client> getCadeiras() {
     }
     
-    public boolean reservar(String id, String fone, int ind) { //todo
+    public boolean reservar(String id, String fone, int ind) {
 
     }
 
-    public void cancelar(String id) { //todo
+    public void cancelar(String id) {
     }
 
     @Override

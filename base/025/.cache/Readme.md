@@ -2,15 +2,14 @@
 
 ![cover](https://github.com/qxcodepoo/arcade/blob/master/base/025/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Vídeo com a explicação do projeto](#vídeo-com-a-explicação-do-projeto)
 - [Módulos](#módulos)
 - [Comandos e Exemplos](#comandos-e-exemplos)
 - [Diagrama](#diagrama)
 - [Métodos](#métodos)
 - [Esqueleto C++](#esqueleto-c)
-[](toc)
+<!-- toc -->
 
 Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow outros usuários do sistema. Ao twittar, a mensagem vai para timeline de todas as pessoas que a seguem. Ao dar like, todos os usuários em suas timelines vêem os likes.
 
@@ -502,93 +501,10 @@ Inbox "1" --o "0..*" Tweet
 [](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/025/solver.cpp)[](fenced:cpp:filter)
 
 ```cpp
-#include <iostream>
-#include <vector>
-#include <map>
-#include <set>
-#include <memory>
-#include <sstream>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 #include <algorithm>
 
-namespace aux {
-    double number(std::string text) {
-        std::stringstream ss(text);
-        double value {};
-        if (ss >> value) {
-            return value;
-        }
-        std::cout << "fail: (" << text << ") is not a number\n";
-        return 0.0;
-    }
 
-    double operator+(std::string text) {
-        return number(text);
-    }
-
-    std::vector<std::string> split(std::string line, char delimiter = ' ') {
-        std::stringstream ss(line);
-        std::vector<std::string> result;
-        std::string token;
-        while (std::getline(ss, token, delimiter)) {
-            result.push_back(token);
-        }
-        return result;
-    }
-
-    template <class T, class FN> std::string join(T container, std::string sep, FN fn) { 
-        std::stringstream ss;
-        for (auto it = container.begin(); it != container.end(); ++it) {
-            ss << (it == container.begin() ? "" : sep) << fn(*it);
-        }
-        return ss.str();
-    }
-
-    template <class T> std::string join(T container, std::string sep = ", ") {
-        return join(container, sep, [](auto item) { return item; });
-    }
-
-    std::string input() {
-        std::string line;
-        std::getline(std::cin, line);
-        return line;
-    }
-
-    template <class T> void write(T data, std::string end = "\n") {
-        std::cout << data << end;
-    }
-
-    template <class DATA>
-    std::string format(std::string format, DATA data) {
-        char buffer[100];
-        sprintf(buffer, format.c_str(), data);
-        return buffer;
-    }
-
-    template<typename CONTAINER, typename FUNCTION>
-    auto map(CONTAINER container, FUNCTION fn) {
-        std::vector<decltype(fn(*container.begin()))> aux;
-        std::transform(container.begin(), container.end(), std::back_inserter(aux), fn);
-        return aux;
-    }
-
-    template<typename DATA>
-    std::vector<DATA> slice(std::vector<DATA> container, int start, int end) {
-        int size = container.size();
-        if (start < 0) start = size + start;
-        if (end < 0) end = size + end;
-        std::vector<DATA> aux;
-        for (int i = start; i < end; i++) {
-            aux.push_back(container[i]);
-        }
-        return aux;
-    }
-
-    template<typename DATA>
-    std::vector<DATA> slice(std::vector<DATA> container, int start = 0) {
-        return slice(container, start, container.size());
-    }
-
-}
 
 
 class TweetException : public std::exception {
@@ -614,42 +530,32 @@ class Tweet {
 public:
 
     Tweet(int id, const std::string& username, const std::string& msg) : 
-    }
 
     int getId() const { 
-    }
 
-    std::string getSender() const {
-    }
+    std::string getSender() const { return {}; }
 
-    std::string getMsg() const {
-    }
+    std::string getMsg() const { return {}; }
 
-    std::string str() const {
-    }
+    std::string str() const { return {}; }
 
     // __like__
 
     void like(const std::string& username) { 
-    }
 
-    std::set<std::string> getLikes() const {
-    }
+    std::set<std::string> getLikes() const { return {}; }
     
     // __retweet__
 
-    void setRt(Tweet *rt) {
-    }
+    void setRt(Tweet *rt) { return {}; }
     
     // __remover__
 
     bool deleted {false};
     
-    void setDeleted() {
-    }
+    void setDeleted() { return {}; }
 
-    bool isDeleted() const {
-    }
+    bool isDeleted() const { return {}; }
 };
 
 std::ostream& operator<<(std::ostream& os, const Tweet& msg) {
@@ -685,7 +591,7 @@ public:
     }
 
     friend std::ostream& operator<<(std::ostream& os, const Inbox& inbox) {
-        return os << aux::join(inbox.getTimeline(), "\n");
+        return os << fn::join(inbox.getTimeline(), "\n");
     }
 
     // __like__
@@ -738,9 +644,10 @@ public:
     // + toString(): str
     std::string str() {
         std::stringstream ss;
+        auto keys = [](auto p) {return p.first;};
         ss << username << "\n" 
-            << "  seguidos   [" << aux::join(aux::map(following, [](auto p) {return p.first;})) << "]\n"
-            << "  seguidores [" << aux::join(aux::map(followers, [](auto p) {return p.first;})) << "]";
+            << "  seguidos   [" << fn::join(fn::map(following, keys)) << "]\n"
+            << "  seguidores [" << fn::join(fn::map(followers, keys)) << "]";
         return ss.str();
     }
 
@@ -803,9 +710,7 @@ public:
 };
 
 
-std::ostream& operator<<(std::ostream& os, User user)                  { return os << user.str(); }
-std::ostream& operator<<(std::ostream& os, User* user)                 { return os << user->str(); }
-std::ostream& operator<<(std::ostream& os, std::shared_ptr<User> user) { return os << user->str(); }
+std::ostream& operator<<(std::ostream& os, const User& user) { return os << user.str(); }
 
 
 // class Controller {
@@ -827,33 +732,27 @@ public:
 
     Controller() {}
 
-    void addUser(std::string username) {
-    }
+    void addUser(std::string username) { return {}; }
 
     friend std::ostream& operator<<(std::ostream& os, const Controller& ctrl);
 
     // __twittar__
 
 private:
-    Tweet* createTweet(std::string username, std::string msg) {
-    }
+    Tweet* createTweet(std::string username, std::string msg) { return {}; }
 public:
 
-    User* getUser(std::string username) {
-    }
+    User* getUser(std::string username) { return {}; }
 
-    void sendTweet(std::string username, std::string msg) {
-    }
+    void sendTweet(std::string username, std::string msg) { return {}; }
 
     // __retweet__
 
-    void sendRt(std::string username, int twId, std::string msg) {
-    }
+    void sendRt(std::string username, int twId, std::string msg) { return {}; }
 
     // __remover__
 
-    void rmUser(std::string username) {
-    }
+    void rmUser(std::string username) { return {}; }
 };
 
 

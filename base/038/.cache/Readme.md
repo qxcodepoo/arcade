@@ -1,7 +1,6 @@
 ## @038 Introdução ao git
 
-[](toc)
-
+<!-- toc -->
 - [Instalação](#instalação)
 - [Configuração Inicial](#configuração-inicial)
 - [Fluxo de trabalho](#fluxo-de-trabalho)
@@ -13,7 +12,7 @@
 - [Desfazendo alterações e vendo diferenças](#desfazendo-alterações-e-vendo-diferenças)
 - [Desafio](#desafio)
 - [Guia rápida](#guia-rápida)
-[](toc)
+<!-- toc -->
 
 - [Link para instalação e orientações iniciais](https://www.webdevdrops.com/git-no-windows-github/)
 
@@ -52,9 +51,9 @@ Seus repositórios **locais** consistem em três "árvores" mantidas pelo git.
 - A segunda `Index` (stage) que funciona como uma área temporária.
 - A terceira a `HEAD` (repositório local) que aponta para o último `commit` (confirmação) que você fez.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/038/trees.png)
+![](https://github.com/qxcodepoo/arcade/blob/master/base/038/trees.png)
 
-![https://www.cureffi.org/2014/08/27/git-tutorial](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/038/diagrama.png)
+![https://www.cureffi.org/2014/08/27/git-tutorial](https://github.com/qxcodepoo/arcade/blob/master/base/038/diagrama.png)
 
 ## Trabalhando com o repositório git do professor
 

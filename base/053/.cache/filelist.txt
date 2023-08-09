@@ -1,0 +1,14 @@
+diagrama.puml
+diagrama.png
+Readme.md
+cover.jpg
+.idea/.idea.053.dir/.idea/workspace.xml
+.idea/.idea.053.dir/.idea/indexLayout.xml
+.idea/.idea.053.dir/.idea/projectSettingsUpdater.xml
+.idea/.idea.053.dir/.idea/.gitignore
+.idea/.idea.053.dir/.idea/vcs.xml
+.idea/.idea.053.dir/.idea
+.idea/.idea.053.dir
+.idea
+local.sh
+

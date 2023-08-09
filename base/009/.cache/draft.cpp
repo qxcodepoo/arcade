@@ -3,7 +3,7 @@
 #include <sstream>
 #include <memory>
 #include <vector>
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
 
 class Kid {
@@ -15,18 +15,18 @@ public:
         this->age = age;
         this->name = name;
     }
-    int getAge() {
+    int getAge() const {
         return age;
     }
-    std::string getName() {
+    std::string getName() const {
         return name;
     }
-    std::string str() {
+    std::string str() const {
         return name + ":" + std::to_string(age);
     }
 };
 
-std::ostream& operator<<(std::ostream& os,  Kid kid) {
+std::ostream& operator<<(std::ostream& os,  const Kid& kid) {
     return os << kid.str();
 }
 
@@ -36,25 +36,19 @@ class Trampoline {
     std::list<PtrKid> waiting;
     std::list<PtrKid> playing;
     
-    PtrKid removeFromList(std::string name, std::list<PtrKid>& lista) {
-    }
+    PtrKid removeFromList(std::string name, std::list<PtrKid>& lista) { return {}; }
 
 public:
-    Trampoline() {
-    }
+    Trampoline() { return {}; }
     
-    void arrive(PtrKid kid) {
-    }
+    void arrive(PtrKid kid) { return {}; }
 
-    void enter() {
-    }
+    void enter() { return {}; }
 
-    void leave() {
-    }
+    void leave() { return {}; }
 
-    PtrKid removeKid(std::string name) {
-    }
-    std::string str() {
+    PtrKid removeKid(std::string name) { return {}; }
+    std::string str() const {
         return fn::tostr(waiting) + " => " + fn::tostr(playing);
     }
 };

@@ -1,15 +1,14 @@
 ## @034 Carga
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/034/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Funcionalidades](#funcionalidades)
   - [Parte 1 - Trem e Vagões](#parte-1---trem-e-vagões)
   - [Parte 2 - Embarque e Desembarque](#parte-2---embarque-e-desembarque)
   - [Parte 3 - Cadastro de Passeiros e Registro de Embarque](#parte-3---cadastro-de-passeiros-e-registro-de-embarque)
 - [Raio X](#raio-x)
-[](toc)
+<!-- toc -->
 
 Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagagens.
 
@@ -21,7 +20,7 @@ Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagag
 - Um vagão de carga tem um limite de peso.
 - O trem possui um máximo de vagões que ele pode carregar.
 - Ao mostrar um vagão de pessoas, coloque [], e para cada cadeira livre coloque um "-".
-- Ao mostrar um vagão de carga, use um (), coloque os identificadores de carga e mostre quando de peso livre ainda existe. 
+- Ao mostrar um vagão de carga, use um (), coloque os identificadores de carga e mostre quando de peso livre ainda existe.
 
 - Uma carga possui um peso e um identificador.
 - Um passageiro possui um identificador.
@@ -39,11 +38,11 @@ la
 nwvc 350.0
   done
 la
-  Trem [ - - ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)
+  Trem [ - - ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)
 nwvp 2
   done
 la
-  Trem [ - - ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ - - ]
+  Trem [ - - ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ - - ]
 nwvc 1
   fail: limite de vagões atingido
 ```
@@ -51,30 +50,31 @@ nwvc 1
 ### Parte 2 - Embarque e Desembarque
 
 - Embarcar um novo item.
-    - Ao tentar embarcar, o trem vai procurar o primeiro vagão livre para inserir o item.
-    - Se não houver espaço livre em nenhum vagão então não haverá embarque.
-    - Não deve ser possível embarcar duas vezes o mesmo passageiro ou a mesma carga no trem.
+  - Ao tentar embarcar, o trem vai procurar o primeiro vagão livre para inserir o item.
+  - Se não houver espaço livre em nenhum vagão então não haverá embarque.
+  - Não deve ser possível embarcar duas vezes o mesmo passageiro ou a mesma carga no trem.
 - Desembarcar um passageiro ou carga
-    - Se o item estiver no trem, ele sai do trem liberando sua vaga.
+  - Se o item estiver no trem, ele sai do trem liberando sua vaga.
 
 ```
+
 # addp _idPass #tenta embarcar uma pessoa
 # addc _idCarga _peso #tenta embarcar uma carga
 
 addp goku
 la
-  Trem [ goku - ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ - - ]
+  Trem [ goku - ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ - - ]
 addp kate
 addp sara
 addp goku
   fail: goku já está no trem
 la
-  Trem [ goku kate ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ sara - ]
+  Trem [ goku kate ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ sara - ]
 addp tina
 addp james
   fail: trem lotado
 la
-  Trem [ goku kate ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ sara james ]
+  Trem [ goku kate ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ sara james ]
 addc xilitos 200.0
 la
   Trem [ goku kate ]( xilitos:200.0 _150.0 )[ sara james ]
@@ -95,11 +95,12 @@ la
 ### Parte 3 - Cadastro de Passeiros e Registro de Embarque
 
 - Mostrar a lista de itens cadastrados.
-    - Quando um item tenta embarcar, ele é cadastrado no sistema, independente de conseguir ou não embarcar, independente se é passageiro ou carga.
-    - Mostre a lista ordenada pelo id do passageiro.
+  - Quando um item tenta embarcar, ele é cadastrado no sistema, independente de conseguir ou não embarcar, independente se é passageiro ou carga.
+  - Mostre a lista ordenada pelo id do passageiro.
 - Mostrar a sequência de embarque e desembarque.
 
 ```
+
 cadastro
   alex
   cebolitos:100.0

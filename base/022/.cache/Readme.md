@@ -1,14 +1,13 @@
 ## @022 Hospital
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/022/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Cadastrar Pacientes, Médicos e Plantões.](#cadastrar-pacientes-médicos-e-plantões)
 - [Funcionalidades](#funcionalidades)
 - [Diagrama de Classes](#diagrama-de-classes)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 
 ## Cadastrar Pacientes, Médicos e Plantões.
@@ -71,7 +70,7 @@ $end
 ***
 
 ## Diagrama de Classes
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/022/diagrama.png)
 
 ***
 

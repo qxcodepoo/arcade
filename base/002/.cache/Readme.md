@@ -1,13 +1,12 @@
 ## @002 Carro
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/002/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 Essa atividade se propõe a implementar um carro ecológico que pode passear pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
@@ -36,13 +35,13 @@ Seu sistema deverá:
 
 ## Guide
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.ts)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/002/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/002/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Car {

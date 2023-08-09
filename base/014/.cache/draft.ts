@@ -4,53 +4,53 @@ let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
 
-class Fone { //todo
+class Fone {
     private id: string;
     private number: string;
     
-    constructor(id: string = "", number: string = "") { //todo
+    constructor(id: string = "", number: string = "") {
     }
     
-    getId(): string { //todo
+    getId(): string {
     }
     
-    getNumber(): string { //todo
+    getNumber(): string {
     }
     
-    isValid(): boolean { //todo
+    isValid(): boolean {
     }
     
-    toString(): string { //todo
+    toString(): string {
     }
 }
 
-class Contact { //todo
+class Contact {
     private name: string;
     private favorited: boolean;
     private fones: Fone[];
     
-    constructor(name: string = "") { //todo
+    constructor(name: string = "") {
     }
     
-    getName(): string { //todo
+    getName(): string {
     }
     
-    getFones(): Fone[] { //todo
+    getFones(): Fone[] {
     }
     
-    addFone(id: string, number: string): void { //todo
+    addFone(id: string, number: string): void {
     }
     
-    rmFone(index: number): void { //todo
+    rmFone(index: number): void {
     }
     
-    toogleFavorited(): void { //todo
+    toogleFavorited(): void {
     }
     
-    isFavorited(): boolean { //todo
+    isFavorited(): boolean {
     }
     
-    toString(): string { //todo
+    toString(): string {
     }
 }
 

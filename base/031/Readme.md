@@ -2,11 +2,10 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos Parte 1](#requisitos-parte-1)
 - [Raio X](#raio-x)
-[](toc)
+<!-- toc -->
 
 Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, serviços e vendas.
 

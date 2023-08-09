@@ -1,23 +1,23 @@
 
-function get_men(vet: number[]): number[] { //todo
+function get_men(vet: number[]): number[] {
 }
 
-function get_calm_women(vet: number[]): number[] { //todo
+function get_calm_women(vet: number[]): number[] {
 }
 
-function sort(vet: number[]): number[] { //todo
+function sort(vet: number[]): number[] {
 }
 
-function sort_stress(vet: number[]): number[] { //todo
+function sort_stress(vet: number[]): number[] {
 }
 
-function reverse(vet: number[]): number[] { //todo
+function reverse(vet: number[]): number[] {
 }
 
-function unique(vet: number[]): number[] { //todo
+function unique(vet: number[]): number[] {
 }
 
-function repeated(vet: number[]): number[] { //todo
+function repeated(vet: number[]): number[] {
 }
 
 

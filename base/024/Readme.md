@@ -2,12 +2,11 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 Essa atividade é a base conceitual para simplificar a troca de mensagens entre dois usuários de um sistema. Cada usuário deve conter um _inbox_ que guarda as mensagens recebidas.
 

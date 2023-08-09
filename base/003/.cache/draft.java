@@ -1,19 +1,19 @@
 import java.util.*;
 
-class Person { //todo
+class Person {
     private String name;
     private int age;
     public Person(String name, int age){
     }
-    public String getName() { //todo
+    public String getName() {
     }
-    public int getAge() { //todo
+    public int getAge() {
     }
     public String toString(){
     }
 }
 
-class Motorcycle { //todo
+class Motorcycle {
     private Person person; //agregacao
     private int power;
     private int time;
@@ -21,20 +21,20 @@ class Motorcycle { //todo
     //Inicia o atributo power, time com zero e person com null
     public Motorcycle(int power){
     }
-    public int getPower() { //todo
+    public int getPower() {
     }
-    public int getTime() { //todo
+    public int getTime() {
     }
-    public Person getPerson() { //todo
+    public Person getPerson() {
     }
     //Comprar mais tempo
     public void buy(int time){
     }
     
     //Se estiver vazio, coloca a pessoa na moto e retorna true
-    public boolean enter(Person person) { //todo
+    public boolean enter(Person person) {
     }
-    public Person leave() { //todo
+    public Person leave() {
     }
     public void drive(int time){
     }

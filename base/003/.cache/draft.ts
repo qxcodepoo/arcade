@@ -1,39 +1,39 @@
 
-class Pessoa { //todo
+class Pessoa {
     private age: number;
     private name: string;
 
-    public constructor(name: string, age: number) { //todo
+    public constructor(name: string, age: number) {
     }
-    public getAge(): number { //todo
+    public getAge(): number {
     }
-    public getname(): string { //todo
+    public getname(): string {
     }
-    public toString(): string { //todo
+    public toString(): string {
     }
 }
 
-class Motoca { //todo
+class Motoca {
     potencia:number = 1;
     time: number = 0;
     pessoa: Pessoa | null;
 
-    constructor(potencia: number = 1) { //todo
+    constructor(potencia: number = 1) {
     }
 
-    buzinar(): string { //todo
+    buzinar(): string {
     }
 
-    inserir(pessoa: Pessoa): boolean { //todo
+    inserir(pessoa: Pessoa): boolean {
     }
 
-    remover() : Pessoa | null { //todo
+    remover() : Pessoa | null {
     }
 
-    drive(time: number): void { //todo
+    drive(time: number): void {
     }
 
-    comprarTempo(value: number) { //todo
+    comprarTempo(value: number) {
     }
 
     public toString(): string {

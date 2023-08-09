@@ -1,5 +1,5 @@
 
-class Pet { //todo
+class Pet {
     private energyMax: number;
     private hungryMax: number;
     private cleanMax: number;
@@ -25,16 +25,16 @@ class Pet { //todo
         this.age = 0;
         this.alive = true;
     }
-    public setEnergy(value: number) { //todo
+    public setEnergy(value: number) {
     }
 
-    public setHungry(value: number) { //todo
+    public setHungry(value: number) {
     }
 
-    public setClean(value: number) { //todo
+    public setClean(value: number) {
     }
 
-    private testAlive(): boolean { //todo
+    private testAlive(): boolean {
     }
     public toString(): string {
         return  `E:${this.energy}/${this.energyMax}` 
@@ -52,11 +52,11 @@ class Pet { //todo
         this.age += 1;
         this.diamonds += 1;
     }
-    public shower() { //todo
+    public shower() {
     }
-    public eat() { //todo
+    public eat() {
     }
-    public sleep() { //todo
+    public sleep() {
     }
     public getClean() {
         return this.clean;

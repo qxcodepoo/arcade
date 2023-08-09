@@ -1,21 +1,20 @@
 ## @013 Cadastro
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/013/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Vídeo explicativo](#vídeo-explicativo)
 - [Requisitos](#requisitos)
 - [Guide](#guide)
 - [Shell](#shell)
 - [Main](#main)
-[](toc)
+<!-- toc -->
 
 O objetivo dessa atividade é implementar uma agência bancária simplificada. Deve ser capaz de cadastrar cliente. Cada cliente inicia com uma conta poupança e uma conta corrente. Contas correntes tem taxa de administração e contas poupanças rendem juros.
 
 ## Vídeo explicativo
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/video.png)](https://youtu.be/AfJ--C8ZqPY)
+[![_](https://github.com/qxcodepoo/arcade/blob/master/base/013/video.png)](https://youtu.be/AfJ--C8ZqPY)
 
 ## Requisitos
 
@@ -30,9 +29,9 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/013/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.puml)[](filter:fenced:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/013/diagrama.puml)[](filter:fenced:plantuml)
 
 ```plantuml
 
@@ -271,7 +270,7 @@ $end
 
 ## Main
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/Solver.java)[](fenced:java:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/013/Solver.java)[](fenced:java:filter)
 
 ```java
 class Solver{

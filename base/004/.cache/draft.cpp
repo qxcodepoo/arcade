@@ -3,7 +3,7 @@
 #include <memory>  //sharedptr
 #include <iomanip> //setprecision
 #include <utility> //exchange
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 class Lead {
     float thickness;
@@ -11,27 +11,17 @@ class Lead {
     int size;
 
 public:
-    Lead(float thickness, std::string hardness, int size) {
-    }
+    Lead(float thickness, std::string hardness, int size) { return {}; }
 
-    int usagePerSheet() const {
-        return {}; // todo
-    }
+    int usagePerSheet() const { return {}; }
 
-    float getThickness() const {
-        return {}; // todo
-    }
+    float getThickness() const { return {}; }
 
-    std::string getHardness() const {
-        return {}; // todo
-    }
+    std::string getHardness() const { return {}; }
 
-    int getSize() const {
-        return {}; // todo
-    }
+    int getSize() const { return {}; }
 
-    void setSize(int size) {
-    }
+    void setSize(int size) { return {}; }
     std::string str() const {
         std::stringstream ss;
         ss << std::fixed << std::setprecision(1) 
@@ -48,23 +38,15 @@ struct Pencil {
     float thickness {0.f};
     std::shared_ptr<Lead> tip {nullptr};
 
-    Pencil(float thickness = 0.0) { //todo thickness{thickness} {
-    }
+    Pencil(float thickness = 0.0): thickness{thickness} { return {}; }
 
-    bool hasGrafite() {
-        return {}; // todo
-    }
+    bool hasGrafite() { return {}; }
 
-    bool insert(std::shared_ptr<Lead> grafite) {
-        return {}; // todo
-    }
+    bool insert(std::shared_ptr<Lead> grafite) { return {}; }
 
-    std::shared_ptr<Lead> remove() {
-        return {}; // todo
-    }
+    std::shared_ptr<Lead> remove() { return {}; }
 
-    void writePage() {
-    }
+    void writePage() { return {}; }
 
     std::string str() {
         std::stringstream ss;

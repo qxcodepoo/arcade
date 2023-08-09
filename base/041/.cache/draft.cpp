@@ -1,5 +1,5 @@
 
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 #include <algorithm>
 
 class Player {
@@ -9,26 +9,17 @@ private:
     bool free;
 
 public:
-    Player(int label) {
-    }
+    Player(int label) { return {}; }
 
-    int getLabel() {
-        return {}; // todo
-    }
+    int getLabel() { return {}; }
 
-    int getPos() {
-        return {}; // todo
-    }
+    int getPos() { return {}; }
 
-    void setPos(int pos) {
-    }
+    void setPos(int pos) { return {}; }
 
-    void setFree(bool free) {
-    }
+    void setFree(bool free) { return {}; }
 
-    bool isFree() {
-        return {}; // todo
-    }
+    bool isFree() { return {}; }
     std::string toString() {
         std::string status = (this->free ? "free" : "not free");
         return fn::format("Player {} at {} is {}", label, pos, status); 
@@ -43,16 +34,13 @@ private:
     std::vector<Player> players; // lista de jogadores
 
 public:
-    Board(int nPlayers, int size) {
-    }
+    Board(int nPlayers, int size) { return {}; }
 
-    void addTrap(int pos) {
-    }
+    void addTrap(int pos) { return {}; }
 
-    void rollDice(int value) {
+    void rollDice(int value) { return {}; }
 
 
-    }
     std::string toString() {
         std::stringstream ss;
         for (auto p : this->players) {

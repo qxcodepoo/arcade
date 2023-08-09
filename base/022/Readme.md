@@ -2,13 +2,12 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Cadastrar Pacientes, Médicos e Plantões.](#cadastrar-pacientes-médicos-e-plantões)
 - [Funcionalidades](#funcionalidades)
 - [Diagrama de Classes](#diagrama-de-classes)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 
 ## Cadastrar Pacientes, Médicos e Plantões.

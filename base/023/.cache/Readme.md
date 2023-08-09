@@ -1,9 +1,8 @@
 ## @023 Salário
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/023/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos parte 1](#requisitos-parte-1)
 - [Regras de negócio parte 1](#regras-de-negócio-parte-1)
 - [Regras de negócio parte 2](#regras-de-negócio-parte-2)
@@ -11,7 +10,7 @@
 - [Instruções](#instruções)
 - [Diagrama](#diagrama)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 A UFC está precisando de um novo sistema de geração de folhas de pagamento, você aceita o desafio?'
 
@@ -104,7 +103,7 @@ $end
 ***
 
 ## Diagrama
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/023/diagrama.png)
 
 ***
 

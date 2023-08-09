@@ -4,19 +4,14 @@
 #include <list>
 #include <string>
 #include <utility>
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 class Pessoa {
     std::string nome;
 public:
-    Pessoa(std::string nome) { //todo 
-    }
-    std::string getNome() const {
-        return {}; // todo 
-    }
-    std::string str() const {
-        return {}; // todo
-    }
+    Pessoa(std::string nome) : 
+    std::string getNome() const { 
+    std::string str() const { return {}; }
 };
 std::ostream& operator<<(std::ostream& os, const Pessoa& p) {
     return (os << p.str());
@@ -26,24 +21,16 @@ class Mercantil {
     std::vector<std::shared_ptr<Pessoa>> caixas; //caixas do supermercado
     std::list  <std::shared_ptr<Pessoa>> esperando; //lista de clientes esperando
 
-    bool validarIndice(int indice) {
-        return {}; // todo
-    }
+    bool validarIndice(int indice) { return {}; }
 
 public:
-    Mercantil(int qtd_caixas) { //todo
-    }
+    Mercantil(int qtd_caixas){}
     
-    void chegar(const std::shared_ptr<Pessoa>& person) {
-    }
+    void chegar(const std::shared_ptr<Pessoa>& person) { return {}; }
 
-    bool chamarNoCaixa(int indice) {
-        return {}; // todo
-    }
+    bool chamarNoCaixa(int indice) { return {}; }
     
-    std::shared_ptr<Pessoa> finalizar(int indice) {
-        return {}; // todo
-    }
+    std::shared_ptr<Pessoa> finalizar(int indice) { return {}; }
 
     std::string str() const {
         auto caixas_str = caixas | fn::MAP(FNT(c, c == nullptr ? "-----" : c->getNome()));

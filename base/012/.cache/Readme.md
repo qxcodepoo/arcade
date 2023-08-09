@@ -2,14 +2,13 @@
 
 [](solver.cpp)
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/012/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com algumas variações. Aqui, vamos implementar um sistema de alocação de passageiros em uma topic. Nossa topic tem uma quantidade máxima de passageiros, mas também define alguns assentos preferenciais.
 
@@ -45,12 +44,12 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ## Guide
 
--[Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.java)
--[solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.cpp)
+-[Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.java)
+-[solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.cpp)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/012/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/012/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
 class Pass {

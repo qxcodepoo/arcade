@@ -1,12 +1,11 @@
 ## @027 Grupos
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/027/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Guia de Atividade](#guia-de-atividade)
 - [Créditos](#créditos)
-[](toc)
+<!-- toc -->
 
 - Usuários podem ser adicionados ao sistema e devem ter id único.
 - Os usuários podem criar grupos e convidar outros usuários do sistema.
@@ -61,7 +60,7 @@ $end
 
 ## Guia de Atividade
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/027/diagrama.png)
 
 
 ## Créditos

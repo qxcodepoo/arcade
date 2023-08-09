@@ -1,23 +1,15 @@
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 
 class Fone{
     std::string id;
     std::string number;
 public:
-    Fone(std::string id = "", std::string number= "") {
-    }
-    std::string getId() {
-        return {}; // todo
-    }
-    std::string getNumber() {
-        return {}; // todo
-    }
-    bool isValid() {
-        return {}; // todo
-    }
-    std::string str() {
-        return {}; // todo
+    Fone(std::string id = "", std::string number= "") { return {}; }
+    std::string getId() { return {}; }
+    std::string getNumber() { return {}; }
+    bool isValid() { return {}; }
+    std::string str() { return {}; }
     }   
 };
 
@@ -26,33 +18,21 @@ class Contact{
     bool favorited;
     std::vector<Fone> fones;
 public:
-    Contact(std::string name = "") { //todo
-    }
+    Contact(std::string name = ""){}
 
-    std::string getName() {
-        return {}; // todo
-    }
+    std::string getName() { return {}; }
 
-    std::vector<Fone> getFones() {
-        return {}; // todo
-    }
+    std::vector<Fone> getFones() { return {}; }
 
-    void addFone(std::string id, std::string number) {
-    }
+    void addFone(std::string id, std::string number) { return {}; }
 
-    void rmFone(int index) {
-    }
+    void rmFone(int index) { return {}; }
 
-    void toogleFavorited() {
-    }
+    void toogleFavorited() { return {}; }
 
-    bool isFavorited() {
-        return {}; // todo
-    }
+    bool isFavorited() { return {}; }
 
-    std::string str() {
-        return {}; // todo
-    }
+    std::string str() { return {}; }
 };
 
 std::ostream& operator<<(std::ostream& out, Contact contato) { return out << contato.str(); }

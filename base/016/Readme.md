@@ -2,13 +2,12 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos Novos](#requisitos-novos)
 - [Shell](#shell)
 - [Diagrama UML](#diagrama-uml)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
 

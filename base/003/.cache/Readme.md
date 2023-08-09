@@ -1,13 +1,12 @@
 ## @003 Motoca
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/003/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
 
@@ -34,13 +33,13 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ## Guide
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/003/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/003/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/003/.cache/draft.ts)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/003/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/003/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Motorcycle {

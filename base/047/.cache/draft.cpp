@@ -1,4 +1,4 @@
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 #include <cmath>
 
 
@@ -7,10 +7,9 @@ public:
     double x;
     double y;
 
-    Point2D(double x, double y)
+    Point2D(double x, double y) {}
 
-    std::string str() const {
-    } 
+    std::string str() const { return {}; }
 
 };
 
@@ -18,14 +17,13 @@ std::ostream& operator<<(std::ostream& os, const Point2D& p) { return os << p.st
 
 class Math {
 public:
-    static double distance(Point2D p1, Point2D p2) {
-    }
+    static double distance(Point2D p1, Point2D p2) { return {}; }
 };
 
 class Shape {
     std::string name;
 public:
-    Shape(std::string name = "")
+    Shape(std::string name = "") {}
 
     virtual ~Shape(){}
 
@@ -35,11 +33,9 @@ public:
 
     virtual double getPerimeter() const = 0;
 
-    virtual std::string getName() const {
-    }
+    virtual std::string getName() const { return {}; }
 
-    virtual std::string str() const {
-    }
+    virtual std::string str() const { return {}; }
 
 };
 
@@ -50,19 +46,15 @@ class Circle : public Shape {
     double radius;
 
 public:
-    Circle(Point2D center, double radius) : Shape("Circ"), center(center), radius(radius) {}
+    Circle(Point2D center, double radius) {}
 
-    bool inside(Point2D p) const override {
-    }
+    bool inside(Point2D p) const override { return {}; }
 
-    double getArea() const override {
-    }
+    double getArea() const override { return {}; }
 
-    double getPerimeter() const override {
-    }
+    double getPerimeter() const override { return {}; }
 
-    std::string str() const override {
-    }
+    std::string str() const override { return {}; }
 };
 
 class Rectangle : public Shape {
@@ -72,24 +64,17 @@ class Rectangle : public Shape {
 public:
     Rectangle(Point2D p1, Point2D p2)
 
-    bool inside(Point2D p) const override {
-    }
+    bool inside(Point2D p) const override { return {}; }
 
-    double getArea() const override {
-    }
+    double getArea() const override { return {}; }
 
-    double getPerimeter() const override {
+    double getPerimeter() const override { return {}; }
 
-    }
+    Point2D getP1() const { return {}; }
 
-    Point2D getP1() const {
-    }
+    Point2D getP2() const { return {}; }
 
-    Point2D getP2() const {
-    }
-
-    std::string str() const override {
-    }
+    std::string str() const override { return {}; }
 };
 
 

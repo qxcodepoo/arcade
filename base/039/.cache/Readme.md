@@ -2,8 +2,7 @@
 
 ![cover](https://github.com/qxcodepoo/arcade/blob/master/base/039/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
   - [pares](#pares)
   - [proximidade](#proximidade)
@@ -11,7 +10,7 @@
   - [remoções](#remoções)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 ***
 
@@ -37,13 +36,13 @@
 - **erase**: dado a lista com os índices de todas as pessoas que saíram da fila, qual a fila resultante?
 - **clear**: dado um valor, remova todas as vezes que esse valor aparece na lista.
 
-___
+***
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/039/draft.cpp)
-- [solver.js](https://github.com/qxcodepoo/arcade/blob/master/base/039/draft.js)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/039/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/039/.cache/draft.cpp)
+- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/039/.cache/draft.java)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/039/.cache/draft.ts)
 
 ## Shell
 

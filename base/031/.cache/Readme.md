@@ -1,12 +1,11 @@
 ## @031 Pets
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/031/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/031/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos Parte 1](#requisitos-parte-1)
 - [Raio X](#raio-x)
-[](toc)
+<!-- toc -->
 
 Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, serviços e vendas.
 

@@ -1,16 +1,14 @@
 ## @026 Whatsapp
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/026/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Módulos](#módulos)
 - [Shell](#shell)
 - [Guia de Resolução](#guia-de-resolução)
 - [Main não interativa](#main-não-interativa)
 - [Créditos](#créditos)
-[](toc)
-
+<!-- toc -->
 
 ## Módulos
 
@@ -164,9 +162,9 @@ $end
 ---
 
 ## Guia de Resolução
-[GUIA](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/_guide.md)
+[GUIA](https://github.com/qxcodepoo/arcade/blob/master/base/026/_guide.md)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/026/diagrama.png)
  
 ---
 

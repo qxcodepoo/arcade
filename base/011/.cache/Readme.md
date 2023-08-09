@@ -1,16 +1,15 @@
-## @011 JunkFood \u{1F4B0}
+## @011 JunkFood
 
 [](solver.cpp)
 
 ![cover](https://github.com/qxcodepoo/arcade/blob/master/base/011/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
 - [Resolução](#resolução)
-[](toc)
+<!-- toc -->
 
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 

@@ -2,15 +2,13 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Módulos](#módulos)
 - [Shell](#shell)
 - [Guia de Resolução](#guia-de-resolução)
 - [Main não interativa](#main-não-interativa)
 - [Créditos](#créditos)
-[](toc)
-
+<!-- toc -->
 
 ## Módulos
 

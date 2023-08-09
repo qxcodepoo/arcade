@@ -1,14 +1,13 @@
 ## @035 Clínica Veterinária
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/035/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos](#requisitos)
 - [Regras de negócio](#regras-de-negócio)
 - [Diagrama](#diagrama)
 - [Main não interativa](#main-não-interativa)
-[](toc)
+<!-- toc -->
 
 Você foi contratado por uma clínica veterinária para implementar um sistema que vai administrar os hóspedes.
 Na clínica em que você trabalha os veterinários querem um sistema que tem como objetivo diminuir a saudade dos donos enquanto seus queridos pets estão hospedados na sua clínica.
@@ -78,7 +77,7 @@ $end
 
 ## Diagrama
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/035/diagrama.png)
  
 ---
 

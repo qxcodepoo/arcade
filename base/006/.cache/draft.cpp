@@ -1,4 +1,4 @@
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 
 class Pet{
@@ -27,16 +27,13 @@ private:
             hungry = value;
         }
     }
-    void setEnergy(int value) {
-    }
+    void setEnergy(int value) { return {}; }
 
-    void setClean(int value) {
-    }
+    void setClean(int value) { return {}; }
 
 
 public:
-    Pet(int energy = 0, int hungry = 0, int clean = 0) { //todo
-    }
+    Pet(int energy = 0, int hungry = 0, int clean = 0){}
 
     void play() {
         if (!testAlive())
@@ -48,14 +45,11 @@ public:
         age += 1;
     }
 
-    void shower() {
-    }
+    void shower() { return {}; }
 
-    void eat() {
-    }
+    void eat() { return {}; }
 
-    void sleep() {
-    }
+    void sleep() { return {}; }
 
 
     int getClean() {

@@ -2,13 +2,12 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Funcionalidades](#funcionalidades)
 - [Shell](#shell)
 - [Diagrama](#diagrama)
 - [Ajuda](#ajuda)
-[](toc)
+<!-- toc -->
 
 O objetivo dessa atividade é criar um pequeno serviço de anotações. O sistema terá vários usuários que vão logar utilizando login e senha. Cada usuário pode armazenar notas de texto contendo título e texto.
 

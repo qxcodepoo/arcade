@@ -1,13 +1,12 @@
 ## @021 Matrícula
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/021/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Funcionalidades](#funcionalidades)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos matricular e remover alunos das disciplinas. Aqui, cada aluno sabe quais as disciplinas em que está matriculado e a disciplina sabe os alunos que ela contém.
 
@@ -33,9 +32,9 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/021/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
 
 ```plantuml
 class Aluno {

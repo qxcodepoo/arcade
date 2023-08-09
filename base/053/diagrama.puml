@@ -1,0 +1,122 @@
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
+
+class Pessoa {
+  - nome: string
+  - meia: boolean
+  __
+  + constructor(nome:string, meia:boolean)
+  + getNome():string
+  + getMeia():boolean
+  + toString():string
+}
+
+class Setor {
+  - evento: string
+  - nome: string
+  - preco: number
+  __
+  + constructor(evento: string, nome: string, preco: number)
+  + getNome():string
+  + getEvento():string
+  + getPreco():number
+  + toString():string
+}
+
+class Evento {
+  - nome: string
+  - setores: Map<string, Setor>
+  __
+  + constructor(nome: string)
+
+  + getNome():string
+
+  + getSetores(): Setor[]
+
+  ' lançar exceção se o setor já existir
+  + addSetor(nome: string, preco: number): void
+
+  ' lançar exceção se o setor não existir
+  + getSetor(nome: string): Setor
+}
+
+class Venda {
+  - pessoa: Pessoa
+  - setor: Setor
+  - valor: number
+  __
+
+  ' o valor da venda é calculado no construtor
+  + constructor(pessoa: Pessoa, setor: Setor, setor: Setor)
+  
+  + getPessoa():Pessoa
+  + getSetor():Setor
+  + getValor():number
+  + toString():string
+}
+
+class Bilheteria {
+  - repVendas: Venda[]
+  - repPessoas: Map<string, Pessoa>
+  - repEventos: Map<string, Evento>
+
+  __
+
+  + constructor()    
+
+  ' retorna a lista das vendas
+  + getVendas(): Venda[]
+
+  ' retorna a lista das pessoas como array
+  + getPessoas(): Pessoa[]
+
+  ' retorna a lista dos eventos como array
+  + getEventos(): Evento[]
+  + getCaixa(): number
+  
+  __
+
+  ' lançar exceção se a pessoa não existir
+  + getPessoa(nome: string): Pessoa
+
+  ' lançar exceção se o evento não existir
+  + getEvento(nome: string): Evento
+
+  __
+
+  ' lançar exceção se nome for repetido
+  + addPessoa(nome: string, meia:bool):void 
+  
+  ' lançar exceção se nome for repetido
+  + addEvento(nome: string, preco: valor):void 
+
+  ' se o setor já existir é lançada no pela classe Evento
+  + addSetor(nome_evento: string, nome_setor: string, preco: number):void
+  
+  ' esse método usa os métodos getPessoa e getEvento
+  ' o evento usa o metodo getSetor para obter o setor
+  ' para fazer a venda, não é necessário lançar nenhuma exceção aqui
+  + vender(nome_pessoa: string, nome_evento: string, nome_setor: string):void 
+}
+
+'--
+
+' Relações e multiplicidade
+
+Bilheteria *-- Venda
+Bilheteria *-- Pessoa
+Bilheteria *-- Evento
+
+Evento *-- Setor
+
+Venda o-- Pessoa
+Venda o-- Evento
+Venda o-- Setor
+
+'--
+@enduml

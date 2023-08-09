@@ -1,17 +1,16 @@
 ## @004 Grafite 🎥
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/004/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-[![explicação](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/../_images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
+[![explicação](https://github.com/qxcodepoo/arcade/blob/master/base/004/../_images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
 
 ***
 
@@ -41,13 +40,13 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Guide
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/004/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/004/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/004/.cache/draft.ts)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/004/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/004/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 ' Grafite

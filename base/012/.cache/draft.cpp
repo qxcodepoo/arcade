@@ -35,31 +35,18 @@ class Topic{
     std::vector<std::shared_ptr<Pass>> normais;
     int qtdPref;
 
-    static int procurarPorNome(std::string id, std::vector<std::shared_ptr<Pass>> &cadeiras) {
-        return {}; // todo
-    }
-    static int procurarVaga(std::vector<std::shared_ptr<Pass>> &cadeiras) {
-        return {}; // todo
-    }
-    static int sentar(std::shared_ptr<Pass> pass, std::vector<std::shared_ptr<Pass>> &cadeiras) {
-        return {}; // todo
-    }
-    static std::shared_ptr<Pass> descer(std::string id, std::vector<std::shared_ptr<Pass>> &cadeiras) {
-        return {}; // todo
-    }
+    static int procurarPorNome(std::string id, std::vector<std::shared_ptr<Pass>> &cadeiras) { return {}; }
+    static int procurarVaga(std::vector<std::shared_ptr<Pass>> &cadeiras) { return {}; }
+    static int sentar(std::shared_ptr<Pass> pass, std::vector<std::shared_ptr<Pass>> &cadeiras) { return {}; }
+    static std::shared_ptr<Pass> descer(std::string id, std::vector<std::shared_ptr<Pass>> &cadeiras) { return {}; }
 
 public:
 
-    Topic(int lotacao = 0, int qtdPref = 0) { //todo 
-    }
+    Topic(int lotacao = 0, int qtdPref = 0): 
 
-    bool subir(std::shared_ptr<Pass> pass) {
-        return {}; // todo
-    }
+    bool subir(std::shared_ptr<Pass> pass) { return {}; }
 
-    std::shared_ptr<Pass> descer(std::string id) {
-        return {}; // todo
-    }
+    std::shared_ptr<Pass> descer(std::string id) { return {}; }
 };
 
 

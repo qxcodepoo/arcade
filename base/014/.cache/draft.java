@@ -5,53 +5,53 @@ import java.util.stream.Collectors;
 import java.util.Collections;
 
 
-class Fone { //todo
+class Fone {
     private String id;
     private String number;
 
-    public Fone(String id, String number) { //todo
+    public Fone(String id, String number) {
     }
 
-    public String getId() { //todo
+    public String getId() {
     }
 
-    public String getNumber() { //todo
+    public String getNumber() {
     }
 
-    public boolean isValid() { //todo
+    public boolean isValid() {
     }
 
-    public String str() { //todo
+    public String str() {
     }
 }
 
-class Contact { //todo
+class Contact {
     private String name;
     private boolean favorited;
     private List<Fone> fones;
 
-    public Contact(String name) { //todo
+    public Contact(String name) {
     }
 
-    public String getName() { //todo
+    public String getName() {
     }
 
-    public List<Fone> getFones() { //todo
+    public List<Fone> getFones() {
     }
 
-    public void addFone(String id, String number) { //todo
+    public void addFone(String id, String number) {
     }
 
-    public void rmFone(int index) { //todo
+    public void rmFone(int index) {
     }
 
-    public void toogleFavorited() { //todo
+    public void toogleFavorited() {
     }
 
-    public boolean isFavorited() { //todo
+    public boolean isFavorited() {
     }
 
-    public String str() { //todo
+    public String str() {
     }
 }
 

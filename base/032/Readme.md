@@ -2,8 +2,7 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
   - [filter](#filter)
   - [sort](#sort)
@@ -11,7 +10,7 @@
   - [set](#set)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 ***
 
@@ -36,12 +35,13 @@
 - **unicos**: retorne uma nova lista sem repetição de valores
 - **repetidos**: retorne uma nova lista apenas com os valores repetidos
 
-___
+***
 
 ## Guide
 
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
+- [solver.java](.cache/draft.java)
 
 ## Shell
 

@@ -5,23 +5,23 @@ class Car{
     private gasMax: number; // limite do tanque
     private km: number; // quantidade de quilometragem
 
-    constructor() { //todo
+    constructor() {
     }
 
-    public setPass(pass: number): void { //todo
+    public setPass(pass: number): void {
     }
     
-    public setGas(gas: number): void { //todo
+    public setGas(gas: number): void {
     }
 
-    public setKm(km: number): void { //todo
+    public setKm(km: number): void {
     }
 
-    public getGas(): number { //todo
+    public getGas(): number {
     }
-    public getKm(): number { //todo
+    public getKm(): number {
     }
-    public getPass(): number { //todo
+    public getPass(): number {
     }
 
     public enter() {

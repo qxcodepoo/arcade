@@ -1,73 +1,73 @@
 
-class Fone { //todo
+class Fone {
     private id: string;
     private number: string;
     
-    constructor(id: string = "", number: string = "") { //todo
+    constructor(id: string = "", number: string = "") {
     }
     
-    getId(): string { //todo
+    getId(): string {
     }
     
-    getNumber(): string { //todo
+    getNumber(): string {
     }
     
-    isValid(): boolean { //todo
+    isValid(): boolean {
     }
     
-    toString(): string { //todo
+    toString(): string {
     }
 }
 
-class Contact { //todo
+class Contact {
     private name: string;
     private favorited: boolean;
     private fones: Fone[];
     
-    constructor(name: string = "") { //todo
+    constructor(name: string = "") {
     }
     
-    getName(): string { //todo
+    getName(): string {
     }
     
-    getFones(): Fone[] { //todo
+    getFones(): Fone[] {
     }
     
-    addFone(id: string, number: string): void { //todo
+    addFone(id: string, number: string): void {
     }
     
-    rmFone(index: number): void { //todo
+    rmFone(index: number): void {
     }
     
-    toogleFavorited(): void { //todo
+    toogleFavorited(): void {
     }
     
-    isFavorited(): boolean { //todo
+    isFavorited(): boolean {
     }
     
-    toString(): string { //todo
+    toString(): string {
     }
 }
 
-class Agenda { //todo
+class Agenda {
     private contatos: Contact[];
-    constructor() { //todo
+    constructor() {
     }
-    private findContact(name: string): number { //todo
+    private findContact(name: string): number {
     }
-    addContact(name: string, fones: Fone[]): void { //todo
+    addContact(name: string, fones: Fone[]): void {
     }
-    rmContact(name: string): void { //todo
+    rmContact(name: string): void {
     }
-    getContact(name: string): Contact | null { //todo
+    getContact(name: string): Contact | null {
     }
-    getContacts(): Contact[] { //todo
+    getContacts(): Contact[] {
     }
-    getFavorited(): Contact[] { //todo
+    getFavorited(): Contact[] {
     }
-    search(pattern: string): Contact[] { //todo
+    search(pattern: string): Contact[] {
     }
-    toString(): string { //todo
+    toString(): string {
     }
 }
 

@@ -1,14 +1,13 @@
 ## @030 ContatoStar & Agenda 4 (herança)
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/030/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/030/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos](#requisitos)
 - [Shell](#shell)
 - [Diagrama UML](#diagrama-uml)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 Vamos reescrever a atividade dos Favoritos utilizando Herança.
 
@@ -91,7 +90,7 @@ $end
 ***
 
 ## Diagrama UML
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/030/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/030/diagrama.png)
 
 
 ## Esqueleto

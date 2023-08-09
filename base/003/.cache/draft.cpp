@@ -6,21 +6,13 @@ class Person {
     std::string name; //atributo
     int age;
 public:
-    Person(std::string name = "", int age = 0) {
-    }
+    Person(std::string name = "", int age = 0) { return {}; }
 
-    Person(int age) { //todo Person("", age) {
-    }
+    Person(int age) : Person("", age) { return {}; }
 
-    int getAge() {
-        return {}; // todo
-    }
-    std::string getName() {
-        return {}; // todo
-    }
-    std::string str() {
-        return {}; // todo
-    }
+    int getAge() { return {}; }
+    std::string getName() { return {}; }
+    std::string str() { return {}; }
 };
 std::ostream& operator<<(std::ostream& os, Person& p) {
     return os << p.str();
@@ -32,26 +24,17 @@ class Motorcycle {
     int power {1};
 
 public:
-    Motorcycle(int power = 1) { //todo power {power} {
-    }
+    Motorcycle(int power = 1): power {power} { return {}; }
 
-    bool insertPerson(std::shared_ptr<Person> p) {
-        return {}; // todo
-    }
+    bool insertPerson(std::shared_ptr<Person> p) { return {}; }
 
-    std::string honk() {
-        return {}; // todo
-    }
+    std::string honk() { return {}; }
 
-    std::shared_ptr<Person> remove() {
-        return {}; // todo
-    }
+    std::shared_ptr<Person> remove() { return {}; }
 
-    void buyTime(int time) {
-    }
+    void buyTime(int time) { return {}; }
 
-    void drive(int time) {
-    }
+    void drive(int time) { return {}; }
     std::string str() {
         std::ostringstream os;
         os << "power:" << power << ", time:" << time;
@@ -64,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, Motorcycle m) {
     return os << m.str();
 }
 
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
 
 int main() {

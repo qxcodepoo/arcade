@@ -11,7 +11,7 @@
 - Para compilar um código com o fn.hpp, usar o comando `g++ -std=c++17 main.cpp -o main`
 
 ```cpp
-#include "fn.hpp"
+#include <fn.hpp>
 
 int main() {
     fn::write("Hello, World!");

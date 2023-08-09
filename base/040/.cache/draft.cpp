@@ -2,31 +2,25 @@
 #include <vector>
 
 int count(std::vector<int> vet, int x) {
-    return {}; // todo
 }
 
 int sum(std::vector<int> vet) {
-    return {}; // todo
 }
 
 double average(const std::vector<int>& vet) {
-    return {}; // todo
 }
 
 std::string more_men(const std::vector<int>& vet) {
-    return {}; // todo
 }
 
 std::string half_compare(const std::vector<int>& vet) {
-    return {}; // todo
 }
 
 std::string sex_battle(const std::vector<int>& vet) {
-    return {}; // todo
 }
 
 
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
 
 int main() {

@@ -4,7 +4,7 @@
 #include <sstream>
 #include <utility>
 #include <iomanip> //setprecision
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
 
 class Grafite{
@@ -56,21 +56,15 @@ struct Lapiseira{
     PGrafite grafite {nullptr};
     std::list<PGrafite> tambor;
 
-    Lapiseira(float calibre = 0.0) { //todo
-    }
+    Lapiseira(float calibre = 0.0){}
 
-    bool inserir(PGrafite grafite) {
-        return {}; // todo
+    bool inserir(PGrafite grafite) { return {}; }
 
-    }
 
-    PGrafite remover() {
-    }
+    PGrafite remover() { return {}; }
 
-    void write() {
-    }
-    void puxar() {
-    }
+    void write() { return {}; }
+    void puxar() { return {}; }
     std::string str() const {
         auto fngr = [](PGrafite g) { return "[" + (g == nullptr ? "" : g->str()) + "]"; };
         std::ostringstream os;

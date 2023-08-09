@@ -2,14 +2,13 @@
 
 Utilizando sets para controlar a variação dos status do bichinho.
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/006/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
@@ -36,13 +35,13 @@ Seu sistema deverá:
 
 ## Guide
 
-- [solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/.cache/draft.ts)
+- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.ts)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/006/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/006/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 
@@ -128,7 +127,7 @@ Seu sistema deverá:
 
 [](load)
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
+[![_](https://github.com/qxcodepoo/arcade/blob/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 

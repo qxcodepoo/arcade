@@ -7,22 +7,22 @@ class Car{
     public int gasMax; // limite do tanque
     public int km; // quantidade de quilometragem
 
-    public Car() { //todo
+    public Car() {
     }
 
-    public String toString() { //todo
+    public String toString() {
     }
 
-    public void enter() { //todo
+    public void enter() {
     }
 
-    public void leave() { //todo
+    public void leave() {
     }
     
-    public void fuel(int gas) { //todo
+    public void fuel(int gas) {
     }
 
-    public void drive (int km) { //todo
+    public void drive (int km) {
     }    
 };
 

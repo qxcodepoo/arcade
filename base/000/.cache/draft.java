@@ -3,21 +3,21 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Solver { //todo
+public class Solver {
 
-    static boolean in(List<Integer> vet, int x) { //todo
+    static boolean in(List<Integer> vet, int x) {
     }
 
-    static int indexOf(List<Integer> vet, int x) { //todo
+    static int indexOf(List<Integer> vet, int x) {
     }
 
-    static int findIf(List<Integer> vet) { //todo
+    static int findIf(List<Integer> vet) {
     }
 
-    static int minElement(List<Integer> vet) { //todo
+    static int minElement(List<Integer> vet) {
     }
 
-    static int findMinIf(List<Integer> vet) { //todo
+    static int findMinIf(List<Integer> vet) {
     }
     public static void main(String[] args) {
 

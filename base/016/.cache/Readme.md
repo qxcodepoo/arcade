@@ -1,14 +1,13 @@
 ## @016 Favoritos & Agenda 3: cache e redundância
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/016/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos Novos](#requisitos-novos)
 - [Shell](#shell)
 - [Diagrama UML](#diagrama-uml)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
 
@@ -97,7 +96,7 @@ $end
 ***
 
 ## Diagrama UML
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/016/diagrama.png)
 
 ## Esqueleto
 <!--FILTER Solver.java java-->

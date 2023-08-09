@@ -2,12 +2,11 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 - Faça um programa para gerenciar figuras geométricas.
 - Deve ser possível conseguir obter a área e o perímetro de cada figura.

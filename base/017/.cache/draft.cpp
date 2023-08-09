@@ -1,4 +1,4 @@
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 #include <utility>
 
 class Coin {
@@ -43,21 +43,12 @@ class Item {
     std::string label;
     int volume;
 public:
-    Item(std::string label, int volume) { //todo
-    }
-    int getVolume() const {
-        return {}; // todo
-    }
-    std::string getLabel() const {
-        return {}; // todo
-    }
-    void setVolume(int volume) {
-    }
-    void setLabel(std::string label) {
-    }
-    std::string str() const {
-        return {}; // todo
-    }
+    Item(std::string label, int volume) {}
+    int getVolume() const { return {}; }
+    std::string getLabel() const { return {}; }
+    void setVolume(int volume) { return {}; }
+    void setLabel(std::string label) { return {}; }
+    std::string str() const { return {}; }
 };
 
 std::ostream& operator<<(std::ostream& os, const Item& item) {
@@ -72,45 +63,27 @@ class Pig {
     bool broken {false};
 
 public:
-    Pig(int volumeMax = 0) { //todo
-    }
+    Pig(int volumeMax = 0) {}
     
-    bool addCoin(Coin coin) {
-        return {}; // todo
-    }
+    bool addCoin(Coin coin) { return {}; }
 
-    bool addItem(Item item) {
-        return {}; // todo
+    bool addItem(Item item) { return {}; }
 
-    }
 
-    bool breakPig() {
-        return {}; // todo
-    }
+    bool breakPig() { return {}; }
 
-    std::vector<Coin> extractCoins() {
-        return {}; // todo
-    }
+    std::vector<Coin> extractCoins() { return {}; }
 
-    std::vector<Item> extractItems() {
-        return {}; // todo
-    }
+    std::vector<Item> extractItems() { return {}; }
 
-    double getValue() const {
-        return {}; // todo
-    }
+    double getValue() const { return {}; }
 
-    int getVolume() const {
-        return {}; // todo
-    }
+    int getVolume() const { return {}; }
 
-    std::string str() const {
-        return {}; // todo
-    }
+    std::string str() const { return {}; }
 };
 
 std::ostream& operator<<(std::ostream& os, const Pig& pig) {
-        return {}; // todo
     return os << pig.str();
 }
 

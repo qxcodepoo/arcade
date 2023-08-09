@@ -40,24 +40,24 @@ class Lead {
         this.size = size;
     }
 }
-class Pencil { //todo
+class Pencil {
     private thickness: number;
     private tip: Lead | null; //lead da ponta
     private barrel: Array<Lead> = new Array<Lead>(); //grafites no cano
 
-    public constructor(thickness: number) { //todo
+    public constructor(thickness: number) {
     }
 
-    public insert(lead: Lead): boolean { //todo
+    public insert(lead: Lead): boolean {
     }
 
-    public remove(): Lead | null { //todo
+    public remove(): Lead | null {
     }
 
-    public pull(): boolean { //todo
+    public pull(): boolean {
     }
 
-    public writePage(): void { //todo
+    public writePage(): void {
 
     }
     public toString(): string {

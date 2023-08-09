@@ -2,14 +2,13 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Explicação](#explicação)
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
 - [Fim da história](#fim-da-história)
-[](toc)
+<!-- toc -->
 
 Ptolomeu é o agiota mais carismático de MoneyVille. Sem "nenhuma razão" foi denunciado e acabou indo pra cadeira. O problema foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 

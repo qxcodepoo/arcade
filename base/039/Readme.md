@@ -2,8 +2,7 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
   - [pares](#pares)
   - [proximidade](#proximidade)
@@ -11,7 +10,7 @@
   - [remoções](#remoções)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 ***
 
@@ -37,13 +36,13 @@
 - **erase**: dado a lista com os índices de todas as pessoas que saíram da fila, qual a fila resultante?
 - **clear**: dado um valor, remova todas as vezes que esse valor aparece na lista.
 
-___
+***
 
 ## Guide
 
-- [solver.cpp](draft.cpp)
-- [solver.js](draft.js)
-- [solver.ts](draft.ts)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.java](.cache/draft.java)
+- [solver.ts](.cache/draft.ts)
 
 ## Shell
 

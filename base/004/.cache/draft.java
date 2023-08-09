@@ -1,24 +1,24 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-class Lead { //todo
+class Lead {
     private float thickness; //calibre
     private String hardness; //dureza
     private int size; //tamanho em mm
 
-    public Lead(float thickness, String hardness, int size) { //todo
+    public Lead(float thickness, String hardness, int size) {
     }
 
-    public float getThickness() { //todo
+    public float getThickness() {
     }
 
-    public String getHardness() { //todo
+    public String getHardness() {
     }
 
-    public int getSize() { //todo
+    public int getSize() {
     }
 
-    public void setSize(int size) { //todo
+    public void setSize(int size) {
     }
 
     public int usagePerSheet() {
@@ -39,29 +39,29 @@ class Lead { //todo
 }
 
 
-class Pencil { //todo
+class Pencil {
     private float thickness;
     private Lead tip;
 
-    public Pencil(float thickness) { //todo
+    public Pencil(float thickness) {
     }
 
-    public float getThickness() { //todo
+    public float getThickness() {
     }
 
-    public void setThickness(float value) { //todo
+    public void setThickness(float value) {
     }
 
-    public boolean hasGrafite() { //todo
+    public boolean hasGrafite() {
     }
 
-    public boolean insert(Lead grafite) { //todo
+    public boolean insert(Lead grafite) {
     }
 
-    public Lead remove() { //todo
+    public Lead remove() {
     }
 
-    public void writePage() { //todo
+    public void writePage() {
     }
     
     public String toString() {

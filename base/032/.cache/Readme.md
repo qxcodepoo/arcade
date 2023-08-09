@@ -1,9 +1,8 @@
 ## @032 Estressados C: Transformações
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/032/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
   - [filter](#filter)
   - [sort](#sort)
@@ -11,7 +10,7 @@
   - [set](#set)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 ***
 
@@ -36,12 +35,13 @@
 - **unicos**: retorne uma nova lista sem repetição de valores
 - **repetidos**: retorne uma nova lista apenas com os valores repetidos
 
-___
+***
 
 ## Guide
 
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/032/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/032/.cache/draft.ts)
+- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/032/.cache/draft.java)
 
 ## Shell
 

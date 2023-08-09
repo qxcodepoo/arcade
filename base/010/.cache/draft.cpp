@@ -1,37 +1,27 @@
-#include <fn.hpp>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 
 struct Cliente{
     std::string id;
     std::string fone;
 
-    Cliente(std::string id = "", std::string fone = "") {
-    }
-    std::string str() {
-        return {}; // todo
-    }
+    Cliente(std::string id = "", std::string fone = "") { return {}; }
+    std::string str() { return {}; }
 };
 
 class Sala{
     std::vector<std::shared_ptr<Cliente>> cadeiras;
-    int procurar(std::string nome) {
-        return {}; // todo
-    }
+    int procurar(std::string nome) { return {}; }
 
 public:
-    Sala(int qtd = 0) { //todo
-    }
+    Sala(int qtd = 0){}
 
 
-    void reservar(std::string id, std::string fone, int ind) {
-    }
+    void reservar(std::string id, std::string fone, int ind) { return {}; }
 
-    void cancelar(std::string id) {
-    }
+    void cancelar(std::string id) { return {}; }
 
-    std::string str() {
-        return {}; // todo
-    }
+    std::string str() { return {}; }
 };
 
 

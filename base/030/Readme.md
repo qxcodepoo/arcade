@@ -2,13 +2,12 @@
 
 ![cover](cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Requisitos](#requisitos)
 - [Shell](#shell)
 - [Diagrama UML](#diagrama-uml)
 - [Esqueleto](#esqueleto)
-[](toc)
+<!-- toc -->
 
 Vamos reescrever a atividade dos Favoritos utilizando Herança.
 

@@ -1,6 +1,6 @@
 ## @051 Instalando e configurando o tk e o fn.cpp
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/051/cover.jpg)
+![](https://github.com/qxcodepoo/arcade/blob/master/base/051/cover.jpg)
 
 ## fn.hpp
 
@@ -11,7 +11,7 @@
 - Para compilar um código com o fn.hpp, usar o comando `g++ -std=c++17 main.cpp -o main`
 
 ```cpp
-#include "fn.hpp"
+#include <fn.hpp>
 
 int main() {
     fn::write("Hello, World!");

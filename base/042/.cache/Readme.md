@@ -1,13 +1,12 @@
 ## @042 Carro Get e Set
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/042/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 
 
@@ -37,9 +36,9 @@ Seu sistema deverá:
 ***
 
 ## Guide
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/042/diagrama.png)
 
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/.cache/draft.ts)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/042/.cache/draft.ts)
 
 ***
 

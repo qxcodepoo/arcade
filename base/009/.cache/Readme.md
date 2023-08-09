@@ -1,13 +1,12 @@
 ## @009 Pula pula
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/cover.jpg)
+![cover](https://github.com/qxcodepoo/arcade/blob/master/base/009/cover.jpg)
 
-[](toc)
-
+<!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
 - [Shell](#shell)
-[](toc)
+<!-- toc -->
 
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, controlando as pessoas que entram e saem do pula pula, além de coordenar as pessoas que estão na fila de espera.
 
@@ -21,12 +20,12 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Guide
 
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.cpp)
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/009/.cache/draft.cpp)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/009/.cache/draft.java)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.png)
+![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/009/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/009/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 package com.qxcode {
