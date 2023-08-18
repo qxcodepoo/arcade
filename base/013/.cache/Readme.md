@@ -1,6 +1,6 @@
 ## @013 Cadastro
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/013/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/cover.jpg)
 
 <!-- toc -->
 - [Vídeo explicativo](#vídeo-explicativo)
@@ -14,7 +14,7 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ## Vídeo explicativo
 
-[![_](https://github.com/qxcodepoo/arcade/blob/master/base/013/video.png)](https://youtu.be/AfJ--C8ZqPY)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/video.png)](https://youtu.be/AfJ--C8ZqPY)
 
 ## Requisitos
 
@@ -29,9 +29,9 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ## Guide
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/013/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/013/diagrama.puml)[](filter:fenced:plantuml)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.puml)[](filter:fenced:plantuml)
 
 ```plantuml
 
@@ -270,7 +270,7 @@ $end
 
 ## Main
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/013/Solver.java)[](fenced:java:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/Solver.java)[](fenced:java:filter)
 
 ```java
 class Solver{

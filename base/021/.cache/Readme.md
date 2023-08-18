@@ -1,6 +1,6 @@
 ## @021 Matrícula
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/021/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/cover.jpg)
 
 <!-- toc -->
 - [Funcionalidades](#funcionalidades)
@@ -32,9 +32,9 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 
 ## Guide
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/021/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
 
 ```plantuml
 class Aluno {

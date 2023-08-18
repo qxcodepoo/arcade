@@ -1,6 +1,6 @@
 ## @015 Busca
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/015/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/015/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -35,13 +35,13 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/015/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/015/.cache/draft.ts)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/015/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/015/.cache/draft.ts)
 
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/015/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/015/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/015/diagrama.puml)[](fenced:filter:puml)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/015/diagrama.puml)[](fenced:filter:puml)
 
 ```puml
 

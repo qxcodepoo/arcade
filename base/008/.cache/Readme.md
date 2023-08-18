@@ -1,6 +1,6 @@
 ## @008 Agiota
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/008/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/cover.jpg)
 
 <!-- toc -->
 - [Explicação](#explicação)
@@ -20,7 +20,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Explicação
 
-[![_](https://github.com/qxcodepoo/arcade/blob/master/base/008/play.png)](https://youtu.be/5pnagWZvjBE)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/play.png)](https://youtu.be/5pnagWZvjBE)
 
 ## Intro
 
@@ -55,9 +55,9 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Guide
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/008/.cache/draft.cpp)
+- [draft.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/.cache/draft.cpp)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/008/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/diagrama.png)
 
 ## Shell
 
@@ -201,5 +201,5 @@ $end
 - Então assim ficou Ptolomeu, depois de ir para a prisão e ver sua fortuna confiscada.
 - Se foi presídio, zoológico ou hospital psiquiátrico, ninguém comenta, só sabemos que ele nunca mais foi visto. Pelo menos não em Moneyville.
 
-![_](https://github.com/qxcodepoo/arcade/blob/master/base/008/ptolomeu.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/ptolomeu.jpg)
 

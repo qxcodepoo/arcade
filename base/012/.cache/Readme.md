@@ -2,7 +2,7 @@
 
 [](solver.cpp)
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/012/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -44,12 +44,12 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ## Guide
 
--[Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.java)
--[solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.cpp)
+-[Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.java)
+-[solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/.cache/draft.cpp)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/012/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/012/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
 class Pass {

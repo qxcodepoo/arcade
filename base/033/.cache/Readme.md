@@ -1,6 +1,6 @@
 ## @033 Trem
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/033/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/033/cover.jpg)
 
 <!-- toc -->
 - [Funcionalidades](#funcionalidades)

@@ -1,6 +1,6 @@
 ## @046 Codificação / Relatórios / Planilha
 
-![_](https://github.com/qxcodepoo/arcade/blob/master/base/046/cover.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/cover.jpg)
 
 ## Como fazer seu código orientado a testes
 
@@ -12,7 +12,7 @@
 
 ## Relatório de Código
 
-![_](https://github.com/qxcodepoo/arcade/blob/master/base/046/relatorio.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/relatorio.jpg)
 
 O relatório para ser colocado no início do arquivo principal do código de cada projeto e  deve responder às seguintes perguntas:
 

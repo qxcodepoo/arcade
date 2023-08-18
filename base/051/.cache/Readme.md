@@ -1,6 +1,6 @@
 ## @051 Instalando e configurando o tk e o fn.cpp
 
-![](https://github.com/qxcodepoo/arcade/blob/master/base/051/cover.jpg)
+![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/051/cover.jpg)
 
 ## fn.hpp
 

@@ -1,6 +1,6 @@
 ## @005 Mestre dos Vetores (manipulação arraylist)
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/005/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/005/cover.jpg)
 
 <!-- toc -->
 - [Requisitos](#requisitos)

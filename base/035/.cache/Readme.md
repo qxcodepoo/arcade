@@ -1,6 +1,6 @@
 ## @035 Clínica Veterinária
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/035/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/cover.jpg)
 
 <!-- toc -->
 - [Requisitos](#requisitos)
@@ -77,7 +77,7 @@ $end
 
 ## Diagrama
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/035/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/diagrama.png)
  
 ---
 

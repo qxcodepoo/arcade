@@ -1,6 +1,6 @@
 ## @047 Shapes
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/047/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -22,9 +22,9 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 
 ## Guide
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/047/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/047/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
 

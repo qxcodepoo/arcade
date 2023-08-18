@@ -1,6 +1,6 @@
 ## @007 Tarifas
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/007/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -34,9 +34,9 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ## Guide
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/007/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/007/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Account {

@@ -1,6 +1,6 @@
 ## @037 Budega
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/037/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -28,11 +28,11 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/037/.cache/draft.cpp)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/.cache/draft.cpp)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/037/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/037/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
 class Pessoa {
@@ -103,7 +103,7 @@ class Mercantil {
 
 [](load)
 
-[![_](https://github.com/qxcodepoo/arcade/blob/master/base/037/../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 
 ***
 

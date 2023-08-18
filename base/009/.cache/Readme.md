@@ -1,6 +1,6 @@
 ## @009 Pula pula
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/009/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -20,12 +20,12 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/009/.cache/draft.cpp)
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/009/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.cpp)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/.cache/draft.java)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/009/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/009/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 package com.qxcode {

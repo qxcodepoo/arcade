@@ -1,6 +1,6 @@
 ## @017 Porquinho
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/017/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -26,11 +26,11 @@ O sistema deverá:
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/017/.cache/draft.cpp)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/017/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 

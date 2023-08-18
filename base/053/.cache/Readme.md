@@ -1,6 +1,6 @@
 ## @053 Bilheteria II
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/053/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/cover.jpg)
 
 <<<<<<< HEAD
 <!-- toc -->
@@ -25,15 +25,15 @@ O Evento atua como repositório de Setores.
 
 ## Diagrama de classes
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/053/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/diagrama.png)
 
 ## Draft
 
-- Main em typescript: [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/053/.cache/draft.ts)
+- Main em typescript: [draft.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/.cache/draft.ts)
 
 ## Descrição dos métodos
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/053/diagrama.puml)[](fenced:puml:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/diagrama.puml)[](fenced:puml:filter)
 
 ```puml
 

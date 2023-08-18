@@ -1,6 +1,6 @@
 ## @002 Carro
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/002/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -35,13 +35,13 @@ Seu sistema deverá:
 
 ## Guide
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.ts)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/.cache/draft.ts)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/002/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/002/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Car {

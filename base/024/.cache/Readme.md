@@ -1,6 +1,6 @@
 ## @024 Mensagens
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/024/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/024/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -22,7 +22,7 @@ Essa atividade é a base conceitual para simplificar a troca de mensagens entre 
 
 ## Guide
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/024/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/024/diagrama.png)
 
 ## Shell
 

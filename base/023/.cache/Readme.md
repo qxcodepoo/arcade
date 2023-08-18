@@ -1,6 +1,6 @@
 ## @023 Salário
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/023/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/cover.jpg)
 
 <!-- toc -->
 - [Requisitos parte 1](#requisitos-parte-1)
@@ -103,7 +103,7 @@ $end
 ***
 
 ## Diagrama
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/023/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/diagrama.png)
 
 ***
 

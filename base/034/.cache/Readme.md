@@ -1,6 +1,6 @@
 ## @034 Carga
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/034/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/cover.jpg)
 
 <!-- toc -->
 - [Funcionalidades](#funcionalidades)
@@ -38,11 +38,11 @@ la
 nwvc 350.0
   done
 la
-  Trem [ - - ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)
+  Trem [ - - ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)
 nwvp 2
   done
 la
-  Trem [ - - ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ - - ]
+  Trem [ - - ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ - - ]
 nwvc 1
   fail: limite de vagões atingido
 ```
@@ -63,18 +63,18 @@ nwvc 1
 
 addp goku
 la
-  Trem [ goku - ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ - - ]
+  Trem [ goku - ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ - - ]
 addp kate
 addp sara
 addp goku
   fail: goku já está no trem
 la
-  Trem [ goku kate ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ sara - ]
+  Trem [ goku kate ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ sara - ]
 addp tina
 addp james
   fail: trem lotado
 la
-  Trem [ goku kate ](https://github.com/qxcodepoo/arcade/blob/master/base/034/_350.0)[ sara james ]
+  Trem [ goku kate ](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/_350.0)[ sara james ]
 addc xilitos 200.0
 la
   Trem [ goku kate ]( xilitos:200.0 _150.0 )[ sara james ]

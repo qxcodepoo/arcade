@@ -1,6 +1,6 @@
 ## @018 Hospital II
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/018/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/cover.jpg)
 
 <!-- toc -->
 - [Requisitos](#requisitos)
@@ -79,7 +79,7 @@ $end
 ***
 
 ## Diagrama de Classes
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/018/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/diagrama.png)
 
 ***
 

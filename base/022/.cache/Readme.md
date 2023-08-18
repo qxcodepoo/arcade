@@ -1,6 +1,6 @@
 ## @022 Hospital
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/022/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/cover.jpg)
 
 <!-- toc -->
 - [Cadastrar Pacientes, Médicos e Plantões.](#cadastrar-pacientes-médicos-e-plantões)
@@ -70,7 +70,7 @@ $end
 ***
 
 ## Diagrama de Classes
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/022/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/diagrama.png)
 
 ***
 

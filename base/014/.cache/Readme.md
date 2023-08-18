@@ -1,6 +1,6 @@
 ## @014 Contato
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/014/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -43,12 +43,12 @@ Seu programa deve:
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/014/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/014/.cache/draft.ts)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/.cache/draft.ts)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/014/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/014/diagrama.puml)[](filter:fenced:plantuml)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/diagrama.puml)[](filter:fenced:plantuml)
 
 ```plantuml
 

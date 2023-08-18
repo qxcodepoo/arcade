@@ -1,6 +1,6 @@
 ## @000 Estressados A: Busca
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/000/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -36,8 +36,8 @@
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/000/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/000/.cache/draft.ts)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.ts)
 
 ***
 

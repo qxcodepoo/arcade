@@ -1,6 +1,6 @@
 ## @029 Anotações
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/029/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/cover.jpg)
 
 <!-- toc -->
 - [Funcionalidades](#funcionalidades)
@@ -93,7 +93,7 @@ $end
 
 ## Diagrama
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/029/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/diagrama.png)
 
 ## Ajuda
 

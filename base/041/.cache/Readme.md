@@ -1,6 +1,6 @@
 ## @041 Tabuleiro
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/041/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -16,7 +16,7 @@ O jogo prossegue em rodadas. Em cada rodada, os jogadores rolam um D20 (dado de 
 
 A maioria dos quadrados no tabuleiro são quadrados simples, mas alguns são “armadilhas”. Se a peça de um jogador cair em um quadrado da armadilha no final do movimento do jogador. O jogador ficará preso na armadilha até que na sua rodada jogue um número par se libertando da armadilha. Ao rolar um número par e se libertar da armadilha, sua peça não se move nessa rodada, mas na próxima poderá se mover normalmente.
 
-![_](https://github.com/qxcodepoo/arcade/blob/master/base/041/tabuleiro.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/tabuleiro.png)
 
 Haverá exatamente três armadilhas na trilha.
 
@@ -31,12 +31,12 @@ ___
 
 ## Guide
 
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/041/.cache/draft.ts)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/041/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/.cache/draft.ts)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/.cache/draft.cpp)
   
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/041/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/041/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
   class Player {

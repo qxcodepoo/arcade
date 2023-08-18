@@ -1,6 +1,6 @@
 ## @010 Cinema
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/010/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -36,12 +36,12 @@ Seu sistema deverá:
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.cpp)
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/.cache/draft.cpp)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/.cache/draft.java)
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/010/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/010/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Client {

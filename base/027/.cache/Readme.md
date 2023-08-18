@@ -1,6 +1,6 @@
 ## @027 Grupos
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/027/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/cover.jpg)
 
 <!-- toc -->
 - [Guia de Atividade](#guia-de-atividade)
@@ -60,7 +60,7 @@ $end
 
 ## Guia de Atividade
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/027/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/diagrama.png)
 
 
 ## Créditos

@@ -6,6 +6,5 @@ solver_maps.cpp
 ptolomeu.jpg
 play.png
 local.sh
-solver_maps (darkness's conflicted copy 2023-07-10).cpp
 student.cpp
 

@@ -1,6 +1,6 @@
 ## @031 Pets
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/031/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/031/cover.jpg)
 
 <!-- toc -->
 - [Requisitos Parte 1](#requisitos-parte-1)

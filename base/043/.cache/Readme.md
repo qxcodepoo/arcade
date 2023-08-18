@@ -1,6 +1,6 @@
 ## @043 Cofre
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/043/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -28,11 +28,11 @@ O sistema deverá:
 
 ## Guide
 
-![diagrama](https://github.com/qxcodepoo/arcade/blob/master/base/043/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.png)
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.java)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/.cache/draft.java)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/043/diagrama.puml)[](fenced:plantuml:filter)
+[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.puml)[](fenced:plantuml:filter)
 
 ```plantuml
 

@@ -1,6 +1,6 @@
 ## @040 Estressados B: Contagem
 
-![cover](https://github.com/qxcodepoo/arcade/blob/master/base/040/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/040/cover.jpg)
 
 <!-- toc -->
 - [Intro](#intro)
@@ -21,8 +21,8 @@
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/040/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/040/.cache/draft.ts)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/040/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/040/.cache/draft.ts)
 
 ## Shell
 
