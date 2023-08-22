@@ -1,4 +1,4 @@
-## @004 Grafite 🎥
+## @004 Grafite
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/cover.jpg)
 

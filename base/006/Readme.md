@@ -1,4 +1,4 @@
-# Tamagotchi 💎
+# Tamagotchi
 
 Utilizando sets para controlar a variação dos status do bichinho.
 

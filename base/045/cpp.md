@@ -15,5 +15,5 @@ Verifique se a versão do gcc é a pelo menos a 9.2 para ter acesso ao C++17 uti
 
 ## IDES sugeridas
 
-- Vscode (mais rápido, leve e personalizável) 
+- Vscode (mais rápido, leve e personalizável)
 - QtCreator (mais completo, com recursos avançados, porém mais pesado)

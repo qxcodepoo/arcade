@@ -11,17 +11,17 @@ class Lead {
     int size;
 
 public:
-    Lead(float thickness, std::string hardness, int size) { return {}; }
+    Lead(float thickness, std::string hardness, int size);
 
-    int usagePerSheet() const { return {}; }
+    int usagePerSheet() const;
 
-    float getThickness() const { return {}; }
+    float getThickness() const;
 
-    std::string getHardness() const { return {}; }
+    std::string getHardness() const;
 
-    int getSize() const { return {}; }
+    int getSize() const;
 
-    void setSize(int size) { return {}; }
+    void setSize(int size);
     std::string str() const {
         std::stringstream ss;
         ss << std::fixed << std::setprecision(1) 
@@ -38,15 +38,15 @@ struct Pencil {
     float thickness {0.f};
     std::shared_ptr<Lead> tip {nullptr};
 
-    Pencil(float thickness = 0.0): thickness{thickness} { return {}; }
+    Pencil(float thickness = 0.0): thickness{thickness};
 
-    bool hasGrafite() { return {}; }
+    bool hasGrafite();
 
-    bool insert(std::shared_ptr<Lead> grafite) { return {}; }
+    bool insert(std::shared_ptr<Lead> grafite);
 
-    std::shared_ptr<Lead> remove() { return {}; }
+    std::shared_ptr<Lead> remove();
 
-    void writePage() { return {}; }
+    void writePage();
 
     std::string str() {
         std::stringstream ss;

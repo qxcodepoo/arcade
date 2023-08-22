@@ -1,53 +1,54 @@
-#include <iostream>
-#include <sstream>
-#include <iomanip>
+#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 struct Calculator {
     int batteryMax;
     int battery;
     float display;
 
-    Calculator(int batteryMax) { return {}; }
+    Calculator(int batteryMax) :
+        batteryMax(batteryMax) {
+        this->battery = 0;
+        this->display = 0.0f;
+    }
 
-    void chargeBattery(int value) { 
+    void chargeBattery(int value) {
+        if(value < 0)
+            return;
+        this->battery += value;
+        this->battery = std::min(this->battery, this->batteryMax);
+    }
 
-    bool useBattery() { 
+    bool useBattery() {
+        if(this->battery == 0){
+            fn::write("fail: bateria insuficiente");
+            return false;
+        }
+        this->battery -= 1;
+        return true;
+    }
 
-    void sum(int a, int b) { 
+    void sum(int a, int b) {
+        if(useBattery()) {
+            this->display = (a + b);
+        }
+    }
 
-    void division(int num, int den) { return {}; }
+    void division(int num, int den) {
+        if(!useBattery()) {
+            return;
+        }
+        if(den == 0) {
+            fn::write("fail: divisao por zero");
+            return;
+        }
+        this->display = (float) num / den;
+    }
 
-    std::string str() { 
-        std::stringstream ss;
-        ss << "display = " << std::fixed << std::setprecision(2) << this->display;
-        ss << ", battery = " << this->battery;
-        return ss.str();
+    std::string str() const {
+        return fn::format("display = {%.2f}, battery = {}", this->display, this->battery); 
     }
 };
 
-std::ostream& operator<<(std::ostream& os, Calculator c) {
+std::ostream& operator<<(std::ostream& os, const Calculator& c) {
     return (os << c.str());
 }
-
-#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
-using namespace fn;
-
-int main() {
-    Calculator c(0);
-
-    while(true)
-    {
-        std::string line = input();
-        auto args = split(line, ' ');
-        write('$' + line);
-
-        if      (args[0] == "show")     { std::cout << c << std::endl;                        }
-        else if (args[0] == "init")     { c = Calculator(number(args[1]));                    }
-        else if (args[0] == "charge")   { c.chargeBattery(number(args[1]));                   }
-        else if (args[0] == "sum")      { c.sum(number(args[1]), number(args[2]));            }
-        else if (args[0] == "div")      { c.division(number(args[1]), number(args[2]));       }
-        else if (args[0] == "end")      { break;                                              }
-        else                            { std::cout << "fail: comando inválido" << std::endl; }  
-    }
-}
-

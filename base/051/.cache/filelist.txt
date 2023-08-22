@@ -1,5 +1,0 @@
-Readme.md
-fn.hpp
-cover.jpg
-teste.cpp
-

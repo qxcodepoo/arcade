@@ -1,4 +1,4 @@
-## @046 Codificação / Relatórios / Planilha
+## @046 Como fazer os códigos e relatórios
 
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/cover.jpg)
 

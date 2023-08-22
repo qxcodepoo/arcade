@@ -1,4 +1,4 @@
-# Grafite 🎥
+# Grafite
 
 ![cover](cover.jpg)
 

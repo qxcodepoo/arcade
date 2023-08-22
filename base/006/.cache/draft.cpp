@@ -27,13 +27,13 @@ private:
             hungry = value;
         }
     }
-    void setEnergy(int value) { return {}; }
+    void setEnergy(int value);
 
-    void setClean(int value) { return {}; }
+    void setClean(int value);
 
 
 public:
-    Pet(int energy = 0, int hungry = 0, int clean = 0){}
+    Pet(int energy = 0, int hungry = 0, int clean = 0);
 
     void play() {
         if (!testAlive())
@@ -45,11 +45,11 @@ public:
         age += 1;
     }
 
-    void shower() { return {}; }
+    void shower();
 
-    void eat() { return {}; }
+    void eat();
 
-    void sleep() { return {}; }
+    void sleep();
 
 
     int getClean() {

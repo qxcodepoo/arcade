@@ -1,31 +1,5 @@
 import java.util.*;
 
-class Car{
-    public int pass; // Passageiros
-    public int passMax; // limite de Passageiros
-    public int gas; // tanque
-    public int gasMax; // limite do tanque
-    public int km; // quantidade de quilometragem
-
-    public Car() {
-    }
-
-    public String toString() {
-    }
-
-    public void enter() {
-    }
-
-    public void leave() {
-    }
-    
-    public void fuel(int gas) {
-    }
-
-    public void drive (int km) {
-    }    
-};
-
 
 public class Solver {
     public static void main(String[] a) {
@@ -36,13 +10,13 @@ public class Solver {
             write("$" + line);
             var args = line.split(" ");
 
-            if      (args[0].equals("end"))   { break; }
-            else if (args[0].equals("show"))  { System.out.println(car); }
-            else if (args[0].equals("enter")) { car.enter(); }
-            else if (args[0].equals("leave")) { car.leave(); }
-            else if (args[0].equals("drive")) { car.drive((int) number(args[1])); }
-            else if (args[0].equals("fuel"))  { car.fuel((int) number(args[1])); }
-            else { write("fail: comando invalido"); }
+            if      (args[0].equals("end"))   { break;                                }
+            else if (args[0].equals("show"))  { System.out.println(car);              }
+            else if (args[0].equals("enter")) { car.enter();                          }
+            else if (args[0].equals("leave")) { car.leave();                          }
+            else if (args[0].equals("drive")) { car.drive((int) number(args[1]));     }
+            else if (args[0].equals("fuel"))  { car.fuel((int) number(args[1]));      }
+            else                              { write("fail: comando invalido");}
         }
     }
 
