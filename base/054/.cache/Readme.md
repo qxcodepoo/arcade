@@ -53,6 +53,7 @@ $end
 ```
 
 ```bash
+# O comando grow _valor envelhece o animal em _valor etapas
 #__case envelhecendo
 $init vaca muu
 $show
@@ -78,6 +79,7 @@ $end
 ```
 
 ```bash
+# O comando noise faz o animal fazer barulho, se ele estiver vivo e não for bebe
 #__case fazer barulho
 $init cabra beeh
 
