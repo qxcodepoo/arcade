@@ -1,5 +1,7 @@
 ## @054 Animal
 
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/cover.jpg)
+
 <!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
@@ -28,6 +30,8 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.java)
 - [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.cpp)
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.ts)
+
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/diagrama.png)
 
 ***
 

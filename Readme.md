@@ -44,7 +44,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 ## 02. Entendendo Classes, a Main e os Testes
 
-- Exercício resolvido completo: [@054 Animal](base/054/Readme.md)
+- Exercício resolvido: [@054 Animal](base/054/Readme.md)
 - Exercício resolvido para você fazer a main: [@001 Calculadora](base/001/Readme.md)
 - Exercício resolvido para você fazer a classe: [@002 Carro](base/002/Readme.md)
 

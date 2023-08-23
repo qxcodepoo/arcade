@@ -123,6 +123,16 @@ Seu sistema deverá:
     + setHungry(value : int)
 }
 
+class Legenda {
+  + atributoPublic
+  - atributoPrivate
+  # atributoProtected
+  __
+  + métodoPublic()
+  - métodoPrivate()
+  # métodoProtected()
+}
+
 ```
 
 [](load)

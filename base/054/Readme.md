@@ -1,5 +1,7 @@
 # Animal
 
+![_](cover.jpg)
+
 <!-- toc -->
 - [Intro](#intro)
 - [Guide](#guide)
@@ -28,6 +30,8 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - [Solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp )
 - [solver.ts](.cache/draft.ts )
+
+![_](diagrama.png)
 
 ***
 

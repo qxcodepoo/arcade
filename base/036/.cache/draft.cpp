@@ -8,14 +8,14 @@ class Time {
 private:
     int hour {0}, minute {0}, second {0};
 public:
-    Time(int hour = 0, int minute = 0, int second = 0) { return {}; }
-    void setHour(int hour) { return {}; }
-    void setMinute(int minute) { return {}; }
-    void setSecond(int second) { return {}; }
-    int getHour() { return {}; }
-    int getMinute() { return {}; }
-    int getSecond() { return {}; }
-    void nextSecond() { return {}; }
+    Time(int hour = 0, int minute = 0, int second = 0);
+    void setHour(int hour);
+    void setMinute(int minute);
+    void setSecond(int second);
+    int getHour();
+    int getMinute();
+    int getSecond();
+    void nextSecond();
     std::string str() {
         return fn::format("{%02d}:{%02d}:{%02d}", hour, minute, second);
     }

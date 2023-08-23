@@ -80,6 +80,17 @@ class Time {
   ' e, se necessário, incrementa o atributo hour
   + nextSecond()
 }
+
+class Legenda {
+  + atributoPublic
+  - atributoPrivate
+  # atributoProtected
+  __
+  + métodoPublic()
+  - métodoPrivate()
+  # métodoProtected()
+}
+
 ```
 
 [](load)

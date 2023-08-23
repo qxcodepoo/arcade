@@ -1,5 +1,5 @@
 '--
-@startuml diagrama
+@startuml
 
 skinparam defaultFontName Hasklig
 skinparam dpi 150
@@ -53,5 +53,16 @@ class Car {
 
   + toString() : string
 }
+
+class Legenda {
+  + atributoPublic
+  - atributoPrivate
+  # atributoProtected
+  __
+  + métodoPublic()
+  - métodoPrivate()
+  # métodoProtected()
+}
+
 '--
 @enduml

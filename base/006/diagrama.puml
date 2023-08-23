@@ -84,5 +84,15 @@ skinparam dpi 150
     + setHungry(value : int)
 }
 
+class Legenda {
+  + atributoPublic
+  - atributoPrivate
+  # atributoProtected
+  __
+  + métodoPublic()
+  - métodoPrivate()
+  # métodoProtected()
+}
+
 '--
 @enduml

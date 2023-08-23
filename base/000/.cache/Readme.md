@@ -38,6 +38,7 @@
 
 - [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.cpp)
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.ts)
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/.cache/draft.java)
 
 ***
 

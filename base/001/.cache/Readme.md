@@ -72,6 +72,17 @@ class Calculator {
   ' display = 0.00, bateria = 0
   + toString(): string
 }
+
+class Legenda {
+  + atributoPublic
+  - atributoPrivate
+  # atributoProtected
+  __
+  + métodoPublic()
+  - métodoPrivate()
+  # métodoProtected()
+}
+
 ```
 
 [](load)

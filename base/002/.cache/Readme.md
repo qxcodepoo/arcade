@@ -93,6 +93,17 @@ class Car {
 
   + toString() : string
 }
+
+class Legenda {
+  + atributoPublic
+  - atributoPrivate
+  # atributoProtected
+  __
+  + métodoPublic()
+  - métodoPrivate()
+  # métodoProtected()
+}
+
 ```
 
 [](load)
