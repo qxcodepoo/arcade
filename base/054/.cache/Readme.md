@@ -4,8 +4,12 @@
 
 <!-- toc -->
 - [Intro](#intro)
-- [Guide](#guide)
 - [Shell](#shell)
+- [Guide](#guide)
+  - [Diagrama](#diagrama)
+  - [O que é o Shell](#o-que-é-o-shell)
+  - [Como fazer a leitura dos dados](#como-fazer-a-leitura-dos-dados)
+  - [Rascunhos](#rascunhos)
 <!-- toc -->
 
 O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
@@ -22,18 +26,6 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
   - 2: adulto. Faz barulho normal.
   - 3: idoso. Faz barulho normal.
   - 4: morto. Não faz mais barulho `RIP`.
-
-***
-
-## Guide
-
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.ts)
-
-- [cases.tio](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/cases.tio)
-
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/diagrama.png)
 
 ***
 
@@ -130,3 +122,72 @@ RIP
 
 $end
 ```
+
+## Guide
+
+### Diagrama
+
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/diagrama.png)
+
+### O que é o Shell
+
+O [Shell](#shell) que você encontra em cada atividade serve tanto para que você entenda o funcionamento do código quanto ele gera o teste que será usado na correção.
+
+Cada `$alguma coisa` representa comando que será enviado para o seu programa.
+
+Depois é verificado se a saída gerada pelo seu programa é igual ao que era esperado.
+
+Esse é o modelo do arquivo de testes gerado para cada atividade.
+
+- [cases.tio](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/cases.tio)
+
+![image](https://user-images.githubusercontent.com/4747652/263118401-36183946-8e20-4ecb-b0cc-75a5cef3610a.png)
+
+### Como fazer a leitura dos dados
+
+Criando a função main
+
+- Você cria o elemento a ser manipulado fora do laço principal.
+- Cria um loop infinito.
+- Lê a linha que é o comando.
+- Quebra a linha em palavras.
+- Mostra o comando digitado precedido de '$'.
+- Faz um if aninhado para cada comando repassando os parâmetros para o objeto.
+- Se o comando for 'end' sai do loop.
+- Se o comando for inválido mostra uma mensagem de erro.
+
+```cpp
+function main() {
+    
+    var coisa = new Coisa(); //Coisa a ser manipulada
+
+    while (true) {
+        var line = input();         //lê a linha
+        var args = line.split(" "); // quebra em array de palavras
+        write("$" + line);          //mostra '$' na frente
+
+        if (args[0] == "nome do comando") {
+            //aqui voce repassa os parametros para o objeto
+            //convertendo os que precisam ser números ou inteiros
+            coisa.funcaoTal(args[1], number(args[2]), (int) number(args[3]));
+        }
+        else if (args[0] == "outro comando") {
+            //outra invocacao
+        }
+        else if (args[0] == "end") {
+            break;
+        }
+        else {
+            write("fail: comando invalido");
+        }
+    }
+}
+```
+
+### Rascunhos
+
+Para padronizar, em cada linguagem são criadas algumas funções auxiliares para simplificar a criação da main. Você pode utilizar essas resoluções como modelos para fazer as funções `main` dos outros projetos.
+
+- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.java)
+- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.cpp)
+- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.ts)

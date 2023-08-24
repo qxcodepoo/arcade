@@ -47,7 +47,7 @@ public class Solver {
             if (args[0].equals("init")) {
                 animal = new Animal(args[1], args[2]);
             } else if (args[0].equals("grow")) {
-                animal.envelhecer(number(args[1]));
+                animal.envelhecer((int) number(args[1]));
             } else if (args[0].equals("noise")) {
                 write(animal.fazerBarulho());
             } else if (args[0].equals("show")) {
@@ -63,5 +63,5 @@ public class Solver {
     static Scanner scanner = new Scanner(System.in);
     public static String input()           { return scanner.nextLine();    }
     public static void write(String value) { System.out.println(value);    }
-    public static int number(String str)   { return Integer.parseInt(str); }
+    public static double number(String str)   { return Double.parseDouble(str); }
 }
