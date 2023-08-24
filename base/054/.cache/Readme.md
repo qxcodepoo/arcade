@@ -31,6 +31,8 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.cpp)
 - [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.ts)
 
+- [cases.tio](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/cases.tio)
+
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/diagrama.png)
 
 ***

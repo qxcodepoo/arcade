@@ -2,6 +2,6 @@ diagrama.puml
 diagrama.png
 Readme.md
 cover.jpg
-Marcador-de-pedra-personalizado-para-animais-de-estima-o.jpg
+cases.tio
 local.sh
 

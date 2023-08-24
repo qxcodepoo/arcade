@@ -31,6 +31,8 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - [solver.cpp](.cache/draft.cpp )
 - [solver.ts](.cache/draft.ts )
 
+- [cases.tio](cases.tio)
+
 ![_](diagrama.png)
 
 ***
