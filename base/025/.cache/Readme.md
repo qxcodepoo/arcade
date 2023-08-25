@@ -255,7 +255,7 @@ $end
 
 ## Métodos
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/diagrama.puml)[](filter:fenced:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/025/diagrama.puml)[](filter:fenced:plantuml)
 
 ```plantuml
 
@@ -498,7 +498,7 @@ Inbox "1" --o "0..*" Tweet
 
 ## Esqueleto C++
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/025/solver.cpp)[](fenced:cpp:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/025/solver.cpp)[](fenced:cpp:filter)
 
 ```cpp
 #include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp

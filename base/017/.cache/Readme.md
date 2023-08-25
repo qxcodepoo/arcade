@@ -26,11 +26,11 @@ O sistema deverá:
 
 ## Guide
 
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/.cache/draft.cpp)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/017/.cache/draft.cpp)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 

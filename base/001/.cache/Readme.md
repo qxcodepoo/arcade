@@ -24,13 +24,13 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ## Guide
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/001/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/001/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/001/.cache/draft.ts)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/001/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/001/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Calculator {

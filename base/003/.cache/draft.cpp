@@ -6,13 +6,13 @@ class Person {
     std::string name; //atributo
     int age;
 public:
-    Person(std::string name = "", int age = 0) { return {}; }
+    Person(std::string name = "", int age = 0);
 
-    Person(int age) : Person("", age) { return {}; }
+    Person(int age) : Person("", age);
 
-    int getAge() { return {}; }
-    std::string getName() { return {}; }
-    std::string str() { return {}; }
+    int getAge();
+    std::string getName();
+    std::string str();
 };
 std::ostream& operator<<(std::ostream& os, Person& p) {
     return os << p.str();
@@ -24,17 +24,17 @@ class Motorcycle {
     int power {1};
 
 public:
-    Motorcycle(int power = 1): power {power} { return {}; }
+    Motorcycle(int power = 1): power {power};
 
-    bool insertPerson(std::shared_ptr<Person> p) { return {}; }
+    bool insertPerson(std::shared_ptr<Person> p);
 
-    std::string honk() { return {}; }
+    std::string honk();
 
-    std::shared_ptr<Person> remove() { return {}; }
+    std::shared_ptr<Person> remove();
 
-    void buyTime(int time) { return {}; }
+    void buyTime(int time);
 
-    void drive(int time) { return {}; }
+    void drive(int time);
     std::string str() {
         std::ostringstream os;
         os << "power:" << power << ", time:" << time;

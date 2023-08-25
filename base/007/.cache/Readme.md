@@ -36,7 +36,7 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/007/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Account {

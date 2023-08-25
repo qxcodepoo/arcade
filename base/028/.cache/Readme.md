@@ -19,11 +19,11 @@ Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de 
 
 ## Draft
 
-- Main em typescript: [draft.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/.cache/draft.ts)
+- Main em typescript: [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/028/.cache/draft.ts)
 
 ## Descrição dos métodos
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/diagrama.puml)[](fenced:puml:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/028/diagrama.puml)[](fenced:puml:filter)
 
 ```puml
 

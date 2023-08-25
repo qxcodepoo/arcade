@@ -52,7 +52,7 @@ Seu sistema deverá ser capaz de:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/011/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/011/diagrama.puml)[](plantuml:fenced:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/011/diagrama.puml)[](plantuml:fenced:filter)
 
 ```plantuml
 class Slot {

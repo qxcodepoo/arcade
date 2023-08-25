@@ -55,7 +55,7 @@ Vamos abstrair um pouco da hist√≥ria de Plutolomeu e analisar o sistema de empr√
 
 ## Guide
 
-- [draft.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/.cache/draft.cpp)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/008/.cache/draft.cpp)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/diagrama.png)
 

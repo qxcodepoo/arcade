@@ -56,15 +56,15 @@ struct Lapiseira{
     PGrafite grafite {nullptr};
     std::list<PGrafite> tambor;
 
-    Lapiseira(float calibre = 0.0){}
+    Lapiseira(float calibre = 0.0);
 
-    bool inserir(PGrafite grafite) { return {}; }
+    bool inserir(PGrafite grafite);
 
 
-    PGrafite remover() { return {}; }
+    PGrafite remover();
 
-    void write() { return {}; }
-    void puxar() { return {}; }
+    void write();
+    void puxar();
     std::string str() const {
         auto fngr = [](PGrafite g) { return "[" + (g == nullptr ? "" : g->str()) + "]"; };
         std::ostringstream os;

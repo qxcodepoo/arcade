@@ -52,15 +52,15 @@ const Coin Coin::C100 {"M100", 1.00, 4};
 
 class Item : public Valuable {
 public:
-    Item(const std::string& label, double value, int volume) {}
+    Item(const std::string& label, double value, int volume) ;
 
-    std::string getLabel() const override { return {}; }
+    std::string getLabel() const override;
 
-    int getVolume() const override { return {}; }
+    int getVolume() const override;
 
-    double getValue() const override { return {}; }
+    double getValue() const override;
 
-    std::string str() const { return {}; }
+    std::string str() const;
 
 private:
     std::string label;
@@ -76,17 +76,17 @@ public:
     Pig(int volumeMax) : 
 
 
-    void addValuable(const std::shared_ptr<Valuable>& val) { return {}; }
+    void addValuable(const std::shared_ptr<Valuable>& val);
 
-    void breakPig() { return {}; }
+    void breakPig();
 
-    std::vector<std::shared_ptr<Coin>> extractCoins() { return {}; }
+    std::vector<std::shared_ptr<Coin>> extractCoins();
 
-    std::vector<std::shared_ptr<Item>> extractItems() { return {}; }
+    std::vector<std::shared_ptr<Item>> extractItems();
 
-    int getVolume() const { return {}; }
+    int getVolume() const;
 
-    double getValue() const { return {}; }
+    double getValue() const;
 
     std::string str() const{
 };

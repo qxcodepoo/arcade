@@ -29,11 +29,11 @@ O Evento atua como repositório de Setores.
 
 ## Draft
 
-- Main em typescript: [draft.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/.cache/draft.ts)
+- Main em typescript: [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/053/.cache/draft.ts)
 
 ## Descrição dos métodos
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/diagrama.puml)[](fenced:puml:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/053/diagrama.puml)[](fenced:puml:filter)
 
 ```puml
 

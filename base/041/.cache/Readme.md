@@ -31,12 +31,12 @@ ___
 
 ## Guide
 
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/.cache/draft.ts)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/041/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/041/.cache/draft.cpp)
   
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/041/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
   class Player {

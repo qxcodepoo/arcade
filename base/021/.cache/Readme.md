@@ -34,7 +34,7 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
 
 ```plantuml
 class Aluno {

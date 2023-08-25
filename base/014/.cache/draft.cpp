@@ -5,11 +5,11 @@ class Fone{
     std::string id;
     std::string number;
 public:
-    Fone(std::string id = "", std::string number= "") { return {}; }
-    std::string getId() { return {}; }
-    std::string getNumber() { return {}; }
-    bool isValid() { return {}; }
-    std::string str() { return {}; }
+    Fone(std::string id = "", std::string number= "");
+    std::string getId();
+    std::string getNumber();
+    bool isValid();
+    std::string str();
     }   
 };
 
@@ -18,21 +18,21 @@ class Contact{
     bool favorited;
     std::vector<Fone> fones;
 public:
-    Contact(std::string name = ""){}
+    Contact(std::string name = "");
 
-    std::string getName() { return {}; }
+    std::string getName();
 
-    std::vector<Fone> getFones() { return {}; }
+    std::vector<Fone> getFones();
 
-    void addFone(std::string id, std::string number) { return {}; }
+    void addFone(std::string id, std::string number);
 
-    void rmFone(int index) { return {}; }
+    void rmFone(int index);
 
-    void toogleFavorited() { return {}; }
+    void toogleFavorited();
 
-    bool isFavorited() { return {}; }
+    bool isFavorited();
 
-    std::string str() { return {}; }
+    std::string str();
 };
 
 std::ostream& operator<<(std::ostream& out, Contact contato) { return out << contato.str(); }

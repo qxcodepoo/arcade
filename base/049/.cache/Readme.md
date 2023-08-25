@@ -3,13 +3,13 @@
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/049/cover.jpg)
 
 - Em c++:
-  - Código: [main.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/049/main.cpp)
+  - Código: [main.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/049/main.cpp)
 
 - Em java:
-  - Código: [Main.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/049/Main.java)
+  - Código: [Main.java](https://github.com/qxcodepoo/arcade/blob/master/base/049/Main.java)
 
 - Em typescript:
-  - Código: [main.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/049/main.ts)
+  - Código: [main.ts](https://github.com/qxcodepoo/arcade/blob/master/base/049/main.ts)
 
 ## Guide
 

@@ -43,12 +43,12 @@ class Item {
     std::string label;
     int volume;
 public:
-    Item(std::string label, int volume) {}
-    int getVolume() const { return {}; }
-    std::string getLabel() const { return {}; }
-    void setVolume(int volume) { return {}; }
-    void setLabel(std::string label) { return {}; }
-    std::string str() const { return {}; }
+    Item(std::string label, int volume) ;
+    int getVolume() const;
+    std::string getLabel() const;
+    void setVolume(int volume);
+    void setLabel(std::string label);
+    std::string str() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Item& item) {
@@ -63,24 +63,24 @@ class Pig {
     bool broken {false};
 
 public:
-    Pig(int volumeMax = 0) {}
+    Pig(int volumeMax = 0) ;
     
-    bool addCoin(Coin coin) { return {}; }
+    bool addCoin(Coin coin);
 
-    bool addItem(Item item) { return {}; }
+    bool addItem(Item item);
 
 
-    bool breakPig() { return {}; }
+    bool breakPig();
 
-    std::vector<Coin> extractCoins() { return {}; }
+    std::vector<Coin> extractCoins();
 
-    std::vector<Item> extractItems() { return {}; }
+    std::vector<Item> extractItems();
 
-    double getValue() const { return {}; }
+    double getValue() const;
 
-    int getVolume() const { return {}; }
+    int getVolume() const;
 
-    std::string str() const { return {}; }
+    std::string str() const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Pig& pig) {

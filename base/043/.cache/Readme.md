@@ -30,9 +30,9 @@ O sistema deverá:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.png)
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/.cache/draft.java)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.java)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.puml)[](fenced:plantuml:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/043/diagrama.puml)[](fenced:plantuml:filter)
 
 ```plantuml
 

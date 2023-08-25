@@ -11,7 +11,7 @@ class Pessoa {
 public:
     Pessoa(std::string nome) : 
     std::string getNome() const { 
-    std::string str() const { return {}; }
+    std::string str() const;
 };
 std::ostream& operator<<(std::ostream& os, const Pessoa& p) {
     return (os << p.str());
@@ -21,16 +21,16 @@ class Mercantil {
     std::vector<std::shared_ptr<Pessoa>> caixas; //caixas do supermercado
     std::list  <std::shared_ptr<Pessoa>> esperando; //lista de clientes esperando
 
-    bool validarIndice(int indice) { return {}; }
+    bool validarIndice(int indice);
 
 public:
-    Mercantil(int qtd_caixas){}
+    Mercantil(int qtd_caixas);
     
-    void chegar(const std::shared_ptr<Pessoa>& person) { return {}; }
+    void chegar(const std::shared_ptr<Pessoa>& person);
 
-    bool chamarNoCaixa(int indice) { return {}; }
+    bool chamarNoCaixa(int indice);
     
-    std::shared_ptr<Pessoa> finalizar(int indice) { return {}; }
+    std::shared_ptr<Pessoa> finalizar(int indice);
 
     std::string str() const {
         auto caixas_str = caixas | fn::MAP(FNT(c, c == nullptr ? "-----" : c->getNome()));

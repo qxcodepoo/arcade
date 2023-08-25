@@ -31,7 +31,7 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/diagrama.puml)[](filter:fenced:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/013/diagrama.puml)[](filter:fenced:plantuml)
 
 ```plantuml
 
@@ -270,7 +270,7 @@ $end
 
 ## Main
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/013/Solver.java)[](fenced:java:filter)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/013/Solver.java)[](fenced:java:filter)
 
 ```java
 class Solver{

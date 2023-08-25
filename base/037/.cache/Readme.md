@@ -28,11 +28,11 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ## Guide
 
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/.cache/draft.cpp)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/037/.cache/draft.cpp)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/diagrama.png)
 
-[](load)[](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/diagrama.puml)[](fenced:filter:plantuml)
+[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/037/diagrama.puml)[](fenced:filter:plantuml)
 
 ```plantuml
 class Pessoa {

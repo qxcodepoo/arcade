@@ -38,7 +38,7 @@ Seu sistema deverá:
 ## Guide
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/diagrama.png)
 
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/.cache/draft.ts)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/042/.cache/draft.ts)
 
 ***
 

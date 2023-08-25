@@ -139,7 +139,7 @@ Depois é verificado se a saída gerada pelo seu programa é igual ao que era es
 
 Esse é o modelo do arquivo de testes gerado para cada atividade.
 
-- [cases.tio](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/cases.tio)
+- [cases.tio](https://github.com/qxcodepoo/arcade/blob/master/base/054/cases.tio)
 
 ![image](https://user-images.githubusercontent.com/4747652/263118401-36183946-8e20-4ecb-b0cc-75a5cef3610a.png)
 
@@ -188,6 +188,6 @@ function main() {
 
 Para padronizar, em cada linguagem são criadas algumas funções auxiliares para simplificar a criação da main. Você pode utilizar essas resoluções como modelos para fazer as funções `main` dos outros projetos.
 
-- [Solver.java](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.java)
-- [solver.cpp](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.cpp)
-- [solver.ts](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.ts)

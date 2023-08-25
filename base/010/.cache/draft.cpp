@@ -5,23 +5,23 @@ struct Cliente{
     std::string id;
     std::string fone;
 
-    Cliente(std::string id = "", std::string fone = "") { return {}; }
-    std::string str() { return {}; }
+    Cliente(std::string id = "", std::string fone = "");
+    std::string str();
 };
 
 class Sala{
     std::vector<std::shared_ptr<Cliente>> cadeiras;
-    int procurar(std::string nome) { return {}; }
+    int procurar(std::string nome);
 
 public:
-    Sala(int qtd = 0){}
+    Sala(int qtd = 0);
 
 
-    void reservar(std::string id, std::string fone, int ind) { return {}; }
+    void reservar(std::string id, std::string fone, int ind);
 
-    void cancelar(std::string id) { return {}; }
+    void cancelar(std::string id);
 
-    std::string str() { return {}; }
+    std::string str();
 };
 
 

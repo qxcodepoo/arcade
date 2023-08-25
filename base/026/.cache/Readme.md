@@ -162,7 +162,7 @@ $end
 ---
 
 ## Guia de Resolução
-[GUIA](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/_guide.md)
+[GUIA](https://github.com/qxcodepoo/arcade/blob/master/base/026/_guide.md)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/diagrama.png)
  
