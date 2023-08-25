@@ -40,8 +40,8 @@ public class Solver {
         Animal animal = new Animal("", "");
 
         while (true) {
-            String line = input();
-            String[] args = line.split(" ");
+            var line = input();
+            var args = line.split(" ");
             write("$" + line);
 
             if (args[0].equals("init")) {
