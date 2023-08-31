@@ -1,8 +1,7 @@
-#include <iostream>
-#include <sstream>
-#include <iomanip>
 #include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
+
+// Nesse rascunho, falta a parte do nextSecond
 
 class Time {
 private:
@@ -12,14 +11,18 @@ public:
     void setHour(int hour);
     void setMinute(int minute);
     void setSecond(int second);
-    int getHour();
-    int getMinute();
-    int getSecond();
-    void nextSecond();
-    std::string str() {
+    int getHour() const;
+    int getMinute() const;
+    int getSecond() const;
+    std::string str() const {
         return fn::format("{%02d}:{%02d}:{%02d}", hour, minute, second);
     }
 };
+
+std::ostream &operator<<(std::ostream &os, const Time &time) {
+    return os << time.str();
+}
+
 
 int main() {
     Time time(0, 0, 0);
@@ -29,19 +32,21 @@ int main() {
 
         write("$" + line);
 
-        if (args[0] == "end") {
-            break;
-        } else if (args[0] == "set") {
+        if (args[0] == "set") {
             time.setHour(+args[1]);
             time.setMinute(+args[2]);
             time.setSecond(+args[3]);
-        } else if (args[0] == "init") {
+        } 
+        else if (args[0] == "init") {
             time = Time(+args[1], +args[2], +args[3]);
-        } else if (args[0] == "show") {
-            fn::write(time.str());
-        } else if (args[0] == "next") {
-            time.nextSecond();
-        } else {
+        }
+        else if (args[0] == "show") {
+            fn::write(time);
+        }
+        else if (args[0] == "end") {
+            break;
+        }
+        else {
             fn::write("fail: comando invalido");
         }
     }

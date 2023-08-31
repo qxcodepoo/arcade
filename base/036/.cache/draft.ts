@@ -1,3 +1,5 @@
+// Nesse rascunho, falta a parte do nextSecond
+
 class Time {
     private hour: number;
     private minute: number;
@@ -23,11 +25,8 @@ class Time {
 
     getSecond(): number {
     }
-
-    nextSecond(): void {
-    }
     toString() {
-        let p2 = n => ("" + n).padStart(2, "0");
+        let p2 = (n: number) => ("" + n).padStart(2, "0");
         return p2(this.hour) + ":" + p2(this.minute) + ":" + p2(this.second);
     }
 }
@@ -44,16 +43,23 @@ function main() {
         write("$" + line);
         let args = line.split(" ");
 
-        if      (args[0] === "end")   { break;                                         }
-        else if (args[0] === "show")  { write(time.toString());                        }
-        else if (args[0] === "next")  { time.nextSecond();                             }
-        else if (args[0] === "init")  { time = new Time(+args[1], +args[2], +args[3]); }
-        else if (args[0] === "set")   { 
+        if (args[0] === "show") { 
+            write(time.toString());
+        }
+        else if (args[0] === "init") {
+            time = new Time(+args[1], +args[2], +args[3]);
+        }
+        else if (args[0] === "set") { 
             time.setHour(+args[1]);
             time.setMinute(+args[2]);
             time.setSecond(+args[3]);
         }
-        else                          { write("fail: comando invalido");}
+        else if (args[0] === "end")   {
+            break;
+        }
+        else {
+            write("fail: comando invalido");
+        }
     }
 }
 
