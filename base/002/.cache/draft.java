@@ -1,6 +1,28 @@
 import java.util.*;
 
 
+// Nesse rascunho estão faltando os atributos e métodos
+// correspondentes às funcionalidades de abastecer e dirigir o carro.
+
+
+class Car{
+    public int pass; // Passageiros
+    public int passMax; // limite de Passageiros
+
+    public Car() {
+    }
+
+    public void enter() {
+    }
+
+    public void leave() {
+    }
+
+    public String toString() {
+    }
+};
+
+
 public class Solver {
     public static void main(String[] a) {
         Car car = new Car();
@@ -10,12 +32,10 @@ public class Solver {
             write("$" + line);
             var args = line.split(" ");
 
-            if      (args[0].equals("end"))   { break;                                }
-            else if (args[0].equals("show"))  { System.out.println(car);              }
+            if      (args[0].equals("show"))  { System.out.println(car);              }
             else if (args[0].equals("enter")) { car.enter();                          }
             else if (args[0].equals("leave")) { car.leave();                          }
-            else if (args[0].equals("drive")) { car.drive((int) number(args[1]));     }
-            else if (args[0].equals("fuel"))  { car.fuel((int) number(args[1]));      }
+            else if (args[0].equals("end"))   { break;                                }
             else                              { write("fail: comando invalido");}
         }
     }

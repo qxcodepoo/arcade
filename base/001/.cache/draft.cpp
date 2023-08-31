@@ -1,48 +1,19 @@
 #include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
+// Esse rascunho não possui o método de divisão, nem a invocação na main.
+
 struct Calculator {
     int batteryMax;
     int battery;
     float display;
 
-    Calculator(int batteryMax) :
-        batteryMax(batteryMax) {
-        this->battery = 0;
-        this->display = 0.0f;
-    }
+    Calculator(int batteryMax) ;
 
-    void chargeBattery(int value) {
-        if(value < 0)
-            return;
-        this->battery += value;
-        this->battery = std::min(this->battery, this->batteryMax);
-    }
+    void chargeBattery(int value);
 
-    bool useBattery() {
-        if(this->battery == 0){
-            fn::write("fail: bateria insuficiente");
-            return false;
-        }
-        this->battery -= 1;
-        return true;
-    }
+    bool useBattery();
 
-    void sum(int a, int b) {
-        if(useBattery()) {
-            this->display = (a + b);
-        }
-    }
-
-    void division(int num, int den) {
-        if(!useBattery()) {
-            return;
-        }
-        if(den == 0) {
-            fn::write("fail: divisao por zero");
-            return;
-        }
-        this->display = (float) num / den;
-    }
+    void sum(int a, int b);
 
     std::string str() const {
         return fn::format("display = {%.2f}, battery = {}", this->display, this->battery); 
@@ -51,4 +22,33 @@ struct Calculator {
 
 std::ostream& operator<<(std::ostream& os, const Calculator& c) {
     return (os << c.str());
+}
+
+int main() {
+    Calculator c(0);
+
+    while(true) {
+        auto line = fn::input();
+        auto args = fn::split(line, ' ');
+        fn::write('$' + line);
+
+        if (args[0] == "show") {
+            fn::write(c);
+        }
+        else if (args[0] == "init") { 
+            c = Calculator(+args[1]);
+        }
+        else if (args[0] == "charge") {
+            c.chargeBattery(+args[1]);
+        }
+        else if (args[0] == "sum") {
+            c.sum(+args[1], +args[2]);
+        }
+        else if (args[0] == "end") {
+            break;
+        }
+        else {
+            fn::write("fail: comando inválido"); 
+        }
+    }
 }
