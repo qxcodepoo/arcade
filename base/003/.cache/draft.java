@@ -52,15 +52,16 @@ class Solver{
             if      (args[0].equals("show"))     { System.out.println(motoca);                         }
             else if (args[0].equals("init"))     { motoca = new Motorcycle(number(args[1]));           }  
             else if (args[0].equals("enter"))    { motoca.enter(new Person(args[1], number(args[2]))); }
+            else if (args[0].equals("end"))      { break;                                              }
             else if (args[0].equals("leave"))    {
                 Person person = motoca.leave();
                 if(person != null) {
                     System.out.println(person.toString());
                 }
             }
-            else if (args[0].equals("end"))      { break;                                              }
-            else
+            else {
                 System.out.println("fail: comando invalido");
+            }
         }
     }
 
