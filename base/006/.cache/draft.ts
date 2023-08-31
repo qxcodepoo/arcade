@@ -92,7 +92,7 @@ function main() {
         let args = line.split(" ");
 
         if      (args[0] === "end")   { break;                                                            }
-        else if (args[0] === "init")  { pet = new Pet(Number(args[1]), Number(args[2]), Number(args[3])); }
+        else if (args[0] === "init")  { pet = new Pet(+args[1], +args[2], +args[3]); }
         else if (args[0] === "show")  { write(pet.toString());                                            }
         else if (args[0] === "play")  { pet.play();                                                       }
         else if (args[0] === "eat")   { pet.eat();                                                        }

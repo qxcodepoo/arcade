@@ -12,16 +12,16 @@ class Car{
     constructor() {
     }
 
-    enter() {
+    enter(): void {
     }
 
-    leave() {
+    leave(): void {
     }
 
-    fuel(gas: number) {
+    fuel(gas: number): void {
     }
     
-    toString() {
+    toString(): string {
     }
 };
 

@@ -1,7 +1,3 @@
-let _cin_: string[] = require("fs").readFileSync(0).toString().split("\n");
-let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
-let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
-
 class Animal {
     especie: string;
     barulho: string;
@@ -35,6 +31,11 @@ class Animal {
         return `${this.especie}:${this.estagio}:${this.barulho}`;
     }
 }
+
+let _cin_: string[] = require("fs").readFileSync(0).toString().split("\n");
+let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
+let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
+
 
 function main(): void {
     let animal: Animal = new Animal("", "");

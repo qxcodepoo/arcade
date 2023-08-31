@@ -76,7 +76,7 @@ class Pencil {
 
 public class Solver {
     public static void main(String[] args) {
-        Pencil lap = new Pencil(0.5f);
+        Pencil pencil = new Pencil(0.5f);
 
         while (true) {
             String line = input();
@@ -84,11 +84,11 @@ public class Solver {
             write('$' + line);
 
             if      ("end".equals(argsL[0])   ) { break;                                                                    }
-            else if ("init".equals(argsL[0])  ) { lap = new Pencil(number(argsL[1]));                                       }
-            else if ("insert".equals(argsL[0])) { lap.insert(new Lead(number(argsL[1]), argsL[2], (int) number(argsL[3]))); }
-            else if ("remove".equals(argsL[0])) { lap.remove();                                                             }
-            else if ("write".equals(argsL[0]) ) { lap.writePage();                                                          }
-            else if ("show".equals(argsL[0])  ) { write(lap.toString());                                                               }
+            else if ("init".equals(argsL[0])  ) { pencil = new Pencil(number(argsL[1]));                                       }
+            else if ("insert".equals(argsL[0])) { pencil.insert(new Lead(number(argsL[1]), argsL[2], (int) number(argsL[3]))); }
+            else if ("remove".equals(argsL[0])) { pencil.remove();                                                             }
+            else if ("write".equals(argsL[0]) ) { pencil.writePage();                                                          }
+            else if ("show".equals(argsL[0])  ) { write(pencil.toString());                                                               }
         }
     }
 

@@ -1,5 +1,3 @@
-#include <iostream>
-#include <sstream>
 #include <memory>  //sharedptr
 #include <iomanip> //setprecision
 #include <utility> //exchange
@@ -12,9 +10,16 @@ class Lead {
 
 public:
     Lead(float thickness, std::string hardness, int size);
-
-    int usagePerSheet() const;
-
+    int usagePerSheet() const {
+        if (hardness == "HB")
+            return 1;
+        else if (hardness == "2B")
+            return 2;
+        else if (hardness == "4B")
+            return 4;
+        else
+            return 6;
+    }
     float getThickness() const;
 
     std::string getHardness() const;
@@ -23,14 +28,11 @@ public:
 
     void setSize(int size);
     std::string str() const {
-        std::stringstream ss;
-        ss << std::fixed << std::setprecision(1) 
-           << thickness << ":" << hardness << ":" << size;
-        return ss.str();
+        return fn::format("{%.1f}:{}:{}", thickness, hardness, size);
     }
 };
 
-std::ostream& operator<<(std::ostream& ss, Lead gr) {
+std::ostream& operator<<(std::ostream& ss, const Lead& gr) {
     return ss << gr.str();
 }
 
@@ -40,7 +42,7 @@ struct Pencil {
 
     Pencil(float thickness = 0.0): thickness{thickness};
 
-    bool hasGrafite();
+    bool hasGrafite() const;
 
     bool insert(std::shared_ptr<Lead> grafite);
 
@@ -48,36 +50,30 @@ struct Pencil {
 
     void writePage();
 
-    std::string str() {
-        std::stringstream ss;
-        ss << "calibre: " << thickness << ", grafite: ";
-        if (tip != nullptr)
-            ss << "[" << *tip << "]";
-        else
-            ss << "null";
-        return ss.str();
+    std::string str() const {
+        auto grafite = tip != nullptr ? "[" + tip->str() + "]" : "null";
+        return fn::format("calibre: {%.1f}, grafite: {}", thickness, grafite);
     }
 };
 
-std::ostream& operator<<(std::ostream& os, Pencil l) {
+std::ostream& operator<<(std::ostream& os, const Pencil& l) {
     return os << l.str();
 }
-
-using namespace fn;
 
 int main() {
     Pencil pencil;
 
     while (true) {
-        auto line = input();
-        write("$" + line);
-        auto args = split(line);
+        auto line = fn::input();
+        auto args = fn::split(line);
+        fn::write("$" + line);
 
-        if      (args[0] == "end"   ) { break;                                                                                  }
-        else if (args[0] == "show"  ) { write(pencil);                                                                    }
-        else if (args[0] == "init"  ) { pencil = Pencil(number(args[1]));                                                       }
-        else if (args[0] == "insert") { pencil.insert(std::make_shared<Lead>(number(args[1]), args[2], (int) number(args[3]))); }
-        else if (args[0] == "remove") { pencil.remove();                                                                        }
-        else if (args[0] == "write" ) { pencil.writePage();                                                                     }
+        if      (args[0] == "show"  ) { fn::write(pencil);                                                        }
+        else if (args[0] == "init"  ) { pencil = Pencil(+args[1]);                                                }
+        else if (args[0] == "insert") { pencil.insert(std::make_shared<Lead>(+args[1], args[2], (int) +args[3])); }
+        else if (args[0] == "remove") { pencil.remove();                                                          }
+        else if (args[0] == "write" ) { pencil.writePage();                                                       }
+        else if (args[0] == "end"   ) { break;                                                                    }
+        else                          { fn::write("fail: comando invalido");                                      }
     }
 }

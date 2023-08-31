@@ -1,3 +1,4 @@
+//Falta no rascunho buzinhar, comprarTempo e dirigir
 
 class Pessoa {
     private age: number;
@@ -21,73 +22,42 @@ class Motoca {
     constructor(potencia: number = 1) {
     }
 
-    buzinar(): string {
-    }
-
     inserir(pessoa: Pessoa): boolean {
     }
 
     remover() : Pessoa | null {
     }
-
-    drive(time: number): void {
-    }
-
-    comprarTempo(value: number) {
-    }
-
     public toString(): string {
-        return `power:${this.potencia}, time:${this.time}, person:` +
-            "(" +  (this.pessoa === null ? "empty" : "" + this.pessoa) + ")";
+        let valor = this.pessoa === null ? "empty" : "" + this.pessoa;
+        return `power:${this.potencia}, time:${this.time}, person:(${valor})`;
     }
 }
+
+
+let _cin_: string[] = require("fs").readFileSync(0).toString().split("\n");
+let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
+let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
 function main() {
-    let chain = new Map();
-    let param: string[] = [];
     let moto = new Motoca();
 
-    chain.set("init", () => moto = new Motoca(+param[1]));
-    chain.set("show", () => console.log("" + moto));
-    chain.set("enter", () => moto.inserir(new Pessoa(param[1], +param[2])));
-    chain.set("honk", () => console.log(moto.buzinar()));
-    chain.set("leave", () => {
-        let person = moto.remover();
-        if (person !== null)
-            console.log("" + person);
-    });
-    chain.set("drive", () => moto.drive(+param[1]));
-    chain.set("buy", () => moto.comprarTempo(+param[1]));
-    
-    execute(chain, param);
-}
-
-import { readFileSync } from "fs";
-
-let __lines = readFileSync(0).toString().split("\n");
-let input = () => { 
-    let a = __lines.shift(); 
-    return a === undefined ? "" : a; 
-};
-let write = (text: any) => process.stdout.write("" + text);
-let puts = (text: any) => console.log(text);
-function execute(chain: Map<string, Function>, param: string[]) {
     while (true) {
         let line = input();
-        puts("$" + line);
-        param.splice(0); //apagar tudo
-        line.split(" ").forEach((x: string) => param.push(x));
+        write("$" + line);
+        let args = line.split(" ");
 
-        let cmd = param[0];
-        if (cmd == "end") {
-            return;
-        } else if (chain.has(cmd)) {
-            chain.get(cmd)!();
-        } else {
-            puts("fail: command not found");
+        if      (args[0] === "show")  { write(moto.toString());         }
+        else if (args[0] === "init")  { moto = new Motoca(+args[1]);    }
+        else if (args[0] === "enter") { moto.inserir(new Pessoa(args[1], +args[2])); }
+        else if (args[0] === "leave") { 
+            let aux = moto.remover();
+            if (aux !== null) {
+                write(aux);
+            }
         }
+        else if (args[0] === "end")   { break;                          }
+        else                          { write("fail: comando invalido");}
     }
 }
-
 
 main()

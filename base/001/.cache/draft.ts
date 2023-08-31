@@ -18,7 +18,7 @@ class Calculator {
     sum(a: number, b: number): void { 
     }
 
-    toString() {
+    toString(): string {
     }
 }
 
