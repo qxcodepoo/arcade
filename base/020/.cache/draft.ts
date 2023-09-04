@@ -87,15 +87,10 @@ function main() {
     evaluate(chain, param);
 }
 
-import { readFileSync } from "fs";
-
-let __lines = readFileSync(0).toString().split("\n");
-let input = () => { 
-    let a = __lines.shift(); 
-    return a === undefined ? "" : a; 
-};
-export let write = (text: any) => process.stdout.write("" + text);
-export let puts = (text: any) => console.log(text);
+let _cin_ : string[] = [];
+try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
+let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
+let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
 export function evaluate(chain: Map<string, Function>, ui: string[]) {
     while (true) {
