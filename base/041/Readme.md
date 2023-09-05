@@ -1,12 +1,11 @@
 # Tabuleiro
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 ## Intro
 
@@ -29,16 +28,18 @@ Questão adaptada da maratona ACM 2003 por @WladimirTavares
 
 ___
 
-## Guide
+## Draft
 
 - [solver.ts](.cache/draft.ts)
 - [solver.cpp](.cache/draft.cpp)
   
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](fenced:filter:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
   class Player {
 
     ' numero do jogador
@@ -109,7 +110,7 @@ ___
   }
 ```
 
-[](load)
+<!-- load -->
 
 ___
 

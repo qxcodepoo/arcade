@@ -1,15 +1,11 @@
 # Twitter
 
-![cover](cover.jpg)
+<!-- toch -->
+[Vídeo com a explicação do projeto](#vídeo-com-a-explicação-do-projeto) | [Módulos](#módulos) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Vídeo com a explicação do projeto](#vídeo-com-a-explicação-do-projeto)
-- [Módulos](#módulos)
-- [Comandos e Exemplos](#comandos-e-exemplos)
-- [Diagrama](#diagrama)
-- [Métodos](#métodos)
-- [Esqueleto C++](#esqueleto-c)
-<!-- toc -->
+![cover](cover.jpg)
 
 Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow outros usuários do sistema. Ao twittar, a mensagem vai para timeline de todas as pessoas que a seguem. Ao dar like, todos os usuários em suas timelines vêem os likes.
 
@@ -53,211 +49,17 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ***
 
-## Comandos e Exemplos
+## Draft
 
-```bash
-##################################
-#__case cadastrar
-##################################
-$add goku
-$add sara
-$add tina
-$show
-goku
-  seguidos   []
-  seguidores []
-sara
-  seguidos   []
-  seguidores []
-tina
-  seguidos   []
-  seguidores []
+- [draft.cpp](.cache/draft.cpp)
 
-##################################
-#__case follow
-##################################
-
-$follow goku sara
-$follow goku tina
-$follow sara tina
-$show
-goku
-  seguidos   [sara, tina]
-  seguidores []
-sara
-  seguidos   [tina]
-  seguidores [goku]
-tina
-  seguidos   []
-  seguidores [goku, sara]
-
-##################################
-#__case twittar
-##################################
-#twittar _userId _msg
-
-$twittar sara hoje estou triste
-$twittar tina ganhei chocolate
-$twittar sara partiu ru
-$twittar tina chocolate ruim
-$twittar goku internet maldita
-
-$timeline goku
-4:goku (internet maldita)
-3:tina (chocolate ruim)
-2:sara (partiu ru)
-1:tina (ganhei chocolate)
-0:sara (hoje estou triste)
-
-$timeline tina 
-3:tina (chocolate ruim)
-1:tina (ganhei chocolate)
-
-$timeline sara
-3:tina (chocolate ruim)
-2:sara (partiu ru)
-1:tina (ganhei chocolate)
-0:sara (hoje estou triste)
-
-##################################
-#__case like
-##################################
-#like _username _idTw
-
-$like sara 1
-$like goku 1
-$like sara 3
-
-$timeline sara
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-$timeline goku
-4:goku (internet maldita)
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-
-##################################
-#__case unfollow
-##################################
-
-$unfollow goku tina
-$show
-goku
-  seguidos   [sara]
-  seguidores []
-sara
-  seguidos   [tina]
-  seguidores [goku]
-tina
-  seguidos   []
-  seguidores [sara]
-
-$timeline goku
-4:goku (internet maldita)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
-##################################
-#__case retweet
-##################################
-
-$timeline sara
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-$rt sara 3 olha goku, ela nao gostou do seu chocolate
-$timeline sara
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3:tina (chocolate ruim) [sara]
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-$timeline goku
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3:tina (chocolate ruim) [sara]
-4:goku (internet maldita)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
-##################################
-#__case erros
-##################################
-
-# lembre de tratar erros como
-$timeline bruno
-fail: usuario nao encontrado
-$follow goku kuririm
-fail: usuario nao encontrado
-$like sara 4
-fail: tweet nao existe
-
-##################################
-#__case remover
-##################################
-$follow tina sara
-$show
-goku
-  seguidos   [sara]
-  seguidores []
-sara
-  seguidos   [tina]
-  seguidores [goku, tina]
-tina
-  seguidos   [sara]
-  seguidores [sara]
-
-$rm tina
-$show
-goku
-  seguidos   [sara]
-  seguidores []
-sara
-  seguidos   []
-  seguidores [goku]
-
-$timeline goku
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3: (esse tweet foi deletado)
-4:goku (internet maldita)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
-$timeline sara
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3: (esse tweet foi deletado)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
-$end
-
-##################################
-# FIM FIM FIM FIM FIM FIM FIM FIM#
-##################################
-```
-
-***
-
-## Diagrama
+## Guide
 
 ![diagrama](diagrama.png)
 
-***
+<!-- load diagrama.puml fenced=ts:filter -->
 
-## Métodos
-
-[](load)[](diagrama.puml)[](filter:fenced:plantuml)
-
-```plantuml
+```ts
 
 class Tweet {
     
@@ -492,305 +294,196 @@ Inbox "1" --o "0..*" Tweet
 
 ```
 
-[](load)
-
-***
-
-## Esqueleto C++
-
-[](load)[](solver.cpp)[](fenced:cpp:filter)
-
-```cpp
-#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
-#include <algorithm>
-
-
-
-
-class TweetException : public std::exception {
-    std::string message;
-public:
-    TweetException(const std::string& message) : 
-        message(message) {
-    }
-    const char* what() const noexcept override {
-        return message.c_str(); 
-    }
-};
-
-class Tweet {
-    int id;
-    std::string username;
-    std::string msg;
-    std::set<std::string> likes;
-    
-    // ' guarda o tweet original que foi retweetado
-    Tweet *rt {nullptr};
-
-public:
-
-    Tweet(int id, const std::string& username, const std::string& msg) : 
-
-    int getId() const { 
-
-    std::string getSender() const;
-
-    std::string getMsg() const;
-
-    std::string str() const;
-
-    // __like__
-
-    void like(const std::string& username) { 
-
-    std::set<std::string> getLikes() const;
-    
-    // __retweet__
-
-    void setRt(Tweet *rt);
-    
-    // __remover__
-
-    bool deleted {false};
-    
-    void setDeleted();
-
-    bool isDeleted() const;
-};
-
-std::ostream& operator<<(std::ostream& os, const Tweet& msg) {
-    return os << msg.str();
-}
-
-std::ostream& operator<<(std::ostream& os, Tweet* msg) {
-    return os << msg->str();
-}
-//++
-
-class Inbox {
-
-    std::map<int, Tweet*> timeline;
-
-    std::map<int, Tweet*> myTweets;
-    
-public:
-    Inbox() {
-    }
-
-    void storeInTimeline(Tweet* tweet) {
-        timeline[tweet->getId()] = tweet;
-    }
-
-    std::vector<Tweet*> getTimeline() const {
-        std::vector<Tweet*> messages;
-        for (auto it = timeline.rbegin(); it != timeline.rend(); ++it) {
-            if (it->second->isDeleted() == false)
-                messages.push_back(it->second);
-        }
-        return messages;
-    }
-
-    friend std::ostream& operator<<(std::ostream& os, const Inbox& inbox) {
-        return os << fn::join(inbox.getTimeline(), "\n");
-    }
-
-    // __like__
-    Tweet* getTweet(int id) {
-        if(auto it = timeline.find(id); it != timeline.end())
-            return timeline[id];
-        throw TweetException("fail: tweet nao existe");
-    }
-
-    // __unfollow__
-
-    void rmMsgsFrom(const std::string& username) {
-        auto keysToRemove = std::vector<int>();
-        for (auto& [key, tweet] : timeline)
-            if (tweet->getSender() == username)
-                keysToRemove.push_back(key);
-        for (auto key : keysToRemove)
-            timeline.erase(key);
-    }
-
-    // __remover__
-
-    void storeInMyTweets(Tweet* tweet) {
-        myTweets[tweet->getId()] = tweet;
-    }
-
-    std::vector<Tweet*> getMyTweets() const {
-        std::vector<Tweet*> messages;
-        for (auto it = myTweets.rbegin(); it != myTweets.rend(); ++it)
-            messages.push_back(it->second);
-        return messages;
-    }
-};
-
-class User {
-
-    std::string username;
-    Inbox inbox;
-    std::map<std::string, User*> followers;
-    std::map<std::string, User*> following;
-
-    // __
-public:
-
-    User(const std::string& username) : 
-        username(username) {
-    }
-
-    // ' mostra o nome dos seguidos e o nome dos seguires
-    // + toString(): str
-    std::string str() {
-        std::stringstream ss;
-        auto keys = [](auto p) {return p.first;};
-        ss << username << "\n" 
-            << "  seguidos   [" << fn::join(fn::map(following, keys)) << "]\n"
-            << "  seguidores [" << fn::join(fn::map(followers, keys)) << "]";
-        return ss.str();
-    }
-
-    // __follow__
-    void follow(User * other) {
-        if(other == this)
-            throw TweetException("You cannot follow yourself");
-        if(following.count(other->username) == 1)
-            throw TweetException("You are already following this user");
-        following[other->username] = other;
-        other->followers[username] = this;
-    }
-
-    // __twittar__
-
-    Inbox& getInbox() {
-        return inbox;
-    }
-
-    void sendTweet(Tweet * msg) {
-        inbox.storeInTimeline(msg);
-        inbox.storeInMyTweets(msg);
-        for(auto& follower : followers)
-            follower.second->getInbox().storeInTimeline(msg);
-    }
-
-    // __unfollow__
-
-    void unfollow(std::string username) {
-        if(following.count(username) == 0)
-            throw TweetException("You are not following this user");
-        auto other = following[username];
-        
-        this->inbox.rmMsgsFrom(username);
-        following.erase(username);
-
-        other->followers.erase(this->username);
-    }
-
-    // __like__
-
-    void like(int twId) {
-        inbox.getTweet(twId)->like(username);
-    }
-
-    // __remover__
-    void unfollowAll() {
-        for(auto& [username, user] : following) {
-            user->followers.erase(this->username);
-        }
-        following.clear();
-    }
-
-    void rejectAll() {
-        for(auto& [username, user] : followers) {
-            user->following.erase(this->username);
-        }
-        followers.clear();
-    }
-};
-
-
-std::ostream& operator<<(std::ostream& os, const User& user) { return os << user.str(); }
-
-
-// class Controller {
-class Controller {
-    // ' armazena o id para o proximo tweet a ser criado
-    // - nextTweetId: int
-    int nextTweetId { 0 };
-
-    // ' armazena todos os usuarios do sistema
-    // - users: map<str, User>
-    std::map<std::string, std::shared_ptr<User>> users;
-
-    // ' armazena todos os tweets do sistema
-    // - tweets: map<int, Tweet>
-    std::map<int, std::shared_ptr<Tweet>> tweets;
-
-    // __
-public:
-
-    Controller() {}
-
-    void addUser(std::string username);
-
-    friend std::ostream& operator<<(std::ostream& os, const Controller& ctrl);
-
-    // __twittar__
-
-private:
-    Tweet* createTweet(std::string username, std::string msg);
-public:
-
-    User* getUser(std::string username);
-
-    void sendTweet(std::string username, std::string msg);
-
-    // __retweet__
-
-    void sendRt(std::string username, int twId, std::string msg);
-
-    // __remover__
-
-    void rmUser(std::string username);
-};
-
-
-std::ostream& operator<<(std::ostream& os, const Controller& ctrl) {
-    return os << aux::join(aux::map(ctrl.users, [](auto p) {return *p.second;}), "\n");
-}
-
-
-using namespace aux;
-
-int main() {
-    Controller sistema;
-
-    while(true) {
-        auto line = input();
-        write("$" + line);
-        auto args = split(line, ' ');
-        
-        try {
-            if      (args[0] == "end"     ) { break;                                                                     } 
-            else if (args[0] == "add"     ) { sistema.addUser(args[1]);                                                  } 
-            else if (args[0] == "rm"      ) { sistema.rmUser(args[1]);                                                   }
-            else if (args[0] == "show"    ) { write(sistema);                                                            }
-            else if (args[0] == "follow"  ) { sistema.getUser(args[1])->follow(sistema.getUser(args[2]));                }
-            else if (args[0] == "unfollow") { sistema.getUser(args[1])->unfollow(args[2]);                               }
-            else if (args[0] == "twittar" ) { sistema.sendTweet(args[1], join(slice(args, 2), " "));                     }
-            else if (args[0] == "like"    ) { sistema.getUser(args[1])->like((int) +(args[2]));                     }
-            else if (args[0] == "timeline") { write(join(sistema.getUser(args[1])->getInbox().getTimeline(), "\n"));     } 
-            else if (args[0] == "rt"      ) { sistema.sendRt(args[1], (int) +(args[2]), join(slice(args, 3), " ")); } 
-            else                            { write("fail: comando invalido");                                           }
-        } catch (TweetException &e) {
-            std::cout << e.what() << '\n';
-        }
-    }
-    return 0;
-}
-
-
+<!-- load -->
+
+## Shell
+
+```bash
+##################################
+#__case cadastrar
+##################################
+$add goku
+$add sara
+$add tina
+$show
+goku
+  seguidos   []
+  seguidores []
+sara
+  seguidos   []
+  seguidores []
+tina
+  seguidos   []
+  seguidores []
+
+##################################
+#__case follow
+##################################
+
+$follow goku sara
+$follow goku tina
+$follow sara tina
+$show
+goku
+  seguidos   [sara, tina]
+  seguidores []
+sara
+  seguidos   [tina]
+  seguidores [goku]
+tina
+  seguidos   []
+  seguidores [goku, sara]
+
+##################################
+#__case twittar
+##################################
+#twittar _userId _msg
+
+$twittar sara hoje estou triste
+$twittar tina ganhei chocolate
+$twittar sara partiu ru
+$twittar tina chocolate ruim
+$twittar goku internet maldita
+
+$timeline goku
+4:goku (internet maldita)
+3:tina (chocolate ruim)
+2:sara (partiu ru)
+1:tina (ganhei chocolate)
+0:sara (hoje estou triste)
+
+$timeline tina 
+3:tina (chocolate ruim)
+1:tina (ganhei chocolate)
+
+$timeline sara
+3:tina (chocolate ruim)
+2:sara (partiu ru)
+1:tina (ganhei chocolate)
+0:sara (hoje estou triste)
+
+##################################
+#__case like
+##################################
+#like _username _idTw
+
+$like sara 1
+$like goku 1
+$like sara 3
+
+$timeline sara
+3:tina (chocolate ruim) [sara]
+2:sara (partiu ru)
+1:tina (ganhei chocolate) [goku, sara]
+0:sara (hoje estou triste)
+
+$timeline goku
+4:goku (internet maldita)
+3:tina (chocolate ruim) [sara]
+2:sara (partiu ru)
+1:tina (ganhei chocolate) [goku, sara]
+0:sara (hoje estou triste)
+
+
+##################################
+#__case unfollow
+##################################
+
+$unfollow goku tina
+$show
+goku
+  seguidos   [sara]
+  seguidores []
+sara
+  seguidos   [tina]
+  seguidores [goku]
+tina
+  seguidos   []
+  seguidores [sara]
+
+$timeline goku
+4:goku (internet maldita)
+2:sara (partiu ru)
+0:sara (hoje estou triste)
+
+##################################
+#__case retweet
+##################################
+
+$timeline sara
+3:tina (chocolate ruim) [sara]
+2:sara (partiu ru)
+1:tina (ganhei chocolate) [goku, sara]
+0:sara (hoje estou triste)
+
+$rt sara 3 olha goku, ela nao gostou do seu chocolate
+$timeline sara
+5:sara (olha goku, ela nao gostou do seu chocolate)
+    3:tina (chocolate ruim) [sara]
+3:tina (chocolate ruim) [sara]
+2:sara (partiu ru)
+1:tina (ganhei chocolate) [goku, sara]
+0:sara (hoje estou triste)
+
+$timeline goku
+5:sara (olha goku, ela nao gostou do seu chocolate)
+    3:tina (chocolate ruim) [sara]
+4:goku (internet maldita)
+2:sara (partiu ru)
+0:sara (hoje estou triste)
+
+##################################
+#__case erros
+##################################
+
+# lembre de tratar erros como
+$timeline bruno
+fail: usuario nao encontrado
+$follow goku kuririm
+fail: usuario nao encontrado
+$like sara 4
+fail: tweet nao existe
+
+##################################
+#__case remover
+##################################
+$follow tina sara
+$show
+goku
+  seguidos   [sara]
+  seguidores []
+sara
+  seguidos   [tina]
+  seguidores [goku, tina]
+tina
+  seguidos   [sara]
+  seguidores [sara]
+
+$rm tina
+$show
+goku
+  seguidos   [sara]
+  seguidores []
+sara
+  seguidos   []
+  seguidores [goku]
+
+$timeline goku
+5:sara (olha goku, ela nao gostou do seu chocolate)
+    3: (esse tweet foi deletado)
+4:goku (internet maldita)
+2:sara (partiu ru)
+0:sara (hoje estou triste)
+
+$timeline sara
+5:sara (olha goku, ela nao gostou do seu chocolate)
+    3: (esse tweet foi deletado)
+2:sara (partiu ru)
+0:sara (hoje estou triste)
+
+$end
+
+##################################
+# FIM FIM FIM FIM FIM FIM FIM FIM#
+##################################
 ```
-
-[](load)

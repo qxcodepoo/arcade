@@ -1,12 +1,11 @@
 # Pula pula
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, controlando as pessoas que entram e saem do pula pula, além de coordenar as pessoas que estão na fila de espera.
 
@@ -25,9 +24,9 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 package com.qxcode {
   class Kid {
     - age : int
@@ -74,7 +73,7 @@ package com.qxcode {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

@@ -1,20 +1,11 @@
-## @044 Relacionamentos
+# @044 Relacionamentos
 
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/044/Readme.md)
 
-<!-- toc -->
-- [Caracterı́sticas das Associações](#caracterısticas-das-associações)
-- [Multiplicidades](#multiplicidades)
-- [Conectividade](#conectividade)
-- [Navegabilidade](#navegabilidade)
-- [Papéis](#papéis)
-- [Associações Reflexivas](#associações-reflexivas)
-- [Agregação e Composição](#agregação-e-composição)
-- [Agregação](#agregação)
-- [Composição](#composição)
-- [Agregação](#agregação)
-- [Classes Associativas](#classes-associativas)
-- [Exercícios](#exercícios)
-<!-- toc -->
+<!-- toch -->
+[Caracterı́sticas das Associações](#caracterısticas-das-associações) | [Multiplicidades](#multiplicidades) | [Conectividade](#conectividade) | [Navegabilidade](#navegabilidade) | [Papéis](#papéis) | [Associações Reflexivas](#associações-reflexivas) | [Agregação e Composição](#agregação-e-composição) | [Agregação](#agregação) | [Composição](#composição) | [Agregação](#agregação) | [Classes Associativas](#classes-associativas) | [Exercícios](#exercícios)
+-- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --
+<!-- toch -->
 
 Todos os diagramas desse tutorial foram criados com o plantuml. Você pode ver mais em [LINK](https://plantuml.com/class-diagram).
 
@@ -24,7 +15,6 @@ Um relacionamento entre duas ou mais classes é chamada de **associação**
 
 ![É publicado](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/publicado.png)
 
-
 ![Escreve](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve.png)
 
 Representamos as associações por meio de linhas retas que ligam as
@@ -33,14 +23,13 @@ classes envolvidas.
 A forma mais comum de implementar associação é ter um objeto como
 atributo de outro.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/publicado2.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/publicado2.png)
 
 Neste caso, o livro possui um atributo editora que pertence a classe Editora.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve2.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve2.png)
 
 Neste caso, o livro possui um atributo autor da classe Pessoa.
-
 
 ## Caracterı́sticas das Associações
 

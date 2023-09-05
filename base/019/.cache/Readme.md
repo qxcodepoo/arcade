@@ -1,4 +1,11 @@
-## @019 Ligações - Agenda 4
+# @019 Ligações - Agenda 4
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/019/Readme.md)
+
+<!-- toch -->
+[Requisitos Novos](#requisitos-novos) | [Shell](#shell) | [Diagrama de Classes](#diagrama-de-classes)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/019/cover.jpg)
 
@@ -6,12 +13,6 @@
 - solver
 - raiox
 - diagrama
-
-<!-- toc -->
-- [Requisitos Novos](#requisitos-novos)
-- [Shell](#shell)
-- [Diagrama de Classes](#diagrama-de-classes)
-<!-- toc -->
 
 _Você digita o número de Maria no celular e aparece que você está ligando pra João. Hum, alguma coisa errada não está certa._
 

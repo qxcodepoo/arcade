@@ -1,25 +1,25 @@
-## @018 Hospital II
+# @018 Hospital II
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/018/Readme.md)
+
+<!-- toch -->
+[Requisitos](#requisitos) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/cover.jpg)
-
-<!-- toc -->
-- [Requisitos](#requisitos)
-- [Guia](#guia)
-- [Diagrama de Classes](#diagrama-de-classes)
-- [Esqueleto](#esqueleto)
-<!-- toc -->
-
 
 ## Requisitos
 
 Você vai alterar a implementação do Hospital I para habilitar o envio de mensagens entre médicos e pacientes.
+
 - Pacientes só podem enviar mensagens para seus médicos.
 - Médicos só podem enviar mensagens para seus pacientes.
 - Médicos e pacientes só podem ver suas próprias mensagens.
 - As mensagens funcionam no modo de inbox, após lidas, elas "desaparecem".
 
-
 ## Guia
+
 - As classes Paciente e Medico vão ter poucas alterações.
 - Precisamos que médicos e pacientes sejam diferentes, mas que ambos se comportem como Comunicadores.
 - As antigas interfaces IPaciente e IMedicos vão virar classes abstratas que herdam de Comunicador.

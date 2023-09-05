@@ -1,12 +1,11 @@
 # Lapiseira
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 Faça o modelo de uma lapiseira que pode conter vários.
 
@@ -41,17 +40,19 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
 
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](fenced:filter:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 ' Grafite
 class Lead {
     
@@ -136,7 +137,7 @@ class Pencil {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

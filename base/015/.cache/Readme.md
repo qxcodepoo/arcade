@@ -1,12 +1,13 @@
-## @015 Busca
+# @015 Busca
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/015/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/015/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 Sua agenda possui vários contatos e cada contato possui vários telefones.
 
@@ -38,12 +39,11 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/015/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/015/.cache/draft.ts)
 
-
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/015/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/015/diagrama.puml)[](fenced:filter:puml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```puml
+```ts
 
 class Fone {
   - id : str
@@ -172,7 +172,7 @@ class Agenda {
 
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

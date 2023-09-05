@@ -1,12 +1,13 @@
-## @010 Cinema
+# @010 Cinema
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/010/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 O objetivo dessa atividade é implementar o sistema de alocação de uma única sala de cinema. Se existem cadeiras livres, os clientes podem reservá-las. Também podem desistir da reserva. O sistema deve mostrar quem está sentado em cada cadeira.
 
@@ -34,16 +35,18 @@ Seu sistema deverá:
 
 ***
 
-## Guide
+## Draft
 
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.cpp)
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.java)
 
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/010/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Client {
   - fone : string
   - id   : string
@@ -90,7 +93,7 @@ class Sala {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

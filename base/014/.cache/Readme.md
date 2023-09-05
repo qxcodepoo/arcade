@@ -1,12 +1,13 @@
-## @014 Contato
+# @014 Contato
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/014/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
@@ -48,9 +49,9 @@ Seu programa deve:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/014/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/014/diagrama.puml)[](filter:fenced:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 
 class Fone {
   - id : str
@@ -117,7 +118,7 @@ class Contact {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

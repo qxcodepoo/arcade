@@ -1,16 +1,13 @@
-## @032 Estressados C: Transformações
+# @032 Estressados C: Transformações
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/032/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/032/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-  - [filter](#filter)
-  - [sort](#sort)
-  - [reverse](#reverse)
-  - [set](#set)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 ***
 

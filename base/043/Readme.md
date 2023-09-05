@@ -1,12 +1,11 @@
 # Cofre
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 ## Intro
 
@@ -26,15 +25,17 @@ O sistema deverá:
 
 ***
 
+## Draft
+
+- [Solver.java](.cache/draft.java)
+
 ## Guide
 
 ![diagrama](diagrama.png)
 
-- [Solver.java](.cache/draft.java)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-[](load)[](diagrama.puml)[](fenced:plantuml:filter)
-
-```plantuml
+```ts
 
 ~interface Valuable {
   + getLabel() : String {abstract}
@@ -119,7 +120,7 @@ class Pig {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

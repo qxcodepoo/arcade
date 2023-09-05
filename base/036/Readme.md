@@ -1,18 +1,15 @@
 # Relógio
 
-Utilizando os comandos set para manter a hora correta
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](cover.jpg)
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
-
-***
-
 ## Intro
+
+Utilizando os comandos set para manter a hora correta
 
 O sistema deverá:
 
@@ -35,9 +32,9 @@ O sistema deverá:
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Time {
   - hour   : int
   - minute : int
@@ -93,7 +90,7 @@ class Legenda {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

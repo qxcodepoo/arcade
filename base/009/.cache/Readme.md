@@ -1,12 +1,13 @@
-## @009 Pula pula
+# @009 Pula pula
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/009/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, controlando as pessoas que entram e saem do pula pula, além de coordenar as pessoas que estão na fila de espera.
 
@@ -25,9 +26,9 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/009/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 package com.qxcode {
   class Kid {
     - age : int
@@ -74,7 +75,7 @@ package com.qxcode {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

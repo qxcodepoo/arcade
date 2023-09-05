@@ -1,12 +1,11 @@
 # Tarifas
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 O objetivo dessa atividade é implementar uma classe responsável por gerenciar a account bancária de um único cliente. Faremos operações de withdraw, depósito e extrato.
 
@@ -36,9 +35,9 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Account {
   - balanceManager : BalanceManager
   - id : int
@@ -122,7 +121,7 @@ class Operation {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

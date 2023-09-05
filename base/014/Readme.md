@@ -1,12 +1,11 @@
 # Contato
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
@@ -48,9 +47,9 @@ Seu programa deve:
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](filter:fenced:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 
 class Fone {
   - id : str
@@ -117,7 +116,7 @@ class Contact {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

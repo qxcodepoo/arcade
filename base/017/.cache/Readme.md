@@ -1,12 +1,13 @@
-## @017 Porquinho
+# @017 Porquinho
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/017/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 ## Intro
 
@@ -30,9 +31,9 @@ O sistema deverá:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/017/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 
 class Coin {
   - value  : double
@@ -120,7 +121,7 @@ class Pig {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

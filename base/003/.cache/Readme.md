@@ -1,12 +1,13 @@
-## @003 Motoca
+# @003 Motoca
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/003/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
 
@@ -31,17 +32,19 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/003/.cache/draft.java)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/003/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/003/.cache/draft.ts)
 
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/003/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/003/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Motorcycle {
   - person : Person | null
   - power  : int
@@ -95,7 +98,7 @@ class Person {
 }
 ```
 
-[](load)
+<!-- load -->
 
 - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
 - Para buzinar, utilize o `for` gerando várias vezes o `e`.

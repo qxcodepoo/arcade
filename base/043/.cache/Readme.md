@@ -1,12 +1,13 @@
-## @043 Cofre
+# @043 Cofre
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/043/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 ## Intro
 
@@ -26,15 +27,17 @@ O sistema deverá:
 
 ***
 
+## Draft
+
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.java)
+
 ## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/043/diagrama.png)
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.java)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/043/diagrama.puml)[](fenced:plantuml:filter)
-
-```plantuml
+```ts
 
 ~interface Valuable {
   + getLabel() : String {abstract}
@@ -119,7 +122,7 @@ class Pig {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

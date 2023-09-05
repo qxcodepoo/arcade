@@ -1,12 +1,13 @@
-## @041 Tabuleiro
+# @041 Tabuleiro
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/041/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 ## Intro
 
@@ -29,16 +30,18 @@ Questão adaptada da maratona ACM 2003 por @WladimirTavares
 
 ___
 
-## Guide
+## Draft
 
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/041/.cache/draft.ts)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/041/.cache/draft.cpp)
   
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/041/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/041/diagrama.puml)[](fenced:filter:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
   class Player {
 
     ' numero do jogador
@@ -109,7 +112,7 @@ ___
   }
 ```
 
-[](load)
+<!-- load -->
 
 ___
 

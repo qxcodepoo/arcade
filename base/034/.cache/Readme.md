@@ -1,14 +1,13 @@
-## @034 Carga
+# @034 Carga
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/034/Readme.md)
+
+<!-- toch -->
+[Funcionalidades](#funcionalidades) | [Raio X](#raio-x)
+-- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/034/cover.jpg)
-
-<!-- toc -->
-- [Funcionalidades](#funcionalidades)
-  - [Parte 1 - Trem e Vagões](#parte-1---trem-e-vagões)
-  - [Parte 2 - Embarque e Desembarque](#parte-2---embarque-e-desembarque)
-  - [Parte 3 - Cadastro de Passeiros e Registro de Embarque](#parte-3---cadastro-de-passeiros-e-registro-de-embarque)
-- [Raio X](#raio-x)
-<!-- toc -->
 
 Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagagens.
 

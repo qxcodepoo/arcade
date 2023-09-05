@@ -1,18 +1,9 @@
 # Introdução ao git
 
-<!-- toc -->
-- [Instalação](#instalação)
-- [Configuração Inicial](#configuração-inicial)
-- [Fluxo de trabalho](#fluxo-de-trabalho)
-- [Trabalhando com o repositório git do professor](#trabalhando-com-o-repositório-git-do-professor)
-- [Trabalhando com seu repositório Git](#trabalhando-com-seu-repositório-git)
-- [Adicionar & Confirmar & Enviar pra nuvem](#adicionar--confirmar--enviar-pra-nuvem)
-- [Conflitos](#conflitos)
-- [Ignorando arquivos](#ignorando-arquivos)
-- [Desfazendo alterações e vendo diferenças](#desfazendo-alterações-e-vendo-diferenças)
-- [Desafio](#desafio)
-- [Guia rápida](#guia-rápida)
-<!-- toc -->
+<!-- toch -->
+[Instalação](#instalação) | [Configuração Inicial](#configuração-inicial) | [Fluxo de trabalho](#fluxo-de-trabalho) | [Trabalhando com o repositório git do professor](#trabalhando-com-o-repositório-git-do-professor) | [Trabalhando com seu repositório Git](#trabalhando-com-seu-repositório-git) | [Adicionar & Confirmar & Enviar pra nuvem](#adicionar--confirmar--enviar-pra-nuvem) | [Conflitos](#conflitos) | [Ignorando arquivos](#ignorando-arquivos) | [Desfazendo alterações e vendo diferenças](#desfazendo-alterações-e-vendo-diferenças) | [Desafio](#desafio) | [Guia rápida](#guia-rápida)
+-- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --
+<!-- toch -->
 
 - [Link para instalação e orientações iniciais](https://www.webdevdrops.com/git-no-windows-github/)
 

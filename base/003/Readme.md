@@ -1,12 +1,11 @@
 # Motoca
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
 
@@ -31,17 +30,19 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
 
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Motorcycle {
   - person : Person | null
   - power  : int
@@ -95,7 +96,7 @@ class Person {
 }
 ```
 
-[](load)
+<!-- load -->
 
 - Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
 - Para buzinar, utilize o `for` gerando várias vezes o `e`.

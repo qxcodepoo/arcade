@@ -1,15 +1,13 @@
-## @011 JunkFood
+# @011 JunkFood
 
-[](solver.cpp)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/011/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/011/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-- [Resolução](#resolução)
-<!-- toc -->
 
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 
@@ -52,9 +50,9 @@ Seu sistema deverá ser capaz de:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/011/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/011/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Slot {
     - name : String
     - price : float
@@ -118,7 +116,7 @@ class VendingMachine {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

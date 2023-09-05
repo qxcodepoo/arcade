@@ -1,4 +1,6 @@
-## @046 Como fazer os códigos e relatórios
+# @046 Como fazer os códigos e relatórios
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/046/Readme.md)
 
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/cover.jpg)
 

@@ -1,11 +1,11 @@
 # Pets
 
-![cover](cover.jpg)
+<!-- toch -->
+[Requisitos Parte 1](#requisitos-parte-1) | [Raio X](#raio-x)
+-- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Requisitos Parte 1](#requisitos-parte-1)
-- [Raio X](#raio-x)
-<!-- toc -->
+![cover](cover.jpg)
 
 Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, serviços e vendas.
 

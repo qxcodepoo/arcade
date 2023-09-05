@@ -1,12 +1,11 @@
 # Cinema
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 O objetivo dessa atividade é implementar o sistema de alocação de uma única sala de cinema. Se existem cadeiras livres, os clientes podem reservá-las. Também podem desistir da reserva. O sistema deve mostrar quem está sentado em cada cadeira.
 
@@ -34,16 +33,18 @@ Seu sistema deverá:
 
 ***
 
-## Guide
+## Draft
 
 - [solver.cpp](.cache/draft.cpp)
 - [Solver.java](.cache/draft.java)
 
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Client {
   - fone : string
   - id   : string
@@ -90,7 +91,7 @@ class Sala {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

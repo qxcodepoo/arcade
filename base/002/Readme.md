@@ -2,13 +2,12 @@
 
 ![cover](cover.jpg)
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-Essa atividade se propõe a implementar um carro ecológico que pode passear pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
+Nessa atividade vamos implementar um carro ecológico. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
 ***
 
@@ -18,7 +17,7 @@ Seu sistema deverá:
 
 - Inicializar.
   - Iniciar de tanque vazio, sem ninguém dentro e com 0 de quilometragem.
-  - Para simplificar, nosso carro esportivo suporta até 2 pessoas e seu tanque suporta até 100 litros de água como combustível.
+  - Para simplificar, nosso carro esportivo suporta até 2 pessoas e seu tanque suporta até 100 litros de combustível.
 - Entrando e Saindo.
   - Embarcar uma pessoa por vez.
   - Desembarcar uma pessoa por vez.
@@ -28,22 +27,24 @@ Seu sistema deverá:
   - Caso tente abastecer acima do limite, descarte o valor que passou.
 - Dirigir.
   - Caso haja pelo menos uma pessoa no carro e **algum combustível**, ele deve gastar combustível andando e aumentar a quilometragem.
-  - Nosso carro faz um kilômetro por litro de água.
+  - Nosso carro faz um quilômetro por litro de combustível.
   - Caso não exista combustível suficiente para completar a viagem inteira, dirija o que for possível e emita uma mensagem indicando quanto foi percorrido.
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
 
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Car {
   ' quantidade de passageiros no carro
   + pass    : int
@@ -106,7 +107,7 @@ class Legenda {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

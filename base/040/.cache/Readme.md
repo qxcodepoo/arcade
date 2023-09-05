@@ -1,12 +1,13 @@
-## @040 Estressados B: Contagem
+# @040 Estressados B: Contagem
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/040/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/040/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 ***
 

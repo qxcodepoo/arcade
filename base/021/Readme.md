@@ -1,12 +1,11 @@
 # Matrícula
 
-![cover](cover.jpg)
+<!-- toch -->
+[Funcionalidades](#funcionalidades) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Funcionalidades](#funcionalidades)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos matricular e remover alunos das disciplinas. Aqui, cada aluno sabe quais as disciplinas em que está matriculado e a disciplina sabe os alunos que ela contém.
 
@@ -34,9 +33,9 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](fenced:plantuml:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Aluno {
 
     - id: str
@@ -133,7 +132,7 @@ class Sistema {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

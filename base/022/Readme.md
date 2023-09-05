@@ -1,35 +1,25 @@
 # Hospital
 
+<!-- toch -->
+[Intro](#intro) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
+-- | -- | --
+<!-- toch -->
+
 ![cover](cover.jpg)
 
-<!-- toc -->
-- [Cadastrar Pacientes, Médicos e Plantões.](#cadastrar-pacientes-médicos-e-plantões)
-- [Funcionalidades](#funcionalidades)
-- [Diagrama de Classes](#diagrama-de-classes)
-- [Esqueleto](#esqueleto)
-<!-- toc -->
+## Intro
 
-
-## Cadastrar Pacientes, Médicos e Plantões.
-
-
-Na UTI do nosso hospital existem vários pacientes. Cada paciente é atendico por médicos de várias especialidades. Pacientes e médicos podem se comunicar via mensagens. O sistema deve ser capaz de: 
+Na UTI do nosso hospital existem vários pacientes. Cada paciente é atendico por médicos de várias especialidades. Pacientes e médicos podem se comunicar via mensagens. O sistema deve ser capaz de.
 
 - cadastrar pacientes e médicos.
 - informar quais os médicos que atendem determinado paciente.
 - informar quais pacientes que são atendidos por um médico.
 
-
-***
-
-## Funcionalidades
-
 - **Repositórios Individuais - 3.0 P**
-    - Adicionar pacientes.
-        - Cada paciente tem um id(nome) e uma diagnóstico.
-    - Adicionar médicos.
-        - Cada médico tem um id(nome) e uma especialidade.
-
+  - Adicionar pacientes.
+    - Cada paciente tem um id(nome) e uma diagnóstico.
+  - Adicionar médicos.
+    - Cada médico tem um id(nome) e uma especialidade.
 
 ```sh
 #__case inserir
@@ -70,6 +60,7 @@ $end
 ***
 
 ## Diagrama de Classes
+
 ![diagrama](diagrama.png)
 
 ***

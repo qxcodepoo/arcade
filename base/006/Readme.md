@@ -1,14 +1,11 @@
 # Tamagotchi
 
-Utilizando sets para controlar a variação dos status do bichinho.
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
@@ -33,17 +30,19 @@ Seu sistema deverá:
 
 ***
 
-## Guide
+## Draft
 
 - [solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
 
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 
 +class Pet {
     ' se o pet está vivo
@@ -135,7 +134,7 @@ class Legenda {
 
 ```
 
-[](load)
+<!-- load -->
 
 [![_](../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 

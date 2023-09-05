@@ -1,12 +1,13 @@
-## @004 Grafite
+# @004 Grafite
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/004/Readme.md)
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/cover.jpg)
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
@@ -38,17 +39,19 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/004/.cache/draft.java)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/004/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/004/.cache/draft.ts)
 
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/004/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 ' Grafite
 class Lead {
     ' calibre do grafite
@@ -127,7 +130,7 @@ class Pencil {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

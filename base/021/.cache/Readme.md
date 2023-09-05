@@ -1,12 +1,13 @@
-## @021 Matrícula
+# @021 Matrícula
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/021/Readme.md)
+
+<!-- toch -->
+[Funcionalidades](#funcionalidades) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/cover.jpg)
-
-<!-- toc -->
-- [Funcionalidades](#funcionalidades)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos matricular e remover alunos das disciplinas. Aqui, cada aluno sabe quais as disciplinas em que está matriculado e a disciplina sabe os alunos que ela contém.
 
@@ -34,9 +35,9 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/021/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/021/diagrama.puml)[](fenced:plantuml:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Aluno {
 
     - id: str
@@ -133,7 +134,7 @@ class Sistema {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

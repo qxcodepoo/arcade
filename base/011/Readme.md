@@ -1,15 +1,11 @@
 # JunkFood
 
-[](solver.cpp)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-- [Resolução](#resolução)
-<!-- toc -->
 
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 
@@ -52,9 +48,9 @@ Seu sistema deverá ser capaz de:
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Slot {
     - name : String
     - price : float
@@ -118,7 +114,7 @@ class VendingMachine {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

@@ -1,13 +1,11 @@
 # Clínica Veterinária
 
-![cover](cover.jpg)
+<!-- toch -->
+[Requisitos](#requisitos) | [Regras de negócio](#regras-de-negócio) | [Diagrama](#diagrama) | [Main não interativa](#main-não-interativa)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Requisitos](#requisitos)
-- [Regras de negócio](#regras-de-negócio)
-- [Diagrama](#diagrama)
-- [Main não interativa](#main-não-interativa)
-<!-- toc -->
+![cover](cover.jpg)
 
 Você foi contratado por uma clínica veterinária para implementar um sistema que vai administrar os hóspedes.
 Na clínica em que você trabalha os veterinários querem um sistema que tem como objetivo diminuir a saudade dos donos enquanto seus queridos pets estão hospedados na sua clínica.

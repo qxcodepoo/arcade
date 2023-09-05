@@ -1,12 +1,11 @@
 # Budega
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 Nosso objetivo no trabalho é modelar uma fila de atendimento de um Mercatil.
 
@@ -32,76 +31,7 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](fenced:filter:plantuml)
 
-```plantuml
-class Pessoa {
-  - nome : string
-  __
-  + Pessoa(nome : string)
-  + toString() : string
-  __
-  + getNome() : string
-  + setNome(nome : string)
-}
-
-class Mercantil {
-  
-  ' se estiver em java , utilize ArrayList<Pessoa>
-  ' se estiver em c++  , utilize vector<shared_ptr<Pessoa>>
-  ' se estiver em ts   , utilize Array<Pessoa|null>
-  - caixas    : Array<Pessoa | null>
-  
-  ' se estiver em java, utilize LinkedList<Pessoa>
-  ' se estiver em c++ , utilize list<shared_ptr<Pessoa>>
-  ' se estiver em ts  , utilize Array<Pessoa>
-  - esperando : List <Pessoa>
-  __
-  
-  ' verifica se existe essa posição no caixa
-  ' emite erro se não existir
-  - validarIndice(indice : int): boolean
-  __
-  
-  ' inicializa os caixas com qtdCaixas posições iguais a null
-  ' inicializa esperando como uma lista vazia
-  + Mercantil(qtdCaixas : int)
-  
-  + toString() : string
-  __
-  
-  ' adicione um cliente na fila de espera
-  + chegar   (pessoa : Pessoa)
-  
-  ' verifica se indice é valido
-  ' verifica se caixa[indice] está vazio
-  ' verifica se tem alguém na fila de espera
-  ' move o primeiro da fila de espera para o caixa[indice]
-  + chamar   (indice : int): boolean
-  
-  ' verifica se indice é valido
-  ' verifica se caixa[indice] tem alguém
-  ' coloca o caixa[indice] como vazio
-  + finalizar(indice : int): Pessoa | null
-
-  '
-  ' tenta colocar o furão na frente do besta na fila de espera
-  ' procure pela posição do besta e se encontrar, 
-  '   coloque o furão na frente do besta
-  + furarFila(furao: Pessoa, besta: string): boolean
-
-  ' procura pela pessoa na fila de espera
-  ' e a remove da fila de espera
-  + desistir(desistente: string): boolean
-
-  ' o cliente que estava no caixa se revoltou com
-  ' o preco do produto e fugiu no meio do atendimento
-  ' procure o cliente por nome nos caixas e remova
-  + revoltar(nome: string): boolean
-}
-```
-
-[](load)
 
 [![_](../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 

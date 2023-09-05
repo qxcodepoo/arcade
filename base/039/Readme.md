@@ -1,16 +1,11 @@
 # Estressados D: Controles
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-  - [pares](#pares)
-  - [proximidade](#proximidade)
-  - [duplo for](#duplo-for)
-  - [remoções](#remoções)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 ***
 

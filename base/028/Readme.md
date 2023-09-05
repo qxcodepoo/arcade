@@ -1,13 +1,11 @@
 # Bilheteria I
 
-![cover](cover.jpg)
+<!-- toch -->
+[Diagrama de classes](#diagrama-de-classes) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Diagrama de classes](#diagrama-de-classes)
-- [Draft](#draft)
-- [Descrição dos métodos](#descrição-dos-métodos)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI.
 
@@ -19,13 +17,15 @@ Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de 
 
 ## Draft
 
-- Main em typescript: [draft.ts](.cache/draft.ts)
+- [draft.ts](.cache/draft.ts)
 
-## Descrição dos métodos
+## Guide
 
-[](load)[](diagrama.puml)[](fenced:puml:filter)
+![diagrama](diagrama.png)
 
-```puml
+<!-- load diagrama.puml fenced=ts:filter -->
+
+```ts
 
 class Bilheteria {
   - repVendas: Venda[]
@@ -102,7 +102,7 @@ class Venda {
 
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

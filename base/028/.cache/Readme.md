@@ -1,13 +1,13 @@
-## @028 Bilheteria I
+# @028 Bilheteria I
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/028/Readme.md)
+
+<!-- toch -->
+[Diagrama de classes](#diagrama-de-classes) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/cover.jpg)
-
-<!-- toc -->
-- [Diagrama de classes](#diagrama-de-classes)
-- [Draft](#draft)
-- [Descrição dos métodos](#descrição-dos-métodos)
-- [Shell](#shell)
-<!-- toc -->
 
 Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI.
 
@@ -19,13 +19,15 @@ Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de 
 
 ## Draft
 
-- Main em typescript: [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/028/.cache/draft.ts)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/028/.cache/draft.ts)
 
-## Descrição dos métodos
+## Guide
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/028/diagrama.puml)[](fenced:puml:filter)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/028/diagrama.png)
 
-```puml
+<!-- load diagrama.puml fenced=ts:filter -->
+
+```ts
 
 class Bilheteria {
   - repVendas: Venda[]
@@ -102,7 +104,7 @@ class Venda {
 
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

@@ -1,11 +1,13 @@
-## @027 Grupos
+# @027 Grupos
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/027/Readme.md)
+
+<!-- toch -->
+[Guia de Atividade](#guia-de-atividade) | [Créditos](#créditos)
+-- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/027/cover.jpg)
-
-<!-- toc -->
-- [Guia de Atividade](#guia-de-atividade)
-- [Créditos](#créditos)
-<!-- toc -->
 
 - Usuários podem ser adicionados ao sistema e devem ter id único.
 - Os usuários podem criar grupos e convidar outros usuários do sistema.

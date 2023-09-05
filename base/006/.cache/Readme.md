@@ -1,14 +1,13 @@
-## @006 Tamagotchi
+# @006 Tamagotchi
 
-Utilizando sets para controlar a variação dos status do bichinho.
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/006/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
@@ -33,17 +32,19 @@ Seu sistema deverá:
 
 ***
 
-## Guide
+## Draft
 
 - [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.java)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.ts)
 
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/006/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 
 +class Pet {
     ' se o pet está vivo
@@ -135,7 +136,7 @@ class Legenda {
 
 ```
 
-[](load)
+<!-- load -->
 
 [![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 

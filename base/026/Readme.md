@@ -1,14 +1,11 @@
 # Whatsapp
 
-![cover](cover.jpg)
+<!-- toch -->
+[Módulos](#módulos) | [Shell](#shell) | [Guia de Resolução](#guia-de-resolução) | [Main não interativa](#main-não-interativa) | [Créditos](#créditos)
+-- | -- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Módulos](#módulos)
-- [Shell](#shell)
-- [Guia de Resolução](#guia-de-resolução)
-- [Main não interativa](#main-não-interativa)
-- [Créditos](#créditos)
-<!-- toc -->
+![cover](cover.jpg)
 
 ## Módulos
 

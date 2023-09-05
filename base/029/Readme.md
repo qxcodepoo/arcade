@@ -1,13 +1,11 @@
 # Anotações
 
-![cover](cover.jpg)
+<!-- toch -->
+[Funcionalidades](#funcionalidades) | [Shell](#shell) | [Diagrama](#diagrama) | [Ajuda](#ajuda)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Funcionalidades](#funcionalidades)
-- [Shell](#shell)
-- [Diagrama](#diagrama)
-- [Ajuda](#ajuda)
-<!-- toc -->
+![cover](cover.jpg)
 
 O objetivo dessa atividade é criar um pequeno serviço de anotações. O sistema terá vários usuários que vão logar utilizando login e senha. Cada usuário pode armazenar notas de texto contendo título e texto.
 

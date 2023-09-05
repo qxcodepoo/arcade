@@ -1,14 +1,11 @@
 # Agiota
 
-![cover](cover.jpg)
+<!-- toch -->
+[Explicação](#explicação) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Fim da história](#fim-da-história)
+-- | -- | -- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Explicação](#explicação)
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-- [Fim da história](#fim-da-história)
-<!-- toc -->
+![cover](cover.jpg)
 
 Ptolomeu é o agiota mais carismático de MoneyVille. Sem "nenhuma razão" foi denunciado e acabou indo pra cadeira. O problema foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 
@@ -53,9 +50,11 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
   - O mesmo objeto transação é compartilhado entre o histórico do agiota e o histórico do cliente correspondente.
 - A lista dos mortos não são mortos de verdade, estão mortos no coração de Ptolomeu apenas, porque ele desistiu de cobrar a dívida. É o que ele disse pra polícia.
 
-## Guide
+## Draft
 
 - [draft.cpp](.cache/draft.cpp)
+
+## Guide
 
 ![diagrama](diagrama.png)
 

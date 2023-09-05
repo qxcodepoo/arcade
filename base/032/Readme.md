@@ -1,16 +1,11 @@
 # Estressados C: Transformações
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-  - [filter](#filter)
-  - [sort](#sort)
-  - [reverse](#reverse)
-  - [set](#set)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 ***
 

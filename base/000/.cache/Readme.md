@@ -1,16 +1,19 @@
-## @000 Estressados A: Busca
+# @000 Estressados A: Busca
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/000/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/000/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 ***
 
 ## Intro
+
+### Abcd Ef
 
 - Na entrada de um evento de um experimento social, os participantes ganhavam uma pulseira especial que precisavam ficar utilizando.
 - A pulseira informava, num pequeno visor, um número inteiro que representava o nível de stress daquele participante.
@@ -34,13 +37,11 @@
 
 ***
 
-## Guide
+## Draft
 
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/000/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/000/.cache/draft.ts)
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/000/.cache/draft.java)
-
-***
 
 ## Shell
 

@@ -1,14 +1,11 @@
 # Mestre dos Vetores (manipulação arraylist)
 
+<!-- toch -->
+[Requisitos](#requisitos) | [Shell](#shell) | [Dica](#dica) | [Esqueleto](#esqueleto)
+-- | -- | -- | --
+<!-- toch -->
+
 ![cover](cover.jpg)
-
-<!-- toc -->
-- [Requisitos](#requisitos)
-- [Shell](#shell)
-- [Dica](#dica)
-- [Esqueleto](#esqueleto)
-<!-- toc -->
-
 
 O objetivo da atividade é treinar estrutura de dados.
 

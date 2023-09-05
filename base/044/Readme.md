@@ -1,20 +1,9 @@
 # Relacionamentos
 
-
-<!-- toc -->
-- [Caracterı́sticas das Associações](#caracterısticas-das-associações)
-- [Multiplicidades](#multiplicidades)
-- [Conectividade](#conectividade)
-- [Navegabilidade](#navegabilidade)
-- [Papéis](#papéis)
-- [Associações Reflexivas](#associações-reflexivas)
-- [Agregação e Composição](#agregação-e-composição)
-- [Agregação](#agregação)
-- [Composição](#composição)
-- [Agregação](#agregação)
-- [Classes Associativas](#classes-associativas)
-- [Exercícios](#exercícios)
-<!-- toc -->
+<!-- toch -->
+[Caracterı́sticas das Associações](#caracterısticas-das-associações) | [Multiplicidades](#multiplicidades) | [Conectividade](#conectividade) | [Navegabilidade](#navegabilidade) | [Papéis](#papéis) | [Associações Reflexivas](#associações-reflexivas) | [Agregação e Composição](#agregação-e-composição) | [Agregação](#agregação) | [Composição](#composição) | [Agregação](#agregação) | [Classes Associativas](#classes-associativas) | [Exercícios](#exercícios)
+-- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --
+<!-- toch -->
 
 Todos os diagramas desse tutorial foram criados com o plantuml. Você pode ver mais em [LINK](https://plantuml.com/class-diagram).
 
@@ -24,7 +13,6 @@ Um relacionamento entre duas ou mais classes é chamada de **associação**
 
 ![É publicado](publicado.png)
 
-
 ![Escreve](escreve.png)
 
 Representamos as associações por meio de linhas retas que ligam as
@@ -33,14 +21,13 @@ classes envolvidas.
 A forma mais comum de implementar associação é ter um objeto como
 atributo de outro.
 
-![](publicado2.png)
+![_](publicado2.png)
 
 Neste caso, o livro possui um atributo editora que pertence a classe Editora.
 
-![](escreve2.png)
+![_](escreve2.png)
 
 Neste caso, o livro possui um atributo autor da classe Pessoa.
-
 
 ## Caracterı́sticas das Associações
 

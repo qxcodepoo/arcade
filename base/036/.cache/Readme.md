@@ -1,18 +1,17 @@
-## @036 Relógio
+# @036 Relógio
 
-Utilizando os comandos set para manter a hora correta
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/036/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/cover.jpg)
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
-
-***
-
 ## Intro
+
+Utilizando os comandos set para manter a hora correta
 
 O sistema deverá:
 
@@ -35,9 +34,9 @@ O sistema deverá:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/036/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/036/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Time {
   - hour   : int
   - minute : int
@@ -93,7 +92,7 @@ class Legenda {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

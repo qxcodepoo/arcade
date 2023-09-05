@@ -1,13 +1,11 @@
 # ContatoStar & Agenda 4 (herança)
 
-![cover](cover.jpg)
+<!-- toch -->
+[Requisitos](#requisitos) | [Shell](#shell) | [Diagrama UML](#diagrama-uml) | [Esqueleto](#esqueleto)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Requisitos](#requisitos)
-- [Shell](#shell)
-- [Diagrama UML](#diagrama-uml)
-- [Esqueleto](#esqueleto)
-<!-- toc -->
+![cover](cover.jpg)
 
 Vamos reescrever a atividade dos Favoritos utilizando Herança.
 

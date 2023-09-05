@@ -1,16 +1,13 @@
-## @039 Estressados D: Controles
+# @039 Estressados D: Controles
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/039/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/039/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-  - [pares](#pares)
-  - [proximidade](#proximidade)
-  - [duplo for](#duplo-for)
-  - [remoções](#remoções)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 ***
 

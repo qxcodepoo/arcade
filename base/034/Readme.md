@@ -1,14 +1,11 @@
 # Carga
 
-![cover](cover.jpg)
+<!-- toch -->
+[Funcionalidades](#funcionalidades) | [Raio X](#raio-x)
+-- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Funcionalidades](#funcionalidades)
-  - [Parte 1 - Trem e Vagões](#parte-1---trem-e-vagões)
-  - [Parte 2 - Embarque e Desembarque](#parte-2---embarque-e-desembarque)
-  - [Parte 3 - Cadastro de Passeiros e Registro de Embarque](#parte-3---cadastro-de-passeiros-e-registro-de-embarque)
-- [Raio X](#raio-x)
-<!-- toc -->
+![cover](cover.jpg)
 
 Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagagens.
 

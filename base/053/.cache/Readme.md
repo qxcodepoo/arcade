@@ -1,17 +1,15 @@
-## @053 Bilheteria II
+# @053 Bilheteria II
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/053/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/cover.jpg)
 
-<<<<<<< HEAD
-<!-- toc -->
-- [Diagrama de classes](#diagrama-de-classes)
-- [Draft](#draft)
-- [Descrição dos métodos](#descrição-dos-métodos)
-- [Shell](#shell)
-<!-- toc -->
-=======
-[](toc)
->>>>>>> d1c0e1399c5a1faf92677ff9b0ebd40ab631dccd
+## Intro
 
 Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI.
 
@@ -23,19 +21,17 @@ A classe Bilheteria é o repositório de Vendas, Clientes e Eventos.
 
 O Evento atua como repositório de Setores.
 
-## Diagrama de classes
+## Draft
+
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/053/.cache/draft.ts)
+
+## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/053/diagrama.png)
 
-## Draft
+<!-- load diagrama.puml fenced=ts:filter -->
 
-- Main em typescript: [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/053/.cache/draft.ts)
-
-## Descrição dos métodos
-
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/053/diagrama.puml)[](fenced:puml:filter)
-
-```puml
+```ts
 
 class Pessoa {
   - nome: string
@@ -137,7 +133,7 @@ class Bilheteria {
 
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

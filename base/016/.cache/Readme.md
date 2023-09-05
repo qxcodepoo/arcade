@@ -1,33 +1,33 @@
-## @016 Favoritos & Agenda 3: cache e redundância
+# @016 Favoritos & Agenda 3: cache e redundância
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/016/Readme.md)
+
+<!-- toch -->
+[Requisitos Novos](#requisitos-novos) | [Shell](#shell) | [Diagrama UML](#diagrama-uml) | [Esqueleto](#esqueleto)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/cover.jpg)
 
-<!-- toc -->
-- [Requisitos Novos](#requisitos-novos)
-- [Shell](#shell)
-- [Diagrama UML](#diagrama-uml)
-- [Esqueleto](#esqueleto)
-<!-- toc -->
-
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
-
 
 ## Requisitos Novos
 
 O sistema deverá:
+
 - Partida
-    - Você deve utilizar o código construído na atividade busca.
-    - Você deverá modificar o contato e a classe agenda para permitir a operação de favoritar contatos.
-    - Para isso, o contato ganhará um atributo "star" que marca se ele está favoritado.
-    - A agenda ganhará os métodos star e getStarred para favoritar e pegar os favoritos.
+  - Você deve utilizar o código construído na atividade busca.
+  - Você deverá modificar o contato e a classe agenda para permitir a operação de favoritar contatos.
+  - Para isso, o contato ganhará um atributo "star" que marca se ele está favoritado.
+  - A agenda ganhará os métodos star e getStarred para favoritar e pegar os favoritos.
 - Mostrando
-    - Ordenar os contatos pelo idContato.
-    - Se o contato não for favorito (starred) use - antes do idContato.
-    - Marque os contatos que são favoritados com um @ antes do idContato. 
+  - Ordenar os contatos pelo idContato.
+  - Se o contato não for favorito (starred) use - antes do idContato.
+  - Marque os contatos que são favoritados com um @ antes do idContato.
 - Favoritando
-    - Favoritar contatos. (star)
-    - Desfavoritar contatos. (unstar)
-    - Mostrar apenas os favoritos. (starred)
+  - Favoritar contatos. (star)
+  - Desfavoritar contatos. (unstar)
+  - Mostrar apenas os favoritos. (starred)
 
 ## Shell
 

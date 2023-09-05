@@ -1,14 +1,13 @@
-## @026 Whatsapp
+# @026 Whatsapp
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/026/Readme.md)
+
+<!-- toch -->
+[Módulos](#módulos) | [Shell](#shell) | [Guia de Resolução](#guia-de-resolução) | [Main não interativa](#main-não-interativa) | [Créditos](#créditos)
+-- | -- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/026/cover.jpg)
-
-<!-- toc -->
-- [Módulos](#módulos)
-- [Shell](#shell)
-- [Guia de Resolução](#guia-de-resolução)
-- [Main não interativa](#main-não-interativa)
-- [Créditos](#créditos)
-<!-- toc -->
 
 ## Módulos
 

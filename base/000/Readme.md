@@ -1,16 +1,17 @@
 # Estressados A: Busca
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 ***
 
 ## Intro
+
+### Abcd Ef
 
 - Na entrada de um evento de um experimento social, os participantes ganhavam uma pulseira especial que precisavam ficar utilizando.
 - A pulseira informava, num pequeno visor, um número inteiro que representava o nível de stress daquele participante.
@@ -34,13 +35,11 @@
 
 ***
 
-## Guide
+## Draft
 
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
 - [Solver.java](.cache/draft.java)
-
-***
 
 ## Shell
 

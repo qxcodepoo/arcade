@@ -1,12 +1,13 @@
-## @047 Shapes
+# @047 Shapes
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/047/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 - Faça um programa para gerenciar figuras geométricas.
 - Deve ser possível conseguir obter a área e o perímetro de cada figura.
@@ -24,9 +25,9 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/047/diagrama.puml)[](fenced:filter:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 
 class Point2D {
     + x: double
@@ -112,7 +113,7 @@ class Rectangle {
 
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

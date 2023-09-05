@@ -1,13 +1,13 @@
-## @029 Anotações
+# @029 Anotações
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/029/Readme.md)
+
+<!-- toch -->
+[Funcionalidades](#funcionalidades) | [Shell](#shell) | [Diagrama](#diagrama) | [Ajuda](#ajuda)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/cover.jpg)
-
-<!-- toc -->
-- [Funcionalidades](#funcionalidades)
-- [Shell](#shell)
-- [Diagrama](#diagrama)
-- [Ajuda](#ajuda)
-<!-- toc -->
 
 O objetivo dessa atividade é criar um pequeno serviço de anotações. O sistema terá vários usuários que vão logar utilizando login e senha. Cada usuário pode armazenar notas de texto contendo título e texto.
 

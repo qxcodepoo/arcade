@@ -1,12 +1,13 @@
-## @020 Lapiseira
+# @020 Lapiseira
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/020/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 Faça o modelo de uma lapiseira que pode conter vários.
 
@@ -41,17 +42,19 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/020/.cache/draft.java)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/020/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/020/.cache/draft.ts)
 
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/020/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/020/diagrama.puml)[](fenced:filter:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 ' Grafite
 class Lead {
     
@@ -136,7 +139,7 @@ class Pencil {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

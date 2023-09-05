@@ -1,11 +1,11 @@
 # Grupos
 
-![cover](cover.jpg)
+<!-- toch -->
+[Guia de Atividade](#guia-de-atividade) | [Créditos](#créditos)
+-- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Guia de Atividade](#guia-de-atividade)
-- [Créditos](#créditos)
-<!-- toc -->
+![cover](cover.jpg)
 
 - Usuários podem ser adicionados ao sistema e devem ter id único.
 - Os usuários podem criar grupos e convidar outros usuários do sistema.

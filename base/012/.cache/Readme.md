@@ -1,14 +1,13 @@
-## @012 Topic
+# @012 Topic
 
-[](solver.cpp)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/012/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com algumas variações. Aqui, vamos implementar um sistema de alocação de passageiros em uma topic. Nossa topic tem uma quantidade máxima de passageiros, mas também define alguns assentos preferenciais.
 
@@ -42,16 +41,18 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ***
 
-## Guide
+## Draft
 
 -[Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.java)
 -[solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.cpp)
 
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/012/diagrama.puml)[](fenced:filter:plantuml)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Pass {
   - age  : int
   - name : string
@@ -109,7 +110,7 @@ class Topic {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

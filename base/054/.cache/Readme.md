@@ -1,16 +1,13 @@
-## @054 Animal
+# @054 Animal
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/054/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)
+-- | -- | -- | --
+<!-- toch -->
 
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Shell](#shell)
-- [Guide](#guide)
-  - [Diagrama](#diagrama)
-  - [O que é o Shell](#o-que-é-o-shell)
-  - [Como fazer a leitura dos dados](#como-fazer-a-leitura-dos-dados)
-  - [Rascunhos](#rascunhos)
-<!-- toc -->
 
 O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
 
@@ -184,7 +181,7 @@ function main() {
 }
 ```
 
-### Rascunhos
+## Draft
 
 Para padronizar, em cada linguagem são criadas algumas funções auxiliares para simplificar a criação da main. Você pode utilizar essas resoluções como modelos para fazer as funções `main` dos outros projetos.
 

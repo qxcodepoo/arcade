@@ -1,4 +1,6 @@
-## @052 Pesquisa sobre alocação de memória
+# @052 Pesquisa sobre alocação de memória
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/052/Readme.md)
 
 Escolha duas linguagens além da sua linguagem de estudo e tente comparar como funciona o processo de alocação e desalocação de memória.
 

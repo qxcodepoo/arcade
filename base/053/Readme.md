@@ -1,17 +1,13 @@
 # Bilheteria II
 
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
+
 ![cover](cover.jpg)
 
-<<<<<<< HEAD
-<!-- toc -->
-- [Diagrama de classes](#diagrama-de-classes)
-- [Draft](#draft)
-- [Descrição dos métodos](#descrição-dos-métodos)
-- [Shell](#shell)
-<!-- toc -->
-=======
-[](toc)
->>>>>>> d1c0e1399c5a1faf92677ff9b0ebd40ab631dccd
+## Intro
 
 Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI.
 
@@ -23,19 +19,17 @@ A classe Bilheteria é o repositório de Vendas, Clientes e Eventos.
 
 O Evento atua como repositório de Setores.
 
-## Diagrama de classes
+## Draft
+
+- [draft.ts](.cache/draft.ts)
+
+## Guide
 
 ![diagrama](diagrama.png)
 
-## Draft
+<!-- load diagrama.puml fenced=ts:filter -->
 
-- Main em typescript: [draft.ts](.cache/draft.ts)
-
-## Descrição dos métodos
-
-[](load)[](diagrama.puml)[](fenced:puml:filter)
-
-```puml
+```ts
 
 class Pessoa {
   - nome: string
@@ -137,7 +131,7 @@ class Bilheteria {
 
 ```
 
-[](load)
+<!-- load -->
 
 ## Shell
 

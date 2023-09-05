@@ -1,12 +1,13 @@
-## @007 Tarifas
+# @007 Tarifas
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/007/Readme.md)
+
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/cover.jpg)
-
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
 
 O objetivo dessa atividade é implementar uma classe responsável por gerenciar a account bancária de um único cliente. Faremos operações de withdraw, depósito e extrato.
 
@@ -36,9 +37,9 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/007/diagrama.png)
 
-[](load)[](https://github.com/qxcodepoo/arcade/blob/master/base/007/diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Account {
   - balanceManager : BalanceManager
   - id : int
@@ -122,7 +123,7 @@ class Operation {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

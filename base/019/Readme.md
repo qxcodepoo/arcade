@@ -1,17 +1,16 @@
 # Ligações - Agenda 4
 
+<!-- toch -->
+[Requisitos Novos](#requisitos-novos) | [Shell](#shell) | [Diagrama de Classes](#diagrama-de-classes)
+-- | -- | --
+<!-- toch -->
+
 ![cover](cover.jpg)
 
 - TODO
 - solver
 - raiox
 - diagrama
-
-<!-- toc -->
-- [Requisitos Novos](#requisitos-novos)
-- [Shell](#shell)
-- [Diagrama de Classes](#diagrama-de-classes)
-<!-- toc -->
 
 _Você digita o número de Maria no celular e aparece que você está ligando pra João. Hum, alguma coisa errada não está certa._
 

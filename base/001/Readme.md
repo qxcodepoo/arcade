@@ -1,12 +1,11 @@
 # Calculadora
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma, multiplicação e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
@@ -22,17 +21,19 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp )
 - [solver.ts](.cache/draft.ts  )
 
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 class Calculator {
 
   ' a bateria atual
@@ -85,7 +86,7 @@ class Legenda {
 
 ```
 
-[](load)
+<!-- load -->
 
 ***
 
@@ -122,7 +123,7 @@ $charge 3
 $show
 display = 0.00, battery = 4
 $end
-```	
+```
 
 ```bash
 #__case somando
@@ -150,6 +151,7 @@ $show
 display = -6.00, battery = 0
 $end
 ```
+
 ```bash
 #__case dividindo
 $init 3

@@ -2,11 +2,10 @@
 
 ![cover](cover.jpg)
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+<!-- toch -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
+<!-- toch -->
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
@@ -38,17 +37,19 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ***
 
-## Guide
+## Draft
 
 - [Solver.java](.cache/draft.java)
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)
 
+## Guide
+
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 ' Grafite
 class Lead {
     ' calibre do grafite
@@ -127,7 +128,7 @@ class Pencil {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 

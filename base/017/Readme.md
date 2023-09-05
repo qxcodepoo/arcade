@@ -1,12 +1,11 @@
 # Porquinho
 
-![cover](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
 
-<!-- toc -->
-- [Intro](#intro)
-- [Guide](#guide)
-- [Shell](#shell)
-<!-- toc -->
+![cover](cover.jpg)
 
 ## Intro
 
@@ -30,9 +29,9 @@ O sistema deverá:
 
 ![diagrama](diagrama.png)
 
-[](load)[](diagrama.puml)[](plantuml:fenced:filter)
+<!-- load diagrama.puml fenced=ts:filter -->
 
-```plantuml
+```ts
 
 class Coin {
   - value  : double
@@ -120,7 +119,7 @@ class Pig {
 }
 ```
 
-[](load)
+<!-- load -->
 
 ***
 
