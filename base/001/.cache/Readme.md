@@ -127,6 +127,8 @@ display = 0.00, battery = 4
 $end
 ```
 
+***
+
 ```bash
 #__case somando
 $init 2
@@ -154,6 +156,8 @@ display = -6.00, battery = 0
 $end
 ```
 
+***
+
 ```bash
 #__case dividindo
 $init 3
@@ -175,6 +179,3 @@ $show
 display = 3.50, battery = 0
 $end
 ```
-
-
-

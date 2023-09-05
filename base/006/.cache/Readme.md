@@ -160,6 +160,8 @@ E:10/10, S:20/20, L:50/50, D:0, I:0
 $end
 ```
 
+***
+
 ```bash
 #__case play - Brincar 
 # O comando "$play" altera em -2 energia, -1 saciedade, -3 limpeza, +1 diamante, +1 idade.
@@ -218,6 +220,8 @@ fail: pet esta morto
 $end
 ```
 
+***
+
 ```bash
 #__case fraqueza
 $init 5 10 10
@@ -232,6 +236,8 @@ $show
 E:0/5, S:7/10, L:1/10, D:3, I:3
 $end
 ```
+
+***
 
 ```bash
 #__case fome

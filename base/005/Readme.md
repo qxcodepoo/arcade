@@ -35,6 +35,8 @@ $show
 $end
 ```
 
+***
+
 ```bash
 #__case inicio
 # O comando "$get ind" mostra o valor do vetor na posicao `ind`
@@ -52,6 +54,8 @@ $show
 $end
 ```
 
+***
+
 ```bash
 #__case rshow
 # O comando "$rshow" mostra os valores da estrutura do último para o primeiro.
@@ -65,6 +69,8 @@ $rshow
 [ 5 3 2 1 ]
 $end
 ```
+
+***
 
 ```bash
 #__case add_mais_elementos
@@ -111,6 +117,8 @@ $show
 $end
 ```
 
+***
+
 ```bash
 #__case remover_por_indice
 # o comando "$rmi ind" remove o elemento dado o índice. 
@@ -136,6 +144,8 @@ $show
 [ 5 6 1 2 ]
 $end
 ```
+
+***
 
 ```bash
 #__case remove_all

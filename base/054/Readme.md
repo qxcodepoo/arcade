@@ -45,6 +45,8 @@ galinha:0:cocorico
 $end
 ```
 
+***
+
 ```bash
 # O comando grow _valor envelhece o animal em _valor etapas
 #__case envelhecendo
@@ -71,6 +73,8 @@ vaca:4:muu
 $end
 ```
 
+***
+
 ```bash
 # O comando noise faz o animal fazer barulho, se ele estiver vivo e não for bebe
 #__case fazer barulho
@@ -90,6 +94,8 @@ RIP
 
 $end
 ```
+
+***
 
 ```bash
 #__case extra

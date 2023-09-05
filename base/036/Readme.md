@@ -146,6 +146,8 @@ $show
 $end
 ```
 
+***
+
 ```bash
 #__case set
 $set 23 59 59
@@ -160,6 +162,8 @@ $show
 
 $end
 ```
+
+***
 
 ```bash
 #__case init

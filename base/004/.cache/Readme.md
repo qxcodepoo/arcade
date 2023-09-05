@@ -151,6 +151,8 @@ calibre: 0.5, grafite: [0.5:2B:50]
 $end
 ```
 
+***
+
 ```bash
 #__case inserindo
 $init 0.3
@@ -176,6 +178,8 @@ calibre: 0.3, grafite: [0.3:4B:70]
 $end
 ```
 
+***
+
 ```bash
 #__case sem grafite
 $init 0.9
@@ -191,6 +195,8 @@ $show
 calibre: 0.9, grafite: [0.9:4B:10]
 $end
 ```
+
+***
 
 ```bash
 #__case escrevendo 2

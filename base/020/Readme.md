@@ -173,6 +173,8 @@ calibre: 0.5, bico: [], tambor: {[0.5:2B:30]}
 $end
 ```
 
+***
+
 ```bash
 #__case escrevendo 
 $init 0.9

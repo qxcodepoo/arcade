@@ -2,10 +2,21 @@
 
 ![toc](https://user-images.githubusercontent.com/4747652/263064329-3004bb4d-32fa-4a51-840e-5204870c2738.png)
 
-<!-- toch -->
-[00. Configuração de ambiente](#00-configuração-de-ambiente) | [00. Conteúdo extra](#00-conteúdo-extra) | [01. Lógica](#01-lógica) | [02. Entendendo Classes, a Main e os Testes](#02-entendendo-classes-a-main-e-os-testes) | [02. Modificadores de Acesso](#02-modificadores-de-acesso) | [03. Agregação Simples](#03-agregação-simples) | [04. ArrayList I - Listas](#04-arraylist-i---listas) | [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null) | [06. ArrayList III - Composição e Enum](#06-arraylist-iii---composição-e-enum) | [07. Mapas && Exceções](#07-mapas--exceções) | [08. Herança I](#08-herança-i) | [09. Mapas && Exceções II](#09-mapas--exceções-ii) | [10. Referências Cruzadas](#10-referências-cruzadas)
--- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --
-<!-- toch -->
+<!-- toc -->
+- [00. Configuração de ambiente](#00-configuração-de-ambiente)
+- [00. Conteúdo extra](#00-conteúdo-extra)
+- [01. Lógica](#01-lógica)
+- [02. Entendendo Classes, a Main e os Testes](#02-entendendo-classes-a-main-e-os-testes)
+- [02. Modificadores de Acesso](#02-modificadores-de-acesso)
+- [03. Agregação Simples](#03-agregação-simples)
+- [04. ArrayList I - Listas](#04-arraylist-i---listas)
+- [05. ArrayList II - Arrays de Null](#05-arraylist-ii---arrays-de-null)
+- [06. ArrayList III - Composição e Enum](#06-arraylist-iii---composição-e-enum)
+- [07. Mapas && Exceções](#07-mapas--exceções)
+- [08. Herança I](#08-herança-i)
+- [09. Mapas && Exceções II](#09-mapas--exceções-ii)
+- [10. Referências Cruzadas](#10-referências-cruzadas)
+<!-- toc -->
 
 ---
 

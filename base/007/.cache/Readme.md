@@ -222,6 +222,8 @@ $extract 2
 $end
 ```
 
+***
+
 ```bash
 #__case fee
 $init 107

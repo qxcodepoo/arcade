@@ -123,6 +123,8 @@ $show
 $end
 ```
 
+***
+
 ```bash
 #__case 2
 $show

@@ -148,6 +148,8 @@ pass: 0, gas: 0, km: 0
 $end
 ```
 
+***
+
 ```bash
 #__case abastecer
 $fuel 60
