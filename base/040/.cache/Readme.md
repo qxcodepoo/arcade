@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/040/Readme.md)
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
@@ -20,7 +20,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 - **more_men_or_women**: existem mais homens ou mulheres? [draw, men, women]
 - **sex_battle**: quem é mais estressado em média? [draw, men, women]
 
-## Guide
+## Draft
 
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/040/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/040/.cache/draft.ts)

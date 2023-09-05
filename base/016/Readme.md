@@ -1,7 +1,7 @@
 # Favoritos & Agenda 3: cache e redundância
 
 <!-- toch -->
-[Requisitos Novos](#requisitos-novos) | [Shell](#shell) | [Diagrama UML](#diagrama-uml) | [Esqueleto](#esqueleto)
+[Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -9,7 +9,7 @@
 
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
 
-## Requisitos Novos
+## Intro
 
 O sistema deverá:
 
@@ -93,7 +93,8 @@ $end
 
 ***
 
-## Diagrama UML
+## Guide
+
 ![diagrama](diagrama.png)
 
 ## Esqueleto

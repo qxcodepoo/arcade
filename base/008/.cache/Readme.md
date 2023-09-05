@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/008/Readme.md)
 
 <!-- toch -->
-[Explicação](#explicação) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Fim da história](#fim-da-história)
+[Video](#video) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
 -- | -- | -- | -- | -- | --
 <!-- toch -->
 
@@ -17,7 +17,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ***
 
-## Explicação
+## Video
 
 [![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/008/play.png)](https://youtu.be/5pnagWZvjBE)
 
@@ -197,7 +197,7 @@ $show
 $end
 ```
 
-## Fim da história
+## Credits
 
 - Então assim ficou Ptolomeu, depois de ir para a prisão e ver sua fortuna confiscada.
 - Se foi presídio, zoológico ou hospital psiquiátrico, ninguém comenta, só sabemos que ele nunca mais foi visto. Pelo menos não em Moneyville.

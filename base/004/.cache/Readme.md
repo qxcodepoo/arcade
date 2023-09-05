@@ -2,12 +2,12 @@
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/004/Readme.md)
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/cover.jpg)
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
+
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/004/cover.jpg)
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 

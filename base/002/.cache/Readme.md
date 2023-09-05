@@ -2,12 +2,12 @@
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/002/Readme.md)
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/cover.jpg)
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
+
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/cover.jpg)
 
 Nessa atividade vamos implementar um carro ecológico. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 

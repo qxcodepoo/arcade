@@ -1,7 +1,7 @@
 # Estressados B: Contagem
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
@@ -18,7 +18,7 @@
 - **more_men_or_women**: existem mais homens ou mulheres? [draw, men, women]
 - **sex_battle**: quem é mais estressado em média? [draw, men, women]
 
-## Guide
+## Draft
 
 - [solver.cpp](.cache/draft.cpp)
 - [solver.ts](.cache/draft.ts)

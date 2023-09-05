@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/039/Readme.md)
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
@@ -35,7 +35,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 ***
 
-## Guide
+## Draft
 
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/039/.cache/draft.cpp)
 - [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/039/.cache/draft.java)

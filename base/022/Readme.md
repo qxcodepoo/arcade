@@ -1,7 +1,7 @@
 # Hospital
 
 <!-- toch -->
-[Intro](#intro) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
+[Intro](#intro) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | --
 <!-- toch -->
 
@@ -59,8 +59,7 @@ $end
 
 ***
 
-## Diagrama de Classes
-
+## Guide
 ![diagrama](diagrama.png)
 
 ***

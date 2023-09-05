@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/021/Readme.md)
 
 <!-- toch -->
-[Funcionalidades](#funcionalidades) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
@@ -11,7 +11,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos matricular e remover alunos das disciplinas. Aqui, cada aluno sabe quais as disciplinas em que está matriculado e a disciplina sabe os alunos que ela contém.
 
-## Funcionalidades
+## Intro
 
 - **Repositórios Individuais**
   - Adicionar aluno passando id do aluno.

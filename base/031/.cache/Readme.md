@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/031/Readme.md)
 
 <!-- toch -->
-[Requisitos Parte 1](#requisitos-parte-1) | [Raio X](#raio-x)
+[Intro](#intro) | [Draft](#draft)
 -- | --
 <!-- toch -->
 
@@ -15,7 +15,7 @@ Você deve desenvolver o sistema de uma clínica veterinária que deve ser capaz
 
 ***
 
-## Requisitos Parte 1
+## Intro
 
 - Cadastrar clientes pelo idCliente
     - Id de cliente deve ser único entre os clientes
@@ -111,7 +111,7 @@ saldo
 
 ***
 
-## Raio X
+## Draft
 
 ````java
 class Animal

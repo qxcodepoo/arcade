@@ -1,7 +1,7 @@
 # ContatoStar & Agenda 4 (herança)
 
 <!-- toch -->
-[Requisitos](#requisitos) | [Shell](#shell) | [Diagrama UML](#diagrama-uml) | [Esqueleto](#esqueleto)
+[Intro](#intro) | [Shell](#shell) | [Gride](#gride) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -9,13 +9,13 @@
 
 Vamos reescrever a atividade dos Favoritos utilizando Herança.
 
-## Requisitos
+## Intro
 
 - Os mesmos do projeto Favoritos original.
 - Partida
-    - Você deve partir do código do projeto Busca e NÃO DEVE MODIFICAR em nada as classes originais.
-    - Você deve criar uma classe ContatoStar que herda de contato e adiciona a ação de favoritar.
-    - Você deve criar uma classe AgendaStar que herda de agenda e adiciona a ação de favoritar e pegar favoritos.
+  - Você deve partir do código do projeto Busca e NÃO DEVE MODIFICAR em nada as classes originais.
+  - Você deve criar uma classe ContatoStar que herda de contato e adiciona a ação de favoritar.
+  - Você deve criar uma classe AgendaStar que herda de agenda e adiciona a ação de favoritar e pegar favoritos.
 - Sua AgendaStar deve ser capaz de manipular tanto contatos normais quanto ContactStar, mas só deve ser capaz de favoritar ContactStar
 
 ## Shell
@@ -84,14 +84,14 @@ $show
 $end
 ```
 
-
 ***
 
-## Diagrama UML
+## Gride
+
 ![diagrama](diagrama.png)
 
+## Draft
 
-## Esqueleto
 <!--FILTER Solver.java java-->
 ```java
 class Fone {

@@ -1,7 +1,7 @@
 # Carga
 
 <!-- toch -->
-[Funcionalidades](#funcionalidades) | [Raio X](#raio-x)
+[Intro](#intro) | [Guide](#guide)
 -- | --
 <!-- toch -->
 
@@ -9,7 +9,7 @@
 
 Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagagens.
 
-## Funcionalidades
+## Intro
 
 ### Parte 1 - Trem e Vagões
 
@@ -124,7 +124,7 @@ movimentacao
 
 ***
 
-## Raio X
+## Guide
 
 ```java
 

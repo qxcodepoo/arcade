@@ -1,11 +1,11 @@
 # Grafite
 
-![cover](cover.jpg)
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
+
+![cover](cover.jpg)
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 

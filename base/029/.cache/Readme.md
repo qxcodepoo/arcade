@@ -3,15 +3,15 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/029/Readme.md)
 
 <!-- toch -->
-[Funcionalidades](#funcionalidades) | [Shell](#shell) | [Diagrama](#diagrama) | [Ajuda](#ajuda)
--- | -- | -- | --
+[Intro](#intro) | [Shell](#shell) | [Guide](#guide)
+-- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/cover.jpg)
 
 O objetivo dessa atividade é criar um pequeno serviço de anotações. O sistema terá vários usuários que vão logar utilizando login e senha. Cada usuário pode armazenar notas de texto contendo título e texto.
 
-## Funcionalidades
+## Intro
 
 - Criar usuário passando username e password.
     - Usernames devem ser únicos no sistema.
@@ -91,11 +91,9 @@ $end
 
 ```
 
-## Diagrama
+## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/029/diagrama.png)
-
-## Ajuda
 
 - O objetivo é dividir as responsabilidades entre o Sistema e o Gerenciador de Login.
 - Ambos compartilham a mesma estrutura de dados que contém os usuários `users: map<string, User>`.

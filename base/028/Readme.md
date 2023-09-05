@@ -1,17 +1,19 @@
 # Bilheteria I
 
 <!-- toch -->
-[Diagrama de classes](#diagrama-de-classes) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
+
+## Intro
 
 Fazer vendas usando papel e caneta é coisa do passado. Você foi contratado para modernizar a bilheteria do seu bairro e trazer ela pro século XXI.
 
 Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de shows.
 
-## Diagrama de classes
+## Guide
 
 ![diagrama](diagrama.png)
 

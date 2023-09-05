@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/022/Readme.md)
 
 <!-- toch -->
-[Intro](#intro) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
+[Intro](#intro) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | --
 <!-- toch -->
 
@@ -61,8 +61,7 @@ $end
 
 ***
 
-## Diagrama de Classes
-
+## Guide
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/022/diagrama.png)
 
 ***

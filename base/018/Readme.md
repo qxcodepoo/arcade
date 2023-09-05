@@ -1,13 +1,13 @@
 # Hospital II
 
 <!-- toch -->
-[Requisitos](#requisitos) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
+[Intro](#intro) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
-## Requisitos
+## Intro
 
 Você vai alterar a implementação do Hospital I para habilitar o envio de mensagens entre médicos e pacientes.
 

@@ -1,7 +1,7 @@
 # Twitter
 
 <!-- toch -->
-[Vídeo com a explicação do projeto](#vídeo-com-a-explicação-do-projeto) | [Módulos](#módulos) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+[Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
 <!-- toch -->
 
@@ -11,13 +11,13 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ***
 
-## Vídeo com a explicação do projeto
+## Vídeo
 
 [![_](player.png)](https://www.youtube.com/watch?v=75-YyuNrOsc)
 
 ***
 
-## Módulos
+## Intro
 
 - cadastrar
   - Adicionar usuário passando username.

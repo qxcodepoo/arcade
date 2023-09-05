@@ -1,7 +1,7 @@
 # Cadastro
 
 <!-- toch -->
-[Vídeo explicativo](#vídeo-explicativo) | [Requisitos](#requisitos) | [Guide](#guide) | [Shell](#shell)
+[Vídeo](#vídeo) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -9,11 +9,11 @@
 
 O objetivo dessa atividade é implementar uma agência bancária simplificada. Deve ser capaz de cadastrar cliente. Cada cliente inicia com uma conta poupança e uma conta corrente. Contas correntes tem taxa de administração e contas poupanças rendem juros.
 
-## Vídeo explicativo
+## Vídeo
 
 [![_](video.png)](https://youtu.be/AfJ--C8ZqPY)
 
-## Requisitos
+## Intro
 
 - Cadastrar um cliente com idCliente único
   - Quando o cliente é cadastrado no sistema, automaticamente é aberta uma conta corrente e uma conta poupança para ele.
@@ -161,7 +161,6 @@ class Agency {
 
 <!-- load -->
 
-
 ## Shell
 
 ```bash
@@ -265,4 +264,3 @@ $end
 ```
 
 ***
-

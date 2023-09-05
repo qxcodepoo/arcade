@@ -1,11 +1,11 @@
 # Carro
 
-![cover](cover.jpg)
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
+
+![cover](cover.jpg)
 
 Nessa atividade vamos implementar um carro ecológico. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 

@@ -1,7 +1,7 @@
 # Trem
 
 <!-- toch -->
-[Funcionalidades](#funcionalidades) | [Exemplos](#exemplos) | [Raio X](#raio-x)
+[Intro](#intro) | [Exemplos](#exemplos) | [Guide](#guide)
 -- | -- | --
 <!-- toch -->
 
@@ -9,7 +9,7 @@
 
 O objetivo desta atividade é imprementar um sistema que aloca passageiros em vagões de um trem. O trem é formado por uma série de vagões. É possível embarcar, desembarcar passageiros, ver quem está embarcado e a lista de passageiros que já passaram pelo nosso trem.
 
-## Funcionalidades
+## Intro
 
 ### Parte 1 - Trem e Vagões
 
@@ -120,7 +120,7 @@ $end
 
 ***
 
-## Raio X
+## Guide
 
 ```java
 class Passageiro

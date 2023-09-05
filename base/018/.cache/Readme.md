@@ -3,13 +3,13 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/018/Readme.md)
 
 <!-- toch -->
-[Requisitos](#requisitos) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
+[Intro](#intro) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/cover.jpg)
 
-## Requisitos
+## Intro
 
 Você vai alterar a implementação do Hospital I para habilitar o envio de mensagens entre médicos e pacientes.
 

@@ -3,8 +3,8 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/035/Readme.md)
 
 <!-- toch -->
-[Requisitos](#requisitos) | [Regras de negócio](#regras-de-negócio) | [Diagrama](#diagrama) | [Main não interativa](#main-não-interativa)
--- | -- | -- | --
+[Intro](#intro) | [Shell](#shell) | [Guide](#guide)
+-- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/cover.jpg)
@@ -12,18 +12,15 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 Você foi contratado por uma clínica veterinária para implementar um sistema que vai administrar os hóspedes.
 Na clínica em que você trabalha os veterinários querem um sistema que tem como objetivo diminuir a saudade dos donos enquanto seus queridos pets estão hospedados na sua clínica.
 A grande sacada da gestão da clinica foi mandar áudios, videos ou fotos dos animaizinhos para que os donos possam matar um pouco da saudade dos seus tão amados animaizinhos.
- 
-## Requisitos
- 
+
+## Intro
+
 - Criar o PetShop com X goiolas
 - Cadastrar uma pet pelo nome.
-   - nome do pet é único
-   - o tipo do animal
+  - nome do pet é único
+  - o tipo do animal
 - Mostrar todos os pets
 - gravar um áudio, video ou foto do pet
-  
-## Regras de negócio
- 
 - Cada pet tem seu próprio som e ação
 
 Especie | Som | Ação
@@ -33,7 +30,7 @@ gato | miau | não faz nada
 papagaio | seu nome 2x| balança a cabeça
 preguiça | sem som | não faz nada
 
-
+## Shell
 
 ```sh
 #__case criar o petShop
@@ -73,16 +70,9 @@ $getAllAtitudes
 
 $end
 ```
+
 ***
 
-## Diagrama
+## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/035/diagrama.png)
- 
----
-
-## Main não interativa
-
-```java
-
-```

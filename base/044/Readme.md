@@ -1,9 +1,19 @@
 # Relacionamentos
 
-<!-- toch -->
-[Caracterı́sticas das Associações](#caracterısticas-das-associações) | [Multiplicidades](#multiplicidades) | [Conectividade](#conectividade) | [Navegabilidade](#navegabilidade) | [Papéis](#papéis) | [Associações Reflexivas](#associações-reflexivas) | [Agregação e Composição](#agregação-e-composição) | [Agregação](#agregação) | [Composição](#composição) | [Agregação](#agregação) | [Classes Associativas](#classes-associativas) | [Exercícios](#exercícios)
--- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --
-<!-- toch -->
+<!-- toc -->
+- [Caracterı́sticas das Associações](#caracterısticas-das-associações)
+- [Multiplicidades](#multiplicidades)
+- [Conectividade](#conectividade)
+- [Navegabilidade](#navegabilidade)
+- [Papéis](#papéis)
+- [Associações Reflexivas](#associações-reflexivas)
+- [Agregação e Composição](#agregação-e-composição)
+- [Agregação](#agregação)
+- [Composição](#composição)
+- [Agregação](#agregação)
+- [Classes Associativas](#classes-associativas)
+- [Exercícios](#exercícios)
+<!-- toc -->
 
 Todos os diagramas desse tutorial foram criados com o plantuml. Você pode ver mais em [LINK](https://plantuml.com/class-diagram).
 

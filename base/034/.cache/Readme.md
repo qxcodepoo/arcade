@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/034/Readme.md)
 
 <!-- toch -->
-[Funcionalidades](#funcionalidades) | [Raio X](#raio-x)
+[Intro](#intro) | [Guide](#guide)
 -- | --
 <!-- toch -->
 
@@ -11,7 +11,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagagens.
 
-## Funcionalidades
+## Intro
 
 ### Parte 1 - Trem e Vagões
 
@@ -126,7 +126,7 @@ movimentacao
 
 ***
 
-## Raio X
+## Guide
 
 ```java
 

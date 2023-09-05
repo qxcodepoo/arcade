@@ -1,7 +1,7 @@
 # Estressados D: Controles
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
@@ -33,7 +33,7 @@
 
 ***
 
-## Guide
+## Draft
 
 - [solver.cpp](.cache/draft.cpp)
 - [solver.java](.cache/draft.java)

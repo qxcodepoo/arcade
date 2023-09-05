@@ -1,5 +1,13 @@
 # Como fazer os códigos e relatórios
 
+<!-- toc -->
+- [Como fazer seu código orientado a testes](#como-fazer-seu-código-orientado-a-testes)
+- [Relatório de Código](#relatório-de-código)
+  - [Exemplo 1](#exemplo-1)
+  - [Exemplo 2](#exemplo-2)
+  - [Exemplo 3](#exemplo-3)
+<!-- toc -->
+
 ![_](cover.jpg)
 
 ## Como fazer seu código orientado a testes
@@ -25,7 +33,7 @@ O relatório para ser colocado no início do arquivo principal do código de cad
 - Quanto tempo levou?
   - Juntando estudo e codificação.
 
-## Exemplo 1
+### Exemplo 1
 
 ```cpp
 // 1. Fiz tudo e passou em todos os testes.
@@ -40,7 +48,7 @@ int main() {
 }
 ```
 
-## Exemplo 2
+### Exemplo 2
 
 ```ts
 // 1. Fiz até a parte dos favoritos, e passou nos testes de cadastro e inclusão apenas.
@@ -49,7 +57,7 @@ int main() {
 // 4. Levei 3 horas no meet mais 2 horas sozinho.
 ```
 
-## Exemplo 3
+### Exemplo 3
 
 ```java
 // 1. Fiz tudo, mas em NENHUM teste.

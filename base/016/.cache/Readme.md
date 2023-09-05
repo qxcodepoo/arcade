@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/016/Readme.md)
 
 <!-- toch -->
-[Requisitos Novos](#requisitos-novos) | [Shell](#shell) | [Diagrama UML](#diagrama-uml) | [Esqueleto](#esqueleto)
+[Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -11,7 +11,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
 
-## Requisitos Novos
+## Intro
 
 O sistema deverá:
 
@@ -95,7 +95,8 @@ $end
 
 ***
 
-## Diagrama UML
+## Guide
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/016/diagrama.png)
 
 ## Esqueleto

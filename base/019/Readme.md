@@ -1,7 +1,7 @@
 # Ligações - Agenda 4
 
 <!-- toch -->
-[Requisitos Novos](#requisitos-novos) | [Shell](#shell) | [Diagrama de Classes](#diagrama-de-classes)
+[Intro](#intro) | [Shell](#shell) | [Diagrama de Classes](#diagrama-de-classes)
 -- | -- | --
 <!-- toch -->
 
@@ -16,7 +16,7 @@ _Você digita o número de Maria no celular e aparece que você está ligando pr
 
 Vamos criar o módulo que gerência ligações da nossa agenda telefônica. Ele vai ser capaz de encontrar o número da agenda que corresponde à aquele número, montar nossa lista de contatos mais ligados e histórico de ligações.
 
-## Requisitos Novos
+## Intro
 
 - Contato
   - O contato agora guarda um contato de ligações para registrar quantas vezes foi feita uma ligação para ele.

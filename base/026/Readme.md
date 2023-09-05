@@ -1,53 +1,55 @@
 # Whatsapp
 
 <!-- toch -->
-[Módulos](#módulos) | [Shell](#shell) | [Guia de Resolução](#guia-de-resolução) | [Main não interativa](#main-não-interativa) | [Créditos](#créditos)
+[Intro](#intro) | [Shell](#shell) | [Guia de Resolução](#guia-de-resolução) | [Main não interativa](#main-não-interativa) | [Créditos](#créditos)
 -- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
-## Módulos
+## Intro
 
 - **$add**: adicionanar usuários.
-    - `$add _username_`
-        - Cria um usuário com esse username.
-        - Adiciona o objeto usuário à lista de usuários do sistema.
-    - `$users`
-        - Mostra os usuários cadastrados.
-    - Restrições:
-        - O username deve ser único no sistema.
+  - `$add _username_`
+    - Cria um usuário com esse username.
+    - Adiciona o objeto usuário à lista de usuários do sistema.
+  - `$users`
+    - Mostra os usuários cadastrados.
+  - Restrições:
+    - O username deve ser único no sistema.
 - **$create**: criar grupos de conversação.
-    - `$create _username_ _groupName_`
-        - Cria um grupo com um id inteiro único no sistema.
-        - O grupo criado deve ser armazenado na lista de grupos do sistema.
-        - O grupo criado deve ser adicionado na lista de grupos do usuário.
-        - O usuário deve ser adicionado na lista de usuários do grupo.
-        - O username deve corresponder a um usuário cadastrado.
-    - `$users`: 
-        - Atualize para mostrar:
-        - Todos os usernames e o id e nome dos grupos que ele participa.
-        - Todos os grupos do sistema e os usernames dos usuários que participam dele.
-    - Restrições:
-        - O usuário deve ser um usuário cadastrado.
+  - `$create _username_ _groupName_`
+    - Cria um grupo com um id inteiro único no sistema.
+    - O grupo criado deve ser armazenado na lista de grupos do sistema.
+    - O grupo criado deve ser adicionado na lista de grupos do usuário.
+    - O usuário deve ser adicionado na lista de usuários do grupo.
+    - O username deve corresponder a um usuário cadastrado.
+  - `$users`:
+    - Atualize para mostrar:
+    - Todos os usernames e o id e nome dos grupos que ele participa.
+    - Todos os grupos do sistema e os usernames dos usuários que participam dele.
+  - Restrições:
+    - O usuário deve ser um usuário cadastrado.
 - **$invite**: convidando outros usuários para um grupo que você participa.
-    - `$invite _owner_ _invitee_ _groupId_`
-        - Adicione o grupo na lista de grupos de `_invitee_`
-        - Adicione esse usuário no grupo com esse `_groupId_`
-    - Restrições:
-        - Ambos os usernames devem ser de distintos usuários cadastrados.
-        - O grupo com esse `_groupId_` deve ser um dos grupos do `_owner_`.
+  - `$invite _owner_ _invitee_ _groupId_`
+    - Adicione o grupo na lista de grupos de `_invitee_`
+    - Adicione esse usuário no grupo com esse `_groupId_`
+  - Restrições:
+    - Ambos os usernames devem ser de distintos usuários cadastrados.
+    - O grupo com esse `_groupId_` deve ser um dos grupos do `_owner_`.
 - **$send** : envio de mensagens para o grupo.
-    - `$send _username_ _groupId_ _message_`
-        - A pessoa que manda as mensagens, tem que estar no grupo.
-        - Apenas quem está no grupo, poderá ler as mensagens.
+  - `$send _username_ _groupId_ _message_`
+    - A pessoa que manda as mensagens, tem que estar no grupo.
+    - Apenas quem está no grupo, poderá ler as mensagens.
 - Sair de um chat.
-- Ler as mensagens de um grupo.    
-    - Um usuário pode ser as mensagens do grupo se ele está no grupo.
-    - Ao pedir as mensagens, o usuário receberá as mensagens não lidas que ele tem no grupo.
-    - Ao pedir as mensagens, o usuário não recebe as mensagens que ele mesmo enviou.
+- Ler as mensagens de um grupo.
+  - Um usuário pode ser as mensagens do grupo se ele está no grupo.
+  - Ao pedir as mensagens, o usuário receberá as mensagens não lidas que ele tem no grupo.
+  - Ao pedir as mensagens, o usuário não recebe as mensagens que ele mesmo enviou.
 - Ao pedir a lista de notificações, o usuário vê ao lado de cada grupo se ele possui mensagens não lidas.
+
 ---
+
 ## Shell
 
 ```sh
@@ -154,18 +156,20 @@ $end
 ```
 
 - Opcionais:
-    - Enviar uma mensagem do sistema avisando quando um usuário entra ou sai de um Chat.
+  - Enviar uma mensagem do sistema avisando quando um usuário entra ou sai de um Chat.
 
 ---
 
 ## Guia de Resolução
+
 [GUIA](_guide.md)
 
 ![diagrama](diagrama.png)
- 
+
 ---
 
 ## Main não interativa
+
 ```java
 //case init
 WhatsappService whatsapp = new WhatsappService();
@@ -245,7 +249,9 @@ System.out.println(whatsapp.readMessageUserChat("tina", "guerreiros"));
 //[goku: vamos sair tina?]
 //[goku: to com saudade de voce.]
 ```
+
 ---
+
 ## Créditos
 
 Fica o agradecimento para turma de POO DD 2017.2 que fez nascer essa atividade comigo.
