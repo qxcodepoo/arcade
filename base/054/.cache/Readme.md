@@ -191,6 +191,8 @@ function main() {
 
 Para padronizar, em cada linguagem são criadas algumas funções auxiliares para simplificar a criação da main. Você pode utilizar essas resoluções como modelos para fazer as funções `main` dos outros projetos.
 
+No caso dessa atividade, o draft já está completo para você utilizar como modelo para outras atividades.
+
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.java)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.cpp)
 - [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.ts)

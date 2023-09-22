@@ -7,19 +7,22 @@ class Time {
 
     constructor(hour: number, minute: number, second: number) {
     }
-
     setHour(hour: number): void {
+        if (hour < 0 || hour > 23) {
+            write("fail: hora invalida");
+            return;
+        }
+        this.hour = hour;
+        
     }
-
     setMinute(minute: number): void {
     }
 
     setSecond(second: number): void {
     }
-
     getHour(): number {
+        return this.hour;
     }
-
     getMinute(): number {
     }
 

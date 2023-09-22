@@ -40,6 +40,7 @@ class Lead {
         this.size = size;
     }
 }
+
 class Pencil {
     private thickness: number;
     private tip: Lead | null; //lead da ponta
@@ -72,43 +73,38 @@ class Pencil {
     }
 }
 
-function main() {
-    let chain = new Map();
-    let param: string[] = [];
-    let pencil = new Pencil(0.5);
-
-    chain.set("init",    () => { pencil = new Pencil(+(param[1]))                           });
-    chain.set("insert",  () => { pencil.insert(new Lead(+param[1], param[2], +param[3]))    });
-    chain.set("remove",  () => { pencil.remove()                                            });
-    chain.set("pull",    () => { pencil.pull()                                              });
-    chain.set("write",   () => { pencil.writePage()                                         });
-    chain.set("show",    () => { console.log(pencil.toString())                             });
-
-    evaluate(chain, param);
-}
-
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
-export function evaluate(chain: Map<string, Function>, ui: string[]) {
+
+function main() {
+    let pencil = new Pencil(0.5);
+
     while (true) {
         let line = input();
-        puts("$" + line);
-        ui.splice(0); //apagar tudo
-        line.split(" ").forEach((x: string) => ui.push(x));
+        let args = line.split(" ");
+        write("$" + line);
 
-        let cmd = ui[0];
-        if (cmd == "end") {
-            return;
-        } else if (chain.has(cmd)) {
-            chain.get(cmd)!();
+        if (args[0] == "end") {
+            break;
+        } else if (args[0] == "init") {
+            pencil = new Pencil(+args[1]);
+        } else if (args[0] == "insert") {
+            pencil.insert(new Lead(+args[1], args[2], +args[3]));
+        } else if (args[0] == "remove") {
+            pencil.remove();
+        } else if (args[0] == "pull") {
+            pencil.pull();
+        } else if (args[0] == "write") {
+            pencil.writePage();
+        } else if (args[0] == "show") {
+            console.log(pencil.toString());
         } else {
-            puts("fail: command not found");
+            write("fail: comando invalido");
         }
     }
 }
-
 
 main()

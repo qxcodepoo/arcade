@@ -3,7 +3,7 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/044/Readme.md)
 
 <!-- toc -->
-- [Caracterı́sticas das Associações](#caracterısticas-das-associações)
+- [Características das Associações](#características-das-associações)
 - [Multiplicidades](#multiplicidades)
 - [Conectividade](#conectividade)
 - [Navegabilidade](#navegabilidade)
@@ -41,7 +41,7 @@ Neste caso, o livro possui um atributo editora que pertence a classe Editora.
 
 Neste caso, o livro possui um atributo autor da classe Pessoa.
 
-## Caracterı́sticas das Associações
+## Características das Associações
 
 * Nome
 * Multiplicidade
@@ -57,61 +57,58 @@ relacionadas a uma instância da classe B.
 Cada associação em um diagrama de classes possui duas multiplicidades,
 uma em cada extremo da linha que a representa.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/multiplicidade.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/multiplicidade.png)
 
-
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/publicado3.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/publicado3.png)
 
 Um livro pode ser publicado por 1 ou mais editoras.
 
 Uma editora pode publicar um ou mais livros.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve3.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve3.png)
 
 Uma pessoa escreve 0 ou mais livros.
 
 Um livro pode ser escrito por 1 ou mais pessoas.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente.png)
 
 Um sócio pode ter 0 ou mais dependentes.
 
 Um dependente é dependente de um sócio.
 
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Aeroporto.png)
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Aeroporto.png)
-
-Um aeroporto pode ser origem ou destino de 0 ou mais vôos. Cada vôo parte ou chega em 1 aeroporto. 
+Um aeroporto pode ser origem ou destino de 0 ou mais vôos. Cada vôo parte ou chega em 1 aeroporto.
 
 ## Conectividade
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/conectividade.png)
-
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/conectividade.png)
 
 **Um para Um**
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/gerencia.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/gerencia.png)
 
 Um empregado pode gerenciar no máximo um departamento, e um departamento possui um gerente.
 
 **Um para Muitos**
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente.png)
 
 Um sócio pode ter 0 ou mais dependentes e cada dependente depende de um sócio.
 
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/lotado.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/lotado.png)
 
 Um empregado está lotado em um único departamento, mas um departamento pode ter diversos empregados.
 
 **Muitos para Muitos**
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/publicado3.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/publicado3.png)
 
 Um livro pode ser publicado por várias editoras e uma editora pode editar vários livros.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve3.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve3.png)
 
 
 
@@ -129,20 +126,20 @@ gerar dúvidas.
 navegadas e é simbolizada por setas no diagrama.
 
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/endereco2.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/endereco2.png)
 
 Neste caso, a pessoa sabe seu endereço, mas o endereço não sabe quem vive lá.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente2.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente2.png)
 
 Neste caso, o sócio conhece seus dependentes, mas o dependente não sabe de quem ele depende.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente3.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/dependente3.png)
 
 Neste caso, o sócio conhece seus dependentese  o dependente sabe de quem ele depende.
 
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Association9.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Association9.png)
 
 O cliente conhece seus pedidos. O pedido conhece seus itens. Cada item do pedido conhece o produto comprado.
 
@@ -153,12 +150,12 @@ O cliente conhece seus pedidos. O pedido conhece seus itens. Cada item do pedido
 Quando um objeto participa de uma associação, ele tem um papel
 especı́fico nela.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve4.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/escreve4.png)
 
 O objeto Pessoa assume o papel de autor e o livro de obra.
 
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/contrata.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/contrata.png)
 
 O empregado desempenha o papel de contratado e a Organizacao desempenha o papel de contratante.
 
@@ -170,7 +167,7 @@ Uma associação reflexiva associa objetos da mesma classe.
 Cada objeto tem um papel distinto nessa associação.
 
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Association18.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Association18.png)
 
 Cada supervisionado conhece seu supervisor, mas o supervisor não conhece seus supervisionados.
 
@@ -181,7 +178,7 @@ Uma relação todo-parte entre dois objetos indica que um dos objetos está cont
 
 **Agregação** e **Composição** são dois tipos especiais de associação que relacionam um objeto (o todo) com suas partes.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/todo_parte.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/todo_parte.png)
 
 
 ## Agregação
@@ -190,13 +187,13 @@ A agregação é um caso especial de associação que relaciona um objeto (o tod
 
 A agregação é representada como uma linha de associação com um diamante junto à Classe agregadora.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/departamento.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/departamento.png)
 
 
 
 Na agregação, a destruição de um objeto todo não implica necessariamente a destruição do objeto parte. Por exemplo, na relação acima, a exclusão de um departamento não necessariamente implica a exclusão de todos os professores do departamento.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Association22.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Association22.png)
 
 
 Uma associação esportiva é formada por várias equipes.
@@ -207,7 +204,7 @@ Por outro lado, um jogador pode fazer parte de diversas equipes.
 
 Se uma das equipes das quais o jogador é membro for extinta, este jogador ainda poderá continuar membro de outras equipes.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/socio.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/socio.png)
 
 ```Java
 public class Socio {
@@ -264,7 +261,7 @@ public class Clube {
 A composição é um caso especial de associação que relaciona um objeto (o todo) com suas partes. Porém, em uma composição, a destruição do objeto todo implica a destruição do objeto parte.
 
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/livro.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/livro.png)
 
 A composição é representada como uma linha de associação com um diamante preenchido junto à Classe agregadora.
 
@@ -272,11 +269,11 @@ Read more: http://www.linhadecodigo.com.br/artigo/943/uml-unified-modeling-langu
 
 Na composição, os objetos parte pertencem a um único todo. Por essa razão, a composição é também denominada agregação não compartilhada.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/frame.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/frame.png)
 
 Os objetos das classes Button, TextField, Label, List não tem existência fora do Frame que eles estão conectados. Um Button não pode estar ao mesmo tempo em dois frames.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/pedido.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/pedido.png)
 
 Os itens não têm existência independente do pedido ao qual estão conectados. Quando o pedido deixa de existir, o mesmo acontece com os seus itens.
 
@@ -286,7 +283,7 @@ Por outro lado, em uma agregação, pode ser que um objeto participe como compon
 
 Ou também que o objeto possa existir fora do todo ao qual está agregado. A lapiseira tem grafites, mas esses não são criados por ela e podem existir fora dela.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/lapiseira.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/lapiseira.png)
 
 ## Classes Associativas
 
@@ -297,13 +294,13 @@ São produzidas quando ocorrem associações com multiplicidade muitos
 (*) em todas as extremidades.
 
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/atua.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/atua.png)
 
 Um ator pode atuar em muitos filmes e um filme pode ter vários atores
 atuando nele. Existe a necessidade de saber qual o papel interpretado por
 um ator em um determinado filme, mas onde armazenar essa informação?
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/conserto.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/conserto.png)
 
 Há funcionários com várias especialidades. Consertos em automóveis são realizados por funcionários, mas é necessário saber que especialidade foi utilizada pelo funcionário em certo conserto. Para isso, uma classe associativa é criada entre as classes Funcionário e
 Automóvel. Além disso, essa mesma classe associativa está associada à classe Especialidade para permitir conhecer qual a especialidade utilizada em um conserto.
@@ -312,11 +309,11 @@ Automóvel. Além disso, essa mesma classe associativa está associada à classe
 
 1. Uma Associação entre a lapiseira e o grafite.
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Lapiseira.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/Lapiseira.png)
 
 2. Uma agregação entre uma motoca e uma pessoa
 
-![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/motoca.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/044/motoca.png)
 
 
 

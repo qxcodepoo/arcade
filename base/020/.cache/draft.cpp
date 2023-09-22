@@ -17,7 +17,7 @@ public:
         this->dureza = dureza;
         this->tamanho = tamanho;
     }
-    int desgastePorFolha() {
+    int desgastePorFolha() const {
         if (dureza == "HB")
             return 1;
         if (dureza == "2B")
@@ -26,26 +26,24 @@ public:
             return 4;
         return 6;
     }
-    float getCalibre() {
+    float getCalibre() const {
         return calibre;
     }
-    std::string getDureza() {
+    std::string getDureza() const {
         return dureza;
     }
-    int getTamanho() {
+    int getTamanho() const {
         return tamanho;
     }
     void setTamanho(int tamanho) {
         this->tamanho = tamanho;
     }
     std::string str() const {
-        std::ostringstream os;
-        os << std::fixed << std::setprecision(1) << calibre << ":" << dureza << ":" << tamanho;
-        return os.str();
+        return fn::format("{%.1f}:{}:{}", calibre, dureza, tamanho);
     }
 };
 
-std::ostream& operator<<(std::ostream& os, Grafite g) {
+std::ostream& operator<<(std::ostream& os, const Grafite& g) {
     return os << g.str();
 }
 
@@ -53,12 +51,12 @@ using PGrafite = std::shared_ptr<Grafite>;
 
 struct Lapiseira{
     float calibre {0.f};
-    PGrafite grafite {nullptr};
+    PGrafite tip {nullptr};
     std::list<PGrafite> tambor;
 
     Lapiseira(float calibre = 0.0);
 
-    bool inserir(PGrafite grafite);
+    bool inserir(PGrafite tip);
 
 
     PGrafite remover();
@@ -67,11 +65,7 @@ struct Lapiseira{
     void puxar();
     std::string str() const {
         auto fngr = [](PGrafite g) { return "[" + (g == nullptr ? "" : g->str()) + "]"; };
-        std::ostringstream os;
-        os << "calibre: " << calibre 
-           << ", bico: " << fngr(grafite)
-           << ", tambor: {" << (tambor | MAP(fngr) | JOIN("")) << "}";
-        return os.str();
+        return fn::format("calibre: {}, bico: {}, tambor: ``{}", calibre, fngr(tip), tambor | MAP(fngr) | JOIN(", "));
     }
 };
 
