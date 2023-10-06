@@ -4,7 +4,7 @@ class Lead {
     private size: number;
     
     
-    public constructor(calibre: number, dureza: string, tamanho: number) {
+    public constructor(thickness: number, hardness: string, size: number) {
     }
     public usagePerSheet(): number {
         if (this.hardness === 'HB')
@@ -43,10 +43,10 @@ class Pencil {
     public constructor(thickness: number) { 
     }
 
-    public hasGrafite() {
+    public hasLead(): boolean {
     }
 
-    public insert(grafite: Lead): boolean {
+    public insert(lead: Lead): boolean {
     }
     public toString(): string {
         let ponta = this.tip != null ? "[" + this.tip.toString() + "]" : "null";

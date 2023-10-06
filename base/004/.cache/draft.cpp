@@ -42,7 +42,7 @@ struct Pencil {
 
     Pencil(float thickness = 0.0): thickness{thickness};
 
-    bool hasGrafite() const;
+    bool hasLead() const;
 
     bool insert(std::shared_ptr<Lead> grafite);
 

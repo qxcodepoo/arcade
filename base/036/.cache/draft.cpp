@@ -8,7 +8,13 @@ private:
     int hour {0}, minute {0}, second {0};
 public:
     Time(int hour = 0, int minute = 0, int second = 0);
-    void setHour(int hour);
+    void setHour(int hour) {
+        if (hour < 0 || hour > 23) {
+            write("fail: hora invalida");
+            return;
+        }
+        this->hour = hour;
+    }
     void setMinute(int minute);
     void setSecond(int second);
     int getHour() const;

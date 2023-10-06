@@ -1,16 +1,13 @@
-#include <iostream>
 #include <memory>
-#include <vector>
 #include <list>
-#include <string>
 #include <utility>
 #include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
 class Pessoa {
     std::string nome;
 public:
-    Pessoa(std::string nome) : 
-    std::string getNome() const { 
+    Pessoa(std::string nome);
+    std::string getNome() const;
     std::string str() const;
 };
 std::ostream& operator<<(std::ostream& os, const Pessoa& p) {
@@ -19,7 +16,7 @@ std::ostream& operator<<(std::ostream& os, const Pessoa& p) {
 
 class Mercantil {
     std::vector<std::shared_ptr<Pessoa>> caixas; //caixas do supermercado
-    std::list  <std::shared_ptr<Pessoa>> esperando; //lista de clientes esperando
+    std::list  <std::shared_ptr<Pessoa>> espera; //lista de clientes esperando
 
     bool validarIndice(int indice);
 
@@ -33,8 +30,10 @@ public:
     std::shared_ptr<Pessoa> finalizar(int indice);
 
     std::string str() const {
-        auto caixas_str = caixas | fn::MAP(FNT(c, c == nullptr ? "-----" : c->getNome()));
-        return "Caixas: " + fn::tostr(caixas_str) + "\n" + "Espera: " + fn::tostr(esperando);
+        auto caixas_str = caixas | fn::MAP([](auto c){ 
+            return c == nullptr ? "-----" : c->getNome();
+        });
+        return fn::format("Caixas: {}\nEspera: {}", caixas_str, espera);
     }
 };
 
@@ -56,7 +55,6 @@ int main() {
         else if (args[0] == "arrive") { bank.chegar(std::make_shared<Pessoa>(args[1])); }
         else if (args[0] == "show"  ) { fn::write(bank);                                }
         else                          { fn::write("fail: comando invalido");            }
-        
     }
 }
 

@@ -1,5 +1,5 @@
 import java.util.*;
-
+import java.util.stream.Collectors;
 
 class Pessoa {
     private String nome;
@@ -33,39 +33,37 @@ class Mercantil {
     public Pessoa finalizar(int indice) {
     }
     public String toString() {
-        StringBuilder Mercantil = new StringBuilder();
-        Mercantil.append("Caixas: |");
-        for (int i = 0; i < (int) this.caixas.size(); i++) {
-            Mercantil.append(" " + i + ":");
-            if (this.caixas.get(i) != null) {
-                Mercantil.append(" " + caixas.get(i).getNome());
-            } else {
-                Mercantil.append("-----");
-            }
-            Mercantil.append(" |");
-        }
-        Mercantil.append("\nEspera: [");
-        for (int i = 0; i < this.esperando.size(); i++) {
-            Mercantil.append(this.esperando.get(i).getNome());
-            if (i < this.esperando.size() - 1) {
-                Mercantil.append(", ");
-            }
-        }
-        Mercantil.append("]\n");
-        return Mercantil.toString();
+        var caixas = this.caixas.stream()
+                         .map(pessoa -> pessoa == null ? "-----" : pessoa.getNome())
+                         .collect(Collectors.joining(", "));
+        var espera = this.esperando.stream()
+                         .map(pessoa -> pessoa.getNome())
+                         .collect(Collectors.joining(", "));
+        return "Caixas: [" + caixas + "]\nEspera: [" + espera + "]";
     }
 }
 
 
 class Solver {
-    static Shell sh = new Shell();
     static Mercantil mercantil = new Mercantil(0);
-    public static void main(String[] args) {
-        sh.addCmd("init",   () -> mercantil = new Mercantil(sh.getInt(1)));
-        sh.addCmd("call",   () -> mercantil.chamarNoCaixa(sh.getInt(1)));
-        sh.addCmd("finish", () -> mercantil.finalizar(sh.getInt(1)));
-        sh.addCmd("arrive", () -> mercantil.chegar(new Pessoa(sh.getStr(1))));
-        sh.addCmd("show",   () -> System.out.print(mercantil.toString()));
-        sh.evaluate();
+    public static void main(String[] _args) {
+        while(true) {
+            String line = input();
+            String[] args = line.split(" ");
+            write('$' + line);
+
+            if     (args[0].equals("init"     )) { mercantil = new Mercantil(number(args[1])); }
+            else if(args[0].equals("arrive"   )) { mercantil.chegar(new Pessoa(args[1]));      }
+            else if(args[0].equals("call"     )) { mercantil.chamarNoCaixa(number(args[1]));   }
+            else if(args[0].equals("finish"   )) { mercantil.finalizar(number(args[1]));       }
+            else if(args[0].equals("show"     )) { write(mercantil.toString());                }
+            else if(args[0].equals("end"      )) { break;                                      }
+            else                                 { write("fail: comando invalido");      }
+        }
     }
+
+    static Scanner scanner = new Scanner(System.in);
+    public static String input()           { return scanner.nextLine();       }
+    public static void write(String value) { System.out.println(value);       }
+    public static int number(String str)   { return Integer.parseInt(str);    }
 }

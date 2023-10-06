@@ -52,7 +52,7 @@ class Pencil {
     public void setThickness(float value) {
     }
 
-    public boolean hasGrafite() {
+    public boolean hasLead() {
     }
 
     public boolean insert(Lead grafite) {
@@ -75,20 +75,20 @@ class Pencil {
 }
 
 public class Solver {
-    public static void main(String[] args) {
+    public static void main(String[] _args) {
         Pencil pencil = new Pencil(0.5f);
 
         while (true) {
             String line = input();
-            String[] argsL = line.split(" ");
+            String[] args = line.split(" ");
             write('$' + line);
 
-            if      ("end".equals(argsL[0])   ) { break;                                                                    }
-            else if ("init".equals(argsL[0])  ) { pencil = new Pencil(number(argsL[1]));                                       }
-            else if ("insert".equals(argsL[0])) { pencil.insert(new Lead(number(argsL[1]), argsL[2], (int) number(argsL[3]))); }
-            else if ("remove".equals(argsL[0])) { pencil.remove();                                                             }
-            else if ("write".equals(argsL[0]) ) { pencil.writePage();                                                          }
-            else if ("show".equals(argsL[0])  ) { write(pencil.toString());                                                               }
+            if      ("end".equals(args[0])   ) { break;                                                                    }
+            else if ("init".equals(args[0])  ) { pencil = new Pencil(number(args[1]));                                       }
+            else if ("insert".equals(args[0])) { pencil.insert(new Lead(number(args[1]), args[2], (int) number(args[3]))); }
+            else if ("remove".equals(args[0])) { pencil.remove();                                                             }
+            else if ("write".equals(args[0]) ) { pencil.writePage();                                                          }
+            else if ("show".equals(args[0])  ) { write(pencil.toString());                                                               }
         }
     }
 

@@ -69,6 +69,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [@037 Budega](base/037/Readme.md)
 - [@009 Pula pula](base/009/Readme.md)
 - [@020 Lapiseira](base/020/Readme.md)
+- [@012 Lapiseira](base/020/Readme.md)
 - [@041 Tabuleiro](base/041/Readme.md)
 
 ## 05. ArrayList II - Arrays de Null

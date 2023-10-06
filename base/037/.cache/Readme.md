@@ -29,11 +29,11 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/037/.cache/draft.cpp)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/037/.cache/draft.cpp)
+- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/037/.cache/draft.java)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/037/.cache/draft.ts)
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/diagrama.png)
-
-
 
 [![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/037/../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 

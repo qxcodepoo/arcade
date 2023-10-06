@@ -25,7 +25,7 @@ class Mercantil {
   ' se estiver em java, utilize LinkedList<Pessoa>
   ' se estiver em c++ , utilize list<shared_ptr<Pessoa>>
   ' se estiver em ts  , utilize Array<Pessoa>
-  - esperando : List <Pessoa>
+  - espera : List <Pessoa>
   __
   
   ' verifica se existe essa posição no caixa
