@@ -27,50 +27,50 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-package com.qxcode {
-  class Kid {
-    - age : int
-    - name : string
-    __
-    + Kid(name : string, age : int)
-    + toString() : string
-    __
-    + getAge()  : int
-    + getName() : string
-    + setAge(age : int)
-    + setName(name : string)
-  }
-  
-  class Trampoline {
-    - playing : List<Kid>
-    - waiting : List<Kid>
-    __
-    
-    ' procura por uma criança na lista do parâmetro e se
-    ' encontrar, remove a criança e a retorna
-    - {static} removeFromList(name : string, list : List<Kid>) : Kid | null
-    __
-    + Trampoline()
-    + toString() : string
-    __
-    
-    ' insere na lista de espera
-    + arrive(kid : Kid)
-    
-    ' se existir alguém na lista de espera
-    ' remove o que estiver na frente da lista
-    ' e insere no fim da lista de playing
-    + enter()
-    
-    ' se existir alguém em playing, remove o primeiro da lista
-    ' e insere no final da fila de espera
-    + leave()
-    
-    ' utilize o método estático removeFromList
-    ' para tentar remover a criança das duas filas
-    + removeKid(name : string) : Kid | null
-  }
+
+class Kid {
+  - age : int
+  - name : string
+  __
+  + Kid(name : string, age : int)
+  + toString() : string
+  __
+  + getAge()  : int
+  + getName() : string
+  + setAge(age : int)
+  + setName(name : string)
 }
+
+class Trampoline {
+  - playing : List<Kid>
+  - waiting : List<Kid>
+  __
+  
+  ' procura por uma criança na lista do parâmetro e se
+  ' encontrar, remove a criança e a retorna
+  - {static} removeFromList(name : string, list : List<Kid>) : Kid | null
+  __
+  + Trampoline()
+  + toString() : string
+  __
+  
+  ' insere na lista de espera
+  + arrive(kid : Kid)
+  
+  ' se existir alguém na lista de espera
+  ' remove o que estiver na frente da lista
+  ' e insere no fim da lista de playing
+  + enter()
+  
+  ' se existir alguém em playing, remove o primeiro da lista
+  ' e insere no final da fila de espera
+  + leave()
+  
+  ' utilize o método estático removeFromList
+  ' para tentar remover a criança das duas filas
+  + removeKid(name : string) : Kid | null
+}
+
 ```
 
 <!-- load -->

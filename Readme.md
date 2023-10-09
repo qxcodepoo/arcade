@@ -51,8 +51,8 @@ Exercícios de fup para aquecer o coração e o cérebro.
 [![image](https://user-images.githubusercontent.com/4747652/263152148-cf916c4a-6c07-4d36-bc9c-ac8a2f9b348c.png)](https://www.youtube.com/watch?v=PU6-anlu5jI)
 
 - Exercício resolvido: [@054 Animal](base/054/Readme.md)
-- Exercício resolvido para você fazer a main: [@001 Calculadora](base/001/Readme.md)
-- Exercício resolvido para você fazer a classe: [@002 Carro](base/002/Readme.md)
+- [@001 Calculadora](base/001/Readme.md)
+- [@002 Carro](base/002/Readme.md)
 
 ## 02. Modificadores de Acesso
 
@@ -69,12 +69,13 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [@037 Budega](base/037/Readme.md)
 - [@009 Pula pula](base/009/Readme.md)
 - [@020 Lapiseira](base/020/Readme.md)
-- [@012 Lapiseira](base/020/Readme.md)
+- [@012 Topic](base/012/Readme.md)
 - [@041 Tabuleiro](base/041/Readme.md)
 
 ## 05. ArrayList II - Arrays de Null
 
 - [@010 Cinema](base/010/Readme.md)
+- [@012 Topic](base/012/Readme.md)
 - [@011 JunkFood](base/011/Readme.md)
 
 ## 06. ArrayList III - Composição e Enum
