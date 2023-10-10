@@ -1,8 +1,8 @@
 # Pula pula
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -17,10 +17,13 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ***
 
-## Guide
+## Draft
 
+- [solver.ts](.cache/draft.ts)
 - [solver.cpp](.cache/draft.cpp)
 - [Solver.java](.cache/draft.java)
+
+## Guide
 
 ![diagrama](diagrama.png)
 

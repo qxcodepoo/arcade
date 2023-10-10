@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 class Client {
     private String id;
@@ -50,60 +51,29 @@ class Sala{
 
     @Override
     public String toString() {
-        String saida = "[ ";
-        for (Client cliente : cadeiras) {
-            if(cliente == null)
-                saida += "- ";
-            else
-                saida += cliente + " ";
-        }
-        return saida + "]";
+        return "[" + this.cadeiras.stream().map(c -> (c == null) ? "-" : c.toString()).collect(Collectors.joining(" ")) + "]";
     }
 }
 
-class Solver {
-    static Shell sh = new Shell();
-    static Sala sala = new Sala(0);
+public class Solver {
+    public static void main(String[] _args) {
+        Sala sala = new Sala(0);
+        while (true) {
+            var line = input();
+            var args = line.split(" ");
+            write('$' + line);
 
-    public static void main(String args[]) {
-        sh.chain.put("init",     () -> { sala = new Sala(getInt(1));});
-        sh.chain.put("show",     () -> { System.out.println(sala);});
-        sh.chain.put("reservar", () -> { sala.reservar(getStr(1), getStr(2), getInt(3));});
-        sh.chain.put("cancelar", () -> { sala.cancelar(getStr(1));});
-
-        sh.execute();
-    }
-
-    static int getInt(int pos) {
-        return Integer.parseInt(sh.param.get(pos));
-    }
-    static String getStr(int pos) {
-        return sh.param.get(pos);
-    }
-}
-
-class Shell {    
-    public Scanner scanner = new Scanner(System.in);
-    public HashMap<String, Runnable> chain = new HashMap<>();
-    public ArrayList<String> param = new ArrayList<>();
-    public Shell() {
-        Locale.setDefault(new Locale("en", "US"));
-    }
-    public void execute() {
-        while(true) {
-            param.clear();
-            String line = scanner.nextLine();
-            Collections.addAll(param, line.split(" "));
-            System.out.println("$" + line);
-            if(param.get(0).equals("end")) {
-                break;
-            } else if (chain.containsKey(param.get(0))) {
-                chain.get(param.get(0)).run();
-            } else {
-                System.out.println("fail: comando invalido");
-            }
+            if (args[0].equals("end")) { break; }
+            else if (args[0].equals("init"))     { sala = new Sala(Integer.parseInt(args[1])); }
+            else if (args[0].equals("show"))     { write(sala.toString()); }
+            else if (args[0].equals("reservar")) { sala.reservar(args[1], args[2], (int) number(args[3])); }
+            else if (args[0].equals("cancelar")) { sala.cancelar(args[1]); }
+            else                                 { write("fail: comando invalido"); }
         }
     }
+
+    private static Scanner scanner = new Scanner(System.in);
+    private static String input() { return scanner.nextLine(); }
+    private static double number(String value) { return Double.parseDouble(value); }
+    private static void write(String value) { System.out.println(value); }
 }
-
-

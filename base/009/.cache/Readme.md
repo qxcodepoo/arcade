@@ -3,8 +3,8 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/009/Readme.md)
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/cover.jpg)
@@ -19,10 +19,13 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ***
 
-## Guide
+## Draft
 
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/009/.cache/draft.ts)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/009/.cache/draft.cpp)
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/009/.cache/draft.java)
+
+## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/009/diagrama.png)
 

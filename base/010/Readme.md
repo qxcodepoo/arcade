@@ -35,6 +35,7 @@ Seu sistema deverá:
 
 ## Draft
 
+- [solver.ts](.cache/draft.ts)
 - [solver.cpp](.cache/draft.cpp)
 - [Solver.java](.cache/draft.java)
 

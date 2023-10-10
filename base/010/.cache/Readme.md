@@ -37,6 +37,7 @@ Seu sistema deverá:
 
 ## Draft
 
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.ts)
 - [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.cpp)
 - [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.java)
 

@@ -6,11 +6,14 @@ struct Cliente{
     std::string fone;
 
     Cliente(std::string id = "", std::string fone = "");
-    std::string str();
+    std::string str() const;
 };
+
+std::ostream& operator<<(std::ostream& os, const Cliente& c) { return os << c.str(); }
 
 class Sala{
     std::vector<std::shared_ptr<Cliente>> cadeiras;
+
     int procurar(std::string nome);
 
 public:
@@ -21,12 +24,11 @@ public:
 
     void cancelar(std::string id);
 
-    std::string str();
+    std::string str() const;
 };
 
 
-std::ostream& operator<<(std::ostream& os, Cliente c) { return os << c.str(); }
-std::ostream& operator<<(std::ostream& os, Sala    c) { return os << c.str(); }
+std::ostream& operator<<(std::ostream& os, const Sala& c) { return os << c.str(); }
 
 int main() {
     Sala sala;
@@ -35,19 +37,12 @@ int main() {
         auto args = fn::split(line, ' ');
         fn::write("$" + line);
 
-        if (args[0] == "end") {
-            break;
-        } else if (args[0] == "show") {
-            fn::write(sala);
-        } else if (args[0] == "init") {
-            sala = Sala(+args[1]);
-        } else if (args[0] == "reservar") {
-            sala.reservar(args[1], args[2], (int) +args[3]);
-        } else if (args[0] == "cancelar") {
-            sala.cancelar(args[1]);
-        } else {
-            fn::write("fail: comando invalido");
-        }
+        if      (args[0] == "end")      { break; } 
+        else if (args[0] == "show")     { fn::write(sala); } 
+        else if (args[0] == "init")     { sala = Sala(+args[1]); } 
+        else if (args[0] == "reservar") { sala.reservar(args[1], args[2], (int) +args[3]); }
+        else if (args[0] == "cancelar") { sala.cancelar(args[1]); } 
+        else                            { fn::write("fail: comando invalido"); }
     }
 }
 
