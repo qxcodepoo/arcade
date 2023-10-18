@@ -68,40 +68,26 @@ class Board {
 };
 
 
-function main() {
-    let chain = new Map();
-    let par: string[] = [];
-    let board = new Board(0, 0);
-
-    chain.set("init", () => { board = new Board(+par[1], +par[2]); });
-    chain.set("addTrap", () => { board.addTrap(+par[1]); });
-    chain.set("roll", () => { board.rollDice(+par[1]); });
-    chain.set("show", () => { puts(board.toString()); });
-
-    execute(chain, par);
-}
-
 // ------------ Funções Auxiliares --------------------
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
-function execute(chain: Map<string, Function>, ui: string[]) {
+function main() {
+    let board = new Board(0, 0);
+
     while (true) {
         let line = input();
-        puts("$" + line);
-        ui.splice(0); //apagar tudo
-        line.split(" ").forEach((x: string) => ui.push(x));
+        let args = line.split(" ");
+        write("$" + line);
 
-        let cmd = ui[0];
-        if (cmd == "end") {
-            return;
-        } else if (chain.has(cmd)) {
-            chain.get(cmd)!();
-        } else {
-            puts("fail: command not found");
-        }
+        if (args[0] == "end") { break; }
+        else if (args[0] == "init") { board = new Board(+args[1], +args[2]); }
+        else if (args[0] == "addTrap") { board.addTrap(+args[1]); }
+        else if (args[0] == "roll") { board.rollDice(+args[1]); }
+        else if (args[0] == "show") { write(board.toString()); }
+        else { write("comando invalido"); }
     }
 }
 

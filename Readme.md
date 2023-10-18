@@ -2,6 +2,10 @@
 
 ![toc](https://user-images.githubusercontent.com/4747652/263064329-3004bb4d-32fa-4a51-840e-5204870c2738.png)
 
+## Guia de atividades []()
+
+![_](flow.png)
+
 <!-- toc -->
 - [00. Configuração de ambiente](#00-configuração-de-ambiente)
 - [00. Conteúdo extra](#00-conteúdo-extra)
@@ -50,7 +54,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 [![image](https://user-images.githubusercontent.com/4747652/263152148-cf916c4a-6c07-4d36-bc9c-ac8a2f9b348c.png)](https://www.youtube.com/watch?v=PU6-anlu5jI)
 
-- Exercício resolvido: [@054 Animal](base/054/Readme.md)
+- [@054 Animal](base/054/Readme.md)
 - [@001 Calculadora](base/001/Readme.md)
 - [@002 Carro](base/002/Readme.md)
 
@@ -80,12 +84,12 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 ## 06. ArrayList III - Composição e Enum
 
+- [@014 Contato](base/014/Readme.md)
 - [@017 Porquinho](base/017/Readme.md)
 - [@007 Tarifas](base/007/Readme.md)
 
 ## 07. Mapas && Exceções
 
-- [@014 Contato](base/014/Readme.md)
 - [@015 Busca](base/015/Readme.md)
 - [@008 Agiota](base/008/Readme.md)
 
