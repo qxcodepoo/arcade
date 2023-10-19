@@ -8,8 +8,11 @@ class Slot {
     }
 
     toString(): string {
+        return `[${this.nome.padStart(8)} :${this.qtd.toString().padStart(2)} U : ${this.preco.toFixed(2)} RS]`;
     }
 }
+
+
 
 class Machine {
     espirais: Slot[];
@@ -41,6 +44,10 @@ class Machine {
     }
 
     toString(): string {
+        const espiralStr = this.espirais
+            .map((slot, index) => `${index} ${slot.toString()}`)
+            .join('\n');
+        return `saldo: ${this.saldo.toFixed(2)}\n${espiralStr}`;
     }
 }
 
@@ -49,7 +56,6 @@ let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
-
 
 
 function main() {
