@@ -1,8 +1,8 @@
 # JunkFood
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
--- | -- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -43,6 +43,11 @@ Seu sistema deverá ser capaz de:
   - Quando o cliente pedir o troco, mostre o quanto ele tinha de saldo e zere o saldo.
 
 ***
+
+## Draft
+
+- [draft.cpp](.cache/draft.cpp)
+- [draft.ts](.cache/draft.ts)
 
 ## Guide
 
