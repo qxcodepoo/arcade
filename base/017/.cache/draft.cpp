@@ -79,8 +79,10 @@ public:
     double getValue() const;
 
     int getVolume() const;
-
-    std::string str() const;
+    std::string str() const {
+        return fn::format("state={} : coins={} : items={} : value={%.2f} : volume={}/{}", 
+            (this->broken ? "broken" : "intact"), coins, itens, getValue(), getVolume(), volumeMax);
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const Pig& pig) {

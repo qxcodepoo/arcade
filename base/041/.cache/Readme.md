@@ -88,6 +88,7 @@ ___
     ' crie uma lista vazia para os jogadores
     ' faça um laço criando os jogadores e adicionado à lista de jogadores
     ' inicialize o tamanho do tabuleiro em boardSize + 1
+    ' esse +1 é para o fim do tabuleiro, o ponto de chegada
     ' pois o tabuleiro começa em 0
     + Board(nPlayers : int, boardSize : int)
 

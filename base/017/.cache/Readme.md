@@ -3,8 +3,8 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/017/Readme.md)
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/cover.jpg)
@@ -25,9 +25,13 @@ O sistema deverá:
 
 ***
 
-## Guide
+## Draft
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/017/.cache/draft.cpp)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/017/.cache/draft.cpp)
+- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/017/.cache/draft.java)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/017/.cache/draft.ts)
+
+## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/017/diagrama.png)
 

@@ -1,8 +1,8 @@
 # Porquinho
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -23,9 +23,13 @@ O sistema deverá:
 
 ***
 
-## Guide
+## Draft
 
-- [solver.cpp](.cache/draft.cpp)
+- [draft.cpp](.cache/draft.cpp)
+- [draft.java](.cache/draft.java)
+- [draft.ts](.cache/draft.ts)
+
+## Guide
 
 ![diagrama](diagrama.png)
 
