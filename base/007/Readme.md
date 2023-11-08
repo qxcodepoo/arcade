@@ -1,8 +1,8 @@
 # Tarifas
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -31,6 +31,12 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ***
 
+## Draft
+
+- [draft.cpp](.cache/draft.cpp)
+- [draft.java](.cache/draft.java)
+- [draft.ts](.cache/draft.ts)
+
 ## Guide
 
 ![diagrama](diagrama.png)
@@ -38,6 +44,75 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+
+enum Label {
+  + DEPOSIT {static}
+  + FEE {static}
+  + OPENING {static}
+  + REVERSE {static}
+  + WITHDRAW {static}
+  + ERROR {static}
+
+  __
+  - label: String
+  - Label(label : String)
+  __
+  + getLabel() : String
+}
+
+' operação guarda os dados de uma única operação
+class Operation {
+  - index : int
+  - label : Label
+  ' valor em negativo se estiver diminuindo o saldo
+  - value : int
+  ' saldo residual apos operação
+  - balance : int
+  __
+  + Operation(index : int, label : Label, value : int, balance : int)
+
+  + toString() : String
+  __
+  + getBalance() : int
+  + getIndex() : int
+  + getLabel() : Label
+  + getValue() : int
+}
+
+' nessa classe são efetivadas e registradas as alterações no saldo
+class BalanceManager {
+
+  ' saldo do cliente
+  - balance : int 
+
+  ' extrato
+  - extract : List<Operation>
+  
+  ' id da próxima operação
+  - nextId : int
+  __
+  + BalanceManager()
+
+  ' adiciona value ao balance
+  ' crie operação e adicione ao vetor de operações
+  ' incrementa o nextId
+  + addOperation(label : Label, value : int)
+  '
+  ' retorna a operação caso o índice seja válido
+  ' retorna uma operação com label ERROR caso contrário
+  + getOperation(index : int) : Operation
+  '
+  + toString() : String
+  __
+  '
+  ' retorna o saldo atual
+  + getBalance() : int
+
+  ' se qtdOp for 0, retorne todas as operações
+  ' se qtdOp for positivo, retorne as últimas qtdOp operações
+  + getExtract(qtdOp : int) : List<Operation>
+}
+
 class Account {
   - balanceManager : BalanceManager
   - id : int
@@ -62,62 +137,7 @@ class Account {
   + getBalanceManager() : BalanceManager
 }
 
-' nessa classe são efetivadas e registradas as alterações no saldo
-class BalanceManager {
 
-  ' saldo do cliente
-  - balance : int 
-
-  ' extrato
-  - extract : List<Operation>
-  
-  ' id da próxima operação
-  - nextId : int
-  __
-  + BalanceManager()
-
-  ' adiciona value ao balance
-  ' crie operação e adicione ao vetor de operações
-  ' incrementa o nextId
-  + addOperation(label : Label, value : int)
-  + toString() : String
-  __
-  + getBalance() : int
-
-  ' se qtdOp for 0, valor default, retornar todo o extrato
-  + getExtract(qtdOp : int) : List<Operation>
-}
-'
-' essa enumeração guarda possíveis labels para as operações
-enum Label {
-  + deposit {static}
-  + fee {static}
-  + opening {static}
-  + reverse {static}
-  + withdraw {static}
-}
-'
-' operação guarda os dados de uma única operação
-class Operation {
-  - index : int
-
-  - label : Label
-
-  ' valor em negativo se estiver diminuindo o saldo
-  - value : int
-
-  ' saldo residual apos operação
-  - balance : int
-  __
-  + Operation(index : int, label : Label, value : int, balance : int)
-
-  + toString() : String
-  __
-  + getBalance() : int
-  + getIndex() : int
-  + getLabel() : Label
-  + getValue() : int
-}
 
 ```
 

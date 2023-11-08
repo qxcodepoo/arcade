@@ -65,11 +65,11 @@ class Pig {
   
   ' se estiver quebrado, pegue e retorne as moedas
   ' se não estiver quebrado, retorne um vetor vazio
-  + extractCoins() : double
+  + extractCoins() : Array<Coin>
   
   ' se estiver quebrado, pegue e retorne os itens
   ' se não estiver quebrado, retorne um vetor vazio
-  + extractItems() : Array<String>
+  + extractItems() : Array<Item>
   
   ' retorna uma string com uma lista de itens, valor, volume / volumeMax, 
   ' e se o porquinho está quebrado ou não

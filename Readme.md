@@ -37,6 +37,7 @@
 ## 00. Conteúdo extra
 
 - [@044 Relacionamentos](base/044/Readme.md)
+- [@055 Relacionamentos Resumo](base/055/Readme.md)
 - [@046 Como fazer os códigos e relatórios](base/046/Readme.md)
 - [@049 Criando a Main](base/049/Readme.md)
 - [@052 Pesquisa sobre alocação de memória](base/052/Readme.md)

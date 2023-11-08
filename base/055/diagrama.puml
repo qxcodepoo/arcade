@@ -1,0 +1,47 @@
+@startuml _diagrama
+
+class Casa {
+    dono: Adulto
+    moradores: Morador[]
+    comodos: Cômodo[]
+}
+
+class Cômodo {
+}
+
+class Parede {
+}
+
+class Móvel {
+}
+
+
+interface Morador {
+}
+
+class Pet {
+
+}
+
+abstract class Pessoa {
+}
+
+class Criança {
+}
+
+class Adulto {
+
+}
+
+Casa *-- "muitos" Cômodo 
+Cômodo *-- "4" Parede
+Cômodo o-- "0..*" Móvel
+Casa o-- "1..*" Morador
+Morador <|-- Pet
+Morador <|-- Pessoa
+Casa o-- "1" Adulto
+Pessoa <|-- Criança
+Pessoa <|-- Adulto
+
+
+@enduml
