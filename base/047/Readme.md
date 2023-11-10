@@ -30,6 +30,8 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 class Point2D {
     + x: double
     + y: double
+    
+    + Point2D(x: double, y: double)
 
     ' gera uma string no formato
     ' (0.00, 0.00)
@@ -41,11 +43,7 @@ class Calc {
     + {static} distance(a: Point2D, b: Point2D): double
 }
 
-class Shape {
-    + name: string
-
-    + Shape(name: string)
-    
+interface Shape {
     ' getName(): string
     + getName(): string
 
@@ -53,16 +51,13 @@ class Shape {
     ' na classe Shape, apenas nas classes filhas
 
     ' retorna se o ponto está dentro da forma
-    + {abstract} inside(Point2D: point): boolean
+    + inside(Point2D: point): boolean
 
     ' retorna a área da forma
-    + {abstract} getArea(): double
+    + getArea(): double
 
     ' retorna o perímetro da forma
-    + {abstract} getPerimeter(): double
-
-    ' retorna apenas o nome
-    + toString(): string
+    + getPerimeter(): double
 }
 
 class Circle {

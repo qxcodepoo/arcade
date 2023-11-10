@@ -33,20 +33,21 @@ public:
 
     virtual double getPerimeter() const = 0;
 
-    virtual std::string getName() const;
+    virtual std::string getName() const = 0;
 
-    virtual std::string str() const;
-
+    virtual std::string str() const = 0;
 };
 
 std::ostream& operator<<(std::ostream& os, const Shape& p) { return os << p.str(); }
 
 class Circle : public Shape {
+    std::string name;
     Point2D center;
     double radius;
-
 public:
     Circle(Point2D center, double radius) ;
+
+    std::string getName() const override;
 
     bool inside(Point2D p) const override;
 
@@ -58,11 +59,14 @@ public:
 };
 
 class Rectangle : public Shape {
+    std::string name;
     Point2D p1;
     Point2D p2;
 
 public:
     Rectangle(Point2D p1, Point2D p2)
+
+    std::string getName() const override;
 
     bool inside(Point2D p) const override;
 
