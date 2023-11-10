@@ -96,13 +96,13 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 ## 08. Herança I
 
+- [@048 Estacionamento](base/048/Readme.md)
 - [@043 Cofre](base/043/Readme.md)
 - [@013 Cadastro](base/013/Readme.md)
 - [@047 Shapes](base/047/Readme.md)
 
 <!--
 - [@016 Favoritos & Agenda 3: cache e redundância](base/016/Readme.md)
-- [@048 Estacionamento](base/048/Readme.md)
 - [@033 Trem](base/033/Readme.md)
 -->
 

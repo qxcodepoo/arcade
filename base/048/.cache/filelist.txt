@@ -1,3 +1,6 @@
+diagrama.puml
+diagrama.png
 Readme.md
 cover.jpg
+local.sh
 
