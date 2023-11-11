@@ -30,6 +30,7 @@ Seu programa deve:
 # Exemplo de saída
 - ana [tim:3434, casa:4567, oi:8754, casa:4567, oi:8754]
 ```
+
 - **Remover telefones do contato.**
   - Remove os telefones pelo índice.
 - **Validando os números de telefone.**

@@ -14,6 +14,10 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
   - moto paga o valor em minutos dividido por 20
   - carro paga o valor em minutos dividido por 10, mas o valor mínimo é 5.00
 
+## Resolução
+
+[![image](https://user-images.githubusercontent.com/4747652/282258761-fc22aa99-0758-40e7-96a7-75eda3bcc772.png)](https://www.youtube.com/watch?v=6eFGKyJMCE4)
+
 ## Draft
 
 - [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/048/.cache/draft.ts)
