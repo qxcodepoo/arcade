@@ -1,5 +1,8 @@
 @startuml _diagrama
 
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
 class Casa {
     dono: Adulto
     moradores: Morador[]

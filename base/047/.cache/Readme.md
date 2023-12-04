@@ -3,15 +3,14 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/047/Readme.md)
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/cover.jpg)
 
 - Faça um programa para gerenciar figuras geométricas.
 - Deve ser possível conseguir obter a área e o perímetro de cada figura.
-- Também deve ser possível checar se um ponto está dentro de uma figura ou não.
 
 ## Intro
 
@@ -20,6 +19,11 @@ As figuras geométricas podem ser círculos ou retângulos.
 O retângulo é definido por dois pontos: o ponto inferior esquerdo e o ponto superior direito.
 
 O círculo pode ser definido pelo ponto do centro e pelo raio.
+
+## Draft
+
+[draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/047/.cache/draft.ts)
+[draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/047/.cache/draft.cpp)
 
 ## Guide
 

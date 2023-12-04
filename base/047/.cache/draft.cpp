@@ -15,10 +15,6 @@ public:
 
 std::ostream& operator<<(std::ostream& os, const Point2D& p) { return os << p.str(); }
 
-class Math {
-public:
-    static double distance(Point2D p1, Point2D p2);
-};
 
 class Shape {
     std::string name;
@@ -26,8 +22,6 @@ public:
     Shape(std::string name = "") ;
 
     virtual ~Shape(){}
-
-    virtual bool inside(Point2D p) const = 0;
 
     virtual double getArea() const = 0;
 
@@ -49,8 +43,6 @@ public:
 
     std::string getName() const override;
 
-    bool inside(Point2D p) const override;
-
     double getArea() const override;
 
     double getPerimeter() const override;
@@ -67,8 +59,6 @@ public:
     Rectangle(Point2D p1, Point2D p2)
 
     std::string getName() const override;
-
-    bool inside(Point2D p) const override;
 
     double getArea() const override;
 

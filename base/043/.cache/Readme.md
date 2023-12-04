@@ -29,7 +29,9 @@ O sistema deverá:
 
 ## Draft
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.java)
+- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.java)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.cpp)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/043/.cache/draft.ts)
 
 ## Guide
 

@@ -9,4 +9,5 @@ temp/Makefile
 temp/uml_sala.uxf
 temp/teste.cpp
 temp
+local.sh
 

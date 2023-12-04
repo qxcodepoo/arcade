@@ -27,7 +27,9 @@ O sistema deverá:
 
 ## Draft
 
-- [Solver.java](.cache/draft.java)
+- [draft.java](.cache/draft.java)
+- [draft.cpp](.cache/draft.cpp)
+- [draft.ts](.cache/draft.ts)
 
 ## Guide
 

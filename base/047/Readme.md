@@ -1,15 +1,14 @@
 # Shapes
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
 - Faça um programa para gerenciar figuras geométricas.
 - Deve ser possível conseguir obter a área e o perímetro de cada figura.
-- Também deve ser possível checar se um ponto está dentro de uma figura ou não.
 
 ## Intro
 
@@ -18,6 +17,11 @@ As figuras geométricas podem ser círculos ou retângulos.
 O retângulo é definido por dois pontos: o ponto inferior esquerdo e o ponto superior direito.
 
 O círculo pode ser definido pelo ponto do centro e pelo raio.
+
+## Draft
+
+[draft.ts](.cache/draft.ts)
+[draft.cpp](.cache/draft.cpp)
 
 ## Guide
 
