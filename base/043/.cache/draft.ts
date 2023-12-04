@@ -12,9 +12,6 @@ class Coin implements Valuable {
     private volume: number;
 
     constructor(label: string, value: number, volume: number) {
-        this.label = label;
-        this.value = value;
-        this.volume = volume;
     }
 
     static readonly C10 = new Coin("M10", 0.10, 1);
@@ -23,19 +20,15 @@ class Coin implements Valuable {
     static readonly C100 = new Coin("M100", 1.00, 4);
 
     getLabel(): string {
-        return this.label;
     }
 
     getVolume(): number {
-        return this.volume;
     }
 
     getValue(): number {
-        return this.value;
     }
 
     toString(): string {
-        return `${this.label}:${this.value.toFixed(2)}:${this.volume}`;
     }
 }
 
@@ -45,25 +38,18 @@ class Item implements Valuable {
     private volume: number;
 
     constructor(label: string, value: number, volume: number) {
-        this.label = label;
-        this.value = value;
-        this.volume = volume;
     }
 
     getLabel(): string {
-        return this.label;
     }
 
     getVolume(): number {
-        return this.volume;
     }
 
     getValue(): number {
-        return this.value;
     }
 
     toString(): string {
-        return `${this.label}:${this.value.toFixed(2)}:${this.volume}`;
     }
 }
 
@@ -73,55 +59,25 @@ class Pig {
     private valuables: Valuable[];
 
     constructor(volumeMax: number) {
-        this.volumeMax = volumeMax;
-        this.broken = false;
-        this.valuables = [];
     }
 
     addValuable(val: Valuable): void {
-        if (this.broken) {
-            throw new Error("fail: the pig is broken");
-        }
-        if (val.getVolume() + this.getVolume() > this.volumeMax) {
-            throw new Error("fail: the pig is full");
-        }
-        this.valuables.push(val);
     }
 
     breakPig(): void {
-        if (this.broken) {
-            throw new Error("fail: the pig is already broken");
-        }
-        this.broken = true;
     }
 
     extractCoins(): Coin[] {
-        if (!this.broken) {
-            throw new Error("fail: you must break the pig first");
-        }
-        const coins = this.valuables.filter((val) => val instanceof Coin) as Coin[];
-        this.valuables = this.valuables.filter((val) => !(val instanceof Coin));
-        return coins;
     }
 
     extractItems(): Item[] {
-        if (!this.broken) {
-            throw new Error("fail: you must break the pig first");
-        }
-        const items = this.valuables.filter((val) => val instanceof Item) as Item[];
-        this.valuables = this.valuables.filter((val) => !(val instanceof Item));
-        return items;
     }
 
     getVolume(): number {
-        if (this.broken) return 0;
-        return this.valuables.reduce((total, val) => total + val.getVolume(), 0);
     }
 
     getValue(): number {
-        return this.valuables.reduce((total, val) => total + val.getValue(), 0);
     }
-
     toString(): string {
         const status = this.broken ? "broken" : "intact";
         const values = "[" + this.valuables.join(", ") + "]";
