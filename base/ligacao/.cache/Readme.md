@@ -1,13 +1,13 @@
-# @019 Ligações - Agenda 4
+# @ligacao Ligações - Agenda 4
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/019/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/ligacao/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Diagrama de Classes](#diagrama-de-classes)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/019/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/ligacao/cover.jpg)
 
 - TODO
 - solver

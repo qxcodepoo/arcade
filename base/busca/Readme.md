@@ -1,4 +1,4 @@
-# Estressados A: Busca
+# Busca: Estressados A
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)

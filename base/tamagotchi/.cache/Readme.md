@@ -1,13 +1,13 @@
-# @006 Tamagotchi
+# @tamagotchi Tamagotchi
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/006/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/cover.jpg)
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
@@ -34,13 +34,13 @@ Seu sistema deverá:
 
 ## Draft
 
-- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/006/.cache/draft.ts)
+- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
@@ -138,7 +138,7 @@ class Legenda {
 
 <!-- load -->
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/006/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 

@@ -1,4 +1,4 @@
-# @busca Estressados A: Busca
+# @busca Busca: Estressados A
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/busca/Readme.md)
 
@@ -7,7 +7,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/busca/cover.jpg)
+![cover](https://gist.github.com/assets/4747652/c22c464a-b797-4bd7-b963-4e4f1ee7f96b)
 
 ***
 

@@ -1,13 +1,13 @@
-# @005 Mestre dos Vetores (manipulação arraylist)
+# @vetores Mestre dos Vetores (manipulação arraylist)
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/005/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/vetores/Readme.md)
 
 <!-- toch -->
 [Requisitos](#requisitos) | [Shell](#shell) | [Dica](#dica) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/005/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/cover.jpg)
 
 O objetivo da atividade é treinar estrutura de dados.
 

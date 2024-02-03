@@ -1,13 +1,13 @@
-# @040 Estressados B: Contagem
+# @contagem Estressados B: Contagem
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/040/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/040/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contagem/cover.jpg)
 
 ***
 
@@ -22,8 +22,8 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 ## Draft
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/040/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/040/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/.cache/draft.ts)
 
 ## Shell
 

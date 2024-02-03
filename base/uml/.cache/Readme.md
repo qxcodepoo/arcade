@@ -1,8 +1,8 @@
-# @055 Relacionamentos Resumo
+# @uml Relacionamentos Resumo
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/055/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/uml/Readme.md)
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/055/diagrama.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/uml/diagrama.png)
 
 ## Relações de Agregação (tem um/has a)
 

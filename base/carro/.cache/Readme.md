@@ -1,13 +1,13 @@
-# @002 Carro
+# @carro Carro
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/002/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/cover.jpg)
 
 Nessa atividade vamos implementar um carro ecológico. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
@@ -36,13 +36,13 @@ Seu sistema deverá:
 
 ## Draft
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/002/.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/002/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

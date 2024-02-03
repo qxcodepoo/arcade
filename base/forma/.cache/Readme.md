@@ -1,13 +1,13 @@
-# @047 Shapes
+# @forma Shapes
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/047/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/forma/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/forma/cover.jpg)
 
 - Faça um programa para gerenciar figuras geométricas.
 - Deve ser possível conseguir obter a área e o perímetro de cada figura.
@@ -22,12 +22,12 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 
 ## Draft
 
-[draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/047/.cache/draft.ts)
-[draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/047/.cache/draft.cpp)
+[draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/forma/.cache/draft.ts)
+[draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/forma/.cache/draft.cpp)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/047/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/forma/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

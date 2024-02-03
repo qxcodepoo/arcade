@@ -1,13 +1,13 @@
-# @033 Trem
+# @trem Trem
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/033/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/trem/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Exemplos](#exemplos) | [Guide](#guide)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/033/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/trem/cover.jpg)
 
 O objetivo desta atividade é imprementar um sistema que aloca passageiros em vagões de um trem. O trem é formado por uma série de vagões. É possível embarcar, desembarcar passageiros, ver quem está embarcado e a lista de passageiros que já passaram pelo nosso trem.
 

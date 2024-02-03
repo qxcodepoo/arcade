@@ -1,13 +1,13 @@
-# @054 Animal
+# @animal Animal
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/054/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/animal/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/cover.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/cover.jpg)
 
 O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
 
@@ -130,7 +130,7 @@ $end
 
 ### Diagrama
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/054/diagrama.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/diagrama.png)
 
 ### O que é o Shell
 
@@ -142,7 +142,7 @@ Depois é verificado se a saída gerada pelo seu programa é igual ao que era es
 
 Esse é o modelo do arquivo de testes gerado para cada atividade.
 
-- [cases.tio](https://github.com/qxcodepoo/arcade/blob/master/base/054/cases.tio)
+- [cases.tio](https://github.com/qxcodepoo/arcade/blob/master/base/animal/cases.tio)
 
 ![image](https://user-images.githubusercontent.com/4747652/263118401-36183946-8e20-4ecb-b0cc-75a5cef3610a.png)
 
@@ -193,6 +193,6 @@ Para padronizar, em cada linguagem são criadas algumas funções auxiliares par
 
 No caso dessa atividade, o draft já está completo para você utilizar como modelo para outras atividades.
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/054/.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft.ts)

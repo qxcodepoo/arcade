@@ -1,13 +1,13 @@
-# @012 Topic
+# @topic Topic
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/012/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/topic/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/topic/cover.jpg)
 
 O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com algumas variações. Aqui, vamos implementar um sistema de alocação de passageiros em uma topic. Nossa topic tem uma quantidade máxima de passageiros, mas também define alguns assentos preferenciais.
 
@@ -43,12 +43,12 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ## Draft
 
--[Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.java)
--[solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/012/.cache/draft.cpp)
+-[Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/topic/.cache/draft.java)
+-[solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/topic/.cache/draft.cpp)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/012/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/topic/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

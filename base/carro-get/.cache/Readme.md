@@ -1,13 +1,13 @@
-# @042 Carro Get e Set
+# @carro-get Carro Get e Set
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/042/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro-get/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro-get/cover.jpg)
 
 Essa atividade se propõe a implementar um carro ecológico que pode passear pela cidade. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
@@ -36,9 +36,9 @@ Seu sistema deverá:
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/042/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro-get/diagrama.png)
 
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/042/.cache/draft.ts)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro-get/.cache/draft.ts)
 
 ***
 

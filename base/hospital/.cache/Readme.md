@@ -1,13 +1,13 @@
-# @018 Hospital II
+# @hospital Hospital II
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/018/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/hospital/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/hospital/cover.jpg)
 
 ## Intro
 
@@ -79,7 +79,7 @@ $end
 ***
 
 ## Diagrama de Classes
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/018/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/hospital/diagrama.png)
 
 ***
 

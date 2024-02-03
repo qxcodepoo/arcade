@@ -1,13 +1,13 @@
-# @010 Cinema
+# @cinema Cinema
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/010/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/cover.jpg)
 
 O objetivo dessa atividade é implementar o sistema de alocação de uma única sala de cinema. Se existem cadeiras livres, os clientes podem reservá-las. Também podem desistir da reserva. O sistema deve mostrar quem está sentado em cada cadeira.
 
@@ -37,13 +37,13 @@ Seu sistema deverá:
 
 ## Draft
 
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.ts)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.cpp)
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/010/.cache/draft.java)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft.cpp)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft.java)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/010/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

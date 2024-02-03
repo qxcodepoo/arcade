@@ -1,8 +1,8 @@
-# @045 Instalação C++ e TS
+# @instalacao Instalação C++ e TS
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/045/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/instalacao/Readme.md)
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/045/cover.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/instalacao/cover.jpg)
 
-- [cpp](https://github.com/qxcodepoo/arcade/blob/master/base/045/cpp.md)
-- [ts](https://github.com/qxcodepoo/arcade/blob/master/base/045/ts.md)
+- [cpp](https://github.com/qxcodepoo/arcade/blob/master/base/instalacao/cpp.md)
+- [ts](https://github.com/qxcodepoo/arcade/blob/master/base/instalacao/ts.md)

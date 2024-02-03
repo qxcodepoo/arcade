@@ -1,13 +1,13 @@
-# @023 Salário
+# @salario Salário
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/023/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/salario/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/salario/cover.jpg)
 
 A UFC está precisando de um novo sistema de geração de folhas de pagamento, você aceita o desafio?'
 
@@ -99,7 +99,7 @@ $end
 - Utilize apenas um repositório (tire proveito do polimorfismo).
 - As classes filhas devem sobrescrever os métodos herdados da classe pai sempre que você achar necessário.
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/023/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/salario/diagrama.png)
 
 ***
 

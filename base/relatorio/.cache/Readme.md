@@ -1,6 +1,6 @@
-# @046 Como fazer os códigos e relatórios
+# @relatorio Como fazer os códigos e relatórios
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/046/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/relatorio/Readme.md)
 
 <!-- toc -->
 - [Como fazer seu código orientado a testes](#como-fazer-seu-código-orientado-a-testes)
@@ -10,7 +10,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
   - [Exemplo 3](#exemplo-3)
 <!-- toc -->
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/cover.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/relatorio/cover.jpg)
 
 ## Como fazer seu código orientado a testes
 
@@ -22,7 +22,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 ## Relatório de Código
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/046/relatorio.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/relatorio/relatorio.jpg)
 
 O relatório para ser colocado no início do arquivo principal do código de cada projeto e  deve responder às seguintes perguntas:
 
