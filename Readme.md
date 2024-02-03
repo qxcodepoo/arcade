@@ -28,78 +28,77 @@
 
 ## 00. Configuração de ambiente
 
-- [@038 Introdução ao git](base/038/Readme.md)
-- [@045 Instalação C++ e TS](base/045/Readme.md)
-- [@051 Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
-- [@056 Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
-- [@050 Rodando questões no Replit](https://github.com/senapk/tko/blob/master/replit/Readme.md)
+- [Introdução ao git](base/git/Readme.md)
+- [Instalação C++ e TS](base/instalacao/Readme.md)
+- [Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
+- [Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
+- [Rodando questões no Replit](https://github.com/senapk/tko/blob/master/replit/Readme.md)
 
 ## 00. Conteúdo extra
 
-- [@044 Relacionamentos](base/044/Readme.md)
-- [@055 Relacionamentos Resumo](base/055/Readme.md)
-- [@046 Como fazer os códigos e relatórios](base/046/Readme.md)
-- [@049 Criando a Main](base/049/Readme.md)
-- [@052 Pesquisa sobre alocação de memória](base/052/Readme.md)
+- [Relacionamentos](base/relacionamento/Readme.md)
+- [Relacionamentos Resumo](base/uml/Readme.md)
+- [Como fazer os códigos e relatórios](base/relatorio/Readme.md)
+- [Criando a Main](base/main/Readme.md)
+- [Pesquisa sobre alocação de memória](base/memoria/Readme.md)
 
 ## 01. Lógica
 
 Exercícios de fup para aquecer o coração e o cérebro.
 
-- [@000 Estressados A: Busca](base/000/Readme.md)
-- [@040 Estressados B: Contagem](base/040/Readme.md)
-- [@032 Estressados C: Transformações](base/032/Readme.md)
-- [@039 Estressados D: Controles](base/039/Readme.md)
+- [Estressados A: Busca](base/busca/Readme.md)
+- [Estressados B: Contagem](base/contagem/Readme.md)
+- [Estressados C: Transformações](base/transformacao/Readme.md)
+- [Estressados D: Controles](base/controle/Readme.md)
 
 ## 02. Entendendo Classes, a Main e os Testes
 
 [![image](https://user-images.githubusercontent.com/4747652/263152148-cf916c4a-6c07-4d36-bc9c-ac8a2f9b348c.png)](https://www.youtube.com/watch?v=PU6-anlu5jI)
 
-- [@054 Animal](base/054/Readme.md)
-- [@001 Calculadora](base/001/Readme.md)
-- [@002 Carro](base/002/Readme.md)
+- [Animal](base/animal/Readme.md)
+- [Calculadora](base/calculadora/Readme.md)
+- [Carro](base/carro/Readme.md)
 
 ## 02. Modificadores de Acesso
 
-- [@036 Relógio](base/036/Readme.md)
-- [@006 Tamagotchi](base/006/Readme.md)
+- [Relógio](base/relogio/Readme.md)
+- [Tamagotchi](base/tamagotchi/Readme.md)
 
 ## 03. Agregação Simples
 
-- [@004 Grafite](base/004/Readme.md)
-- [@003 Motoca](base/003/Readme.md)
+- [Grafite](base/grafite/Readme.md)
+- [Motoca](base/motoca/Readme.md)
 
 ## 04. ArrayList I - Listas
 
-- [@037 Budega](base/037/Readme.md)
-- [@009 Pula pula](base/009/Readme.md)
-- [@020 Lapiseira](base/020/Readme.md)
-- [@012 Topic](base/012/Readme.md)
-- [@041 Tabuleiro](base/041/Readme.md)
+- [Budega](base/budega/Readme.md)
+- [Pula pula](base/pula-pula/Readme.md)
+- [Lapiseira](base/lapiseira/Readme.md)
+- [Tabuleiro](base/tabuleiro/Readme.md)
 
 ## 05. ArrayList II - Arrays de Null
 
-- [@010 Cinema](base/010/Readme.md)
-- [@012 Topic](base/012/Readme.md)
-- [@011 JunkFood](base/011/Readme.md)
+- [Cinema](base/cinema/Readme.md)
+- [Topic](base/topic/Readme.md)
+- [JunkFood](base/junkfood/Readme.md)
 
 ## 06. ArrayList III - Composição e Enum
 
-- [@014 Contato](base/014/Readme.md)
-- [@017 Porquinho](base/017/Readme.md)
-- [@007 Tarifas](base/007/Readme.md)
+- [Contato](base/contato/Readme.md)
+- [Porquinho](base/porquinho/Readme.md)
+- [Tarifas](base/tarifa/Readme.md)
 
 ## 07. Mapas && Exceções
 
-- [@015 Busca](base/015/Readme.md)
-- [@008 Agiota](base/008/Readme.md)
+- [Busca](base/busca/Readme.md)
+- [Agiota](base/agiota/Readme.md)
 
 ## 08. Herança I
 
-- [@048 Estacionamento](base/048/Readme.md)
-- [@043 Cofre](base/043/Readme.md)
-- [@013 Cadastro](base/013/Readme.md)
-- [@047 Shapes](base/047/Readme.md)
+- [Estacionamento](base/estacionamento/Readme.md)
+- [Cofre](base/cofre/Readme.md)
+- [Cadastro](base/cadastro/Readme.md)
+- [Formas](base/forma/Readme.md)
 
 <!--
 - [@016 Favoritos & Agenda 3: cache e redundância](base/016/Readme.md)
@@ -108,13 +107,13 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 ## 09. Mapas && Exceções II
 
-- [@028 Bilheteria I](base/028/Readme.md)
-- [@053 Bilheteria II](base/053/Readme.md)
+- [Eventos](base/evento/Readme.md)
+- [Setores](base/setor/Readme.md)
 
 ## 10. Referências Cruzadas
 
-- [@021 Matrícula](base/021/Readme.md)
-- [@025 Twitter](base/025/Readme.md)
+- [Matrícula](base/matricula/Readme.md)
+- [Twitter](base/twitter/Readme.md)
 
 <!--
 1.  Herança II
