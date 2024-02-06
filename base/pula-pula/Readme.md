@@ -1,4 +1,4 @@
-# Pula pula
+# Gerenciando entradas e saídas de um @pula-pula
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

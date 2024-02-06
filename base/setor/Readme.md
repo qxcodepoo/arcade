@@ -1,4 +1,4 @@
-# Bilheteria II
+# Dos eventos da bilheteria, cadastre cada @setor
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

@@ -1,4 +1,4 @@
-# @clinica Clínica Veterinária
+# @clinica @clinica veterinária
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/clinica/Readme.md)
 

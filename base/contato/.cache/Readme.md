@@ -1,4 +1,4 @@
-# @contato Contato
+# @contato Implementando um único @contato
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contato/Readme.md)
 
@@ -11,7 +11,7 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
-Essa classe Contact será reutilizada nas atividades @015 Busca e @016 Favoritos.
+Essa classe Contact será reutilizada nas atividades @agenda e @favoritos.
 
 ## Intro
 

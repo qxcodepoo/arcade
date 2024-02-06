@@ -1,4 +1,4 @@
-# Calculadora
+# Cuidado com a bateria da @calculadora
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

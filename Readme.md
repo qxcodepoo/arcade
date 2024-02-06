@@ -46,59 +46,59 @@
 
 Exercícios de fup para aquecer o coração e o cérebro.
 
-- [Estressados A: Busca](base/busca/Readme.md)
-- [Estressados B: Contagem](base/contagem/Readme.md)
-- [Estressados C: Transformações](base/transformacao/Readme.md)
-- [Estressados D: Controles](base/controle/Readme.md)
+- [Operações de @busca](base/busca/Readme.md) 
+- [Operações de @contagem](base/contagem/Readme.md)
+- [Operações de @manipulação](base/manipulação/Readme.md)
+- [Operações @especiais](base/especiais/Readme.md)
 
 ## 02. Entendendo Classes, a Main e os Testes
 
 [![image](https://user-images.githubusercontent.com/4747652/263152148-cf916c4a-6c07-4d36-bc9c-ac8a2f9b348c.png)](https://www.youtube.com/watch?v=PU6-anlu5jI)
 
-- [Animal](base/animal/Readme.md)
-- [Calculadora](base/calculadora/Readme.md)
-- [Carro](base/carro/Readme.md)
+- [Faça barulho, envelheça e morra seu @animal](base/animal/Readme.md)
+- [Cuidado com a bateria da @calculadora](base/calculadora/Readme.md)
+- [Se não pode comprar um, construa seu primeiro @carro](base/carro/Readme.md)
 
 ## 02. Modificadores de Acesso
 
-- [Relógio](base/relogio/Readme.md)
-- [Tamagotchi](base/tamagotchi/Readme.md)
+- [Garante uma hora válida no @relogio](base/relogio/Readme.md)
+- [Alimente, brinque e mate o @tamagotchi](base/tamagotchi/Readme.md)
 
 ## 03. Agregação Simples
 
-- [Grafite](base/grafite/Readme.md)
-- [Motoca](base/motoca/Readme.md)
+- [Controle uma lapiseria de um @grafite](base/grafite/Readme.md)
+- [Passeando no parque de @motoca](base/motoca/Readme.md)
 
 ## 04. ArrayList I - Listas
 
-- [Budega](base/budega/Readme.md)
-- [Pula pula](base/pula-pula/Readme.md)
-- [Lapiseira](base/lapiseira/Readme.md)
-- [Tabuleiro](base/tabuleiro/Readme.md)
+- [Gerencie a fila de espera e atendimento da @budega](base/budega/Readme.md)
+- [Gerenciando entradas e saídas de um @pula-pula](base/pula-pula/Readme.md)
+- [Gerenciando os múltiplos grafites de uma @lapiseira](base/lapiseira/Readme.md)
+- [Cuidado com as armadilhas, ou não chegará no final do @tabuleiro](base/tabuleiro/Readme.md)
 
 ## 05. ArrayList II - Arrays de Null
 
-- [Cinema](base/cinema/Readme.md)
-- [Topic](base/topic/Readme.md)
-- [JunkFood](base/junkfood/Readme.md)
+- [Gerenciando reservas e cancelamentos de uma sala de @cinema](base/cinema/Readme.md)
+- [Gerenciando assentos prioritários e normais em uma @topic](base/topic/Readme.md)
+- [Comprando comida em uma máquina de @junkfood](base/junkfood/Readme.md)
 
 ## 06. ArrayList III - Composição e Enum
 
-- [Contato](base/contato/Readme.md)
-- [Porquinho](base/porquinho/Readme.md)
-- [Tarifas](base/tarifa/Readme.md)
+- [Implementando um único @contato](base/contato/Readme.md)
+- [Guardando moedas e itens em um @porquinho](base/porquinho/Readme.md)
+- [Operações de saque, depósito, extrato e @tarifas](base/tarifas/Readme.md)
 
 ## 07. Mapas && Exceções
 
-- [Busca](base/busca/Readme.md)
-- [Agiota](base/agiota/Readme.md)
+- [Gerencie os vários contatos da @agenda](base/agenda/Readme.md)
+- [Gerencie os empŕestimos de um @agiota](base/agiota/Readme.md)
 
 ## 08. Herança I
 
-- [Estacionamento](base/estacionamento/Readme.md)
-- [Cofre](base/cofre/Readme.md)
-- [Cadastro](base/cadastro/Readme.md)
-- [Formas](base/forma/Readme.md)
+- [Cobrando o valor de carros e motos no @estacionamento](base/estacionamento/Readme.md)
+- [Seu porquinho cresceu e virou um @cofre](base/cofre/Readme.md)
+- [Crie as contas poupança e corrente na hora do @cadastro](base/cadastro/Readme.md)
+- [De círculos e retângulos, calcule a área e o @perimetro](base/perimetro/Readme.md)
 
 <!--
 - [@016 Favoritos & Agenda 3: cache e redundância](base/016/Readme.md)
@@ -107,13 +107,13 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 ## 09. Mapas && Exceções II
 
-- [Eventos](base/evento/Readme.md)
-- [Setores](base/setor/Readme.md)
+- [De uma bilheteria, cadastre cada @evento](base/evento/Readme.md)
+- [Dos eventos da bilheteria, cadastre cada @setor](base/setor/Readme.md)
 
 ## 10. Referências Cruzadas
 
-- [Matrícula](base/matricula/Readme.md)
-- [Twitter](base/twitter/Readme.md)
+- [Garanta os vínculos cruzados entre alunos e disciplinas na @matricula](base/matricula/Readme.md)
+- [Agora é X, mas antes era @twitter](base/twitter/Readme.md)
 
 <!--
 1.  Herança II

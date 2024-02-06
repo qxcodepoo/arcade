@@ -1,4 +1,4 @@
-# JunkFood
+# Comprando comida em uma máquina de @junkfood
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)

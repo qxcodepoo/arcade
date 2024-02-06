@@ -1,4 +1,4 @@
-# Estressados B: Contagem
+# Operações de @contagem
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)

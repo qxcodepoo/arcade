@@ -1,4 +1,4 @@
-# @setor Bilheteria II
+# @setor Dos eventos da bilheteria, cadastre cada @setor
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/setor/Readme.md)
 

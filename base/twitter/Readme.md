@@ -1,4 +1,4 @@
-# Twitter
+# Agora é X, mas antes era @twitter
 
 <!-- toch -->
 [Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

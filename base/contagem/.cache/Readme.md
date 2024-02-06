@@ -1,4 +1,4 @@
-# @contagem Estressados B: Contagem
+# @contagem Operações de @contagem
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/Readme.md)
 

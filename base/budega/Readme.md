@@ -1,4 +1,4 @@
-# Budega
+# Gerencie a fila de espera e atendimento da @budega
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)

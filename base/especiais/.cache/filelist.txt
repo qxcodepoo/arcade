@@ -1,0 +1,4 @@
+Readme.md
+cover.jpg
+local.sh
+

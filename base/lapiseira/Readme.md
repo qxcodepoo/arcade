@@ -1,4 +1,4 @@
-# Lapiseira
+# Gerenciando os múltiplos grafites de uma @lapiseira
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

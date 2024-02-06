@@ -1,4 +1,4 @@
-# @grafite Grafite
+# @grafite Controle uma lapiseria de um @grafite
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/Readme.md)
 

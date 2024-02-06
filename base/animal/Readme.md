@@ -1,4 +1,4 @@
-# Animal
+# Faça barulho, envelheça e morra seu @animal
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)

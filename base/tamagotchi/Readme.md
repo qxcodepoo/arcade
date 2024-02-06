@@ -1,4 +1,4 @@
-# Tamagotchi
+# Alimente, brinque e mate o @tamagotchi
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

@@ -1,4 +1,4 @@
-# @twitter Twitter
+# @twitter Agora é X, mas antes era @twitter
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/twitter/Readme.md)
 

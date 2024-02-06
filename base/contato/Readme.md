@@ -1,4 +1,4 @@
-# Contato
+# Implementando um único @contato
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
@@ -9,7 +9,7 @@
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
-Essa classe Contact será reutilizada nas atividades @015 Busca e @016 Favoritos.
+Essa classe Contact será reutilizada nas atividades @agenda e @favoritos.
 
 ## Intro
 

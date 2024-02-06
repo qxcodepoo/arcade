@@ -1,4 +1,4 @@
-# @topic Topic
+# @topic Gerenciando assentos prioritários e normais em uma @topic
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/topic/Readme.md)
 

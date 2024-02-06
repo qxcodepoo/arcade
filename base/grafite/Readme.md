@@ -1,4 +1,4 @@
-# Grafite
+# Controle uma lapiseria de um @grafite
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

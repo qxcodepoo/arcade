@@ -1,4 +1,4 @@
-# @busca Busca: Estressados A
+# @busca Operações de @busca
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/busca/Readme.md)
 
