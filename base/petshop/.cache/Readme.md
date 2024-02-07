@@ -1,4 +1,4 @@
-# @petshop Pets
+# @petshop @petshop
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/petshop/Readme.md)
 

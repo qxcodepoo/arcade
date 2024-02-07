@@ -1,4 +1,4 @@
-# @anotacoes Faça @anotacoes com título e texto
+# @anotacoes Adicione título e texto em @anotacoes
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/anotacoes/Readme.md)
 

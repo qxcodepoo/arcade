@@ -1,4 +1,4 @@
-# @whatsapp Whatsapp
+# @whatsapp @whatsapp
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/whatsapp/Readme.md)
 

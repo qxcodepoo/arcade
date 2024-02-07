@@ -1,4 +1,4 @@
-# Whatsapp
+# @whatsapp
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guia de Resolução](#guia-de-resolução) | [Main não interativa](#main-não-interativa) | [Créditos](#créditos)

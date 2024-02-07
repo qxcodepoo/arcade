@@ -20,6 +20,7 @@
 - [08. Herança I](#08-herança-i)
 - [09. Mapas && Exceções II](#09-mapas--exceções-ii)
 - [10. Referências Cruzadas](#10-referências-cruzadas)
+- [11. Em atualização](#11-em-atualização)
 <!-- toc -->
 
 ---
@@ -101,8 +102,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [De círculos e retângulos, calcule a área e o @perimetro](base/perimetro/Readme.md)
 
 <!--
-- [@016 Favoritos & Agenda 3: cache e redundância](base/016/Readme.md)
-- [@033 Trem](base/033/Readme.md)
+
 -->
 
 ## 09. Mapas && Exceções II
@@ -115,31 +115,18 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [Garanta os vínculos cruzados entre alunos e disciplinas na @matricula](base/matricula/Readme.md)
 - [Agora é X, mas antes era @twitter](base/twitter/Readme.md)
 
-<!--
-1.  Herança II
+## 11. Em atualização
 
-- [@023 Salário](base/023/Readme.md)
-- [@022 Hospital](base/022/Readme.md)
-
-15. Lógica II
-
-- [@026 Whatsapp](base/026/Readme.md)
-
-16. Herança III
-
-- [@034 Carga](base/034/Readme.md)
-- [@027 Grupos](base/027/Readme.md)
-
-- [@018 Hospital II](base/018/Readme.md)
-
-- [@031 Pets](base/031/Readme.md)
-- [@024 Mensagens](base/024/Readme.md)
-- [@030 ContatoStar & Agenda 4 (herança)](base/030/Readme.md)
-- [@008 Agiota](base/008/Readme.md)
-- [@005 Mestre dos Vetores (manipulação arraylist)](base/005/Readme.md)
-- [@019 Ligações - Agenda 4](base/019/Readme.md)
-- [@035 Clínica Veterinária](base/035/Readme.md)
-- [@042 Carro Get e Set](base/042/Readme.md)
-- [@029 Anotações](base/029/Readme.md)
-
--->
+- [@salario](base/salario/Readme.md)
+- [@comunicador](base/comunicador/Readme.md)
+- [@paciente](base/paciente/Readme.md)
+- [@whatsapp](base/whatsapp/Readme.md)
+- [Um trem com vagões de @carga](base/carga/Readme.md)
+- [@grupo](base/grupo/Readme.md)
+- [@mensagem](base/mensagem/Readme.md)
+- [@vetores](base/vetores/Readme.md)
+- [@ligacao](base/ligacao/Readme.md)
+- [@petshop](base/petshop/Readme.md)
+- [Adicione título e texto em @anotacoes](base/anotacoes/Readme.md)
+- [Cache e redundância em @favoritos](base/favoritos/Readme.md)
+- [@trem](base/trem/Readme.md)

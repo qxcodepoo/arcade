@@ -1,11 +1,13 @@
-# Hospital II
+# @comunicador @comunicador
+
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/comunicador/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/comunicador/cover.jpg)
 
 ## Intro
 
@@ -77,7 +79,7 @@ $end
 ***
 
 ## Diagrama de Classes
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/comunicador/diagrama.png)
 
 ***
 

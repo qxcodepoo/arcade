@@ -1,4 +1,4 @@
-# Salário
+# @salario
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)

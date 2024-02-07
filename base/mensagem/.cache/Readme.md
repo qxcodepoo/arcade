@@ -1,4 +1,4 @@
-# @mensagem Mensagens
+# @mensagem @mensagem
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/mensagem/Readme.md)
 

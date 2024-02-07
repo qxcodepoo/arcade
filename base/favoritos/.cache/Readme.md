@@ -1,13 +1,13 @@
-# @favorito Favoritos & Agenda 3: cache e redundância
+# @favoritos Cache e redundância em @favoritos
 
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/favorito/Readme.md)
+Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/favoritos/Readme.md)
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favorito/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favoritos/cover.jpg)
 
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
 
@@ -97,7 +97,7 @@ $end
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favorito/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favoritos/diagrama.png)
 
 ## Esqueleto
 <!--FILTER Solver.java java-->

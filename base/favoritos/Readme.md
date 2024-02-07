@@ -1,4 +1,4 @@
-# Favoritos & Agenda 3: cache e redundância
+# Cache e redundância em @favoritos
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Esqueleto](#esqueleto)

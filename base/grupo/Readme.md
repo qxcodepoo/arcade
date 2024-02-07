@@ -1,4 +1,4 @@
-# Grupos
+# @grupo
 
 <!-- toch -->
 [Guia de Atividade](#guia-de-atividade) | [Créditos](#créditos)

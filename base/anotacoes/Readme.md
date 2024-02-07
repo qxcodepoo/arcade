@@ -1,4 +1,4 @@
-# Faça @anotacoes com título e texto
+# Adicione título e texto em @anotacoes
 
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide)

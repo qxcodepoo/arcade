@@ -1,4 +1,4 @@
-# Hospital
+# @paciente
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Esqueleto](#esqueleto)
