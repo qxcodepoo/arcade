@@ -47,9 +47,9 @@
 
 Exercícios de fup para aquecer o coração e o cérebro.
 
-- [Operações de @busca](base/busca/Readme.md) 
+- [Operações de @busca](base/busca/Readme.md)
 - [Operações de @contagem](base/contagem/Readme.md)
-- [Operações de @manipulação](base/manipulação/Readme.md)
+- [Operações de @manipulacao](base/manipulacao/Readme.md)
 - [Operações @especiais](base/especiais/Readme.md)
 
 ## 02. Entendendo Classes, a Main e os Testes

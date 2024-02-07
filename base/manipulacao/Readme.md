@@ -1,13 +1,11 @@
-# Operações de @manipulação
-
-Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/manipulação/Readme.md)
+# Operações de @manipulacao
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/manipulação/cover.jpg)
+![cover](cover.jpg)
 
 ***
 
@@ -36,9 +34,9 @@ Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/b
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/manipulação/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/manipulação/.cache/draft.ts)
-- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/manipulação/.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+- [solver.java](.cache/draft.java)
 
 ## Shell
 
