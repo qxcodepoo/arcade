@@ -1,4 +1,4 @@
-# @calculadora Cuidado com a bateria da @calculadora
+# Cuidado com a bateria da @calculadora
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/Readme.md)
 

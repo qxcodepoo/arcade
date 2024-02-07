@@ -1,4 +1,4 @@
-# @cinema Gerenciando reservas e cancelamentos de uma sala de @cinema
+# Gerenciando reservas e cancelamentos de uma sala de @cinema
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/Readme.md)
 

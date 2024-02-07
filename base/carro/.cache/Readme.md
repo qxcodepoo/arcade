@@ -1,4 +1,4 @@
-# @carro Se não pode comprar um, construa seu primeiro @carro
+# Se não pode comprar um, construa seu primeiro @carro
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro/Readme.md)
 

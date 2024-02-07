@@ -1,4 +1,4 @@
-# @pula-pula Gerenciando entradas e saídas de um @pula-pula
+# Gerenciando entradas e saídas de um @pula-pula
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/Readme.md)
 

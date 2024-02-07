@@ -1,4 +1,4 @@
-# @tarifas Operações de saque, depósito, extrato e @tarifas
+# Operações de saque, depósito, extrato e @tarifas
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/Readme.md)
 

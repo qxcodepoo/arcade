@@ -1,4 +1,4 @@
-# @trem @trem
+# @trem
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/trem/Readme.md)
 

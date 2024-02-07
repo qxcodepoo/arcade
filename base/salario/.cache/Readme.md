@@ -1,4 +1,4 @@
-# @salario @salario
+# @salario
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/salario/Readme.md)
 

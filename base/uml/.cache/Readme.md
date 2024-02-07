@@ -1,4 +1,4 @@
-# @uml Relacionamentos Resumo
+# Relacionamentos Resumo
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/uml/Readme.md)
 

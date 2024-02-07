@@ -1,4 +1,4 @@
-# @memoria Pesquisa sobre alocação de memória
+# Pesquisa sobre alocação de memória
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/memoria/Readme.md)
 

@@ -1,4 +1,4 @@
-# @tamagotchi Alimente, brinque e mate o @tamagotchi
+# Alimente, brinque e mate o @tamagotchi
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/Readme.md)
 

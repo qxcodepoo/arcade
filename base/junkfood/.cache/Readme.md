@@ -1,4 +1,4 @@
-# @junkfood Comprando comida em uma máquina de @junkfood
+# Comprando comida em uma máquina de @junkfood
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/Readme.md)
 

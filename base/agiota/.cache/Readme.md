@@ -1,4 +1,4 @@
-# @agiota Gerencie os empŕestimos de um @agiota
+# Gerencie os empŕestimos de um @agiota
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/agiota/Readme.md)
 

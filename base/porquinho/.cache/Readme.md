@@ -1,4 +1,4 @@
-# @porquinho Guardando moedas e itens em um @porquinho
+# Guardando moedas e itens em um @porquinho
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/Readme.md)
 

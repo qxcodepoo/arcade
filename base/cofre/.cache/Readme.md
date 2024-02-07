@@ -1,4 +1,4 @@
-# @cofre Seu porquinho cresceu e virou um @cofre
+# Seu porquinho cresceu e virou um @cofre
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/Readme.md)
 

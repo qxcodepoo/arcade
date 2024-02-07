@@ -1,4 +1,4 @@
-# @matricula Garanta os vínculos cruzados entre alunos e disciplinas na @matricula
+# Garanta os vínculos cruzados entre alunos e disciplinas na @matricula
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/matricula/Readme.md)
 

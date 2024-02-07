@@ -1,4 +1,4 @@
-# @comunicador @comunicador
+# @comunicador
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/comunicador/Readme.md)
 

@@ -1,4 +1,4 @@
-# @instalacao Instalação C++ e TS
+# Instalação C++ e TS
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/instalacao/Readme.md)
 

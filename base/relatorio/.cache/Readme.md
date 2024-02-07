@@ -1,4 +1,4 @@
-# @relatorio Como fazer os códigos e relatórios
+# Como fazer os códigos e relatórios
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/relatorio/Readme.md)
 

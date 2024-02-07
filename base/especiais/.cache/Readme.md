@@ -1,4 +1,4 @@
-# @especiais Operações @especiais
+# Operações @especiais
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/especiais/Readme.md)
 

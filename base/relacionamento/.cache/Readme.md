@@ -1,4 +1,4 @@
-# @relacionamento Relacionamentos
+# Relacionamentos
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/relacionamento/Readme.md)
 

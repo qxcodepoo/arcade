@@ -1,4 +1,4 @@
-# @vetores @vetores
+# @vetores
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/vetores/Readme.md)
 

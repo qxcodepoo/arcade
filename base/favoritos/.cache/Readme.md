@@ -1,4 +1,4 @@
-# @favoritos Cache e redundância em @favoritos
+# Cache e redundância em @favoritos
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/favoritos/Readme.md)
 

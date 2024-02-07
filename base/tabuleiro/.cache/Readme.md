@@ -1,4 +1,4 @@
-# @tabuleiro Cuidado com as armadilhas, ou não chegará no final do @tabuleiro
+# Cuidado com as armadilhas, ou não chegará no final do @tabuleiro
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/Readme.md)
 

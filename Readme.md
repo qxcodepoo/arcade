@@ -101,10 +101,6 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [Crie as contas poupança e corrente na hora do @cadastro](base/cadastro/Readme.md)
 - [De círculos e retângulos, calcule a área e o @perimetro](base/perimetro/Readme.md)
 
-<!--
-
--->
-
 ## 09. Mapas && Exceções II
 
 - [De uma bilheteria, cadastre cada @evento](base/evento/Readme.md)

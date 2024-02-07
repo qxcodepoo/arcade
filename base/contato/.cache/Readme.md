@@ -1,4 +1,4 @@
-# @contato Implementando um único @contato
+# Implementando um único @contato
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contato/Readme.md)
 

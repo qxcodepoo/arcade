@@ -1,4 +1,4 @@
-# @lapiseira Gerenciando os múltiplos grafites de uma @lapiseira
+# Gerenciando os múltiplos grafites de uma @lapiseira
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/lapiseira/Readme.md)
 

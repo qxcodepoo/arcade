@@ -1,4 +1,4 @@
-# @carga Um trem com vagões de @carga
+# Um trem com vagões de @carga
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carga/Readme.md)
 

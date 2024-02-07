@@ -1,4 +1,4 @@
-# @main Criando a Main
+# Criando a Main
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/main/Readme.md)
 
