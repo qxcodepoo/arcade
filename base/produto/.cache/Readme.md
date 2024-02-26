@@ -1,4 +1,4 @@
-# Produto
+# Padrão Composite e Decorator: @produto
 
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/produto/Readme.md)
 

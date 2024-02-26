@@ -1,4 +1,4 @@
-# Produto
+# Padrão Composite e Decorator: @produto
 
 Padrões de projeto são soluções para problemas comuns que encontramos ao projetar um sistema. Eles são como receitas de bolo que podemos aplicar em nossos projetos para resolver problemas comuns. Os padrões de projeto são divididos em três categorias: padrões de criação, padrões estruturais e padrões comportamentais.
 
