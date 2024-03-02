@@ -1,4 +1,30 @@
 
+class Pessoa {
+    private nome: string;
+    constructor(nome: string) {
+    }
+    public getNome(): string {
+    }
+    public setNome(nome: string): void {
+    }
+}
+
+class Mercantil {
+    caixas: Array<Pessoa | null>;
+    espera: Array<Pessoa>;
+
+    constructor(nCaixas: number) {
+    }
+    chegar(pessoa: Pessoa): void {
+    }
+    chamar(index: number) {
+    }
+    finalizar(index: number): void {
+    }
+
+    toString(): string {
+    }
+}
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;

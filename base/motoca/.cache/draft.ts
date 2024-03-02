@@ -27,6 +27,15 @@ class Motoca {
 
     remover() : Pessoa | null {
     }
+    buzinar(): string {
+    }
+
+    drive(time: number): void {
+    }
+
+    comprarTempo(value: number) {
+    }
+
     public toString(): string {
         let valor = this.pessoa === null ? "empty" : "" + this.pessoa;
         return `power:${this.potencia}, time:${this.time}, person:(${valor})`;
@@ -56,6 +65,9 @@ function main() {
                 write(aux);
             }
         }
+        else if (args[0] === "honk")  { write(moto.buzinar());          }
+        else if (args[0] === "buy")   { moto.comprarTempo(+args[1]);    }
+        else if (args[0] === "drive") { moto.drive(+args[1]);           }
         else if (args[0] === "end")   { break;                          }
         else                          { write("fail: comando invalido");}
     }

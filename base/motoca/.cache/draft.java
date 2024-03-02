@@ -37,7 +37,17 @@ class Motorcycle {
     }
     public Person leave() {
     }
+    //Comprar mais tempo
+    public void buy(int time){
+    }
+    public void drive(int time){
+    }
+    //buzinar
+    public void honk(){
+    }
     public String toString(){
+        var value = this.person == null ? "empty" : this.person;
+        return "power:" + this.power + ", time:" + this.time + ", person:(" + value + ")";
     }
 }
 class Solver{
@@ -52,6 +62,9 @@ class Solver{
             if      (args[0].equals("show"))     { System.out.println(motoca);                         }
             else if (args[0].equals("init"))     { motoca = new Motorcycle(number(args[1]));           }  
             else if (args[0].equals("enter"))    { motoca.enter(new Person(args[1], number(args[2]))); }
+            else if (args[0].equals("buy"))      { motoca.buy(number(args[1]));                        }
+            else if (args[0].equals("drive"))    { motoca.drive(number(args[1]));                      }
+            else if (args[0].equals("honk"))     { motoca.honk();                                      }
             else if (args[0].equals("end"))      { break;                                              }
             else if (args[0].equals("leave"))    {
                 Person person = motoca.leave();

@@ -1,5 +1,3 @@
-// Esse rascunho não possui o método de divisão, nem a invocação na main.
-
 class Calculator {
     batteryMax: number;
     battery: number;
@@ -18,7 +16,10 @@ class Calculator {
     sum(a: number, b: number): void { 
     }
 
+    division(num: number, den: number): void {
+    }
     toString(): string {
+        return "display = " + this.display.toFixed(2) + ", battery = " + this.battery;
     }
 }
 
@@ -48,6 +49,9 @@ function main() {
         }
         else if (args[0] == "sum") {
             calc.sum(+args[1], +args[2]);
+        }
+        else if (args[0] == "div") {
+            calc.division(+args[1], +args[2]);
         }
         else if (args[0] === "end") {
             break;

@@ -1,7 +1,4 @@
 
-// Nesse rascunho esta faltando a parte de dirigir o carro
-
-
 class Car{
     pass: number; // Passageiros
     passMax: number; // limite de Passageiros
@@ -21,6 +18,9 @@ class Car{
     fuel(gas: number): void {
     }
     
+    drive (km: number): void {
+    }
+
     toString(): string {
     }
 };
@@ -43,6 +43,7 @@ function main() {
         else if (args[0] === "enter") { car.enter();                    }
         else if (args[0] === "leave") { car.leave();                    }
         else if (args[0] === "fuel")  { car.fuel(+args[1]);             }
+        else if (args[0] === "drive") { car.drive(+args[1]);            }
         else if (args[0] === "end")   { break;                          }
         else                          { write("fail: comando invalido");}
     }

@@ -1,7 +1,5 @@
 #include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
-// Esse rascunho não possui o método de divisão, nem a invocação na main.
-
 struct Calculator {
     int batteryMax;
     int battery;
@@ -15,6 +13,7 @@ struct Calculator {
 
     void sum(int a, int b);
 
+    void division(int num, int den);
     std::string str() const {
         return fn::format("display = {%.2f}, battery = {}", this->display, this->battery); 
     }
@@ -43,6 +42,9 @@ int main() {
         }
         else if (args[0] == "sum") {
             c.sum(+args[1], +args[2]);
+        }
+        else if (args[0] == "div") {
+            c.division(+args[1], +args[2]);
         }
         else if (args[0] == "end") {
             break;

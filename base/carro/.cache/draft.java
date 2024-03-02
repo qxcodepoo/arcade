@@ -1,9 +1,6 @@
 import java.util.*;
 
 
-// Nesse rascunho esta faltando a parte de dirigir o carro
-
-
 class Car{
     public int pass; // Passageiros
     public int passMax; // limite de Passageiros
@@ -23,6 +20,9 @@ class Car{
     public void fuel(int gas) {
     }
     
+    public void drive (int km) {
+    }
+
     public String toString() {
     }
 };
@@ -41,7 +41,6 @@ public class Solver {
             else if (args[0].equals("enter")) { car.enter();                          }
             else if (args[0].equals("leave")) { car.leave();                          }
             else if (args[0].equals("drive")) { car.drive((int) number(args[1]));     }
-            //--
             else if (args[0].equals("fuel"))  { car.fuel((int) number(args[1]));      }
             else if (args[0].equals("end"))   { break;                                }
             else                              { write("fail: comando invalido");}

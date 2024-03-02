@@ -1,5 +1,3 @@
-// Nesse rascunho, falta a parte do nextSecond
-
 class Time {
     private hour: number;
     private minute: number;
@@ -8,12 +6,6 @@ class Time {
     constructor(hour: number, minute: number, second: number) {
     }
     setHour(hour: number): void {
-        if (hour < 0 || hour > 23) {
-            write("fail: hora invalida");
-            return;
-        }
-        this.hour = hour;
-        
     }
     setMinute(minute: number): void {
     }
@@ -21,12 +13,13 @@ class Time {
     setSecond(second: number): void {
     }
     getHour(): number {
-        return this.hour;
     }
     getMinute(): number {
     }
 
     getSecond(): number {
+    }
+    nextSecond(): void {
     }
     toString() {
         let p2 = (n: number) => ("" + n).padStart(2, "0");
@@ -57,6 +50,9 @@ function main() {
             time.setHour(+args[1]);
             time.setMinute(+args[2]);
             time.setSecond(+args[3]);
+        }
+        else if (args[0] === "next") {
+            time.nextSecond();
         }
         else if (args[0] === "end")   {
             break;

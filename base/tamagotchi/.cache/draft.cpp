@@ -35,15 +35,7 @@ private:
 public:
     Pet(int energy = 0, int hungry = 0, int clean = 0);
 
-    void play() {
-        if (!testAlive())
-            return;
-        setEnergy(getEnergy() - 2);
-        setHungry(getHungry() - 1);
-        setClean(getClean() - 3);
-        diamonds += 1;
-        age += 1;
-    }
+    void play();
 
     void shower();
 

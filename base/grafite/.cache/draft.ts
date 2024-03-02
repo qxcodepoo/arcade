@@ -48,6 +48,13 @@ class Pencil {
 
     public insert(lead: Lead): boolean {
     }
+
+    public remove(): Lead | null {
+    }
+
+    writePage(): void {
+    }
+
     public toString(): string {
         let ponta = this.tip != null ? "[" + this.tip.toString() + "]" : "null";
         return "calibre: " + this.thickness + ", grafite: " + ponta;
@@ -71,6 +78,8 @@ function main() {
         if      (args[0] === "init")  { pencil = new Pencil(+args[1]);                                    }
         else if (args[0] === "show")  { write(pencil.toString());                                         }
         else if (args[0] === "insert"){ pencil.insert(new Lead(+args[1], args[2], +args[3]));             }
+        else if (args[0] === "remove"){ pencil.remove();                                                  }
+        else if (args[0] === "write") { pencil.writePage();                                               }
         else if (args[0] === "end")   { break;                                                            }
         else                          { write("fail: comando invalido");                                  }
     }

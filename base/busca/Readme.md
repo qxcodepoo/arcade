@@ -1,11 +1,5 @@
 # Operações de @busca
 
-<!-- online -->
-- Como executar os testes na sua máquina:
-  - Instalar o tko: `pip install tko`
-  - Baixar a atividade: `tko down poo busca`
-  - Rodar a atividade: `tko run cases.tio seu_codigo` 
-<!-- online -->
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)

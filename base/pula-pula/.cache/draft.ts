@@ -36,6 +36,8 @@ class Trampoline {
     }
 
     toString(): string {
+        return  "[" + this.waiting.map(kid => kid.toString()).join(", ") + "]" + " => " + 
+                "[" + this.playing.map(kid => kid.toString()).join(", ") + "]";
     }
 }
 

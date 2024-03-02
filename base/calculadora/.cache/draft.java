@@ -1,7 +1,5 @@
 import java.util.*;
 
-// Esse rascunho não possui o método de divisão, nem a invocação na main.
-
 
 class Calculator {
     public int batteryMax;
@@ -18,6 +16,9 @@ class Calculator {
     }
 
     public void sum(int a, int b) {
+    }
+
+    public void division(int num, int den) {
     }
 
     public String toString() {
@@ -49,6 +50,9 @@ public class Solver {
             }
             else if ("sum".equals(args[0])) {
                 calc.sum((int) number(args[1]), (int) number(args[2]));
+            }
+            else if ("div".equals(args[0])) {
+                calc.division((int) number(args[1]), (int) number(args[2]));
             }
             else if ("end".equals(args[0])) {
                 break;

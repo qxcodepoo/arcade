@@ -1,25 +1,21 @@
 #include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
 
-// Nesse rascunho, falta a parte do nextSecond
-
 class Time {
 private:
     int hour {0}, minute {0}, second {0};
 public:
     Time(int hour = 0, int minute = 0, int second = 0);
-    void setHour(int hour) {
-        if (hour < 0 || hour > 23) {
-            write("fail: hora invalida");
-            return;
-        }
-        this->hour = hour;
-    }
+
+    void setHour(int hour);
+
     void setMinute(int minute);
     void setSecond(int second);
     int getHour() const;
     int getMinute() const;
     int getSecond() const;
+    void nextSecond();
+
     std::string str() const {
         return fn::format("{%02d}:{%02d}:{%02d}", hour, minute, second);
     }
@@ -48,6 +44,9 @@ int main() {
         }
         else if (args[0] == "show") {
             fn::write(time);
+        }
+        else if (args[0] == "next") {
+            time.nextSecond();
         }
         else if (args[0] == "end") {
             break;

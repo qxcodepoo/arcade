@@ -1,7 +1,5 @@
 import java.util.*;
 
-// Nesse rascunho, falta a parte do nextSecond
-
 class Time {
     private int hour   = 0;
     private int minute = 0;
@@ -21,6 +19,8 @@ class Time {
     public int getMinute() {
     }
     public int getSecond() {
+    }
+    public void nextSecond() {
     }
     public String toString() {
         return String.format("%02d:%02d:%02d", hour, minute, second);
@@ -47,6 +47,9 @@ public class Solver {
                 time.setHour((int)number(args[1]));
                 time.setMinute((int)number(args[2]));
                 time.setSecond((int)number(args[3]));
+            }
+            else if (args[0].equals("next"))  { 
+                time.nextSecond(); 
             }
             else if (args[0].equals("end"))   { 
                 break; 
