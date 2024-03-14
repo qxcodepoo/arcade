@@ -1,6 +1,5 @@
-// import {write, main} from "./shell"
 
-export class Pet {
+class Pet {
     private energyMax: number;
     private hungryMax: number;
     private cleanMax: number;
@@ -35,8 +34,11 @@ export class Pet {
     public setClean(value: number) {
     }
 
-    private testAlive(): boolean {
+    public setDiamonds(value: number) {
     }
+    public setAge(value: number) {
+    }
+
     public toString(): string {
         return  `E:${this.energy}/${this.energyMax}` 
             + `, S:${this.hungry}/${this.hungryMax}` 
@@ -44,41 +46,57 @@ export class Pet {
             + `, D:${this.diamonds}, I:${this.age}`;
     }
 
+    public getClean() {
+    }
+    public getHungry() {
+    }
+    public getEnergy() {
+    }
+
+    public getCleanMax() {
+    }
+    public getHungryMax() {
+    }
+    public getEnergyMax() {
+    }
+
+    public getDiamonds() {
+    }
+    public getAge() {
+    }
+    public isAlive() {
+    }
+}
+
+class Game {
+
+    pet: Pet;
+
+    constructor(pet: Pet) {
+    }
+    //se estiver morto, avise e retorne false
+    private testAlive(): boolean {
+    }
     public play() {
         if (!this.testAlive()) 
             return;
-        this.setEnergy(this.energy - 2);
-        this.setHungry(this.hungry - 1);
-        this.setClean(this.clean - 3);
-        this.age += 1;
-        this.diamonds += 1;
+        this.pet.setEnergy(this.pet.getEnergy() - 2);
+        this.pet.setHungry(this.pet.getHungry() - 1);
+        this.pet.setClean(this.pet.getClean() - 3);
+        this.pet.setAge(this.pet.getAge() + 1);
+        this.pet.setDiamonds(this.pet.getDiamonds() + 1);
     }
     public shower() {
     }
     public eat() {
     }
     public sleep() {
-    }
-    public getClean() {
-        return this.clean;
-    }
-    public getHungry() {
-        return this.hungry;
-    }
-    public getEnergy() {
-        return this.energy;
-    }
-    public getDiamonds() {
-        return this.diamonds;
-    }
-    public getAge() {
-        return this.age;
-    }
-    public getAlive() {
-        return this.alive;
-    }
 
+    }
+    toString() {
+    }
 }
+
 
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
@@ -86,7 +104,7 @@ let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
 function main() {
-    let pet = new Pet(0, 0, 0);
+    let game = new Game(new Pet(0, 0, 0));
 
     while (true) {
         let line = input();
@@ -94,12 +112,12 @@ function main() {
         let args = line.split(" ");
 
         if      (args[0] === "end")   { break;                                                            }
-        else if (args[0] === "init")  { pet = new Pet(+args[1], +args[2], +args[3]); }
-        else if (args[0] === "show")  { write(pet.toString());                                            }
-        else if (args[0] === "play")  { pet.play();                                                       }
-        else if (args[0] === "eat")   { pet.eat();                                                        }
-        else if (args[0] === "sleep") { pet.sleep();                                                      }
-        else if (args[0] === "shower"){ pet.shower();                                                     }
+        else if (args[0] === "init")  { game = new Game(new Pet(+args[1], +args[2], +args[3])); }
+        else if (args[0] === "show")  { write(game.toString());                                            }
+        else if (args[0] === "play")  { game.play();                                                       }
+        else if (args[0] === "eat")   { game.eat();                                                        }
+        else if (args[0] === "sleep") { game.sleep();                                                      }
+        else if (args[0] === "shower"){ game.shower();                                                     }
         else                          { write("fail: comando invalido");                                  }
     }
 }
