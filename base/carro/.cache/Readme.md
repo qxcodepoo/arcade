@@ -3,8 +3,8 @@
 Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro/Readme.md)
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/cover.jpg)
@@ -33,6 +33,33 @@ Seu sistema deverá:
   - Caso não exista combustível suficiente para completar a viagem inteira, dirija o que for possível e emita uma mensagem indicando quanto foi percorrido.
 
 ***
+
+## Treino
+
+- Parte 1: entrar;
+  - Crie a classe `Car` com os atributos `pass`, `passMax`;
+  - Crie o método construtor que inicializa os atributos com 0 e 2;
+  - Crie o método `enter` que incrementa `pass`;
+  - Crie um if para impedir que `pass` ultrapasse `passMax`;
+  - Crie o método `toString` mostrar o estado do carro.
+  - Teste seu código.
+- Parte 2: sair.
+  - Crie o método `leave` que decrementa `pass`;
+  - Crie um if para impedir que `pass` seja menor que 0;
+  - Teste seu código.
+- Parte 3: abastecer.
+  - Crie os atributos `gas` e `gasMax`;
+  - Crie o método `fuel` que incrementa `gas` com o valor passado;
+  - Crie um if para impedir que `gas` ultrapasse `gasMax`;
+  - Teste seu código.
+- Parte 4: dirigir.
+  - Crie o atributo `km`;
+  - Crie o método `drive` que incrementa `km` e decrementa `gas` com o valor passado;
+  - Crie testes para impedir que o carro dirija em passageiros ou sem combustível;
+  - Teste seu código.
+- Parte 5: dirigir longe.
+  - Crie testes para impedir que o carro dirija mais do que o combustível permite;
+  - Teste seu código.
 
 ## Draft
 

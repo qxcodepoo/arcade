@@ -1,8 +1,8 @@
-# Controle uma lapiseria de um @grafite
+# Porta minas com um @grafite
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -36,6 +36,28 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
     - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
 
 ***
+
+## Treino
+
+- Parte 1: inserir.
+  - Crie a Classe `Grafite` apenas com o atributo `size`.
+  - Crie a Lapis apenas com o atributo `tip = null | Grafite`.
+  - Crie o construtor que inicializa o atributo `tip` para `null`.
+  - Crie o método `hasGrafite` que retorna `true` se tem grafite na lapiseira.
+  - Crie o método `insert` que insere um grafite na lapiseira se não houver um grafite.
+  - Crie um método `toString` que mostra a lapiseira e o grafite que está nela.
+  - Crie um objeto lapiseira.
+  - Imprima a lapiseira.
+  - Crie um objeto grafite e insira na lapiseira.
+  - Verifique se a lapiseira possui o grafite inserido.
+- Parte 2: removendo grafite.
+  - Crie o método `remove` que remove o grafite da ponta se ele existir.
+  - Imprima a lapiseira para verificar se o grafite foi removido.
+  - Verifique se o método `remove` retorna o grafite removido ou `null` se não tinha grafite.
+- Parte 3: escrevendo.
+  - Crie o método `writePage` que escreve na folha gastando 1 cm de grafite.
+  - Imprima a lapiseira para verificar se o grafite foi gasto.
+  - Se o grafite acabar, remova o grafite da lapiseira.
 
 ## Draft
 
