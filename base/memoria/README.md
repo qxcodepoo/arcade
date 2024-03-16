@@ -1,12 +1,5 @@
 # Pesquisa sobre alocação de memória
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/memoria/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo memoria`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
-
----
-
 Escolha duas linguagens além da sua linguagem de estudo e tente comparar como funciona o processo de alocação e desalocação de memória.
 
 Sugestões: java, c++, python, javascript, rust

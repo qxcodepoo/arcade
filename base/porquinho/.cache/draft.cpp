@@ -43,12 +43,18 @@ class Item {
     std::string label;
     int volume;
 public:
-    Item(std::string label, int volume) ;
-    int getVolume() const;
-    std::string getLabel() const;
-    void setVolume(int volume);
-    void setLabel(std::string label);
-    std::string str() const;
+    Item(std::string label, int volume) :
+    }
+    int getVolume() const {
+    }
+    std::string getLabel() const {
+    }
+    void setVolume(int volume) {
+    }
+    void setLabel(std::string label) {
+    }
+    std::string str() const {
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const Item& item) {
@@ -63,22 +69,30 @@ class Pig {
     bool broken {false};
 
 public:
-    Pig(int volumeMax = 0) ;
+    Pig(int volumeMax = 0) :
+    }
     
-    bool addCoin(Coin coin);
+    bool addCoin(Coin coin) {
+    }
 
-    bool addItem(Item item);
+    bool addItem(Item item) {
 
+    }
 
-    bool breakPig();
+    bool breakPig() {
+    }
 
-    std::vector<Coin> extractCoins();
+    std::vector<Coin> extractCoins() {
+    }
 
-    std::vector<Item> extractItems();
+    std::vector<Item> extractItems() {
+    }
 
-    double getValue() const;
+    double getValue() const {
+    }
 
-    int getVolume() const;
+    int getVolume() const {
+    }
     std::string str() const {
         return fn::format("state={} : coins={} : items={} : value={%.2f} : volume={}/{}", 
             (this->broken ? "broken" : "intact"), coins, itens, getValue(), getVolume(), volumeMax);

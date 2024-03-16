@@ -5,13 +5,18 @@ class Person {
     std::string name; //atributo
     int age;
 public:
-    Person(std::string name = "", int age = 0);
+    Person(std::string name = "", int age = 0) {
+    }
 
-    Person(int age) : Person("", age);
+    Person(int age) : Person("", age) {
+    }
 
-    int getAge() const;
-    std::string getName() const;
-    std::string str() const;
+    int getAge() const {
+    }
+    std::string getName() const {
+    }
+    std::string str() const {
+    }
 };
 std::ostream& operator<<(std::ostream& os, const Person& p) {
     return os << p.str();
@@ -23,18 +28,24 @@ class Motorcycle {
     int power {1};
 
 public:
-    Motorcycle(int power = 1): power {power};
+    Motorcycle(int power = 1): power {power} {
+    }
 
-    bool insertPerson(std::shared_ptr<Person> p);
+    bool insertPerson(std::shared_ptr<Person> p) {
+    }
 
 
-    std::shared_ptr<Person> remove();
+    std::shared_ptr<Person> remove() {
+    }
 
-    std::string honk() const;
+    std::string honk() const {
+    }
 
-    void buyTime(int time);
+    void buyTime(int time) {
+    }
 
-    void drive(int time);
+    void drive(int time) {
+    }
     std::string str() const {
         auto value = person == nullptr ? "empty" : person->str();
         return fn::format("power:{}, time:{}, person:({})", power, time, value);

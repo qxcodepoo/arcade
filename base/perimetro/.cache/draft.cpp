@@ -7,9 +7,11 @@ public:
     double x;
     double y;
 
-    Point2D(double x, double y) ;
+    Point2D(double x, double y) :
+    }
 
-    std::string str() const;
+    std::string str() const {
+    }
 
 };
 
@@ -19,7 +21,8 @@ std::ostream& operator<<(std::ostream& os, const Point2D& p) { return os << p.st
 class Shape {
     std::string name;
 public:
-    Shape(std::string name = "") ;
+    Shape(std::string name = "") :
+    }
 
     virtual ~Shape(){}
 
@@ -39,15 +42,19 @@ class Circle : public Shape {
     Point2D center;
     double radius;
 public:
-    Circle(Point2D center, double radius) ;
+    Circle(Point2D center, double radius) :
 
-    std::string getName() const override;
+    std::string getName() const override {
+    }
 
-    double getArea() const override;
+    double getArea() const override {
+    }
 
-    double getPerimeter() const override;
+    double getPerimeter() const override {
+    }
 
-    std::string str() const override;
+    std::string str() const override {
+    }
 };
 
 class Rectangle : public Shape {
@@ -58,17 +65,23 @@ class Rectangle : public Shape {
 public:
     Rectangle(Point2D p1, Point2D p2)
 
-    std::string getName() const override;
+    std::string getName() const override {
+    }
 
-    double getArea() const override;
+    double getArea() const override {
+    }
 
-    double getPerimeter() const override;
+    double getPerimeter() const override {
+    }
 
-    Point2D getP1() const;
+    Point2D getP1() const {
+    }
 
-    Point2D getP2() const;
+    Point2D getP2() const {
+    }
 
-    std::string str() const override;
+    std::string str() const override {
+    }
 };
 
 

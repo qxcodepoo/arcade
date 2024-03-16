@@ -1,13 +1,6 @@
 # Relacionamentos Resumo
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/uml/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo uml`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
-
----
-
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/uml/diagrama.png)
+![_](diagrama.png)
 
 ## Relações de Agregação (tem um/has a)
 

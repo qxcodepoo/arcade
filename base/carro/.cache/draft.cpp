@@ -8,17 +8,23 @@ public:
     int gasMax;
     int km;
 
-    Car();
+    Car() {
+    }
 
-    void enter();
+    void enter() {
+    }
 
-    void leave();
+    void leave() {
+    }
 
-    void fuel(int gas);
+    void fuel(int gas) {
+    }
 
-    void drive(int km);
+    void drive(int km) {
+    }
     
-    std::string str();
+    std::string str() {
+    }
 };
 
 int main() {

@@ -36,18 +36,24 @@ class Trampoline {
     std::list<PtrKid> waiting;
     std::list<PtrKid> playing;
     
-    PtrKid removeFromList(std::string name, std::list<PtrKid>& lista);
+    PtrKid removeFromList(std::string name, std::list<PtrKid>& lista) {
+    }
 
 public:
-    Trampoline();
+    Trampoline() {
+    }
     
-    void arrive(PtrKid kid);
+    void arrive(PtrKid kid) {
+    }
 
-    void enter();
+    void enter() {
+    }
 
-    void leave();
+    void leave() {
+    }
 
-    PtrKid removeKid(std::string name);
+    PtrKid removeKid(std::string name) {
+    }
     std::string str() const {
         return fn::tostr(waiting) + " => " + fn::tostr(playing);
     }

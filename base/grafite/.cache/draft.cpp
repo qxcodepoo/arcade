@@ -9,7 +9,8 @@ class Lead {
     int size;
 
 public:
-    Lead(float thickness, std::string hardness, int size);
+    Lead(float thickness, std::string hardness, int size) {
+    }
     int usagePerSheet() const {
         if (hardness == "HB")
             return 1;
@@ -20,13 +21,17 @@ public:
         else
             return 6;
     }
-    float getThickness() const;
+    float getThickness() const {
+    }
 
-    std::string getHardness() const;
+    std::string getHardness() const {
+    }
 
-    int getSize() const;
+    int getSize() const {
+    }
 
-    void setSize(int size);
+    void setSize(int size) {
+    }
     std::string str() const {
         return fn::format("{%.1f}:{}:{}", thickness, hardness, size);
     }
@@ -40,15 +45,20 @@ struct Pencil {
     float thickness {0.f};
     std::shared_ptr<Lead> tip {nullptr};
 
-    Pencil(float thickness = 0.0): thickness{thickness};
+    Pencil(float thickness = 0.0): thickness{thickness} {
+    }
 
-    bool hasLead() const;
+    bool hasLead() const {
+    }
 
-    bool insert(std::shared_ptr<Lead> grafite);
+    bool insert(std::shared_ptr<Lead> grafite) {
+    }
 
-    std::shared_ptr<Lead> remove();
+    std::shared_ptr<Lead> remove() {
+    }
 
-    void writePage();
+    void writePage() {
+    }
 
     std::string str() const {
         auto grafite = tip != nullptr ? "[" + tip->str() + "]" : "null";

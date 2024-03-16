@@ -6,11 +6,15 @@ class Fone{
     std::string id;
     std::string number;
 public:
-    Fone(std::string id = "", std::string number= "");
-    std::string getId();
-    std::string getNumber();
-    bool isValid();
-    std::string str();
+    Fone(std::string id = "", std::string number= "") {
+    }
+    std::string getId() {
+    }
+    std::string getNumber() {
+    }
+    bool isValid() {
+    }
+    std::string str() {
     }   
 };
 
@@ -19,21 +23,29 @@ class Contact{
     bool favorited;
     std::vector<Fone> fones;
 public:
-    Contact(std::string name = "");
+    Contact(std::string name = ""):
+    }
 
-    std::string getName();
+    std::string getName() {
+    }
 
-    std::vector<Fone> getFones();
+    std::vector<Fone> getFones() {
+    }
 
-    void addFone(std::string id, std::string number);
+    void addFone(std::string id, std::string number) {
+    }
 
-    void rmFone(int index);
+    void rmFone(int index) {
+    }
 
-    void toogleFavorited();
+    void toogleFavorited() {
+    }
 
-    bool isFavorited();
+    bool isFavorited() {
+    }
 
-    std::string str();
+    std::string str() {
+    }
 };
 
 
@@ -43,23 +55,31 @@ public:
 class Agenda {
     std::vector<Contact> contatos;
 
-    int findContact(std::string id);
+    int findContact(std::string id) {
+    }
 
 public:
     //add contato que não existe ou adicionar fones ao contato que existe
-    void addContato(std::string name, std::vector<Fone> fones);
+    void addContato(std::string name, std::vector<Fone> fones) {
+    }
 
-    void rmContact(std::string name);
+    void rmContact(std::string name) {
+    }
 
-    Contact * getContact(std::string id);
+    Contact * getContact(std::string id) {
+    }
 
-    std::vector<Contact> getContatos();
+    std::vector<Contact> getContatos() {
+    }
 
-    std::vector<Contact> search(std::string pattern);
+    std::vector<Contact> search(std::string pattern) {
+    }
 
-    std::vector<Contact> getFavorited();
+    std::vector<Contact> getFavorited() {
+    }
 
-    std::string str();
+    std::string str() {
+    }
 };
 
 

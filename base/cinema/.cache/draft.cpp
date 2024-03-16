@@ -5,8 +5,10 @@ struct Cliente{
     std::string id;
     std::string fone;
 
-    Cliente(std::string id = "", std::string fone = "");
-    std::string str() const;
+    Cliente(std::string id = "", std::string fone = "") {
+    }
+    std::string str() const {
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const Cliente& c) { return os << c.str(); }
@@ -14,17 +16,22 @@ std::ostream& operator<<(std::ostream& os, const Cliente& c) { return os << c.st
 class Sala{
     std::vector<std::shared_ptr<Cliente>> cadeiras;
 
-    int procurar(std::string nome);
+    int procurar(std::string nome) {
+    }
 
 public:
-    Sala(int qtd = 0);
+    Sala(int qtd = 0):
+    }
 
 
-    void reservar(std::string id, std::string fone, int ind);
+    void reservar(std::string id, std::string fone, int ind) {
+    }
 
-    void cancelar(std::string id);
+    void cancelar(std::string id) {
+    }
 
-    std::string str() const;
+    std::string str() const {
+    }
 };
 
 

@@ -16,11 +16,15 @@ public:
     static const Label ERROR;
 
 private:
-    Label(std::string name);
+    Label(std::string name) {
+    }
 public:
-    std::string getName() const;
-    bool operator==(Label other);
-    bool operator!=(Label other);
+    std::string getName() const {
+    }
+    bool operator==(Label other) {
+    }
+    bool operator!=(Label other) {
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, Label& label) {
@@ -41,12 +45,17 @@ class Operation {
     float value;
     float balance;
 public:
-    Operation(int index = 0, Label label = Label::ERROR, float value = 0, float balance = 0);
+    Operation(int index = 0, Label label = Label::ERROR, float value = 0, float balance = 0):
+    }
 
-    Label getLabel();
-    float getValue();
-    float getBalance();
-    int getIndex();
+    Label getLabel() {
+    }
+    float getValue() {
+    }
+    float getBalance() {
+    }
+    int getIndex() {
+    }
     std::string str() const {
         return fn::format("{>2}:{>9}:{>5}:{>5}", index, label.getName(), value, balance);
     }
@@ -62,20 +71,25 @@ class BalanceManager {
     std::vector<Operation> extract;
 
 public:
-    void pushOperation(Label label, float value);
+    void pushOperation(Label label, float value) {
+    }
 
-    Operation getOperation(int index);
+    Operation getOperation(int index) {
+    }
 
-    float getBalance() const;
+    float getBalance() const {
+    }
 
-    std::vector<Operation> getExtract(int qtd = 0);
+    std::vector<Operation> getExtract(int qtd = 0) {
+    }
 };
 
 class Account{
     int number;
     BalanceManager manager;
 public:
-    Account(int number = 0);
+    Account(int number = 0):
+    }
     void deposit(float value) {
         if (value < 0) {
             std::cout << "fail: invalid value\n";
@@ -83,15 +97,20 @@ public:
         }
         manager.pushOperation(Label::DEPOSIT, value);
     }
-    void withdraw(float value);
+    void withdraw(float value) {
+    }
 
-    void fee(float value);
+    void fee(float value) {
+    }
 
-    void reverse(int index);
+    void reverse(int index) {
+    }
 
-    BalanceManager& getManager();
+    BalanceManager& getManager() {
+    }
 
-    std::string str() const;
+    std::string str() const {
+    }
 };
 
 std::ostream &operator<<(std::ostream &os, const Account &acc) {

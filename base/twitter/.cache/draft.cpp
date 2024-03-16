@@ -27,32 +27,42 @@ class Tweet {
 public:
 
     Tweet(int id, const std::string& username, const std::string& msg) : 
+    }
 
     int getId() const { 
+    }
 
-    std::string getSender() const;
+    std::string getSender() const {
+    }
 
-    std::string getMsg() const;
+    std::string getMsg() const {
+    }
 
-    std::string str() const;
+    std::string str() const {
+    }
 
     // __like__
 
     void like(const std::string& username) { 
+    }
 
-    std::set<std::string> getLikes() const;
+    std::set<std::string> getLikes() const {
+    }
     
     // __retweet__
 
-    void setRt(Tweet *rt);
+    void setRt(Tweet *rt) {
+    }
     
     // __remover__
 
     bool deleted {false};
     
-    void setDeleted();
+    void setDeleted() {
+    }
 
-    bool isDeleted() const;
+    bool isDeleted() const {
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const Tweet& msg) {
@@ -229,27 +239,33 @@ public:
 
     Controller() {}
 
-    void addUser(std::string username);
+    void addUser(std::string username) {
+    }
 
     friend std::ostream& operator<<(std::ostream& os, const Controller& ctrl);
 
     // __twittar__
 
 private:
-    Tweet* createTweet(std::string username, std::string msg);
+    Tweet* createTweet(std::string username, std::string msg) {
+    }
 public:
 
-    User* getUser(std::string username);
+    User* getUser(std::string username) {
+    }
 
-    void sendTweet(std::string username, std::string msg);
+    void sendTweet(std::string username, std::string msg) {
+    }
 
     // __retweet__
 
-    void sendRt(std::string username, int twId, std::string msg);
+    void sendRt(std::string username, int twId, std::string msg) {
+    }
 
     // __remover__
 
-    void rmUser(std::string username);
+    void rmUser(std::string username) {
+    }
 };
 
 

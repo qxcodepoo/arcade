@@ -3,7 +3,7 @@
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
   - `tko down poo pula-pula`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
 
 ---
 

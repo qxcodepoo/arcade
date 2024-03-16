@@ -6,10 +6,12 @@ struct Slot{
     int qtd;
     double preco;
 
-    Slot(std::string nome = "empty", int qtd = 0, double preco = 0.0);
+    Slot(std::string nome = "empty", int qtd = 0, double preco = 0.0) {
+    }
 
 
-    std::string str() const;
+    std::string str() const {
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, const Slot& value) { return os << value.str(); }
@@ -19,23 +21,32 @@ class Machine{
     std::vector<Slot> espirais;
     double saldo, lucro;
 public:
-    Machine(int qtd = 0);
+    Machine(int qtd = 0):
+    }
 
-    Slot& get(int indice);
+    Slot& get(int indice) {
+    }
 
-    void set(int indice, std::string name, int qtd, double price);
+    void set(int indice, std::string name, int qtd, double price) {
+    }
 
-    void limpar(int indice);
+    void limpar(int indice) {
+    }
     
-    void inserirDinheiro(double value);
+    void inserirDinheiro(double value) {
+    }
 
-    double pedirTroco();
+    double pedirTroco() {
+    }
 
-    void comprar(int ind);
+    void comprar(int ind) {
+    }
 
-    double getSaldo();
+    double getSaldo() {
+    }
 
-    std::string str();
+    std::string str() {
+    }
 };
 
 std::ostream& operator<<(std::ostream& os, Machine value) { return os << value.str(); }

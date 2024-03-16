@@ -9,17 +9,23 @@ private:
     bool free;
 
 public:
-    Player(int label);
+    Player(int label) {
+    }
 
-    int getLabel();
+    int getLabel() {
+    }
 
-    int getPos();
+    int getPos() {
+    }
 
-    void setPos(int pos);
+    void setPos(int pos) {
+    }
 
-    void setFree(bool free);
+    void setFree(bool free) {
+    }
 
-    bool isFree();
+    bool isFree() {
+    }
     std::string toString() {
         std::string status = (this->free ? "free" : "not free");
         return fn::format("Player {} at {} is {}", label, pos, status); 
@@ -34,13 +40,16 @@ private:
     std::vector<Player> players; // lista de jogadores
 
 public:
-    Board(int nPlayers, int size);
+    Board(int nPlayers, int size) {
+    }
 
-    void addTrap(int pos);
+    void addTrap(int pos) {
+    }
 
-    void rollDice(int value);
+    void rollDice(int value) {
 
 
+    }
     std::string toString() {
         std::stringstream ss;
         for (auto p : this->players) {

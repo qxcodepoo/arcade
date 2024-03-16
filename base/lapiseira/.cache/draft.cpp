@@ -54,15 +54,20 @@ struct Lapiseira{
     PGrafite tip {nullptr};
     std::list<PGrafite> tambor;
 
-    Lapiseira(float calibre = 0.0);
+    Lapiseira(float calibre = 0.0):
+    }
 
-    bool inserir(PGrafite tip);
+    bool inserir(PGrafite tip) {
 
+    }
 
-    PGrafite remover();
+    PGrafite remover() {
+    }
 
-    void write();
-    void puxar();
+    void write() {
+    }
+    void puxar() {
+    }
     std::string str() const {
         auto fngr = [](PGrafite g) { return "[" + (g == nullptr ? "" : g->str()) + "]"; };
         return fn::format("calibre: {}, bico: {}, tambor: ``{}", calibre, fngr(tip), tambor | MAP(fngr) | JOIN(", "));

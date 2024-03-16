@@ -3,7 +3,7 @@
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/twitter/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
   - `tko down poo twitter`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
 
 ---
 

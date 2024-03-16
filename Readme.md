@@ -29,19 +29,19 @@
 
 ## 00. Configuração de ambiente
 
-- [Introdução ao git](base/git/Readme.md)
-- [Instalação C++ e TS](base/instalacao/Readme.md)
+- [Introdução ao git](base/git/README.md)
+- [Instalação C++ e TS](base/instalacao/README.md)
 - [Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
 - [Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
 - [Rodando questões no Replit](https://github.com/senapk/tko/blob/master/replit/Readme.md)
 
 ## 00. Conteúdo extra
 
-- [Relacionamentos](base/relacionamento/Readme.md)
-- [Relacionamentos Resumo](base/uml/Readme.md)
-- [Como fazer os códigos e relatórios](base/relatorio/Readme.md)
-- [Criando a Main](base/main/Readme.md)
-- [Pesquisa sobre alocação de memória](base/memoria/Readme.md)
+- [Relacionamentos](base/relacionamento/README.md)
+- [Relacionamentos Resumo](base/uml/README.md)
+- [Como fazer os códigos e relatórios](base/relatorio/README.md)
+- [Criando a Main](base/main/README.md)
+- [Pesquisa sobre alocação de memória](base/memoria/README.md)
 
 ## 01. Lógica
 

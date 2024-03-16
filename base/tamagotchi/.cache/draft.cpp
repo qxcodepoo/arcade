@@ -27,21 +27,28 @@ private:
             hungry = value;
         }
     }
-    void setEnergy(int value);
+    void setEnergy(int value) {
+    }
 
-    void setClean(int value);
+    void setClean(int value) {
+    }
 
 
 public:
-    Pet(int energy = 0, int hungry = 0, int clean = 0);
+    Pet(int energy = 0, int hungry = 0, int clean = 0):
+    }
 
-    void play();
+    void play() {
+    }
 
-    void shower();
+    void shower() {
+    }
 
-    void eat();
+    void eat() {
+    }
 
-    void sleep();
+    void sleep() {
+    }
 
 
     int getClean() {

@@ -1,5 +1,0 @@
-diagrama.png
-Readme.md
-cover.jpg
-trees.png
-

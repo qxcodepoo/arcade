@@ -5,15 +5,20 @@ struct Calculator {
     int battery;
     float display;
 
-    Calculator(int batteryMax) ;
+    Calculator(int batteryMax) :
+    }
 
-    void chargeBattery(int value);
+    void chargeBattery(int value) {
+    }
 
-    bool useBattery();
+    bool useBattery() {
+    }
 
-    void sum(int a, int b);
+    void sum(int a, int b) {
+    }
 
-    void division(int num, int den);
+    void division(int num, int den) {
+    }
     std::string str() const {
         return fn::format("display = {%.2f}, battery = {}", this->display, this->battery); 
     }
