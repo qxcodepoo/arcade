@@ -1,5 +1,12 @@
 # Como fazer os códigos e relatórios
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/relatorio/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo relatorio`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toc -->
 - [Como fazer seu código orientado a testes](#como-fazer-seu-código-orientado-a-testes)
 - [Relatório de Código](#relatório-de-código)
@@ -8,7 +15,7 @@
   - [Exemplo 3](#exemplo-3)
 <!-- toc -->
 
-![_](cover.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/relatorio/cover.jpg)
 
 ## Como fazer seu código orientado a testes
 
@@ -20,7 +27,7 @@
 
 ## Relatório de Código
 
-![_](relatorio.jpg)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/relatorio/relatorio.jpg)
 
 O relatório para ser colocado no início do arquivo principal do código de cada projeto e  deve responder às seguintes perguntas:
 

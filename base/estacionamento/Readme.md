@@ -1,6 +1,13 @@
 # Cobrando o valor de carros e motos no @estacionamento
 
-![_](cover.jpg)
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo estacionamento`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/cover.jpg)
 
 - Você deve utilizar herança para construir um sistema para gerenciar um estacionamento de bicicletas, carros e motos.
 - A classe Veículo é uma classe abstrata que possui os atributos `id`, `entrada` e `tipo`.
@@ -18,11 +25,11 @@
 
 ## Draft
 
-- [draft.ts](.cache/draft.ts)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft.ts)
 
 ## Guide
 
-![_](diagrama.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

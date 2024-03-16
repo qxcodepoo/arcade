@@ -1,11 +1,18 @@
 # Garanta os vínculos cruzados entre alunos e disciplinas na @matricula
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/matricula/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo matricula`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/matricula/cover.jpg)
 
 Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos matricular e remover alunos das disciplinas. Aqui, cada aluno sabe quais as disciplinas em que está matriculado e a disciplina sabe os alunos que ela contém.
 
@@ -31,7 +38,7 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/matricula/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

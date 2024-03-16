@@ -1,11 +1,18 @@
 # Operações @especiais
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/especiais/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo especiais`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/especiais/cover.jpg)
 
 ***
 
@@ -35,9 +42,9 @@
 
 ## Draft
 
-- [solver.cpp](.cache/draft.cpp)
-- [solver.java](.cache/draft.java)
-- [solver.ts](.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/especiais/.cache/draft.cpp)
+- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/especiais/.cache/draft.java)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/especiais/.cache/draft.ts)
 
 ## Shell
 

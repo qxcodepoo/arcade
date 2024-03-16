@@ -1,11 +1,18 @@
 # Guardando moedas e itens em um @porquinho
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo porquinho`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/cover.jpg)
 
 ## Intro
 
@@ -25,13 +32,13 @@ O sistema deverá:
 
 ## Draft
 
-- [draft.cpp](.cache/draft.cpp)
-- [draft.java](.cache/draft.java)
-- [draft.ts](.cache/draft.ts)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft.cpp)
+- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft.java)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

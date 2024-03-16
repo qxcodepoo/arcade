@@ -1,11 +1,18 @@
 # Gerenciando entradas e saídas de um @pula-pula
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo pula-pula`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/pula-pula/cover.jpg)
 
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, controlando as pessoas que entram e saem do pula pula, além de coordenar as pessoas que estão na fila de espera.
 
@@ -19,13 +26,13 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Draft
 
-- [solver.ts](.cache/draft.ts)
-- [solver.cpp](.cache/draft.cpp)
-- [Solver.java](.cache/draft.java)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft.cpp)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft.java)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/pula-pula/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

@@ -1,11 +1,18 @@
 # Dos eventos da bilheteria, cadastre cada @setor
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/setor/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo setor`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/setor/cover.jpg)
 
 ## Intro
 
@@ -21,11 +28,11 @@ O Evento atua como repositório de Setores.
 
 ## Draft
 
-- [draft.ts](.cache/draft.ts)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/setor/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/setor/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

@@ -1,11 +1,18 @@
 # Cuidado com as armadilhas, ou não chegará no final do @tabuleiro
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo tabuleiro`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/cover.jpg)
 
 ## Intro
 
@@ -15,7 +22,7 @@ O jogo prossegue em rodadas. Em cada rodada, os jogadores rolam um D20 (dado de 
 
 A maioria dos quadrados no tabuleiro são quadrados simples, mas alguns são “armadilhas”. Se a peça de um jogador cair em um quadrado da armadilha no final do movimento do jogador. O jogador ficará preso na armadilha até que na sua rodada jogue um número par se libertando da armadilha. Ao rolar um número par e se libertar da armadilha, sua peça não se move nessa rodada, mas na próxima poderá se mover normalmente.
 
-![_](tabuleiro.png)
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/tabuleiro.png)
 
 Haverá exatamente três armadilhas na trilha.
 
@@ -30,12 +37,12 @@ ___
 
 ## Draft
 
-- [solver.ts](.cache/draft.ts)
-- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/.cache/draft.cpp)
   
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

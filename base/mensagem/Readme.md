@@ -1,11 +1,18 @@
 # @mensagem
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/mensagem/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo mensagem`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/mensagem/cover.jpg)
 
 Essa atividade é a base conceitual para simplificar a troca de mensagens entre dois usuários de um sistema. Cada usuário deve conter um _inbox_ que guarda as mensagens recebidas.
 
@@ -21,7 +28,7 @@ Essa atividade é a base conceitual para simplificar a troca de mensagens entre 
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/mensagem/diagrama.png)
 
 ## Shell
 

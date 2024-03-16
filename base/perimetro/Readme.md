@@ -1,11 +1,18 @@
 # De círculos e retângulos, calcule a área e o @perimetro
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo perimetro`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/perimetro/cover.jpg)
 
 - Faça um programa para gerenciar figuras geométricas.
 - Deve ser possível conseguir obter a área e o perímetro de cada figura.
@@ -20,12 +27,12 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 
 ## Draft
 
-[draft.ts](.cache/draft.ts)
-[draft.cpp](.cache/draft.cpp)
+[draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/.cache/draft.ts)
+[draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/.cache/draft.cpp)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/perimetro/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

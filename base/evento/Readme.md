@@ -1,11 +1,18 @@
 # De uma bilheteria, cadastre cada @evento
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/evento/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo evento`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/evento/cover.jpg)
 
 ## Intro
 
@@ -15,15 +22,15 @@ Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de 
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/evento/diagrama.png)
 
 ## Draft
 
-- [draft.ts](.cache/draft.ts)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/evento/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/evento/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

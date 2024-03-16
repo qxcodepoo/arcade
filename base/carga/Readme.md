@@ -1,11 +1,18 @@
 # Um trem com vagões de @carga
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carga/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo carga`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide)
 -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carga/cover.jpg)
 
 Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagagens.
 
@@ -35,11 +42,11 @@ la
 nwvc 350.0
   done
 la
-  Trem [ - - ]( _350.0 )
+  Trem [ - - ](https://github.com/qxcodepoo/arcade/blob/master/base/carga/_350.0)
 nwvp 2
   done
 la
-  Trem [ - - ]( _350.0 )[ - - ]
+  Trem [ - - ](https://github.com/qxcodepoo/arcade/blob/master/base/carga/_350.0)[ - - ]
 nwvc 1
   fail: limite de vagões atingido
 ```
@@ -60,18 +67,18 @@ nwvc 1
 
 addp goku
 la
-  Trem [ goku - ]( _350.0 )[ - - ]
+  Trem [ goku - ](https://github.com/qxcodepoo/arcade/blob/master/base/carga/_350.0)[ - - ]
 addp kate
 addp sara
 addp goku
   fail: goku já está no trem
 la
-  Trem [ goku kate ]( _350.0 )[ sara - ]
+  Trem [ goku kate ](https://github.com/qxcodepoo/arcade/blob/master/base/carga/_350.0)[ sara - ]
 addp tina
 addp james
   fail: trem lotado
 la
-  Trem [ goku kate ]( _350.0 )[ sara james ]
+  Trem [ goku kate ](https://github.com/qxcodepoo/arcade/blob/master/base/carga/_350.0)[ sara james ]
 addc xilitos 200.0
 la
   Trem [ goku kate ]( xilitos:200.0 _150.0 )[ sara james ]

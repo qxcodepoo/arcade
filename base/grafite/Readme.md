@@ -1,15 +1,22 @@
 # Porta minas com um @grafite
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo grafite`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/cover.jpg)
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-[![explicação](../_images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
+[![explicação](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/../_images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
 
 ***
 
@@ -61,13 +68,13 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Draft
 
-- [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

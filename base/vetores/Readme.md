@@ -1,11 +1,18 @@
 # @vetores
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/vetores/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo vetores`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Requisitos](#requisitos) | [Shell](#shell) | [Dica](#dica) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/cover.jpg)
 
 O objetivo da atividade é treinar estrutura de dados.
 

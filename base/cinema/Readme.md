@@ -1,11 +1,18 @@
 # Gerenciando reservas e cancelamentos de uma sala de @cinema
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo cinema`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/cover.jpg)
 
 O objetivo dessa atividade é implementar o sistema de alocação de uma única sala de cinema. Se existem cadeiras livres, os clientes podem reservá-las. Também podem desistir da reserva. O sistema deve mostrar quem está sentado em cada cadeira.
 
@@ -35,13 +42,13 @@ Seu sistema deverá:
 
 ## Draft
 
-- [solver.ts](.cache/draft.ts)
-- [solver.cpp](.cache/draft.cpp)
-- [Solver.java](.cache/draft.java)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft.cpp)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft.java)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

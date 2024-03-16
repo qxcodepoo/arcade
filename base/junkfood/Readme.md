@@ -1,11 +1,18 @@
 # Comprando comida em uma máquina de @junkfood
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo junkfood`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/cover.jpg)
 
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 
@@ -46,12 +53,12 @@ Seu sistema deverá ser capaz de:
 
 ## Draft
 
-- [draft.cpp](.cache/draft.cpp)
-- [draft.ts](.cache/draft.ts)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/.cache/draft.cpp)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

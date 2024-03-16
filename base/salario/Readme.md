@@ -1,11 +1,18 @@
 # @salario
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/salario/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo salario`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/salario/cover.jpg)
 
 A UFC está precisando de um novo sistema de geração de folhas de pagamento, você aceita o desafio?'
 
@@ -97,7 +104,7 @@ $end
 - Utilize apenas um repositório (tire proveito do polimorfismo).
 - As classes filhas devem sobrescrever os métodos herdados da classe pai sempre que você achar necessário.
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/salario/diagrama.png)
 
 ***
 

@@ -1,11 +1,18 @@
 # Implementando um único @contato
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contato/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo contato`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contato/cover.jpg)
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
@@ -43,10 +50,10 @@ Seu programa deve:
 
 ## Guide
 
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/contato/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/contato/.cache/draft.ts)
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contato/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

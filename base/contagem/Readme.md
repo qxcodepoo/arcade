@@ -1,11 +1,18 @@
 # Operações de @contagem
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo contagem`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contagem/cover.jpg)
 
 ***
 
@@ -20,8 +27,8 @@
 
 ## Draft
 
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/.cache/draft.ts)
 
 ## Shell
 

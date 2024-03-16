@@ -1,11 +1,18 @@
 # @petshop
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/petshop/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo petshop`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft)
 -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/petshop/cover.jpg)
 
 Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, serviços e vendas.
 

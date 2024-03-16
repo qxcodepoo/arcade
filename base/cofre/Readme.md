@@ -1,11 +1,18 @@
 # Seu porquinho cresceu e virou um @cofre
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo cofre`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cofre/cover.jpg)
 
 ## Intro
 
@@ -27,13 +34,13 @@ O sistema deverá:
 
 ## Draft
 
-- [draft.java](.cache/draft.java)
-- [draft.cpp](.cache/draft.cpp)
-- [draft.ts](.cache/draft.ts)
+- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/.cache/draft.java)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/.cache/draft.cpp)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cofre/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

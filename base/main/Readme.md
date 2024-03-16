@@ -1,15 +1,22 @@
 # Criando a Main
 
-![_](cover.jpg)
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/main/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo main`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/main/cover.jpg)
 
 - Em c++:
-  - Código: [main.cpp](main.cpp)
+  - Código: [main.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/main/main.cpp)
 
 - Em java:
-  - Código: [Main.java](Main.java)
+  - Código: [Main.java](https://github.com/qxcodepoo/arcade/blob/master/base/main/Main.java)
 
 - Em typescript:
-  - Código: [main.ts](main.ts)
+  - Código: [main.ts](https://github.com/qxcodepoo/arcade/blob/master/base/main/main.ts)
 
 ## Guide
 

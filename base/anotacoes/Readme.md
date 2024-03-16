@@ -1,11 +1,18 @@
 # Adicione título e texto em @anotacoes
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/anotacoes/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo anotacoes`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide)
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/anotacoes/cover.jpg)
 
 O objetivo dessa atividade é criar um pequeno serviço de anotações. O sistema terá vários usuários que vão logar utilizando login e senha. Cada usuário pode armazenar notas de texto contendo título e texto.
 
@@ -91,7 +98,7 @@ $end
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/anotacoes/diagrama.png)
 
 - O objetivo é dividir as responsabilidades entre o Sistema e o Gerenciador de Login.
 - Ambos compartilham a mesma estrutura de dados que contém os usuários `users: map<string, User>`.

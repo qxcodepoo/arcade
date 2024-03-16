@@ -1,5 +1,12 @@
 # Introdução ao git
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/git/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo git`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toc -->
 - [Instalação](#instalação)
 - [Configuração Inicial](#configuração-inicial)
@@ -52,9 +59,9 @@ Seus repositórios **locais** consistem em três "árvores" mantidas pelo git.
 - A segunda `Index` (stage) que funciona como uma área temporária.
 - A terceira a `HEAD` (repositório local) que aponta para o último `commit` (confirmação) que você fez.
 
-![](trees.png)
+![](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/git/trees.png)
 
-![https://www.cureffi.org/2014/08/27/git-tutorial](diagrama.png)
+![https://www.cureffi.org/2014/08/27/git-tutorial](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/git/diagrama.png)
 
 ## Trabalhando com o repositório git do professor
 

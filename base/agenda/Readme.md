@@ -1,11 +1,18 @@
 # Gerencie os vários contatos da @agenda
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo agenda`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/cover.jpg)
 
 Sua agenda possui vários contatos e cada contato possui vários telefones.
 
@@ -34,10 +41,10 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 
 ## Guide
 
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/.cache/draft.ts)
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

@@ -1,11 +1,18 @@
 # Passeando no parque de @motoca
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo motoca`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/motoca/cover.jpg)
 
 Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
 
@@ -32,13 +39,13 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ## Draft
 
-- [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/motoca/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

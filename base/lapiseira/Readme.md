@@ -1,11 +1,18 @@
 # Gerenciando os múltiplos grafites de uma @lapiseira
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/lapiseira/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo lapiseira`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/lapiseira/cover.jpg)
 
 Faça o modelo de uma lapiseira que pode conter vários.
 
@@ -42,13 +49,13 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 ## Draft
 
-- [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/lapiseira/.cache/draft.java)
+- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/lapiseira/.cache/draft.cpp)
+- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/lapiseira/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/lapiseira/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
