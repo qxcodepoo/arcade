@@ -1,18 +1,11 @@
 # Se não pode comprar um, construa seu primeiro @carro
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo carro`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/cover.jpg)
+![cover](cover.jpg)
 
 Nessa atividade vamos implementar um carro ecológico. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
 
@@ -68,13 +61,13 @@ Seu sistema deverá:
 
 ## Draft
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft.ts)
+<!-- draft -->
+
+<!-- draft -->
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

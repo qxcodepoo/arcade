@@ -1,12 +1,5 @@
 # Cobrando o valor de carros e motos no @estacionamento
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo estacionamento`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/cover.jpg)
 
 - Você deve utilizar herança para construir um sistema para gerenciar um estacionamento de bicicletas, carros e motos.

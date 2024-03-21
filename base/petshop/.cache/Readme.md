@@ -1,12 +1,5 @@
 # @petshop
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/petshop/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo petshop`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft)
 -- | --

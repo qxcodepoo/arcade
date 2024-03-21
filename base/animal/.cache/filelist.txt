@@ -1,7 +1,0 @@
-diagrama.puml
-diagrama.png
-Readme.md
-cover.jpg
-cases.tio
-local.sh
-

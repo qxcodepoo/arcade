@@ -1,12 +1,5 @@
 # Seu porquinho cresceu e virou um @cofre
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo cofre`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --

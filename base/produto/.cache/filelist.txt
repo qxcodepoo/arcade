@@ -1,5 +1,0 @@
-diagrama.puml
-diagrama.png
-Readme.md
-local.sh
-

@@ -18,4 +18,5 @@ trash
 .config.ini
 Solver*
 solver*
+src
 __*

@@ -1,8 +1,0 @@
-diagrama.puml
-diagrama.png
-Readme.md
-cover.jpg
-Makefile
-imagem.jpg
-local.sh
-

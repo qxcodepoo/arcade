@@ -1,18 +1,11 @@
 # Cuidado com a bateria da @calculadora
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo calculadora`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/calculadora/cover.jpg)
+![cover](cover.jpg)
 
 O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma, multiplicação e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
@@ -30,13 +23,13 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ## Draft
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft.ts)
+- [Solver.java](.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp )
+- [solver.ts](.cache/draft.ts  )
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/calculadora/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
