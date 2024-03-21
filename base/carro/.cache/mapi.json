@@ -10,5 +10,37 @@
     ],
     "keep": [],
     "required": [],
-    "draft": {}
+    "draft": {
+        "cpp": [
+            {
+                "name": "car.cpp",
+                "contents": "#include <iostream>\nclass Car {\npublic:\n    int pass;\n    int passMax;\n    int gas;\n    int gasMax;\n    int km;\n\n    Car() {\n    }\n\n    void enter() {\n    }\n\n    void leave() {\n    }\n\n    void fuel(int gas) {\n        (void) gas;\n    }\n\n    void drive(int km) {\n        (void) km;\n    }\n    \n    std::string str() {\n        return \"\";\n    }\n};\n\n",
+                "encoding": 0
+            },
+            {
+                "name": "shell.cpp",
+                "contents": "#include <fn.hpp>\n#include \"car.cpp\"\n\nint main() {\n    Car car;\n    while (true) {\n        auto line = fn::input();\n        auto args = fn::split(line, ' ');\n        fn::write(\"$\" + line);\n\n        if      (args[0] == \"show\")  { fn::write(car.str());                }\n        else if (args[0] == \"enter\") { car.enter();                         } \n        else if (args[0] == \"leave\") { car.leave();                         }\n        else if (args[0] == \"fuel\")  { car.fuel(+args[1]);                  }\n        else if (args[0] == \"drive\") { car.drive(+args[1]);                 }\n        else if (args[0] == \"end\")   { break;                               }\n        else                         { fn::write(\"fail: comando invalido\"); }\n    }\n}\n",
+                "encoding": 0
+            }
+        ],
+        "java": [
+            {
+                "name": "Car.java",
+                "contents": "public class Car{\n    public int pass; // Passageiros\n    public int passMax; // limite de Passageiros\n    public int gas; // tanque\n    public int gasMax; // limite do tanque\n    public int km; // quantidade de quilometragem\n\n    public Car() {\n    }\n\n    public void enter() {\n    }\n\n    public void leave() {\n    }\n\n    public void fuel(int gas) {\n    }\n    \n    public void drive (int km) {\n    }\n\n    public String toString() {\n        return \"\";\n    }\n};",
+                "encoding": 0
+            },
+            {
+                "name": "Shell.java",
+                "contents": "import java.util.*;\n\npublic class Shell {\n    public static void main(String[] a) {\n        Car car = new Car();\n        \n        while (true) {\n            var line = input();\n            write(\"$\" + line);\n            var args = line.split(\" \");\n\n            if      (args[0].equals(\"show\"))  { System.out.println(car);              }\n            else if (args[0].equals(\"enter\")) { car.enter();                          }\n            else if (args[0].equals(\"leave\")) { car.leave();                          }\n            else if (args[0].equals(\"drive\")) { car.drive((int) number(args[1]));     }\n            else if (args[0].equals(\"fuel\"))  { car.fuel((int) number(args[1]));      }\n            else if (args[0].equals(\"end\"))   { break;                                }\n            else                              { write(\"fail: comando invalido\");}\n        }\n    }\n\n    private static Scanner scanner = new Scanner(System.in);\n    private static String  input()              { return scanner.nextLine(); }\n    private static double  number(String value) { return Double.parseDouble(value); }\n    private static void    write(String value)  { System.out.println(value); }\n}\n\n\n\n\n\n",
+                "encoding": 0
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "\nclass Car{\n    pass: number; // Passageiros\n    passMax: number; // limite de Passageiros\n    gas: number; // tanque\n    gasMax: number; // limite do tanque\n    km: number; // quantidade de quilometragem\n\n    constructor() {\n        //todo\n    }\n\n    enter(): void {\n        //todo\n    }\n\n    leave(): void {\n        //todo\n    }\n\n    fuel(gas: number): void {\n        //todo\n    }\n    \n    drive (km: number): void {\n        //todo\n    }\n\n    toString(): string {\n        //todo\n        return \"\";\n    }\n};\n\n\nlet _cin_ : string[] = [];\ntry { _cin_ = require(\"fs\").readFileSync(0).toString().split(/\\r?\\n/); } catch(e){}\nlet input = () : string => _cin_.length === 0 ? \"\" : _cin_.shift()!;\nlet write = (text: any, end:string=\"\\n\")=> process.stdout.write(\"\" + text + end);\n\nfunction main() {\n    let car = new Car();\n\n    while (true) {\n        let line = input();\n        write(\"$\" + line);\n        let args = line.split(\" \");\n\n        if      (args[0] === \"show\")  { write(car.toString());          }\n        else if (args[0] === \"enter\") { car.enter();                    }\n        else if (args[0] === \"leave\") { car.leave();                    }\n        else if (args[0] === \"fuel\")  { car.fuel(+args[1]);             }\n        else if (args[0] === \"drive\") { car.drive(+args[1]);            }\n        else if (args[0] === \"end\")   { break;                          }\n        else                          { write(\"fail: comando invalido\");}\n    }\n}\n\nmain()\n\n",
+                "encoding": 0
+            }
+        ]
+    }
 }
