@@ -63,13 +63,13 @@ Seu sistema deverá:
 
 <!-- draft -->
 - cpp
-  - [car.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/src/cpp/car.cpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/src/cpp/shell.cpp)
+  - [car.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/lang/cpp/car.cpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/lang/cpp/shell.cpp)
 - java
-  - [Car.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/src/java/Car.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/src/java/Shell.java)
+  - [Car.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/lang/java/Car.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/lang/java/Shell.java)
 - ts
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/src/ts/shell.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/lang/ts/shell.ts)
 
 <!-- draft -->
 

@@ -63,13 +63,13 @@ Seu sistema deverá:
 
 <!-- draft -->
 - cpp
-  - [car.cpp](.cache/src/cpp/car.cpp)
-  - [shell.cpp](.cache/src/cpp/shell.cpp)
+  - [car.cpp](.cache/lang/cpp/car.cpp)
+  - [shell.cpp](.cache/lang/cpp/shell.cpp)
 - java
-  - [Car.java](.cache/src/java/Car.java)
-  - [Shell.java](.cache/src/java/Shell.java)
+  - [Car.java](.cache/lang/java/Car.java)
+  - [Shell.java](.cache/lang/java/Shell.java)
 - ts
-  - [shell.ts](.cache/src/ts/shell.ts)
+  - [shell.ts](.cache/lang/ts/shell.ts)
 
 <!-- draft -->
 
