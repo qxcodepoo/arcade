@@ -60,6 +60,17 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+class TweetException {
+    '
+}
+
+'==
 
 class Tweet {
     

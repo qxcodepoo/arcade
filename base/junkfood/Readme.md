@@ -1,18 +1,11 @@
 # Comprando comida em uma máquina de @junkfood
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo junkfood`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/cover.jpg)
+![cover](cover.jpg)
 
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 
@@ -53,16 +46,23 @@ Seu sistema deverá ser capaz de:
 
 ## Draft
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/.cache/draft.cpp)
-- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/.cache/draft.ts)
+- [draft.cpp](.cache/draft.cpp)
+- [draft.ts](.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 class Slot {
     - name : String
     - price : float
@@ -124,6 +124,9 @@ class VendingMachine {
     --
     + toString() : String
 }
+'--
+VendingMachine "1" o-- "1..*" Slot
+@enduml
 ```
 
 <!-- load -->

@@ -43,6 +43,13 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 class Calculator {
 
   ' a bateria atual
@@ -93,6 +100,8 @@ class Legenda {
   # métodoProtected()
 }
 
+'--
+@enduml
 ```
 
 <!-- load -->

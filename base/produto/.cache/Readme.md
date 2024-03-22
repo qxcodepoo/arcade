@@ -46,6 +46,13 @@ Vamos modelar um sistema de vendas de produtos. O sistema deve permitir que seja
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 ' Interface que define a responsabilidade de um produto
 interface IProduct {
@@ -109,6 +116,13 @@ class ProductManager {
   ' Mostra os índices dos produtos, seus rótulos e preços
   + toString(): String
 }
+
+'--
+IProduct <|.. Product
+IProduct <|.. Bundle
+IProduct <|.. DiscountedProduct
+ProductManager *--> IProduct
+@enduml
 
 ```
 

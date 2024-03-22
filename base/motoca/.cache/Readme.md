@@ -32,9 +32,20 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ## Draft
 
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft.ts)
+<!-- draft -->
+- cpp
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/cpp/shell.cpp)
+- java
+  - [Motorcycle.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Motorcycle.java)
+  - [Person.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Person.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Shell.java)
+- ts
+  - [Readme.md](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/Readme.md)
+  - [motoca.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/motoca.ts)
+  - [pessoa.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/pessoa.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/shell.ts)
+
+<!-- draft -->
 
 ## Guide
 
@@ -43,6 +54,12 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+'==
 class Motorcycle {
   - person : Person | null
   - power  : int
@@ -94,6 +111,10 @@ class Person {
   ' nome:idade
   + toString() : string
 }
+'--
+Person "0..1" --o "1" Motorcycle : < Carry
+@enduml
+
 ```
 
 <!-- load -->

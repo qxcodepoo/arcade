@@ -72,6 +72,12 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+left to right direction
+'==
 ' Grafite
 class Lead {
     ' calibre do grafite
@@ -148,6 +154,10 @@ class Pencil {
     __
     + toString()          : string
 }
+'--
+
+Pencil "1" --> "0..1" Lead
+@enduml
 ```
 
 <!-- load -->

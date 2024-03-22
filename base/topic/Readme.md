@@ -1,18 +1,11 @@
 # Gerenciando assentos prioritários e normais em uma @topic
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/topic/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo topic`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/topic/cover.jpg)
+![cover](cover.jpg)
 
 O objetivo dessa atividade é exercitar o que vocês aprenderam no cinema com algumas variações. Aqui, vamos implementar um sistema de alocação de passageiros em uma topic. Nossa topic tem uma quantidade máxima de passageiros, mas também define alguns assentos preferenciais.
 
@@ -48,16 +41,23 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ## Draft
 
--[Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/topic/.cache/draft.java)
--[solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/topic/.cache/draft.cpp)
+-[Solver.java](.cache/draft.java)
+-[solver.cpp](.cache/draft.cpp)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/topic/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 class Pass {
   - age  : int
   - name : string
@@ -113,6 +113,9 @@ class Topic {
   __
   + toString() : string
 }
+'--
+Topic "1" o-- "0..*" Pass
+@enduml
 ```
 
 <!-- load -->

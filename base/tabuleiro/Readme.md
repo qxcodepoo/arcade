@@ -1,18 +1,11 @@
 # Cuidado com as armadilhas, ou não chegará no final do @tabuleiro
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo tabuleiro`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/cover.jpg)
+![cover](cover.jpg)
 
 ## Intro
 
@@ -22,7 +15,7 @@ O jogo prossegue em rodadas. Em cada rodada, os jogadores rolam um D20 (dado de 
 
 A maioria dos quadrados no tabuleiro são quadrados simples, mas alguns são “armadilhas”. Se a peça de um jogador cair em um quadrado da armadilha no final do movimento do jogador. O jogador ficará preso na armadilha até que na sua rodada jogue um número par se libertando da armadilha. Ao rolar um número par e se libertar da armadilha, sua peça não se move nessa rodada, mas na próxima poderá se mover normalmente.
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/tabuleiro.png)
+![_](tabuleiro.png)
 
 Haverá exatamente três armadilhas na trilha.
 
@@ -37,16 +30,22 @@ ___
 
 ## Draft
 
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/.cache/draft.ts)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+- [solver.cpp](.cache/draft.cpp)
   
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+'==
   class Player {
 
     ' numero do jogador
@@ -116,6 +115,10 @@ ___
     ' mande o player par o fim da lista de jogadores
     + rollDice(value : int)
   }
+'--
+Board "1" *--  "2..*" Player : > has
+@enduml
+
 ```
 
 <!-- load -->

@@ -44,6 +44,13 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 enum Label {
   + DEPOSIT {static}
@@ -139,6 +146,11 @@ class Account {
 
 
 
+'--
+Operation "1" *-->  "1" Label
+BalanceManager "1" *-->  "0..*" Operation
+Account "1" *-->  "1" BalanceManager
+@enduml
 ```
 
 <!-- load -->

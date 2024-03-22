@@ -1,46 +1,5 @@
-//Falta no rascunho buzinhar, comprarTempo e dirigir
-
-class Pessoa {
-    private age: number;
-    private name: string;
-
-    public constructor(name: string, age: number) {
-    }
-    public getAge(): number {
-    }
-    public getname(): string {
-    }
-    public toString(): string {
-    }
-}
-
-class Motoca {
-    potencia:number = 1;
-    time: number = 0;
-    pessoa: Pessoa | null;
-
-    constructor(potencia: number = 1) {
-    }
-
-    inserir(pessoa: Pessoa): boolean {
-    }
-
-    remover() : Pessoa | null {
-    }
-    buzinar(): string {
-    }
-
-    drive(time: number): void {
-    }
-
-    comprarTempo(value: number) {
-    }
-
-    public toString(): string {
-        let valor = this.pessoa === null ? "empty" : "" + this.pessoa;
-        return `power:${this.potencia}, time:${this.time}, person:(${valor})`;
-    }
-}
+import {  Pessoa } from "./pessoa";
+import { Motoca } from "./motoca";
 
 
 let _cin_ : string[] = [];

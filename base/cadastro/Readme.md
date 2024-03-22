@@ -1,24 +1,17 @@
 # Crie as contas poupança e corrente na hora do @cadastro
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cadastro/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo cadastro`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cadastro/cover.jpg)
+![cover](cover.jpg)
 
 O objetivo dessa atividade é implementar uma agência bancária simplificada. Deve ser capaz de cadastrar cliente. Cada cliente inicia com uma conta poupança e uma conta corrente. Contas correntes tem taxa de administração e contas poupanças rendem juros.
 
 ## Vídeo
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cadastro/video.png)](https://youtu.be/AfJ--C8ZqPY)
+[![_](video.png)](https://youtu.be/AfJ--C8ZqPY)
 
 ## Intro
 
@@ -33,15 +26,22 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ## Draft
 
-[draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/cadastro/.cache/draft.ts)
+[draft.ts](.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cadastro/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Account {
     # balance: double
@@ -168,6 +168,23 @@ class Agency {
     + updateMonthly(): void
 }
 
+'--
+CheckingAccount --|> Account
+SavingsAccount --|> Account
+
+Client "1" o-- "1" CheckingAccount
+Client "1" o-- "1" SavingsAccount
+
+Agency "1" *-- "0..*" Account
+
+Agency "1" *--l- "0..*" Client
+
+
+' Circle --|> Shape
+' Rectangle --|> Shape
+' V2D  --  Circle
+' V2D  --  Rectangle
+@enduml
 ```
 
 <!-- load -->

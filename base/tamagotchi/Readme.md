@@ -1,18 +1,11 @@
 # Alimente, brinque e mate o @tamagotchi
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo tamagotchi`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/cover.jpg)
+![cover](cover.jpg)
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá comer, brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
@@ -39,17 +32,32 @@ Seu sistema deverá:
 
 ## Draft
 
-- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.ts)
+<!-- draft -->
+- cpp
+  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/lang/java/Shell.java)
+- ts
+  - [game.ts](.cache/lang/ts/game.ts)
+  - [pet.ts](.cache/lang/ts/pet.ts)
+  - [shell.ts](.cache/lang/ts/shell.ts)
+
+<!-- draft -->
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 +class Pet {
     ' se o pet está vivo
@@ -139,11 +147,13 @@ class Legenda {
   # métodoProtected()
 }
 
+'--
+@enduml
 ```
 
 <!-- load -->
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
+[![_](../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 

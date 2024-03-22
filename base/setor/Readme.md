@@ -1,18 +1,11 @@
 # Dos eventos da bilheteria, cadastre cada @setor
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/setor/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo setor`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/setor/cover.jpg)
+![cover](cover.jpg)
 
 ## Intro
 
@@ -28,15 +21,22 @@ O Evento atua como repositório de Setores.
 
 ## Draft
 
-- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/setor/.cache/draft.ts)
+- [draft.ts](.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/setor/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Pessoa {
   - nome: string
@@ -136,6 +136,22 @@ class Bilheteria {
   + vender(nome_pessoa: string, nome_evento: string, nome_setor: string):void 
 }
 
+'--
+
+' Relações e multiplicidade
+
+Bilheteria *-- Venda
+Bilheteria *-- Pessoa
+Bilheteria *-- Evento
+
+Evento *-- Setor
+
+Venda o-- Pessoa
+Venda o-- Evento
+Venda o-- Setor
+
+'--
+@enduml
 ```
 
 <!-- load -->

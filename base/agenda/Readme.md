@@ -1,18 +1,11 @@
 # Gerencie os vários contatos da @agenda
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo agenda`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/cover.jpg)
+![cover](cover.jpg)
 
 Sua agenda possui vários contatos e cada contato possui vários telefones.
 
@@ -41,14 +34,21 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/.cache/draft.ts)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Fone {
   - id : str
@@ -175,6 +175,11 @@ class Agenda {
   + toString() : String
 }
 
+'--
+Contact "1" *--  "0..*" Fone
+Agenda  "1" *--  "0..*" Contact
+
+@enduml
 ```
 
 <!-- load -->

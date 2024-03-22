@@ -32,9 +32,17 @@ Seu sistema deverá:
 
 ## Draft
 
-- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft.ts)
+<!-- draft -->
+- cpp
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/cpp/shell.cpp)
+- java
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/java/Shell.java)
+- ts
+  - [game.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/ts/game.ts)
+  - [pet.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/ts/pet.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/ts/shell.ts)
+
+<!-- draft -->
 
 ## Guide
 
@@ -43,6 +51,13 @@ Seu sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 +class Pet {
     ' se o pet está vivo
@@ -132,6 +147,8 @@ class Legenda {
   # métodoProtected()
 }
 
+'--
+@enduml
 ```
 
 <!-- load -->

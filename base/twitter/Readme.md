@@ -1,18 +1,11 @@
 # Agora é X, mas antes era @twitter
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/twitter/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo twitter`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/twitter/cover.jpg)
+![cover](cover.jpg)
 
 Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow outros usuários do sistema. Ao twittar, a mensagem vai para timeline de todas as pessoas que a seguem. Ao dar like, todos os usuários em suas timelines vêem os likes.
 
@@ -20,7 +13,7 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ## Vídeo
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/twitter/player.png)](https://www.youtube.com/watch?v=75-YyuNrOsc)
+[![_](player.png)](https://www.youtube.com/watch?v=75-YyuNrOsc)
 
 ***
 
@@ -58,15 +51,26 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ## Draft
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/twitter/.cache/draft.cpp)
+- [draft.cpp](.cache/draft.cpp)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/twitter/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+class TweetException {
+    '
+}
+
+'==
 
 class Tweet {
     

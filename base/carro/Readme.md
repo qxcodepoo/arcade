@@ -80,6 +80,12 @@ Seu sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+'==
 class Car {
   ' quantidade de passageiros no carro
   + pass    : int
@@ -140,6 +146,8 @@ class Legenda {
   # métodoProtected()
 }
 
+'--
+@enduml
 ```
 
 <!-- load -->

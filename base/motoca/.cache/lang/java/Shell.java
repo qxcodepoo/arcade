@@ -1,56 +1,6 @@
-
-//Falta no rascunho buzinhar, comprarTempo e dirigir
-
 import java.util.*;
 
-class Person {
-    private String name;
-    private int age;
-    public Person(String name, int age){
-    }
-    public String getName() {
-    }
-    public int getAge() {
-    }
-    public String toString(){
-    }
-}
-
-class Motorcycle {
-    private Person person; //agregacao
-    private int power;
-    private int time;
-    
-    //Inicia o atributo power, time com zero e person com null
-    public Motorcycle(int power){
-    }
-    public int getPower() {
-    }
-    public int getTime() {
-    }
-    public Person getPerson() {
-    }
-
-    
-    //Se estiver vazio, coloca a pessoa na moto e retorna true
-    public boolean enter(Person person) {
-    }
-    public Person leave() {
-    }
-    //Comprar mais tempo
-    public void buy(int time){
-    }
-    public void drive(int time){
-    }
-    //buzinar
-    public void honk(){
-    }
-    public String toString(){
-        var value = this.person == null ? "empty" : this.person;
-        return "power:" + this.power + ", time:" + this.time + ", person:(" + value + ")";
-    }
-}
-class Solver{
+class Shell{
     static Motorcycle motoca = new Motorcycle(1);
 
     public static void main(String[] args) {    

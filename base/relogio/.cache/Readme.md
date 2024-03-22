@@ -67,6 +67,13 @@ O sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 class Time {
   - hour   : int
   - minute : int
@@ -120,6 +127,8 @@ class Legenda {
   # métodoProtected()
 }
 
+'--
+@enduml
 ```
 
 <!-- load -->

@@ -1,18 +1,11 @@
 # De círculos e retângulos, calcule a área e o @perimetro
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo perimetro`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/perimetro/cover.jpg)
+![cover](cover.jpg)
 
 - Faça um programa para gerenciar figuras geométricas.
 - Deve ser possível conseguir obter a área e o perímetro de cada figura.
@@ -27,16 +20,23 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 
 ## Draft
 
-[draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/.cache/draft.ts)
-[draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/.cache/draft.cpp)
+[draft.ts](.cache/draft.ts)
+[draft.cpp](.cache/draft.cpp)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/perimetro/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Point2D {
     + x: double
@@ -115,6 +115,12 @@ class Rectangle {
     + toString(): string
 }
 
+'--
+Circle --|> Shape
+Rectangle --|> Shape
+Point2D  --*  Circle
+Point2D  --*  Rectangle
+@enduml
 ```
 
 <!-- load -->

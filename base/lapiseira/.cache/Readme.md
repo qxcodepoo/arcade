@@ -53,6 +53,12 @@ Faça o modelo de uma lapiseira que pode conter vários.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+left to right direction
+'==
 ' Grafite
 class Lead {
     
@@ -135,6 +141,9 @@ class Pencil {
     __
     + toString() : string
 }
+'--
+Pencil "1" o--  "0..*" Lead : > Stores
+@enduml
 ```
 
 <!-- load -->

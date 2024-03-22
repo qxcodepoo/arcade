@@ -1,18 +1,11 @@
 # Guardando moedas e itens em um @porquinho
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo porquinho`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/cover.jpg)
+![cover](cover.jpg)
 
 ## Intro
 
@@ -32,17 +25,24 @@ O sistema deverá:
 
 ## Draft
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft.cpp)
-- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft.java)
-- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft.ts)
+- [draft.cpp](.cache/draft.cpp)
+- [draft.java](.cache/draft.java)
+- [draft.ts](.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Coin {
   - value  : double
@@ -128,6 +128,9 @@ class Pig {
   ' retorna se o porquinho está quebrado ou não
   + isBroken()     : boolean
 }
+'--
+@enduml
+
 ```
 
 <!-- load -->

@@ -1,18 +1,11 @@
 # Operações de saque, depósito, extrato e @tarifas
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo tarifas`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/cover.jpg)
+![cover](cover.jpg)
 
 O objetivo dessa atividade é implementar uma classe responsável por gerenciar a account bancária de um único cliente. Faremos operações de withdraw, depósito e extrato.
 
@@ -40,17 +33,24 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ## Draft
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.cpp)
-- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.java)
-- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.ts)
+- [draft.cpp](.cache/draft.cpp)
+- [draft.java](.cache/draft.java)
+- [draft.ts](.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/diagrama.png)
+![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 enum Label {
   + DEPOSIT {static}
@@ -146,6 +146,11 @@ class Account {
 
 
 
+'--
+Operation "1" *-->  "1" Label
+BalanceManager "1" *-->  "0..*" Operation
+Account "1" *-->  "1" BalanceManager
+@enduml
 ```
 
 <!-- load -->
