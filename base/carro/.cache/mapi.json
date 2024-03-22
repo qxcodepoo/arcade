@@ -14,7 +14,7 @@
         "cpp": [
             {
                 "name": "car.cpp",
-                "contents": "#include <iostream>\nclass Car {\npublic:\n    int pass;\n    int passMax;\n    int gas;\n    int gasMax;\n    int km;\n\n    Car() {\n    }\n\n    void enter() {\n    }\n\n    void leave() {\n    }\n\n    void fuel(int gas) {\n        (void) gas;\n    }\n\n    void drive(int km) {\n        (void) km;\n    }\n    \n    std::string str() {\n        return \"\";\n    }\n};\n\n",
+                "contents": "#include <iostream>\nclass Car {\npublic:\n    int pass;\n    int passMax;\n    int gas;\n    int gasMax;\n    int km;\n\n    Car() {\n        //todo\n    }\n\n    void enter() {\n        //todo\n    }\n\n    void leave() {\n        //todo\n    }\n\n    void fuel(int gas) {\n        (void) gas;\n        //todo\n    }\n\n    void drive(int km) {\n        (void) km;\n        //todo\n    }\n\n    std::string str() {\n        return \"\";\n        //todo\n    }\n};\n\n",
                 "encoding": 0
             },
             {
