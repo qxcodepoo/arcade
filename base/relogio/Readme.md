@@ -1,8 +1,8 @@
 # Garante uma hora válida no @relogio
 
 <!-- toch -->
-[Intro](#intro) | [Treino](#treino) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -56,11 +56,23 @@ O sistema deverá:
     - 21:59:59
     - 23:59:59
 
-## Guide
+## Draft
 
-- [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+<!-- draft -->
+- cpp
+  - [fn.hpp](.cache/lang/cpp/fn.hpp)
+  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [time.hpp](.cache/lang/cpp/time.hpp)
+- java
+  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Time.java](.cache/lang/java/Time.java)
+- ts
+  - [shell.ts](.cache/lang/ts/shell.ts)
+  - [time.ts](.cache/lang/ts/time.ts)
+
+<!-- draft -->
+
+## Guide
 
 ![diagrama](diagrama.png)
 

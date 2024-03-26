@@ -19,9 +19,22 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Draft
 
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft.ts)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft.cpp)
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft.java)
+<!-- draft -->
+- cpp
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/fn.hpp)
+  - [kid.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/kid.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/shell.cpp)
+  - [trampoline.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/trampoline.hpp)
+- java
+  - [Kid.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/java/Kid.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/java/Shell.java)
+  - [Trampoline.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/java/Trampoline.java)
+- ts
+  - [kid.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/ts/kid.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/ts/shell.ts)
+  - [trampoline.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/ts/trampoline.ts)
+
+<!-- draft -->
 
 ## Guide
 
@@ -63,16 +76,16 @@ class Trampoline {
   + toString() : string
   __
   
-  ' insere na lista de espera
+  ' insere na posição mais a esquerda da lista de espera
   + arrive(kid : Kid)
   
   ' se existir alguém na lista de espera
-  ' remove o que estiver na frente da lista
-  ' e insere no fim da lista de playing
+  ' remove o que estiver mais a direita e insere na posição mais 
+  ' a esquerda da lista de playing
   + enter()
   
-  ' se existir alguém em playing, remove o primeiro da lista
-  ' e insere no final da fila de espera
+  ' se existir alguém em playing, remove o que estiver mais a direita
+  ' e insere na posição mais a esquerda da lista de espera
   + leave()
   
   ' utilize o método estático removeFromList

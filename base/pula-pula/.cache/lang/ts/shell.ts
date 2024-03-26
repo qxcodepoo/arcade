@@ -1,46 +1,5 @@
-
-class Kid {
-    private age: number;
-    private name: string;
-
-    constructor(name: string, age: number) {
-    }
-
-    getAge(): number {
-    }
-
-    getName(): string {
-    }
-
-    toString(): string {
-    }
-}
-
-class Trampoline {
-    private waiting: Kid[] = [];
-    private playing: Kid[] = [];
-
-    private removeFromList(name: string, list: Kid[]): Kid | null {
-    }
-
-    arrive(kid: Kid): void {
-    }
-
-    enter(): void {
-    }
-
-    leave(): void {
-    }
-
-    removeKid(name: string): Kid | null {
-    }
-
-    toString(): string {
-        return  "[" + this.waiting.map(kid => kid.toString()).join(", ") + "]" + " => " + 
-                "[" + this.playing.map(kid => kid.toString()).join(", ") + "]";
-    }
-}
-
+import { Trampoline } from "./trampoline";
+import { Kid } from "./kid";
 
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}

@@ -31,16 +31,16 @@ class Trampoline {
   + toString() : string
   __
   
-  ' insere na lista de espera
+  ' insere na posição mais a esquerda da lista de espera
   + arrive(kid : Kid)
   
   ' se existir alguém na lista de espera
-  ' remove o que estiver na frente da lista
-  ' e insere no fim da lista de playing
+  ' remove o que estiver mais a direita e insere na posição mais 
+  ' a esquerda da lista de playing
   + enter()
   
-  ' se existir alguém em playing, remove o primeiro da lista
-  ' e insere no final da fila de espera
+  ' se existir alguém em playing, remove o que estiver mais a direita
+  ' e insere na posição mais a esquerda da lista de espera
   + leave()
   
   ' utilize o método estático removeFromList
