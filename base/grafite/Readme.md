@@ -61,9 +61,22 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Draft
 
-- [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+<!-- draft -->
+- cpp
+  - [fn.hpp](.cache/lang/cpp/fn.hpp)
+  - [lead.hpp](.cache/lang/cpp/lead.hpp)
+  - [pencil.hpp](.cache/lang/cpp/pencil.hpp)
+  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+- java
+  - [Lead.java](.cache/lang/java/Lead.java)
+  - [Pencil.java](.cache/lang/java/Pencil.java)
+  - [Shell.java](.cache/lang/java/Shell.java)
+- ts
+  - [lead.ts](.cache/lang/ts/lead.ts)
+  - [pencil.ts](.cache/lang/ts/pencil.ts)
+  - [shell.ts](.cache/lang/ts/shell.ts)
+
+<!-- draft -->
 
 ## Guide
 
