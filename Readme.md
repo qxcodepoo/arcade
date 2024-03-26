@@ -56,7 +56,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 [![image](https://user-images.githubusercontent.com/4747652/263152148-cf916c4a-6c07-4d36-bc9c-ac8a2f9b348c.png)](https://www.youtube.com/watch?v=PU6-anlu5jI)
 
-- [Faça barulho, envelheça e morra seu @animal](base/animal/Readme.md)
+- [Atividade modelo resolvida: @animal](base/animal/Readme.md)
 - [Se não pode comprar um, construa seu primeiro @carro](base/carro/Readme.md)
 - [Cuidado com a bateria da @calculadora](base/calculadora/Readme.md)
 

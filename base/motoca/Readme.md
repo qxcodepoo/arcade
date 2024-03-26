@@ -40,7 +40,6 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
   - [Person.java](.cache/lang/java/Person.java)
   - [Shell.java](.cache/lang/java/Shell.java)
 - ts
-  - [Readme.md](.cache/lang/ts/Readme.md)
   - [motoca.ts](.cache/lang/ts/motoca.ts)
   - [pessoa.ts](.cache/lang/ts/pessoa.ts)
   - [shell.ts](.cache/lang/ts/shell.ts)

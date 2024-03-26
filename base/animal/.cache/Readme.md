@@ -1,7 +1,7 @@
-# Faça barulho, envelheça e morra seu @animal
+# Atividade modelo resolvida: @animal
 
 <!-- toch -->
-[Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)
+[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -23,6 +23,87 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
   - 4: morto. Não faz mais barulho `RIP`.
 
 ***
+
+## Guide
+
+### Diagrama
+
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/diagrama.png)
+
+### O que é o Shell
+
+O [Shell](#shell) que você encontra em cada atividade serve tanto para que você entenda o funcionamento do código quanto ele gera o teste que será usado na correção.
+
+Cada `$algo` representa comando que será enviado para o seu programa.
+
+Depois é verificado se a saída gerada pelo seu programa é igual ao que era esperado.
+
+Esse é o modelo do arquivo de testes gerado para cada atividade.
+
+- [cases.tio](https://github.com/qxcodepoo/arcade/blob/master/base/animal/cases.tio)
+
+![image](https://user-images.githubusercontent.com/4747652/263118401-36183946-8e20-4ecb-b0cc-75a5cef3610a.png)
+
+### Como fazer a leitura dos dados
+
+Criando a função main
+
+- Você cria o elemento a ser manipulado fora do laço principal.
+- Cria um loop infinito.
+- Lê a linha que é o comando.
+- Quebra a linha em palavras.
+- Mostra o comando digitado precedido de '$'.
+- Faz um if aninhado para cada comando repassando os parâmetros para o objeto.
+- Se o comando for 'end' sai do loop.
+- Se o comando for inválido mostra uma mensagem de erro.
+
+```cpp
+function main() {
+    
+    var coisa = new Coisa(); //Coisa a ser manipulada
+
+    while (true) {
+        var line = input();         //lê a linha
+        var args = line.split(" "); // quebra em array de palavras
+        write("$" + line);          //mostra '$' na frente
+
+        if (args[0] == "nome do comando") {
+            //aqui voce repassa os parametros para o objeto
+            //convertendo os que precisam ser números ou inteiros
+            coisa.funcaoTal(args[1], number(args[2]), (int) number(args[3]));
+        }
+        else if (args[0] == "outro comando") {
+            //outra invocacao
+        }
+        else if (args[0] == "end") {
+            break;
+        }
+        else {
+            write("fail: comando invalido");
+        }
+    }
+}
+```
+
+## Draft
+
+Para padronizar, em cada linguagem são criadas algumas funções auxiliares para simplificar a criação da main. Você pode utilizar essas resoluções como modelos para fazer as funções `main` dos outros projetos.
+
+No caso dessa atividade, o draft já está completo para você utilizar como modelo para outras atividades.
+
+<!-- draft -->
+- cpp
+  - [animal.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/cpp/animal.hpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/cpp/shell.cpp)
+- java
+  - [Animal.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/java/Animal.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/java/Shell.java)
+- ts
+  - [animal.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/ts/animal.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/ts/shell.ts)
+
+<!-- draft -->
 
 ## Shell
 
@@ -123,74 +204,3 @@ RIP
 
 $end
 ```
-
-## Guide
-
-### Diagrama
-
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/diagrama.png)
-
-### O que é o Shell
-
-O [Shell](#shell) que você encontra em cada atividade serve tanto para que você entenda o funcionamento do código quanto ele gera o teste que será usado na correção.
-
-Cada `$alguma coisa` representa comando que será enviado para o seu programa.
-
-Depois é verificado se a saída gerada pelo seu programa é igual ao que era esperado.
-
-Esse é o modelo do arquivo de testes gerado para cada atividade.
-
-- [cases.tio](https://github.com/qxcodepoo/arcade/blob/master/base/animal/cases.tio)
-
-![image](https://user-images.githubusercontent.com/4747652/263118401-36183946-8e20-4ecb-b0cc-75a5cef3610a.png)
-
-### Como fazer a leitura dos dados
-
-Criando a função main
-
-- Você cria o elemento a ser manipulado fora do laço principal.
-- Cria um loop infinito.
-- Lê a linha que é o comando.
-- Quebra a linha em palavras.
-- Mostra o comando digitado precedido de '$'.
-- Faz um if aninhado para cada comando repassando os parâmetros para o objeto.
-- Se o comando for 'end' sai do loop.
-- Se o comando for inválido mostra uma mensagem de erro.
-
-```cpp
-function main() {
-    
-    var coisa = new Coisa(); //Coisa a ser manipulada
-
-    while (true) {
-        var line = input();         //lê a linha
-        var args = line.split(" "); // quebra em array de palavras
-        write("$" + line);          //mostra '$' na frente
-
-        if (args[0] == "nome do comando") {
-            //aqui voce repassa os parametros para o objeto
-            //convertendo os que precisam ser números ou inteiros
-            coisa.funcaoTal(args[1], number(args[2]), (int) number(args[3]));
-        }
-        else if (args[0] == "outro comando") {
-            //outra invocacao
-        }
-        else if (args[0] == "end") {
-            break;
-        }
-        else {
-            write("fail: comando invalido");
-        }
-    }
-}
-```
-
-## Draft
-
-Para padronizar, em cada linguagem são criadas algumas funções auxiliares para simplificar a criação da main. Você pode utilizar essas resoluções como modelos para fazer as funções `main` dos outros projetos.
-
-No caso dessa atividade, o draft já está completo para você utilizar como modelo para outras atividades.
-
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft.java)
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft.ts)

@@ -40,7 +40,6 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
   - [Person.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Person.java)
   - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Shell.java)
 - ts
-  - [Readme.md](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/Readme.md)
   - [motoca.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/motoca.ts)
   - [pessoa.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/pessoa.ts)
   - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/shell.ts)
