@@ -32,6 +32,7 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
   - [Calculator.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/java/Calculator.java)
   - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/java/Shell.java)
 - ts
+  - [calculator.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/ts/calculator.ts)
   - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/ts/shell.ts)
 
 <!-- draft -->

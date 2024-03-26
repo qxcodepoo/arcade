@@ -32,6 +32,7 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
   - [Calculator.java](.cache/lang/java/Calculator.java)
   - [Shell.java](.cache/lang/java/Shell.java)
 - ts
+  - [calculator.ts](.cache/lang/ts/calculator.ts)
   - [shell.ts](.cache/lang/ts/shell.ts)
 
 <!-- draft -->
