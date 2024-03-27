@@ -1,3 +1,6 @@
+#pragma once
+#include "fn.hpp"
+
 #include <iostream>
 class Car {
 public:
@@ -29,9 +32,12 @@ public:
         //todo
     }
 
-    std::string str() {
+    std::string str() const {
         return "";
         //todo
     }
 };
 
+std::ostream& operator<<(std::ostream& os, const Car& car) {
+    return os << car.str();
+}

@@ -1,5 +1,5 @@
-#include <fn.hpp>
-#include "car.cpp"
+#include "fn.hpp"
+#include "car.hpp"
 
 int main() {
     Car car;

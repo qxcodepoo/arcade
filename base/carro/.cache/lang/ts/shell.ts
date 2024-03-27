@@ -1,37 +1,4 @@
-
-class Car{
-    pass: number; // Passageiros
-    passMax: number; // limite de Passageiros
-    gas: number; // tanque
-    gasMax: number; // limite do tanque
-    km: number; // quantidade de quilometragem
-
-    constructor() {
-        //todo
-    }
-
-    enter(): void {
-        //todo
-    }
-
-    leave(): void {
-        //todo
-    }
-
-    fuel(gas: number): void {
-        //todo
-    }
-    
-    drive (km: number): void {
-        //todo
-    }
-
-    toString(): string {
-        //todo
-        return "";
-    }
-};
-
+import {Car} from "./car";
 
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
