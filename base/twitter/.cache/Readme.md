@@ -1,5 +1,12 @@
 # Agora é X, mas antes era @twitter
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/twitter/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo twitter`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
@@ -60,17 +67,6 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-class TweetException {
-    '
-}
-
-'==
 
 class Tweet {
     

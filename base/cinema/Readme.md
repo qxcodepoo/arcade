@@ -46,13 +46,6 @@ Seu sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 class Client {
   - fone : string
   - id   : string
@@ -97,10 +90,6 @@ class Sala {
   __
   + toString() : string
 }
-'--
-
-Sala "1" o-- "0..*" Client
-@enduml
 ```
 
 <!-- load -->

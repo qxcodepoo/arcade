@@ -1,5 +1,12 @@
 # Operações de saque, depósito, extrato e @tarifas
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo tarifas`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -44,13 +51,6 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 enum Label {
   + DEPOSIT {static}
@@ -146,11 +146,6 @@ class Account {
 
 
 
-'--
-Operation "1" *-->  "1" Label
-BalanceManager "1" *-->  "0..*" Operation
-Account "1" *-->  "1" BalanceManager
-@enduml
 ```
 
 <!-- load -->

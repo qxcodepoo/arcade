@@ -1,5 +1,12 @@
 # Implementando um único @contato
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contato/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo contato`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
@@ -51,13 +58,6 @@ Seu programa deve:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 class Fone {
   - id : str
@@ -121,10 +121,6 @@ class Contact {
   + toString() : str
 }
 
-
-'--
-Contact "1" *--  "0..*" Fone
-@enduml
 
 ```
 

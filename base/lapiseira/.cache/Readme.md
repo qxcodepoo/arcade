@@ -1,5 +1,12 @@
 # Gerenciando os múltiplos grafites de uma @lapiseira
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/lapiseira/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo lapiseira`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -53,12 +60,6 @@ Faça o modelo de uma lapiseira que pode conter vários.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-left to right direction
-'==
 ' Grafite
 class Lead {
     
@@ -141,9 +142,6 @@ class Pencil {
     __
     + toString() : string
 }
-'--
-Pencil "1" o--  "0..*" Lead : > Stores
-@enduml
 ```
 
 <!-- load -->

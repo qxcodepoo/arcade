@@ -1,5 +1,12 @@
 # Gerenciando reservas e cancelamentos de uma sala de @cinema
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cinema/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo cinema`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -46,13 +53,6 @@ Seu sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 class Client {
   - fone : string
   - id   : string
@@ -97,10 +97,6 @@ class Sala {
   __
   + toString() : string
 }
-'--
-
-Sala "1" o-- "0..*" Client
-@enduml
 ```
 
 <!-- load -->

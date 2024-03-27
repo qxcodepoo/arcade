@@ -1,5 +1,12 @@
 # @comunicador
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/comunicador/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo comunicador`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes) | [Esqueleto](#esqueleto)
 -- | -- | -- | --

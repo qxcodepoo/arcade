@@ -38,13 +38,6 @@ O sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 ~interface Valuable {
   + getLabel() : String {abstract}
@@ -127,12 +120,6 @@ class Pig {
   __
   + toString()     : String
 }
-'--
-
-Pig "1" o--> "0..*" Valuable
-Coin ..|> Valuable 
-Item ..|> Valuable 
-@enduml
 ```
 
 <!-- load -->

@@ -36,12 +36,6 @@ Vamos criar um sistema da cadastro de alunos e disciplinas. Após isso, vamos ma
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-'==
 class Aluno {
 
     - id: str
@@ -136,18 +130,6 @@ class Sistema {
     ' remove uma disciplina com esse id do sistema desfazendo todos os vínculos
     + removerDiscp(idDiscp: str)
 }
-'--
-
-left to right direction
-
-Sistema "1" *-- "0..*" Aluno
-Sistema "1" *-- "0..*" Discp
-
-Discp "0..*" --o "1" Aluno
-Discp "1" o-- "0..*" Aluno
-
-@enduml
-
 ```
 
 <!-- load -->

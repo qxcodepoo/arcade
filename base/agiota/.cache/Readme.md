@@ -1,5 +1,12 @@
 # Gerencie os empŕestimos de um @agiota
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/agiota/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo agiota`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Video](#video) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
 -- | -- | -- | -- | -- | --

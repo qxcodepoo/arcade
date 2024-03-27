@@ -1,5 +1,12 @@
 # Porta minas com um @grafite
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo grafite`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
@@ -85,12 +92,6 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-left to right direction
-'==
 ' Grafite
 class Lead {
     ' calibre do grafite
@@ -167,10 +168,6 @@ class Pencil {
     __
     + toString()          : string
 }
-'--
-
-Pencil "1" --> "0..1" Lead
-@enduml
 ```
 
 <!-- load -->

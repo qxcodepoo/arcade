@@ -1,5 +1,12 @@
 # Cuidado com as armadilhas, ou não chegará no final do @tabuleiro
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo tabuleiro`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -40,12 +47,6 @@ ___
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-'==
   class Player {
 
     ' numero do jogador
@@ -115,10 +116,6 @@ skinparam dpi 150
     ' mande o player par o fim da lista de jogadores
     + rollDice(value : int)
   }
-'--
-Board "1" *--  "2..*" Player : > has
-@enduml
-
 ```
 
 <!-- load -->

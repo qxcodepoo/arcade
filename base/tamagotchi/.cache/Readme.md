@@ -1,5 +1,12 @@
 # Alimente, brinque e mate o @tamagotchi
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo tamagotchi`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -51,13 +58,6 @@ Seu sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 +class Pet {
     ' se o pet está vivo
@@ -147,8 +147,6 @@ class Legenda {
   # métodoProtected()
 }
 
-'--
-@enduml
 ```
 
 <!-- load -->

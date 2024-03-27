@@ -1,5 +1,12 @@
 # Guardando moedas e itens em um @porquinho
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo porquinho`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -36,13 +43,6 @@ O sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 class Coin {
   - value  : double
@@ -128,9 +128,6 @@ class Pig {
   ' retorna se o porquinho está quebrado ou não
   + isBroken()     : boolean
 }
-'--
-@enduml
-
 ```
 
 <!-- load -->

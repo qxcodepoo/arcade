@@ -1,5 +1,12 @@
 # Gerencie os vários contatos da @agenda
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo agenda`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
@@ -42,13 +49,6 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 class Fone {
   - id : str
@@ -175,11 +175,6 @@ class Agenda {
   + toString() : String
 }
 
-'--
-Contact "1" *--  "0..*" Fone
-Agenda  "1" *--  "0..*" Contact
-
-@enduml
 ```
 
 <!-- load -->

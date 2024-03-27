@@ -1,5 +1,12 @@
 # Comprando comida em uma máquina de @junkfood
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo junkfood`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
 -- | -- | -- | -- | --
@@ -56,13 +63,6 @@ Seu sistema deverá ser capaz de:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 class Slot {
     - name : String
     - price : float
@@ -124,9 +124,6 @@ class VendingMachine {
     --
     + toString() : String
 }
-'--
-VendingMachine "1" o-- "1..*" Slot
-@enduml
 ```
 
 <!-- load -->

@@ -1,5 +1,12 @@
 # Padrão Composite e Decorator: @produto
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/produto/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo produto`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 Padrões de projeto são soluções para problemas comuns que encontramos ao projetar um sistema. Eles são como receitas de bolo que podemos aplicar em nossos projetos para resolver problemas comuns. Os padrões de projeto são divididos em três categorias: padrões de criação, padrões estruturais e padrões comportamentais.
 
 Vamos trabalhar os conceitos de dois padrões de projeto: Composite e Decorator.
@@ -46,13 +53,6 @@ Vamos modelar um sistema de vendas de produtos. O sistema deve permitir que seja
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 ' Interface que define a responsabilidade de um produto
 interface IProduct {
@@ -116,13 +116,6 @@ class ProductManager {
   ' Mostra os índices dos produtos, seus rótulos e preços
   + toString(): String
 }
-
-'--
-IProduct <|.. Product
-IProduct <|.. Bundle
-IProduct <|.. DiscountedProduct
-ProductManager *--> IProduct
-@enduml
 
 ```
 

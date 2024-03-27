@@ -1,5 +1,12 @@
 # Operações de @contagem
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/contagem/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo contagem`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --

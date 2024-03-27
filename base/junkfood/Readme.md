@@ -56,13 +56,6 @@ Seu sistema deverá ser capaz de:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 class Slot {
     - name : String
     - price : float
@@ -124,9 +117,6 @@ class VendingMachine {
     --
     + toString() : String
 }
-'--
-VendingMachine "1" o-- "1..*" Slot
-@enduml
 ```
 
 <!-- load -->

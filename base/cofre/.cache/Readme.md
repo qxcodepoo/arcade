@@ -1,5 +1,12 @@
 # Seu porquinho cresceu e virou um @cofre
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo cofre`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -38,13 +45,6 @@ O sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 ~interface Valuable {
   + getLabel() : String {abstract}
@@ -127,12 +127,6 @@ class Pig {
   __
   + toString()     : String
 }
-'--
-
-Pig "1" o--> "0..*" Valuable
-Coin ..|> Valuable 
-Item ..|> Valuable 
-@enduml
 ```
 
 <!-- load -->

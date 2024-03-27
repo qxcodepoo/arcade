@@ -1,5 +1,12 @@
 # @mensagem
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/mensagem/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo mensagem`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --

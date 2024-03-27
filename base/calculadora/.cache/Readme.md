@@ -1,5 +1,12 @@
 # Cuidado com a bateria da @calculadora
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo calculadora`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -44,13 +51,6 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 class Calculator {
 
   ' a bateria atual
@@ -101,8 +101,6 @@ class Legenda {
   # métodoProtected()
 }
 
-'--
-@enduml
 ```
 
 <!-- load -->

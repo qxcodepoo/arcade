@@ -43,12 +43,6 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-'==
 
 class Kid {
   - age : int
@@ -93,9 +87,6 @@ class Trampoline {
   + removeKid(name : string) : Kid | null
 }
 
-'--
-Trampoline "1" o--  "0..*" Kid : > stores
-@enduml
 ```
 
 <!-- load -->

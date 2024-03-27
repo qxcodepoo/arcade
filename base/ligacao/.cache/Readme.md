@@ -1,5 +1,12 @@
 # @ligacao
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/ligacao/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo ligacao`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Diagrama de Classes](#diagrama-de-classes)
 -- | -- | --

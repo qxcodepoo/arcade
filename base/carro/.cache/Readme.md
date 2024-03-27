@@ -1,5 +1,12 @@
 # Se não pode comprar um, construa seu primeiro @carro
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo carro`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
@@ -80,12 +87,6 @@ Seu sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-'==
 class Car {
   ' quantidade de passageiros no carro
   + pass    : int
@@ -146,8 +147,6 @@ class Legenda {
   # métodoProtected()
 }
 
-'--
-@enduml
 ```
 
 <!-- load -->

@@ -1,5 +1,12 @@
 # De círculos e retângulos, calcule a área e o @perimetro
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo perimetro`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -30,13 +37,6 @@ O círculo pode ser definido pelo ponto do centro e pelo raio.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 class Point2D {
     + x: double
@@ -115,12 +115,6 @@ class Rectangle {
     + toString(): string
 }
 
-'--
-Circle --|> Shape
-Rectangle --|> Shape
-Point2D  --*  Circle
-Point2D  --*  Rectangle
-@enduml
 ```
 
 <!-- load -->

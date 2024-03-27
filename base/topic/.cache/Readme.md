@@ -1,5 +1,12 @@
 # Gerenciando assentos prioritários e normais em uma @topic
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/topic/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo topic`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -51,13 +58,6 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 class Pass {
   - age  : int
   - name : string
@@ -113,9 +113,6 @@ class Topic {
   __
   + toString() : string
 }
-'--
-Topic "1" o-- "0..*" Pass
-@enduml
 ```
 
 <!-- load -->

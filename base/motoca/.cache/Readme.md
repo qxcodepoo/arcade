@@ -1,5 +1,12 @@
 # Passeando no parque de @motoca
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo motoca`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
@@ -53,12 +60,6 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-'==
 class Motorcycle {
   - person : Person | null
   - power  : int
@@ -110,10 +111,6 @@ class Person {
   ' nome:idade
   + toString() : string
 }
-'--
-Person "0..1" --o "1" Motorcycle : < Carry
-@enduml
-
 ```
 
 <!-- load -->

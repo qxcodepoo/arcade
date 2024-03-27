@@ -1,5 +1,12 @@
 # Garante uma hora válida no @relogio
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/relogio/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo relogio`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
@@ -79,13 +86,6 @@ O sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 class Time {
   - hour   : int
   - minute : int
@@ -139,8 +139,6 @@ class Legenda {
   # métodoProtected()
 }
 
-'--
-@enduml
 ```
 
 <!-- load -->

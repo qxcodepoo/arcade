@@ -1,5 +1,12 @@
 # Atividade modelo resolvida: @animal
 
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/animal/Readme.md)
+- Para programar na sua máquina (local/virtual) use:
+  - `tko down poo animal`
+- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
+
+---
+
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
 -- | -- | -- | --

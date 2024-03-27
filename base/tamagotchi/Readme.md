@@ -51,13 +51,6 @@ Seu sistema deverá:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
-@startuml
-
-skinparam defaultFontName Hasklig
-skinparam dpi 150
-
-'==
 
 +class Pet {
     ' se o pet está vivo
@@ -147,8 +140,6 @@ class Legenda {
   # métodoProtected()
 }
 
-'--
-@enduml
 ```
 
 <!-- load -->
