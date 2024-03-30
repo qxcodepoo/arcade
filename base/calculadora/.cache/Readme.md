@@ -20,15 +20,15 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ## Intro
 
-|    Ação    |   Comando   |                                                 Descrição                                                 |                 Restrição                 |            Output            |
-| ---------- | ----------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ---------------------------- |
-| Iniciar    | `$init M`   | Inicia a calculadora com uma quantidade máxima de bateria M.                                              | Se bateria insuficiente                   | "fail: bateria insuficiente" |
-| Soma       | `$sum A B`  | Realiza uma operação de soma de A + B colocando o resultado no display, consumindo 1 ponto de bateria.    | Se bateria insuficiente                   | "fail: bateria insuficiente" |
-| Divisão    | `$div A B`  | Realiza uma operação de divisão de A / B colocando o resultado no display, consumindo 1 ponto de bateria. | Se bateria insuficiente                   | "fail: bateria insuficiente" |
-|            |             | Divisão por 0                                                                                             | "fail: divisão por zero"                  |                              |
-| Mostrar    | `$show`     | Mostra o resultado da última operação bem-sucedida no display e o estado atual da bateria.                | -                                         | -                            |
-| Recarregar | `$charge V` | Recarrega um valor V à bateria.                                                                           | Recarregar a bateria além do valor máximo | Valor máximo                 |
-| Finalizar  | `$end`      | Fecha o programa.                                                                                         | -                                         | -                            |
+|    Ação    |   Comando   |                                                 Descrição                                                 |              Restrição              |           Erros            |
+| ---------- | ----------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------------------------- |
+| Iniciar    | `$init M`   | Inicia a calculadora com uma quantidade máxima de bateria M.                                              | Ter bateria                         | fail: bateria insuficiente |
+| Soma       | `$sum A B`  | Realiza uma operação de soma de A + B colocando o resultado no display, consumindo 1 ponto de bateria.    | Ter bateria                         | fail: bateria insuficiente |
+| Divisão    | `$div A B`  | Realiza uma operação de divisão de A / B colocando o resultado no display, consumindo 1 ponto de bateria. | Ter bateria                         | fail: bateria insuficiente |
+|            |             | Divisão por 0                                                                                             | Ter bateria                         | fail: divisão por zero     |
+| Mostrar    | `$show`     | Mostra o resultado da última operação bem-sucedida no display e o estado atual da bateria.                | -                                   | -                          |
+| Recarregar | `$charge V` | Recarrega um valor V à bateria.                                                                           | Não recarregar além do valor máximo | -                          |
+| Finalizar  | `$end`      | Fecha o programa.                                                                                         | -                                   | -                          |
 
 
 ***
@@ -214,17 +214,17 @@ display = 2.00, battery = 2
 ***
 
 ```bash
-#__case dividindo por zero
+#__case dividindo por zero gastando bateria
 $div 7 0
 fail: divisao por zero
+$show
+display = 2.00, battery = 1
 ```
 
 ***
 
 ```bash
 #__case gastando bateria
-$show
-display = 2.00, battery = 1
 $div 7 2
 $div 10 2
 fail: bateria insuficiente
