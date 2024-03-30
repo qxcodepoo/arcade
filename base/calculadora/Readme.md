@@ -13,32 +13,33 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ## Intro Modelo Árvore
 
-- `$init M`
-  - ação
+- Iniciar: `$init M`
+  - ações
     - Inicia a calculadora com uma quantidade máxima de bateria M.
-- `$show`
-  - ação
+- Mostrar: `$show`
+  - ações
     - Mostra o resultado da última operação bem-sucedida no display e o estado atual da bateria.
     - Exemplo de formatação: `display = {%.2f}, bateria = {%.2f}`
-- `$charge V`
-  - ação
+- Recarregar: `$charge V`
+  - ações
     - Recarrega um valor V à bateria.
     - Não recarregar além do valor máximo.
   - erros
     - nenhum, se tentar recarregar além do valor máximo, recarregue apenas o necessário.
-- `$sum A B`
-  - ação
+- Somar: `$sum A B`
+  - ações
     - Realiza uma operação de soma de A + B colocando o resultado no display.
     - Consume 1 ponto de bateria.
   - erros
     - `fail: bateria insuficiente`, se não conseguir gastar a bateria.
-- `$div A B`
-  - ação
+- Dividir: `$div A B`
+  - ações
     - Realiza uma operação de divisão de A / B colocando o resultado no display
     - Consume 1 ponto de bateria.
-  - erros:
+  - erros
     - `fail: bateria insuficiente`, se não conseguir gastar a bateria.
     - `fail: divisão por zero`, se gastou a bateria, mas tentou dividir por 0.
+- Finalizar: `$end`
 
 ## Intro Modelo Tabela
 
