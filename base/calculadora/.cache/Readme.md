@@ -14,17 +14,22 @@
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/calculadora/cover.jpg)
 
-O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma, multiplicação e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
+O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
 ***
 
 ## Intro
 
-- Mostrar bateria da calculadora.
-- Recarregar a bateria.
-- Realizar operações matemáticas de soma e divisão.
-- Se o usuário tentar realizar operações e a bateria estiver vazia, deverá ser mostrada uma notificação sobre falta de bateria.
-- Se for tentada divisão por zero, deve ser notificado o erro.
+|    Ação    |   Comando   |                                                 Descrição                                                 |                 Restrição                 |            Output            |
+| ---------- | ----------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ---------------------------- |
+| Iniciar    | `$init M`   | Inicia a calculadora com uma quantidade máxima de bateria M.                                              | Se bateria insuficiente                   | "fail: bateria insuficiente" |
+| Soma       | `$sum A B`  | Realiza uma operação de soma de A + B colocando o resultado no display, consumindo 1 ponto de bateria.    | Se bateria insuficiente                   | "fail: bateria insuficiente" |
+| Divisão    | `$div A B`  | Realiza uma operação de divisão de A / B colocando o resultado no display, consumindo 1 ponto de bateria. | Se bateria insuficiente                   | "fail: bateria insuficiente" |
+|            |             | Divisão por 0                                                                                             | "fail: divisão por zero"                  |                              |
+| Mostrar    | `$show`     | Mostra o resultado da última operação bem-sucedida no display e o estado atual da bateria.                | -                                         | -                            |
+| Recarregar | `$charge V` | Recarrega um valor V à bateria.                                                                           | Recarregar a bateria além do valor máximo | Valor máximo                 |
+| Finalizar  | `$end`      | Fecha o programa.                                                                                         | -                                         | -                            |
+
 
 ***
 
@@ -109,28 +114,40 @@ class Legenda {
 
 ## Shell
 
+### Primeira simulação
+
 ```bash
 #__case iniciar mostrar e recarregar
-# O comando "$init M" inicia uma calculadora passando por parâmetro a bateria máxima.
-# O comando "$show" mostra o valor da última operação bem sucedida no display e o estado da bateria
-# O comando "$charge V" recarrega a bateria de V
 $init 5
 $show
 display = 0.00, battery = 0
 
-#__ case charge
+```
+
+***
+
+```bash
+#__case charge
 $charge 3
 $show
 display = 0.00, battery = 3
 $charge 1
 $show
 display = 0.00, battery = 4
+```
 
+***
+
+```bash
 #__case boundary
 $charge 2
 $show
 display = 0.00, battery = 5
+```
 
+***
+
+```bash
 #__case reset
 $init 4
 $charge 2
@@ -142,7 +159,7 @@ display = 0.00, battery = 4
 $end
 ```
 
-***
+### Segunda simulação
 
 ```bash
 #__case somando
@@ -151,16 +168,28 @@ $charge 2
 $sum 4 3
 $show
 display = 7.00, battery = 1
+```
 
+***
+
+```bash
 #__case gastando bateria
 $sum 2 3
 $show
 display = 5.00, battery = 0
+```
 
+***
+
+```bash
 #__case sem bateria
 $sum -4 -1
 fail: bateria insuficiente
+```
 
+***
+
+```bash
 #__case recarregando
 $charge 1
 $show
@@ -171,7 +200,7 @@ display = -6.00, battery = 0
 $end
 ```
 
-***
+### Terceira simulação
 
 ```bash
 #__case dividindo
@@ -180,10 +209,19 @@ $charge 3
 $div 6 3
 $show
 display = 2.00, battery = 2
+```
+
+***
+
+```bash
 #__case dividindo por zero
 $div 7 0
 fail: divisao por zero
+```
 
+***
+
+```bash
 #__case gastando bateria
 $show
 display = 2.00, battery = 1
