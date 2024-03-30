@@ -8,8 +8,8 @@
 ---
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro Modelo Árvore](#intro-modelo-árvore) | [Intro Modelo Tabela](#intro-modelo-tabela) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/calculadora/cover.jpg)
@@ -18,11 +18,40 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ***
 
-## Intro
+## Intro Modelo Árvore
+
+- `$init M`
+  - ação
+    - Inicia a calculadora com uma quantidade máxima de bateria M.
+- `$show`
+  - ação
+    - Mostra o resultado da última operação bem-sucedida no display e o estado atual da bateria.
+    - Exemplo de formatação: `display = {%.2f}, bateria = {%.2f}`
+- `$charge V`
+  - ação
+    - Recarrega um valor V à bateria.
+    - Não recarregar além do valor máximo.
+  - erros
+    - nenhum, se tentar recarregar além do valor máximo, recarregue apenas o necessário.
+- `$sum A B`
+  - ação
+    - Realiza uma operação de soma de A + B colocando o resultado no display.
+    - Consume 1 ponto de bateria.
+  - erros
+    - `fail: bateria insuficiente`, se não conseguir gastar a bateria.
+- `$div A B`
+  - ação
+    - Realiza uma operação de divisão de A / B colocando o resultado no display
+    - Consume 1 ponto de bateria.
+  - erros:
+    - `fail: bateria insuficiente`, se não conseguir gastar a bateria.
+    - `fail: divisão por zero`, se gastou a bateria, mas tentou dividir por 0.
+
+## Intro Modelo Tabela
 
 |    Ação    |   Comando   |                                                 Descrição                                                 |              Restrição              |           Erros            |
 | ---------- | ----------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------------------------- |
-| Iniciar    | `$init M`   | Inicia a calculadora com uma quantidade máxima de bateria M.                                              | Ter bateria                         | fail: bateria insuficiente |
+| Iniciar    | `$init M`   | Inicia a calculadora com uma quantidade máxima de bateria M.                                              | -                         | - |
 | Soma       | `$sum A B`  | Realiza uma operação de soma de A + B colocando o resultado no display, consumindo 1 ponto de bateria.    | Ter bateria                         | fail: bateria insuficiente |
 | Divisão    | `$div A B`  | Realiza uma operação de divisão de A / B colocando o resultado no display, consumindo 1 ponto de bateria. | Ter bateria                         | fail: bateria insuficiente |
 |            |             | Divisão por 0                                                                                             | Ter bateria                         | fail: divisão por zero     |
