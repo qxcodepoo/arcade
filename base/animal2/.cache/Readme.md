@@ -23,6 +23,7 @@ Essa atividade utiliza um padrão de projeto de requisições e respostas.
 - Na classe `Adapter` é onde você deve implementar e conectar seu código.
 - A classe `Adapter` é apenas a classe de conexão, você deve as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
 - Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
+- Ao mostrar uma string formatada, será utilizado o modelo do python `f"{variavel:param}"`.
 - Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
 
 ## Intro
@@ -42,14 +43,16 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
     - Se for idoso, emite um "RIP".
   - Ao crescer, o animal passa para o próximo estágio de vida.
     - Se atingir o estágio 4, ele morre e deve aparecer a mensagem
-    - `warning: {especie} morreu`
+    - `f"warning: {especie} morreu"`
 - Responsabilidades
   - O código deve ser implementado na classe `Animal`.
   - Os métodos da classe `Animal` devem ser chamados na classe `Adapter`.
   - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
 - Comandos
+  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
   - `$show`: Mostra o estado atual do animal.
-    - formato: `{especie}:{estagio}:{barulho}`
+    - formato: `f"{especie}:{estagio}:{barulho}"`
+    - exemplo: `gato:0:miau`
   - `$init especie barulho`: Inicializa o animal passando a espécie e o barulho.
   - `$grow`: Faz o animal crescer uma etapa da vida
   - `$noise`: Faz o animal emitir um som

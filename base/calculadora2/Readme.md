@@ -16,6 +16,7 @@ Essa atividade utiliza um padrão de projeto de requisições e respostas.
 - Na classe `Adapter` é onde você deve implementar e conectar seu código.
 - A classe `Adapter` é apenas a classe de conexão, você deve as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
 - Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
+- Ao mostrar uma string formatada, será utilizado o modelo do python `f"{variavel:param}"`.
 - Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
 
 ## Intro
@@ -34,8 +35,9 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
   - A classe `Adapter` é responsável por chamar os métodos da classe `Calculadora`.
   - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
 - Comandos
+  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
   - `$show` - Mostra o display e a bateria.
-    - formato: `format(display = {%.2f}, battery = {}, this.display, this.battery)`
+    - `f"{this.display:.2f}, {this.battery}"`
   - `$init batteryMax` - Inicializa a calculadora com a quantidade máxima de bateria e o display zerado.
   - `$charge value` - Adiciona carga à bateria, mas não pode ultrapassar o limite.
   - `$sum a b` - Soma dois valores e guarda no display.
