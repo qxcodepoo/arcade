@@ -1,8 +1,8 @@
 # Cuidado com a bateria da @calculadora
 
 <!-- toch -->
-[Intro Modelo Árvore](#intro-modelo-árvore) | [Intro Modelo Tabela](#intro-modelo-tabela) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -11,7 +11,7 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ***
 
-## Intro Modelo Árvore
+## Intro
 
 - Iniciar: `$init M`
   - ações
@@ -40,21 +40,6 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
     - `fail: bateria insuficiente`, se não conseguir gastar a bateria.
     - `fail: divisão por zero`, se gastou a bateria, mas tentou dividir por 0.
 - Finalizar: `$end`
-
-## Intro Modelo Tabela
-
-|    Ação    |   Comando   |                                                 Descrição                                                 |              Restrição              |           Erros            |
-| ---------- | ----------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------- | -------------------------- |
-| Iniciar    | `$init M`   | Inicia a calculadora com uma quantidade máxima de bateria M.                                              | -                         | - |
-| Soma       | `$sum A B`  | Realiza uma operação de soma de A + B colocando o resultado no display, consumindo 1 ponto de bateria.    | Ter bateria                         | fail: bateria insuficiente |
-| Divisão    | `$div A B`  | Realiza uma operação de divisão de A / B colocando o resultado no display, consumindo 1 ponto de bateria. | Ter bateria                         | fail: bateria insuficiente |
-|            |             | Divisão por 0                                                                                             | Ter bateria                         | fail: divisão por zero     |
-| Mostrar    | `$show`     | Mostra o resultado da última operação bem-sucedida no display e o estado atual da bateria.                | -                                   | -                          |
-| Recarregar | `$charge V` | Recarrega um valor V à bateria.                                                                           | Não recarregar além do valor máximo | -                          |
-| Finalizar  | `$end`      | Fecha o programa.                                                                                         | -                                   | -                          |
-
-
-***
 
 ## Draft
 

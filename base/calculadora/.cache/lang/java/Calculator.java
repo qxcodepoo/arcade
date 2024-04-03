@@ -5,24 +5,18 @@ class Calculator {
     public float display;
 
     public Calculator(int batteryMax) {
-        //todo
     }
 
     public void chargeBattery(int value) {
-        //todo
     }
 
     public boolean useBattery() {
-        //todo
-        return false;
     }
 
     public void sum(int a, int b) {
-        //todo
     }
 
     public void division(int num, int den) {
-        //todo
     }
 
     public String toString() {

@@ -8,30 +8,18 @@ struct Calculator {
 
     Calculator(int batteryMax) 
     {
-        (void) batteryMax;
-        //todo
     }
 
     void chargeBattery(int value) {
-        (void) value;
-        //todo
     }
 
     bool useBattery() {
-        return false;
-        //todo
     }
 
     void sum(int a, int b) {
-        (void) a;
-        (void) b;
-        //todo
     }
 
     void division(int num, int den) {
-        (void) num;
-        (void) den;
-        //todo
     }
     std::string str() const {
         return fn::format("display = {%.2f}, battery = {}", this->display, this->battery); 
