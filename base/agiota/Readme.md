@@ -1,18 +1,11 @@
 # Gerencie os empŕestimos de um @agiota
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/agiota/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo agiota`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Video](#video) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
 -- | -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/cover.jpg)
+![cover](cover.jpg)
 
 Ptolomeu é o agiota mais carismático de MoneyVille. Sem "nenhuma razão" foi denunciado e acabou indo pra cadeira. O problema foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 
@@ -24,7 +17,7 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Video
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/play.png)](https://youtu.be/5pnagWZvjBE)
+[![_](play.png)](https://youtu.be/5pnagWZvjBE)
 
 ## Intro
 
@@ -59,11 +52,11 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Draft
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/agiota/.cache/draft.cpp)
+- [draft.cpp](.cache/draft.cpp)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/diagrama.png)
+![diagrama](diagrama.png)
 
 ## Shell
 
@@ -207,5 +200,5 @@ $end
 - Então assim ficou Ptolomeu, depois de ir para a prisão e ver sua fortuna confiscada.
 - Se foi presídio, zoológico ou hospital psiquiátrico, ninguém comenta, só sabemos que ele nunca mais foi visto. Pelo menos não em Moneyville.
 
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/ptolomeu.jpg)
+![_](ptolomeu.jpg)
 

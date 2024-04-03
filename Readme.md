@@ -21,6 +21,7 @@
 - [09. Mapas && Exceções II](#09-mapas--exceções-ii)
 - [10. Referências Cruzadas](#10-referências-cruzadas)
 - [11. Em atualização](#11-em-atualização)
+- [12. Modelos em Avaliação](#12-modelos-em-avaliação)
 <!-- toc -->
 
 ---
@@ -29,19 +30,19 @@
 
 ## 00. Configuração de ambiente
 
-- [Introdução ao git](base/git/README.md)
-- [Instalação C++ e TS](base/instalacao/README.md)
+- [Introdução ao git](pages/git/README.md)
+- [Instalação C++ e TS](pages/instalacao/README.md)
 - [Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
 - [Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
 - [Rodando questões no Replit](https://github.com/senapk/tko/blob/master/replit/Readme.md)
 
 ## 00. Conteúdo extra
 
-- [Relacionamentos](base/relacionamento/README.md)
-- [Relacionamentos Resumo](base/uml/README.md)
-- [Como fazer os códigos e relatórios](base/relatorio/README.md)
-- [Criando a Main](base/main/README.md)
-- [Pesquisa sobre alocação de memória](base/memoria/README.md)
+- [Relacionamentos](pages/relacionamento/README.md)
+- [Relacionamentos Resumo](pages/uml/README.md)
+- [Como fazer os códigos e relatórios](pages/relatorio/README.md)
+- [Criando a Main](pages/main/README.md)
+- [Pesquisa sobre alocação de memória](pages/memoria/README.md)
 
 ## 01. Lógica
 
@@ -126,3 +127,8 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [Adicione título e texto em @anotacoes](base/anotacoes/Readme.md)
 - [Cache e redundância em @favoritos](base/favoritos/Readme.md)
 - [@trem](base/trem/Readme.md)
+
+## 12. Modelos em Avaliação
+
+- [Atividade modelo resolvida: @animal2](base/animal2/Readme.md)
+- [Cuidado com a bateria da @calculadora2](base/calculadora2/Readme.md)

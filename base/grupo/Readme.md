@@ -1,18 +1,11 @@
 # @grupo
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/grupo/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo grupo`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Guia de Atividade](#guia-de-atividade) | [Créditos](#créditos)
 -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grupo/cover.jpg)
+![cover](cover.jpg)
 
 - Usuários podem ser adicionados ao sistema e devem ter id único.
 - Os usuários podem criar grupos e convidar outros usuários do sistema.
@@ -67,7 +60,7 @@ $end
 
 ## Guia de Atividade
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grupo/diagrama.png)
+![diagrama](diagrama.png)
 
 
 ## Créditos

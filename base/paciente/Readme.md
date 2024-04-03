@@ -1,18 +1,11 @@
 # @paciente
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/paciente/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo paciente`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/paciente/cover.jpg)
+![cover](cover.jpg)
 
 ## Intro
 
@@ -67,7 +60,7 @@ $end
 ***
 
 ## Guide
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/paciente/diagrama.png)
+![diagrama](diagrama.png)
 
 ***
 

@@ -1,18 +1,11 @@
 # Gerencie a fila de espera e atendimento da @budega
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/budega/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo budega`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/cover.jpg)
+![cover](cover.jpg)
 
 Nosso objetivo no trabalho é modelar uma fila de atendimento de um Mercatil.
 
@@ -34,13 +27,13 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ## Guide
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft.cpp)
-- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft.java)
-- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft.ts)
+- [draft.cpp](.cache/draft.cpp)
+- [draft.java](.cache/draft.java)
+- [draft.ts](.cache/draft.ts)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/diagrama.png)
+![diagrama](diagrama.png)
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
+[![_](../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 
 ***
 

@@ -1,18 +1,11 @@
 # Cache e redundância em @favoritos
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/favoritos/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo favoritos`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favoritos/cover.jpg)
+![cover](cover.jpg)
 
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
 
@@ -102,7 +95,7 @@ $end
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favoritos/diagrama.png)
+![diagrama](diagrama.png)
 
 ## Esqueleto
 <!--FILTER Solver.java java-->

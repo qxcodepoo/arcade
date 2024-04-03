@@ -1,18 +1,11 @@
 # @whatsapp
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/whatsapp/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo whatsapp`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guia de Resolução](#guia-de-resolução) | [Main não interativa](#main-não-interativa) | [Créditos](#créditos)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/whatsapp/cover.jpg)
+![cover](cover.jpg)
 
 ## Intro
 
@@ -169,9 +162,9 @@ $end
 
 ## Guia de Resolução
 
-[GUIA](https://github.com/qxcodepoo/arcade/blob/master/base/whatsapp/_guide.md)
+[GUIA](_guide.md)
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/whatsapp/diagrama.png)
+![diagrama](diagrama.png)
 
 ---
 

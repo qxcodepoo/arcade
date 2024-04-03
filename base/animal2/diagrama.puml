@@ -1,0 +1,29 @@
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+'==
+class Animal {
+    + especie: str
+    + barulho: str
+    + idade: int
+    __
+    + Animal(especia: str, barulho: str)
+    + fazerBarulho() : str
+    + envelhecer() : void
+    + toString() : string
+}
+
+class Legenda {
+  + atributoPublic
+  - atributoPrivate
+  # atributoProtected
+  __
+  + métodoPublic()
+  - métodoPrivate()
+  # métodoProtected()
+}
+
+'--
+@enduml

@@ -7,18 +7,7 @@ class Lead {
     public constructor(thickness: number, hardness: string, size: number) {
     }
     public usagePerSheet(): number {
-        if (this.hardness === 'HB') {
-            return 1;
-        } else if (this.hardness === '2B') {
-            return 2;
-        } else if (this.hardness === '4B') {
-            return 4;
-        } else if (this.hardness === '6B') {
-            return 6;
-        }
         return 0;
-        // $$
-        // return 0;
     }
     public toString(): string {
         return `${this.thickness}:${this.hardness}:${this.size}`;

@@ -14,17 +14,7 @@ public:
         (void) size;
     }
     int usagePerSheet() const {
-        if (hardness == "HB") {
-            return 1;
-        } else if (hardness == "2B") {
-            return 2;
-        } else if (hardness == "4B") {
-            return 4;
-        } else {
-            return 6;
-        }
-        // $$
-        // return 0;
+        return 0;
         
     }
     float getThickness() const {
@@ -32,7 +22,7 @@ public:
     }
 
     std::string getHardness() const {
-        return 0;
+        return "";
     }
 
     int getSize() const {
@@ -42,6 +32,7 @@ public:
     void setSize(int size) {
         (void) size;
     }
+
     std::string str() const {
         return fn::format("{%.1f}:{}:{}", thickness, hardness, size);
     }

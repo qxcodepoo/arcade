@@ -1,12 +1,5 @@
 # Operações de @busca
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/busca/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo busca`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)
@@ -43,9 +36,9 @@
 
 ## Draft
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft.ts)
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+- [Solver.java](.cache/draft.java)
 
 ## Shell
 

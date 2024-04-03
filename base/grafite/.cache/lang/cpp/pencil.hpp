@@ -11,7 +11,6 @@ struct Pencil {
     {
         (void) thickness;
     }
-
     bool hasLead() const {
         return false;
     }

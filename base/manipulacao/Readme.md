@@ -1,18 +1,11 @@
 # Operações de @manipulacao
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo manipulacao`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/manipulacao/cover.jpg)
+![cover](cover.jpg)
 
 ***
 
@@ -41,9 +34,9 @@
 
 ## Guide
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft.ts)
-- [solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft.java)
+- [solver.cpp](.cache/draft.cpp)
+- [solver.ts](.cache/draft.ts)
+- [solver.java](.cache/draft.java)
 
 ## Shell
 
