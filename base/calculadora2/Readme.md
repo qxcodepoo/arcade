@@ -21,10 +21,10 @@ Essa atividade utiliza um padrão de projeto de requisições e respostas.
 
 ## Intro
 
-O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0. A classe de adaptação abaixo mostra a lógica para cada requisição.
+O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
 - Descrição
-  - A calculadora possui um display e uma bateria.
+  - A calculadora possui um display e uma bateria. Ela guarda o valor atual da bateria e o valor máximo.
   - O display é onde o resultado das operações é armazenado.
   - A bateria é a quantidade de energia que a calculadora possui.
   - Cada operação gasta um ponto de bateria.
@@ -38,7 +38,7 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
   - `$show` - Mostra o display e a bateria.
     - `f"{this.display:.2f}, {this.battery}"`
-  - `$init batteryMax` - Inicializa a calculadora com a quantidade máxima de bateria e o display zerado.
+  - `$init batteryMax` - Inicializa a calculadora com bateria e display zerados e o valor de bateria máximo definido pelo parâmetro.
   - `$charge value` - Adiciona carga à bateria, mas não pode ultrapassar o limite.
   - `$sum a b` - Soma dois valores e guarda no display.
     - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
@@ -236,7 +236,6 @@ $end
   - [Adapter.java](.cache/lang/java/Adapter.java)
   - [Shell.java](.cache/lang/java/Shell.java)
 - ts
-  - [.vscode](.cache/lang/ts/.vscode)
   - [adapter.ts](.cache/lang/ts/adapter.ts)
   - [shell.ts](.cache/lang/ts/shell.ts)
 
