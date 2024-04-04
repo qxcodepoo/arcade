@@ -6,34 +6,20 @@ let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
 function main() {
-    let adapter = new Adapter();
+    let adp = new Adapter();
 
     while (true) {
         let line = input();
         let args = line.split(" ");
         console.log("$" + line);
 
-        if (args[0] == "show") {
-            console.log(adapter.show());
-        }
-        else if (args[0] == "init") {
-            adapter.init(+args[1]);
-        }
-        else if (args[0] == "charge") {
-            adapter.charge(+args[1]);
-        }
-        else if (args[0] == "sum") {
-            adapter.sum(+args[1], +args[2]);
-        }
-        else if (args[0] == "div") {
-            adapter.div(+args[1], +args[2]);
-        }
-        else if (args[0] == "end") {
-            break;
-        }
-        else {
-            console.log("fail: comando nao encontrado");
-        }
+        if      (args[0] == "show"  ) { console.log(adp.show());                     }
+        else if (args[0] == "init"  ) { adp.init(+args[1]);                          }
+        else if (args[0] == "charge") { adp.charge(+args[1]);                        }
+        else if (args[0] == "sum"   ) { adp.sum(+args[1], +args[2]);                 }
+        else if (args[0] == "div"   ) { adp.div(+args[1], +args[2]);                 }
+        else if (args[0] == "end"   ) { break;                                       }
+        else                          { console.log("fail: comando nao encontrado"); }
     }
 }
 

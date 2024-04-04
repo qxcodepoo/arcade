@@ -40,13 +40,15 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 ## Shell
 
 ```sh
-#__case iniciar
+#TEST_CASE iniciar
+
 $init 2
 $show
 Caixas: [-----, -----]
 Espera: []
 
-#__case arrive
+#TEST_CASE arrive
+
 $arrive carla
 $arrive maria
 $arrive rubia
@@ -55,13 +57,15 @@ $show
 Caixas: [-----, -----]
 Espera: [carla, maria, rubia]
 
-#__case call
+#TEST_CASE call
+
 $call 0
 $show
 Caixas: [carla, -----]
 Espera: [maria, rubia]
 
-#__case finish
+#TEST_CASE finish
+
 $finish 0
 $show
 Caixas: [-----, -----]
@@ -72,7 +76,8 @@ $end
 ```
 
 ```sh
-#__case iniciar2
+#TEST_CASE iniciar2
+
 $init 3
 $show
 Caixas: [-----, -----, -----]
@@ -85,7 +90,8 @@ $show
 Caixas: [-----, -----, -----]
 Espera: [carla, maria]
 
-#__case call
+#TEST_CASE call
+
 $call 0
 $call 0
 fail: caixa ocupado
@@ -93,17 +99,20 @@ $show
 Caixas: [carla, -----, -----]
 Espera: [maria]
 
-#__case empty waiting
+#TEST_CASE empty waiting
+
 $call 2
 $show
 Caixas: [carla, -----, maria]
 Espera: []
 
-#__case empty waiting
+#TEST_CASE empty waiting
+
 $call 1
 fail: sem clientes
 
-#__case finish
+#TEST_CASE finish
+
 $finish 0
 $show
 Caixas: [-----, -----, maria]
@@ -114,7 +123,8 @@ $show
 Caixas: [-----, -----, -----]
 Espera: []
 
-#__case error
+#TEST_CASE error
+
 $finish 3
 fail: caixa inexistente
 $finish 1

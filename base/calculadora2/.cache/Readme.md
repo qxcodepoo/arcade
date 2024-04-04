@@ -243,6 +243,7 @@ $end
   - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/java/Adapter.java)
   - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/java/Shell.java)
 - ts
+  - [.vscode](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/ts/.vscode)
   - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/ts/adapter.ts)
   - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/ts/shell.ts)
 

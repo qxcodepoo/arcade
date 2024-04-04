@@ -236,6 +236,7 @@ $end
   - [Adapter.java](.cache/lang/java/Adapter.java)
   - [Shell.java](.cache/lang/java/Shell.java)
 - ts
+  - [.vscode](.cache/lang/ts/.vscode)
   - [adapter.ts](.cache/lang/ts/adapter.ts)
   - [shell.ts](.cache/lang/ts/shell.ts)
 
