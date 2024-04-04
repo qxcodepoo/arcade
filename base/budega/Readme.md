@@ -1,8 +1,8 @@
 # Gerencie a fila de espera e atendimento da @budega
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -25,11 +25,22 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ***
 
-## Guide
+## Draft
 
-- [draft.cpp](.cache/draft.cpp)
-- [draft.java](.cache/draft.java)
-- [draft.ts](.cache/draft.ts)
+<!-- draft -->
+- cpp
+  - [adapter.hpp](.cache/lang/cpp/adapter.hpp)
+  - [fn.hpp](.cache/lang/cpp/fn.hpp)
+  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/lang/java/Shell.java)
+- ts
+  - [adapter.ts](.cache/lang/ts/adapter.ts)
+  - [shell.ts](.cache/lang/ts/shell.ts)
+
+<!-- draft -->
+
+## Guide
 
 ![diagrama](diagrama.png)
 
