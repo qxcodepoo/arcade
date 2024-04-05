@@ -45,11 +45,7 @@ class Calculator {
 
 class Adapter {
     calc: Calculator;
-    public Adapter() {
-        this.calc = new Calculator(0);
-    }
-
-    public init(batteryMax: number): void {
+    public constructor(batteryMax: number) {
         this.calc = new Calculator(batteryMax);
     }
 

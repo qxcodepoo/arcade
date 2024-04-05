@@ -1,20 +1,20 @@
 #include "animal.hpp"
 
 struct Adapter {
+    Animal animal;
     Adapter(std::string especie = "", std::string barulho = "") {
-        (void) especie;
-        (void) barulho;
+        animal = Animal(especie, barulho);
     }
 
     void grow(int nivel) {
-        (void) nivel;
+        animal.envelhecer(nivel);
     }
 
     std::string noise() {
-        return "";
+        return animal.fazerBarulho();
     }
 
     std::string show() {
-        return "";
+        return animal.str();
     }
 };

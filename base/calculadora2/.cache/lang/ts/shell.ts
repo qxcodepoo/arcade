@@ -6,7 +6,7 @@ let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
 function main() {
-    let adp = new Adapter();
+    let adp = new Adapter(0);
 
     while (true) {
         let line = input();
@@ -14,7 +14,7 @@ function main() {
         console.log("$" + line);
 
         if      (args[0] == "show"  ) { console.log(adp.show());                     }
-        else if (args[0] == "init"  ) { adp.init(+args[1]);                          }
+        else if (args[0] == "init"  ) { adp = new Adapter(+args[1]);                 }
         else if (args[0] == "charge") { adp.charge(+args[1]);                        }
         else if (args[0] == "sum"   ) { adp.sum(+args[1], +args[2]);                 }
         else if (args[0] == "div"   ) { adp.div(+args[1], +args[2]);                 }

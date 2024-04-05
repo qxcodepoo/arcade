@@ -32,25 +32,6 @@ struct Animal {
     }
 };
 
-std::ostream& operator<<(std::ostream& os, const Animal& animal) {
+inline std::ostream& operator<<(std::ostream& os, const Animal& animal) {
     return os << animal.str();
 }
-
-struct Adapter {
-    Animal animal;
-    void init(std::string especie, std::string barulho) {
-        animal = Animal(especie, barulho);
-    }
-
-    void grow(int nivel) {
-        animal.envelhecer(nivel);
-    }
-
-    std::string noise() {
-        return animal.fazerBarulho();
-    }
-
-    std::string show() {
-        return animal.str();
-    }
-};

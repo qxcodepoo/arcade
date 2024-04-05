@@ -1,8 +1,5 @@
 class Adapter {
-    public Adapter() {
-    }
-
-    public init(batteryMax: number): void {
+    public constructor(batteryMax: number) {
     }
 
     public show(): string {

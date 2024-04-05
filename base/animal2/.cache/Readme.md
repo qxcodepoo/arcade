@@ -199,6 +199,12 @@ $end
 
 ## Cheat
 
-- [cheat.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat.hpp)
-- [cheat.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat.java)
-- [cheat.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat.ts)
+- cpp
+  - [animal.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/animal.hpp)
+  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/adapter.hpp)
+- java
+  - [animal.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/animal.java)
+  - [adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/adapter.java)
+- ts
+  - [animal.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/animal.ts)
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/adapter.ts)

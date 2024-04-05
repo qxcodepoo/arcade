@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Shell {
 
     public static void main(String[] _args) {
-        Adapter adp = new Adapter();
+        Adapter adp = new Adapter("", "");
 
         while (true) {
             var line = input();
@@ -11,7 +11,7 @@ public class Shell {
             write("$" + line);
 
             if (args[0].equals("init")) {
-                adp.init(args[1], args[2]);
+                adp = new Adapter(args[1], args[2]);
             }
             else if (args[0].equals("noise")) {
                 write(adp.noise());

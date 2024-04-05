@@ -2,7 +2,7 @@
 #include "adapter.hpp"
 
 int main () {
-    Adapter adp;
+    Adapter adp("", "");
     
     while (true) {
         auto line = fn::input();
@@ -10,7 +10,7 @@ int main () {
         fn::write("$" + line);
 
         if (args[0] == "init") {
-            adp.init(args[1], args[2]);
+            adp = Adapter(args[1], args[2]);
         }
         else if (args[0] == "grow") {
             adp.grow(+args[1]);

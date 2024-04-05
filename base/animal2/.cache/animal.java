@@ -1,4 +1,3 @@
-
 class Animal {
     private String especie;
     private String barulho;
@@ -30,28 +29,5 @@ class Animal {
 
     public String toString() {
         return String.format("%s:%d:%s", especie, estagio, barulho);
-    }
-}
-
-public class Adapter {
-    private Animal animal;
-    public Adapter() {
-        this.animal = new Animal("", "");
-    }
-
-    public void init(String especie, String barulho) {
-        animal = new Animal(especie, barulho);
-    }
-    
-    public String noise() {
-        return animal.fazerBarulho();
-    }
-
-    public void grow(int nivel) {
-        animal.envelhecer(nivel);
-    }
-
-    public String toString() {
-        return animal.toString();
     }
 }

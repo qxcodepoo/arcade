@@ -51,7 +51,7 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/diagrama.png)
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/../../pages/images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 
 ***
 

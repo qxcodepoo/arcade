@@ -144,7 +144,7 @@ class Legenda {
 
 <!-- load -->
 
-[![_](../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
+[![_](../../pages/images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 

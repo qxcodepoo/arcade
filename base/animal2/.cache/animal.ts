@@ -1,4 +1,3 @@
-
 class Animal {
     especie: string;
     barulho: string;
@@ -33,27 +32,4 @@ class Animal {
     }
 }
 
-class Adapter {
-    animal: Animal;
-    constructor() {
-        this.animal = new Animal("", "");
-    }
-
-    init(especie: string, barulho: string): void {
-        this.animal = new Animal(especie, barulho);
-    }
-
-    grow(nivel: number): void {
-        this.animal.envelhecer(nivel);
-    }
-
-    noise(): string {
-        return this.animal.fazerBarulho();
-    }
-
-    show(): string {
-        return this.animal.toString();
-    }
-}
-
-export {Adapter};
+export {Animal};

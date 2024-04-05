@@ -44,7 +44,7 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ![diagrama](diagrama.png)
 
-[![_](../_images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
+[![_](../../pages/images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 
 ***
 

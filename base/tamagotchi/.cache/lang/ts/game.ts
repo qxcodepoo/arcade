@@ -9,7 +9,6 @@ class Game {
     }
     //se estiver morto, avise e retorne false
     private testAlive(): boolean {
-        return false;
     }
     public play() {
         if (!this.testAlive()) 

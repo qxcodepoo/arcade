@@ -6,15 +6,15 @@ let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 
 function main() {
-    let adp = new Adapter();
+    let adp = new Adapter(0);
 
     while (true) {
         let line = input();
         let args = line.split(" ");
         write("$" + line);
 
-        if       (args[0] == "end")    { break;                            }    
-        else if (args[0] == "init")   { adp.init(+args[1]);                }
+        if      (args[0] == "end")    { break;                             }
+        else if (args[0] == "init")   { adp = new Adapter(+args[1]);       }
         else if (args[0] == "show")   { write(adp.show());                 }
         else if (args[0] == "arrive") { adp.arrive(args[1]);               }
         else if (args[0] == "call")   { adp.call(+args[1]);                }

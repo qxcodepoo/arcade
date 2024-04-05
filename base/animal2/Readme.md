@@ -192,6 +192,12 @@ $end
 
 ## Cheat
 
-- [cheat.hpp](.cache/cheat.hpp)
-- [cheat.java](.cache/cheat.java)
-- [cheat.ts](.cache/cheat.ts)
+- cpp
+  - [animal.hpp](.cache/animal.hpp)
+  - [adapter.hpp](.cache/adapter.hpp)
+- java
+  - [animal.java](.cache/animal.java)
+  - [adapter.java](.cache/adapter.java)
+- ts
+  - [animal.ts](.cache/animal.ts)
+  - [adapter.ts](.cache/adapter.ts)

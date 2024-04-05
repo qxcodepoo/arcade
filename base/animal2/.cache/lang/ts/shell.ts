@@ -7,7 +7,7 @@ let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end)
 
 
 function main(): void {
-    let adp: Adapter = new Adapter();
+    let adp: Adapter = new Adapter("", "");
 
     while (true) {
         const line: string = input();
@@ -15,7 +15,7 @@ function main(): void {
         write("$" + line);
 
         if (args[0] === "init") {
-            adp.init(args[1], args[2]);
+            adp = new Adapter(args[1], args[2]);
         } 
         else if (args[0] === "grow") {
             adp.grow(parseInt(args[1]));

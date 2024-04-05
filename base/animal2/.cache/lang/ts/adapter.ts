@@ -1,13 +1,10 @@
-
 class Adapter {
+    // crie um atributo animal do tipo Animal
     // animal: Animal;
-    constructor() {
-        // Inicializa o objeto animal com valor vazio
-    }
-
     // Inicia um novo animal com a espécie e barulho passados
     // com idade 0
-    init(especie: string, barulho: string): void {
+    constructor(especie: string, barulho: string) {
+        // Inicializa o objeto animal com os valores passados
     }
 
     // Envelhece um nível

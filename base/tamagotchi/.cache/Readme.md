@@ -151,7 +151,7 @@ class Legenda {
 
 <!-- load -->
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/../_images/resolucao.png)](https://youtu.be/X6SV1izH67w)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/../../pages/images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 
