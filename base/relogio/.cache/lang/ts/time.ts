@@ -5,9 +5,6 @@ class Time {
 
     constructor(hour: number, minute: number, second: number) {
 
-        this.hour = 0;
-        this.minute = 0;
-        this.second = 0;
     }
     setHour(hour: number): void {
     }
@@ -17,14 +14,11 @@ class Time {
     setSecond(second: number): void {
     }
     getHour(): number {
-        return 0;
     }
     getMinute(): number {
-        return 0;
     }
 
     getSecond(): number {
-        return 0;
     }
     nextSecond(): void {
     }

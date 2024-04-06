@@ -11,7 +11,6 @@ public class Trampoline{
     }
 
     private Kid removeFromList(String name, LinkedList<Kid> list) {
-        return null;
     }
 
     public void arrive(Kid kid) {
@@ -24,7 +23,6 @@ public class Trampoline{
     }
 
     public Kid remoteKid(String name) {
-        return null;
     }
     public String toString() {
         return   "[" + waiting.stream().map(Kid::toString).collect(Collectors.joining(", ")) + "]" + " => "

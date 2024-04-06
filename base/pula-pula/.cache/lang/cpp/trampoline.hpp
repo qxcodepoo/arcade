@@ -12,9 +12,6 @@ class Trampoline {
     std::list<PtrKid> playing;
     
     PtrKid removeFromList(std::string name, std::list<PtrKid>& lista) {
-        (void) name;
-        (void) lista;
-        return nullptr;
     }
 
 public:
@@ -22,7 +19,6 @@ public:
     }
     
     void arrive(PtrKid kid) {
-        (void) kid;
     }
 
     void enter() {
@@ -32,8 +28,6 @@ public:
     }
 
     PtrKid removeKid(std::string name) {
-        (void) name;
-        return nullptr;
     }
     std::string str() const {
         return fn::format("{} => {}", waiting, playing);

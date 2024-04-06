@@ -14,24 +14,14 @@ function main(): void {
         const args: string[] = line.split(' ');
         write("$" + line);
 
-        if (args[0] === "init") {
-            adp = new Adapter(args[1], args[2]);
-        } 
-        else if (args[0] === "grow") {
-            adp.grow(parseInt(args[1]));
-        }
-        else if (args[0] === "noise") {
-            write(adp.noise());
-        }
-        else if (args[0] === "show") {
-            write(adp.show());
-        } 
-        else if (args[0] === "end") {
-            break;
-        } 
-        else {
-            write("fail: comando invalido");
-        }
+        if      (args[0] === "end"  ) { break;                               }
+
+        else if (args[0] === "init" ) { adp = new Adapter(args[1], args[2]); }
+        else if (args[0] === "grow" ) { adp.grow(parseInt(args[1]));         }
+        else if (args[0] === "noise") { write(adp.noise());                  }
+        else if (args[0] === "show" ) { write(adp.show());                   }
+
+        else                          { write("fail: comando invalido");     }
     }
 }
 

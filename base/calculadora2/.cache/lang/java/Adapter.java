@@ -17,4 +17,9 @@ public class Adapter {
 
     void div(int a, int b) {
     }
+
+    public static void main(String[] args) {
+    }
 }
+
+

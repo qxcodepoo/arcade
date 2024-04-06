@@ -7,28 +7,21 @@ class Car{
     km: number; // quantidade de quilometragem
 
     constructor() {
-        //todo
     }
 
     enter(): void {
-        //todo
     }
 
     leave(): void {
-        //todo
     }
 
     fuel(gas: number): void {
-        //todo
     }
     
     drive (km: number): void {
-        //todo
     }
 
     toString(): string {
-        //todo
-        return "";
     }
 };
 

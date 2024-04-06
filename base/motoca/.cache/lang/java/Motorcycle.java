@@ -8,25 +8,20 @@ public class Motorcycle {
     }
 
     public int getPower() {
-        return 0;
     }
 
     public int getTime() {
-        return 0;
     }
 
     public Person getPerson() {
-        return null;
     }
 
     
     //Se estiver vazio, coloca a pessoa na moto e retorna true
     public boolean enter(Person person) {
-        return false;
     }
 
     public Person leave() {
-        return null;
     }
     //Comprar mais tempo
     public void buy(int time){

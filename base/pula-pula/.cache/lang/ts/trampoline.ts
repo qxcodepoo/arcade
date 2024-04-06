@@ -8,7 +8,6 @@ class Trampoline {
     }
 
     private removeFromList(name: string, list: Kid[]): Kid | null {
-        return null;
     }
 
     arrive(kid: Kid): void {
@@ -21,7 +20,6 @@ class Trampoline {
     }
 
     removeKid(name: string): Kid | null {
-        return null;
     }
 
     toString(): string {

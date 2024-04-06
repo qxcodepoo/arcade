@@ -10,24 +10,14 @@ public class Shell {
             var args = line.split(" ");
             write("$" + line);
 
-            if (args[0].equals("init")) {
-                adp = new Adapter(args[1], args[2]);
-            }
-            else if (args[0].equals("noise")) {
-                write(adp.noise());
-            }
-            else if (args[0].equals("grow")) {
-                adp.grow((int) number(args[1]));
-            }
-            else if (args[0].equals("show")) {
-                write(adp.toString());
-            } 
-            else if (args[0].equals("end")) {
-                break;
-            } 
-            else {
-                write("fail: comando invalido");
-            }
+            if      (args[0].equals("end")  ) { break;                               }
+
+            else if (args[0].equals("init") ) { adp = new Adapter(args[1], args[2]); }
+            else if (args[0].equals("show") ) { write(adp.toString());               }
+            else if (args[0].equals("noise")) { write(adp.noise());                  }
+            else if (args[0].equals("grow") ) { adp.grow((int) number(args[1]));     }
+
+            else                              { write("fail: comando invalido");     }
         }
     }
 

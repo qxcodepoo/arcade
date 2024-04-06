@@ -1,5 +1,4 @@
 #pragma once
-#include "fn.hpp"
 class Adapter {
 
 public:
