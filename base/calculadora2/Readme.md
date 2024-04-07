@@ -227,22 +227,10 @@ $end
 
 ## Draft
 
-<!-- draft -->
-- cpp
-  - [adapter.hpp](.cache/lang/cpp/adapter.hpp)
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
-- java
-  - [Adapter.java](.cache/lang/java/Adapter.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
-- ts
-  - [adapter.ts](.cache/lang/ts/adapter.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+<!-- links base/calculadora2/base/calculadora2/.cache/lang -->
+<!-- links -->
 
 ## Cheat
 
-- [cheat.hpp](.cache/cheat.hpp)
-- [cheat.java](.cache/cheat.java)
-- [cheat.ts](.cache/cheat.ts)
+<!-- links base/base/.cache/cheat -->
+<!-- links -->

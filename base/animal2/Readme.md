@@ -176,28 +176,10 @@ $end
 
 ## Draft
 
-<!-- draft -->
-- cpp
-  - [adapter.hpp](.cache/lang/cpp/adapter.hpp)
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
-- java
-  - [Adapter.java](.cache/lang/java/Adapter.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
-- ts
-  - [adapter.ts](.cache/lang/ts/adapter.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+<!-- links base/animal2/base/animal2/.cache/lang -->
+<!-- links -->
 
 ## Cheat
 
-- cpp
-  - [animal.hpp](.cache/animal.hpp)
-  - [adapter.hpp](.cache/adapter.hpp)
-- java
-  - [animal.java](.cache/animal.java)
-  - [adapter.java](.cache/adapter.java)
-- ts
-  - [animal.ts](.cache/animal.ts)
-  - [adapter.ts](.cache/adapter.ts)
+<!-- links base/base/.cache/cheat -->
+<!-- links -->

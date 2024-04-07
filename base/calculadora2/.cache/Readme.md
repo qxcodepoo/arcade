@@ -234,22 +234,10 @@ $end
 
 ## Draft
 
-<!-- draft -->
-- cpp
-  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/cpp/adapter.hpp)
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/cpp/shell.cpp)
-- java
-  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/java/Adapter.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/java/Shell.java)
-- ts
-  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/ts/adapter.ts)
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+<!-- links base/calculadora2/base/calculadora2/.cache/lang -->
+<!-- links -->
 
 ## Cheat
 
-- [cheat.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat.hpp)
-- [cheat.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat.java)
-- [cheat.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat.ts)
+<!-- links base/base/.cache/cheat -->
+<!-- links -->
