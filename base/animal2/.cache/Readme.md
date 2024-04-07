@@ -183,10 +183,29 @@ $end
 
 ## Draft
 
-<!-- links base/animal2/base/animal2/.cache/lang -->
+<!-- links .cache/lang -->
+- cpp
+  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/lang/cpp/adapter.hpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/lang/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/lang/cpp/shell.cpp)
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/lang/java/Adapter.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/lang/java/Shell.java)
+- ts
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/lang/ts/adapter.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/lang/ts/shell.ts)
 <!-- links -->
 
 ## Cheat
 
-<!-- links base/base/.cache/cheat -->
+<!-- links .cache/cheat -->
+- cpp
+  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat/cpp/adapter.hpp)
+  - [animal.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat/cpp/animal.hpp)
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat/java/Adapter.java)
+  - [Animal.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat/java/Animal.java)
+- ts
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat/ts/adapter.ts)
+  - [animal.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/.cache/cheat/ts/animal.ts)
 <!-- links -->
