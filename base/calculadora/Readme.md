@@ -43,19 +43,18 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [calculator.hpp](.cache/lang/cpp/calculator.hpp)
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [calculator.hpp](.cache/draft/cpp/calculator.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Calculator.java](.cache/lang/java/Calculator.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Calculator.java](.cache/draft/java/Calculator.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [calculator.ts](.cache/lang/ts/calculator.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [calculator.ts](.cache/draft/ts/calculator.ts)
+<!-- links -->
 
 ## Guide
 

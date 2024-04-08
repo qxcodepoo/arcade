@@ -32,19 +32,18 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Motorcycle.java](.cache/lang/java/Motorcycle.java)
-  - [Person.java](.cache/lang/java/Person.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Motorcycle.java](.cache/draft/java/Motorcycle.java)
+  - [Person.java](.cache/draft/java/Person.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [motoca.ts](.cache/lang/ts/motoca.ts)
-  - [pessoa.ts](.cache/lang/ts/pessoa.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [motoca.ts](.cache/draft/ts/motoca.ts)
+  - [pessoa.ts](.cache/draft/ts/pessoa.ts)
+<!-- links -->
 
 ## Guide
 

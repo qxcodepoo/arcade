@@ -80,7 +80,6 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 - Parte 5 - Integração
   - Tente integrar seu código na classe `Adapter`.
   - Crie uma `Calculadora` como atributo de `Adapter` e a inicialize no construtor.
-  - Na médoto `init` de `Adapter`, recrie o objeto `Calculadora`.
   - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Calculadora`.
   
 ```java
@@ -234,10 +233,29 @@ $end
 
 ## Draft
 
-<!-- links base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/.cache/lang -->
+<!-- links .cache/draft -->
+- cpp
+  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/draft/cpp/shell.cpp)
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/draft/java/Adapter.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/draft/ts/aashell.ts)
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/draft/ts/adapter.ts)
 <!-- links -->
 
 ## Cheat
 
-<!-- links base/base/base/base/base/base/base/base/.cache/cheat -->
+<!-- links .cache/cheat -->
+- cpp
+  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat/cpp/adapter.hpp)
+  - [calculator.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat/cpp/calculator.hpp)
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat/java/Adapter.java)
+  - [Calculator.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat/java/Calculator.java)
+- ts
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat/ts/adapter.ts)
+  - [calculadora.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/.cache/cheat/ts/calculadora.ts)
 <!-- links -->

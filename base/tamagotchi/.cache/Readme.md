@@ -39,17 +39,16 @@ Seu sistema deverá:
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/cpp/shell.cpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft/cpp/shell.cpp)
 - java
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/java/Shell.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft/java/Shell.java)
 - ts
-  - [game.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/ts/game.ts)
-  - [pet.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/ts/pet.ts)
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft/ts/aashell.ts)
+  - [game.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft/ts/game.ts)
+  - [pet.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/.cache/draft/ts/pet.ts)
+<!-- links -->
 
 ## Guide
 

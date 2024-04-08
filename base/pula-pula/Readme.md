@@ -19,22 +19,21 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [kid.hpp](.cache/lang/cpp/kid.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
-  - [trampoline.hpp](.cache/lang/cpp/trampoline.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [kid.hpp](.cache/draft/cpp/kid.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+  - [trampoline.hpp](.cache/draft/cpp/trampoline.hpp)
 - java
-  - [Kid.java](.cache/lang/java/Kid.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
-  - [Trampoline.java](.cache/lang/java/Trampoline.java)
+  - [Kid.java](.cache/draft/java/Kid.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+  - [Trampoline.java](.cache/draft/java/Trampoline.java)
 - ts
-  - [kid.ts](.cache/lang/ts/kid.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-  - [trampoline.ts](.cache/lang/ts/trampoline.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [kid.ts](.cache/draft/ts/kid.ts)
+  - [trampoline.ts](.cache/draft/ts/trampoline.ts)
+<!-- links -->
 
 ## Guide
 

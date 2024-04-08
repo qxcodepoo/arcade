@@ -39,19 +39,18 @@ Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando na
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/cpp/shell.cpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft/cpp/shell.cpp)
 - java
-  - [Motorcycle.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Motorcycle.java)
-  - [Person.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Person.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/java/Shell.java)
+  - [Motorcycle.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft/java/Motorcycle.java)
+  - [Person.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft/java/Person.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft/java/Shell.java)
 - ts
-  - [motoca.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/motoca.ts)
-  - [pessoa.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/pessoa.ts)
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft/ts/aashell.ts)
+  - [motoca.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft/ts/motoca.ts)
+  - [pessoa.ts](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/.cache/draft/ts/pessoa.ts)
+<!-- links -->
 
 ## Guide
 

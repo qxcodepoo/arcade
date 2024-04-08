@@ -58,19 +58,18 @@ O sistema deverá:
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
-  - [time.hpp](.cache/lang/cpp/time.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+  - [time.hpp](.cache/draft/cpp/time.hpp)
 - java
-  - [Shell.java](.cache/lang/java/Shell.java)
-  - [Time.java](.cache/lang/java/Time.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+  - [Time.java](.cache/draft/java/Time.java)
 - ts
-  - [shell.ts](.cache/lang/ts/shell.ts)
-  - [time.ts](.cache/lang/ts/time.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [time.ts](.cache/draft/ts/time.ts)
+<!-- links -->
 
 ## Guide
 

@@ -32,17 +32,16 @@ Seu sistema deverá:
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [game.ts](.cache/lang/ts/game.ts)
-  - [pet.ts](.cache/lang/ts/pet.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [game.ts](.cache/draft/ts/game.ts)
+  - [pet.ts](.cache/draft/ts/pet.ts)
+<!-- links -->
 
 ## Guide
 

@@ -27,18 +27,17 @@ null para indicar que o caixa está vazio ou terá um objeto cliente.
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](.cache/lang/cpp/adapter.hpp)
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [adapter.ts](.cache/lang/ts/adapter.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->
 
 ## Guide
 

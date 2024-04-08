@@ -61,19 +61,18 @@ Seu sistema deverá:
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](.cache/lang/cpp/adapter.hpp)
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Adapter.java](.cache/lang/java/Adapter.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Adapter.java](.cache/draft/java/Adapter.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [adapter.ts](.cache/lang/ts/adapter.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->
 
 ## Guide
 

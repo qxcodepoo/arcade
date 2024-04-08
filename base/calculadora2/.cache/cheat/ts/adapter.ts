@@ -3,7 +3,6 @@ import {Calculator} from "./calculadora";
 class Adapter {
     calc: Calculator;
     public constructor(batteryMax: number) {
-    public constructor(batteryMax: number) {
         this.calc = new Calculator(batteryMax);
     }
 

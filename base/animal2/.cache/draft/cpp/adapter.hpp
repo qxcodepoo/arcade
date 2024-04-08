@@ -1,5 +1,6 @@
 #include "animal.hpp"
 
+
 struct Adapter {
     Adapter(std::string especie = "", std::string barulho = "") {
         (void) especie;

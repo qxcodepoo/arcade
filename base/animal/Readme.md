@@ -91,19 +91,18 @@ Para padronizar, em cada linguagem são criadas algumas funções auxiliares par
 
 No caso dessa atividade, o draft já está completo para você utilizar como modelo para outras atividades.
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [animal.hpp](.cache/lang/cpp/animal.hpp)
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [animal.hpp](.cache/draft/cpp/animal.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Animal.java](.cache/lang/java/Animal.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Animal.java](.cache/draft/java/Animal.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [animal.ts](.cache/lang/ts/animal.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [animal.ts](.cache/draft/ts/animal.ts)
+<!-- links -->
 
 ## Shell
 

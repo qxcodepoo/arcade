@@ -73,7 +73,6 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 - Parte 5 - Integração
   - Tente integrar seu código na classe `Adapter`.
   - Crie uma `Calculadora` como atributo de `Adapter` e a inicialize no construtor.
-  - Na médoto `init` de `Adapter`, recrie o objeto `Calculadora`.
   - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Calculadora`.
   
 ```java
@@ -227,10 +226,29 @@ $end
 
 ## Draft
 
-<!-- links base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/base/calculadora2/.cache/lang -->
+<!-- links .cache/draft -->
+- cpp
+  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Adapter.java](.cache/draft/java/Adapter.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
 <!-- links -->
 
 ## Cheat
 
-<!-- links base/base/base/base/base/base/base/base/.cache/cheat -->
+<!-- links .cache/cheat -->
+- cpp
+  - [adapter.hpp](.cache/cheat/cpp/adapter.hpp)
+  - [calculator.hpp](.cache/cheat/cpp/calculator.hpp)
+- java
+  - [Adapter.java](.cache/cheat/java/Adapter.java)
+  - [Calculator.java](.cache/cheat/java/Calculator.java)
+- ts
+  - [adapter.ts](.cache/cheat/ts/adapter.ts)
+  - [calculadora.ts](.cache/cheat/ts/calculadora.ts)
 <!-- links -->

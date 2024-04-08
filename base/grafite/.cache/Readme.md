@@ -68,22 +68,21 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/cpp/fn.hpp)
-  - [lead.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/cpp/lead.hpp)
-  - [pencil.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/cpp/pencil.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/cpp/shell.cpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/fn.hpp)
+  - [lead.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/lead.hpp)
+  - [pencil.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/pencil.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/shell.cpp)
 - java
-  - [Lead.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/java/Lead.java)
-  - [Pencil.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/java/Pencil.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/java/Shell.java)
+  - [Lead.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Lead.java)
+  - [Pencil.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Pencil.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Shell.java)
 - ts
-  - [lead.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/ts/lead.ts)
-  - [pencil.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/ts/pencil.ts)
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/aashell.ts)
+  - [lead.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/lead.ts)
+  - [pencil.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/pencil.ts)
+<!-- links -->
 
 ## Guide
 

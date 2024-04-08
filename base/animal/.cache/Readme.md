@@ -98,19 +98,18 @@ Para padronizar, em cada linguagem são criadas algumas funções auxiliares par
 
 No caso dessa atividade, o draft já está completo para você utilizar como modelo para outras atividades.
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [animal.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/cpp/animal.hpp)
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/cpp/shell.cpp)
+  - [animal.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/cpp/animal.hpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/cpp/shell.cpp)
 - java
-  - [Animal.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/java/Animal.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/java/Shell.java)
+  - [Animal.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/java/Animal.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/java/Shell.java)
 - ts
-  - [animal.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/ts/animal.ts)
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/ts/aashell.ts)
+  - [animal.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/ts/animal.ts)
+<!-- links -->
 
 ## Shell
 

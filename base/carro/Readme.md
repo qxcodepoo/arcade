@@ -61,19 +61,18 @@ Seu sistema deverá:
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [car.hpp](.cache/lang/cpp/car.hpp)
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [car.hpp](.cache/draft/cpp/car.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Car.java](.cache/lang/java/Car.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Car.java](.cache/draft/java/Car.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [car.ts](.cache/lang/ts/car.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [car.ts](.cache/draft/ts/car.ts)
+<!-- links -->
 
 ## Guide
 

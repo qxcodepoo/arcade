@@ -50,19 +50,18 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [calculator.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/cpp/calculator.hpp)
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/cpp/fn.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/cpp/shell.cpp)
+  - [calculator.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft/cpp/calculator.hpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft/cpp/shell.cpp)
 - java
-  - [Calculator.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/java/Calculator.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/java/Shell.java)
+  - [Calculator.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft/java/Calculator.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft/java/Shell.java)
 - ts
-  - [calculator.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/ts/calculator.ts)
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft/ts/aashell.ts)
+  - [calculator.ts](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/.cache/draft/ts/calculator.ts)
+<!-- links -->
 
 ## Guide
 

@@ -26,22 +26,21 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/fn.hpp)
-  - [kid.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/kid.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/shell.cpp)
-  - [trampoline.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/cpp/trampoline.hpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/cpp/fn.hpp)
+  - [kid.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/cpp/kid.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/cpp/shell.cpp)
+  - [trampoline.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/cpp/trampoline.hpp)
 - java
-  - [Kid.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/java/Kid.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/java/Shell.java)
-  - [Trampoline.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/java/Trampoline.java)
+  - [Kid.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/java/Kid.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/java/Shell.java)
+  - [Trampoline.java](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/java/Trampoline.java)
 - ts
-  - [kid.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/ts/kid.ts)
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/ts/shell.ts)
-  - [trampoline.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/lang/ts/trampoline.ts)
-
-<!-- draft -->
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/ts/aashell.ts)
+  - [kid.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/ts/kid.ts)
+  - [trampoline.ts](https://github.com/qxcodepoo/arcade/blob/master/base/pula-pula/.cache/draft/ts/trampoline.ts)
+<!-- links -->
 
 ## Guide
 

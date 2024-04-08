@@ -61,22 +61,21 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 
 ## Draft
 
-<!-- draft -->
+<!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/lang/cpp/fn.hpp)
-  - [lead.hpp](.cache/lang/cpp/lead.hpp)
-  - [pencil.hpp](.cache/lang/cpp/pencil.hpp)
-  - [shell.cpp](.cache/lang/cpp/shell.cpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [lead.hpp](.cache/draft/cpp/lead.hpp)
+  - [pencil.hpp](.cache/draft/cpp/pencil.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Lead.java](.cache/lang/java/Lead.java)
-  - [Pencil.java](.cache/lang/java/Pencil.java)
-  - [Shell.java](.cache/lang/java/Shell.java)
+  - [Lead.java](.cache/draft/java/Lead.java)
+  - [Pencil.java](.cache/draft/java/Pencil.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [lead.ts](.cache/lang/ts/lead.ts)
-  - [pencil.ts](.cache/lang/ts/pencil.ts)
-  - [shell.ts](.cache/lang/ts/shell.ts)
-
-<!-- draft -->
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [lead.ts](.cache/draft/ts/lead.ts)
+  - [pencil.ts](.cache/draft/ts/pencil.ts)
+<!-- links -->
 
 ## Guide
 
