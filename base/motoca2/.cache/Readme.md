@@ -1,4 +1,4 @@
-# Passeando no parque de @motoca
+# Passeando no parque de @motoca2
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/motoca2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

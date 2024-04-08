@@ -11,7 +11,7 @@ class Animal {
     __
     + Animal(especia: str, barulho: str)
     + fazerBarulho() : str
-    + envelhecer(nivel: int) : void
+    + envelhecer(qtd: int) : void
     + toString() : string
 }
 

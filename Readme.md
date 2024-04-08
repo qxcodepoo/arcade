@@ -22,6 +22,7 @@
 - [10. Referências Cruzadas](#10-referências-cruzadas)
 - [11. Em atualização](#11-em-atualização)
 - [12. Modelos em Avaliação](#12-modelos-em-avaliação)
+- [13. Rascunhos](#13-rascunhos)
 <!-- toc -->
 
 ---
@@ -130,5 +131,11 @@ Exercícios de fup para aquecer o coração e o cérebro.
 
 ## 12. Modelos em Avaliação
 
+- [@carro2 - Se não pode comprar um, construa](base/carro2/Readme.md)
+- [Passeando no parque de @motoca2](base/motoca2/Readme.md)
 - [Atividade modelo resolvida: @animal2](base/animal2/Readme.md)
 - [Cuidado com a bateria da @calculadora2](base/calculadora2/Readme.md)
+
+## 13. Rascunhos
+
+- [Padrão Composite e Decorator: @produto](base/produto/Readme.md)

@@ -1,4 +1,4 @@
-# Se não pode comprar um, construa seu primeiro @carro
+# @carro2 - Se não pode comprar um, construa
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
