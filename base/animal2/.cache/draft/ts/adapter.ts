@@ -8,9 +8,9 @@ class Adapter {
     }
 
     // Envelhece um nível
-    grow(nivel: number): void {
-        // envelhece um nível
-        // se tiver atingido o nível 4:
+    grow(qtd: number): void {
+        // envelhece o animal de qtd niveis
+        // se ja estiver morrto ou tiver atingido o nível 4:
         //     exibe uma mensagem de aviso
         //     e impede de ir para o nível 5
     }

@@ -7,8 +7,8 @@ class Adapter {
         this.animal = new Animal(especie, barulho);
     }
 
-    grow(nivel: number): void {
-        this.animal.envelhecer(nivel);
+    grow(qtd: number): void {
+        this.animal.envelhecer(qtd);
     }
 
     noise(): string {

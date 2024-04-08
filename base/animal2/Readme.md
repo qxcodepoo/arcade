@@ -26,17 +26,17 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - Descrição
   - O animal tem uma espécie, um estágio de vida e um barulho que ele faz.
   - Os estágios pelos quais o animal passa são:
-    - 0: Bebê
+    - 0: Filhote
     - 1: Criança
     - 2: Adulto
     - 3: Idoso
-    - 4: MORTO
+    - 4: Morto
   - Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:
-    - Se for bebê, emite um "---".
+    - Se for filhote, emite um "---".
     - Se for idoso, emite um "RIP".
-  - Ao crescer, o animal passa para o próximo estágio de vida.
-    - Se atingir o estágio 4, ele morre e deve aparecer a mensagem
-    - `f"warning: {especie} morreu"`
+  - Ao crescer, o animal avança estágios na sua vida.
+    - Ao morrer, deve ser exibida uma mensagem de aviso: `warning: {especie} morreu`.
+    - Invocar o método de crescimento após a morte do animal deve exibir uma mensagem de aviso: `warning: {especie} morreu`.
 - Responsabilidades
   - O código deve ser implementado na classe `Animal`.
   - Os métodos da classe `Animal` devem ser chamados na classe `Adapter`.
@@ -47,9 +47,9 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
     - formato: `f"{especie}:{estagio}:{barulho}"`
     - exemplo: `gato:0:miau`
   - `$init especie barulho`: Inicializa o animal passando a espécie e o barulho.
-  - `$grow`: Faz o animal crescer uma etapa da vida
-  - `$noise`: Faz o animal emitir um som
-  - `$end`: Finaliza a execução
+  - `$grow qtd`: Faz o animal crescer uma `qtd` etapas na vida.
+  - `$noise`: Faz o animal emitir um som.
+  - `$end`: Finaliza a execução.
 
 ***
 
@@ -62,7 +62,9 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
   - Crie um método `String toString()` que retorna a representação do animal no formato `especie:estagio:barulho`.
   - Teste seu código
 - Parte 2
-  - Crie um método `void envelhecer()` que envelhece o animal em um estágio.
+  - Crie um método `void envelhecer(int qtd)` que envelhece o animal em `qtd` estágios.
+    - Se ele for nível 1, e você pedir para envelhecer 2 vezes, ele deve passar para o estágio 3.
+    - Se ele for nível 2, e você pedir para envelhecer 3 vezes, ele deve passar para o estágio 4, pois 4 é o estágio máximo.
   - Implemente a lógica de crescimento do animal e verifique se ele morreu.
   - Certifique-se de que o animal não pode crescer após a morte.
 - Parte 3
@@ -106,16 +108,12 @@ vaca:0:muu
 $grow 2
 $show
 vaca:2:muu
-
 $grow 2
 warning: vaca morreu
-
 $show
 vaca:4:muu
-
 $grow 3
 warning: vaca morreu
-
 $show
 vaca:4:muu
 
