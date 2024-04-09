@@ -132,10 +132,11 @@ Exercícios de fup para aquecer o coração e o cérebro.
 ## 12. Modelos em Avaliação
 
 - [@carro2 - Se não pode comprar um, construa](base/carro2/Readme.md)
-- [Atividade modelo resolvida: @animal2](base/animal2/Readme.md)
-- [Cuidado com a bateria da @calculadora2](base/calculadora2/Readme.md)
+- [@animal2 - Nasce, cresce, morre](base/animal2/Readme.md)
+- [@calculadora2 - Cuidado com a bateria](base/calculadora2/Readme.md)
 - [@grafite2 - Porta minas](base/grafite2/Readme.md)
 - [@motoca2 - Passeando no parque](base/motoca2/Readme.md)
+- [@budega2 - Gerencie a fila de espera e atendimento](base/budega2/Readme.md)
 
 ## 13. Rascunhos
 

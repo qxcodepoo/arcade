@@ -1,4 +1,4 @@
-# Cuidado com a bateria da @calculadora2
+# @calculadora2 - Cuidado com a bateria
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

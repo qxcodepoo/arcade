@@ -1,4 +1,4 @@
-# Atividade modelo resolvida: @animal2
+# @animal2 - Nasce, cresce, morre
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/animal2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
