@@ -16,49 +16,48 @@
 
 ## Model
 
-Essa atividade utiliza um padrão de projeto de requisições e respostas.
+Esta atividade utiliza um padrão de projeto de requisições e respostas.
 
 - Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
 - A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
-- Na classe `Adapter` é onde você deve implementar e conectar seu código.
-- A classe `Adapter` é apenas a classe de conexão, você deve as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
-- Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
-- Ao mostrar uma string formatada, será utilizado o modelo do python `f"{variavel:param}"`.
-- Se houver, na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
+- Na classe `Adapter`, você deve implementar e conectar seu código.
+- A classe `Adapter` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
+- Mensagens de erro podem ser lançadas por exceções ou por comandos de `print` diretamente para o terminal.
+- Ao mostrar uma string formatada, será utilizado o modelo do Python `f"{variavel:param}"`.
+- Se houver, na seção [Cheat](#cheat), você pode conferir as respostas desta atividade.
 
 ## Intro
 
-Nessa atividade, vamos implementar um carro ecológico. Ele deve poder embarcar e desembarcar pessoas, colocar combustível e andar.
+Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de embarcar e desembarcar pessoas, abastecer e andar.
 
 - Descrição
-  - O carro deve ser inicializado de tanque vazio, sem ninguém dentro e com 0 de quilometragem.
-  Para simplificar, nosso carro esportivo suporta até 2 pessoas e seu tanque suporta até 100 litros de combustível.
+  - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Para simplificar, nosso carro esportivo suporta até 2 pessoas e seu tanque suporta até 100 litros de combustível.
 - Responsabilidades
-  - O código deve ser implementado na classe Carro.
-  - A classe Adapter é responsável por chamar os métodos da classe Carro.
-  - A classe Shell é responsável por ler as requisições de texto e chamar os métodos da classe Adapter.
+  - O código deve ser implementado na classe `Carro`.
+  - A classe `Adapter` é responsável por chamar os métodos da classe `Carro`.
+  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
 - Comandos
-  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`
+  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
   - `$show` - Mostra o estado atual do carro.
-    - `f"pass:{this.pass},gas:{this.gas},km:{this.km}"`
-    - exemplo: `pass: 0, gas: 0, km: 0`
-  - `$init` - inicializa todos os atributos
-    - tanque vazio
-    - 0 passageiros
-    - 0 de quilometragem
-    - máximo de 2 pessoas
-    - máximo de 100 litros de gasolina
-  - `$enter` - embarca uma pessoa por vez, mas não além do máximo.
-    - Se o carro estiver lotado, emita a mensagem de erro `fail: limite de pessoas atingido`.
+    - `f"pass:{this.pass},gas:{this.gas},km:{this.km}"`.
+    - Exemplo: `pass: 0, gas: 0, km: 0`.
+  - `$init` - Inicializa todos os atributos.
+    - Tanque vazio.
+    - 0 passageiros.
+    - 0 quilômetros percorridos.
+    - Máximo de 2 pessoas.
+    - Máximo de 100 litros de gasolina.
+  - `$enter` - Embarca uma pessoa por vez, mas não além do máximo.
+    - Se o carro estiver lotado, emite a mensagem de erro `fail: limite de pessoas atingido`.
   - `$leave` - Desembarca uma pessoa por vez.
-    - Se não houver ninguém no carro, emita a mensagem de erro `fail: nao ha ninguem no carro`
-  - `$fuel qtd` -  Abastece o tanque passando a quantidade de litros de combustível
-    - Caso tente abastecer acima do limite, descarte o valor que passou.
-  - `$drive dist` - Para dirigir, o carro gasta combustível e aumenta a quilometragem.
+    - Se não houver ninguém no carro, emite a mensagem de erro `fail: nao ha ninguem no carro`.
+  - `$fuel qtd` - Abastece o tanque com a quantidade de litros de combustível passada.
+    - Caso tente abastecer acima do limite, descarta o valor excedente.
+  - `$drive dist` - Para dirigir, o carro consome combustível e aumenta a quilometragem.
     - Só pode dirigir se houver combustível e se houver alguém no carro.
-    - Caso não haja ninguém no carro, emita a mensagem de erro “fail: nao ha ninguém no carro”.
-    - Caso não haja combustível, emita a mensagem de erro “fail: tanque vazio”;
-    - Caso não exista combustível suficiente para completar a viagem inteira, dirija o que for possível e emita uma mensagem indicando quanto foi percorrido, como no exemplo `fail: tanque vazio apos andar {qtd} km`.
+    - Caso não haja ninguém no carro, emite a mensagem de erro “fail: não há ninguém no carro”.
+    - Caso não haja combustível, emite a mensagem de erro “fail: tanque vazio”.
+    - Caso não exista combustível suficiente para completar a viagem inteira, dirige o máximo possível e emite uma mensagem indicando quanto foi percorrido, como no exemplo `fail: tanque vazio após andar {qtd} km`.
 
 ## Guide
 
@@ -71,24 +70,24 @@ Nessa atividade, vamos implementar um carro ecológico. Ele deve poder embarcar 
   - Crie um if para impedir que pass ultrapasse passMax;
   - Crie o método toString mostrar o estado do carro.
   - Teste seu código.
-- Parte 2: sair.
-  - Crie o método leave que decrementa pass;
-  - Crie um if para impedir que pass seja menor que 0;
+- Parte 2: desembarcar
+  - Crie o método `leave` que decrementa `pass`.
+  - Crie um condicional para impedir que `pass` seja menor que 0.
   - Teste seu código.
-- Parte 3: abastecer.
-  - Crie o método fuel que incrementa gas com o valor passado;
-  - Crie um if para impedir que gas ultrapasse gasMax;
+- Parte 3: abastecer
+  - Crie o método `fuel` que incrementa `gas` com o valor passado.
+  - Crie um condicional para impedir que `gas` ultrapasse `gasMax`.
   - Teste seu código.
-- Parte 4: dirigir.
-  - Crie o método drive que incrementa km e decrementa gas com o valor passado;
-  - Crie testes para impedir que o carro dirija em passageiros ou sem combustível;
+- Parte 4: dirigir
+  - Crie o método `drive` que incrementa `km` e decrementa `gas` com o valor passado.
+  - Crie testes para impedir que o carro dirija sem passageiros ou sem combustível.
   - Teste seu código.
-- Parte 5: dirigir longe.
-  - Crie testes para impedir que o carro dirija mais do que o combustível permite;
+- Parte 5: dirigir longas distâncias
+  - Crie testes para impedir que o carro dirija mais do que o combustível permite.
   - Teste seu código.
 - Parte 6: Adapter
-  - Na classe Adapter, crie um atributo carro e o inicialize no construtor.
-  - Nos outros métodos de Adapter, chame o método equivalente da classe Carro.
+  - Na classe `Adapter`, crie um atributo `carro` e o inicialize no construtor.
+  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Car`.
 
 ## Shell
 

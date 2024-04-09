@@ -1,114 +1,80 @@
-# Passeando no parque de @motoca2
+# @motoca2 - Passeando no parque
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
-Você já deve ter ido em algum parque e viu crianças de 4 a 10 anos andando naquelas motocas motorizadas. Pois é, nós vamos modelar e implementar uma delas.
-
 ## Intro
 
-- Você deverá implementar a classe `Pessoa` e a class `Moto`.
-- Iniciar
-  - A moto inicia com 1 de potência, sem minutos e sem ninguém.
-- Subir
-  - Só pode estar uma pessoa na moto por vez. Para subir, informe nome e idade de quem está subindo.
-- Descer
-  - Só pode descer se tiver alguém na moto.
-- Comprar tempo
-  - O tempo em minutos é comprado e enquanto houver tempo, qualquer pessoa pode dirigir.
-- Dirigir tempo
-  - Se houver uma pessoa com 10 anos ou menos e houver minutos, então ela pode passear de moto.
-  - Se o tempo acabar no meio do passeio, informe o quanto a pessoa andou.
-- Buzinar
-  - Qualquer pessoa pode buzinar(honk)
-  - O barulho da buzina é "Pem", porém o número de `e` é igual ao valor da potência.
-  - Ex: se a potência for 5, buzinar deve gerar: Peeeeem
+Este é um projeto de modelagem e implementação de uma motoca motorizada em um parque. A ideia é simular o funcionamento dessa motoca através de classes em um programa. Para isso, serão implementadas duas classes principais: `Pessoa` e `Moto`.
 
-***
-
-## Draft
-
-<!-- links .cache/draft -->
-- cpp
-  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
-  - [shell.cpp](.cache/draft/cpp/shell.cpp)
-- java
-  - [Adapter.java](.cache/draft/java/Adapter.java)
-  - [Shell.java](.cache/draft/java/Shell.java)
-- ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
-<!-- links -->
+- Descrição
+  - A classe `Moto` representa a motoca em si. Ela possui atributos como potência, tempo e a pessoa que está atualmente utilizando-a.
+  - A motoca inicia com potência 1, sem minutos e sem ninguém.
+  - Apenas uma pessoa pode estar na motoca por vez.
+  - As funcionalidades principais da motoca incluem subir uma pessoa, descer uma pessoa, comprar tempo, dirigir por um tempo determinado e buzinar.
+  - A classe `Pessoa` representa os usuários da motoca. Ela possui os atributos nome e idade.
+- Comandos
+  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma mensagem adequada deve ser impressa.
+  - `$show` - Mostra o estado atual da motoca, incluindo potência, tempo e pessoa atualmente na motoca.
+    - `f"power:{this.power}, time:{this.time}, person:{this.person}"`
+    - power:1, time:0, person:(marcos:4)
+  - `$init` - Reinicia a motoca para o estado inicial, com potência 1, sem minutos e sem ninguém.
+  - `$enter` - Permite uma pessoa subir na motoca. Deve ser seguido pelos argumentos `nome` e `idade` da pessoa.
+  - `$leave` - Faz a pessoa atualmente na motoca descer.
+  - `$buy` - Permite comprar tempo em minutos para utilizar a motoca. O tempo recebido é incrementado ao tempo atual. 
+  - `$drive` - Permite dirigir a motoca por um tempo determinado.
+  - `$honk` - Permite buzinar a motoca.
 
 ## Guide
 
 ![diagrama](diagrama.png)
 
-<!-- load diagrama.puml fenced=ts:filter -->
+- Classe Pessoa
+  - Crie a classe `Pessoa` com os atributos `age` e `name`.
+  - Defina os atributos como privados.
+  - Crie o construtor da classe que recebe `name` como uma string e `age` como um número.
+  - Crie os métodos `getAge()` e `getName()` para retornar a idade e o nome da pessoa, respectivamente.
+  - Crie o método `toString()` para retornar uma string no formato "nome:idade".
+- Parte 1: Inserir
+  - Crie a classe `Motoca` com os atributos `potencia`, `time` e `pessoa`.
+  - Inicialize os atributos no construtor, onde `potencia` inicia com 1, `time` inicia com 0 e `pessoa` inicia como nulo.
+  - Crie o método `inserir(pessoa: Pessoa): boolean` que permite inserir uma pessoa na motoca.
+  - Verifique se há uma pessoa na motoca. Se houver, imprima "fail: busy motorcycle" e retorne falso.
+  - Caso contrário, insira a pessoa na motoca e retorne verdadeiro.
+  - Crie o método `toString()` para mostrar o estado da motoca.
+- Parte 2: Remover
+  - Crie o método `remover(): Pessoa | null` que permite remover a pessoa da motoca.
+  - Verifique se há uma pessoa na motoca. Se não houver, imprima "fail: empty motorcycle" e retorne nulo.
+  - Caso contrário, remova a pessoa da motoca e retorne a pessoa removida.
+- Parte 3: Comprar Tempo
+  - Crie o método `buyTime(time: number)` que permite comprar tempo em minutos para utilizar a motoca.
+  - Incremente o tempo da motoca com o tempo passado como parâmetro.
+- Parte 4: Dirigir
+  - Crie o método `drive(time: number)` que permite dirigir a motoca por um tempo determinado.
+  - Verifique se há tempo disponível na motoca. Se não houver, imprima "fail: buy time first".
+  - Verifique se há uma pessoa na motoca. Se não houver, imprima "fail: empty motorcycle".
+  - Verifique se a idade da pessoa na motoca é maior que 10 anos. Se for, imprima "fail: too old to drive".
+  - Calcule o novo tempo após dirigir. Se o novo tempo for menor ou igual a 0, imprima "fail: time finished after X minutes".
+  - Atualize o tempo da motoca.
+- Parte 5: Buzinar
+  - Crie o método `honk()` que permite buzinar a motoca.
+  - Construa a string da buzina, onde o número de "e" é igual à potência da motoca.
+  - Retorne a buzina.
+- Parte 6: Adapter
+  - Na classe `Adapter`, crie um atributo `motoca` e o inicialize no construtor.
+  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Motoca`.
+  - No métode inserir, observe que o `Adapter` recebe os argumentos `nome` e `idade` e cria um objeto `Pessoa` para inserir na motoca.
 
 ```ts
-class Motorcycle {
-  - person : Person | null
-  - power  : int
-  - time   : int
-  __
-  
-  ' a moto inicia com 1 de potência, sem minutos e sem ninguém
-  + Motorcycle(power : int)
-  '
-  ' só pode estar uma pessoa na moto por vez
-  ' para subir, informe nome e idade de quem está subindo
-  + insertPerson(person : Person) : boolean
-  
-  ' só pode descer se estiver alguém na moto
-  + remove() : Person | null
-  + buyTime(time : int)
-  
-  ' só pessoas de 10 anos ou menos podem passear na moto
-  ' uma pessoa só pode passear na moto se a moto estiver tempo
-  ' se o tempo acabar no meio do passeio, informe o quanto a pessoa andou
-  + drive(time : int)
-  
-  ' qualquer pessoa pode buzinar a moto
-  ' o barulho da buzina é "Pem"
-  ' o "e" deve ser repetido power vezes
-  + honk()
-  __
-  + getPerson() : Person
-  + getPower()  : int
-  + getTime()   : int
-  __
-  
-  ' retorna o tempo, potencia e o nome da pessoa
-  ' ex: power:5, time:0, person:(marcos:4)
-  + toString()  : string
-}
-  
-class Person {
-  - age  : int
-  - name : string
-  __
-  + Person(name : string, age : int)
-  __
-  + getAge()  : int
-  + getName() : string
-  __
-  
-  ' retorna o nome e a idade da pessoa
-  ' nome:idade
-  + toString() : string
-}
+// Arquivo adapter
+  void inserir(String nome, int idade) {
+    motoca.inserir(new Pessoa(nome, idade));
+  }
 ```
-
-<!-- load -->
-
-- Lembre de inicializar o objeto `Pessoa` antes de chamar o método embarcar.
-- Para buzinar, utilize o `for` gerando várias vezes o `e`.
 
 ***
 
@@ -235,3 +201,18 @@ $honk
 Peeeeem
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Adapter.java](.cache/draft/java/Adapter.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->

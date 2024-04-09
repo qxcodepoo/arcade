@@ -16,15 +16,15 @@
 
 ## Model
 
-Essa atividade utiliza um padrão de projeto de requisições e respostas.
+Esta atividade utiliza um padrão de projeto de requisições e respostas.
 
 - Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
 - A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
-- Na classe `Adapter` é onde você deve implementar e conectar seu código.
-- A classe `Adapter` é apenas a classe de conexão, você deve as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
-- Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
-- Ao mostrar uma string formatada, será utilizado o modelo do python `f"{variavel:param}"`.
-- Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
+- Na classe `Adapter`, você deve implementar e conectar seu código.
+- A classe `Adapter` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
+- Mensagens de erro podem ser lançadas por exceções ou por comandos de `print` diretamente para o terminal.
+- Ao mostrar uma string formatada, será utilizado o modelo do Python `f"{variavel:param}"`.
+- Se houver, na seção [Cheat](#cheat), você pode conferir as respostas desta atividade.
 
 ## Intro
 
@@ -59,11 +59,11 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/calculadora2/diagrama.png)
 
 - Parte 1
-  - Crie a classe Calculator com os três atributos.
-  - Através do construtor, inicialize os valores de acordo adequadamente.
-  - Crie o método toString e gere a saída conforme.
-  - Inicie algumas calculadoras e teste imprimir o toString.
-  - Se ainda estiver aprendendo, consulte os códigos  abaixo. Lembre que o toString não imprime, ele retorna o valor.
+  - Crie a classe `Calculadora` com os três atributos.
+  - Através do construtor, inicialize os valores adequadamente.
+  - Crie o método `toString` e gere a saída conforme.
+  - Inicie algumas calculadoras e teste imprimir o `toString`.
+  - Se ainda estiver aprendendo, consulte os códigos abaixo. Lembre que o `toString` não imprime, ele retorna o valor.
 - Parte 2
   - Crie o método `charge`. Tente adicionar carga à bateria.
   - Verifique se ele adiciona além do limite.
