@@ -27,10 +27,29 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
   - Se não houver grafite suficiente para terminar a escrita na folha, é emitido um aviso de texto incompleto.
 
 - Responsabilidades
-  - O código deve ser implementado em duas classes: `Grafite` e `Lapiseira` e a integração deve ser feita no `Adapter`.
   - A classe `Grafite` é responsável por armazenar as informações do grafite.
+    - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
+    - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
     - O método `usagePerSheet` retorna a quantidade de grafite gasto por folha.
+      - Um grafite `HB` gasta `1mm` por folha.
+      - Um grafite `2B` gasta `2mm` por folha.
+      - Um grafite `4B` gasta `4mm` por folha.
+      - Um grafite `6B` gasta `6mm` por folha.
+    - `size` representa o tamanho do grafite em `milímetros`.
   - A classe `Lapiseira` é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.
+    - Ela referencia um único objeto lapiseira como atributo.
+    - E também possui um indicador de espessura `thickness`.
+  - A class `Adapter` faz a integração entre as chamadas de teste e as classes `Lapiseira` e `Grafite`.
+    - Um método de atenção especial é o `insert`. Nele o `Adapter` recebe os dados do `Grafite`. 
+    - Ela deve criar o objeto `Grafite` e passá-lo à lapiseira que ela gerencia.
+
+```ts
+//Adapter
+void insert(thickness: number, hardness: string, size: number) {
+    this.pencil.insert(new Pencil(thickness, hardness, size));
+}
+
+```
 
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
@@ -80,12 +99,14 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
 ## Shell
 
 ```bash
-#__case inserindo grafites
+#TEST_CASE inserindo grafites
+
 $init 0.5
 $show
 calibre: 0.5, grafite: null
 
-#__case incompativel
+#TEST_CASE incompativel
+
 $insert 0.7 2B 50
 fail: calibre incompativel
 $insert 0.5 2B 50
@@ -97,24 +118,27 @@ $end
 ***
 
 ```bash
-#__case inserindo
+#TEST_CASE inserindo
+
 $init 0.3
 $insert 0.3 2B 50
 $show
 calibre: 0.3, grafite: [0.3:2B:50]
 
-#__case ja existe
+#TEST_CASE ja existe
+
 $insert 0.3 4B 70
 fail: ja existe grafite
 $show
 calibre: 0.3, grafite: [0.3:2B:50]
 
-#__case removendo
+#TEST_CASE removendo
+
 $remove
 $show
 calibre: 0.3, grafite: null
 
-#__case reinserindo
+#TEST_CASE reinserindo
 $insert 0.3 4B 70
 $show
 calibre: 0.3, grafite: [0.3:4B:70]
@@ -124,12 +148,14 @@ $end
 ***
 
 ```bash
-#__case sem grafite
+#TEST_CASE sem grafite
+
 $init 0.9
 $write
 fail: nao existe grafite
 
-#__case escrevendo 1
+#TEST_CASE escrevendo 1
+
 $insert 0.9 4B 14
 $write
 $write
@@ -142,20 +168,22 @@ $end
 ***
 
 ```bash
-#__case escrevendo 2
+#TEST_CASE escrevendo 2
+
 $init 0.9
 $insert 0.9 4B 16
 $write
 $show
 calibre: 0.9, grafite: [0.9:4B:12]
-#__case escrevendo 3
+
+#TEST_CASE escrevendo 3
+
 $write
 fail: folha incompleta
 $show
 calibre: 0.9, grafite: [0.9:4B:10]
 $end
 ```
-
 
 ## Draft
 
