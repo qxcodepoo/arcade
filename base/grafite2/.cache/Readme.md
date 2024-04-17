@@ -29,12 +29,12 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
   - Para inserir um grafite, é necessário especificar o calibre (float), a dureza (string) e o tamanho em mm (int).
   - A remoção do grafite só é possível se houver algum na lapiseira.
   - A escrita na folha só é possível se houver grafite suficiente e se o tamanho do grafite for superior a 10mm.
-  - A quantidade de grafite gasto varia de acordo com a dureza do grafite.
+  - A quantidade de grafite gasto varia de acordo com a dureza do grafite. Quanto mais macio, mais ele se desgasta.
   - Quando o tamanho do grafite atinge 10mm, não é mais possível escrever.
   - Se não houver grafite suficiente para terminar a escrita na folha, é emitido um aviso de texto incompleto.
 
 - Responsabilidades
-  - A classe `Grafite` é responsável por armazenar as informações do grafite.
+  - A classe `Lead` é responsável por armazenar as informações do grafite.
     - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
     - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
     - O método `usagePerSheet` retorna a quantidade de grafite gasto por folha.
@@ -43,17 +43,17 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
       - Um grafite `4B` gasta `4mm` por folha.
       - Um grafite `6B` gasta `6mm` por folha.
     - `size` representa o tamanho do grafite em `milímetros`.
-  - A classe `Lapiseira` é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.
+  - A classe `Pencil` é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.
     - Ela referencia um único objeto lapiseira como atributo.
     - E também possui um indicador de espessura `thickness`.
-  - A class `Adapter` faz a integração entre as chamadas de teste e as classes `Lapiseira` e `Grafite`.
-    - Um método de atenção especial é o `insert`. Nele o `Adapter` recebe os dados do `Grafite`. 
-    - Ela deve criar o objeto `Grafite` e passá-lo à lapiseira que ela gerencia.
+  - A class `Adapter` faz a integração entre as chamadas de teste e as classes `Lead` e `Pencil`.
+    - Um método de atenção especial é o `insert`. Nele o `Adapter` recebe os dados do `Lead`. 
+    - Ela deve criar o objeto `Lead` e passá-lo à lapiseira que ela gerencia.
 
 ```ts
 //Adapter
 void insert(thickness: number, hardness: string, size: number) {
-    this.pencil.insert(new Pencil(thickness, hardness, size));
+    this.pencil.insert(new Lead(thickness, hardness, size));
 }
 
 ```
@@ -99,13 +99,15 @@ void insert(thickness: number, hardness: string, size: number) {
   - Implemente o método `usagePerSheet` que retorna a quantidade de grafite gasto por folha.
   - Verifique se a lapiseira consegue escrever na folha.
   - Faça as verificações antes de escrever na folha.
-  - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa. Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.
+  - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa. 
+    - Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.
 
 ***
 
 ## Shell
 
 ```bash
+
 #TEST_CASE inserindo grafites
 
 $init 0.5
@@ -125,6 +127,7 @@ $end
 ***
 
 ```bash
+
 #TEST_CASE inserindo
 
 $init 0.3
@@ -146,6 +149,7 @@ $show
 calibre: 0.3, grafite: null
 
 #TEST_CASE reinserindo
+
 $insert 0.3 4B 70
 $show
 calibre: 0.3, grafite: [0.3:4B:70]
@@ -155,6 +159,7 @@ $end
 ***
 
 ```bash
+
 #TEST_CASE sem grafite
 
 $init 0.9
@@ -175,6 +180,7 @@ $end
 ***
 
 ```bash
+
 #TEST_CASE escrevendo 2
 
 $init 0.9

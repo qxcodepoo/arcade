@@ -12,6 +12,7 @@ class Adapter {
     }
 
     toString() {
+        return "";
     }
 }
 
