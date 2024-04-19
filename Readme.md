@@ -137,6 +137,7 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [@grafite2 - Porta minas](base/grafite2/Readme.md)
 - [@motoca2 - Passeando no parque](base/motoca2/Readme.md)
 - [@budega2 - Gerencie a fila de espera e atendimento](base/budega2/Readme.md)
+- [Gerenciando reservas e cancelamentos de uma sala de @cinema2](base/cinema2/Readme.md)
 
 ## 13. Rascunhos
 
