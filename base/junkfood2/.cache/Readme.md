@@ -1,8 +1,8 @@
-# Comprando comida em uma máquina de @junkfood
+# @junkfood2 - Comprando comida cara e duvidosa
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/Readme.md)
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
-  - `tko down poo junkfood`
+  - `tko down poo junkfood2`
 - Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
 
 ---
@@ -12,53 +12,47 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood2/cover.jpg)
+
+## Intro
 
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 
 O objetivo dessa atividade é implementar uma classe responsável por uma máquina de vender JunkFood. Na máquina existem várias espirais (slots). Uma espiral contém uma certa quantidade de produtos do mesmo tipo e mesmo preço. O usuário coloca o dinheiro, compra o produto e recebe o troco.
 
-## Intro
+- **Descrição**
+  - A máquina de vendas é representada pela classe `Machine`, que contém um conjunto de "espirais", cada uma associada a um produto.
+  - Os métodos implementados permitem configurar os produtos disponíveis na máquina, inserir dinheiro, solicitar troco, comprar produtos e visualizar o estado atual da máquina.
+  - Cada espiral pode conter um produto, representado pela classe `Slot`, que armazena o nome, quantidade e preço do produto.
+  - Os métodos fornecidos incluem validações para garantir a integridade das operações, como verificar se o saldo é suficiente para a compra, se há produtos disponíveis, entre outros.
 
-Seu sistema deverá ser capaz de:
-
-- **Iniciando a máquina**
-  - Iniciar a máquina definindo o número de espirais.
-    - Se já houver uma máquina, então apague tudo e inicie uma nova máquina.
-  - Mostrar o conteúdo de cada espiral.
-    - Índice, nome do produto, quantidade de produtos e preço.
-    - Coloque um "empty" no nome do produto para informar que não há produto definido.
-
-- **Algo pra comer**
-  - Definir quais produtos há em cada espiral passando as informações do produto.
-
-- **Resetar uma espiral**
-  - Limpar todas as informações da espiral voltando ao seu estado original.
-
-- **Dinheiro vai**
-  - Inserir dinheiro na espiral.
-    - Abstraia como o dinheiro vai. Crédito, débito, bitcoin, cédula nova ou velha.
-  - Receba o dinheiro do usuário e vá adicionando ao saldo.
-  - Alterar o mostrar máquina para mostrar o saldo também.
-
-- **Comida vem, Dinheiro vem, Erros também**
-  - Permitir que o cliente possa comprar um produto de uma espiral.
-    - Verificar se a espiral existe.
-    - Verificar se existe o produto e se o valor do pagamento é suficiente.
-    - Tratar todos esses erros.
-    - Mostrar o nome do produto que ele pediu.
-  - Quando o cliente pedir o troco, mostre o quanto ele tinha de saldo e zere o saldo.
-
-***
+- **Responsabilidades**
+  - A classe `Machine` é responsável por gerenciar as operações da máquina de vendas.
+    - Métodos a serem implementados:
+      - `getSlot(index: int) : Slot`:  Se houver slot nessa posição, retorna. Se não, lança uma mensagem de erro `fail: indice nao existe`.
+      - `setSlot(indice: number, name: string, qtd: number, price: number)`: Altera o valor slot na posição indice.
+        - erros: `fail: indice nao existe`, `fail: quantidade invalida`.
+      - `limpar(indice: number)`: Limpa as informações do slot nessa posição.
+      - `inserirDinheiro(value: number)`: Insere dinheiro na máquina.
+        - erro: `fail: valor invalido`.
+      - `pedirTroco(): number`: Retorna o troco para o cliente.
+      - `comprar(ind: number)`: Realiza a compra de um produto de um slot na máquina. A compra só pode ser realizada se existir produto nessa posição, se o saldo for suficiente e se a quantidade do produto for maior que zero. Caso positivo, quantidade é reduzida em 1 e o valor do produto é decrementado no saldo.
+        - erros: `fail: indice nao existe`, `fail: saldo insuficiente`, `fail: espiral sem produtos`.
+      - `getSaldo(): number`: Retorna o saldo atual na máquina.
+      - `toString(): string`: Retorna uma representação em string do estado atual da máquina.
+        - Coloque um "empty" no nome do produto para informar que não há produto definido.
+  - A classe `Adapter` atua como uma interface entre os métodos de teste e as operações da máquina de vendas.
+    - Ela permite a execução de comandos como configuração de slots, inserção de dinheiro, compra de produtos, entre outras operações.
+    - A classe `Adapter` delega as operações para a classe `Machine`, mantendo a separação de responsabilidades.
 
 ## Draft
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/.cache/draft.cpp)
-- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood/.cache/draft.ts)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood2/.cache/draft.cpp)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/junkfood2/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood2/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

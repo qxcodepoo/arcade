@@ -2,7 +2,7 @@ class Adapter {
     constructor(capacidade: number) {
     }
 
-    reservar(id: string, fone: string, ind: number): void {
+    reservar(id: string, fone: number, ind: number): void {
     }
 
     cancelar(id: string): void {

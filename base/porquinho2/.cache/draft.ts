@@ -1,4 +1,4 @@
-
+/* 
 class Coin {
     private value: number;
     private volume: number;
@@ -119,3 +119,4 @@ function main() {
 main();
 
 
+ */

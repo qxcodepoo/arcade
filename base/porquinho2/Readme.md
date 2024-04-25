@@ -1,8 +1,8 @@
-# Guardando moedas e itens em um @porquinho
+# @porquinho2 - Guardando moedas e itens em um cofrinho
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -208,6 +208,94 @@ Além disso, a classe possui os seguintes métodos:
 ![diagrama](diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
+
+```ts
+
+class Coin {
+  - value  : double
+  - volume : int
+  - label  : string
+  __
+  ' static const Coin C10; //c++
+  + {static} C10  : Coin
+  + {static} C25  : Coin
+  + {static} C50  : Coin
+  + {static} C100 : Coin
+  __
+  - Coin(value: double, volume: int, label: string)
+  __
+  + getValue()  : double
+  + getVolume() : int
+  + getLabel()  : string
+  __
+  ' retorna value:volume
+  + toString() : string
+}
+
+class Item {
+  - label  : string
+  - volume : int
+  __
+  + Item(label : string, volume : int)
+  __
+  + getLabel()  : string
+  + getVolume() : int
+  + setLabel (label  : string)
+  + setVolume(volume : int)
+  __
+  ' retorna label:volume
+  + toString() : String
+}
+
+class Pig {
+  - broken    : boolean
+
+  - coins     : Array<Coin>
+  - items     : Array<Item>
+
+  - volumeMax : int
+  __
+  
+  ' inicializa o volumeMax
+  + Pig(volumeMax : int)
+  
+  ' se nao estiver quebrado e couber, adicione a moeda ao vetor de moedas
+  + addCoin(coin  : Coin) : boolean
+  
+  ' se não estiver quebrado e couber, adicione o item ao vetor de itens
+  + addItem(item  : Item) : boolean
+  
+  ' se o porco não estiver quebrado, quebre o porco
+  + breakPig() : boolean
+  
+  ' se estiver quebrado, pegue e retorne as moedas
+  ' se não estiver quebrado, retorne um vetor vazio
+  + extractCoins() : Array<Coin>
+  
+  ' se estiver quebrado, pegue e retorne os itens
+  ' se não estiver quebrado, retorne um vetor vazio
+  + extractItems() : Array<Item>
+  
+  ' retorna uma string com uma lista de itens, valor, volume / volumeMax, 
+  ' e se o porquinho está quebrado ou não
+  + toString() : String
+  __
+  ' se estiver quebrado
+    ' retorne zero
+  ' se não estiver quebrado
+    ' percorre o vetor de moedas e o vetor de itens somando o volume de cada um
+  + getVolume()    : int
+
+  ' percorre o vetor de moedas somando o valor de cada moeda
+  + getValue()     : double
+
+  ' retorna o volumeMax
+  + getVolumeMax() : int
+
+  ' retorna se o porquinho está quebrado ou não
+  + isBroken()     : boolean
+}
+```
 
 <!-- load -->
 

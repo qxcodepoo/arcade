@@ -1,4 +1,4 @@
-# Gerenciando reservas e cancelamentos de uma sala de @cinema2
+# @cinema2 - Gerenciando reservas e cancelamentos de uma sala de cinema
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cinema2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
@@ -28,7 +28,7 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
   - A classe `Sala` é responsável por gerenciar as operações relacionadas às cadeiras na sala de cinema.
     - Métodos a serem implementados:
       - públicos: são métodos acessados por outras classes.
-        - `reservar(id: string, fone: string, ind: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.
+        - `reservar(id: string, fone: number, ind: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.
         - `cancelar(id: string)`: Cancela a reserva de uma cadeira para o cliente com o ID especificado.
         - `getCadeiras(): Array(Client | null)`: Retorna um array contendo o estado atual de todas as cadeiras na sala.
         - `toString(): string`: Retorna uma representação em string do estado atual das cadeiras na sala.
@@ -46,14 +46,15 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
 
 ### Parte 1: Reservar Cadeira
 
-- **Passo 1:** Crie a classe `Client` com os atributos `id` e `fone`. Lembre de implementar os gets e os sets.
+- **Passo 1:** Crie a classe `Client` com os atributos `id` e `fone`. Lembre de implementar os gets e os sets. Crie também o método toString. Exemplo de retorno: `joao:3131`.
 
-- **Passo 2:** Crie a classe `Sala` com o atributo `cadeiras`, um array de cadeiras que pode conter objetos `Client` ou ser nulo.
+- **Passo 2:** Crie a classe `Sala` com o atributo `cadeiras`, um array de cadeiras que pode conter objetos `Client` ou ser nulo. Ao inicializar o array de cadeiras no construtor, todas as posições devem ser nulas.
 
 - **Passo 3:** Implemente o método `toString(): string` na classe `Sala`:
   - Percorra o array de cadeiras.
   - Para cada cadeira ocupada, adicione a representação do cliente à string resultante.
   - Para cadeiras vazias, adicione '-' à string resultante.
+  - Exemplo: `[davi:3232 - - joao:3131]`
 
 - **Passo 4:** Implemente o método `procurar(nome: string): number` na classe `Sala`:
   - Percorra o array de cadeiras.
@@ -64,7 +65,7 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
   - Verifique se o índice fornecido está dentro dos limites do array de cadeiras.
   - Retorne true se estiver dentro dos limites, caso contrário, retorne false.
 
-- **Passo 6:** Implemente o método `reservar(id: string, fone: string, ind: number): boolean` na classe `Sala`:
+- **Passo 6:** Implemente o método `reservar(id: string, fone: number, ind: number): boolean` na classe `Sala`:
   - Verifique se o índice da cadeira fornecido é válido. Se não for, emita a mensagem de erro `fail: cadeira nao existe`.
   - Verifique se a cadeira está vazia. Se não estiver, emita a mensagem de erro `fail: cadeira ja esta ocupada`.
   - Verifique se o cliente já está na sala. Se estiver, emita a mensagem de erro `fail: cliente ja esta no cinema`.
