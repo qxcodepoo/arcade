@@ -20,20 +20,25 @@ O objetivo dessa atividade é implementar uma classe responsável por uma máqui
   - Os métodos fornecidos incluem validações para garantir a integridade das operações, como verificar se o saldo é suficiente para a compra, se há produtos disponíveis, entre outros.
 
 - **Responsabilidades**
+  - Na classe Slot
+    - Inicialize as variáveis do construtor
+      - name: string = "empty",
+      - qtd: number = 0 e
+      - preco: number = 0.0
+    - Implemente os gets e sets
+    - Crie o retorno do toString como no modelo: `[   empty : 0 U : 0.00 RS]`
   - A classe `Machine` é responsável por gerenciar as operações da máquina de vendas.
     - Métodos a serem implementados:
-      - `getSlot(index: int) : Slot`:  Se houver slot nessa posição, retorna. Se não, lança uma mensagem de erro `fail: indice nao existe`.
+      - `getSlot(index: int) : Slot`:  Se houver slot nessa posição, retorna.
       - `setSlot(indice: number, name: string, qtd: number, price: number)`: Altera o valor slot na posição indice.
-        - erros: `fail: indice nao existe`, `fail: quantidade invalida`.
+        - erro: `fail: indice nao existe`.
       - `limpar(indice: number)`: Limpa as informações do slot nessa posição.
       - `inserirDinheiro(value: number)`: Insere dinheiro na máquina.
-        - erro: `fail: valor invalido`.
       - `pedirTroco(): number`: Retorna o troco para o cliente.
       - `comprar(ind: number)`: Realiza a compra de um produto de um slot na máquina. A compra só pode ser realizada se existir produto nessa posição, se o saldo for suficiente e se a quantidade do produto for maior que zero. Caso positivo, quantidade é reduzida em 1 e o valor do produto é decrementado no saldo.
         - erros: `fail: indice nao existe`, `fail: saldo insuficiente`, `fail: espiral sem produtos`.
       - `getSaldo(): number`: Retorna o saldo atual na máquina.
       - `toString(): string`: Retorna uma representação em string do estado atual da máquina.
-        - Coloque um "empty" no nome do produto para informar que não há produto definido.
   - A classe `Adapter` atua como uma interface entre os métodos de teste e as operações da máquina de vendas.
     - Ela permite a execução de comandos como configuração de slots, inserção de dinheiro, compra de produtos, entre outras operações.
     - A classe `Adapter` delega as operações para a classe `Machine`, mantendo a separação de responsabilidades.

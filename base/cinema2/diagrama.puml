@@ -6,10 +6,10 @@ skinparam dpi 150
 
 '==
 class Client {
-  - fone : string
+  - fone : number
   - id   : string
   __
-  + Client(id : string, fone : string)
+  + Client(id : string, fone : number)
   __
   + getFone() : number
   + getId()   : string
