@@ -141,6 +141,9 @@ Exercícios de fup para aquecer o coração e o cérebro.
 - [@cinema2 - Gerenciando reservas e cancelamentos de uma sala de cinema](base/cinema2/Readme.md)
 - [@porquinho2 - Guardando moedas e itens em um cofrinho](base/porquinho2/Readme.md)
 - [@junkfood2 - Comprando comida cara e duvidosa](base/junkfood2/Readme.md)
+- [@estacionamento2 - Cobrando o valor de carros e motos](base/estacionamento2/Readme.md)
+- [@tarifas2 - Operações de saque, depósito, extrato](base/tarifas2/Readme.md)
+
 
 
 ## 13. Rascunhos

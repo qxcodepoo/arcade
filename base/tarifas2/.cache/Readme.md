@@ -1,8 +1,8 @@
-# Operações de saque, depósito, extrato e @tarifas
+# @tarifas2 - Operações de saque, depósito, extrato
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/Readme.md)
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
-  - `tko down poo tarifas`
+  - `tko down poo tarifas2`
 - Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
 
 ---
@@ -12,7 +12,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas2/cover.jpg)
 
 O objetivo dessa atividade é implementar uma classe responsável por gerenciar a account bancária de um único cliente. Faremos operações de withdraw, depósito e extrato.
 
@@ -40,13 +40,13 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ## Draft
 
-- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.cpp)
-- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.java)
-- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.ts)
+- [draft.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas2/.cache/draft.cpp)
+- [draft.java](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas2/.cache/draft.java)
+- [draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/tarifas2/.cache/draft.ts)
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas2/diagrama.png)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

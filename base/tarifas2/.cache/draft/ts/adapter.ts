@@ -1,0 +1,11 @@
+
+class Adapter {
+
+
+
+
+
+
+}
+
+export { Adapter };

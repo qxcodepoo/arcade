@@ -1,4 +1,4 @@
-# Cobrando o valor de carros e motos no @estacionamento
+# @estacionamento2 - Cobrando o valor de carros e motos
 
 ![_](cover.jpg)
 
@@ -37,65 +37,71 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
-### Classe Veiculo
+```ts
+abstract class Veiculo {
+  - id : string
+  # tipo : string
+  # horaEntrada : number
 
-A classe `Veiculo` é uma classe abstrata que representa um veículo no estacionamento. Ela possui os seguintes atributos e métodos:
+  ' tipo será definido na classe filha
+  ' id será o nome do dono da bike ou a placa do carro/moto
+  + Veiculo(id : string, tipo : string)
 
-- **Atributos:**
-  - `id`: Identificador do veículo.
-  - `tipo`: Tipo do veículo.
-  - `entrada`: Tempo de entrada do veículo no estacionamento.
+  + setEntrada(horaEntrada : number) : void
+  + getEntrada() : number
 
-- **Métodos:**
-  - `constructor(id: string)`: Construtor da classe, que recebe o `id` do veículo como parâmetro e inicializa os atributos `id`, `tipo` e `entrada`. O tipo deve ser inicializado como uma string vazia e a entrada como 0.
-  - `setEntrada(entrada: number): void`: Define o tempo de entrada do veículo no estacionamento.
-  - `getEntrada(): number`: Retorna o tempo de entrada do veículo.
-  - `getTipo(): string`: Retorna o tipo do veículo.
-  - `getId(): string`: Retorna o identificador do veículo.
-  - `toString(): string`: Retorna uma representação em string do veículo.
+  + getTipo() : string
+  + getId() : string
 
-### Classes Específicas de Veículos
+  ' mostra o valor a ser pago
+  + abstract calcularValor(horaSaida: number): void
 
-- **Classe `Bike`:**
-  - Representa uma bicicleta no estacionamento.
-  - Valor fixo de R$3,00 pelo estacionamento.
+  ' retornar {tipo} : {id} : {horaEntrada}
+  ' alinhado   10      10
+  + toString() : string
+}
 
-- **Classe `Moto`:**
-  - Representa uma motocicleta no estacionamento.
-  - Valor de R$0,05 por minuto pelo estacionamento.
+class Bike extends Veiculo {
+  + Bike(id : string)
+  + calcularValor(horaSaida : number) : void
+}
 
-- **Classe `Carro`:**
-  - Representa um carro no estacionamento.
-  - Valor de R$0,10 por minuto pelo estacionamento, com valor mínimo de R$5,00.
+class Moto extends Veiculo {
+  + Moto(id : string)
+  + calcularValor(horaSaida : number) : void
+}
 
-### Classe Estacionamento
+class Carro extends Veiculo {
+  + Carro(id : string)
+  + calcularValor(horaSaida : number) : void
+}
 
-A classe `Estacionamento` é responsável por gerenciar os veículos no estacionamento. Ela possui os seguintes atributos e métodos:
+class Estacionamento {
+  - veiculos : Veiculo[]
+  - horaAtual : number
 
-- **Atributos:**
-  - `veiculos`: Array contendo todos os veículos estacionados.
-  - `tempo`: Tempo atual do estacionamento.
+  + Estacionamento()
 
-- **Métodos:**
-  - `estacionar(veiculo: Veiculo): void`: Adiciona um veículo ao estacionamento.
-  - `pagar(id: string): void`: Calcula e imprime o valor a ser pago pelo estacionamento de um veículo.
-  - `sair(id: string): void`: Remove um veículo do estacionamento.
-  - `passarTempo(tempo: number): void`: Atualiza o tempo do estacionamento.
+  ' retorna -1 se não encontrar ou o indice do veiculo no array
+  - procurarVeiculo(id : string) : number
 
-### Classe Adapter
+  ' estaciona o veiculo no array, salva a hora de entrada
+  + estacionar(veiculo : Veiculo) : void
 
-A classe `Adapter` é responsável por adaptar a interface de entrada/saída para o sistema de estacionamento.
+  ' procurar o veiculo no array, calcular o valor para pagar
+  + pagar(id : string) : void
 
-1. **Definição da Classe Adapter:**
+  ' procurar o veiculo no array e o remove
+  + sair(id : string) : void
 
-   - Definir a classe `Adapter` com os métodos de entrada/saída necessários para interagir com o sistema de estacionamento.
+  ' incrementa a hora atual
+  + passarTempo() : void
 
-2. **Implementação dos Métodos:**
+  ' mostra a lista de veículos na ordem que foram estacionados
+  + toString() : string
+}
 
-   - `estacionar(tipo: string, id: string): void`: Adiciona um veículo ao estacionamento.
-   - `passarTempo(tempo: number): void`: Atualiza o tempo do estacionamento.
-   - `pagar(id: string): void`: Calcula e imprime o valor a ser pago pelo estacionamento de um veículo.
-   - `sair(id: string): void`: Remove um veículo do estacionamento.
+```
 
 <!-- load -->
 
