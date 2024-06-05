@@ -14,10 +14,10 @@ function main() {
         let args = line.split(" ");
 
         if      (args[0] === "end")   { break;                                                       }
-        else if (args[0] === "init")  { adp = new Adapter(Number(args[1]));                              }
+        else if (args[0] === "init")  { adp = new Adapter(Number(args[1]));                          }
         else if (args[0] === "show")  { write(adp.toString());                                       }
-        else if (args[0] === "addItem")   { adp.addItem(args[1], +args[2]);             }
-        else if (args[0] === "addCoin")  { adp.addCoin(+args[1]);
+        else if (args[0] === "addItem")   { adp.addItem(args[1], +args[2]);                          }
+        else if (args[0] === "addCoin")   { adp.addCoin(+args[1]);
         }
         else if (args[0] === "extractItems") { 
             write(adp.extractItems());

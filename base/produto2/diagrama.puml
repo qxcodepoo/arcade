@@ -1,0 +1,77 @@
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
+
+' Interface que define a responsabilidade de um produto
+interface IProduct {
+  + getPrice(): double
+  + getLabel(): String
+}
+
+' Produto simples
+class Product {
+  - name: String
+  - price: double
+  + Product(name: String, price: double)
+  + getPrice(): double
+  + getLabel(): String
+}
+
+' Conjunto de produtos que são vendidos juntos
+class Bundle {
+  - products: List<IProduct>
+  + Bundle(products: List<IProduct>)
+  + addProduct(product: IProduct): void
+  
+  ' A soma dos preços dos produtos individuais
+  + getPrice(): double
+
+  ' A concatenação dos nomes dos produtos individuais no formato [nome1, nome2, nome3]
+  + getLabel(): String
+}
+
+' Produto com desconto
+class DiscountedProduct {
+  - product: IProduct
+
+  ' Valor de 0 a 100
+  - discount: double
+
+  + DiscountedProduct(product: IProduct, discount: double)
+  
+  ' O valor do produto original - o desconto
+  + getPrice(): double
+
+  ' O label do produto original com o desconto no formato
+  ' label_original (desconto %OFF)
+  + getLabel(): String
+}
+
+' Gerenciador de produtos
+class ProductManager {
+  - products: List<IProduct>
+  + ProductManager()
+
+  ' Adiciona um produto simples
+  + addProduct(label: String, price: double): void
+
+  ' Cria um pacote a partir de todos os índices
+  + addPackage(indexes: List<int>): void
+
+  ' Adiciona um desconto a um produto dado o índice do produto
+  + addDiscount(index: int, discount: double): void
+
+  ' Mostra os índices dos produtos, seus rótulos e preços
+  + toString(): String
+}
+
+'--
+IProduct <|.. Product
+IProduct <|.. Bundle
+IProduct <|.. DiscountedProduct
+ProductManager *--> IProduct
+@enduml

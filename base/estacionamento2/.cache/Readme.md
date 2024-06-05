@@ -1,4 +1,4 @@
-# @estacionamento2 - Cobrando o valor de carros e motos
+# Cobrando o valor de carros e motos no @estacionamento2
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento2/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
