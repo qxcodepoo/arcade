@@ -1,4 +1,4 @@
-# Gerencie os empŕestimos de um @agiota
+# @agiota - Gerencie os empŕestimos
 
 <!-- toch -->
 [Video](#video) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)

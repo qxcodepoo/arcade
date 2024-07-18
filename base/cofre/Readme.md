@@ -1,4 +1,4 @@
-# Seu porquinho cresceu e virou um @cofre
+# @cofre - Seu porquinho cresceu
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

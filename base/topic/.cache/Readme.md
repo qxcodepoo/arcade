@@ -1,4 +1,4 @@
-# Gerenciando assentos prioritários e normais em uma @topic
+# @topic - Gerenciando assentos prioritários e normais
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/topic/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

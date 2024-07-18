@@ -3,26 +3,21 @@ import java.util.Scanner;
 public class Shell {
 
     public static void main(String[] _args) {
-        Animal animal = new Animal("", "");
+        Adapter adp = new Adapter("", "");
 
         while (true) {
             var line = input();
             var args = line.split(" ");
             write("$" + line);
 
-            if (args[0].equals("init")) {
-                animal = new Animal(args[1], args[2]);
-            } else if (args[0].equals("grow")) {
-                animal.envelhecer((int) number(args[1]));
-            } else if (args[0].equals("noise")) {
-                write(animal.fazerBarulho());
-            } else if (args[0].equals("show")) {
-                write(animal.toString());
-            } else if (args[0].equals("end")) {
-                break;
-            } else {
-                write("fail: comando invalido");
-            }
+            if      (args[0].equals("end")  ) { break;                               }
+
+            else if (args[0].equals("init") ) { adp = new Adapter(args[1], args[2]); }
+            else if (args[0].equals("show") ) { write(adp.toString());               }
+            else if (args[0].equals("noise")) { write(adp.noise());                  }
+            else if (args[0].equals("grow") ) { adp.grow((int) number(args[1]));     }
+
+            else                              { write("fail: comando invalido");     }
         }
     }
 

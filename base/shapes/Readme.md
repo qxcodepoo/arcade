@@ -1,25 +1,87 @@
 # @shapes - Utilizando interface em círculos e retângulos
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
-- Faça um programa para gerenciar figuras geométricas.
-- Deve ser possível conseguir obter a área e o perímetro de cada figura.
-
 ## Intro
 
-As figuras geométricas podem ser círculos ou retângulos.
+O objetivo desta atividade é implementar um sistema para gerenciar formas geométricas. Você precisará criar classes para representar pontos, círculos e retângulos, além de uma classe de controle chamada `Adapter` que gerenciará essas formas. O sistema permitirá adicionar formas e obter informações sobre elas.
 
-O retângulo é definido por dois pontos: o ponto inferior esquerdo e o ponto superior direito.
+- **Descrição**
+  - A interface `Shape` define métodos que todas as formas geométricas devem implementar.
+  - A classe `Point2D` representa um ponto no plano bidimensional.
+  - As classes `Circle` e `Rectangle` implementam a interface `Shape` e representam um círculo e um retângulo, respectivamente.
+  - A classe `Adapter` serve como uma classe de controle, gerenciando a criação e manipulação das formas geométricas.
 
-O círculo pode ser definido pelo ponto do centro e pelo raio.
+### Interface Shape
 
-## Draft
+A interface `Shape` exige a implementação dos seguintes métodos (os métodos abaixo não são implementadas na classe Shape, apenas nas classes filhas):
 
+- `getArea()`: Retorna a área da forma.
+- `getPerimeter()`: Retorna o perímetro da forma.
+- `getName()`: Retorna o nome da forma.
+
+### Classe Point2D
+
+A classe `Point2D` representa um ponto no plano bidimensional e possui:
+
+- **Atributos:**
+  - `x`: coordenada x do ponto.
+  - `y`: coordenada y do ponto.
+- **Métodos:**
+  - `constructor(x: number, y: number)`: Inicializa os atributos x e y.
+  - `toString()`: Retorna a representação do ponto no formato `(x, y)`. Exemplo: `(0.00, 0.00)`.
+
+### Classe Circle
+
+A classe `Circle` implementa a interface `Shape` e representa um círculo. Deve incluir:
+
+- **Atributos:**
+  - `name`: Nome da forma, que é "Circ".
+  - `center`: Centro do círculo, representado por um `Point2D`.
+  - `radius`: Raio do círculo.
+- **Métodos:**
+  - `constructor(center: Point2D, radius: number)`: Inicializa os atributos center e radius.
+  - `getName()`: Retorna o nome "Circ".
+  - `getArea()`: Calcula e retorna a área do círculo usando a fórmula `π * raio²`.
+  - `getPerimeter()`: Calcula e retorna o perímetro do círculo usando a fórmula `2 * π * raio`.
+  - `toString()`: Retorna uma string no formato `Circ: C=(x, y), R=radius`.
+
+### Classe Rectangle
+
+A classe `Rectangle` também implementa a interface `Shape` e representa um retângulo. Deve incluir:
+
+- **Atributos:**
+  - `name`: Nome da forma, que é "Rect".
+  - `p1`: Um vértice do retângulo (ponto superior esquerdo), representado por um `Point2D`.
+  - `p2`: O vértice oposto do retângulo (ponto inferior direto), representado por um `Point2D`.
+- **Métodos:**
+  - `constructor(p1: Point2D, p2: Point2D)`: Inicializa os atributos p1 e p2.
+  - `getName()`: Retorna o nome "Rect".
+  - `getArea()`: Calcula e retorna a área do retângulo usando a fórmula `largura * altura`.
+    - `largura` é a diferença absoluta entre `x` de `p1` e `p2`.
+    - `altura` é a diferença absoluta entre `y` de `p1` e `p2`.
+  - `getPerimeter()`: Calcula e retorna o perímetro do retângulo usando a fórmula `2 * (largura + altura)`.
+  - `toString()`: Retorna uma string no formato "Rect: P1=(x1, y1) P2=(x2, y2)".
+
+### Classe de Controle Adapter
+
+A classe `Adapter` serve como uma classe de controle para gerenciar as formas geométricas. Deve incluir:
+
+- **Atributos:**
+  - `shapes`: Array para armazenar as formas.
+- **Métodos:**
+  - `constructor()`: Inicializa o array `shapes`.
+  - `circle(x: number, y: number, r: number)`: Cria um novo círculo com centro em `(x, y)` e raio `r`, adicionando-o ao array `shapes`.
+  - `rectangle(x1: number, y1: number, x2: number, y2: number)`: Cria um novo retângulo com os vértices `(x1, y1)` e `(x2, y2)`, adicionando-o ao array `shapes`.
+  - `info()`: Retorna uma string com informações sobre todas as formas no array `shapes`, incluindo nome, área e perímetro.
+  - `toString()`: Retorna uma string com a representação de todas as formas no array `shapes`.
+
+A implementação desta atividade exige que você siga rigorosamente as instruções para garantir a correta funcionalidade e integridade do sistema de gerenciamento de formas geométricas.
 
 ## Guide
 

@@ -1,4 +1,4 @@
-# Seu porquinho cresceu e virou um @cofre
+# @cofre - Seu porquinho cresceu
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cofre/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

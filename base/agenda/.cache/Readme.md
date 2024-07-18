@@ -1,4 +1,4 @@
-# Gerencie os vários contatos da @agenda
+# @agenda - Gerencie os vários contatos
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/agenda/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

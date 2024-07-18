@@ -1,115 +1,86 @@
-# Atividade modelo resolvida: @animal
+# @animal - Nasce, cresce, morre
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
--- | -- | -- | --
+[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | -- | --
 <!-- toch -->
 
-![_](cover.jpg)
+![cover](cover.jpg)
 
-O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
+## Model
 
-***
+Essa atividade utiliza um padrão de projeto de requisições e respostas.
+
+- Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
+- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
+- Na classe `Adapter` é onde você deve implementar e conectar seu código.
+- A classe `Adapter` é apenas a classe de conexão, você deve as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
+- Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
+- Ao mostrar uma string formatada, será utilizado o modelo do python `f"{variavel:param}"`.
+- Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
 
 ## Intro
 
-- Criar um animal passando por parâmetro a espécie e o barulho que ele faz.
-- Invocar o método para que o animal faça barulho.
-- Envelhecer o animal que vai passar por 4 estágios:
-  - 0: bebe. Muito pequeno, não faz barulho `---`.
-  - 1: criança. Faz barulho normal.
-  - 2: adulto. Faz barulho normal.
-  - 3: idoso. Faz barulho normal.
-  - 4: morto. Não faz mais barulho `RIP`.
+O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
+
+- Descrição
+  - O animal tem uma espécie, um estágio de vida e um barulho que ele faz.
+  - Os estágios pelos quais o animal passa são:
+    - 0: Filhote
+    - 1: Criança
+    - 2: Adulto
+    - 3: Idoso
+    - 4: Morto
+  - Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:
+    - Se for filhote, emite um "---".
+    - Se for idoso, emite um "RIP".
+  - Ao crescer, o animal avança estágios na sua vida.
+    - Ao morrer, deve ser exibida uma mensagem de aviso: `warning: {especie} morreu`.
+    - Invocar o método de crescimento após a morte do animal deve exibir uma mensagem de aviso: `warning: {especie} morreu`.
+- Responsabilidades
+  - O código deve ser implementado na classe `Animal`.
+  - Os métodos da classe `Animal` devem ser chamados na classe `Adapter`.
+  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
+- Comandos
+  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
+  - `$show`: Mostra o estado atual do animal.
+    - formato: `f"{especie}:{estagio}:{barulho}"`
+    - exemplo: `gato:0:miau`
+  - `$init especie barulho`: Inicializa o animal passando a espécie e o barulho.
+  - `$grow qtd`: Faz o animal crescer uma `qtd` etapas na vida.
+  - `$noise`: Faz o animal emitir um som.
+  - `$end`: Finaliza a execução.
 
 ***
 
 ## Guide
 
-### Diagrama
-
 ![_](diagrama.png)
 
-### O que é o Shell
-
-O [Shell](#shell) que você encontra em cada atividade serve tanto para que você entenda o funcionamento do código quanto ele gera o teste que será usado na correção.
-
-Cada `$algo` representa comando que será enviado para o seu programa.
-
-Depois é verificado se a saída gerada pelo seu programa é igual ao que era esperado.
-
-Esse é o modelo do arquivo de testes gerado para cada atividade.
-
-- [cases.tio](cases.tio)
-
-![image](https://user-images.githubusercontent.com/4747652/263118401-36183946-8e20-4ecb-b0cc-75a5cef3610a.png)
-
-### Como fazer a leitura dos dados
-
-Criando a função main
-
-- Você cria o elemento a ser manipulado fora do laço principal.
-- Cria um loop infinito.
-- Lê a linha que é o comando.
-- Quebra a linha em palavras.
-- Mostra o comando digitado precedido de '$'.
-- Faz um if aninhado para cada comando repassando os parâmetros para o objeto.
-- Se o comando for 'end' sai do loop.
-- Se o comando for inválido mostra uma mensagem de erro.
-
-```cpp
-function main() {
-    
-    var coisa = new Coisa(); //Coisa a ser manipulada
-
-    while (true) {
-        var line = input();         //lê a linha
-        var args = line.split(" "); // quebra em array de palavras
-        write("$" + line);          //mostra '$' na frente
-
-        if (args[0] == "nome do comando") {
-            //aqui voce repassa os parametros para o objeto
-            //convertendo os que precisam ser números ou inteiros
-            coisa.funcaoTal(args[1], number(args[2]), (int) number(args[3]));
-        }
-        else if (args[0] == "outro comando") {
-            //outra invocacao
-        }
-        else if (args[0] == "end") {
-            break;
-        }
-        else {
-            write("fail: comando invalido");
-        }
-    }
-}
-```
-
-## Draft
-
-Para padronizar, em cada linguagem são criadas algumas funções auxiliares para simplificar a criação da main. Você pode utilizar essas resoluções como modelos para fazer as funções `main` dos outros projetos.
-
-No caso dessa atividade, o draft já está completo para você utilizar como modelo para outras atividades.
-
-<!-- links .cache/draft -->
-- cpp
-  - [animal.hpp](.cache/draft/cpp/animal.hpp)
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
-  - [shell.cpp](.cache/draft/cpp/shell.cpp)
-- java
-  - [Animal.java](.cache/draft/java/Animal.java)
-  - [Shell.java](.cache/draft/java/Shell.java)
-- ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [animal.ts](.cache/draft/ts/animal.ts)
-<!-- links -->
+- Parte 1
+  - Crie uma classe `Animal` com os atributos `especie`, `estagio` e `barulho`.
+  - Crie um método `String toString()` que retorna a representação do animal no formato `especie:estagio:barulho`.
+  - Teste seu código
+- Parte 2
+  - Crie um método `void envelhecer(int qtd)` que envelhece o animal em `qtd` estágios.
+    - Se ele for nível 1, e você pedir para envelhecer 2 vezes, ele deve passar para o estágio 3.
+    - Se ele for nível 2, e você pedir para envelhecer 3 vezes, ele deve passar para o estágio 4, pois 4 é o estágio máximo.
+  - Implemente a lógica de crescimento do animal e verifique se ele morreu.
+  - Certifique-se de que o animal não pode crescer após a morte.
+- Parte 3
+  - Crie um método `fazerBarulho()` que faz o animal fazer barulho.
+  - Implemente a lógica de barulho do animal fazendo tratamento especial para bebês e mortos.
+- Parte 4: Adapter
+  - Na classe `Adapter`, crie um atributo `animal` e o inicialize no construtor.
+  - Faça os ajustes necessários para chamar os métodos da classe Animal na classe Adapter.
 
 ## Shell
 
+### Primeira simulação
+
 ```bash
-#__case iniciando
-# O comando "$init _especie _barulho" cria uma animal bebe dessa especie
-# O comando "$show" mostra, sem manipulação, os atributos especie:estagio:barulho
+#TEST_CASE iniciando
+
 $init gato miau
 $show
 gato:0:miau
@@ -125,11 +96,11 @@ galinha:0:cocorico
 $end
 ```
 
-***
+### Segunda simulação
 
 ```bash
-# O comando grow _valor envelhece o animal em _valor etapas
-#__case envelhecendo
+#TEST_CASE grow
+
 $init vaca muu
 $show
 vaca:0:muu
@@ -137,27 +108,23 @@ vaca:0:muu
 $grow 2
 $show
 vaca:2:muu
-
 $grow 2
 warning: vaca morreu
-
 $show
 vaca:4:muu
-
 $grow 3
 warning: vaca morreu
-
 $show
 vaca:4:muu
 
 $end
 ```
 
-***
+### Terceira simulação
 
 ```bash
-# O comando noise faz o animal fazer barulho, se ele estiver vivo e não for bebe
-#__case fazer barulho
+#TEST_CASE noise
+
 $init cabra beeh
 
 $noise
@@ -175,10 +142,11 @@ RIP
 $end
 ```
 
-***
+### Quarta simulação
 
 ```bash
-#__case extra
+#TEST_CASE extra
+
 $init passaro piupiu
 
 $show
@@ -203,3 +171,32 @@ RIP
 
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Adapter.java](.cache/draft/java/Adapter.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->
+
+## Cheat
+
+<!-- links .cache/cheat -->
+- cpp
+  - [adapter.hpp](.cache/cheat/cpp/adapter.hpp)
+  - [animal.hpp](.cache/cheat/cpp/animal.hpp)
+- java
+  - [Adapter.java](.cache/cheat/java/Adapter.java)
+  - [Animal.java](.cache/cheat/java/Animal.java)
+- ts
+  - [adapter.ts](.cache/cheat/ts/adapter.ts)
+  - [animal.ts](.cache/cheat/ts/animal.ts)
+<!-- links -->

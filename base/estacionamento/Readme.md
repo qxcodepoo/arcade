@@ -1,24 +1,35 @@
-# Cobrando o valor de carros e motos no @estacionamento
+# @estacionamento - Cobrando o valor de carros e motos
 
 ![_](cover.jpg)
+
+## Intro
+
+O sistema de estacionamento é responsável por gerenciar veículos em um estacionamento, registrando a entrada e saída de veículos, calculando o valor a ser pago pelo tempo de permanência e fornecendo informações sobre os veículos estacionados.
 
 - Você deve utilizar herança para construir um sistema para gerenciar um estacionamento de bicicletas, carros e motos.
 - A classe Veículo é uma classe abstrata que possui os atributos `id`, `entrada` e `tipo`.
 - A classe Veículo possui um método abstrato `calcularValor()` que deve ser implementado pelas classes filhas.
 - A classe Veículo possui um método `toString()`.
 
-- A lógica de pagamento é
-  - bike paga 3.00 independente do tempo
-  - moto paga o valor em minutos dividido por 20
-  - carro paga o valor em minutos dividido por 10, mas o valor mínimo é 5.00
+### Responsabilidades
 
-## Resolução
+- **Registrar Entrada de Veículo:**
+  - O sistema deve permitir que novos veículos entrem no estacionamento, registrando o tipo de veículo e seu identificador.
+  - O tempo de entrada do veículo deve ser registrado.
 
-[![image](https://user-images.githubusercontent.com/4747652/282258761-fc22aa99-0758-40e7-96a7-75eda3bcc772.png)](https://www.youtube.com/watch?v=6eFGKyJMCE4)
+- **Registrar Saída de Veículo:**
+  - O sistema deve permitir que veículos saiam do estacionamento, registrando o tempo de saída do veículo.
+  - Com base no tempo de entrada e saída, o sistema deve calcular o valor a ser pago pelo estacionamento.
 
-## Draft
+- **Calcular Valor a Pagar:**
+  - O valor a ser pago pelo estacionamento é calculado com base no tipo de veículo estacionado e no tempo de permanência.
+  - O cálculo do valor varia de acordo com o tipo de veículo:
+    - **Bike:** paga R$3 fixos.
+    - **Moto:** paga o valor em minutos dividido por 20.
+    - **Carro:** paga o valor em minutos dividido por 10, mas o valor mínimo é 5.00.
 
-- [draft.ts](.cache/draft.ts)
+- **Obter Lista de Veículos Estacionados:**
+  - O sistema deve ser capaz de fornecer uma lista de todos os veículos atualmente estacionados, incluindo o tipo de veículo, identificador e tempo de entrada.
 
 ## Guide
 
@@ -102,28 +113,28 @@ class Estacionamento {
 $show
 Hora atual: 0
 $tempo 30
-$bike elias
+$estacionar bike elias
 $show
 ______Bike : _____elias : 30
 Hora atual: 30
 
 #__case entrada moto
 $tempo 20
-$moto abc1234
+$estacionar moto abc1234
 $show
 ______Bike : _____elias : 30
 ______Moto : ___abc1234 : 50
 Hora atual: 50
 #__case entrada carro
 $tempo 50
-$carro pog1000
+$estacionar carro pog1000
 $show
 ______Bike : _____elias : 30
 ______Moto : ___abc1234 : 50
 _____Carro : ___pog1000 : 100
 Hora atual: 100
 $tempo 100
-$carro uva9999
+$estacionar carro uva9999
 $tempo 30
 $show
 ______Bike : _____elias : 30

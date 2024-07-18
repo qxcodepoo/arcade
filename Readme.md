@@ -30,7 +30,6 @@
   - [Referências Cruzadas](#referências-cruzadas)
 - [Futuro ](#futuro-)
   - [Em atualização](#em-atualização)
-  - [Modelos em Avaliação](#modelos-em-avaliação)
   - [Rascunhos](#rascunhos)
 <!-- toc -->
 
@@ -60,13 +59,13 @@
 
 ### Estressados Básicos
 
-- [Operações de @busca](base/busca/Readme.md)
-- [Operações de @contagem](base/contagem/Readme.md)
+- [@busca - Operações I](base/busca/Readme.md)
+- [@contagem - Operações II](base/contagem/Readme.md)
 
 ### Estressados Avançado
 
-- [Operações de @manipulacao](base/manipulacao/Readme.md)
-- [Operações @especiais](base/especiais/Readme.md)
+- [@manipulacao - Operações III](base/manipulacao/Readme.md)
+- [@especiais - Operações IV](base/especiais/Readme.md)
 
 ## Introdução <!-- group -->
 
@@ -74,62 +73,62 @@
 
 [![image](https://user-images.githubusercontent.com/4747652/263152148-cf916c4a-6c07-4d36-bc9c-ac8a2f9b348c.png)](https://www.youtube.com/watch?v=PU6-anlu5jI)
 
-- [Atividade modelo resolvida: @animal](base/animal/Readme.md)
-- [Se não pode comprar um, construa seu primeiro @carro](base/carro/Readme.md)
-- [Cuidado com a bateria da @calculadora](base/calculadora/Readme.md)
+- [@animal - Nasce, cresce, morre](base/animal/Readme.md)
+- [@carro - Se não pode comprar um, construa](base/carro/Readme.md)
+- [@calculadora - Cuidado com a bateria](base/calculadora/Readme.md)
 
 ### Modificadores de Acesso
 
-- [Garante uma hora válida no @relogio](base/relogio/Readme.md)
+- [@relogio - Garante uma hora válida](base/relogio/Readme.md)
 
 ### Agregação Simples
 
-- [Porta minas com um @grafite](base/grafite/Readme.md)
-- [Passeando no parque de @motoca](base/motoca/Readme.md)
-- [Alimente, brinque e mate o @tamagotchi](base/tamagotchi/Readme.md)
+- [@grafite - Porta minas](base/grafite/Readme.md)
+- [@motoca - Passeando no parque](base/motoca/Readme.md)
+- [@tamagotchi - Alimente, brinque e mate](base/tamagotchi/Readme.md)
 
 ## Listas <!-- group -->
 
 ### ArrayList I - Listas
 
-- [Gerencie a fila de espera e atendimento da @budega](base/budega/Readme.md)
-- [Gerenciando entradas e saídas de um @pula-pula](base/pula-pula/Readme.md)
-- [Gerenciando os múltiplos grafites de uma @lapiseira](base/lapiseira/Readme.md)
-- [Cuidado com as armadilhas, ou não chegará no final do @tabuleiro](base/tabuleiro/Readme.md)
+- [@budega - Gerencie a fila de espera e atendimento](base/budega/Readme.md)
+- [@pula-pula - Gerenciando entradas e saídas](base/pula-pula/Readme.md)
+- [@lapiseira - Gerenciando os múltiplos grafites](base/lapiseira/Readme.md)
+- [@tabuleiro - Cuidado com as armadilhas](base/tabuleiro/Readme.md)
 
 ### ArrayList II - Arrays de Null
 
-- [Gerenciando reservas e cancelamentos de uma sala de @cinema](base/cinema/Readme.md)
-- [Gerenciando assentos prioritários e normais em uma @topic](base/topic/Readme.md)
-- [Comprando comida em uma máquina de @junkfood](base/junkfood/Readme.md)
+- [@cinema - Gerenciando reservas e cancelamentos de uma sala de cinema](base/cinema/Readme.md)
+- [@topic - Gerenciando assentos prioritários e normais](base/topic/Readme.md)
+- [@junkfood - Comprando comida cara e duvidosa](base/junkfood/Readme.md)
 
 ### ArrayList III - Composição e Enum
 
-- [Implementando um único @contato](base/contato/Readme.md)
-- [Guardando moedas e itens em um @porquinho](base/porquinho/Readme.md)
-- [Operações de saque, depósito, extrato e @tarifas](base/tarifas/Readme.md)
+- [@contato - Gerenciando Telefones](base/contato/Readme.md)
+- [@porquinho - Guardando moedas e itens em um cofrinho](base/porquinho/Readme.md)
+- [@tarifas - Operações de saque, depósito, extrato](base/tarifas/Readme.md)
 
 ## Melhorando o código <!-- group -->
 
 ### Mapas && Exceções
 
-- [Gerencie os vários contatos da @agenda](base/agenda/Readme.md)
-- [Gerencie os empŕestimos de um @agiota](base/agiota/Readme.md)
+- [@agenda - Gerencie os vários contatos](base/agenda/Readme.md)
+- [@agiota - Gerencie os empŕestimos](base/agiota/Readme.md)
 
 ### Mapas && Exceções II
 
-- [De uma bilheteria, cadastre cada @evento](base/evento/Readme.md)
-- [Dos eventos da bilheteria, cadastre cada @setor](base/setor/Readme.md)
+- [@evento - bilheteria](base/evento/Readme.md)
+- [@setor - eventos da bilheteria](base/setor/Readme.md)
 
 ## Polimorfismo <!-- group -->
 
 ### Herança I
 
 - [@shapes - Utilizando interface em círculos e retângulos](base/shapes/Readme.md)
-- [Cobrando o valor de carros e motos no @estacionamento](base/estacionamento/Readme.md)
-- [Seu porquinho cresceu e virou um @cofre](base/cofre/Readme.md)
-- [Crie as contas poupança e corrente na hora do @cadastro](base/cadastro/Readme.md)
-- [De círculos e retângulos, calcule a área e o @perimetro](base/perimetro/Readme.md)
+- [@estacionamento - Cobrando o valor de carros e motos](base/estacionamento/Readme.md)
+- [@cofre - Seu porquinho cresceu](base/cofre/Readme.md)
+- [@cadastro - Crie as contas poupança e corrente](base/cadastro/Readme.md)
+- [@perimetro - De círculos e retângulos, calcule a área e](base/perimetro/Readme.md)
 
 ## Relacionamentos NxN <!-- group -->
 
@@ -156,22 +155,6 @@
 - [Cache e redundância em @favoritos](base/favoritos/Readme.md)
 - [@trem](base/trem/Readme.md)
 
-### Modelos em Avaliação
-
-- [@carro2 - Se não pode comprar um, construa](base/carro2/Readme.md)
-- [@animal2 - Nasce, cresce, morre](base/animal2/Readme.md)
-- [@calculadora2 - Cuidado com a bateria](base/calculadora2/Readme.md)
-- [@grafite2 - Porta minas](base/grafite2/Readme.md)
-- [@motoca2 - Passeando no parque](base/motoca2/Readme.md)
-- [@budega2 - Gerencie a fila de espera e atendimento](base/budega2/Readme.md)
-- [@cinema2 - Gerenciando reservas e cancelamentos de uma sala de cinema](base/cinema2/Readme.md)
-- [@porquinho2 - Guardando moedas e itens em um cofrinho](base/porquinho2/Readme.md)
-- [@junkfood2 - Comprando comida cara e duvidosa](base/junkfood2/Readme.md)
-- [@shapes2 - Utilizando interface em círculos e retângulos](base/shapes2/Readme.md)
-- [Cobrando o valor de carros e motos no @estacionamento2](base/estacionamento2/Readme.md)
-- [Operações de saque, depósito, extrato e @tarifas2](base/tarifas2/Readme.md)
-- [Padrão Composite e Decorator: @produto2](base/produto2/Readme.md)
-
 ### Rascunhos
 
-- [Padrão Composite e Decorator: @produto](base/produto/Readme.md)
+- [@produto - Padrão Composite e Decorator](base/produto/Readme.md)

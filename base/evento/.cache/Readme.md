@@ -1,4 +1,4 @@
-# De uma bilheteria, cadastre cada @evento
+# @evento - bilheteria
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/evento/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

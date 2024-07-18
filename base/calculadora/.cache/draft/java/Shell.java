@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Shell {
-    static Calculator calc = new Calculator(0);
+    static Adapter adp = new Adapter();
 
     public static void main(String[] _args) {
         while (true) {
@@ -10,19 +10,19 @@ public class Shell {
             write('$' + line);
 
             if ("show".equals(args[0])) {
-                write(calc.toString());
+                write(adp.show());
             }
             else if ("init".equals(args[0])) {
-                calc = new Calculator((int) number(args[1]));
+                adp.init((int) number(args[1]));
             }
             else if ("charge".equals(args[0])) {
-                calc.chargeBattery((int) number(args[1]));
+                adp.charge((int) number(args[1]));
             }
             else if ("sum".equals(args[0])) {
-                calc.sum((int) number(args[1]), (int) number(args[2]));
+                adp.sum((int) number(args[1]), (int) number(args[2]));
             }
             else if ("div".equals(args[0])) {
-                calc.division((int) number(args[1]), (int) number(args[2]));
+                adp.div((int) number(args[1]), (int) number(args[2]));
             }
             else if ("end".equals(args[0])) {
                 break;

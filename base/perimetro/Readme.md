@@ -1,4 +1,4 @@
-# De círculos e retângulos, calcule a área e o @perimetro
+# @perimetro - De círculos e retângulos, calcule a área e
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

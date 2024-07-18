@@ -1,4 +1,4 @@
-# De uma bilheteria, cadastre cada @evento
+# @evento - bilheteria
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

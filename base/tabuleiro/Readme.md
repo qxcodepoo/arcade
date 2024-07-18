@@ -1,4 +1,4 @@
-# Cuidado com as armadilhas, ou não chegará no final do @tabuleiro
+# @tabuleiro - Cuidado com as armadilhas
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

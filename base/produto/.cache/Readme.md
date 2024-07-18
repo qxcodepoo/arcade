@@ -1,4 +1,4 @@
-# Padrão Composite e Decorator: @produto
+# @produto - Padrão Composite e Decorator
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/produto/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
@@ -7,44 +7,92 @@
 
 ---
 
-Padrões de projeto são soluções para problemas comuns que encontramos ao projetar um sistema. Eles são como receitas de bolo que podemos aplicar em nossos projetos para resolver problemas comuns. Os padrões de projeto são divididos em três categorias: padrões de criação, padrões estruturais e padrões comportamentais.
+Padrões de projeto são soluções para problemas comuns que encontramos ao projetar um sistema. Eles são como receitas de bolo que podemos aplicar em nossos projetos para resolver problemas recorrentes. Os padrões de projeto são divididos em três categorias: padrões de criação, padrões estruturais e padrões comportamentais.
 
-Vamos trabalhar os conceitos de dois padrões de projeto: Composite e Decorator.
+Vamos trabalhar os conceitos de dois padrões de projeto: Composite e Decorator, e adicionar o conceito de uma classe de controle usando o padrão Adapter.
 
 ## Composite
 
-O padrão Composite é um padrão estrutural que permite que objetos sejam agrupados de forma a tratá-los como se fossem um único objeto. O padrão Composite permite que clientes tratem objetos individuais e composições de objetos de maneira uniforme.
+O padrão Composite é um padrão estrutural que permite que objetos sejam agrupados de forma a tratá-los como se fossem um único objeto. Ele permite que clientes tratem objetos individuais e composições de objetos de maneira uniforme.
 
 ## Decorator
 
-O padrão Decorator é um padrão estrutural que permite que responsabilidades sejam adicionadas a um objeto dinamicamente. O padrão Decorator permite que um objeto seja envolvido por outros objetos que adicionam comportamento a ele. O padrão Decorator é frequentemente usado para adicionar responsabilidades a objetos sem que isso cause um efeito colateral para os outros objetos.
+O padrão Decorator é um padrão estrutural que permite que responsabilidades sejam adicionadas a um objeto dinamicamente. Ele permite que um objeto seja envolvido por outros objetos que adicionam comportamento a ele. É frequentemente usado para adicionar responsabilidades a objetos sem que isso cause um efeito colateral para os outros objetos.
 
-## Exemplo
+### Exemplo
 
-Vamos modelar um sistema de vendas de produtos. O sistema deve permitir que sejam cadastrados produtos simples e pacotes. Pacotes são o agrupamento de produtos que devem ser vendidos juntos. Produtos simples são produtos que não contém outros produtos. Pacotes e produtos simples devem ser tratados de forma uniforme. Além disso, deve ser possível criar produtos ou pacotes com disconto, em quaisquer tipo de montagem ou configuração.
+Vamos modelar um sistema de vendas de produtos. O sistema deve permitir que sejam cadastrados produtos simples e pacotes. Pacotes são o agrupamento de produtos que devem ser vendidos juntos. Produtos simples são produtos que não contêm outros produtos. Pacotes e produtos simples devem ser tratados de forma uniforme. Além disso, deve ser possível criar produtos ou pacotes com desconto, em quaisquer tipo de montagem ou configuração.
 
-## Resolução
+### Descrição
 
-- Vamos criar uma interface `IProduct` que define os métodos `getPrice()` e `getLabel()`. Ela representa nosso contrato de o que uma classe deve implementar para ser considerada um produto.
-- Vamos criar uma classe `Product` que implementa a interface `IProduct`.
-  - Ela representa um produto simples. A classe `Product` possui os atributos `name` e `price`.
-  - O método `getPrice()` retorna o preço do produto.
-  - O método `getLabel()` retorna o nome do produto.
-- Vamos criar uma classe `Bundle` (Pacote) que implementa a interface `IProduct`.
-  - Ela ao mesmo tempo é um produto e contém produtos.
-  - A classe `Bundle` possui o atributo `products` que é uma lista de produtos que ela contém.
-  - O método `addProduct()` adiciona um produto na lista de produtos.
-  - O método `getPrice()` retorna o preço do pacote que é calculado a partir da soma dos preços de cada um produtos que o pacote contém.
-  - O método `getLabel()` retorna uma String com os nomes dos produtos contidos no pacote.
-- Vamos criar uma classe `DiscountedProduct` (Produto com desconto) que implementa a interface `IProduct`.
-  - Ela ao mesmo tempo é um produto e contém um produto.
-  - A classe `DiscountedProduct` possui os atributos `product` e `discount`.
-  - O método `getPrice()` retorna o preço do produto com desconto que é calculado a partir do preço do produto que ele contém menos o desconto.
-  - O método `getLabel()` retorna uma String com o nome do produto que ele contém e o desconto.
+#### Interface IProduct
 
-## Draft
+Define os métodos que todas as classes de produto devem implementar.
 
-[draft.ts](https://github.com/qxcodepoo/arcade/blob/master/base/produto/.cache/draft.ts)
+- `getPrice()`: Retorna o preço do produto.
+- `getLabel()`: Retorna o rótulo do produto.
+
+#### Classe Product
+
+Implementa a interface `IProduct` e representa um produto simples.
+
+- **Atributos:**
+  - `name`: Nome do produto.
+  - `price`: Preço do produto.
+- **Métodos:**
+  - `constructor(name: string, price: number)`: Inicializa os atributos `name` e `price`.
+  - `getPrice()`: Retorna o preço do produto.
+  - `getLabel()`: Retorna o nome do produto.
+
+#### Classe Bundle
+
+Implementa a interface `IProduct` e representa um pacote de produtos (padrão composite).
+
+- **Atributos:**
+  - `products`: Lista de produtos que compõem o pacote.
+- **Métodos:**
+  - `constructor(products: IProduct[] = [])`: Inicializa a lista de produtos.
+  - `addProduct(product: IProduct)`: Adiciona um produto ao pacote.
+  - `getPrice()`: Retorna o preço total do pacote.
+  - `getLabel()`: Retorna uma string com os nomes dos produtos no pacote. Exemplo: `[bermuda, camisa, bone]`.
+
+#### Classe DiscountedProduct
+
+Implementa a interface `IProduct` e representa um produto com desconto (padrão decorator).
+
+- **Atributos:**
+  - `product`: O produto original.
+  - `discount`: O percentual de desconto.
+- **Métodos:**
+  - `constructor(product: IProduct, discount: number)`: Inicializa os atributos `product` e `discount`.
+  - `getPrice()`: Retorna o preço do produto com desconto.
+  - `getLabel()`: Retorna uma string com o nome do produto e o desconto aplicado. Exemplo: `camisa(10% OFF)`.
+
+#### Classe Manager
+
+Serve para gerenciar a criação e manipulação dos produtos.
+
+- **Atributos:**
+  - `products`: Array para armazenar os produtos.
+- **Métodos:**
+  - `constructor()`: Inicializa o array `products`.
+  - `addProduct(name: string, price: number)`: Adiciona um novo produto ao array.
+  - `addBundle(indexes: number[])`: Cria um novo pacote com base nos índices fornecidos e adiciona ao array.
+  - `addDiscount(index: number, discount: number)`: Adiciona um desconto a um produto existente.
+  - `toString()`: Retorna uma string com informações sobre todos os produtos no array.
+
+#### Classe Adapter
+
+Serve como uma classe de controle, gerenciando a criação e manipulação dos produtos.
+
+- **Atributos:**
+  - `manager`: Instância da classe `Manager`.
+- **Métodos:**
+  - `constructor()`: Inicializa a instância de `Manager`.
+  - `addProduct(label: string, price: number)`: Adiciona um novo produto ao manager.
+  - `addBundle(indexes: number[])`: Adiciona um novo pacote ao manager.
+  - `addDiscount(index: number, discount: number)`: Adiciona um desconto a um produto no manager.
+  - `toString()`: Retorna uma string com a representação de todos os produtos no manager.
 
 ## Guide
 

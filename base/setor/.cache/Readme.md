@@ -1,4 +1,4 @@
-# Dos eventos da bilheteria, cadastre cada @setor
+# @setor - eventos da bilheteria
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/setor/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

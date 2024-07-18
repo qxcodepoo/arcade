@@ -1,4 +1,4 @@
-# Alimente, brinque e mate o @tamagotchi
+# @tamagotchi - Alimente, brinque e mate
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tamagotchi/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

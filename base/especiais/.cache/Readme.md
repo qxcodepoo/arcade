@@ -1,4 +1,4 @@
-# Operações @especiais
+# @especiais - Operações IV
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/especiais/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

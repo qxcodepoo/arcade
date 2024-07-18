@@ -1,4 +1,4 @@
-# De círculos e retângulos, calcule a área e o @perimetro
+# @perimetro - De círculos e retângulos, calcule a área e
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/perimetro/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

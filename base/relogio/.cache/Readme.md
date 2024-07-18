@@ -1,4 +1,4 @@
-# Garante uma hora válida no @relogio
+# @relogio - Garante uma hora válida
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/relogio/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

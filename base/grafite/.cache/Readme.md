@@ -1,4 +1,4 @@
-# Porta minas com um @grafite
+# @grafite - Porta minas
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
@@ -8,180 +8,114 @@
 ---
 
 <!-- toch -->
-[Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/cover.jpg)
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-[![explicação](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/../_images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
+[![explicação](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/../../pages/images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
 
 ***
 
 ## Intro
 
-- Iniciar lapiseira.
-  - Inicia uma lapiseira de determinado calibre sem grafite no bico.
-- Inserir grafite.
-  - Insere um grafite passando
-    - o calibre: float.
-    - a dureza: string.
-    - o tamanho em mm: int.
-  - Não deve aceitar um grafite de calibre não compatível.
-- Remover grafite.
-  - Retira o grafite se houver algum.
-- Escrever folha.
-  - Não é possível escrever se não há grafite ou o grafite tem tamanho menor ou igual a 10mm.
-  - Quanto mais macio o grafite, mais rapidamente ele se acaba. Para simplificar, use a seguinte regra:
-    - Grafite HB: 1mm por folha.
-    - Grafite 2B: 2mm por folha.
-    - Grafite 4B: 4mm por folha.
-    - Grafite 6B: 6mm por folha.
-    - O último centímetro de um grafite não pode ser aproveitado, quando o grafite estiver com 10mm, não é mais possível escrever.
-    - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
+O objetivo dessa atividade é implementar uma lapiseira que permite inserir, remover grafite e escrever em uma folha, considerando a dureza e tamanho do grafite.
 
-***
+- Descrição
+  - A lapiseira é capaz de iniciar, inserir e remover grafite, além de escrever em uma folha.
+  - Para inserir um grafite, é necessário especificar o calibre (float), a dureza (string) e o tamanho em mm (int).
+  - A remoção do grafite só é possível se houver algum na lapiseira.
+  - A escrita na folha só é possível se houver grafite suficiente e se o tamanho do grafite for superior a 10mm.
+  - A quantidade de grafite gasto varia de acordo com a dureza do grafite. Quanto mais macio, mais ele se desgasta.
+  - Quando o tamanho do grafite atinge 10mm, não é mais possível escrever.
+  - Se não houver grafite suficiente para terminar a escrita na folha, é emitido um aviso de texto incompleto.
 
-## Treino
+- Responsabilidades
+  - A classe `Lead` é responsável por armazenar as informações do grafite.
+    - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
+    - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
+    - O método `usagePerSheet` retorna a quantidade de grafite gasto por folha.
+      - Um grafite `HB` gasta `1mm` por folha.
+      - Um grafite `2B` gasta `2mm` por folha.
+      - Um grafite `4B` gasta `4mm` por folha.
+      - Um grafite `6B` gasta `6mm` por folha.
+    - `size` representa o tamanho do grafite em `milímetros`.
+  - A classe `Pencil` é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.
+    - Ela referencia um único objeto lapiseira como atributo.
+    - E também possui um indicador de espessura `thickness`.
+  - A class `Adapter` faz a integração entre as chamadas de teste e as classes `Lead` e `Pencil`.
+    - Um método de atenção especial é o `insert`. Nele o `Adapter` recebe os dados do `Lead`. 
+    - Ela deve criar o objeto `Lead` e passá-lo à lapiseira que ela gerencia.
 
-- Parte 1: inserir.
-  - Crie a Classe `Grafite` apenas com o atributo `size`.
-  - Crie a Lapis apenas com o atributo `tip = null | Grafite`.
-  - Crie o construtor que inicializa o atributo `tip` para `null`.
-  - Crie o método `hasGrafite` que retorna `true` se tem grafite na lapiseira.
-  - Crie o método `insert` que insere um grafite na lapiseira se não houver um grafite.
-  - Crie um método `toString` que mostra a lapiseira e o grafite que está nela.
-  - Crie um objeto lapiseira.
-  - Imprima a lapiseira.
-  - Crie um objeto grafite e insira na lapiseira.
-  - Verifique se a lapiseira possui o grafite inserido.
-- Parte 2: removendo grafite.
-  - Crie o método `remove` que remove o grafite da ponta se ele existir.
-  - Imprima a lapiseira para verificar se o grafite foi removido.
-  - Verifique se o método `remove` retorna o grafite removido ou `null` se não tinha grafite.
-- Parte 3: escrevendo.
-  - Crie o método `writePage` que escreve na folha gastando 1 cm de grafite.
-  - Imprima a lapiseira para verificar se o grafite foi gasto.
-  - Se o grafite acabar, remova o grafite da lapiseira.
+```ts
+//Adapter
+void insert(thickness: number, hardness: string, size: number) {
+    this.pencil.insert(new Lead(thickness, hardness, size));
+}
 
-## Draft
+```
 
-<!-- links .cache/draft -->
-- cpp
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/fn.hpp)
-  - [lead.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/lead.hpp)
-  - [pencil.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/pencil.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/shell.cpp)
-- java
-  - [Lead.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Lead.java)
-  - [Pencil.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Pencil.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Shell.java)
-- ts
-  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/aashell.ts)
-  - [lead.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/lead.ts)
-  - [pencil.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/pencil.ts)
-<!-- links -->
+- Comandos
+  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
+  - `$iniciar calibre` - Inicializa a lapiseira com um determinado calibre.
+  - `$inserir calibre dureza tamanho` - Insere um grafite com o calibre, dureza e tamanho especificados.
+    - erros:
+      - `fail: calibre incompativel` - Se o calibre do grafite for diferente do calibre da lapiseira.
+      - `fail: ja existe grafite` - Se já houver um grafite na lapiseira.
+  - `$remover` - Remove o grafite da lapiseira, se houver.
+    - erros:
+      - `fail: nao existe grafite` - Se não houver grafite na lapiseira.
+  - `$escrever` - Escreve na folha, considerando o grafite presente na lapiseira.
+    - O grafite é gasto de acordo com a dureza.
+    - erros:
+      - `fail: nao existe grafite` - Se não houver grafite na lapiseira.
+      - `fail: tamanho insuficiente` - Se o tamanho do grafite for insuficiente para começar a escrita.
+      - `fail: folha incompleta` - Se o grafite não for suficiente para terminar a escrita.
 
 ## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/diagrama.png)
 
-<!-- load diagrama.puml fenced=ts:filter -->
+- Parte 1: Inserir
+  - Crie a classe `Grafite` com o atributo `size`.
+  - Crie a classe `Lapiseira` com o atributo `tip` inicializado como `null`.
+  - Implemente o método `hasGrafite` que retorna `true` se houver grafite na lapiseira.
+  - Implemente o método `insert` que insere um grafite na lapiseira, se não houver grafite.
+  - Implemente o método `toString` que mostra a lapiseira e o grafite presente.
+  - Crie um objeto `lapiseira` e verifique se está vazia.
+  - Crie um objeto `grafite` e insira na lapiseira.
+  - Verifique se a lapiseira possui o grafite inserido.
 
-```ts
-' Grafite
-class Lead {
-    ' calibre do grafite
-    - thickness : float
-    
-    ' dureza do grafite HB, 2B, 4B, 6B
-    - hardness  : string
+- Parte 2: Remover Grafite
+  - Implemente o método `remove` que retira o grafite da lapiseira, se houver.
+  - Verifique se o grafite foi removido corretamente.
+  - Verifique se o método `remove` retorna o grafite removido ou `null` se não havia grafite.
 
-    ' tamanho do grafite em milímetros
-    - size      : int
-    __
-  
-    ' inicializa os atributos do grafite
-    + Lead(thickness : float, hardness : string, size : int)
-    
-    ' gastoPorFolha
-    ' retorna o gasto em milímetros para uma página escrita
-    ' 1mm para HB
-    ' 2mm para 2B
-    ' 4mm para 4B
-    ' 6mm para 6B
-    + usagePerSheet() : int
-    __
-    
-    ' apenas os métodos get
-    + getHardness()  : string
-    + getSize()      : int
-    + getThickness() : float
-
-    __
-    + setSize(size : int)
-    __
-    + toString()      : string
-}
-
-
-class Pencil {
-    
-    ' calibre da lapiseira
-    - thickness : float
-
-    ' guarda o grafite que está na ponta da lapiseira
-    ' um valor nulo indica que a lapiseira está sem grafite
-    - tip       : Lead | null
-    __
-
-    ' inicializa os atributos da lapiseira
-    ' tip para null
-    + Pencil(thickness : float)
-    
-    ' retorna true se tem grafite na lapiseira
-    + hasGrafite()        : boolean
-    
-    ' insere o grafite na lapiseira
-    ' verifica se ja tem grafite
-    ' verifica se o grafite tem calibre compatível
-    + insert(lead : Lead) : boolean
-    
-    ' remove o grafite da ponta
-    ' verifica se existe grafite na ponta
-    ' retorna o grafite removido
-    ' ou null se não tinha grafite
-    ' remover significa colocar o atributo tip para null
-    + remove()            : Lead | null
-
-    ' escreve na folha gastando o grafite
-    ' verifica se existe grafite na ponta
-    ' tenta diminuir o tamanho do grafite 
-    '   utilizando os métodos getSize() e setSize()
-    '   escrever uma folha gasta tip.usagePerSheet() mm
-    ' verifica se existe tamanho para escrever a folha inteira
-    + writePage()         : void
-    
-    __
-    + toString()          : string
-}
-```
-
-<!-- load -->
+- Parte 3: Escrever na Folha
+  - Implemente o método `writePage` que escreve na folha.
+  - Implemente o método `usagePerSheet` que retorna a quantidade de grafite gasto por folha.
+  - Verifique se a lapiseira consegue escrever na folha.
+  - Faça as verificações antes de escrever na folha.
+  - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa. 
+    - Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.
 
 ***
 
 ## Shell
 
 ```bash
-#__case inserindo grafites
+
+#TEST_CASE inserindo grafites
+
 $init 0.5
 $show
 calibre: 0.5, grafite: null
 
-#__case incompativel
+#TEST_CASE incompativel
+
 $insert 0.7 2B 50
 fail: calibre incompativel
 $insert 0.5 2B 50
@@ -193,24 +127,29 @@ $end
 ***
 
 ```bash
-#__case inserindo
+
+#TEST_CASE inserindo
+
 $init 0.3
 $insert 0.3 2B 50
 $show
 calibre: 0.3, grafite: [0.3:2B:50]
 
-#__case ja existe
+#TEST_CASE ja existe
+
 $insert 0.3 4B 70
 fail: ja existe grafite
 $show
 calibre: 0.3, grafite: [0.3:2B:50]
 
-#__case removendo
+#TEST_CASE removendo
+
 $remove
 $show
 calibre: 0.3, grafite: null
 
-#__case reinserindo
+#TEST_CASE reinserindo
+
 $insert 0.3 4B 70
 $show
 calibre: 0.3, grafite: [0.3:4B:70]
@@ -220,12 +159,15 @@ $end
 ***
 
 ```bash
-#__case sem grafite
+
+#TEST_CASE sem grafite
+
 $init 0.9
 $write
 fail: nao existe grafite
 
-#__case escrevendo 1
+#TEST_CASE escrevendo 1
+
 $insert 0.9 4B 14
 $write
 $write
@@ -238,13 +180,17 @@ $end
 ***
 
 ```bash
-#__case escrevendo 2
+
+#TEST_CASE escrevendo 2
+
 $init 0.9
 $insert 0.9 4B 16
 $write
 $show
 calibre: 0.9, grafite: [0.9:4B:12]
-#__case escrevendo 3
+
+#TEST_CASE escrevendo 3
+
 $write
 fail: folha incompleta
 $show
@@ -252,3 +198,17 @@ calibre: 0.9, grafite: [0.9:4B:10]
 $end
 ```
 
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/shell.cpp)
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Adapter.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/aashell.ts)
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/adapter.ts)
+<!-- links -->

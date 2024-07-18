@@ -1,4 +1,4 @@
-# Crie as contas poupança e corrente na hora do @cadastro
+# @cadastro - Crie as contas poupança e corrente
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/cadastro/Readme.md)
 - Para programar na sua máquina (local/virtual) use:

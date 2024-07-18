@@ -1,4 +1,4 @@
-# Crie as contas poupança e corrente na hora do @cadastro
+# @cadastro - Crie as contas poupança e corrente
 
 <!-- toch -->
 [Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

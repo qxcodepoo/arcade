@@ -6,14 +6,14 @@ skinparam dpi 150
 
 '==
 class Client {
-  - fone : string
+  - fone : number
   - id   : string
   __
-  + Client(id : string, fone : string)
+  + Client(id : string, fone : number)
   __
-  + getFone() : string
+  + getFone() : number
   + getId()   : string
-  + setFone(fone : string)
+  + setFone(fone : number)
   + setId(id : string)
   __
   + toString() : string
@@ -39,7 +39,7 @@ class Sala {
   ' verifica se a cadeira está ocupada
   ' verifica se o cliente já está na sala (use o método procurar)
   ' cria o cliente e coloca na cadeira
-  + reservar(id : string, fone : string, ind : int) : boolean
+  + reservar(id : string, fone : number, ind : int) : boolean
   
   ' procura o cliente pelo nome (use o método procurar)
   ' remover o cliente da cadeira
