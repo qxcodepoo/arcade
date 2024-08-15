@@ -112,6 +112,17 @@ class Estacionamento {
 
 <!-- load -->
 
+## Draft
+
+<!-- links .cache/draft -->
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/java/Adapter.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/ts/aashell.ts)
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/ts/adapter.ts)
+<!-- links -->
+
 ## Shell
 
 ```sh

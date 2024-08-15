@@ -79,7 +79,7 @@
 
 ### Modificadores de Acesso
 
-- [@relogio - Garante uma hora válida](base/relogio/Readme.md)
+- [Garante uma hora válida no @relogio](base/relogio/Readme.md)
 
 ### Agregação Simples
 

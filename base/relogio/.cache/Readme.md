@@ -1,4 +1,4 @@
-# @relogio - Garante uma hora válida
+# Garante uma hora válida no @relogio
 
 - Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/relogio/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
@@ -8,8 +8,8 @@
 ---
 
 <!-- toch -->
-[Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/relogio/cover.jpg)
@@ -25,43 +25,11 @@ O sistema deverá:
   - O construtor deve receber 3 parâmetros, hora, minuto e segundo.
   - Para fazer a inicialização dos 3 parâmetros, utilize os métodos set.
 - Crie os métodos getters e setters para cada atributo.
-  - Os métodos set devem garantir que os valor atribuúido sempre seja válido, ou não realize nenhuma mudança.
+  - Os métodos set devem garantir que os valor atribuído sempre seja válido, ou não realize nenhuma mudança.
 - Crie um método que imprime a hora no formato HH:MM:SS.
 - Crie um método que incrementa o segundo em 1.
 
 ***
-
-## Treino
-
-- Parte 1: atributos públicos
-  - Crie a classe relógio com os atributos públicos hora, minuto e segundo.
-  - Crie o método construtor que inicializa os atributos com 0.
-  - Crie o método toString que retorna a hora no formato HH:MM:SS.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Atribua valores inválidos para hora, minuto e segundo e imprima a hora.
-- Parte 2: atributos privados
-  - Torne os atributos hora, minuto e segundo privados.
-  - Crie os métodos getters e setters para cada atributo.
-    - Nos métodos set, NÃO realize nenhuma validação.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Atribua valores inválidos para hora, minuto e segundo e imprima a hora.
-- Parte 3: validação
-  - Nos métodos set, realize a validação dos valores.
-    - Hora deve ser entre 0 e 23. Minuto e segundo devem ser entre 0 e 59.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Tente atribuir valores inválidos para hora, minuto e segundo e verifique se a hora permaneceu a mesma.
-- Parte 4: construtor
-  - Crie um método construtor que recebe hora, minuto e segundo.
-  - Utilize os métodos set para fazer a inicialização dos atributos.
-  - Tente atribuir valores inválidos para hora, minuto e segundo através do construtor e verifique se a hora permaneceu a mesma.
-- Parte 5: nextSecond
-  - Crie um método nextSecond que incrementa o segundo em 1.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Teste o método nextSecond criando horas com os seguintes valores e testando:
-    - 10:02:30
-    - 15:50:59
-    - 21:59:59
-    - 23:59:59
 
 ## Draft
 
@@ -75,72 +43,12 @@ O sistema deverá:
   - [Time.java](https://github.com/qxcodepoo/arcade/blob/master/base/relogio/.cache/draft/java/Time.java)
 - ts
   - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/relogio/.cache/draft/ts/aashell.ts)
-  - [time.ts](https://github.com/qxcodepoo/arcade/blob/master/base/relogio/.cache/draft/ts/time.ts)
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/relogio/.cache/draft/ts/adapter.ts)
 <!-- links -->
 
 ## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/relogio/diagrama.png)
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-class Time {
-  - hour   : int
-  - minute : int
-  - second : int
-  __
-  
-  ' inicializa os atributos todos para 0
-  ' invoca os métodos setHour, setMinute e setSecond
-  ' para tentar atribuir valores válidos
-  + Time(hour : int, minute : int, second : int)
-  
-  ' retorna string no formato hh:mm:ss
-  + toString() : string
-  __
-  
-  ' apenas retorna o valor dos atributos
-  + getHour()   : int
-  + getMinute() : int
-  + getSecond() : int
-  __
-  
-  ' se valor for válido
-  '  atribui ao atributo hour
-  ' emite erro se for inválido
-  + setHour  (value   : int)
-  
-  ' se valor for válido
-  '   atribui ao atributo minute
-  ' emite erro se for inválido
-  + setMinute(value : int)
-  
-  ' se valor for válido
-  '   atribui ao atributo second
-  ' emite erro se for inválido
-  + setSecond(value : int)
-  __
-  
-  ' incrementa o atributo second em um segundo
-  ' então, se necessário, incrementa o atributo minute
-  ' e, se necessário, incrementa o atributo hour
-  + nextSecond()
-}
-
-class Legenda {
-  + atributoPublic
-  - atributoPrivate
-  # atributoProtected
-  __
-  + métodoPublic()
-  - métodoPrivate()
-  # métodoProtected()
-}
-
-```
-
-<!-- load -->
 
 ***
 

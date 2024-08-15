@@ -8,8 +8,8 @@
 ---
 
 <!-- toch -->
-[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/cover.jpg)
@@ -169,4 +169,18 @@ $end
 - ts
   - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/aashell.ts)
   - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/adapter.ts)
+<!-- links -->
+
+## Cheat
+
+<!-- links .cache/cheat -->
+- cpp
+  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/cpp/adapter.hpp)
+  - [car.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/cpp/car.hpp)
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/java/Adapter.java)
+  - [Car.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/java/Car.java)
+- ts
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/ts/adapter.ts)
+  - [car.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/ts/car.ts)
 <!-- links -->

@@ -1,8 +1,8 @@
-# @relogio - Garante uma hora válida
+# Garante uma hora válida no @relogio
 
 <!-- toch -->
-[Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -18,7 +18,7 @@ O sistema deverá:
   - O construtor deve receber 3 parâmetros, hora, minuto e segundo.
   - Para fazer a inicialização dos 3 parâmetros, utilize os métodos set.
 - Crie os métodos getters e setters para cada atributo.
-  - Os métodos set devem garantir que os valor atribuúido sempre seja válido, ou não realize nenhuma mudança.
+  - Os métodos set devem garantir que os valor atribuído sempre seja válido, ou não realize nenhuma mudança.
 - Crie um método que imprime a hora no formato HH:MM:SS.
 - Crie um método que incrementa o segundo em 1.
 
@@ -36,72 +36,12 @@ O sistema deverá:
   - [Time.java](.cache/draft/java/Time.java)
 - ts
   - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [time.ts](.cache/draft/ts/time.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
 <!-- links -->
 
 ## Guide
 
 ![diagrama](diagrama.png)
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-class Time {
-  - hour   : int
-  - minute : int
-  - second : int
-  __
-  
-  ' inicializa os atributos todos para 0
-  ' invoca os métodos setHour, setMinute e setSecond
-  ' para tentar atribuir valores válidos
-  + Time(hour : int, minute : int, second : int)
-  
-  ' retorna string no formato hh:mm:ss
-  + toString() : string
-  __
-  
-  ' apenas retorna o valor dos atributos
-  + getHour()   : int
-  + getMinute() : int
-  + getSecond() : int
-  __
-  
-  ' se valor for válido
-  '  atribui ao atributo hour
-  ' emite erro se for inválido
-  + setHour  (value   : int)
-  
-  ' se valor for válido
-  '   atribui ao atributo minute
-  ' emite erro se for inválido
-  + setMinute(value : int)
-  
-  ' se valor for válido
-  '   atribui ao atributo second
-  ' emite erro se for inválido
-  + setSecond(value : int)
-  __
-  
-  ' incrementa o atributo second em um segundo
-  ' então, se necessário, incrementa o atributo minute
-  ' e, se necessário, incrementa o atributo hour
-  + nextSecond()
-}
-
-class Legenda {
-  + atributoPublic
-  - atributoPrivate
-  # atributoProtected
-  __
-  + métodoPublic()
-  - métodoPrivate()
-  # métodoProtected()
-}
-
-```
-
-<!-- load -->
 
 ***
 

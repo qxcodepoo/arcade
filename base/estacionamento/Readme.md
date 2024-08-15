@@ -105,6 +105,17 @@ class Estacionamento {
 
 <!-- load -->
 
+## Draft
+
+<!-- links .cache/draft -->
+- java
+  - [Adapter.java](.cache/draft/java/Adapter.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->
+
 ## Shell
 
 ```sh

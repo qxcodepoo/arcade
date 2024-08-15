@@ -1,8 +1,8 @@
 # @carro - Se não pode comprar um, construa
 
 <!-- toch -->
-[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -55,6 +55,32 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 ## Guide
 
 ![diagrama](diagrama.png)
+
+- Parte 1: entrar
+  - Crie a classe Car com os atributos pass, passMax, gas, gasMax e km;
+  - Inicialize os atributos no construtor;
+  - Crie o método enter que incrementa pass;
+  - Crie um if para impedir que pass ultrapasse passMax;
+  - Crie o método toString mostrar o estado do carro.
+  - Teste seu código.
+- Parte 2: desembarcar
+  - Crie o método `leave` que decrementa `pass`.
+  - Crie um condicional para impedir que `pass` seja menor que 0.
+  - Teste seu código.
+- Parte 3: abastecer
+  - Crie o método `fuel` que incrementa `gas` com o valor passado.
+  - Crie um condicional para impedir que `gas` ultrapasse `gasMax`.
+  - Teste seu código.
+- Parte 4: dirigir
+  - Crie o método `drive` que incrementa `km` e decrementa `gas` com o valor passado.
+  - Crie testes para impedir que o carro dirija sem passageiros ou sem combustível.
+  - Teste seu código.
+- Parte 5: dirigir longas distâncias
+  - Crie testes para impedir que o carro dirija mais do que o combustível permite.
+  - Teste seu código.
+- Parte 6: Adapter
+  - Na classe `Adapter`, crie um atributo `carro` e o inicialize no construtor.
+  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Car`.
 
 ## Shell
 
@@ -136,4 +162,18 @@ $end
 - ts
   - [aashell.ts](.cache/draft/ts/aashell.ts)
   - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->
+
+## Cheat
+
+<!-- links .cache/cheat -->
+- cpp
+  - [adapter.hpp](.cache/cheat/cpp/adapter.hpp)
+  - [car.hpp](.cache/cheat/cpp/car.hpp)
+- java
+  - [Adapter.java](.cache/cheat/java/Adapter.java)
+  - [Car.java](.cache/cheat/java/Car.java)
+- ts
+  - [adapter.ts](.cache/cheat/ts/adapter.ts)
+  - [car.ts](.cache/cheat/ts/car.ts)
 <!-- links -->
