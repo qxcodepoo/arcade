@@ -7,6 +7,11 @@
 
 ---
 
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | --
+<!-- toch -->
+
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/cover.jpg)
 
 ## Intro
@@ -42,9 +47,9 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
 
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/diagrama.png)
 
-<!-- load diagrama.puml fenced=ts:filter -->
+<!-- load diagrama.puml fenced=java:filter -->
 
-```ts
+```java
 abstract class Veiculo {
   - id : string
   # tipo : string
@@ -102,7 +107,7 @@ class Estacionamento {
   + sair(id : string) : void
 
   ' incrementa a hora atual
-  + passarTempo() : void
+  + passarTempo(tempo : number) : void
 
   ' mostra a lista de veículos na ordem que foram estacionados
   + toString() : string
@@ -111,17 +116,6 @@ class Estacionamento {
 ```
 
 <!-- load -->
-
-## Draft
-
-<!-- links .cache/draft -->
-- java
-  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/java/Adapter.java)
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/java/Shell.java)
-- ts
-  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/ts/aashell.ts)
-  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/ts/adapter.ts)
-<!-- links -->
 
 ## Shell
 
@@ -172,3 +166,14 @@ $pagar uva9999
 Carro chegou 200 saiu 230. Pagar R$ 5.00
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- java
+  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/java/Adapter.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/ts/aashell.ts)
+  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/ts/adapter.ts)
+<!-- links -->

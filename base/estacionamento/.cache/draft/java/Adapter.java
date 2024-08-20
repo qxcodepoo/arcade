@@ -1,13 +1,11 @@
-class Adapter {
-
+public class Adapter {
     public Adapter(){
-
     }
 
     public void estacionar(String tipo, String id) {
     }
 
-    public void passarTempo(Number tempo) {
+    public void passarTempo(int tempo) {
     }
 
     public void pagar (String id) {

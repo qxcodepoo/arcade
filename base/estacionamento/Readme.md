@@ -1,5 +1,10 @@
 # @estacionamento - Cobrando o valor de carros e motos
 
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | --
+<!-- toch -->
+
 ![_](cover.jpg)
 
 ## Intro
@@ -35,9 +40,9 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
 
 ![_](diagrama.png)
 
-<!-- load diagrama.puml fenced=ts:filter -->
+<!-- load diagrama.puml fenced=java:filter -->
 
-```ts
+```java
 abstract class Veiculo {
   - id : string
   # tipo : string
@@ -95,7 +100,7 @@ class Estacionamento {
   + sair(id : string) : void
 
   ' incrementa a hora atual
-  + passarTempo() : void
+  + passarTempo(tempo : number) : void
 
   ' mostra a lista de veículos na ordem que foram estacionados
   + toString() : string
@@ -104,17 +109,6 @@ class Estacionamento {
 ```
 
 <!-- load -->
-
-## Draft
-
-<!-- links .cache/draft -->
-- java
-  - [Adapter.java](.cache/draft/java/Adapter.java)
-  - [Shell.java](.cache/draft/java/Shell.java)
-- ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
-<!-- links -->
 
 ## Shell
 
@@ -165,3 +159,14 @@ $pagar uva9999
 Carro chegou 200 saiu 230. Pagar R$ 5.00
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- java
+  - [Adapter.java](.cache/draft/java/Adapter.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->

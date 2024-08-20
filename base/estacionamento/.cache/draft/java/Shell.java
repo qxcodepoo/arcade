@@ -23,7 +23,3 @@ public class Shell {
     private static double  number(String value) { return Double.parseDouble(value); }
     private static void    write(String value)  { System.out.println(value); }
 }
-
-
-
-

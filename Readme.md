@@ -128,7 +128,6 @@
 - [@estacionamento - Cobrando o valor de carros e motos](base/estacionamento/Readme.md)
 - [@cofre - Seu porquinho cresceu](base/cofre/Readme.md)
 - [@cadastro - Crie as contas poupança e corrente](base/cadastro/Readme.md)
-- [@perimetro - De círculos e retângulos, calcule a área e](base/perimetro/Readme.md)
 
 ## Relacionamentos NxN <!-- group -->
 

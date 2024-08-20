@@ -61,7 +61,7 @@ class Estacionamento {
   + sair(id : string) : void
 
   ' incrementa a hora atual
-  + passarTempo() : void
+  + passarTempo(tempo : number) : void
 
   ' mostra a lista de veículos na ordem que foram estacionados
   + toString() : string

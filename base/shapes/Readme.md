@@ -1,8 +1,8 @@
 # @shapes - Utilizando interface em círculos e retângulos
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -204,3 +204,14 @@ Circ: A=7.07 P=9.42
 
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- java
+  - [Adapter.java](.cache/draft/java/Adapter.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [aashell.ts](.cache/draft/ts/aashell.ts)
+  - [adapter.ts](.cache/draft/ts/adapter.ts)
+<!-- links -->
