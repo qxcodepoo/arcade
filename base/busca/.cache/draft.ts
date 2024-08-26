@@ -22,6 +22,7 @@ let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
+export {};
 
 function main() {
     while (true) {
@@ -69,5 +70,3 @@ function to_vet(token: string): number[] {
     let inside = token.substring(1, size - 1);
     return inside === "" ? [] : inside.split(",").map(x => +x)
 }
-
-

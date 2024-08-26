@@ -35,6 +35,7 @@ let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
+export {};
 
 function main() {
     while (true) {
@@ -86,11 +87,11 @@ function to_vet(token: string): number[] {
 //Converte de vetor para string sem inserir os espaços
 //[1, 2, 3, 4] => "[1,2,3,4]"
 function fmt(vet: any[]): string {
-    return "[" + vet.join(", ") + "]";
+    return "[" + vet?.join(", ") + "]";
 }
 
 function fmtpair(vet: number[][]): string {
-    return fmt(vet.map((x: number[]) => {
+    return fmt(vet?.map((x: number[]) => {
         let [key, value] = x;
         return "(" + key + ", " + value + ")";
     }));
@@ -98,4 +99,3 @@ function fmtpair(vet: number[][]): string {
 
 
 main()
-
