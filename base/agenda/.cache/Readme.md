@@ -182,7 +182,7 @@ class Agenda {
 ## Shell
 
 ```py
-#__case adicionando em lote
+#TEST_CASE adicionando em lote
 $add eva oio:8585 cla:9999
 $add ana tim:3434
 $add bia viv:5454
@@ -193,7 +193,7 @@ $show
 - eva [oio:8585, cla:9999]
 
 
-#__case adicionando a um contato existente
+#TEST_CASE adicionando a um contato existente
 
 # como ana já existe, não crie um novo contato
 # adicione os telefones ao contato existente
@@ -205,7 +205,7 @@ $show
 - eva [oio:8585, cla:9999]
 
 
-#__case removendo telefone
+#TEST_CASE removendo telefone
 # remove o elemento indice 0 da ana
 $rmFone ana 0
 
@@ -214,14 +214,14 @@ $show
 - bia [viv:5454]
 - eva [oio:8585, cla:9999]
 
-#__case removendo contato
+#TEST_CASE removendo contato
 $rm bia
 
 $show
 - ana [cas:4567, oio:8754]
 - eva [oio:8585, cla:9999]
 
-#__case adicionando mais contatos
+#TEST_CASE adicionando mais contatos
 
 $add ava tim:5454
 $add rui viv:2222 oio:9991
@@ -234,7 +234,7 @@ $show
 - rui [viv:2222, oio:9991]
 - zac [rec:3131]
 
-#__case busca por padrao
+#TEST_CASE busca por padrao
 $search va
 - ava [tim:5454]
 - eva [oio:8585, cla:9999]
@@ -243,7 +243,7 @@ $search 999
 - eva [oio:8585, cla:9999]
 - rui [viv:2222, oio:9991]
 
-#__case toggle favoritos
+#TEST_CASE toggle favoritos
 $tfav ana
 $tfav rui
 
@@ -254,7 +254,7 @@ $show
 @ rui [viv:2222, oio:9991]
 - zac [rec:3131]
 
-#__case favoritos
+#TEST_CASE favoritos
 $favs
 @ ana [cas:4567, oio:8754]
 @ rui [viv:2222, oio:9991]

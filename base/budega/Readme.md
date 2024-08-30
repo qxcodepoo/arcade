@@ -85,7 +85,7 @@ Espera: [carla, maria, rubia]
 
 ## Answers
 
-[![_](../../pages/images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
+[![_](../../wiki/images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 
 ***
 
@@ -199,4 +199,3 @@ $end
   - [aashell.ts](.cache/draft/ts/aashell.ts)
   - [adapter.ts](.cache/draft/ts/adapter.ts)
 <!-- links -->
-

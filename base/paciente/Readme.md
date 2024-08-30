@@ -22,7 +22,7 @@ Na UTI do nosso hospital existem vários pacientes. Cada paciente é atendico po
     - Cada médico tem um id(nome) e uma especialidade.
 
 ```sh
-#__case inserir
+#TEST_CASE inserir
 $addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 $addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 $show
@@ -39,7 +39,7 @@ Med: snif:alergologia Pacs: []
 #        - Dois médicos da mesma especialidade não podem ser responsáveis pelo mesmo paciente.
 #        - O paciente não deve entrar duas vezes na lista do médico e vice-versa.
 
-#__case vincular
+#TEST_CASE vincular
 # tie _med _pac _pac ...
 $tie bisturi fred alvis goku
 $tie snif silva alvis

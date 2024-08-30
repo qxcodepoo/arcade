@@ -68,18 +68,18 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 ## Shell
 
 ```bash
-#__case cadastrar
+#TEST_CASE cadastrar
 $addCli maria 500
 $addCli rubia 60
 $addCli maria 300
 fail: cliente ja existe
 
-#__case emprestar
+#TEST_CASE emprestar
 $give maria 300
 $give rubia 50
 $give maria 100
 
-#__case show
+#TEST_CASE show
 # Mostra os cliente ordenados por codenome
 # Mostra as operações pela ordem que elas ocorreram
 $show
@@ -104,7 +104,7 @@ $show
 + id:1 give:rubia 50
 + id:2 give:maria 100
 
-#__case receber dinheiro
+#TEST_CASE receber dinheiro
 $take maria 350
 $take rubia 1
 $take maria 10
@@ -119,7 +119,7 @@ $show
 + id:4 take:rubia 1
 + id:5 take:maria 10
 
-#__case getCli
+#TEST_CASE getCli
 $showCli maria
 maria 40/500
 id:0 give:maria 300
@@ -127,7 +127,7 @@ id:2 give:maria 100
 id:3 take:maria 350
 id:5 take:maria 10
 
-#__case matar
+#TEST_CASE matar
 $kill maria
 $show
 :) rubia 49/60
@@ -145,7 +145,7 @@ $end
 ***
 
 ```bash
-#__case cadastrar
+#TEST_CASE cadastrar
 $addCli maria 500
 $addCli rubia 60
 $addCli josue 200
@@ -154,7 +154,7 @@ $give maria 430
 $give josue 170
 $give rubia 30
 
-#__case show
+#TEST_CASE show
 $show
 :) josue 170/200
 :) maria 430/500
@@ -165,7 +165,7 @@ $show
 
 # aumenta a divida de todos de 10%
 # arredondado pra cima
-#__case rendimento
+#TEST_CASE rendimento
 $plus
 
 $show
@@ -179,7 +179,7 @@ $show
 + id:4 plus:maria 43
 + id:5 plus:rubia 3
 
-#__case cobrar e matar
+#TEST_CASE cobrar e matar
 # se na hora do juros, o valor passar
 # do limite, eles morrem
 
@@ -208,4 +208,3 @@ $end
 - Se foi presídio, zoológico ou hospital psiquiátrico, ninguém comenta, só sabemos que ele nunca mais foi visto. Pelo menos não em Moneyville.
 
 ![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/ptolomeu.jpg)
-

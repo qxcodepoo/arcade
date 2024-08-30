@@ -1,32 +1,10 @@
-
-function count(vet: number[], value: number): number {
-}
-
-function sum(vet: number[]): number {
-}
-
-function average(vet: number[]): number {
-}
-
-function more_men(vet: number[]): string {
-}
-
-function half_compare(vet: number[]): string {
-}
-
-function sex_battle(vet: number[]): string {
-
-
-}
-
-
-// -------------------------- MAIN --------------------------
-
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
 export {};
+
+import { count, sum, average, more_men, half_compare, sex_battle } from "./student";
 
 function main() {
     while (true) {

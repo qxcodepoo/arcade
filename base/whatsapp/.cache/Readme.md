@@ -60,7 +60,7 @@
 ## Shell
 
 ```sh
-#__case adicionar e mostrar usuários 
+#TEST_CASE adicionar e mostrar usuários 
 # O comando "$add nomeUsuario" cria um novo usuário.
 # O comando "$allUsers" mostra todos usuários.
 $add goku
@@ -72,7 +72,7 @@ goku []
 sara []
 tina []
 
-#__case novo Chat, mostrar chats do usuário
+#TEST_CASE novo Chat, mostrar chats do usuário
 # O comando "$create nomeUser nomeChat" cria um novo chat.
 # O comando "$chats nomeUser" mostra os chats usuário.
 
@@ -88,7 +88,7 @@ goku [0:familia, 2:guerreiros]
 sara [1:familia]
 tina []
 
-#__case invite
+#TEST_CASE invite
 #- Adicionar pessoas a um grupo.
 #    - A pessoa que adiciona deve já estar no grupo.
 #- Ver quem está em um grupo.
@@ -109,7 +109,7 @@ $chats
 1:familia [sara]
 2:guerreiros [goku, sara, tina]
 
-#__case leaving
+#TEST_CASE leaving
 $leave sara 2
 
 $users
@@ -128,7 +128,7 @@ tina [2:guerreiros]
 #    - Ao pedir as mensagens, o usuário não recebe as mensagens que ele mesmo enviou.
 #- Ao pedir a lista de notificações, o usuário vê ao lado de cada grupo se ele possui mensagens não lidas.
 
-#__case mensagens
+#TEST_CASE mensagens
 $zap goku 2 oi, eu sou o goku
 $zap tina 2 oi goku
 

@@ -137,7 +137,7 @@ class Sistema {
 ## Shell
 
 ```bash
-#__case adicionando alunos ao sistema em lote
+#TEST_CASE adicionando alunos ao sistema em lote
 # nwalu _name _name ...
 $nwalu alice edson bruno
 
@@ -157,7 +157,7 @@ aps []
 fup []
 poo []
 
-#__case matriculando alunos em lote
+#TEST_CASE matriculando alunos em lote
 # tie _aluno _disc _disc ...
 $tie bruno fup aps poo
 $tie alice fup poo
@@ -173,7 +173,7 @@ aps [bruno]
 fup [alice, bruno, edson]
 poo [alice, bruno]
 
-#__case desmatriculando alunos em lote
+#TEST_CASE desmatriculando alunos em lote
 # untie _aluno _disc _disc ...
 $untie bruno poo aps
 $show
@@ -186,7 +186,7 @@ aps []
 fup [alice, bruno, edson]
 poo [alice]
 
-#__case removendo alunos do sistema
+#TEST_CASE removendo alunos do sistema
 # rmalu _aluno
 $rmalu alice
 

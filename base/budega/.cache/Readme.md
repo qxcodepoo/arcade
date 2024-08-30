@@ -92,7 +92,7 @@ Espera: [carla, maria, rubia]
 
 ## Answers
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/../../pages/images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/../../wiki/images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
 
 ***
 
@@ -206,4 +206,3 @@ $end
   - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/ts/aashell.ts)
   - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/ts/adapter.ts)
 <!-- links -->
-

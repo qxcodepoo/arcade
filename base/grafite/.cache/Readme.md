@@ -16,7 +16,7 @@
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-[![explicação](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/../../pages/images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
+[![explicação](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/../../wiki/images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
 
 ***
 

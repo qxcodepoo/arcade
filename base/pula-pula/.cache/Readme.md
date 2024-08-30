@@ -102,7 +102,7 @@ class Trampoline {
 ## Shell
 
 ```bash
-#__case unico
+#TEST_CASE unico
 # $chegou _nome _idade
 # insere uma criança na fila de entrada do brinquedo
 $arrive mario 5
@@ -114,7 +114,7 @@ $arrive luana 3
 $show
 [luana:3, livia:4, mario:5] => []
 
-#__case entrando
+#TEST_CASE entrando
 # entrar
 # tira a primeira criança da fila de entrada e insere no pula pula
 
@@ -122,17 +122,17 @@ $enter
 $show
 [luana:3, livia:4] => [mario:5]
 
-#__case segunda pessoa
+#TEST_CASE segunda pessoa
 $enter
 $show
 [luana:3] => [livia:4, mario:5]
 
-#__case saindo
+#TEST_CASE saindo
 $leave
 $show
 [mario:5, luana:3] => [livia:4]
 
-#__case remove
+#TEST_CASE remove
 $remove luana
 
 $show
@@ -146,28 +146,28 @@ $end
 ***
 
 ```bash
-#__case 2
+#TEST_CASE 2
 $show
 [] => []
 $arrive mario 5
 $show
 [mario:5] => []
-#__case empty enter
+#TEST_CASE empty enter
 $enter
 $show
 [] => [mario:5]
-#__case empty leave
+#TEST_CASE empty leave
 $leave
 $show
 [mario:5] => []
 $leave
 $show
 [mario:5] => []
-#__case remove from waiting
+#TEST_CASE remove from waiting
 $remove mario
 $show
 [] => []
-#__case remove empty
+#TEST_CASE remove empty
 $remove rebeca
 $show
 [] => []

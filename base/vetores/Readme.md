@@ -24,7 +24,7 @@ Requisito:
 ## Shell
 
 ```bash
-#__case inicio
+#TEST_CASE inicio
 # O comando "$show" mostra os valores do vetor.
 # O comando "$add V [V ...]" adiciona os valores no final da estrutura.
 $show
@@ -38,7 +38,7 @@ $end
 ***
 
 ```bash
-#__case inicio
+#TEST_CASE inicio
 # O comando "$get ind" mostra o valor do vetor na posicao `ind`
 # O comando "$set ind value" muda o valor da posicao `ind` para o valor `value`.
 $show
@@ -57,7 +57,7 @@ $end
 ***
 
 ```bash
-#__case rshow
+#TEST_CASE rshow
 # O comando "$rshow" mostra os valores da estrutura do último para o primeiro.
 $rshow
 [ ]
@@ -73,14 +73,14 @@ $end
 ***
 
 ```bash
-#__case add_mais_elementos
+#TEST_CASE add_mais_elementos
 $add 4 5 6 8 1 2 2 9
 $add 2 2 2 8 9 0 1 4
 $add 3 3 2 1
 $show
 [ 4 5 6 8 1 2 2 9 2 2 2 8 9 0 1 4 3 3 2 1 ]
 
-#__case find_elemento
+#TEST_CASE find_elemento
 # O comando "$find V [V ...]" retorna o índice da primeira ocorrência dos valores procurado ou -1 se ele não existir.
 $find 7
 [ -1 ]
@@ -91,7 +91,7 @@ $find 2 0 1 7 10
 $end
 ```
 ```bash
-#__case insert_indice
+#TEST_CASE insert_indice
 # O comando "$ins ind V" insere esse valor V na posição ind da estrutura.
 # Se o ind for menor que 0, não faça a inserção.
 # Se ind for maior que último índice válido, insira na última posição.
@@ -120,7 +120,7 @@ $end
 ***
 
 ```bash
-#__case remover_por_indice
+#TEST_CASE remover_por_indice
 # o comando "$rmi ind" remove o elemento dado o índice. 
 # Se o índice não existir, informe a falha.
 $add 4 5 6 8 1 2 2 9
@@ -148,7 +148,7 @@ $end
 ***
 
 ```bash
-#__case remove_all
+#TEST_CASE remove_all
 # o comando "$rma V" remove todos os elemento que contém esse valor. 
 $add 2 2 2 2
 $rma 2

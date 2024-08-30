@@ -109,39 +109,39 @@ class Venda {
 ## Shell
 
 ```sh
-#__case cadastro pessoas
+#TEST_CASE cadastro pessoas
 # addPessoa _nome _meia
 $addPessoa bruno meia
 $addPessoa chico meia
 $addPessoa aline inteira
 
-#__case cadastro duplicado
+#TEST_CASE cadastro duplicado
 
 $addPessoa chico meia
 fail: pessoa chico ja existe
 
-#__case show pessoas
+#TEST_CASE show pessoas
 # imprima os dados ordenados pela chave
 $pessoas
 [aline:inteira, bruno:meia, chico:meia]
 
-#__case cadastro eventos
+#TEST_CASE cadastro eventos
 
 # addEvento _nome _preco: inteiro
 $addEvento samba 70
 $addEvento forro 50
 $addEvento piano 15
 
-#__case show eventos
+#TEST_CASE show eventos
 # imprima ordenado pelo nome
 $eventos
 [forro:50.00, piano:15.00, samba:70.00]
 
-#__case cadastro duplicado
+#TEST_CASE cadastro duplicado
 $addEvento samba 90
 fail: evento samba ja existe
 
-#__case vender ingressos
+#TEST_CASE vender ingressos
 
 # vender _pessoa _evento
 # se a pessoa for meia, aplique 50% de desconto no preço do evento
@@ -158,7 +158,7 @@ $vender chico piano
 $vendas
 [bruno:samba:35.00, chico:samba:35.00, aline:samba:70.00, chico:piano:7.50]
 
-#__case erro nas vendas
+#TEST_CASE erro nas vendas
 $vender chico arraia
 fail: evento arraia nao existe
 

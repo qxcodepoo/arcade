@@ -52,7 +52,7 @@ O objetivo desta atividade é imprementar um sistema que aloca passageiros em va
 ## Exemplos
 
 ```python
-#__case init 
+#TEST_CASE init 
 #init _maxVagoes
 #nwvag _capacidade
 
@@ -66,7 +66,7 @@ Trem [ - - ][ - - - ]
 $nwvag 1
 fail: limite de vagões atingido
 
-#__case embarque e desembarque
+#TEST_CASE embarque e desembarque
 #entrar _idPass
 $entrar goku
 $la
@@ -95,7 +95,7 @@ $la
 Trem [ goku alex ][ - tina james ]
 $end
 
-#__case cadastro de passageiros e movimentacao
+#TEST_CASE cadastro de passageiros e movimentacao
 $entrar sara
 $sair goku
 $la

@@ -307,7 +307,7 @@ Inbox "1" --o "0..*" Tweet
 
 ```bash
 ##################################
-#__case cadastrar
+#TEST_CASE cadastrar
 ##################################
 $add goku
 $add sara
@@ -324,7 +324,7 @@ tina
   seguidores []
 
 ##################################
-#__case follow
+#TEST_CASE follow
 ##################################
 
 $follow goku sara
@@ -342,7 +342,7 @@ tina
   seguidores [goku, sara]
 
 ##################################
-#__case twittar
+#TEST_CASE twittar
 ##################################
 #twittar _userId _msg
 
@@ -370,7 +370,7 @@ $timeline sara
 0:sara (hoje estou triste)
 
 ##################################
-#__case like
+#TEST_CASE like
 ##################################
 #like _username _idTw
 
@@ -393,7 +393,7 @@ $timeline goku
 
 
 ##################################
-#__case unfollow
+#TEST_CASE unfollow
 ##################################
 
 $unfollow goku tina
@@ -414,7 +414,7 @@ $timeline goku
 0:sara (hoje estou triste)
 
 ##################################
-#__case retweet
+#TEST_CASE retweet
 ##################################
 
 $timeline sara
@@ -440,7 +440,7 @@ $timeline goku
 0:sara (hoje estou triste)
 
 ##################################
-#__case erros
+#TEST_CASE erros
 ##################################
 
 # lembre de tratar erros como
@@ -452,7 +452,7 @@ $like sara 4
 fail: tweet nao existe
 
 ##################################
-#__case remover
+#TEST_CASE remover
 ##################################
 $follow tina sara
 $show

@@ -148,33 +148,33 @@ class Account {
 ## Shell
 
 ```bash
-#__case iniciar
+#TEST_CASE iniciar
 $init 100
 $show
 account:100 balance:0
 
-#__case depositar
+#TEST_CASE depositar
 $deposit 100
 $show
 account:100 balance:100
 
-#__case deposito invalido
+#TEST_CASE deposito invalido
 $deposit -10
 fail: invalid value
 $show
 account:100 balance:100
 
-#__case saque
+#TEST_CASE saque
 $withdraw 20
 $show
 account:100 balance:80
 
-#__case taxa
+#TEST_CASE taxa
 $fee 10
 $show
 account:100 balance:70
 
-#__case saque muito alto
+#TEST_CASE saque muito alto
 $withdraw 150
 fail: insufficient balance
 $show
@@ -184,7 +184,7 @@ $withdraw 30
 $show
 account:100 balance:40
 
-#__case taxa
+#TEST_CASE taxa
 $fee 5
 $show
 account:100 balance:35
@@ -195,7 +195,7 @@ $fee 1
 $show
 account:100 balance:39
 
-#__case extrato
+#TEST_CASE extrato
 #extrato mostra todas as operações desde a abertura da account
 $extract 0
  0:  opening:    0:    0
@@ -207,18 +207,18 @@ $extract 0
  6:  deposit:    5:   40
  7:      fee:   -1:   39
 
-#__case extrato n
+#TEST_CASE extrato n
 #extrato mostra as ultimas N operacoes
 $extract 2
  6:  deposit:    5:   40
  7:      fee:   -1:   39
 
-#__case extornar
+#TEST_CASE extornar
 $reverse 1 5 7 50
 fail: index 1 is not a fee
 fail: index 50 invalid
 
-#__case novo extrato
+#TEST_CASE novo extrato
 $extract 0
  0:  opening:    0:    0
  1:  deposit:  100:  100
@@ -231,7 +231,7 @@ $extract 0
  8:  reverse:    5:   44
  9:  reverse:    1:   45
 
-#__case extrato tarifa
+#TEST_CASE extrato tarifa
 $fee 50
 $extract 2
  9:  reverse:    1:   45
@@ -243,7 +243,7 @@ $end
 ***
 
 ```bash
-#__case fee
+#TEST_CASE fee
 $init 107
 $fee 10
 $show

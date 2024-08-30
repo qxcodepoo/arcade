@@ -26,7 +26,7 @@ Essa atividade é a base conceitual para simplificar a troca de mensagens entre 
 ## Shell
 
 ```python
-#__case unique
+#TEST_CASE unique
 $addUser david
 $addUser celia
 $sendMsg david celia voce esta com fome?

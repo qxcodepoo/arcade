@@ -125,7 +125,7 @@ ___
 ## Shell
 
 ```s
-#__case init
+#TEST_CASE init
 $init 2 10
 $show
 player1: 1..........
@@ -140,22 +140,22 @@ player1: 1..........
 player2: 2..........
 traps__: ..x.x...x..
 
-#__case move
+#TEST_CASE move
 $roll 1
 player1 andou para 1
 
-#__case trap
+#TEST_CASE trap
 $roll 2
 player2 andou para 2
 player2 caiu em uma armadilha
 
-#__case show
+#TEST_CASE show
 $show
 player1: .1.........
 player2: ..2........
 traps__: ..x.x...x..
 
-#__case keep trapped
+#TEST_CASE keep trapped
 $roll 4
 player1 andou para 5
 $roll 3
@@ -166,12 +166,12 @@ player1: .....1.....
 player2: ..2........
 traps__: ..x.x...x..
 
-#__case trap
+#TEST_CASE trap
 $roll 3
 player1 andou para 8
 player1 caiu em uma armadilha
 
-#__case release
+#TEST_CASE release
 $roll 6
 player2 se libertou
 
@@ -180,19 +180,19 @@ player1: ........1..
 player2: ..2........
 traps__: ..x.x...x..
 
-#__case win
+#TEST_CASE win
 $roll 2
 player1 se libertou
 $roll 10
 player2 ganhou
 
-#__case boundary
+#TEST_CASE boundary
 $show
 player1: ........1..
 player2: ..........2
 traps__: ..x.x...x..
 
-#__case game over
+#TEST_CASE game over
 $roll 1
 game is over
 $end

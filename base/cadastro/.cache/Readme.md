@@ -175,7 +175,7 @@ class Agency {
 ## Shell
 
 ```bash
-#__case first clients
+#TEST_CASE first clients
 # addCli _idCliente
 # adiciona um cliente na lista de clientes.
 # cria uma conta poupança e uma conta corrente para cada cliente usando numeração de forma sequencial.
@@ -199,7 +199,7 @@ Maria [4, 5]
 5:Maria:0.00:CP
 
 ######################################
-#__case operações básicas
+#TEST_CASE operações básicas
 #faça as operações básicas de saque, depósito e transferência entre contas
 #verifique se as contas existem antes de efetuar as operações
 # $saque _conta _value
@@ -251,7 +251,7 @@ Maria [4, 5]
 4:Maria:25.00:CC
 5:Maria:200.00:CP
 
-#__case update mensal
+#TEST_CASE update mensal
 # No comando update todas as contas serão atualizadas.
 # Contas corrente vão receber uma tarifa de 20 reais podendo inclusive ficar negativas.
 # Contas poupança vão aumentar de 1 porcento.

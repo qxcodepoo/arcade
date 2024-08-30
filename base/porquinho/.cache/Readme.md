@@ -311,18 +311,18 @@ class Pig {
 ## Shell
 
 ```py
-#__case init
+#TEST_CASE init
 $init 20
 $show
 state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
 
-#__case insert
+#TEST_CASE insert
 $addCoin 10
 $addCoin 50
 $show
 state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
 
-#__case itens
+#TEST_CASE itens
 $addItem ouro 3
 $show
 state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
@@ -331,7 +331,7 @@ $addItem passaporte 2
 $show
 state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
 
-#__case failed break
+#TEST_CASE failed break
 $extractItems
 fail: you must break the pig first
 []
@@ -343,12 +343,12 @@ fail: you must break the pig first
 $show
 state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
 
-#__case breaking
+#TEST_CASE breaking
 $break
 $show
 state=broken : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=0/20
 
-#__case getItems
+#TEST_CASE getItems
 
 $extractItems
 [ouro:3, passaporte:2]
@@ -356,7 +356,7 @@ $extractItems
 $show
 state=broken : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=0/20
 
-#__case getCoins
+#TEST_CASE getCoins
 
 $extractCoins
 [0.10:1, 0.50:3]
@@ -369,7 +369,7 @@ $end
 ***
 
 ```sh
-#__case
+#TEST_CASE
 $init 10
 
 $break
@@ -393,7 +393,7 @@ $end
 ***
 
 ```sh
-#__case full coin
+#TEST_CASE full coin
 $init 5
 
 $addCoin 10
@@ -407,7 +407,7 @@ fail: the pig is full
 $show
 state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
 
-#__case full item
+#TEST_CASE full item
 $addItem ouro 1
 
 $show

@@ -170,7 +170,7 @@ public:
 ## Shell
 
 ```bash
-#__case init
+#TEST_CASE init
 
 # init _espirais
 $init 3
@@ -180,7 +180,7 @@ saldo: 0.00
 1 [   empty : 0 U : 0.00 RS]
 2 [   empty : 0 U : 0.00 RS]
 
-#__case inserindo comida
+#TEST_CASE inserindo comida
 # set _ind _nome _qtd _valor 
 $set 2 todinho 3 2.50
 $show
@@ -197,7 +197,7 @@ saldo: 0.00
 1 [ xaverde : 3 U : 5.00 RS]
 2 [ todinho : 3 U : 2.50 RS]
 
-#__case limpando
+#TEST_CASE limpando
 # limpar _ind
 $limpar 2
 $show
@@ -208,7 +208,7 @@ saldo: 0.00
 $set 4 ovo 2 4.30
 fail: indice nao existe
 
-#__case dinheiro
+#TEST_CASE dinheiro
 # dinheiro _valor
 $dinheiro 5
 $dinheiro 4
@@ -218,7 +218,7 @@ saldo: 9.00
 1 [ xaverde : 3 U : 5.00 RS]
 2 [   empty : 0 U : 0.00 RS]
 
-#__case troco
+#TEST_CASE troco
 $troco
 voce recebeu 9.00 RS
 $show
@@ -228,16 +228,16 @@ saldo: 0.00
 2 [   empty : 0 U : 0.00 RS]
 $dinheiro 8
 
-#__case comprar
+#TEST_CASE comprar
 # comprar _ind
 $comprar 1
 voce comprou um xaverde
 
-#__case comprar sem dinheiro
+#TEST_CASE comprar sem dinheiro
 $comprar 1
 fail: saldo insuficiente
 
-#__case comprar
+#TEST_CASE comprar
 $comprar 0
 voce comprou um tampico
 $show
@@ -246,11 +246,11 @@ saldo: 1.50
 1 [ xaverde : 2 U : 5.00 RS]
 2 [   empty : 0 U : 0.00 RS]
 
-#__case comprar sem produtos
+#TEST_CASE comprar sem produtos
 $comprar 0
 fail: espiral sem produtos
 
-#__case comprar fora do indice
+#TEST_CASE comprar fora do indice
 $comprar 4
 fail: indice nao existe
 

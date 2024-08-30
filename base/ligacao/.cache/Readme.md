@@ -53,7 +53,7 @@ Vamos criar o módulo que gerência ligações da nossa agenda telefônica. Ele 
 ## Shell
 
 ```sh
-#__case inicializando agenda
+#TEST_CASE inicializando agenda
 $add eva oi:8585 claro:9999 tim:3434
 $add ana casa:4567 oi:8754
 $add ivo tim:5454
@@ -67,7 +67,7 @@ $agenda
 - rui [oi:9991, vivo:2222]
 - zac [recado:5454] 
 
-#__case ligando
+#TEST_CASE ligando
 $call ana
 ligando ana casa:4567
 $call 8754
@@ -75,11 +75,11 @@ ligando ana oi:8754
 $call 8585
 ligando eva oi:8585
 
-#__case ivo e rui
+#TEST_CASE ivo e rui
 $call 5454
 ligando ivo tim:5454
 
-#__case numero que nao existe
+#TEST_CASE numero que nao existe
 $call 555
 ligando 555
 
@@ -100,7 +100,7 @@ $history
 :call 555 - {2 call}
 :call 555 - {2 call}
 
-#__case update contatos e mantendo a integridade
+#TEST_CASE update contatos e mantendo a integridade
 $rmFone ana casa
 $rmFone eva oi
 
@@ -117,7 +117,7 @@ $historico
 :call 555 - 555 {2 call}
 :call 555 - 555 {2 call}
 
-#__case removendo contatos e mantendo a integridade
+#TEST_CASE removendo contatos e mantendo a integridade
 $rm ivo
 
 $speedList
@@ -153,5 +153,3 @@ $end
 ## Diagrama de Classes
 
 - Métodos Get e Set de atributos básicos omitidos.
-
-

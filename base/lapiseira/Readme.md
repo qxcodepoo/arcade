@@ -144,29 +144,29 @@ class Pencil {
 ## Shell
 
 ```bash
-#__case inserindo grafites
+#TEST_CASE inserindo grafites
 $init 0.5
 $show
 calibre: 0.5, bico: [], tambor: {}
-#__case calibre errado
+#TEST_CASE calibre errado
 $insert 0.7 2B 50
 fail: calibre incompatível
-#__case calibre certo
+#TEST_CASE calibre certo
 $insert 0.5 2B 50
 $show
 calibre: 0.5, bico: [], tambor: {[0.5:2B:50]}
-#__case mais de um grafite
+#TEST_CASE mais de um grafite
 $insert 0.5 2B 30
 $show
 calibre: 0.5, bico: [], tambor: {[0.5:2B:50][0.5:2B:30]}
-#__case puxando grafite
+#TEST_CASE puxando grafite
 $pull
 $show
 calibre: 0.5, bico: [0.5:2B:50], tambor: {[0.5:2B:30]}
-#__case puxando ocupado
+#TEST_CASE puxando ocupado
 $pull
 fail: ja existe grafite no bico
-#__case removendo do bico
+#TEST_CASE removendo do bico
 $remove
 $show
 calibre: 0.5, bico: [], tambor: {[0.5:2B:30]}
@@ -176,22 +176,22 @@ $end
 ***
 
 ```bash
-#__case escrevendo 
+#TEST_CASE escrevendo 
 $init 0.9
 $insert 0.9 4B 14
 $insert 0.9 4B 16
-#__case sem grafite no bico
+#TEST_CASE sem grafite no bico
 $write
 fail: nao existe grafite no bico
-#__case puxando grafite
+#TEST_CASE puxando grafite
 $pull
 $show
 calibre: 0.9, bico: [0.9:4B:14], tambor: {[0.9:4B:16]}
-#__case gastando grafite
+#TEST_CASE gastando grafite
 $write
 $show
 calibre: 0.9, bico: [0.9:4B:10], tambor: {[0.9:4B:16]}
-#__case puxando novo
+#TEST_CASE puxando novo
 $remove
 $pull
 $show
@@ -199,12 +199,12 @@ calibre: 0.9, bico: [0.9:4B:16], tambor: {}
 $write
 $show
 calibre: 0.9, bico: [0.9:4B:12], tambor: {}
-#__case folha incompleta
+#TEST_CASE folha incompleta
 $write
 fail: folha incompleta
 $show
 calibre: 0.9, bico: [0.9:4B:10], tambor: {}
-#__case tamanho insuficiente
+#TEST_CASE tamanho insuficiente
 $write
 fail: tamanho insuficiente
 $end

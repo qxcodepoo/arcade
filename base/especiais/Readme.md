@@ -42,7 +42,7 @@
 ## Shell
 
 ```sh
-#__case occur
+#TEST_CASE occur
 $occurr [1,3,-1]
 [(1, 2), (3, 1)]
 $occurr [-2,1,-2,4]
@@ -53,7 +53,7 @@ $end
 ```
 
 ```sh
-#__case teams
+#TEST_CASE teams
 $teams []
 []
 $teams [5]
@@ -70,7 +70,7 @@ $end
 ```
 
 ```sh
-#__case mnext
+#TEST_CASE mnext
 $mnext [5]
 [0]
 $mnext [5,2]
@@ -83,7 +83,7 @@ $end
 ```
 
 ```sh
-#__case alone
+#TEST_CASE alone
 $alone [5]
 [1]
 $alone [5,3]
@@ -100,7 +100,7 @@ $end
 ```
 
 ```sh
-#__case couple
+#TEST_CASE couple
 $couple [5]
 0
 $couple [5,3]
@@ -121,7 +121,7 @@ $end
 ```
 
 ```sh
-#__case subseq
+#TEST_CASE subseq
 $subseq [1,2,4,3] [8]
 -1
 $subseq [1,2,4,3] [1,2]
@@ -142,7 +142,7 @@ $end
 ```
 
 ```sh
-#__case erase
+#TEST_CASE erase
 $erase [1,2,4,3] [0,1,2,3]
 []
 $erase [1,2,4,3] [1,2]
@@ -155,7 +155,7 @@ $end
 ```
 
 ```sh
-#__case clear
+#TEST_CASE clear
 $clear [2,2,2,2,2] 2
 []
 $clear [1,2,4,3] 1

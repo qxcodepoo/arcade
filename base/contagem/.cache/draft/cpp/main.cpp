@@ -1,31 +1,10 @@
-#include <iostream>
-#include <vector>
-
-int count(std::vector<int> vet, int x) {
-}
-
-int sum(std::vector<int> vet) {
-}
-
-double average(const std::vector<int>& vet) {
-}
-
-std::string more_men(const std::vector<int>& vet) {
-}
-
-std::string half_compare(const std::vector<int>& vet) {
-}
-
-std::string sex_battle(const std::vector<int>& vet) {
-}
-
-
-#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
+#include "fn.hpp"
+#include "student.hpp"
 using namespace fn;
 
 int main() {
-
-    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(FNT(x, (int)+x)); };
+    //função para converted de "[1,2,3,4]" em std::vector<int>{1,2,3,4}
+    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(strto<int>); };
 
     while (true) {
         auto line = input();
@@ -43,4 +22,3 @@ int main() {
         else                                     { "fail: unknown command"                   | WRITE();}
     }     
 }
-

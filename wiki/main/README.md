@@ -46,21 +46,21 @@ function main() {
 ## Shell
 
 ```s
-#__case teste simples
+#TEST_CASE teste simples
 $show
 []
 
-#__case inserindo vários números em lote
+#TEST_CASE inserindo vários números em lote
 $push 1 4 3 2
 $show
 [1, 4, 3, 2]
 
-#__case apagando por índice
+#TEST_CASE apagando por índice
 $erase 1
 $show
 [1, 3, 2]
 
-#__case calculando a media
+#TEST_CASE calculando a media
 $media
 2.00
 

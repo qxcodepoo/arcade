@@ -8,8 +8,8 @@
 ---
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell) | [Alien](#alien)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://gist.github.com/assets/4747652/c22c464a-b797-4bd7-b963-4e4f1ee7f96b)
@@ -49,7 +49,7 @@
 ## Shell
 
 ```sh
-#__case in
+#TEST_CASE in
 $in [1,2,3,4] 4
 true
 $in [1,2,3,5] 1
@@ -60,7 +60,7 @@ $end
 ```
 
 ```sh
-#__case index_of
+#TEST_CASE index_of
 $index_of [-1,-50,-1,-99] -50
 1
 $index_of [-1,-50,-1,-99] -99
@@ -71,7 +71,7 @@ $end
 ```
 
 ```sh
-#__case find_if
+#TEST_CASE find_if
 $find_if [5,3,-1,-50,-1,-99]
 0
 $find_if [-1,-50,-1,-99,-444]
@@ -80,7 +80,7 @@ $end
 ```
 
 ```sh
-#__case min_element
+#TEST_CASE min_element
 $min_element [5,3,-1,-50,-1,-99]
 5
 $min_element [-1,-50,-1,-99,-444]
@@ -93,10 +93,14 @@ $end
 ```
 
 ```sh
-#__case find_min_if
+#TEST_CASE find_min_if
 $find_min_if [5,3,-1,-50,-1,-99]
 1
 $find_min_if [-1,-50,-1,-99,-444]
 -1
 $end
 ```
+
+## Alien
+
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/busca/../../wiki/images/alien3.jpg)](https://www.youtube.com/watch?v=2b3WvsJHa0Y)

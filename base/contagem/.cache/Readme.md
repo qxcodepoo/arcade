@@ -8,8 +8,8 @@
 ---
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell) | [Alien](#alien)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contagem/cover.jpg)
@@ -33,7 +33,7 @@
 ## Shell
 
 ```sh
-#__case count
+#TEST_CASE count
 $count [5,3,-1,-50,-1,-99] -1
 2
 $count [-1,-50,-1,-99,-444] 10
@@ -42,7 +42,7 @@ $end
 ```
 
 ```sh
-#__case sum
+#TEST_CASE sum
 $sum [1,-1]
 2
 $sum [5,3,-1]
@@ -53,7 +53,7 @@ $end
 ```
 
 ```sh
-#__case average
+#TEST_CASE average
 $average [5,3,-1,-50,-1,-99]
 26.50
 $average [-1,-50,-1,-99,-444]
@@ -62,7 +62,7 @@ $end
 ```
 
 ```sh
-#__case more_men
+#TEST_CASE more_men
 $more_men [5,3,1,-50,-1,-99]
 draw
 $more_men [5,-3,1,-50,-1,-99]
@@ -73,7 +73,7 @@ $end
 ```
 
 ```sh
-#__case half_compare
+#TEST_CASE half_compare
 $half_compare [5,-5]
 draw
 $half_compare [5,-4]
@@ -94,7 +94,7 @@ $end
 ```
 
 ```sh
-#__case sex_battle
+#TEST_CASE sex_battle
 $sex_battle [5,3,-1,-50,-10,-999]
 women
 $sex_battle [50,98,2,-50,-1,9991]
@@ -103,3 +103,7 @@ $sex_battle [-50,99,1,50,-1,-99]
 draw
 $end
 ```
+
+## Alien
+
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contagem/../../wiki/images/alien4.jpg)](https://www.youtube.com/watch?v=yEks2RnwgeA)

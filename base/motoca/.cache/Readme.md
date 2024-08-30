@@ -89,16 +89,16 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
 
 ```s
 
-#__case subindo e buzinando
+#TEST_CASE subindo e buzinando
 $show
 power:1, time:0, person:(empty)
 
-#__case subindo
+#TEST_CASE subindo
 $enter marcos 4
 $show
 power:1, time:0, person:(marcos:4)
 
-#__case ocupada
+#TEST_CASE ocupada
 $enter marisa 2
 fail: busy motorcycle
 
@@ -108,12 +108,12 @@ $end
 ```
 
 ```s
-#__case subindo2
+#TEST_CASE subindo2
 $init 5
 $show
 power:5, time:0, person:(empty)
 
-#__case buzinando
+#TEST_CASE buzinando
 $enter marcos 4
 $show
 power:5, time:0, person:(marcos:4)
@@ -121,7 +121,7 @@ $end
 ```
 
 ```s
-#__case subindo e trocando
+#TEST_CASE subindo e trocando
 $init 7
 $enter heitor 6
 $show
@@ -129,12 +129,12 @@ power:7, time:0, person:(heitor:6)
 $leave
 heitor:6
 
-#__case empty
+#TEST_CASE empty
 $leave
 fail: empty motorcycle
 ---
 
-#__case replace
+#TEST_CASE replace
 $enter suzana 8
 $show
 power:7, time:0, person:(suzana:8)
@@ -142,7 +142,7 @@ $end
 ```
 
 ```s
-#__case no time
+#TEST_CASE no time
 $init 7
 $buy 30
 $show
@@ -154,17 +154,17 @@ $end
 ```
 
 ```s
-#__case buy time 
+#TEST_CASE buy time 
 $init 7
 $drive 10
 fail: buy time first
 $buy 50
-#__case empty
+#TEST_CASE empty
 $drive 10
 fail: empty motorcycle
 $enter suzana 8
 
-#__case driving
+#TEST_CASE driving
 $drive 30
 $show
 power:7, time:20, person:(suzana:8)
@@ -172,7 +172,7 @@ $end
 ```
 
 ```s
-#__case limite de idade
+#TEST_CASE limite de idade
 $init 7
 $buy 20
 $enter andreina 23
@@ -184,7 +184,7 @@ $end
 ```
 
 ```s
-#__case acabou o tempo
+#TEST_CASE acabou o tempo
 $init 7
 $buy 20
 $enter andreina 6
@@ -199,7 +199,7 @@ $end
 ```
 
 ```s
-#__case buzinando
+#TEST_CASE buzinando
 $init 1
 $honk
 Pem

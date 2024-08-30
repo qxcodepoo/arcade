@@ -136,12 +136,12 @@ class Pig {
 ## Shell
 
 ```sh
-#__case init
+#TEST_CASE init
 $init 20
 $show
 [] : 0.00$ : 0/20 : intact
 
-#__case insert
+#TEST_CASE insert
 $addCoin 10
 $show
 [M10:0.10:1] : 0.10$ : 1/20 : intact
@@ -150,7 +150,7 @@ $addCoin 50
 $show
 [M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
 
-#__case itens
+#TEST_CASE itens
 $addItem ouro 50.0 3
 $show
 [M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
@@ -159,7 +159,7 @@ $addItem passaporte 0.0 2
 $show
 [M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
 
-#__case failed break
+#TEST_CASE failed break
 $extractItems
 fail: you must break the pig first
 
@@ -169,12 +169,12 @@ fail: you must break the pig first
 $show
 [M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
 
-#__case breaking
+#TEST_CASE breaking
 $break
 $show
 [M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 0/20 : broken
 
-#__case extractItems
+#TEST_CASE extractItems
 
 $extractItems
 [ouro:50.00:3, passaporte:0.00:2]
@@ -182,7 +182,7 @@ $extractItems
 $show
 [M10:0.10:1, M50:0.50:3] : 0.60$ : 0/20 : broken
 
-#__case extractCoins
+#TEST_CASE extractCoins
 
 $extractCoins
 [M10:0.10:1, M50:0.50:3]
@@ -193,7 +193,7 @@ $end
 ```
 
 ```sh
-#__case
+#TEST_CASE
 $init 10
 
 $break
@@ -214,7 +214,7 @@ $end
 ```
 
 ```sh
-#__case full coin
+#TEST_CASE full coin
 $init 5
 
 $addCoin 10
@@ -228,7 +228,7 @@ fail: the pig is full
 $show
 [M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
 
-#__case full item
+#TEST_CASE full item
 $addItem ouro 100.0 1
 
 $show

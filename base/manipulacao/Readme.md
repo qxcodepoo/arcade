@@ -41,7 +41,7 @@
 ## Shell
 
 ```sh
-#__case get_men
+#TEST_CASE get_men
 $get_men [1,2,-3,4]
 [1, 2, 4]
 $get_men [1,-2,3,5]
@@ -52,7 +52,7 @@ $end
 ```
 
 ```sh
-#__case get_calm_women
+#TEST_CASE get_calm_women
 $get_calm_women [-10,-5,6,-90]
 [-5]
 $get_calm_women [-1,5,-11,-99,-8]
@@ -61,7 +61,7 @@ $end
 ```
 
 ```sh
-#__case sort
+#TEST_CASE sort
 $sort [5,3,-1,-50,-1,-99]
 [-99, -50, -1, -1, 3, 5]
 $sort [-1,-50,12,8,-1,-99,-444]
@@ -70,7 +70,7 @@ $end
 ```
 
 ```sh
-#__case sort_stress
+#TEST_CASE sort_stress
 $sort_stress [5,3,-1,-50,-1,-99]
 [-1, -1, 3, 5, -50, -99]
 $sort_stress [-1,-50,12,8,-1,-99,-444]
@@ -79,7 +79,7 @@ $end
 ```
 
 ```sh
-#__case reverse
+#TEST_CASE reverse
 $reverse [5,3,-1,-50,-1,-99]
 [-99, -1, -50, -1, 3, 5]
 $reverse []
@@ -88,7 +88,7 @@ $end
 ```
 
 ```sh
-#__case unique
+#TEST_CASE unique
 $unique [1,1,1]
 [1]
 $unique [5,3,1,1,3,2]
@@ -99,7 +99,7 @@ $end
 ```
 
 ```sh
-#__case repeated
+#TEST_CASE repeated
 $repeated [1,1,1]
 [1, 1]
 $repeated [5,3,1,1,3,2]

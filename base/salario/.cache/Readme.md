@@ -54,7 +54,7 @@ Você deve desenvolver um sistema para calcular o salário de um funcionário de
 ## Shell
 
 ```bash
-#__case begin
+#TEST_CASE begin
 $addProf david C
 $addProf elvis D
 $addSta gilmario 3
@@ -70,7 +70,7 @@ prof:david:C:7000
 sta:gilmario:3:3900
 ter:helder:40:sim:660
 
-#__case diaria
+#TEST_CASE diaria
 $addDiaria david
 $addDiaria david
 $addDiaria david
@@ -85,7 +85,7 @@ sta:gilmario:3:4000
 $addDiaria helder
 fail: terc nao pode receber diaria
 
-#__case bonus
+#TEST_CASE bonus
 
 # um bonus de 600, para 3 funcionários vai dar 200 reais pra cada
 $setBonus 600

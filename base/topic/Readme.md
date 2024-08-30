@@ -117,7 +117,7 @@ class Topic {
 ```bash
 
 #######################################
-#__case Inicializar
+#TEST_CASE Inicializar
 #######################################
 # init _lotacao _qtd_prioritarios
 $show
@@ -126,32 +126,32 @@ $init 5 2
 $show
 [@ @ = = =]
 
-#__case Embarque
+#TEST_CASE Embarque
 
 $in davi 17
 $show
 [@ @ =davi:17 = =]
 
-#__case Embarque 2
+#TEST_CASE Embarque 2
 
 $in joao 103
 $show
 [@joao:103 @ =davi:17 = =]
 
-#__case Embarque 3
+#TEST_CASE Embarque 3
 
 $in ana 35
 $show
 [@joao:103 @ =davi:17 =ana:35 =]
 
-#__case Embarque 4
+#TEST_CASE Embarque 4
 
 $in rex 20
 $in bia 16
 $show
 [@joao:103 @bia:16 =davi:17 =ana:35 =rex:20]
 
-#__case Desembarque
+#TEST_CASE Desembarque
 $out davi
 $show
 [@joao:103 @bia:16 = =ana:35 =rex:20]
@@ -161,17 +161,17 @@ $in aragao 96
 $show
 [@joao:103 @bia:16 =aragao:96 =ana:35 =rex:20]
 
-#__case lotada
+#TEST_CASE lotada
 $in lucas 23
 fail: topic lotada
 
-#__case não existe
+#TEST_CASE não existe
 $out marcelo
 fail: marcelo nao esta na topic
 
 $out ana
 
-#__case dobrado
+#TEST_CASE dobrado
 $in bia 13
 fail: bia ja esta na topic
 

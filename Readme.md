@@ -41,19 +41,19 @@
 
 ### Configuração de ambiente
 
-- [Introdução ao git](pages/git/README.md)
-- [Instalação C++ e TS](pages/instalacao/README.md)
+- [Introdução ao git](wiki/git/README.md)
+- [Instalação C++ e TS](wiki/instalacao/README.md)
 - [Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
 - [Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
 - [Rodando questões no Replit](https://github.com/senapk/tko/blob/master/replit/Readme.md)
 
 ### Conteúdo extra
 
-- [Relacionamentos](pages/relacionamento/README.md) <!-- @relacionamentos -->
-- [Relacionamentos Resumo](pages/uml/README.md) <!-- @uml -->
-- [Como fazer os códigos e relatórios](pages/relatorio/README.md) <!-- @relatorios -->
-- [Criando a Main](pages/main/README.md) <!-- @main -->
-- [Pesquisa sobre alocação de memória](pages/memoria/README.md)
+- [Relacionamentos](wiki/relacionamento/README.md) <!-- @relacionamentos -->
+- [Relacionamentos Resumo](wiki/uml/README.md) <!-- @uml -->
+- [Como fazer os códigos e relatórios](wiki/relatorio/README.md) <!-- @relatorios -->
+- [Criando a Main](wiki/main/README.md) <!-- @main -->
+- [Pesquisa sobre alocação de memória](wiki/memoria/README.md)
 
 ## Operações em Array <!-- group -->
 

@@ -136,54 +136,54 @@ class Bilheteria {
 ## Shell
 
 ```sh
-#__case cadastro pessoas
+#TEST_CASE cadastro pessoas
 # addPessoa _nome _meia
 $addPessoa bruno meia
 $addPessoa chico meia
 $addPessoa aline inteira
 
-#__case cadastro duplicado
+#TEST_CASE cadastro duplicado
 
 $addPessoa chico meia
 fail: pessoa chico ja existe
 
-#__case show pessoas
+#TEST_CASE show pessoas
 # imprima os dados ordenados pela chave
 $pessoas
 [aline:inteira, bruno:meia, chico:meia]
 
-#__case cadastro eventos
+#TEST_CASE cadastro eventos
 
 # addEvento _nome
 $addEvento samba
 $addEvento piano
 $addEvento forro
 
-#__case show eventos
+#TEST_CASE show eventos
 # imprima ordenado pelo nome
 $eventos
 forro []
 piano []
 samba []
 
-#__case cadastro duplicado
+#TEST_CASE cadastro duplicado
 $addEvento samba 90
 fail: evento samba ja existe
 
-#__case cadastro setores
+#TEST_CASE cadastro setores
 $addSetor samba pista 35.00
 $addSetor samba vip 70.00
 $addSetor piano lateral 15.00
 $addSetor piano fundos 7.50
 $addSetor forro pista 30.00
 
-#__case show setores
+#TEST_CASE show setores
 $eventos
 forro [pista:30.00]
 piano [fundos:7.50, lateral:15.00]
 samba [pista:35.00, vip:70.00]
 
-#__case vender ingressos
+#TEST_CASE vender ingressos
 
 # vender _pessoa _evento
 # se a pessoa for meia, aplique 50% de desconto no preço do evento
@@ -205,7 +205,7 @@ chico:samba:vip:35.00
 aline:samba:vip:70.00
 chico:piano:lateral:7.50
 
-#__case erro nas vendas
+#TEST_CASE erro nas vendas
 $vender joao piano lateral
 fail: pessoa joao nao existe
 

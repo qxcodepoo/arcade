@@ -165,7 +165,7 @@ class ProductManager {
 ## Shell
 
 ```bash
-#__case criando produto simples
+#TEST_CASE criando produto simples
 
 $add camisa 40
 $add bermuda 30
@@ -175,7 +175,7 @@ $show
 01:bermuda:30.00
 02:bone:20.00
 
-#__case criando pacote
+#TEST_CASE criando pacote
 $addPacote 0 2
 $addPacote 1 1
 $addPacote 0 1 2
@@ -187,7 +187,7 @@ $show
 04:[bermuda, bermuda]:60.00
 05:[camisa, bermuda, bone]:90.00
 
-#__case criando produto com desconto
+#TEST_CASE criando produto com desconto
 $addDesconto 0 10
 $addDesconto 3 20
 $addDesconto 4 15
@@ -203,7 +203,7 @@ $show
 07:[camisa, bone](20% OFF):48.00
 08:[bermuda, bermuda](15% OFF):51.00
 
-#__case finalizando
+#TEST_CASE finalizando
 
 # [camisa, bone](20%) + [bermuda, bermuda](15%)
 $addPacote 7 8

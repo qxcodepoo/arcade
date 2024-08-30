@@ -29,7 +29,7 @@ O objetivo dessa atividade é criar um pequeno serviço de anotações. O sistem
 ## Shell
 
 ```python
-#__case add
+#TEST_CASE add
 #addUser _username _pass
 #fail: usuario ja existe
 
@@ -41,7 +41,7 @@ $addUser luana 541
 $users
 [ david luana ]
 
-#__case login
+#TEST_CASE login
 #login _username _pass
 
 $login david 144
@@ -53,7 +53,7 @@ $login david 123
 $show
 user: david
 
-#__case logout
+#TEST_CASE logout
 #logout
 #fail: ninguem logado
 $logout
@@ -61,7 +61,7 @@ $logout
 $logout
 fail: ninguem logado
 
-#__case notes
+#TEST_CASE notes
 
 #addNote _titulo _texto
 #fail: ninguem logado

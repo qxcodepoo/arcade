@@ -87,22 +87,22 @@ O sistema deverá:
 ## Shell
 
 ```bash
-#__case set
+#TEST_CASE set
 $show
 00:00:00
 
-#__case set
+#TEST_CASE set
 
 $set 10 02 30
 $show 
 10:02:30
 
-#__case set2
+#TEST_CASE set2
 $set 15 50 59
 $show
 15:50:59
 
-#__case error
+#TEST_CASE error
 
 $set 25 10 30
 fail: hora invalida
@@ -110,24 +110,24 @@ fail: hora invalida
 $show
 15:10:30
 
-#__case error2
+#TEST_CASE error2
 $set 1 70 50
 fail: minuto invalido
 $show
 01:10:50
 
-#__case error3
+#TEST_CASE error3
 $set 23 59 70
 fail: segundo invalido
 $show
 23:59:50
 
-#__case next
+#TEST_CASE next
 $set 15 59 59
 $show
 15:59:59
 
-#__case next2
+#TEST_CASE next2
 
 $next
 $show
@@ -139,12 +139,12 @@ $end
 ***
 
 ```bash
-#__case set
+#TEST_CASE set
 $set 23 59 59
 $show
 23:59:59
 
-#__case next3
+#TEST_CASE next3
 
 $next
 $show
@@ -156,12 +156,12 @@ $end
 ***
 
 ```bash
-#__case init
+#TEST_CASE init
 $init 10 20 30
 $show
 10:20:30
 
-#__case init2
+#TEST_CASE init2
 
 $init 90 20 30
 fail: hora invalida
@@ -169,7 +169,7 @@ fail: hora invalida
 $show
 00:20:30
 
-#__case init3
+#TEST_CASE init3
 $init 90 100 60
 fail: hora invalida
 fail: minuto invalido

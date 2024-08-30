@@ -175,19 +175,19 @@ class Rectangle {
 ## Shell
 
 ```sh
-#__case creating figures
+#TEST_CASE creating figures
 $circle 2 3 5
 
-#__case showing
+#TEST_CASE showing
 $show
 Circ: C=(2.00, 3.00), R=5.00
 
-#__case creating more figures
+#TEST_CASE creating more figures
 $rect 1 1 3 3
 $rect 2 4.53 5 10
 $circle 1 1 1.5
 
-#__case showing all
+#TEST_CASE showing all
 $show
 Circ: C=(2.00, 3.00), R=5.00
 Rect: P1=(1.00, 1.00) P2=(3.00, 3.00)
@@ -195,7 +195,7 @@ Rect: P1=(2.00, 4.53) P2=(5.00, 10.00)
 Circ: C=(1.00, 1.00), R=1.50
 
 
-#__case showing area and perimeter
+#TEST_CASE showing area and perimeter
 $info
 Circ: A=78.54 P=31.42
 Rect: A=4.00 P=8.00

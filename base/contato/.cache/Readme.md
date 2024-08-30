@@ -131,12 +131,12 @@ class Contact {
 ## Shell
 
 ```bash
-#__case definindo nome
+#TEST_CASE definindo nome
 $init david
 $show
 - david []
 
-#__case inserindo telefones
+#TEST_CASE inserindo telefones
 $add oi 88
 $add tim 99
 $add tim 98
@@ -144,7 +144,7 @@ $add vivo 83
 $show
 - david [oi:88, tim:99, tim:98, vivo:83]
 
-#__case removendo telefone por indice
+#TEST_CASE removendo telefone por indice
 $rm 2
 $show
 - david [oi:88, tim:99, vivo:83]
@@ -152,14 +152,14 @@ $rm 0
 $show
 - david [tim:99, vivo:83]
 
-#__case validando numero de fone
+#TEST_CASE validando numero de fone
 $add tim 9a9
 fail: invalid number
 $add tim (85)99.99
 $show
 - david [tim:99, vivo:83, tim:(85)99.99]
 
-#__case favoritos
+#TEST_CASE favoritos
 $tfav
 $show
 @ david [tim:99, vivo:83, tim:(85)99.99]

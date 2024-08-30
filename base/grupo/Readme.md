@@ -15,7 +15,7 @@
     - Se maria e abel abrem o chat, o id do chat é abel-maria, ordenando os nomes.
 
 ```sh
-#__case init
+#TEST_CASE init
 $addUser goku
 $addUser sara
 $addUser tina
@@ -34,7 +34,7 @@ $notify tina
 - Se o usuário tentar sair de um Talk ou Convidar alguém, exiba uma mensagem de erro.
 
 ```sh
-#__case zap
+#TEST_CASE zap
 $zap goku familia to levando pizza
 $notify sara
 [familia(1)]

@@ -9,7 +9,7 @@
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-[![explicação](../../pages/images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
+[![explicação](../../wiki/images/explicacao.png)](https://youtu.be/LvZODN2rL6s)
 
 ***
 

@@ -36,7 +36,7 @@ Você vai alterar a implementação do Hospital I para habilitar o envio de mens
 ***
 
 ```sh
-#__case inserir
+#TEST_CASE inserir
 $addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 $addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 $show
@@ -49,7 +49,7 @@ Med: facada:cirurgia  Pacs: []
 Med: snif:alergologia Pacs: []
 
 
-#__case vincular
+#TEST_CASE vincular
 # tie _med _pac _pac ...
 $tie bisturi fred alvis goku
 $tie snif silva alvis
@@ -64,7 +64,7 @@ Med: bisturi:cirurgia Pacs: [alvis, fred, goku]
 Med: facada:cirurgia  Pacs: []
 Med: snif:alergologia Pacs: [alvis, silva]
 
-#__case mensagens
+#TEST_CASE mensagens
 $msg alvis bisturi posso tomar homeprazol?
 $msg goku bisturi coceira no reto eh normal?
 $inbox bisturi

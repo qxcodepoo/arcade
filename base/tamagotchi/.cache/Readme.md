@@ -150,14 +150,14 @@ class Legenda {
 
 <!-- load -->
 
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/../../pages/images/resolucao.png)](https://youtu.be/X6SV1izH67w)
+[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/../../wiki/images/resolucao.png)](https://youtu.be/X6SV1izH67w)
 
 ***
 
 ## Shell
 
 ```bash
-#__case inicio
+#TEST_CASE inicio
 # O comando "$init energia saciedade limpeza" recebe os valores do pet.
 # O pet inicia com 0 diamantes e 0 de idade.
 # Toda vez que $init é chamado, um novo pet é criado.
@@ -175,7 +175,7 @@ $end
 ***
 
 ```bash
-#__case play - Brincar 
+#TEST_CASE play - Brincar 
 # O comando "$play" altera em -2 energia, -1 saciedade, -3 limpeza, +1 diamante, +1 idade.
 $init 20 10 15
 $play
@@ -185,31 +185,31 @@ $play
 $show
 E:16/20, S:8/10, L:9/15, D:2, I:2
 
-#__case comer 
+#TEST_CASE comer 
 # O Comando "$eat" altera em -1 a energia, +4 a saciedade, -2 a limpeza, +0 diamantes,  +1 a idade
 $eat
 $show
 E:15/20, S:10/10, L:7/15, D:2, I:3
 
-#__case dormir
+#TEST_CASE dormir
 # O Comando "$sleep" aumenta energia até o máximo e idade aumenta do número de turnos que o pet dormiu.
 # Também perde 1 de saciedade.
 $sleep
 $show
 E:20/20, S:9/10, L:7/15, D:2, I:8
 
-#__case tomar banho
+#TEST_CASE tomar banho
 # O comando "$shower" alteram em -3 energia, -1 na saciedade, MAX na limpeza, +0 diamantes, +2 na idade.
 $shower
 $show
 E:17/20, S:8/10, L:15/15, D:2, I:10
 
-#__case dormir sem sono
+#TEST_CASE dormir sem sono
 # Para dormir, precisa ter perdido pelo menos 5 unidades de energia
 $sleep
 fail: nao esta com sono
 
-#__case morrer
+#TEST_CASE morrer
 # Se algum atributo atingir 0, o pet morre e não poderá executar nenhuma ação
 $play
 $play
@@ -235,13 +235,13 @@ $end
 ***
 
 ```bash
-#__case fraqueza
+#TEST_CASE fraqueza
 $init 5 10 10
 $play
 $play
 $play
 fail: pet morreu de fraqueza
-#__case morto de fraqueza
+#TEST_CASE morto de fraqueza
 $play
 fail: pet esta morto
 $show
@@ -252,7 +252,7 @@ $end
 ***
 
 ```bash
-#__case fome
+#TEST_CASE fome
 $init 10 3 10
 $play
 $play

@@ -121,7 +121,7 @@ class Estacionamento {
 
 ```sh
 
-#__case entrada bike
+#TEST_CASE entrada bike
 $show
 Hora atual: 0
 $tempo 30
@@ -130,14 +130,14 @@ $show
 ______Bike : _____elias : 30
 Hora atual: 30
 
-#__case entrada moto
+#TEST_CASE entrada moto
 $tempo 20
 $estacionar moto abc1234
 $show
 ______Bike : _____elias : 30
 ______Moto : ___abc1234 : 50
 Hora atual: 50
-#__case entrada carro
+#TEST_CASE entrada carro
 $tempo 50
 $estacionar carro pog1000
 $show
@@ -155,7 +155,7 @@ _____Carro : ___pog1000 : 100
 _____Carro : ___uva9999 : 200
 Hora atual: 230
 
-#__case saida
+#TEST_CASE saida
 $pagar elias
 Bike chegou 30 saiu 230. Pagar R$ 3.00
 $pagar abc1234

@@ -30,7 +30,7 @@ O sistema deverá:
 ## Shell
 
 ```bash
-#__case iniciando agenda
+#TEST_CASE iniciando agenda
 $add eva oi:8585 claro:9999
 $add ana tim:3434 
 $add ana casa:4567 oi:8754
@@ -45,7 +45,7 @@ $show
 - rui [0:casa:3233]
 - zac [0:fixo:3131]
 
-#__case favoritando
+#TEST_CASE favoritando
 $star eva
 $star ana
 $star ana
@@ -58,13 +58,13 @@ $show
 - rui [0:casa:3233]
 @ zac [0:fixo:3131]
 
-#__case lista de favoritos
+#TEST_CASE lista de favoritos
 $starred
 @ ana [0:tim:3434] [1:casa:4567] [2:oi:8754]
 @ eva [0:oi:8585] [1:claro:9999]
 @ zac [0:fixo:3131]
 
-#__case removendo contato
+#TEST_CASE removendo contato
 $rm zac
 
 $show
@@ -77,7 +77,7 @@ $starred
 @ ana [0:tim:3434] [1:casa:4567] [2:oi:8754]
 @ eva [0:oi:8585] [1:claro:9999]
 
-#__case desfavoritando
+#TEST_CASE desfavoritando
 $unstar ana
 
 $starred
