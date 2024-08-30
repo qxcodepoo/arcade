@@ -1,21 +1,17 @@
-#include "animal.hpp"
-
-
 struct Adapter {
-    Adapter(std::string especie = "", std::string barulho = "") {
-        (void) especie;
-        (void) barulho;
-    }
+    Adapter() {}
 
-    void grow(int nivel) {
-        (void) nivel;
+    void enter() {
     }
-
-    std::string noise() {
-        return "";
+    void leave() {
     }
-
-    std::string show() {
+    void fuel(int q) {
+        (void) q;
+    }
+    void drive(int q) {
+        (void) q;
+    }
+    std::string str() {
         return "";
     }
 };

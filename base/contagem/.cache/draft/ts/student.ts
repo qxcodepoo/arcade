@@ -24,4 +24,7 @@ function sex_battle(vet: number[]): string {
     return "";
 }
 
+if (require.main === module) {
+}
+
 export { count, sum, average, more_men, half_compare, sex_battle };

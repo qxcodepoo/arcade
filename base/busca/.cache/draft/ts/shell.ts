@@ -1,22 +1,4 @@
-
-function inside(vet: number[], value: number): boolean {
-}
-
-function index_of(vet: number[], value: number): number {
-}
-
-function find_if(vet: number[]): number {
-}
-
-function min_element(vet: number[]): number {
-}
-
-function find_min_if(vet: number[]): number {
-}
-
-
-
-// -------------------------- MAIN --------------------------
+import { inside, index_of, find_if, min_element, find_min_if } from "./student";
 
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}

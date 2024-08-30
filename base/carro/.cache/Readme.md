@@ -160,27 +160,18 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/adapter.hpp)
   - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/fn.hpp)
   - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/shell.cpp)
+  - [student.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/student.hpp)
 - java
-  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/java/Adapter.java)
   - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/java/Shell.java)
+  - [Student.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/java/Student.java)
 - ts
-  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/aashell.ts)
-  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/adapter.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/shell.ts)
+  - [student.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
-- cpp
-  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/cpp/adapter.hpp)
-  - [car.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/cpp/car.hpp)
-- java
-  - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/java/Adapter.java)
-  - [Car.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/java/Car.java)
-- ts
-  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/ts/adapter.ts)
-  - [car.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/cheat/ts/car.ts)
 <!-- links -->

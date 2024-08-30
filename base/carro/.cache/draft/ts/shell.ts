@@ -1,4 +1,4 @@
-import {Adapter} from "./adapter";
+import {Adapter} from "./student";
 
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
@@ -25,4 +25,3 @@ function main() {
 }
 
 main()
-

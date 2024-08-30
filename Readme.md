@@ -71,8 +71,6 @@
 
 ### Entendendo Classes, a Main e os Testes
 
-[![image](https://user-images.githubusercontent.com/4747652/263152148-cf916c4a-6c07-4d36-bc9c-ac8a2f9b348c.png)](https://www.youtube.com/watch?v=PU6-anlu5jI)
-
 - [@animal - Nasce, cresce, morre](base/animal/Readme.md)
 - [@carro - Se não pode comprar um, construa](base/carro/Readme.md)
 - [@calculadora - Cuidado com a bateria](base/calculadora/Readme.md)

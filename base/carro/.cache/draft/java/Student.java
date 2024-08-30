@@ -1,4 +1,3 @@
-
 class Adapter {
 
     public Adapter() {
@@ -19,8 +18,9 @@ class Adapter {
     public String toString() {
         return "";
     }
+}
 
-    public static void main(String[] args) {
-        System.out.println("Rodando adapter");
+public class Student {
+    public static void main(String[] a) {
     }
 }

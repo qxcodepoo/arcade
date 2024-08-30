@@ -4,6 +4,11 @@
 int main () {
     Adapter adp("", "");
     
+    if (Student::debug) {
+        Student::run();
+        return 0;
+    }
+
     while (true) {
         auto line = fn::input();
         auto args = fn::split(line, ' ');

@@ -19,3 +19,10 @@ struct Adapter {
         return animal.str();
     }
 };
+
+struct Student {
+    static const bool debug = false;
+    static void run() {
+        std::cout << "Debug ativado" << std::endl;
+    }
+};

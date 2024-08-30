@@ -3,24 +3,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class Solver {
-
-    static boolean in(List<Integer> vet, int x) {
-    }
-
-    static int indexOf(List<Integer> vet, int x) {
-    }
-
-    static int findIf(List<Integer> vet) {
-    }
-
-    static int minElement(List<Integer> vet) {
-    }
-
-    static int findMinIf(List<Integer> vet) {
-    }
+public class Shell {
     public static void main(String[] _args) {
-
         while (true) {
             String line = input();
             String[] args = line.split(" ");
@@ -30,23 +14,23 @@ public class Solver {
                 break;
             }
             else if ("in".equals(args[0])         ) {
-                var result = in(strToVet(args[1]), number(args[2])); 
+                var result = Student.in(strToVet(args[1]), number(args[2])); 
                 write(result ? "true" : "false");
             }
             else if ("index_of".equals(args[0])   ) {
-                var result = indexOf(strToVet(args[1]), number(args[2]));
+                var result = Student.indexOf(strToVet(args[1]), number(args[2]));
                 write("" + result);
             }
             else if ("find_if".equals(args[0])    ) {
-                var result = findIf(strToVet(args[1]));
+                var result = Student.findIf(strToVet(args[1]));
                 write("" + result);
             }
             else if ("min_element".equals(args[0])) {
-                var result = minElement(strToVet(args[1]));
+                var result = Student.minElement(strToVet(args[1]));
                 write("" + result);
             }
             else if ("find_min_if".equals(args[0])) {
-                var result = findMinIf(strToVet(args[1]));
+                var result = Student.findMinIf(strToVet(args[1]));
                 write("" + result);
             }
             else { 

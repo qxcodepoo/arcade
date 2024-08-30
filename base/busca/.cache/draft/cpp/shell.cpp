@@ -1,27 +1,16 @@
-#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
-
-bool in(std::vector<int> vet, int x) {
-}
-
-int index_of(std::vector<int> vet, int x) {
-}
-
-int find_if(const std::vector<int>& vet) {
-}
-
-int min_element(const std::vector<int>& vet) {
-}
-
-int find_min_if(const std::vector<int>& vet) {
-}
-
 #include <algorithm>
-
+#include "student.hpp"
+#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
 
 int main() {
 
-    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP([](auto x){return (int)+x;}); };
+    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(strto<int>); };
+
+    if (Student::debug) {
+        Student::run();
+        return 0;
+    }
 
     while (true) {
         auto line = input();

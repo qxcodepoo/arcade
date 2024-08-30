@@ -190,12 +190,13 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
+  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
+  - [Student.java](.cache/draft/java/Student.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
+  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->

@@ -16,4 +16,8 @@ class Adapter {
     }
 }
 
+if (require.main === module) {
+    console.log("Rodando o arquivo do estudante");
+}
+
 export { Adapter };

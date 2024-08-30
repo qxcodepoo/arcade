@@ -6,6 +6,11 @@ int main() {
     //função para converted de "[1,2,3,4]" em std::vector<int>{1,2,3,4}
     auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(strto<int>); };
 
+    if (Student::debug) {
+        Student::run();
+        return 0;
+    }
+
     while (true) {
         auto line = input();
         write("$" + line);

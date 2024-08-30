@@ -153,27 +153,18 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
+  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
-  - [Adapter.java](.cache/draft/java/Adapter.java)
   - [Shell.java](.cache/draft/java/Shell.java)
+  - [Student.java](.cache/draft/java/Student.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
+  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
-- cpp
-  - [adapter.hpp](.cache/cheat/cpp/adapter.hpp)
-  - [car.hpp](.cache/cheat/cpp/car.hpp)
-- java
-  - [Adapter.java](.cache/cheat/java/Adapter.java)
-  - [Car.java](.cache/cheat/java/Car.java)
-- ts
-  - [adapter.ts](.cache/cheat/ts/adapter.ts)
-  - [car.ts](.cache/cheat/ts/car.ts)
 <!-- links -->

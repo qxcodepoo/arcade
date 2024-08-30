@@ -197,12 +197,13 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/cpp/adapter.hpp)
   - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/cpp/fn.hpp)
   - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/cpp/shell.cpp)
+  - [student.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/cpp/student.hpp)
 - java
   - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/java/Shell.java)
+  - [Student.java](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/java/Student.java)
 - ts
-  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/ts/aashell.ts)
-  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/ts/adapter.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/ts/shell.ts)
+  - [student.ts](https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/ts/student.ts)
 <!-- links -->

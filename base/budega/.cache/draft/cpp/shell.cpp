@@ -1,8 +1,13 @@
 #include "fn.hpp"
-#include "adapter.hpp"
+#include "student.hpp"
 
 int main() {
     Adapter adp;
+
+    if (Student::debug) {
+        Student::run();
+        return 0;
+    }
 
     while (true) {
         auto line = fn::input();
@@ -14,7 +19,7 @@ int main() {
         else if (args[0] == "call"  ) { adp.call(+args[1]);                             }
         else if (args[0] == "finish") { adp.finish(+args[1]);                           }
         else if (args[0] == "arrive") { adp.arrive(args[1]);                            }
-        else if (args[0] == "show"  ) { fn::write(adp.show());                          }
+        else if (args[0] == "show"  ) { fn::write(adp.str());                          }
         else                          { fn::write("fail: comando invalido");            }
     }
 }

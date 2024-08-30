@@ -31,3 +31,6 @@ inline std::string sex_battle(const std::vector<int>& vet) {
     (void) vet;
     return "";
 }
+
+struct Student {
+};
