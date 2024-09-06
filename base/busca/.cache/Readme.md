@@ -42,9 +42,18 @@
 
 ## Draft
 
-- [solver.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft.cpp)
-- [solver.ts](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft.ts)
-- [Solver.java](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft.java)
+<!-- links .cache/draft -->
+- cpp
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft/cpp/shell.cpp)
+  - [student.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft/cpp/student.hpp)
+- java
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft/java/Shell.java)
+  - [Student.java](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft/java/Student.java)
+- ts
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft/ts/shell.ts)
+  - [student.ts](https://github.com/qxcodepoo/arcade/blob/master/base/busca/.cache/draft/ts/student.ts)
+<!-- links -->
 
 ## Shell
 
