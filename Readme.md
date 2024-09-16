@@ -73,6 +73,7 @@
 
 - [@animal - Nasce, cresce, morre](base/animal/Readme.md)
 - [@carro - Se não pode comprar um, construa](base/carro/Readme.md)
+- [@fusca - carro com testes sem o shell](base/fusca/Readme.md)
 - [@calculadora - Cuidado com a bateria](base/calculadora/Readme.md)
 
 ### Modificadores de Acesso

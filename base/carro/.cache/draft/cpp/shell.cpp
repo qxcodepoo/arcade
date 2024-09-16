@@ -1,5 +1,5 @@
 #include "fn.hpp"
-#include "student.hpp"
+#include "student.cpp"
 
 int main() {
     Adapter adp;
@@ -8,9 +8,10 @@ int main() {
         return 0;
     }
     while (true) {
+        fn::write("$", "");
         auto line = fn::input();
         auto args = fn::split(line, ' ');
-        fn::write("$" + line);
+        fn::write(line);
 
         if      (args[0] == "show")  { fn::write(adp.str());                }
         else if (args[0] == "enter") { adp.enter();                         } 

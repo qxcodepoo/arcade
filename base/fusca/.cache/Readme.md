@@ -1,8 +1,8 @@
-# @carro - Se não pode comprar um, construa
+# @fusca - carro com testes sem o shell
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro/Readme.md)
+- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/Readme.md)
 - Para programar na sua máquina (local/virtual) use:
-  - `tko down poo carro`
+  - `tko down poo fusca`
 - Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
 
 ---
@@ -12,7 +12,7 @@
 -- | -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/cover.jpg)
+![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/fusca/cover.jpg)
 
 ## Model
 
@@ -61,7 +61,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ## Guide
 
-![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/diagrama.png)
+![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/fusca/diagrama.png)
 
 - Parte 1: entrar
   - Crie a classe Car com os atributos pass, passMax, gas, gasMax e km;
@@ -91,87 +91,90 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ## Shell
 
-```bash
-#TEST_CASE inicializar
-$show
+```txt
+>>>>>>>>
+entrando
+========
+$Carro criado
 pass: 0, gas: 0, km: 0
-
-#TEST_CASE entrar
-$enter
-$enter
-$show
-pass: 2, gas: 0, km: 0
-
-#TEST_CASE limite
-$enter
-fail: limite de pessoas atingido
-$show
-pass: 2, gas: 0, km: 0
-
-#TEST_CASE sair
-$leave
-$show
+$Entrando no carro
 pass: 1, gas: 0, km: 0
+$Entrando no carro
+pass: 2, gas: 0, km: 0
+$Entrando no carro
+fail: limite de pessoas atingido
+pass: 2, gas: 0, km: 0
+<<<<<<<<
 
-#TEST_CASE limite saida
-$leave
-$leave
-fail: nao ha ninguem no carro
-$show
+>>>>>>>>
+saindo
+========
+$Carro criado
 pass: 0, gas: 0, km: 0
-$end
-```
-
-***
-
-```bash
-#TEST_CASE abastecer
-$fuel 60
-$show
-pass: 0, gas: 60, km: 0
-
-#TEST_CASE dirigir vazio
-$drive 10
+$Entrando 2 pessoas no carro
+pass: 2, gas: 0, km: 0
+$Saindo do carro
+pass: 1, gas: 0, km: 0
+$Saindo do carro
+pass: 0, gas: 0, km: 0
+$Saindo do carro
 fail: nao ha ninguem no carro
+pass: 0, gas: 0, km: 0
+<<<<<<<<
 
-#TEST_CASE dirigir
-$enter
-$drive 10
-$show
-pass: 1, gas: 50, km: 10
+>>>>>>>>
+abastecendo
+========
+$Carro criado
+pass: 0, gas: 0, km: 0
+$Abastecendo 10 litros
+pass: 0, gas: 10, km: 0
+$Abastecendo 30 litros
+pass: 0, gas: 40, km: 0
+$Abastecendo 100 litros
+pass: 0, gas: 100, km: 0
+<<<<<<<<
 
-#TEST_CASE para longe
-$drive 70
-fail: tanque vazio apos andar 50 km
-$drive 10
+>>>>>>>>
+dirigindo
+========
+$Carro criado
+pass: 0, gas: 0, km: 0
+$Tentando dirigir com carro vazio
+fail: nao ha ninguem no carro
+pass: 0, gas: 0, km: 0
+$Entrando no carro
+pass: 1, gas: 0, km: 0
+$Testando dirigir sem gasolina
 fail: tanque vazio
-$show
-pass: 1, gas: 0, km: 60
+pass: 1, gas: 0, km: 0
+$Abastecendo 30 litros
+pass: 1, gas: 30, km: 0
+$Testando dirigir com gasolina
+pass: 1, gas: 20, km: 10
+$Testando dirigir só parte do caminho
+fail: tanque vazio apos andar 20 km
+pass: 1, gas: 0, km: 30
+<<<<<<<<
 
-#TEST_CASE enchendo o tanque
-$fuel 200
-$show
-pass: 1, gas: 100, km: 60
-$end
-#
 ```
 
 ## Draft
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/fn.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/shell.cpp)
-  - [student.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/student.cpp)
+  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/cpp/fn.hpp)
+  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/cpp/shell.cpp)
+  - [student.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/cpp/student.cpp)
 - java
-  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/java/Shell.java)
-  - [Student.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/java/Student.java)
+  - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/java/Shell.java)
+  - [Student.java](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/java/Student.java)
 - py
-  - [shell.py](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/py/shell.py)
-  - [student.py](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/py/student.py)
+  - [shell.py](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/py/shell.py)
+  - [student.py](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/py/student.py)
 - ts
-  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/shell.ts)
-  - [student.ts](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/ts/student.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/ts/shell.ts)
+  - [student.ts](https://github.com/qxcodepoo/arcade/blob/master/base/fusca/.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat

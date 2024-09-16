@@ -1,4 +1,4 @@
-class Adapter {
+class CarAdp {
     // car: Car;
 
     constructor() {
@@ -21,12 +21,12 @@ class Adapter {
         // this.car.drive(km);
     }
 
-    toString(): string {
+    show(): string {
         // return this.car.toString();
         return "";
     }
 }
-export {Adapter};
+export {CarAdp as CarAdp};
 
 if (require.main === module) {
     console.log("Rodando o arquivo do estudante");

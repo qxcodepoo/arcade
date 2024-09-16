@@ -1,17 +1,24 @@
+#include "fn.hpp"
 struct Adapter {
+    // Car car;
     Adapter() {}
 
     void enter() {
+        // car.enter();
     }
     void leave() {
+        // car.leave();
     }
     void fuel(int q) {
+        // car.fuel(q);
         (void) q;
     }
     void drive(int q) {
+        // car.drive(q);
         (void) q;
     }
     std::string str() {
+        // return car.str();
         return "";
     }
 };
@@ -22,5 +29,6 @@ struct Student {
     // Você pode usar isso para testar seu código manualmente
     static const bool debug = false;
     static void run() {
+        std::cout << "Debug ativado" << std::endl;
     }
 };

@@ -3,14 +3,18 @@ import {Adapter} from "./student";
 let _cin_ : string[] = [];
 try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
 let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
+// let input = () : string => require("readline-sync").question();
 let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
+export {};
+
 
 function main() {
     let adp = new Adapter();
 
     while (true) {
+        write("$", "");
         let line = input();
-        write("$" + line);
+        write(line); // comente essa linha para rodar interativo
         let args = line.split(" ");
 
         if      (args[0] === "show")  { write(adp.toString());          }
