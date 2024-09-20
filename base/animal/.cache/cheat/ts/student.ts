@@ -1,8 +1,6 @@
 import {Animal} from "./animal";
-
 class Adapter {
     animal: Animal;
-
     constructor(especie: string, barulho: string) {
         this.animal = new Animal(especie, barulho);
     }
@@ -11,12 +9,12 @@ class Adapter {
         this.animal.envelhecer(qtd);
     }
 
-    noise(): string {
-        return this.animal.fazerBarulho();
+    noise(): void {
+        console.log(this.animal.fazerBarulho());
     }
 
-    show(): string {
-        return this.animal.toString();
+    show(): void {
+        console.log(this.animal.toString());
     }
 }
 

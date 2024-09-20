@@ -1,12 +1,5 @@
 # @estacionamento - Cobrando o valor de carros e motos
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo estacionamento`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | --

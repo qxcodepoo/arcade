@@ -1,12 +1,5 @@
 # @animal - Nasce, cresce, morre
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/animal/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo animal`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
 -- | -- | -- | -- | -- | --
@@ -190,8 +183,8 @@ $end
   - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/java/Adapter.java)
   - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/java/Shell.java)
 - ts
-  - [aashell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/ts/aashell.ts)
-  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/ts/adapter.ts)
+  - [shell.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/ts/shell.ts)
+  - [student.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat
@@ -204,6 +197,6 @@ $end
   - [Adapter.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/java/Adapter.java)
   - [Animal.java](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/java/Animal.java)
 - ts
-  - [adapter.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/ts/adapter.ts)
   - [animal.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/ts/animal.ts)
+  - [student.ts](https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/ts/student.ts)
 <!-- links -->

@@ -1,12 +1,5 @@
 # @motoca - Passeando no parque
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/motoca/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo motoca`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | --

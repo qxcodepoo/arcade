@@ -1,12 +1,5 @@
 # Cache e redundância em @favoritos
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/favoritos/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo favoritos`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Esqueleto](#esqueleto)
 -- | -- | -- | --

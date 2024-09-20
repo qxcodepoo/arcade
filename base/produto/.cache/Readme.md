@@ -1,12 +1,5 @@
 # @produto - Padrão Composite e Decorator
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/produto/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo produto`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 Padrões de projeto são soluções para problemas comuns que encontramos ao projetar um sistema. Eles são como receitas de bolo que podemos aplicar em nossos projetos para resolver problemas recorrentes. Os padrões de projeto são divididos em três categorias: padrões de criação, padrões estruturais e padrões comportamentais.
 
 Vamos trabalhar os conceitos de dois padrões de projeto: Composite e Decorator, e adicionar o conceito de uma classe de controle usando o padrão Adapter.

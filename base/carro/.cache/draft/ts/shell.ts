@@ -1,10 +1,8 @@
 import {Adapter} from "./student";
 
-let _cin_ : string[] = [];
-try { _cin_ = require("fs").readFileSync(0).toString().split(/\r?\n/); } catch(e){}
-let input = () : string => _cin_.length === 0 ? "" : _cin_.shift()!;
-// let input = () : string => require("readline-sync").question();
-let write = (text: any, end:string="\n")=> process.stdout.write("" + text + end);
+function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
+// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
+function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
 export {};
 
 
@@ -14,7 +12,7 @@ function main() {
     while (true) {
         write("$", "");
         let line = input();
-        write(line); // comente essa linha para rodar interativo
+        write(line); // _TEST_ONLY_
         let args = line.split(" ");
 
         if      (args[0] === "show")  { write(adp.toString());          }

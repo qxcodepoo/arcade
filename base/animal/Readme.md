@@ -183,8 +183,8 @@ $end
   - [Adapter.java](.cache/draft/java/Adapter.java)
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
+  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat
@@ -197,6 +197,6 @@ $end
   - [Adapter.java](.cache/cheat/java/Adapter.java)
   - [Animal.java](.cache/cheat/java/Animal.java)
 - ts
-  - [adapter.ts](.cache/cheat/ts/adapter.ts)
   - [animal.ts](.cache/cheat/ts/animal.ts)
+  - [student.ts](.cache/cheat/ts/student.ts)
 <!-- links -->

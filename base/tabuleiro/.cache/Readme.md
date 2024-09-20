@@ -1,12 +1,5 @@
 # @tabuleiro - Cuidado com as armadilhas
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/tabuleiro/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo tabuleiro`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --

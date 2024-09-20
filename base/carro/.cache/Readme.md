@@ -1,12 +1,5 @@
 # @carro - Se não pode comprar um, construa
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/carro/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo carro`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
 -- | -- | -- | -- | -- | --
@@ -159,10 +152,6 @@ $end
 ## Draft
 
 <!-- links .cache/draft -->
-- cpp
-  - [fn.hpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/fn.hpp)
-  - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/shell.cpp)
-  - [student.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/cpp/student.cpp)
 - java
   - [Shell.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/java/Shell.java)
   - [Student.java](https://github.com/qxcodepoo/arcade/blob/master/base/carro/.cache/draft/java/Student.java)

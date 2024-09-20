@@ -1,12 +1,5 @@
 # @grupo
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/grupo/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo grupo`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Guia de Atividade](#guia-de-atividade) | [Créditos](#créditos)
 -- | --

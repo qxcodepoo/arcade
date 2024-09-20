@@ -4,8 +4,9 @@ function main() {
     let vet = new Array<string>();
 
     while (true) {
+        write("$", "");
         let line = input();
-        write("$" + line);
+        write(line); // _TEST_ONLY_
         let args = line.split(" ");
 
         if      (args[0] === "end")   { break;                                                       }

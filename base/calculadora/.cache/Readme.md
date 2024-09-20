@@ -1,12 +1,5 @@
 # @calculadora - Cuidado com a bateria
 
-- Veja a versão online: [aqui.](https://github.com/qxcodepoo/arcade/blob/master/base/calculadora/Readme.md)
-- Para programar na sua máquina (local/virtual) use:
-  - `tko down poo calculadora`
-- Se não tem o `tko`, instale pelo [LINK](https://github.com/senapk/tko#tko).
-
----
-
 <!-- toch -->
 [Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
 -- | -- | -- | -- | -- | --

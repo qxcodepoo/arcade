@@ -152,10 +152,6 @@ $end
 ## Draft
 
 <!-- links .cache/draft -->
-- cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
-  - [shell.cpp](.cache/draft/cpp/shell.cpp)
-  - [student.cpp](.cache/draft/cpp/student.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
   - [Student.java](.cache/draft/java/Student.java)
