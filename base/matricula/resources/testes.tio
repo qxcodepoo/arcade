@@ -1,10 +1,10 @@
->>>>>>>> adicionando alunos ao sistema !%
+#INPUT adicionando alunos ao sistema !%
 nwalu alice edson bruno
 nwdis poo aps
 nwdis fup
 show
 end
-========
+#OUTPUT
 $nwalu alice edson bruno
 $nwdis poo aps
 $nwdis fup
@@ -18,9 +18,9 @@ discps:
     fup [ ]
     poo [ ]
 $end
-<<<<<<<<
+#END
 
->>>>>>>> matriculando alunos !%
+#INPUT matriculando alunos !%
 nwalu alice edson bruno
 nwdis poo aps
 nwdis fup
@@ -30,7 +30,7 @@ tie alice fup poo
 tie edson fup
 show
 end
-========
+#OUTPUT
 $nwalu alice edson bruno
 $nwdis poo aps
 $nwdis fup
@@ -56,9 +56,9 @@ discps:
     fup [ alice bruno edson ]
     poo [ alice bruno ]
 $end
-<<<<<<<<
+#END
 
->>>>>>>> desmatriculando alunos !%
+#INPUT desmatriculando alunos !%
 nwalu alice edson bruno
 nwdis poo aps
 nwdis fup
@@ -70,7 +70,7 @@ show
 untie bruno poo aps
 show
 end
-========
+#OUTPUT
 $nwalu alice edson bruno
 $nwdis poo aps
 $nwdis fup
@@ -106,9 +106,9 @@ discps:
     fup [ alice bruno edson ]
     poo [ alice ]
 $end
-<<<<<<<<
+#END
 
->>>>>>>> removendo alunos do sistema !%
+#INPUT removendo alunos do sistema !%
 nwalu alice edson bruno
 nwdis poo aps
 nwdis fup
@@ -122,7 +122,7 @@ show
 rmalu alice
 show
 end
-========
+#OUTPUT
 $nwalu alice edson bruno
 $nwdis poo aps
 $nwdis fup
@@ -167,4 +167,4 @@ discps:
     fup [ bruno edson ]
     poo [ ]
 $end
-<<<<<<<<
+#END

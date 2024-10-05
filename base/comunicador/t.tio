@@ -1,9 +1,9 @@
->>>>>>>> inserir !%
+#INPUT inserir !%
 addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 show
 end
-========
+#OUTPUT
 $addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 $addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 $show
@@ -15,9 +15,9 @@ Med: bisturi:cirurgia Pacs: []
 Med: facada:cirurgia  Pacs: []
 Med: snif:alergologia Pacs: []
 $end
-<<<<<<<<
+#END
 
->>>>>>>> vincular !%
+#INPUT vincular !%
 addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 show
@@ -26,7 +26,7 @@ tie snif silva alvis
 tie facada goku
 show
 end
-========
+#OUTPUT
 $addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 $addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 $show
@@ -50,9 +50,9 @@ Med: bisturi:cirurgia Pacs: [alvis, fred, goku]
 Med: facada:cirurgia  Pacs: []
 Med: snif:alergologia Pacs: [alvis, silva]
 $end
-<<<<<<<<
+#END
 
->>>>>>>> mensagens !%
+#INPUT mensagens !%
 addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 show
@@ -67,7 +67,7 @@ msg bisturi alvis chupe limao que passa
 inbox goku
 msg goku facada
 end
-========
+#OUTPUT
 $addPacs fred-fratura alvis-avc goku-hemorragia silva-sinusite
 $addMeds bisturi-cirurgia snif-alergologia facada-cirurgia
 $show
@@ -102,4 +102,4 @@ $inbox goku
 $msg goku facada
 fail: goku nao conhece facada
 $end
-<<<<<<<<
+#END

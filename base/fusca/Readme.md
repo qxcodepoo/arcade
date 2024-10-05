@@ -84,10 +84,10 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ## Shell
 
-```txt
->>>>>>>>
+```py
+#INPUT
 entrando
-========
+#OUTPUT
 $Carro criado
 pass: 0, gas: 0, km: 0
 $Entrando no carro
@@ -97,11 +97,13 @@ pass: 2, gas: 0, km: 0
 $Entrando no carro
 fail: limite de pessoas atingido
 pass: 2, gas: 0, km: 0
-<<<<<<<<
+#END
+```
 
->>>>>>>>
+```py
+#INPUT
 saindo
-========
+#OUTPUT
 $Carro criado
 pass: 0, gas: 0, km: 0
 $Entrando 2 pessoas no carro
@@ -113,11 +115,13 @@ pass: 0, gas: 0, km: 0
 $Saindo do carro
 fail: nao ha ninguem no carro
 pass: 0, gas: 0, km: 0
-<<<<<<<<
+#END
+```
 
->>>>>>>>
+```py
+#INPUT
 abastecendo
-========
+#OUTPUT
 $Carro criado
 pass: 0, gas: 0, km: 0
 $Abastecendo 10 litros
@@ -126,11 +130,13 @@ $Abastecendo 30 litros
 pass: 0, gas: 40, km: 0
 $Abastecendo 100 litros
 pass: 0, gas: 100, km: 0
-<<<<<<<<
+#END
+```
 
->>>>>>>>
+```py
+#INPUT
 dirigindo
-========
+#OUTPUT
 $Carro criado
 pass: 0, gas: 0, km: 0
 $Tentando dirigir com carro vazio
@@ -148,8 +154,7 @@ pass: 1, gas: 20, km: 10
 $Testando dirigir só parte do caminho
 fail: tanque vazio apos andar 20 km
 pass: 1, gas: 0, km: 30
-<<<<<<<<
-
+#END
 ```
 
 ## Draft
