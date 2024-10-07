@@ -1,25 +1,25 @@
 #INPUT set
 show
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT set
 show
 set 10 02 30
 show 
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $set 10 02 30
 $show 
 10:02:30
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT set2
 show
@@ -28,7 +28,7 @@ show
 set 15 50 59
 show
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $set 10 02 30
@@ -38,7 +38,7 @@ $set 15 50 59
 $show
 15:50:59
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT error
 show
@@ -49,7 +49,7 @@ show
 set 25 10 30
 show
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $set 10 02 30
@@ -63,7 +63,7 @@ fail: hora invalida
 $show
 15:10:30
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT error2
 show
@@ -76,7 +76,7 @@ show
 set 1 70 50
 show
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $set 10 02 30
@@ -94,7 +94,7 @@ fail: minuto invalido
 $show
 01:10:50
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT error3
 show
@@ -109,7 +109,7 @@ show
 set 23 59 70
 show
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $set 10 02 30
@@ -131,7 +131,7 @@ fail: segundo invalido
 $show
 23:59:50
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT next
 show
@@ -148,7 +148,7 @@ show
 set 15 59 59
 show
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $set 10 02 30
@@ -173,7 +173,7 @@ $set 15 59 59
 $show
 15:59:59
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT next2
 show
@@ -192,7 +192,7 @@ show
 next
 show
 end
-#OUTPUT
+======== EXPECT
 $show
 00:00:00
 $set 10 02 30
@@ -220,18 +220,18 @@ $next
 $show
 16:00:00
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT set
 set 23 59 59
 show
 end
-#OUTPUT
+======== EXPECT
 $set 23 59 59
 $show
 23:59:59
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT next3
 set 23 59 59
@@ -239,7 +239,7 @@ show
 next
 show
 end
-#OUTPUT
+======== EXPECT
 $set 23 59 59
 $show
 23:59:59
@@ -247,18 +247,18 @@ $next
 $show
 00:00:00
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT init
 init 10 20 30
 show
 end
-#OUTPUT
+======== EXPECT
 $init 10 20 30
 $show
 10:20:30
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT init2
 init 10 20 30
@@ -266,7 +266,7 @@ show
 init 90 20 30
 show
 end
-#OUTPUT
+======== EXPECT
 $init 10 20 30
 $show
 10:20:30
@@ -275,7 +275,7 @@ fail: hora invalida
 $show
 00:20:30
 $end
-#END
+<<<<<<<< FINISH
 
 #INPUT init3
 init 10 20 30
@@ -285,7 +285,7 @@ show
 init 90 100 60
 show
 end
-#OUTPUT
+======== EXPECT
 $init 10 20 30
 $show
 10:20:30
@@ -300,4 +300,4 @@ fail: segundo invalido
 $show
 00:00:00
 $end
-#END
+<<<<<<<< FINISH
