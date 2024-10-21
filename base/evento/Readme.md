@@ -1,4 +1,4 @@
-# @evento - bilheteria
+# Bilheteria de um evento
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

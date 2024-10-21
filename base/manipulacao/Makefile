@@ -1,3 +1,4 @@
-all:
-	tk run Readme.md solver.cpp
-	tk run Readme.md solver.ts
+test:
+	tko test Readme.md solver.cpp
+	tko test Readme.md solver.ts
+	tko test Readme.md Solver.java

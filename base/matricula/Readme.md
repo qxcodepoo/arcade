@@ -1,4 +1,4 @@
-# Garanta os vínculos cruzados entre alunos e disciplinas na @matricula
+# Vínculos entre alunos e disciplina
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)

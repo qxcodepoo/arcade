@@ -21,9 +21,8 @@ class CarAdp {
         // this.car.drive(km);
     }
 
-    show(): string {
-        // return this.car.toString();
-        return "";
+    show(): void {
+        // console.log(this.car.toString());
     }
 }
 export {CarAdp as CarAdp};

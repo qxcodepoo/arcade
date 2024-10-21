@@ -1,4 +1,4 @@
-# Instalação Typescript
+# Instalação C++ e TS
 
 ![cover](ts.jpg)
 

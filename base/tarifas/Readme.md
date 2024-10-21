@@ -1,4 +1,4 @@
-# @tarifas - Operações de saque, depósito, extrato
+# Operações de saque, depósito, extrato
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

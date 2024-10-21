@@ -1,4 +1,4 @@
-# @shapes - Utilizando interface em círculos e retângulos
+# Utilizando interface em círculos e retângulos
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

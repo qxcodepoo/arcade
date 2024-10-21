@@ -1,4 +1,4 @@
-# @cinema - Gerenciando reservas e cancelamentos de uma sala de cinema
+# Gerenciando reservas e cancelamentos de uma sala de cinema
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)

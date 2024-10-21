@@ -1,4 +1,4 @@
-# Configuração do C++
+# Instalação C++ e TS
 
 ![cover](cpp.jpg)
 

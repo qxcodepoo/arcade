@@ -1,4 +1,4 @@
-# @estacionamento - Cobrando o valor de carros e motos
+# Cobrando o valor de carros e motos
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

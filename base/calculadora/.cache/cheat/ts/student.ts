@@ -1,3 +1,4 @@
+
 class Calculator {
     batteryMax: number;
     battery: number;
@@ -43,13 +44,33 @@ class Calculator {
     }
 }
 
-export {Calculator};
+
+class Student {
+    calc: Calculator;
+    public constructor(batteryMax: number) {
+        this.calc = new Calculator(batteryMax);
+    }
+
+    public show(): void {
+        console.log(this.calc.toString());
+    }
+
+    public charge(value: number): void {
+        this.calc.chargeBattery(value);
+    }
+
+    public sum(a: number, b: number): void {
+        this.calc.sum(a, b);
+    }
+
+    public div(a: number, b: number): void {
+        this.calc.division(a, b);
+    }
+}
+
+export { Student };
+
 
 if (require.main === module) {
-    let calc = new Calculator(5);
-    calc.chargeBattery(2);
-    calc.sum(2, 3);
-    console.log(calc.toString());
-    calc.division(5, 0);
-    console.log(calc.toString());
+    console.log("Testando Adapter");
 }

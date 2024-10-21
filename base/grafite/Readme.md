@@ -1,4 +1,4 @@
-# @grafite - Porta minas
+# Porta minas de um grafite só
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

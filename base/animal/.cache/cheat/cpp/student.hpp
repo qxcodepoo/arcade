@@ -1,5 +1,6 @@
 #pragma once
 #include "fn.hpp"
+
 struct Animal {
     std::string especie;
     std::string barulho;
@@ -35,3 +36,29 @@ struct Animal {
 inline std::ostream& operator<<(std::ostream& os, const Animal& animal) {
     return os << animal.str();
 }
+
+struct Student {
+    Animal animal;
+    Student(std::string especie = "", std::string barulho = "") {
+        animal = Animal(especie, barulho);
+    }
+
+    void grow(int nivel) {
+        animal.envelhecer(nivel);
+    }
+
+    void noise() {
+        std::cout << animal.fazerBarulho() << std::endl;
+    }
+
+    void show() {
+        std::cout << animal.str() << std::endl;
+    }
+};
+
+struct Debug {
+    static const bool debug = false;
+    static void run() {
+        std::cout << "Debug ativado" << std::endl;
+    }
+};

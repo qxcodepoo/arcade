@@ -1,27 +1,35 @@
 
 function get_men(vet: number[]): number[] {
+    return [];
 }
 
 function get_calm_women(vet: number[]): number[] {
+    return [];
 }
 
 function sort(vet: number[]): number[] {
+    return [];
 }
 
 function sort_stress(vet: number[]): number[] {
+    return [];
 }
 
 function reverse(vet: number[]): number[] {
+    return [];
 }
 
 function unique(vet: number[]): number[] {
+    return [];
 }
 
 function repeated(vet: number[]): number[] {
+    return [];
 }
 
 
 
+//==
 
 // -------------------------- MAIN --------------------------
 
@@ -62,7 +70,10 @@ function to_vet(token: string): number[] {
 //Converte de vetor para string sem inserir os espaços
 //[1, 2, 3, 4] => "[1,2,3,4]"
 function fmt(vet: number[]): string {
-    return "[" + vet?.join(", ") + "]";
+    if (vet == null) {
+        return "[]";
+    }
+    return "[" + vet.join(", ") + "]";
 }
 
 main()

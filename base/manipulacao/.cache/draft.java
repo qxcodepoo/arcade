@@ -6,23 +6,39 @@ import java.util.Scanner;
 
 public class Solver {
     static List<Integer> get_men(List<Integer> vet) {
+        return new ArrayList<>();
     }
 
     static List<Integer> get_calm_women(List<Integer> vet) {
+        return new ArrayList<>();
     }
 
     static List<Integer> sort(List<Integer> vet) {
+        return new ArrayList<>();
     }
 
     static List<Integer> sort_stress(List<Integer> vet) {
+        return new ArrayList<>();
     }
 
     static List<Integer> reverse(List<Integer> vet) {
+        return new ArrayList<>();
     }
-
+    
     static void reverse_inplace(List<Integer> vet) {
     }
 
+    static boolean exists(List<Integer> vet, int value) {
+        return false;
+    }
+    
+    static List<Integer> unique(List<Integer> vet) {
+        return new ArrayList<>();
+    }
+
+    static List<Integer> repeated(List<Integer> vet) {
+        return new ArrayList<>();
+    }
 
     public static void main(String[] args) {
         while (true) {

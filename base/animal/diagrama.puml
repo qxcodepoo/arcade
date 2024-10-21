@@ -9,7 +9,7 @@ class Animal {
     + barulho: str
     + idade: int
     __
-    + Animal(especia: str, barulho: str)
+    + Animal(especie: str, barulho: str)
     + fazerBarulho() : str
     + envelhecer(qtd: int) : void
     + toString() : string

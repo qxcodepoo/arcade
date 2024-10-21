@@ -1,4 +1,4 @@
-# @junkfood - Comprando comida cara e duvidosa
+# Comprando comida cara e duvidosa
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)

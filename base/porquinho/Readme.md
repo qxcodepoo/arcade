@@ -1,4 +1,4 @@
-# @porquinho - Guardando moedas e itens em um cofrinho
+# Guardando moedas e itens em um cofrinho
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

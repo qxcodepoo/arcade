@@ -1,4 +1,4 @@
-# @tabuleiro - Cuidado com as armadilhas
+# Jogo de tabuleiro e armadilhas
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

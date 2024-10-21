@@ -1,28 +1,29 @@
 import java.util.*;
 
 public class Shell {
-    static Adapter adp = new Adapter();
+    static Student stu = new Student();
 
     public static void main(String[] _args) {
         while (true) {
+            System.out.print("$");
             String line = input();
             String[] args = line.split(" ");
-            write('$' + line);
+            write(line);
 
             if ("show".equals(args[0])) {
-                write(adp.show());
+                stu.show();
             }
             else if ("init".equals(args[0])) {
-                adp.init((int) number(args[1]));
+                stu.init((int) number(args[1]));
             }
             else if ("charge".equals(args[0])) {
-                adp.charge((int) number(args[1]));
+                stu.charge((int) number(args[1]));
             }
             else if ("sum".equals(args[0])) {
-                adp.sum((int) number(args[1]), (int) number(args[2]));
+                stu.sum((int) number(args[1]), (int) number(args[2]));
             }
             else if ("div".equals(args[0])) {
-                adp.div((int) number(args[1]), (int) number(args[2]));
+                stu.div((int) number(args[1]), (int) number(args[2]));
             }
             else if ("end".equals(args[0])) {
                 break;

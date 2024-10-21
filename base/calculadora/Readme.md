@@ -1,4 +1,4 @@
-# @calculadora - Cuidado com a bateria
+# Uma calculadora com bateria
 
 <!-- toch -->
 [Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
@@ -12,9 +12,9 @@
 Esta atividade utiliza um padrão de projeto de requisições e respostas.
 
 - Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
-- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
-- Na classe `Adapter`, você deve implementar e conectar seu código.
-- A classe `Adapter` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
+- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Student`.
+- Na classe `Student`, você deve implementar e conectar seu código.
+- A classe `Student` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
 - Mensagens de erro podem ser lançadas por exceções ou por comandos de `print` diretamente para o terminal.
 - Ao mostrar uma string formatada, será utilizado o modelo do Python `f"{variavel:param}"`.
 - Se houver, na seção [Cheat](#cheat), você pode conferir as respostas desta atividade.
@@ -32,8 +32,8 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
   - A calculadora não pode realizar divisões por zero.
 - Reponsabilidades
   - O código deve ser implementado na classe `Calculadora`.
-  - A classe `Adapter` é responsável por chamar os métodos da classe `Calculadora`.
-  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
+  - A classe `Student` é responsável por chamar os métodos da classe `Calculadora`.
+  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Student`.
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
   - `$show` - Mostra o display e a bateria.
@@ -71,9 +71,9 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
   - Verifique se a divisão é possível, se não for, emita o erro e retorne.
   - Guarde o resultado no display.
 - Parte 5 - Integração
-  - Tente integrar seu código na classe `Adapter`.
-  - Crie uma `Calculadora` como atributo de `Adapter` e a inicialize no construtor.
-  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Calculadora`.
+  - Tente integrar seu código na classe `Student`.
+  - Crie uma `Calculadora` como atributo de `Student` e a inicialize no construtor.
+  - Nos outros métodos de `Student`, chame o método equivalente da classe `Calculadora`.
   
 ```java
 // java
@@ -228,27 +228,24 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
+  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
-  - [Adapter.java](.cache/draft/java/Adapter.java)
   - [Shell.java](.cache/draft/java/Shell.java)
+  - [Student.java](.cache/draft/java/Student.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
+  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
 - cpp
-  - [adapter.hpp](.cache/cheat/cpp/adapter.hpp)
-  - [calculator.hpp](.cache/cheat/cpp/calculator.hpp)
+  - [student.hpp](.cache/cheat/cpp/student.hpp)
 - java
-  - [Adapter.java](.cache/cheat/java/Adapter.java)
-  - [Calculator.java](.cache/cheat/java/Calculator.java)
+  - [Student.java](.cache/cheat/java/Student.java)
 - ts
-  - [adapter.ts](.cache/cheat/ts/adapter.ts)
-  - [calculadora.ts](.cache/cheat/ts/calculadora.ts)
+  - [student.ts](.cache/cheat/ts/student.ts)
 <!-- links -->

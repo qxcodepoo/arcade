@@ -5,27 +5,26 @@
 ![_](flow.png)
 
 <!-- toc -->
-- [Configuração](#configuração)
+- [Configuração e Aquecimento](#configuração-e-aquecimento)
   - [Configuração de ambiente](#configuração-de-ambiente)
   - [Conteúdo extra](#conteúdo-extra)
-- [Operações em Array](#operações-em-array)
   - [Estressados Básicos](#estressados-básicos)
-  - [Estressados Avançado](#estressados-avançado)
-- [Introdução](#introdução)
-  - [Entendendo Classes, a Main e os Testes](#entendendo-classes-a-main-e-os-testes)
+- [Campanha Principal](#campanha-principal)
+  - [Primeiras Classes](#primeiras-classes)
   - [Modificadores de Acesso](#modificadores-de-acesso)
   - [Agregação Simples](#agregação-simples)
-- [Listas](#listas)
   - [ArrayList I - Listas](#arraylist-i---listas)
   - [ArrayList II - Arrays de Null](#arraylist-ii---arrays-de-null)
   - [ArrayList III - Composição e Enum](#arraylist-iii---composição-e-enum)
-- [Melhorando o código](#melhorando-o-código)
   - [Mapas && Exceções](#mapas--exceções)
-  - [Mapas && Exceções II](#mapas--exceções-ii)
-- [Polimorfismo](#polimorfismo)
   - [Herança I](#herança-i)
-- [Relacionamentos NxN](#relacionamentos-nxn)
   - [Referências Cruzadas](#referências-cruzadas)
+- [Linguagem C++](#linguagem-c)
+  - [CPP - Configuração](#cpp---configuração)
+  - [CPP - Introdução](#cpp---introdução)
+- [Linguagem TS](#linguagem-ts)
+  - [TS install](#ts-install)
+- [Linguagem Java](#linguagem-java)
 - [Futuro](#futuro)
   - [Em atualização](#em-atualização)
   - [Rascunhos](#rascunhos)
@@ -35,107 +34,107 @@
 
 ![conteúdo](https://user-images.githubusercontent.com/4747652/263064979-b64dc170-0734-475c-89f5-7ab3b4750021.png)
 
-## Configuração<!-- group -->
+## Configuração e Aquecimento
 
-### Configuração de ambiente<!---->
+### Configuração de ambiente
 
-- [ ] [Introdução ao git](wiki/git/README.md)
-- [ ] [Instalação C++ e TS](wiki/instalacao/README.md)
-- [ ] [Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
-- [ ] [Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
-- [ ] [Rodando questões no Replit](https://github.com/senapk/tko/blob/master/replit/Readme.md)
+- [ ] `#git        .`[Introdução ao git](wiki/git/README.md)
+- [ ] `#tko        .`[Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
+- [ ] `#codespace  .`[Configurando sua máquina virtual](https://github.com/senapk/tko/blob/master/replit/Readme.md)
 
-### Conteúdo extra<!---->
+### Conteúdo extra
 
-- [ ] [Relacionamentos](wiki/relacionamento/README.md) <!-- @relacionamentos -->
-- [ ] [Relacionamentos Resumo](wiki/uml/README.md) <!-- @uml -->
-- [ ] [Como fazer os códigos e relatórios](wiki/relatorio/README.md) <!-- @relatorios -->
-- [ ] [Criando a Main](wiki/main/README.md) <!-- @main -->
-- [ ] [Pesquisa sobre alocação de memória](wiki/memoria/README.md)
+- [ ] `#uml_full   .`[Relacionamentos](wiki/relacionamento/README.md)
+- [ ] `#uml_mini   .`[Relacionamentos Resumo](wiki/uml/README.md)
+- [ ] `#relatorios .`[Como fazer os códigos e relatórios](wiki/relatorio/README.md)
+- [ ] `#cmd_in_out .`[Criando a Main](wiki/main/README.md)
 
-## Operações em Array<!-- group -->
+### Estressados Básicos
 
-### Estressados Básicos<!---->
+- [ ] `@busca       .`[Estressados Operações I](base/busca/Readme.md)
+- [ ] `@contagem    .`[Estressados Operações II](base/contagem/Readme.md)
+- [ ] `@manipulacao .`[Estressados Operações III](base/manipulacao/Readme.md)
+- [ ] `@especiais   .`[Estressados Operações IV](base/especiais/Readme.md)
 
-- [ ] [@busca - Operações I](base/busca/Readme.md)
-- [ ] [@contagem - Operações II](base/contagem/Readme.md)
+## Campanha Principal
 
-### Estressados Avançado<!---->
+### Primeiras Classes
 
-- [ ] [@manipulacao - Operações III](base/manipulacao/Readme.md)
-- [ ] [@especiais - Operações IV](base/especiais/Readme.md)
+- [ ] `@animal      .`[Animal que nasce, cresce, morre](base/animal/Readme.md)
+- [ ] `@carro       .`[Um carro simples](base/carro/Readme.md)
+- [ ] `@fusca       .`[Carro com os testes em código](base/fusca/Readme.md)
+- [ ] `@calculadora .`[Uma calculadora com bateria](base/calculadora/Readme.md)
 
-## Introdução<!-- group -->
+### Modificadores de Acesso
 
-### Entendendo Classes, a Main e os Testes<!---->
+- [ ] `@relogio     .`[Garante uma hora válida no relógio](base/relogio/Readme.md)
 
-- [ ] [@animal - Nasce, cresce, morre](base/animal/Readme.md)
-- [ ] [@carro - Se não pode comprar um, construa](base/carro/Readme.md)
-- [ ] [@fusca - carro com testes sem o shell](base/fusca/Readme.md)
-- [ ] [@calculadora - Cuidado com a bateria](base/calculadora/Readme.md)
+### Agregação Simples
 
-### Modificadores de Acesso<!---->
+- [ ] `@grafite     .`[Porta minas de um grafite só](base/grafite/Readme.md)
+- [ ] `@motoca      .`[Crianças andando de motoca](base/motoca/Readme.md)
+- [ ] `@tamagotchi  .`[Alimente, brinque e mate](base/tamagotchi/Readme.md)
 
-- [ ] [Garante uma hora válida no @relogio](base/relogio/Readme.md)
+### ArrayList I - Listas
 
-### Agregação Simples<!---->
+- [ ] `@budega      .`[Gerencie a fila de espera e atendimento](base/budega/Readme.md)
+- [ ] `@pula-pula   .`[Gerenciando entradas e saídas do pula pula](base/pula-pula/Readme.md)
+- [ ] `@lapiseira   .`[Lapiseira com múltiplos grafites](base/lapiseira/Readme.md)
+- [ ] `@tabuleiro   .`[Jogo de tabuleiro e armadilhas](base/tabuleiro/Readme.md)
 
-- [ ] [@grafite - Porta minas](base/grafite/Readme.md)
-- [ ] [@motoca - Passeando no parque](base/motoca/Readme.md)
-- [ ] [@tamagotchi - Alimente, brinque e mate](base/tamagotchi/Readme.md)
+### ArrayList II - Arrays de Null
 
-## Listas<!-- group -->
+- [ ] `@cinema      .`[Gerenciando reservas e cancelamentos de uma sala de cinema](base/cinema/Readme.md)
+- [ ] `@topic       .`[Gerenciando assentos prioritários e normais](base/topic/Readme.md)
+- [ ] `@junkfood    .`[Comprando comida cara e duvidosa](base/junkfood/Readme.md)
 
-### ArrayList I - Listas<!---->
+### ArrayList III - Composição e Enum
 
-- [ ] [@budega - Gerencie a fila de espera e atendimento](base/budega/Readme.md)
-- [ ] [@pula-pula - Gerenciando entradas e saídas](base/pula-pula/Readme.md)
-- [ ] [@lapiseira - Gerenciando os múltiplos grafites](base/lapiseira/Readme.md)
-- [ ] [@tabuleiro - Cuidado com as armadilhas](base/tabuleiro/Readme.md)
+- [ ] `@contato     .`[Gerenciando telefones de um contato](base/contato/Readme.md)
+- [ ] `@porquinho   .`[Guardando moedas e itens em um cofrinho](base/porquinho/Readme.md)
+- [ ] `@tarifas     .`[Operações de saque, depósito, extrato](base/tarifas/Readme.md)
 
-### ArrayList II - Arrays de Null<!---->
+### Mapas && Exceções
 
-- [ ] [@cinema - Gerenciando reservas e cancelamentos de uma sala de cinema](base/cinema/Readme.md)
-- [ ] [@topic - Gerenciando assentos prioritários e normais](base/topic/Readme.md)
-- [ ] [@junkfood - Comprando comida cara e duvidosa](base/junkfood/Readme.md)
+- [ ] `@agenda      .`[Gerencie os vários contatos de uma agenda](base/agenda/Readme.md)
+- [ ] `@agiota      .`[Gerencie os empŕestimos do agiota](base/agiota/Readme.md)
+- [ ] `@evento      .`[Bilheteria de um evento](base/evento/Readme.md)
+- [ ] `@setor       .`[Eventos e setores em uma bilheteria](base/setor/Readme.md)
 
-### ArrayList III - Composição e Enum<!---->
+### Herança I
 
-- [ ] [@contato - Gerenciando Telefones](base/contato/Readme.md)
-- [ ] [@porquinho - Guardando moedas e itens em um cofrinho](base/porquinho/Readme.md)
-- [ ] [@tarifas - Operações de saque, depósito, extrato](base/tarifas/Readme.md)
+- [ ] `@shapes         .`[Utilizando interface em círculos e retângulos](base/shapes/Readme.md)
+- [ ] `@estacionamento .`[Cobrando o valor de carros e motos](base/estacionamento/Readme.md)
+- [ ] `@cofre          .`[Seu porquinho cresceu](base/cofre/Readme.md)
+- [ ] `@cadastro       .`[Crie as contas poupança e corrente](base/cadastro/Readme.md)
 
-## Melhorando o código<!-- group -->
+### Referências Cruzadas
 
-### Mapas && Exceções<!---->
+- [ ] `@matricula      .`[Vínculos entre alunos e disciplina](base/matricula/Readme.md)
+- [ ] `@twitter        .`[Twitter antes de ser bloqueado](base/twitter/Readme.md)
 
-- [ ] [@agenda - Gerencie os vários contatos](base/agenda/Readme.md)
-- [ ] [@agiota - Gerencie os empŕestimos](base/agiota/Readme.md)
+## Linguagem C++
 
-### Mapas && Exceções II<!---->
+### CPP - Configuração
 
-- [ ] [@evento - bilheteria](base/evento/Readme.md)
-- [ ] [@setor - eventos da bilheteria](base/setor/Readme.md)
+- [ ] `#cpp_install    .`[Instalação C++ e TS](wiki/instalacao/cpp.md)
+- [ ] `#cpp_aux        .`[Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
 
-## Polimorfismo<!-- group -->
+### CPP - Introdução
 
-### Herança I<!---->
+- [ ] `#cpp_memory     .`[Pesquisa sobre alocação de memória](wiki/memoria/README.md)
 
-- [ ] [@shapes - Utilizando interface em círculos e retângulos](base/shapes/Readme.md)
-- [ ] [@estacionamento - Cobrando o valor de carros e motos](base/estacionamento/Readme.md)
-- [ ] [@cofre - Seu porquinho cresceu](base/cofre/Readme.md)
-- [ ] [@cadastro - Crie as contas poupança e corrente](base/cadastro/Readme.md)
+## Linguagem TS
 
-## Relacionamentos NxN<!-- group -->
+### TS install
 
-### Referências Cruzadas<!---->
+- [ ] `#ts_install    .`[Instalação C++ e TS](wiki/instalacao/ts.md)
 
-- [ ] [Garanta os vínculos cruzados entre alunos e disciplinas na @matricula](base/matricula/Readme.md)
-- [ ] [Agora é X, mas antes era @twitter](base/twitter/Readme.md)
+## Linguagem Java
 
-## Futuro<!-- group -->
+## Futuro
 
-### Em atualização<!---->
+### Em atualização
 
 - [ ] [@salario](base/salario/Readme.md)
 - [ ] [@comunicador](base/comunicador/Readme.md)
@@ -151,6 +150,6 @@
 - [ ] [Cache e redundância em @favoritos](base/favoritos/Readme.md)
 - [ ] [@trem](base/trem/Readme.md)
 
-### Rascunhos<!---->
+### Rascunhos
 
 - [@produto - Padrão Composite e Decorator](base/produto/Readme.md)

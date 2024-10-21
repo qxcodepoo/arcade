@@ -14,6 +14,6 @@ class CarAdp:
     def drive(self, km: int) -> None:
         # self.car.drive(km)
         pass
-    def show(self) -> str:
-        # return str(self.car)
+    def show(self) -> None:
+        # print(self.car);
         return ""

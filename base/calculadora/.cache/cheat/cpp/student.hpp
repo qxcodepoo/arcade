@@ -50,3 +50,26 @@ struct Calculator {
 inline std::ostream& operator<<(std::ostream& os, const Calculator& c) {
     return (os << c.str());
 }
+
+class Student {
+    Calculator c;
+public:
+    Student() {
+        c = Calculator(0);
+    }
+    void show() {
+        std::cout << c.str() << std::endl;
+    }
+    void init(int batteryMax) {
+        c = Calculator(batteryMax);
+    }
+    void charge(int value) {
+        c.chargeBattery(value);
+    }
+    void sum(int a, int b) {
+        c.sum(a, b);
+    }
+    void div(int num, int den) {
+        c.division(num, den);
+    }
+};

@@ -1,4 +1,4 @@
-# Garante uma hora válida no @relogio
+# Garante uma hora válida no relógio
 
 <!-- toch -->
 [Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

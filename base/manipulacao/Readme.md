@@ -1,4 +1,4 @@
-# @manipulacao - Operações III
+# Estressados Operações III
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)

@@ -1,4 +1,4 @@
-# @topic - Gerenciando assentos prioritários e normais
+# Gerenciando assentos prioritários e normais
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

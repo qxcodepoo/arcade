@@ -1,4 +1,4 @@
-# @especiais - Operações IV
+# Estressados Operações IV
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)

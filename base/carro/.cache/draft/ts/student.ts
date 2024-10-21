@@ -21,11 +21,11 @@ class Adapter {
         // this.car.drive(km);
     }
 
-    toString(): string {
-        // return this.car.toString();
-        return "";
+    show(): void {
+        // console.log(this.car.toString());
     }
 }
+
 export {Adapter};
 
 if (require.main === module) {

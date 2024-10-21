@@ -41,11 +41,11 @@ Neste caso, o livro possui um atributo autor da classe Pessoa.
 
 ## Características das Associações
 
-* Nome
-* Multiplicidade
-* Conectividade
-* Navegabilidade
-* Papéis
+- Nome
+- Multiplicidade
+- Conectividade
+- Navegabilidade
+- Papéis
 
 ## Multiplicidades
 
@@ -83,24 +83,23 @@ Um aeroporto pode ser origem ou destino de 0 ou mais vôos. Cada vôo parte ou c
 
 ![_](conectividade.png)
 
-**Um para Um**
+### Um para Um
 
 ![_](gerencia.png)
 
 Um empregado pode gerenciar no máximo um departamento, e um departamento possui um gerente.
 
-**Um para Muitos**
+### Um para Muitos
 
 ![_](dependente.png)
 
 Um sócio pode ter 0 ou mais dependentes e cada dependente depende de um sócio.
 
-
 ![_](lotado.png)
 
 Um empregado está lotado em um único departamento, mas um departamento pode ter diversos empregados.
 
-**Muitos para Muitos**
+## Muitos para Muitos
 
 ![_](publicado3.png)
 
@@ -108,21 +107,17 @@ Um livro pode ser publicado por várias editoras e uma editora pode editar vári
 
 ![_](escreve3.png)
 
-
-
-
 ## Navegabilidade
 
-*  A navegabilidade indica como a associação deve ser lida.
+- A navegabilidade indica como a associação deve ser lida.
 
-* As associações entre classes UML podem ter uma direção navegável, de
+- As associações entre classes UML podem ter uma direção navegável, de
 uma classe para a outra ou em ambas as direções (bidirecional).
-* As associações também podem ter direção não especificada, que na
+- As associações também podem ter direção não especificada, que na
 maioria dos casos será a mesma que bidirecional, mas esta opção pode
 gerar dúvidas.
-* A navegabilidade descreve como as implementações do modelo podem ser
+- A navegabilidade descreve como as implementações do modelo podem ser
 navegadas e é simbolizada por setas no diagrama.
-
 
 ![_](endereco2.png)
 
@@ -136,12 +131,9 @@ Neste caso, o sócio conhece seus dependentes, mas o dependente não sabe de que
 
 Neste caso, o sócio conhece seus dependentese  o dependente sabe de quem ele depende.
 
-
-![_](Association9.png)
+![_](cliente.png)
 
 O cliente conhece seus pedidos. O pedido conhece seus itens. Cada item do pedido conhece o produto comprado.
-
-
 
 ## Papéis
 
@@ -152,11 +144,9 @@ especı́fico nela.
 
 O objeto Pessoa assume o papel de autor e o livro de obra.
 
-
 ![_](contrata.png)
 
 O empregado desempenha o papel de contratado e a Organizacao desempenha o papel de contratante.
-
 
 ## Associações Reflexivas
 
@@ -164,22 +154,23 @@ Uma associação reflexiva associa objetos da mesma classe.
 
 Cada objeto tem um papel distinto nessa associação.
 
+![_](supervisor.png)
 
-![_](Association18.png)
+Cada supervisionado conhece seu supervisor.
 
-Cada supervisionado conhece seu supervisor, mas o supervisor não conhece seus supervisionados.
+Cada perfil pode ter múltiplos seguidores e seguir múltiplos perfis.
+
+![_](perfil.png)
 
 ## Agregação e Composição
 
 Uma relação todo-parte entre dois objetos indica que um dos objetos está contido no outro. Ou então, que as informações de um objeto (o todo) é composta pelas informações de um outro objeto (a parte).
 
-
 **Agregação** e **Composição** são dois tipos especiais de associação que relacionam um objeto (o todo) com suas partes.
 
 ![_](todo_parte.png)
 
-
-## Agregação
+## Agregação reflexiva
 
 A agregação é um caso especial de associação que relaciona um objeto (o todo) com suas partes.
 
@@ -187,12 +178,9 @@ A agregação é representada como uma linha de associação com um diamante jun
 
 ![_](departamento.png)
 
-
-
 Na agregação, a destruição de um objeto todo não implica necessariamente a destruição do objeto parte. Por exemplo, na relação acima, a exclusão de um departamento não necessariamente implica a exclusão de todos os professores do departamento.
 
-![_](Association22.png)
-
+![_](equipes.png)
 
 Uma associação esportiva é formada por várias equipes.
 
@@ -229,7 +217,6 @@ public class Socio {
  }
  ```
 
-
  ```Java
  import java.util.ArrayList;
 
@@ -253,17 +240,15 @@ public class Clube {
  }
  ```
 
-
 ## Composição
 
 A composição é um caso especial de associação que relaciona um objeto (o todo) com suas partes. Porém, em uma composição, a destruição do objeto todo implica a destruição do objeto parte.
-
 
 ![_](livro.png)
 
 A composição é representada como uma linha de associação com um diamante preenchido junto à Classe agregadora.
 
-Read more: http://www.linhadecodigo.com.br/artigo/943/uml-unified-modeling-language-generalizacao-agregacao-composicao-e-dependencia.aspx#ixzz7eybpZLwp
+Read more: [LINK](http://www.linhadecodigo.com.br/artigo/943/uml-unified-modeling-language-generalizacao-agregacao-composicao-e-dependencia.aspx#ixzz7eybpZLwp)
 
 Na composição, os objetos parte pertencem a um único todo. Por essa razão, a composição é também denominada agregação não compartilhada.
 
@@ -291,7 +276,6 @@ não podem ser armazenados por nenhuma das classes envolvidas.
 São produzidas quando ocorrem associações com multiplicidade muitos
 (*) em todas as extremidades.
 
-
 ![_](atua.png)
 
 Um ator pode atuar em muitos filmes e um filme pode ter vários atores
@@ -302,24 +286,3 @@ um ator em um determinado filme, mas onde armazenar essa informação?
 
 Há funcionários com várias especialidades. Consertos em automóveis são realizados por funcionários, mas é necessário saber que especialidade foi utilizada pelo funcionário em certo conserto. Para isso, uma classe associativa é criada entre as classes Funcionário e
 Automóvel. Além disso, essa mesma classe associativa está associada à classe Especialidade para permitir conhecer qual a especialidade utilizada em um conserto.
-
-## Exercícios
-
-1. Uma Associação entre a lapiseira e o grafite.
-
-![_](Lapiseira.png)
-
-2. Uma agregação entre uma motoca e uma pessoa
-
-![_](motoca.png)
-
-
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-# Agora é X, mas antes era @twitter
+# Twitter antes de ser bloqueado
 
 <!-- toch -->
 [Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

@@ -10,74 +10,74 @@ export {};
 function testeEntrando() {
     const car = new CarAdp();
     console.log("$Carro criado");
-    console.log(car.show());
+    car.show();
     console.log("$Entrando no carro");
     car.enter();
-    console.log(car.show());
+    car.show();
     console.log("$Entrando no carro");
     car.enter();
-    console.log(car.show());
+    car.show();
     console.log("$Entrando no carro");
     car.enter();
-    console.log(car.show());
+    car.show();
 }
 
 function testeSaindo() {
     const car = new CarAdp();
     console.log("$Carro criado");
-    console.log(car.show());
+    car.show();
     console.log("$Entrando 2 pessoas no carro");
     car.enter();
     car.enter();
-    console.log(car.show());
+    car.show();
     console.log("$Saindo do carro");
     car.leave();
-    console.log(car.show());
+    car.show();
     console.log("$Saindo do carro");
     car.leave();
-    console.log(car.show());
+    car.show();
     console.log("$Saindo do carro");
     car.leave();
-    console.log(car.show());
+    car.show();
 }
 
 function testeAbastecendo() {
     const car = new CarAdp();
     console.log("$Carro criado");
-    console.log(car.show());
+    car.show();
     console.log("$Abastecendo 10 litros");
     car.fuel(10);
-    console.log(car.show());
+    car.show();
     console.log("$Abastecendo 30 litros");
     car.fuel(30);
-    console.log(car.show());
+    car.show();
     console.log("$Abastecendo 100 litros");
     car.fuel(100);
-    console.log(car.show());
+    car.show();
 }
 
 function testeDirigindo() {
     const car = new CarAdp();
     console.log("$Carro criado");
-    console.log(car.show());
+    car.show();
     console.log("$Tentando dirigir com carro vazio");
     car.drive(10);
-    console.log(car.show());
+    car.show();
     console.log("$Entrando no carro");
     car.enter();
-    console.log(car.show());
+    car.show();
     console.log("$Testando dirigir sem gasolina");
     car.drive(10);
-    console.log(car.show());
+    car.show();
     console.log("$Abastecendo 30 litros");
     car.fuel(30);
-    console.log(car.show());
+    car.show();
     console.log("$Testando dirigir com gasolina");
     car.drive(10);
-    console.log(car.show());
+    car.show();
     console.log("$Testando dirigir só parte do caminho");
     car.drive(50);
-    console.log(car.show());
+    car.show();
 }
 
 function main() {

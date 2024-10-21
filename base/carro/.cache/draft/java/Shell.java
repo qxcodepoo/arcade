@@ -5,11 +5,11 @@ public class Shell {
 
     public void processLine(String line) {
         var args = line.split(" ");
-        if      (args[0].equals("show"))  { System.out.println(adp.toString());              }
+        if      (args[0].equals("show"))  { adp.show();                           }
         else if (args[0].equals("enter")) { adp.enter();                          }
         else if (args[0].equals("leave")) { adp.leave();                          }
-        else if (args[0].equals("drive")) { adp.drive(Integer.parseInt(args[1]));     }
-        else if (args[0].equals("fuel"))  { adp.fuel(Integer.parseInt(args[1]));      }
+        else if (args[0].equals("drive")) { adp.drive(Integer.parseInt(args[1])); }
+        else if (args[0].equals("fuel"))  { adp.fuel(Integer.parseInt(args[1]));  }
         else                              { System.out.println("fail: comando invalido");}
     }
 

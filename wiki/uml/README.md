@@ -5,7 +5,7 @@
 ## Relações de Agregação (tem um/has a)
 
 - Casa e moradores: se a casa for destruída, os moradores não serão, eles podem ser realocados.
-- Cômodo e móveis: se o cômodo for destruído, os móveis não serão, eles podem ser realocados. 
+- Cômodo e móveis: se o cômodo for destruído, os móveis não serão, eles podem ser realocados.
 - Tanto móveis quanto moradores podem existir sem a casa ou o cômodo, respectivamente.
 
 ## Relações de composição (contém/contains a)

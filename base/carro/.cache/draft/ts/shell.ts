@@ -15,7 +15,7 @@ function main() {
         write(line); // _TEST_ONLY_
         let args = line.split(" ");
 
-        if      (args[0] === "show")  { write(adp.toString());          }
+        if      (args[0] === "show")  { adp.show();                     }
         else if (args[0] === "enter") { adp.enter();                    }
         else if (args[0] === "leave") { adp.leave();                    }
         else if (args[0] === "fuel")  { adp.fuel(+args[1]);             }

@@ -1,4 +1,4 @@
-# @agenda - Gerencie os vários contatos
+# Gerencie os vários contatos de uma agenda
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)

@@ -1,4 +1,4 @@
-# @budega - Gerencie a fila de espera e atendimento
+# Gerencie a fila de espera e atendimento
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
