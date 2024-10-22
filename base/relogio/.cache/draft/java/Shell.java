@@ -2,27 +2,30 @@ import java.util.*;
 
 public class Shell {
     public static void main(String[] a) {
-        Time time = new Time(0, 0, 0);
+        Student stu = new Student(0, 0, 0);
         
         while (true) {
+            System.out.print("$");
+
             var line = input();
-            write("$" + line);
+            write(line);
+
             var args = line.split(" ");
 
             
             if (args[0].equals("show"))  { 
-                write("" + time); 
+                stu.show(); 
             }
             else if (args[0].equals("init")) {
-                time = new Time((int)number(args[1]), (int)number(args[2]), (int)number(args[3]));
+                stu = new Student((int)number(args[1]), (int)number(args[2]), (int)number(args[3]));
             }
             else if (args[0].equals("set")) {
-                time.setHour((int)number(args[1]));
-                time.setMinute((int)number(args[2]));
-                time.setSecond((int)number(args[3]));
+                stu.setHour((int)number(args[1]));
+                stu.setMinute((int)number(args[2]));
+                stu.setSecond((int)number(args[3]));
             }
             else if (args[0].equals("next"))  { 
-                time.nextSecond(); 
+                stu.nextSecond(); 
             }
             else if (args[0].equals("end"))   { 
                 break; 

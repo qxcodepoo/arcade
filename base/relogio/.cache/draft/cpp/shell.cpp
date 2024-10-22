@@ -1,30 +1,33 @@
 #include "fn.hpp"
-#include "time.hpp"
+#include "student.hpp"
 
 int main() {
-    Time time(0, 0, 0);
+    Student stu;
+
     while (true) {
+        fn::write("$", "");
+
         auto line = fn::input();
         auto args = fn::split(line, ' ');
 
-        write("$" + line);
+        fn::write(line);
 
-        if (args[0] == "set") {
-            time.setHour(+args[1]);
-            time.setMinute(+args[2]);
-            time.setSecond(+args[3]);
+        if (args[0] == "end") {
+            break;
+        }
+        else if (args[0] == "set") {
+            stu.setHour(+args[1]);
+            stu.setMinute(+args[2]);
+            stu.setSecond(+args[3]);
         } 
         else if (args[0] == "init") {
-            time = Time(+args[1], +args[2], +args[3]);
+            stu = Student(+args[1], +args[2], +args[3]);
         }
         else if (args[0] == "show") {
-            fn::write(time);
+            stu.show();
         }
         else if (args[0] == "next") {
-            time.nextSecond();
-        }
-        else if (args[0] == "end") {
-            break;
+            stu.nextSecond();
         }
         else {
             fn::write("fail: comando invalido");

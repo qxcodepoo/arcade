@@ -34,13 +34,15 @@ Seu sistema deverá:
 
 <!-- links .cache/draft -->
 - cpp
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
+  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
-  - [Shell.java](.cache/draft/java/Shell.java)
+  - [Solver.java](.cache/draft/java/Solver.java)
+  - [Student.java](.cache/draft/java/Student.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [game.ts](.cache/draft/ts/game.ts)
-  - [pet.ts](.cache/draft/ts/pet.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
+  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Guide

@@ -1,24 +1,30 @@
 #pragma once
 #include <iostream>
 #include <string>
-class Adapter {
+class Student {
+private:
+    // Pencil pencil;
 public:
-    Adapter(double thickness) {
+    Student(double thickness) {
         (void) thickness;
     };
+    
     void insert(double thickness, std::string hardness, int length) {
         (void) thickness;
         (void) hardness;
         (void) length;
+        // pencil.insert(std::make_shared<Lead>(thickness, hardness, length));
     }
 
     void remove() {
+        // pencil.remove();
     }
 
     void writePage() {
+        // pencil.writePage();
     }
 
-    std::string str() {
-        return "";
+    void show() {
+        // fn::write(pencil.str());
     }
 };

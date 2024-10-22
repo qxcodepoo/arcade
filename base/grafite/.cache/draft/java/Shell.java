@@ -2,19 +2,19 @@ import java.util.Scanner;
 
 public class Shell {
     public static void main(String[] _args) {
-        Adapter adp = new Adapter(0.5f);
+        Student adp = new Student(0.5f);
 
         while (true) {
             String line = input();
             String[] args = line.split(" ");
             write('$' + line);
 
-            if      ("end".equals(args[0])   ) { break;                                                                    }
-            else if ("init".equals(args[0])  ) { adp = new Adapter(number(args[1]));                                       }
+            if      ("end".equals(args[0])   ) { break;                                                       }
+            else if ("init".equals(args[0])  ) { adp = new Student(number(args[1]));                          }
             else if ("insert".equals(args[0])) { adp.insert(number(args[1]), args[2], (int) number(args[3])); }
-            else if ("remove".equals(args[0])) { adp.remove();                                                             }
-            else if ("write".equals(args[0]) ) { adp.writePage();                                                          }
-            else if ("show".equals(args[0])  ) { write(adp.toString());                                                               }
+            else if ("remove".equals(args[0])) { adp.remove();                                                }
+            else if ("write".equals(args[0]) ) { adp.writePage();                                             }
+            else if ("show".equals(args[0])  ) { adp.show();                                                  }
         }
     }
 
