@@ -24,6 +24,9 @@
   - [CPP - Introdução](#cpp---introdução)
 - [Linguagem TS](#linguagem-ts)
   - [TS install](#ts-install)
+  - [TS FUP](#ts-fup)
+  - [TS Classes](#ts-classes)
+  - [TS Arrays](#ts-arrays)
 - [Linguagem Java](#linguagem-java)
 - [Futuro](#futuro)
   - [Em atualização](#em-atualização)
@@ -129,6 +132,24 @@
 ### TS install
 
 - [ ] `#ts_install    .`[Instalação C++ e TS](wiki/instalacao/ts.md)
+
+### TS FUP
+
+- [ ] `@ts_fup_1      .`[Revisão de FUP](typescript/fup_Revisão de FUP.md)
+- [ ] `@ts_fup_2      .`[Revisão](typescript/fup_revisao.md)
+- [ ] `@ts_fup_3      .`[Prática](typescript/fup_pratica.md)
+
+### TS Classes
+
+- [ ] `@ts_poo_1      .`[Classes Leitura](typescript/classes_Classes Leitura.md)
+- [ ] `@ts_poo_2      .`[Classes Revisão](typescript/classes_revisao.md)
+- [ ] `@ts_poo_3      .`[Classes prática](typescript/classes_pratica.md)
+
+### TS Arrays
+
+- [ ] `@ts_arr_1      .`[Leitura arrays](typescript/arrays_Leitura arrays.md)
+- [ ] `@ts_arr_2      .`[Revisão Arrays](typescript/arrays_revisao.md)
+- [ ] `@ts_arr_3      .`[Arrays - Prática](typescript/arrays_pratica.md)
 
 ## Linguagem Java
 
