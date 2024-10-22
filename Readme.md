@@ -135,19 +135,19 @@
 
 ### TS FUP
 
-- [ ] `@ts_fup_1      .`[Revisão de FUP](typescript/fup_Revisão de FUP.md)
+- [ ] `@ts_fup_1      .`[Revisão de FUP](typescript/fup_leitura.md)
 - [ ] `@ts_fup_2      .`[Revisão](typescript/fup_revisao.md)
 - [ ] `@ts_fup_3      .`[Prática](typescript/fup_pratica.md)
 
 ### TS Classes
 
-- [ ] `@ts_poo_1      .`[Classes Leitura](typescript/classes_Classes Leitura.md)
+- [ ] `@ts_poo_1      .`[Classes Leitura](typescript/classes_leitura.md)
 - [ ] `@ts_poo_2      .`[Classes Revisão](typescript/classes_revisao.md)
 - [ ] `@ts_poo_3      .`[Classes prática](typescript/classes_pratica.md)
 
 ### TS Arrays
 
-- [ ] `@ts_arr_1      .`[Leitura arrays](typescript/arrays_Leitura arrays.md)
+- [ ] `@ts_arr_1      .`[Leitura arrays](typescript/arrays_leitura.md)
 - [ ] `@ts_arr_2      .`[Revisão Arrays](typescript/arrays_revisao.md)
 - [ ] `@ts_arr_3      .`[Arrays - Prática](typescript/arrays_pratica.md)
 
