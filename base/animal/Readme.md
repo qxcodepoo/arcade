@@ -14,7 +14,7 @@ Essa atividade utiliza um padrão de projeto de requisições e respostas.
 - Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
 - A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Student`.
 - Na classe `Student` é onde você deve implementar e conectar seu código.
-- A classe `Student` é apenas a classe de conexão, você deve as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
+- A classe `Student` é apenas a classe de conexão, você deve criar as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
 - Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
 - Ao mostrar uma string formatada, será utilizado o modelo do python `f"{variavel:param}"`.
 - Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
