@@ -40,10 +40,13 @@ inline std::ostream& operator<<(std::ostream& os, const Animal& animal) {
 struct Student {
     Animal animal;
     Student(std::string especie = "", std::string barulho = "") {
+        (void) especie;
+        (void) barulho;
         animal = Animal(especie, barulho);
     }
 
     void grow(int nivel) {
+        (void) nivel;
         animal.envelhecer(nivel);
     }
 

@@ -51,7 +51,7 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
   - `$noise`: Faz o animal emitir um som.
   - `$end`: Finaliza a execução.
 
-***
+___
 
 ## Guide
 

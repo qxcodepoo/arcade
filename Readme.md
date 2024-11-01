@@ -44,6 +44,8 @@
 - [ ] `#git        .`[Introdução ao git](wiki/git/README.md)
 - [ ] `#tko        .`[Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
 - [ ] `#codespace  .`[Configurando sua máquina virtual](https://github.com/senapk/tko/blob/master/replit/Readme.md)
+- [ ] `#github     .`[Habilitando a conta Educational no Github](wiki/git/github.md)
+- [ ] `#chaves_ssh .`[Configurando acesso ao Github na sua máquina](wiki/git/chaves.md)
 
 ### Conteúdo extra
 

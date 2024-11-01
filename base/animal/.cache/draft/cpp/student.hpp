@@ -4,9 +4,8 @@
 struct Student {
     // Animal animal;
     Student(std::string especie = "", std::string barulho = "") {
-        //ACT
-        // (void) especie;
-        // (void) barulho;
+        (void) especie;
+        (void) barulho;
         // animal = Animal(especie, barulho);
     }
 
@@ -16,12 +15,10 @@ struct Student {
     }
 
     void noise() {
-        return "";
         // std::cout << animal.fazerBarulho() << std::endl;
     }
 
     void show() {
-        return "";
         // std::cout << animal.str() << std::endl;
     }
 };

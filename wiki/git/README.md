@@ -35,7 +35,7 @@ ___
 - Ubuntu
   - sudo apt install git
 
-## Configuração Inicial
+## Configuração Inicial se estiver na sua máquina local ao invés do Codespace
 
 - `git config --global user.name "seu nome"`
 - `git config --global user.email "seu email"`
@@ -49,10 +49,10 @@ Se estiver utilizando a máquina do laboratório, lembre de configurar pelo meno
 Seus repositórios **locais** consistem em três "árvores" mantidas pelo git.
 
 - A primeira delas é sua `Working Directory` que contém os arquivos vigentes.
-- A segunda `Index` (stage) que funciona como uma área temporária.
+- A segunda `Index` (stage) que funciona como uma área temporária onde você define quem será salvo na próxima versão.
 - A terceira a `HEAD` (repositório local) que aponta para o último `commit` (confirmação) que você fez.
 
-![](trees.png)
+![_](arvores.png)
 
 ![https://www.cureffi.org/2014/08/27/git-tutorial](diagrama.png)
 
@@ -68,20 +68,28 @@ No repositório da disciplina, você não tem direito de `escrita`, você pode a
 
 ## Trabalhando com seu repositório Git
 
+### Modo manual
+
 - Crie seu repositório no github.
   - Marque a opção Iniciar com Readme.
-  - Copie o link do repositório
+  - Após criado, vá em Code, Local, SSH e copie o link
+![_](local_ssh.png)
+
 - No seu computador
   - Entre na pasta que você quer que fique o seu repositório.
-  - Clique com o botão direito do mouse e escolha `abrir com git bash` ou `Git Bash here`
+  - Clique com o botão direito do mouse e escolha `abrir com git bash` ou `Git Bash here`, ou navegue usando o terminal(power shell) até o local desejado.
   - Dentro da pasta digite:
     - `git clone <url_do_seu_repositório>`
+
+#### Via Git Desktop
+
+- Após fazer login no git desktop, escolha o repositório remoto que deseja clonar localmente e siga os passos da ferramenta.
 
 ## Adicionar & Confirmar & Enviar pra nuvem
 
 - Você pode ver o estado atual do repositório com
   - `git status`
-- Você pode marcar os arquivos que deseja salvar (adicioná-las ao Index) usando algum dos seguintes comandos:
+- Você pode marcar os arquivos que deseja salvar (adicioná-las ao STAGE) usando algum dos seguintes comandos:
   - Para adicionar um arquivo específico
     - `git add <arquivo>`
   - Para adicionar todos os arquivos da pasta local
@@ -99,7 +107,6 @@ No repositório da disciplina, você não tem direito de `escrita`, você pode a
 ## Conflitos
 
 - Se estiver trabalhando com várias máquinas, ao acessar uma máquina e tentar dar o commit, o git vai avisar que já existem atualizações remotas. Lembre de sempre dar o `git pull origin master` antes de trabalhar numa nova pasta.
-- Se existem conflitos e você quer sobrescrever o repositório remoto com o que existe no repositório local você pode fazer um `git push origin main --force`.
 
 ## Ignorando arquivos
 
@@ -115,13 +122,13 @@ No repositório da disciplina, você não tem direito de `escrita`, você pode a
 - Clone seu repositório em duas pastas distintas do seu computador.
 - Utilize os comandos de push e pull para enviar comandos de uma pasta para a outra.
 
-## Guia rápida
+## Guia rápido
 
 - `git init`: inicializar um repositório na pasta local
 - `git add remote origin url`: vincula o repositório local no repositório remoto
 - `git clone url`: copia o repositório remoto para pasta local
 - `git add path`: marcar os arquivos que serão versionados
 - `git commit -m "msg"`: salva uma versão com todos os arquivos marcados
-- `git push origin main`: envia os commits para o servidor remoto
-- `git pull origin main`: obtém as novidades do repositório remoto para o rep local
+- `git push`: envia os commits para o servidor remoto
+- `git pull`: obtém as novidades do repositório remoto para o rep local
 - `git log`: vê o histórico de commits
