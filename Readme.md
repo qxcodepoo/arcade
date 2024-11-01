@@ -127,8 +127,8 @@
 
 ### CPP - Introdução
 
-- [ ] `#cpp_intro      .`[Pesquisa sobre C++](wiki/cpp/intro_cpp.md)
-- [ ] `#cpp_memory     .`[Pesquisa sobre alocação de memória](wiki/memoria/README.md)
+- [ ] `@cpp_intro      .`[Pesquisa sobre C++](wiki/cpp/intro_cpp.md)
+- [ ] `@cpp_memory     .`[Pesquisa sobre alocação de memória](wiki/memoria/README.md)
 
 ## Linguagem TS
 
