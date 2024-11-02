@@ -22,3 +22,11 @@ magick  -density 300 input.pdf -quality 100 output.png
 - A resposta da solicitação não é imediata. A solicitação leva alguns dias para ser processada. No próprio [LINK](https://education.github.com/discount_requests/application) de aplicação, será mostrado o status da sua solicitação e se ele for expirado. Se você ainda for aluno quando o link expirar, basta refazer a socitação reenviando um documento comprobatório.
 
 ![_](request.png)
+
+## Habilitando o copilot na sua conta do Github Education
+
+Acesse a página do [copilot](https://github.com/github-copilot/free_signup).
+
+Escolha quais as autoriações você deseja dar ao copilot e clique e salve as configurações.
+
+Instale o copilot no seu vscode e pronto. Você já pode começar a usar o copilot.
