@@ -1,4 +1,8 @@
-# Bom trabalho
+# Configuração de Token para acesso temporário
+
+## Instalando o TKO
+
+Se o tko não está instalado na sua máquina, siga as instruções em [tko](https://github.com/senapk/tko?tab=readme-ov-file#instala%C3%A7%C3%A3o)
 
 ## Configurando o token do git para acesso temporário
 
@@ -21,18 +25,19 @@
 
 ### Trabalhando com o repositório
 
-1. Se necessário, configure sua conta git
+- Abra o vscode na pasta que você clonou
+  - opção 1: `code <nome_da_pasta>`
+  - opção 2: Abra o vscode e arraste a pasta pra dentro dele
+  - opção 3: Abra o vscode, vá em File -> Open Folder e selecione a pasta onde está o repositório
+- Altere ou adicione um arquivo
+- Faça o fluxo normal para `git add, git commit -m "mensagem", git push`
+- Se necessário, antes do commit, ele pode pedir que você se identifique.
 git config --global user.name "seu nome"
 git config --global user.email "seu email"
 
-2. Altere ou adicione um arquivo
-3. git add, git commit -m "mensagem", git push
-
-### Para abrir seu repositório baixado
+### Para abrir seu repositório baixado no tko
 
 `tko open poo`
-
-Se o tko não está instalado na sua máquina, siga as instruções em [tko](https://github.com/senapk/tko?tab=readme-ov-file#instala%C3%A7%C3%A3o)
 
 ### Para remover o token no final
 
