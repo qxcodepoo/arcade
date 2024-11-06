@@ -29,12 +29,9 @@ Se não tiver dado certo, se der comando não encontrado, execute o instalador d
 
 ### 2. Instale o esbuild e o tko
 
-- Se você já tem o `node` instalado, abra o powershell e digite as seguintes linhas, uma por vez:
+- Abra o powershell e digite as seguintes linhas, uma por vez:
 
 ```bash
-
-# para instalar o esbuild
-npm install -g esbuild
 
 # para instalar o tko
 pip install tko
@@ -42,20 +39,4 @@ pip install tko
 # reabra o powershell como admin antes e dar o próximo comando
 # para habilitar a execução de scripts
 Set-ExecutionPolicy Unrestricted
-```
-
-## Para testar
-
-- Abra o `powershell` ou o `bash` e digite:
-
-```bash
-
-# baixe o problem do carro em typescript
-tko down poo 002 ts
-
-# entre na pasta do problema
-cd poo_002
-
-# execute o problema
-tko run draft.ts cases.tio
 ```

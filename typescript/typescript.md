@@ -17,7 +17,7 @@ node -v
 npm -v
 
 # Instalar o typescript e ts-node
-npm install -g typescript ts-node esbuild
+npm install typescript ts-node esbuild
 
 # feche e reabra o powershell como admin antes e dar o próximo comando
 # para habilitar a execução de scripts
@@ -33,6 +33,8 @@ ts-node -v
 ```bash
 # Instalando globalmente se você tem permissão de admin
 sudo npm install -g typescript ts-node esbuild
+# Se não tiver permissão de admin instale localmente
+npm install typescript ts-node esbuild
 
 # Testando
 tsc -v
@@ -51,7 +53,7 @@ console.log("Olá Mundo");
 
 - Abra o terminal (ctrl+shift+`)
   - Selecione o terminal bash
-- Digite o comando `ts-node ola.ts`
+- Digite o comando `npx ts-node ola.ts`
   - Se tudo deu certo, você deve ver a mensagem `Olá Mundo` no terminal.
 
 ## Para quem usa Arch
