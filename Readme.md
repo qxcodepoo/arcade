@@ -46,6 +46,7 @@
 - [ ] `#github     .`[Habilitando a conta Educational no Github](wiki/git/github.md)
 - [ ] `#chaves_ssh .`[Configurando acesso ao Github na sua máquina](wiki/git/chaves.md)
 - [ ] `#token_git  .`[Configuração de Token para acesso temporário](wiki/git/token.md)
+- [ ] `#tko_wsl    .`[Script para instalação do tko e dependencias no WSL](wiki/git/wsl.md)
 
 ### Conteúdo extra
 
