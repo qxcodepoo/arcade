@@ -1,11 +1,17 @@
 # Script para instalação do tko e dependencias no WSL
 
+WSL significa Windows Subsystem for Linux, é um ambiente de execução de aplicativos Linux no Windows.
+
 ```bash
 
-sudo -v
-
-# instalando o wsl, digite sim para as perguntar, depois de instalar, reinicie o terminal
+# instalando o wsl, digite sim para as perguntar, depois de instalar, reinicie a máquina
 wsl --install
+
+```
+
+Abra o aplicativo do ubuntu no windows para ter acesso ao terminal do wsl
+
+```bash
 
 sudo apt update
 git config --global user.email "${EMAIL}"
