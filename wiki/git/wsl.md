@@ -2,38 +2,31 @@
 
 WSL significa Windows Subsystem for Linux, é um ambiente de execução de aplicativos Linux no Windows.
 
-```bash
+## Instalando o WSL
 
-# instalando o wsl, digite sim para as perguntar, depois de instalar, reinicie a máquina
+No Command Prompt (cmd) rode o seguinte comando:
+
+```bash
 wsl --install
-
+# Aperte sim nos pop-ups que aparecerem; após finalizado, reinicie o computador.
 ```
 
-Abra o aplicativo Ubuntu no Windows para ter acesso ao terminal do WSL.
+Após reiniciar, uma janela WSL abrirá automaticamente e a instalação do Ubuntu irá começar. Quando requisitado, digite o seu UNIX username, ou seja, nome de usuário, e a sua senha. Não é obrigatório serem os mesmos da sua conta no Windows.
+OBS: O campo de senha ficará em branco. É um comportamento normal do Ubuntu.
+
+## Após instalar
+
+Para configurar o WSL instalando o TKO e as dependências necessárias, rode o seguinte comando no terminal do Ubuntu substituindo nome e email pelos seus dados:
 
 ```bash
-sudo apt update
-git config --global user.email "seu email"
-git config --global user.name "seu nome"
-
-# instalando o pipx
-sudo apt install -y pipx build-essential python3-dev python3-venv python3-pip
-
-# instalando o tko
-pipx install tko
-
-# adicionando o path
-echo "export PATH=\"$HOME/.local/bin:\$PATH\"" >> ~/.bashrc
-
 #reiniciando o terminal para aplicar as mudanças
-bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/qxcodepoo/arcade/refs/heads/master/wiki/git/wsl-configure.sh)" <nome> <email>
 ```
 
-## Ferramentas do typescript
+Caso você precise das dependências de TypeScript, rode este comando:
 
 ```bash
-sudo apt install -y nodejs
-npm install esbuild typescript ts-node readline-sync
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/qxcodepoo/arcade/refs/heads/master/wiki/git/wsl-configure-ts.sh)"
 ```
 
 ## Antes de começar a editar

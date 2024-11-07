@@ -1,8 +1,7 @@
 #!/bin/bash
 
-URL=$1
-NAME=$2
-EMAIL=$3
+NAME=$1
+EMAIL=$2
 DIR=~/.local/bin
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
@@ -25,19 +24,19 @@ pipx install tko >> /dev/null 2>&1
 echo -n "Feito!\nAdicionando ${DIR} ao PATH... "
 echo "export PATH=\"$DIR:\$PATH\"" >> ~/.bashrc
 
-echo -n "Feito!\nClonando repositório ${URL}... ${NC}"
+# echo -n "Feito!\nClonando repositório ${URL}... ${NC}"
 
-# Extrair o nome do repositório da URL
-REPO_NAME=$(basename -s .git "$URL")
+# # Extrair o nome do repositório da URL
+# REPO_NAME=$(basename -s .git "$URL")
 
-# Clonar o repositório
-cd ~/
-git clone "$URL"
+# # Clonar o repositório
+# cd ~/
+# git clone "$URL"
 
-echo -n "${BLUE}Feito!\nIniciando POO em ~/${REPO_NAME}..."
+# echo -n "${BLUE}Feito!\nIniciando POO em ~/${REPO_NAME}..."
 
-cd ~/$REPO_NAME
+# cd ~/$REPO_NAME
 
-tko start poo >> /dev/null 2>&1
+# tko start poo >> /dev/null 2>&1
 
 echo "Feito!\n${GREEN}WSL Configurado com sucesso!${NC}"
