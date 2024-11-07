@@ -1,42 +1,5 @@
 # Repositório de POO
 
-![toc](https://user-images.githubusercontent.com/4747652/263064329-3004bb4d-32fa-4a51-840e-5204870c2738.png)
-
-![_](flow.png)
-
-<!-- toc -->
-- [Configuração e Aquecimento](#configuração-e-aquecimento)
-  - [Configuração de ambiente](#configuração-de-ambiente)
-  - [Conteúdo extra](#conteúdo-extra)
-  - [Estressados Básicos](#estressados-básicos)
-- [Campanha Principal](#campanha-principal)
-  - [Primeiras Classes](#primeiras-classes)
-  - [Modificadores de Acesso](#modificadores-de-acesso)
-  - [Agregação Simples](#agregação-simples)
-  - [ArrayList I - Listas](#arraylist-i---listas)
-  - [ArrayList II - Arrays de Null](#arraylist-ii---arrays-de-null)
-  - [ArrayList III - Composição e Enum](#arraylist-iii---composição-e-enum)
-  - [Mapas && Exceções](#mapas--exceções)
-  - [Herança I](#herança-i)
-  - [Referências Cruzadas](#referências-cruzadas)
-- [Linguagem C++](#linguagem-c)
-  - [CPP - Configuração](#cpp---configuração)
-  - [CPP - Introdução](#cpp---introdução)
-- [Linguagem TS](#linguagem-ts)
-  - [TS install](#ts-install)
-  - [TS FUP](#ts-fup)
-  - [TS Classes](#ts-classes)
-  - [TS Arrays](#ts-arrays)
-- [Linguagem Java](#linguagem-java)
-- [Futuro](#futuro)
-  - [Em atualização](#em-atualização)
-  - [Rascunhos](#rascunhos)
-<!-- toc -->
-
----
-
-![conteúdo](https://user-images.githubusercontent.com/4747652/263064979-b64dc170-0734-475c-89f5-7ab3b4750021.png)
-
 ## Configuração e Aquecimento
 
 ### Configuração de ambiente<!-- +xp:0 -->
@@ -46,7 +9,7 @@
 - [ ] `#github     .`[Habilitando a conta Educational no Github](wiki/git/github.md)
 - [ ] `#chaves_ssh .`[Configurando acesso ao Github na sua máquina](wiki/git/chaves.md)
 - [ ] `#token_git  .`[Configuração de Token para acesso temporário](wiki/git/token.md)
-- [ ] `#tko_wsl    .`[Configuração via WSL](wiki/git/wsl.md)
+- [ ] `#tko_wsl    .`[Script para instalação do tko e dependencias no WSL](wiki/git/wsl.md)
 
 ### Conteúdo extra
 

@@ -1,98 +1,53 @@
-'--
 @startuml
 
 skinparam defaultFontName Hasklig
 skinparam dpi 150
 
-'==
+left to right direction
 
-+class Pet {
-    ' se o pet está vivo
-    - alive     : boolean
-
-    - clean     : int
-    - cleanMax  : int
-    - energy    : int
-    - energyMax : int
-    - hungry    : int
-    - hungryMax : int
-    
-    - age       : int
-    - diamonds  : int
+class Pet {
+    - energyMax: int
+    - hungryMax: int
+    - cleanMax: int
+    - energy: int
+    - hungry: int
+    - clean: int
+    - diamonds: int
+    - age: int
+    - alive: boolean
     __
-
-    ' verifique se o pet está vivo
-    ' se estiver morto emita uma mensagem de erro
-    ' retorne true ou false de acordo com o estado do pet
-    - testAlive() : boolean
+    + Pet(energy: int, hungry: int, clean: int)
+    + isAlive(): boolean
+    + toString(): String
     __
-
-    ' inicialize todos os atributos
-    ' inicialize os atributos Max de acordo com os parâmetros
-    '   do construtor
-    ' hungry, energy e clean iniciam com os valores máximo
-    ' idade e diamantes iniciam com 0
-    ' alive deve ser true
-    + Pet(energyMax : int, hungryMax : int, cleanMax : int)
-    + toString() : string
-    __
-    
-    ' invoque o método testAlive para verificar se o pet esta vivo
-    ' altere os atributos do pet de acordo com as regras de comer
-    ' utilizando os métodos get e set
-    + eat()
-    
-    
-    ' invoque o método testAlive para verificar se o pet esta vivo
-    ' altere os atributos do pet de acordo com as regras de jogar
-    ' utilizando os métodos get e set
-    + play()
-    
-    
-    ' invoque o método testAlive para verificar se o pet esta vivo
-    ' altere os atributos do pet de acordo com as regras de comer
-    ' utilizando os métodos get e set
-    + shower()
-    
-    ' invoque o método testAlive para verificar se o pet esta vivo
-    ' altere os atributos do pet de acordo com as regras de comer
-    ' utilizando os métodos get e set
-    + sleep()
-    __
-
-    + getClean()      : int
-    + getCleanMax()   : int
-    + getEnergy()     : int
-    + getEnergyMax()  : int
-    + getHungry()     : int
-    + getHungryMax()  : int
-    
-    ' atribui o valor do parâmetro ao atributo clean
-    ' se o valor for menor que 0 o pet morre de sujo
-    ' garanta que os valores ficarão no interalo 0 - max
-
-    + setClean (value : int)
-    
-    ' atribui o valor de energia
-    ' se o valor ficar abaixo de 0, o pet morre de fraqueza
-    ' garanta que os valores ficarão no interalo 0 - max
-    + setEnergy(value : int)
-    
-    ' atribui o valor da hungry
-    ' se o valor for menor ou igual a 0 o pet morre de fome
-    ' garanta que os valores ficarão no interalo 0 - max
-    + setHungry(value : int)
+    + setEnergy(value: int): void
+    + setHungry(value: int): void
+    + setClean(value: int): void
+    + setDiamonds(value: int): void
+    + setAge(value: int): void
+    + getClean(): int
+    + getHungry(): int
+    + getEnergy(): int
+    + getCleanMax(): int
+    + getHungryMax(): int
+    + getEnergyMax(): int
+    + getDiamonds(): int
+    + getAge(): int
 }
 
-class Legenda {
-  + atributoPublic
-  - atributoPrivate
-  # atributoProtected
-  __
-  + métodoPublic()
-  - métodoPrivate()
-  # métodoProtected()
+class Game {
+    - pet: Pet
+    __
+    + Game(pet: Pet)
+    - testAlive(): boolean
+    + toString(): String
+    __
+    + play(): void
+    + shower(): void
+    + eat(): void
+    + sleep(): void
 }
 
-'--
+Game "1" *-- "1" Pet
+
 @enduml
