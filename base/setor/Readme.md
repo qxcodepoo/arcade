@@ -128,7 +128,6 @@ class Bilheteria {
   ' para fazer a venda, não é necessário lançar nenhuma exceção aqui
   + vender(nome_pessoa: string, nome_evento: string, nome_setor: string):void 
 }
-
 ```
 
 <!-- load -->

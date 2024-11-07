@@ -140,7 +140,6 @@ class Legenda {
   - métodoPrivate()
   # métodoProtected()
 }
-
 ```
 
 <!-- load -->

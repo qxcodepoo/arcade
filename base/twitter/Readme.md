@@ -291,7 +291,6 @@ User "1..*" o-- "0..*" User
 User "1" --*  "1" Inbox
 Inbox "1" --o "0..*" Tweet
 @enduml
-
 ```
 
 <!-- load -->

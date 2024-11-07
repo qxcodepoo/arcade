@@ -101,7 +101,6 @@ class Venda {
   + getValor():number
   + toString():string
 }
-
 ```
 
 <!-- load -->

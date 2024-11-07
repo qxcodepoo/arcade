@@ -113,8 +113,6 @@ class Contact {
   ' ex: - david [oi:123, tim:9081, claro:5431]
   + toString() : str
 }
-
-
 ```
 
 <!-- load -->

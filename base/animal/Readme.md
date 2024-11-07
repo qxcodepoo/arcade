@@ -33,7 +33,7 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
     - 4: Morto
   - Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:
     - Se for filhote, emite um "---".
-    - Se for idoso, emite um "RIP".
+    - Se estiver morto, emite um "RIP".
   - Ao crescer, o animal avança estágios na sua vida.
     - Ao morrer, deve ser exibida uma mensagem de aviso: `warning: {especie} morreu`.
     - Invocar o método de crescimento após a morte do animal deve exibir uma mensagem de aviso: `warning: {especie} morreu`.
@@ -191,9 +191,13 @@ $end
 
 <!-- links .cache/cheat -->
 - cpp
+  - [fn.hpp](.cache/cheat/cpp/fn.hpp)
+  - [shell.cpp](.cache/cheat/cpp/shell.cpp)
   - [student.hpp](.cache/cheat/cpp/student.hpp)
 - java
+  - [Shell.java](.cache/cheat/java/Shell.java)
   - [Student.java](.cache/cheat/java/Student.java)
 - ts
+  - [shell.ts](.cache/cheat/ts/shell.ts)
   - [student.ts](.cache/cheat/ts/student.ts)
 <!-- links -->

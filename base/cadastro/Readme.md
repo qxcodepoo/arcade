@@ -160,7 +160,6 @@ class Agency {
     ' realiza a operação de atualização mensal em todas as contas
     + updateMonthly(): void
 }
-
 ```
 
 <!-- load -->

@@ -1,14 +1,3 @@
-//--------------------------------------------------------
-// BIBLIOTECA HEADER ONLY PARA C++ 
-//     MANIPULAÇÃO DE TEXTO
-//         FORMAT, TOSTR, PRINT, WRITE, SPLIT, JOIN
-//     E PROGRAMAÇÃO FUNCIONAL
-//         MAP, FILTER, SLICE, ENUMERATE
-//     EM MODO FUNÇÃO E MODO PIPELINE
-//--------------------------------------------------------
-//  VERSÃO 1.0.0
-//  https://github.com/senapk/cppaux
-//--------------------------------------------------------
 
 #pragma once
 
@@ -28,9 +17,6 @@ namespace fn {
 
 using str_view = std::string_view;
 
-//--------------------------------------------------------
-//-------------------- ALIGN -------------- --------------
-//--------------------------------------------------------
 
 class Align {
     char align_mode { 0 }; //< > or ^, default is center
@@ -67,7 +53,6 @@ class Align {
     }
 
     void extract_pad() {
-        //search for : char in format, if exists and is followed by a char, then use that char as padding, and remove both from string
         auto pos = this->format.find(':');
         if (pos != std::string::npos) {
             if (pos + 1 < format.size()) {
@@ -94,7 +79,6 @@ public:
         }
         int diff = this->align_size - len;
         
-        //default is center
         int padleft = diff/2;
         int padright = diff - padleft;
         if(this->align_mode == '>') {
@@ -122,13 +106,9 @@ public:
     }
 };
 
-//--------------------------------------------------------
-//-------------------- CFMT  -----------------------------
-//--------------------------------------------------------
 
 class CFMT {
 
-    //transformation using sprintf
     template <typename T>
     static std::string c_transform(const T& data, const str_view& format) {
         std::string fmt(format);
@@ -140,7 +120,6 @@ class CFMT {
         return output;
     }
 
-    //conversion to string using stringstream
     template <typename T>
     static std::string sstream_transform(const T& data) {
         std::stringstream ss;
@@ -161,14 +140,11 @@ class CFMT {
         return c_transform(data, format);
     }
 
-    //validate if the format is correct for a string
     static std::string process(const std::string& data, const str_view& format) 
     {
         return process(data.c_str(), format);
     }
     
-    //validate if the format is correct for a const char *
-    //write specialization for const char *
     static std::string process(const char* const& data, const str_view& format) 
     {
         if (format == "%s" || format == "") {
@@ -189,15 +165,9 @@ public:
     }
 };
 
-//--------------------------------------------------------
-//-------------------- TOSTR PROTOTYPE -------------------
-//--------------------------------------------------------
 
 template <typename T> std::string tostr(const T& t     , const str_view& format = "");
 
-//--------------------------------------------------------
-//-------------------- JOIN  -----------------------------
-//--------------------------------------------------------
 
 namespace hide {
 template <typename CONTAINER> 
@@ -230,8 +200,6 @@ std::string __join(const std::pair<T1, T2>& the_pair, const str_view& separator,
     return ss.str();
 }
 }
-//__guide join
-//[[join]]
 /**
  * @note #### `join(T container, str separator = "", str cfmt = "") -> str`
  * @note #### `T container| JOIN(str separator = "", str cfmt = "") -> str`
@@ -254,17 +222,14 @@ std::string __join(const std::pair<T1, T2>& the_pair, const str_view& separator,
  */
 template <typename T>
 std::string join(const T& container, const str_view& separator = "", const str_view& cfmt = "") 
-//[[join]]
 {
     return hide::__join(container, separator, cfmt);
 }
 
-//class
 struct JOIN {
     str_view delimiter;
     str_view cfmt;
 
-//__guide join
 /**
  * @note #### `join(T container, str separator = "", str cfmt = "") -> str`
  * @note #### `T container| JOIN(str separator = "", str cfmt = "") -> str`
@@ -290,9 +255,6 @@ struct JOIN {
     template <typename T> friend std::string operator|(const T& v, const JOIN& obj) { return obj(v); }
 };
 
-//--------------------------------------------------------
-//-------------------- TOSTR -----------------------------
-//--------------------------------------------------------
 
 namespace hide {
 template <typename T>             inline std::string __tostr(const T& t                      , const str_view& format) { return CFMT::format(t, format); }
@@ -314,8 +276,6 @@ template <typename T>             inline std::string __tostr(const std::shared_p
 
 }
 
-//__guide tostr
-//[[tostr]]
 /**
  * @note #### `tostr(T data, str cfmt = "") -> str`
  * @note #### `T data| TOSTR(str cfmt = "") -> str`
@@ -356,16 +316,13 @@ template <typename T>             inline std::string __tostr(const std::shared_p
  * @note  #### Mais exemplos em https://github.com/senapk/cppaux#tostr
  */
 template <typename T> std::string tostr(const T& data     , const str_view& cfmt) 
-//[[tostr]]
 { 
     return hide::__tostr(data, cfmt); 
 }
 
-//class
 struct TOSTR {
     str_view cfmt;
 
-//__guide tostr
 /**
  * @note #### `tostr(T data, str cfmt = "") -> str`
  * @note #### `T data| TOSTR(str cfmt = "") -> str`
@@ -411,11 +368,7 @@ struct TOSTR {
     template <typename T> friend std::string operator|(const T& v, const TOSTR& obj) { return obj(v); }
 };
 
-//--------------------------------------------------------
-//-------------------- FORMAT ----------------------------
-//--------------------------------------------------------
 
-//class
 template<typename... Args> 
 class FORMAT 
 {
@@ -436,7 +389,6 @@ class FORMAT
         return result;
     }
 
-    //transforma {{ em \a e }} em \b
     std::string preprocess(std::string data) {
         std::string result1;
         data.push_back('_');
@@ -499,7 +451,6 @@ class FORMAT
 
 public:
 
-//__guide format
 /**
  * @note #### `format(str fmt, Args ...args ) -> str`
  * @note #### `str fmt| FORMAT(Args ...args ) -> str`
@@ -547,8 +498,6 @@ public:
 };
 
 
-//__guide format
-//[[format]]
 /**
  * @note #### `format(str fmt, Args ...args ) -> str`
  * @note #### `str fmt| FORMAT(Args ...args ) -> str`
@@ -572,18 +521,12 @@ public:
  */
 template<typename... Args> 
 std::string format(std::string fmt, Args ...args) 
-//[[format]]
 {
     return FORMAT<Args...>(args...)(fmt); 
 }
 
 
-//--------------------------------------------------------
-//-------------------- PRINT------------------------------
-//--------------------------------------------------------
 
-//__guide print
-//[[print]]
 /**
  * @note #### `print(str fmt, Args ...args) -> str`
  * 
@@ -602,18 +545,15 @@ std::string format(std::string fmt, Args ...args)
  * 
  */
 template<typename... Args> std::string print(std::string fmt, Args ...args)
-//[[print]]
 { 
     auto result = FORMAT<Args...>(args...)(fmt);
     std::cout << result;
     return result;
 }
-//class
 template<typename... Args> 
 struct PRINT {
     std::tuple<Args...> args;
 
-//__guide print
 /**
  * @note #### `print(str fmt, Args ...args) -> str`
  * 
@@ -636,12 +576,7 @@ struct PRINT {
     friend std::string operator|(std::string fmt, PRINT<Args...> obj) { return obj(fmt); }
 };
 
-//--------------------------------------------------------
-//-------------------- WRITE -----------------------------
-//--------------------------------------------------------
 
-//__guide write
-//[[write]]
 /**
  * @note #### `write(T data, str end = "\n") -> T`
  * @note #### `T data| WRITE(str end = "\n") -> T`
@@ -662,17 +597,14 @@ struct PRINT {
  * @note #### Veja mais exemplos em https://github.com/senapk/cppaux#write
  */
 template <typename PRINTABLE> const PRINTABLE& write(const PRINTABLE& data, str_view end = "\n") 
-//[[write]]
 {
     std::cout << tostr(data) << end;
     return data;
 }
 
-//class
 struct WRITE {
     str_view end;
 
-//__guide write
 /**
  * @note #### `write(T data, str end = "\n") -> T`
  * @note #### `T data| WRITE(str end = "\n") -> T`
@@ -698,13 +630,9 @@ struct WRITE {
     template <typename PRINTABLE> friend const PRINTABLE& operator| (const PRINTABLE& data, WRITE obj) { return obj(data); }
 };
 
-//--------------------------------------------------------
-//-------------------- SLICE -----------------------------
-//--------------------------------------------------------
 
 class SLICE {
 public:
-//__guide slice1
 /**
  * @note #### `slice(CONTAINER<T> container, int begin = 0) -> vector<T>`
  * @note #### `CONTAINER<T> container| SLICE(int begin = 0) -> vector<T>`
@@ -733,7 +661,6 @@ public:
         this->to_end = true;
     }
 
-//__guide slice2
 /**
  * @note #### `slice(CONTAINER<T> container, int begin, int end) -> vector<T>`
  * @note #### `CONTAINER<T> container| SLICE(int begin, int end) -> vector<T>`
@@ -765,12 +692,10 @@ public:
     auto operator()(const CONTAINER& container) const {
         auto aux = SLICE::new_vec_from(container);
         
-        //empty container
         if (!this->from_begin && !this->to_end && (this->begin == this->end)) {
             return aux;
         }
 
-        //full container
         if (this->from_begin && this->to_end) {
             std::copy(container.begin(), container.end(), std::back_inserter(aux));
             return aux;
@@ -826,8 +751,6 @@ private:
     }
 };
 
-//__guide slice1
-//[[slice]]
 /**
  * @note #### `slice(CONTAINER<T> container, int begin = 0) -> vector<T>`
  * @note #### `CONTAINER<T> container| SLICE(int begin = 0) -> vector<T>`
@@ -852,12 +775,10 @@ private:
  */
 template<typename CONTAINER>
 auto slice(const CONTAINER& container, int begin = 0)
-//[[slice]]
 {
     return SLICE(begin)(container);
 }
 
-//__guide slice2
 /**
  * @note #### `slice(CONTAINER<T> container, int begin, int end) -> vector<T>`
  * @note #### `CONTAINER<T> container| SLICE(int begin, int end) -> vector<T>`
@@ -885,12 +806,7 @@ auto slice(CONTAINER container, int begin, int end)
     return SLICE(begin, end)(container);
 }
 
-//--------------------------------------------------------
-//-------------------- MAP   -----------------------------
-//--------------------------------------------------------
 
-//__guide map
-//[[map]]
 /**
  * @note #### `map(CONTAINER<T> container, FUNCTION fn) -> vector<fn(T)>`
  * @note #### `CONTAINER<T> container| MAP(FUNCTION fn) -> vector<fn(T)>`
@@ -911,7 +827,6 @@ auto slice(CONTAINER container, int begin, int end)
  */
 template<typename CONTAINER, typename FUNCTION>
 auto map(const CONTAINER& container, FUNCTION fn)
-//[[map]]
 {
     std::vector<decltype(fn(*container.begin()))> aux;
     for (const auto& item : container)
@@ -922,7 +837,6 @@ auto map(const CONTAINER& container, FUNCTION fn)
 template <typename FUNCTION>
 struct MAP {
     FUNCTION fn;
-//__guide map
 /**
  * @note #### `map(CONTAINER<T> container, FUNCTION fn) -> vector<fn(T)>`
  * @note #### `CONTAINER<T> container| MAP(FUNCTION fn) -> vector<fn(T)>`
@@ -946,12 +860,7 @@ struct MAP {
     template<typename CONTAINER> friend auto operator|(const CONTAINER& container, const MAP& map) { return map(container); }
 };
 
-//--------------------------------------------------------
-//-------------------- FILTER ----------------------------
-//--------------------------------------------------------
 
-//__guide filter
-//[[filter]]
 /**
  * @note #### `filter(CONTAINER<T> container, FUNCTION fn) -> vector<T>`
  * @note #### `CONTAINER<T> container| FILTER(FUNCTION fn) -> vector<T>`
@@ -973,7 +882,6 @@ struct MAP {
  */
 template<typename CONTAINER, typename FUNCTION>
 auto filter(const CONTAINER& container, FUNCTION fn)
-//[[filter]]
 {
     auto aux = slice(container, 0, 0);
     for(const auto& x : container) {
@@ -987,7 +895,6 @@ template <typename FUNCTION>
 struct FILTER {
     FUNCTION fn;
 
-//__guide filter
 /**
  * @note #### `filter(CONTAINER<T> container, FUNCTION fn) -> vector<T>`
  * @note #### `CONTAINER<T> container| FILTER(FUNCTION fn) -> vector<T>`
@@ -1012,12 +919,7 @@ struct FILTER {
     template<typename CONTAINER> friend auto operator|(const CONTAINER& container, const FILTER& obj) { return obj(container); }
 };
 
-//--------------------------------------------------------
-//-------------------- RANGE -----------------------------
-//--------------------------------------------------------
 
-//__guide range2
-// [[range]]
 /**
  * @note #### `range(int init, int end, int step = 1) -> vector<int>`
  * 
@@ -1036,7 +938,6 @@ struct FILTER {
  * @note #### Veja  mais exemplos em https://github.com/senapk/cppaux#range
  */
 inline std::vector<int> range(int init, int end, int step = 1)
-//[[range]]
 {
     if (step == 0)
         throw std::runtime_error("step cannot be zero");
@@ -1053,7 +954,6 @@ inline std::vector<int> range(int init, int end, int step = 1)
     return aux;
 }
 
-//__guide range1
 /**
  * @note #### `range(int end) -> vector<int>`
  * 
@@ -1088,12 +988,7 @@ struct RANGE {
     int step {0};
 };
 
-//--------------------------------------------------------
-//-------------------- ENUMERATE -------------------------
-//--------------------------------------------------------
 
-//__guide enumerate
-//[[enumerate]]
 /**
  * @note #### `enumerate(CONTAINER<T> container) -> vector<pair<int, T>>`
  * @note #### `CONTAINER<T> container|ENUMERATE()-> vector<pair<int, T>>`
@@ -1113,7 +1008,6 @@ struct RANGE {
  */
 template<typename CONTAINER>
 auto enumerate(const CONTAINER& container)
-//[[enumerate]]
 {
     auto fn = [](auto x) {return x;}; 
     std::vector<std::pair<int, decltype(fn(*container.begin()))>> aux;
@@ -1126,7 +1020,6 @@ auto enumerate(const CONTAINER& container)
 }
 
 struct ENUMERATE {
-//__guide enumerate
 /**
  * @note #### `enumerate(CONTAINER<T> container) -> vector<pair<int, T>>`
  * @note #### `CONTAINER<T> container|ENUMERATE()-> vector<pair<int, T>>`
@@ -1151,12 +1044,7 @@ struct ENUMERATE {
 
 
 
-//--------------------------------------------------------
-//-------------------- STRTO -----------------------------
-//--------------------------------------------------------
 
-//__guide strto
-//[[strto]]
 /**
  * @note #### `strto<READABLE>(str value) -> READABLE`
  * @note #### `str value|STRTO<READABLE>()-> READABLE`
@@ -1179,7 +1067,6 @@ struct ENUMERATE {
 */
 template <typename READABLE>
 READABLE strto(std::string value)
-//[[strto]]
 {
     std::istringstream iss(value);
     READABLE aux;
@@ -1191,7 +1078,6 @@ READABLE strto(std::string value)
 
 template <typename READABLE>
 struct STRTO {
-//__guide strto
 /**
  * @note #### `strto<READABLE>(str value) -> READABLE`
  * @note #### `str value|STRTO<READABLE>()-> READABLE`
@@ -1217,12 +1103,7 @@ struct STRTO {
     friend READABLE operator|(std::string value, const STRTO& obj) { return obj(value); }
 };
 
-//--------------------------------------------------------
-//-------------------- NUMBER ----------------------------
-//--------------------------------------------------------
 
-//__guide number
-//[[number]]
 /**
  * @note #### `number(str value) -> double`
  * 
@@ -1240,13 +1121,11 @@ struct STRTO {
  * 
 */
 inline double number(std::string value)
-//[[number]]
 {
     return strto<double>(value);
 }
 
 struct NUMBER {
-//__guide number
 /**
  * @note #### `number(str value) -> double`
  * 
@@ -1268,15 +1147,11 @@ struct NUMBER {
     friend double operator|(std::string value, const NUMBER& obj) { return obj(value); }
 };
 
-//--------------------------------------------------------
-//-------------------- UNPACK -----------------------------
-//--------------------------------------------------------
 
 template <typename... Types>
 struct UNPACK {
     char delimiter;
 
-//__guide unpack
 /**
  * @note #### `unpack<...TS>(str value, char delimiter) -> tuple<TS...>`
  * @note #### `str value| UNPACK<...TS>(char delimiter) -> tuple<TS...>`
@@ -1321,8 +1196,6 @@ struct UNPACK {
     }
 };
 
-//__guide unpack
-//[[unpack]]
 /**
  * @note #### `unpack<...TS>(str value, char delimiter) -> tuple<TS...>`
  * @note #### `str value| UNPACK<...TS>(char delimiter) -> tuple<TS...>`
@@ -1344,18 +1217,12 @@ struct UNPACK {
  */
 template <typename... TS>
 std::tuple<TS...> unpack(const std::string& line, char delimiter)
-//[[unpack]]
 {
     return UNPACK<TS...>(delimiter)(line);
 }
 
 
-//--------------------------------------------------------
-//-------------------- ZIP   -----------------------------
-//--------------------------------------------------------
 
-//__guide zip
-//[[zip]]
 /**
  * @note #### `zip(CONTAINER_A<T> container_a, CONTAINER_B<K> container_b) -> vector<pair<T, K>>`
  * @note #### `CONTAINER_A<T> container_a| ZIP(CONTAINER_B<K> container_b) -> vector<pair<T, K>>`
@@ -1375,7 +1242,6 @@ std::tuple<TS...> unpack(const std::string& line, char delimiter)
  */
 template<typename CONTAINER_A, typename CONTAINER_B>
 auto zip(const CONTAINER_A& A, const CONTAINER_B& B)
-//[[zip]]
 {
     auto fn = [](auto x) { return x; };
     using type_a = decltype(fn(*A.begin()));
@@ -1396,7 +1262,6 @@ template <typename CONTAINER_B>
 struct ZIP {
     CONTAINER_B container_b;
 
-//__guide zip
 /**
  * @note #### `zip(CONTAINER_A<T> container_a, CONTAINER_B<K> container_b) -> vector<pair<T, K>>`
  * @note #### `CONTAINER_A<T> container_a| ZIP(CONTAINER_B<K> container_b) -> vector<pair<T, K>>`
@@ -1422,12 +1287,7 @@ struct ZIP {
     friend auto operator|(const CONTAINER_A& container_a, const ZIP& obj) { return obj(container_a); }
 };
 
-//--------------------------------------------------------
-//-------------------- ZIPWITH ---------------------------
-//--------------------------------------------------------
 
-//__guide zipwith
-//[[zipwith]]
 /**
  * @note #### `zipwith(CONTAINER<T> container_a, CONTAINER<K> container_b, FUNCTION fnjoin) -> vector<fnjoin(T, K)>`
  * @note #### `CONTAINER<T> container_a| ZIPWITH(CONTAINER<K> container_b, FUNCTION fnjoin) -> vector<fnjoin(T, K)>`
@@ -1450,7 +1310,6 @@ struct ZIP {
  */
 template<typename CONTAINER_A, typename CONTAINER_B, typename FNJOIN>
 auto zipwith(const CONTAINER_A& A, const CONTAINER_B& B, FNJOIN fnjoin)
-//[[zipwith]]
 {
     auto idcopy = [](auto x) { return x; };
     using type_out = decltype( fnjoin( idcopy(*A.begin()), idcopy(*B.begin()) ));
@@ -1472,7 +1331,6 @@ struct ZIPWITH {
     CONTAINER_B container_b;
     FNJOIN fnjoin;
 
-//__guide zipwith
 /**
  * @note #### `zipwith(CONTAINER<T> container_a, CONTAINER<K> container_b, FUNCTION fnjoin) -> vector<fnjoin(T, K)>`
  * @note #### `CONTAINER<T> container_a| ZIPWITH(CONTAINER<K> container_b, FUNCTION fnjoin) -> vector<fnjoin(T, K)>`
@@ -1499,12 +1357,7 @@ struct ZIPWITH {
     template<typename CONTAINER_A> friend auto operator| (const CONTAINER_A& container_a, const ZIPWITH& obj) { return obj(container_a); }
 };
 
-//--------------------------------------------------------
-//-------------------- SPLIT -----------------------------
-//--------------------------------------------------------
 
-//__guide split
-//[[split]]
 /**
  * @note #### `split(str content, char delimiter = ' ') -> vector<str>`
  * @note #### `str content| SPLIT(char delimiter = ' ') -> vector<str>`
@@ -1525,7 +1378,6 @@ struct ZIPWITH {
  * @note #### Veja mais exemplos em https://github.com/senapk/cppaux#split
  */
 inline std::vector<std::string> split(std::string content, char delimiter = ' ')
-//[[split]]
 {
     std::vector<std::string> aux;
     std::string token;
@@ -1538,7 +1390,6 @@ inline std::vector<std::string> split(std::string content, char delimiter = ' ')
 struct SPLIT {
     char delimiter;
 
-//__guide split
 /**
  * @note #### `split(str content, char delimiter = ' ') -> vector<str>`
  * @note #### `str content| SPLIT(char delimiter = ' ') -> vector<str>`
@@ -1564,12 +1415,7 @@ struct SPLIT {
     friend std::vector<std::string> operator| (std::string content, const SPLIT& obj) { return obj(content); }
 };
 
-//--------------------------------------------------------
-//-------------------- INPUT -----------------------------
-//--------------------------------------------------------
 
-//__guide input
-//[[input]]
 /**
  * @note #### `input(istream source = std::cin) -> str`
  * 
@@ -1588,7 +1434,6 @@ struct SPLIT {
  * @note #### Veja mais exemplos em https://github.com/senapk/cppaux#input
  */
 inline std::string input(std::istream & is = std::cin)
-//[[input]]
 {
     std::string line;
     if (std::getline(is, line))
@@ -1597,7 +1442,6 @@ inline std::string input(std::istream & is = std::cin)
 }
 
 struct INPUT {
-//__guide input
 /**
  * @note #### `input(istream source = std::cin) -> str`
  * 
@@ -1625,7 +1469,6 @@ struct INPUT {
 
 using namespace std::string_literals;
 
-//__guide operator+
 /**
  * @note #### `+str -> double`
  * 

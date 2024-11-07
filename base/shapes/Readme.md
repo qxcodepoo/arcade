@@ -167,7 +167,6 @@ class Rectangle {
     ' Rect: P1=(0.00, 0.00) P2=(0.00, 0.00)
     + toString(): string
 }
-
 ```
 
 <!-- load -->

@@ -157,7 +157,6 @@ class ProductManager {
   ' Mostra os índices dos produtos, seus rótulos e preços
   + toString(): String
 }
-
 ```
 
 <!-- load -->

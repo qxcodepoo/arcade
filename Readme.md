@@ -45,7 +45,7 @@
 - [ ] `#tko        .`[Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
 - [ ] `#github     .`[Habilitando a conta Educational no Github](wiki/git/github.md)
 - [ ] `#chaves_ssh .`[Configurando acesso ao Github na sua máquina](wiki/git/chaves.md)
-- [ ] `#token_git  .`[Configurando o token do git para acesso temporário](wiki/git/token.md)
+- [ ] `#token_git  .`[Configuração de Token para acesso temporário](wiki/git/token.md)
 
 ### Conteúdo extra
 

@@ -105,7 +105,6 @@ class Estacionamento {
   ' mostra a lista de veículos na ordem que foram estacionados
   + toString() : string
 }
-
 ```
 
 <!-- load -->

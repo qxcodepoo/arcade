@@ -85,7 +85,6 @@ class Trampoline {
   ' para tentar remover a criança das duas filas
   + removeKid(name : string) : Kid | null
 }
-
 ```
 
 <!-- load -->

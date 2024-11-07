@@ -167,7 +167,6 @@ class Agenda {
   ' retorna os contatos separados por uma quebra de linha
   + toString() : String
 }
-
 ```
 
 <!-- load -->

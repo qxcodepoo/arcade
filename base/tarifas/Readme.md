@@ -137,8 +137,6 @@ class Account {
   + getBalanceManager() : BalanceManager
 }
 
-
-
 ```
 
 <!-- load -->
