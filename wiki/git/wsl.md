@@ -9,13 +9,12 @@ wsl --install
 
 ```
 
-Abra o aplicativo do ubuntu no windows para ter acesso ao terminal do wsl
+Abra o aplicativo Ubuntu no Windows para ter acesso ao terminal do WSL.
 
 ```bash
-
 sudo apt update
-git config --global user.email "${EMAIL}"
-git config --global user.name "${NAME}"
+git config --global user.email "seu email"
+git config --global user.name "seu nome"
 
 # instalando o pipx
 sudo apt install -y pipx build-essential python3-dev python3-venv python3-pip
@@ -23,18 +22,24 @@ sudo apt install -y pipx build-essential python3-dev python3-venv python3-pip
 # instalando o tko
 pipx install tko
 
-# adicioando o path
-echo "export PATH=\"$DIR:\$PATH\"" >> ~/.bashrc
+# adicionando o path
+echo "export PATH=\"$HOME/.local/bin:\$PATH\"" >> ~/.bashrc
 
+#reiniciando o terminal para aplicar as mudanças
+bash
 ```
 
 ## Ferramentas do typescript
 
 ```bash
-
-echo -n "Feito!\nInstalando esbuild... "
-sudo apt install -y esbuild >> /dev/null 2>&1
-
-echo -n "Feito!\nInstalando nodejs... "
-sudo apt install -y nodejs >> /dev/null 2>&1
+sudo apt install -y nodejs
+npm install esbuild typescript ts-node readline-sync
 ```
+
+## Antes de começar a editar
+
+Abra o VSCode e instale a extensão `WSL` do Windows, com aproximadamente 30 milhões de downloads.
+
+## Usando o VSCode
+
+Abra o terminal do Ubunto, navegue até onde está seu repositório, digite `code <pasta>` para abrir o vscode na pasta.

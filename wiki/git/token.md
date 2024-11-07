@@ -10,7 +10,7 @@ Se o tko não está instalado na sua máquina, siga as instruções em [tko](htt
 
 1. Login no github
 2. Configurações -> Configurações Desenvolvimento -> Token de Acesso
-3. Gerar novo token(Classic) -> Selecionar campos do repositório
+3. Gerar novo token(Classic) -> Coloque um nome -> Selecionar primeira caixa de permissões `repo`.
 4. Gerar token
 
 ### Clone
@@ -25,7 +25,7 @@ Se o tko não está instalado na sua máquina, siga as instruções em [tko](htt
 
 ### Mantendo o token no cache até o reboot
 
-Por padrão, o git não salva o token, então você precisa ficar digitando toda vez que for fazer um push. Para salvar o token no cache até o reboot, você pode usar o comando:
+Por padrão, o git não salva o token em cache, então você precisa ficar digitando toda vez que for fazer um push. Para salvar o token no cache até o logout do SO, você pode usar o comando:
 
 - `git config --global credential.helper cache`
 
@@ -44,7 +44,3 @@ git config --global user.email "seu email"
 ### Para abrir seu repositório baixado no tko
 
 `tko open poo`
-
-### Para remover o token no final
-
-1. git credential-cache exit
