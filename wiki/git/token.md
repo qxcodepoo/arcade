@@ -23,6 +23,12 @@ Se o tko não está instalado na sua máquina, siga as instruções em [tko](htt
 
 - `git config --global core.protectNTFS false`
 
+### Mantendo o token no cache até o reboot
+
+Por padrão, o git não salva o token, então você precisa ficar digitando toda vez que for fazer um push. Para salvar o token no cache até o reboot, você pode usar o comando:
+
+- `git config --global credential.helper cache`
+
 ### Trabalhando com o repositório
 
 - Abra o vscode na pasta que você clonou
