@@ -13,10 +13,29 @@
 
 1. Login no github
 2. Configurações -> Configurações Desenvolvimento -> Token de Acesso
-3. Gerar novo token(Classic) -> Coloque um nome -> Selecionar primeira caixa de permissões `repo`.
-4. Gerar token
+3. Gerar novo token(Classic) -> Coloque um nome para o token -> Selecionar primeira caixa de permissões `repo`.
+4. No prazo de expiração, selecione o tempo que deseja que o token dure. Se for para utilizar na sua máquina pessoal, coloque indefinido, se for para utilizar nas máquinas do laboratório, coloque 7 dias. Sempre que desejar, você pode gerar um novo token, ou invalidar o token atual.
+5. Clique em gerar token
 
-### Clone
+### Definindo configurações para o git
+
+- Você precisa definir algumas configurações para que o git saiba quem é você.
+- Esses comandos não precisam ser dados na próxima vez que for utilizar a mesma máquina.
+
+```bash
+git config --global user.name "seu nome"
+git config --global user.email "seu email"
+```
+
+- Defina quanto tempo deseja que o token fique salvo em cache.
+
+```bash
+git config --global credential.helper --unset # toda operação de clone ou push vai pedir o token
+git config --global credential.helper "cache --timeout=10000"  # salva o token por 10000 seg (3 horas) ou até desligar
+git config --global credential.helper store   # Salva o token permanentemente
+```
+
+### Clonando seu repositório
 
 1. Vai até o repositório
 2. Clicar em Code -> HTTPS -> Copiar URL
@@ -27,17 +46,6 @@
 7. Se o clone der problema de path inválido no windows, você pode dar esse comando antes
 
 - `git config --global core.protectNTFS false`
-
-### Mantendo o token no cache até o reboot
-
-- Você precisa definir algumas configurações para que o git saiba quem é você e que ele deve guardar seus dados de autenticação até o fim da sessão.
-- Esses comandos não precisam ser dados na próxima vez que for utilizar a mesma máquina.
-
-```bash
-git config --global user.name "seu nome"
-git config --global user.email "seu email"
-git config --global credential.helper cache
-```
 
 ### Trabalhando com o repositório
 
@@ -54,3 +62,9 @@ git config --global credential.helper cache
 `tko play <pasta_onde_está_repositório>`
 
 exemplo: `tko play poo`
+
+### Limpando o cache do git manualmente
+
+```bash
+git credential-cache exit
+```
