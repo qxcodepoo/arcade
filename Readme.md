@@ -5,11 +5,9 @@
 ### Configuração de ambiente<!-- +xp:0 -->
 
 - [ ] `#git        .`[Introdução ao git](wiki/git/README.md)
-- [ ] `#tko        .`[Instalando e configurando o tko](https://github.com/senapk/tko#tko---test-kit-operations)
-- [ ] `#github     .`[Habilitando a conta Educational no Github](wiki/git/github.md)
+- [ ] `#github_edu .`[Habilitando a conta Educational no Github](wiki/git/github.md)
+- [ ] `#tko        .`[Instalando e configurando o tko](https://github.com/senapk/tko?tab=readme-ov-file#instala%C3%A7%C3%A3o)
 - [ ] `#chaves_ssh .`[Configurando acesso ao Github na sua máquina](wiki/git/chaves.md)
-- [ ] `#token_git  .`[Configuração de Token para acesso temporário](wiki/git/token.md)
-- [ ] `#tko_wsl    .`[Script para instalação do tko e dependencias no WSL](wiki/git/wsl.md)
 
 ### Conteúdo extra
 

@@ -39,4 +39,8 @@ echo "export PATH=\"$DIR:\$PATH\"" >> ~/.bashrc
 
 # tko start poo >> /dev/null 2>&1
 
+echo "Feito!\nReiniciando terminal..."
+
+bash
+
 echo "Feito!\n${GREEN}WSL Configurado com sucesso!${NC}"

@@ -1,72 +1,56 @@
 # Configurando acesso ao Github na sua máquina
 
-## WINDOWS e MAC
+## Utilizando chave SSH para acesso permanente na sua máquina pessoal
 
 - Modo Fácil: Baixe, instale e configure pelo [Github Desktop](https://desktop.github.com/download).
 - Modo normal: [Criação e instalação das chaves](https://ryan.dev.br/2023-04-17-github-ssh-pt-br/)
 
-## LINUX
+## Utilizando um Token para acesso temporário nas máquinas de laboratório
 
-Para configurar uma chave RSA no Linux para acessar o GitHub, siga estas etapas:
+## Configurando o token do git para acesso temporário
 
-### Gerar a chave RSA
+### Criando token
 
-- Abra o terminal e digite o seguinte comando:
+1. Login no github
+2. Configurações -> Configurações Desenvolvimento -> Token de Acesso
+3. Gerar novo token(Classic) -> Coloque um nome -> Selecionar primeira caixa de permissões `repo`.
+4. Gerar token
 
-```bash
-ssh-keygen -t rsa -b 4096 -C "seu_email@exemplo.com"
-```
+### Clone
 
-- O parâmetro `-t rsa` indica o tipo de chave, e `-b 4096` define o comprimento (4096 bits para mais segurança).
-- Substitua `"seu_email@exemplo.com"` pelo e-mail que você usa no GitHub.
+1. Vai até o repositório
+2. Clicar em Code -> HTTPS -> Copiar URL
+3. No terminal, navegue até a pasta onde deseja colocar o repositório.
+4. Digitar `git clone <a url que copiou do seu repositório>`
+5. Digitar usuário do github
+6. Copie o token de acesso e cole no terminal usando `Ctrl+Shift+V`
+7. Se o clone der problema de path inválido no windows, você pode dar esse comando antes
 
-### Salvar a chave
+- `git config --global core.protectNTFS false`
 
-- Após o comando, será solicitado o local para salvar a chave. Pressione Enter para aceitar o local padrão (`~/.ssh/id_rsa`).
-- Se desejar, defina uma senha para proteger a chave. Isso ajuda na segurança, especialmente em máquinas compartilhadas.
+### Mantendo o token no cache até o reboot
 
-### Iniciar o agente SSH
-
-- No terminal, inicie o agente SSH com o comando:
-
-```bash
-eval "$(ssh-agent -s)"
-```
-
-### Adicionar a chave privada ao agente
-
-- Use o seguinte comando para adicionar a chave ao SSH Agent:
+- Você precisa definir algumas configurações para que o git saiba quem é você e que ele deve guardar seus dados de autenticação até o fim da sessão.
+- Esses comandos não precisam ser dados na próxima vez que for utilizar a mesma máquina.
 
 ```bash
-ssh-add ~/.ssh/id_rsa
+git config --global user.name "seu nome"
+git config --global user.email "seu email"
+git config --global credential.helper cache
 ```
 
-### Copiar a chave pública
+### Trabalhando com o repositório
 
-- Copie a chave pública com o comando:
+- Abra o vscode na pasta que você clonou
+  - opção 1: `code <nome_da_pasta>`
+  - opção 2: Abra o vscode e arraste a pasta pra dentro dele
+  - opção 3: Abra o vscode, vá em File -> Open Folder e selecione a pasta onde está o repositório
+- Altere ou adicione um arquivo
+- Faça o fluxo normal para `git add, git commit -m "mensagem", git push`
+- Se necessário, antes do commit, ele pode pedir que você se identifique.
 
-```bash
-cat ~/.ssh/id_rsa.pub
-```
+### Para abrir seu repositório baixado no tko
 
-- O conteúdo exibido no terminal é sua chave pública. Copie-o para usar no GitHub.
+`tko play <pasta_onde_está_repositório>`
 
-### Adicionar a chave pública ao GitHub
-
-- Acesse o [GitHub](https://github.com/) e faça login.
-- Vá para **Settings** > **SSH and GPG keys** > **New SSH key**.
-- Dê um nome para a chave (por exemplo, "Meu computador") e cole o conteúdo da chave pública.
-- Clique em **Add SSH key**.
-
-### Testar a conexã
-
-- No terminal, use o comando abaixo para testar a conexão:
-
-```bash
-ssh -T git@github.com
-```
-
-- A primeira conexão pode pedir que você confirme a identidade do GitHub. Digite "yes" para prosseguir.
-- Se tudo estiver correto, você verá uma mensagem de sucesso.
-
-Após esses passos, seu sistema estará configurado para acessar o GitHub com a chave SSH.
+exemplo: `tko play poo`

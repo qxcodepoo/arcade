@@ -19,7 +19,6 @@ OBS: O campo de senha ficará em branco. É um comportamento normal do Ubuntu.
 Para configurar o WSL instalando o TKO e as dependências necessárias, rode o seguinte comando no terminal do Ubuntu substituindo nome e email pelos seus dados:
 
 ```bash
-#reiniciando o terminal para aplicar as mudanças
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/qxcodepoo/arcade/refs/heads/master/wiki/git/wsl-configure.sh)" <nome> <email>
 ```
 
