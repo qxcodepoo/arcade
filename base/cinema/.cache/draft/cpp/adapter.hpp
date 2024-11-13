@@ -25,4 +25,3 @@ public:
 inline std::ostream& operator<<(std::ostream& os, const Adapter& c) {
     return os << c.str();
 }
-

@@ -243,9 +243,13 @@ $end
 
 <!-- links .cache/cheat -->
 - cpp
+  - [fn.hpp](.cache/cheat/cpp/fn.hpp)
+  - [shell.cpp](.cache/cheat/cpp/shell.cpp)
   - [student.hpp](.cache/cheat/cpp/student.hpp)
 - java
+  - [Shell.java](.cache/cheat/java/Shell.java)
   - [Student.java](.cache/cheat/java/Student.java)
 - ts
+  - [shell.ts](.cache/cheat/ts/shell.ts)
   - [student.ts](.cache/cheat/ts/student.ts)
 <!-- links -->

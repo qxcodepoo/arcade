@@ -1,33 +1,40 @@
 //retorna um vetor de pares
 function occurr(vet: number[]): number[][] {
+    return [];
 }
 
 //retorna um vetor de pares
 function teams(vet: number[]): number[][] {
-
+    return [];
 }
 
 function mnext(vet: number[]): number[] {
+    return [];
 }
 
 function alone(vet: number[]): number[] {
+    return [];
 }
 
 function couple(vet: number[]): number {
+    return 0;
 }
 
 function has_subseq(vet: number[], seq: number[], pos: number): boolean {
+    return true;
 }
 
 function subseq(vet: number[], seq: number[]) {
+    return 0;
 }
 
 function erase(vet: number[], pos_list: number[]): number[] {
+    return [];
 }
 
-function clear(vet: number[], value: number) {
+function clear(vet: number[], value: number): number[] {
+    return [];
 }
-
 
 // -------------------------- MAIN --------------------------
 

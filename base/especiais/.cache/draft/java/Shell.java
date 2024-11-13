@@ -18,37 +18,48 @@ class Pair {
         return "(" + first + ", " + second + ")" ;
     }
 };
-public class Solver {
+public class Shell {
 
     public static List<Pair> occurr(List<Integer> vet) {
+        return new ArrayList<Pair>();
     }
 
     public static List<Pair> teams(List<Integer> vet) {
+        return new ArrayList<Pair>();
     }
 
     public static List<Integer> mnext(List<Integer> vet) {
+        return new ArrayList<Integer>();
     }
 
     private static boolean hasWoman(List<Integer> vet, int size, int index) {
+        return true;
     }
 
     public static List<Integer> alone(List<Integer> vet) {
+        return new ArrayList<Integer>();
     }
 
     public static int couple(List<Integer> vet) {
+        return 0;
     }
 
     public static boolean hasSubseq(List<Integer> vet, List<Integer> seq, int pos) {
+        return true;
     }
 
     public static int subseq(List<Integer> vet, List<Integer> seq) {
+        return -1;
     }
 
     public static List<Integer> erase(List<Integer> vet, List<Integer> pos_list) {
+        return new ArrayList<Integer>();
     }
     
     public static List<Integer> clear(List<Integer> vet, int value) {
+        return new ArrayList<Integer>();
     }
+
     // Main version in Java:
     public static void main(String[] args) {
         while(true) {

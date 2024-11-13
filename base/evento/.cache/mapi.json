@@ -10,5 +10,13 @@
     ],
     "keep": [],
     "required": [],
-    "draft": {}
+    "draft": {
+        "ts": [
+            {
+                "name": "solver.ts",
+                "contents": "\nfunction input(): string { let X: any = input; X.L = X.L || require(\"fs\").readFileSync(0).toString().split(/\\r?\\n/); return X.L.shift(); } // _TEST_ONLY_\n// function input(): string { let X: any = input; X.P = X.P || require(\"readline-sync\"); return X.P.question() } // _FREE_ONLY_\nfunction write(text: any, endl=\"\\n\") { process.stdout.write(\"\" + text + endl); }\nexport {};\n\nfunction main() {\n    let bilheteria = new Bilheteria();\n\n    while (true) {\n        write(\"$\", \"\");\n        let line = input();\n        write(line); // _TEST_ONLY_\n        let args = line.split(\" \");\n\n        try {\n            if (args[0] === \"end\")   { \n                break;                                                       \n            } else if (args[0] === \"addPessoa\") {\n                bilheteria.addPessoa(args[1], args[2] === \"meia\");\n            } else if (args[0] === \"addEvento\") {\n                bilheteria.addEvento(args[1], +args[2]);\n            } else if (args[0] === \"pessoas\") {\n                write(\"[\" + bilheteria.getPessoas().map(p => p.toString()).sort().join(\", \") + \"]\");\n            } else if (args[0] === \"eventos\") {\n                write(\"[\" + bilheteria.getEventos().map(e => e.toString()).sort().join(\", \") + \"]\");\n            } else if (args[0] === \"vender\") {\n                bilheteria.vender(args[1], args[2]);\n            } else if (args[0] === \"vendas\") {\n                write(\"[\" + bilheteria.getVendas().map(v => v.toString()).join(\", \") + \"]\");\n            } else { \n                write(\"fail: comando invalido\");\n            }\n        } catch (e) {\n            write(e.message);\n        }\n    }\n}\n\nmain();",
+                "encoding": 0
+            }
+        ]
+    }
 }

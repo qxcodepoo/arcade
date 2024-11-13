@@ -9,7 +9,7 @@ public class Shell {
             write("$" + line);
             var args = line.split(" ");
 
-            if      (args[0].equals("show"))  { System.out.println(adp);                }
+            if      (args[0].equals("show"))  { adp.show();                }
             else if (args[0].equals("estacionar")) { adp.estacionar(args[1], args[2]);  }
             else if (args[0].equals("tempo")) { adp.passarTempo((int) number(args[1])); }
             else if (args[0].equals("pagar")) { adp.pagar(args[1]); adp.sair(args[1]);  }

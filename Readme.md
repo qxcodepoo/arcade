@@ -7,7 +7,7 @@
 - [ ] `#git        .`[Introdução ao git](wiki/git/README.md)
 - [ ] `#github_edu .`[Habilitando a conta Educational no Github](wiki/git/github.md)
 - [ ] `#tko        .`[Instalando e configurando o tko](https://github.com/senapk/tko?tab=readme-ov-file#instala%C3%A7%C3%A3o)
-- [ ] `#chaves_ssh .`[Configurando acesso ao Github na sua máquina](wiki/git/chaves.md)
+- [ ] `#chaves_ssh .`[Criando repositórios local em máquina pessoal ou pública](wiki/git/chaves.md)
 
 ### Conteúdo extra
 

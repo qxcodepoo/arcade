@@ -1,4 +1,4 @@
-# Configurando acesso ao Github na sua máquina
+# Criando repositórios local em máquina pessoal ou pública
 
 ## Utilizando chave SSH para acesso permanente na sua máquina pessoal
 

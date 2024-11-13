@@ -1,5 +1,5 @@
-
 import java.text.DecimalFormat;
+
 
 class Calculator {
     public int batteryMax;
@@ -44,7 +44,6 @@ class Calculator {
         this.display = (float) num / den;
         
     }
-
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
         return String.format("display = %s, battery = %d", df.format(this.display), this.battery);

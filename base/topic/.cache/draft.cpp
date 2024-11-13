@@ -55,5 +55,3 @@ public:
     std::shared_ptr<Pass> descer(std::string id) {
     }
 };
-
-

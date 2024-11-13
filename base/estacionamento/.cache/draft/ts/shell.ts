@@ -1,4 +1,4 @@
-import { Adapter } from "./adapter";
+import { Adapter } from "./student";
 
 function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
 // function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
@@ -18,7 +18,7 @@ function main() {
             break;                                                       
         }
         else if (args[0] === "show") { 
-            console.log(adp.toString());                                 
+            adp.show();                                 
         }
         else if (args[0] === "estacionar") {
             adp.estacionar((args[1]), args[2]);

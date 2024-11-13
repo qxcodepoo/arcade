@@ -16,4 +16,3 @@ int main() {
         else                            { fw::write("fail: comando invalido"); }
     }
 }
-

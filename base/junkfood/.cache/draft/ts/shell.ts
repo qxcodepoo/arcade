@@ -1,4 +1,4 @@
-import { Adapter } from "./adapter";
+import { Adapter } from "./student";
 
 
 function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
@@ -18,7 +18,7 @@ function main() {
         if (args[0] === "end") {
             break;
         } else if (args[0] === "show") {
-            console.log(adp.toString());
+            adp.show();
         } else if (args[0] === "init") {
             adp = new Adapter(+args[1]);
         } else if (args[0] === "limpar") {
