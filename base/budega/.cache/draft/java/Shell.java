@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Shell {
-    static Adapter adp = new Adapter(0);
+    static Adapter adp = new Adapter();
     public static void main(String[] _args) {
         while(true) {
             String line = input();

@@ -14,11 +14,11 @@ public:
         // bank.finalizar(indice);
     }
     void arrive(const std::string& nome) {
-        bank.chegar(std::make_shared<Pessoa>(nome));
+        // bank.chegar(std::make_shared<Pessoa>(nome));
         (void) nome;
     }
 
     void show() {
-        fn::write(bank.str());
+        // fn::write(bank.str());
     }
 };

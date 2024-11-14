@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Solver {
+public class Shell {
     static List<Integer> get_men(List<Integer> vet) {
         return new ArrayList<>();
     }
