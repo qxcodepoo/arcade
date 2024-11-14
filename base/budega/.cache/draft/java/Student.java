@@ -4,13 +4,13 @@ class Adapter {
         // this.mercantil = new Mercantil(qtd_caixas);
     }
 
-    public void chegar(String name) {
+    public void arrive(String name) {
         // this.mercantil.chegar(new Pessoa(name));
     }
-    public void chamarNoCaixa(int indice) {
+    public void call(int indice) {
         // this.mercantil.chamarNoCaixa(indice);
     }
-    public void finalizar(int indice) {
+    public void finish(int indice) {
         // this.mercantil.finalizar(indice);
     }
 

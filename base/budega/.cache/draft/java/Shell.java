@@ -9,9 +9,9 @@ class Shell {
             write('$' + line);
 
             if     (args[0].equals("init"     )) { adp.init(number(args[1]));            }
-            else if(args[0].equals("arrive"   )) { adp.chegar(args[1]);                  }
-            else if(args[0].equals("call"     )) { adp.chamarNoCaixa(number(args[1]));   }
-            else if(args[0].equals("finish"   )) { adp.finalizar(number(args[1]));       }
+            else if(args[0].equals("arrive"   )) { adp.arrive(args[1]);                  }
+            else if(args[0].equals("call"     )) { adp.call(number(args[1]));            }
+            else if(args[0].equals("finish"   )) { adp.finish(number(args[1]));          }
             else if(args[0].equals("show"     )) { adp.show();                           }
             else if(args[0].equals("end"      )) { break;                                }
             else                                 { write("fail: comando invalido");      }
