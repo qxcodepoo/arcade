@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Shell {
     public static void main(String[] a) {
-        Student stu = new Student(0, 0, 0);
+        Student stu = new Student();
         
         while (true) {
             System.out.print("$");
@@ -17,7 +17,7 @@ public class Shell {
                 stu.show(); 
             }
             else if (args[0].equals("init")) {
-                stu = new Student((int)number(args[1]), (int)number(args[2]), (int)number(args[3]));
+                stu.init((int)number(args[1]), (int)number(args[2]), (int)number(args[3]));
             }
             else if (args[0].equals("set")) {
                 stu.setHour((int)number(args[1]));

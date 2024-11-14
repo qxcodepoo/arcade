@@ -1,5 +1,4 @@
 #include <memory>
-
 #include "fn.hpp"
 #include "kid.hpp"
 #include "trampoline.hpp"

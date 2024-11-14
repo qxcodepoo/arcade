@@ -3,10 +3,7 @@
 
 int main() {
     Student stu;
-    if(Debug::debug) {
-        Debug::run();
-        return 0;
-    }
+
     while (true) {
         fn::write("$", "");
         auto line = fn::input();

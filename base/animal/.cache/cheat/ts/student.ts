@@ -33,8 +33,8 @@ class Animal {
 }
 
 class Adapter {
-    animal: Animal;
-    constructor(especie: string, barulho: string) {
+    animal: Animal = new Animal("", "");
+    init(especie: string, barulho: string): void {
         this.animal = new Animal(especie, barulho);
     }
 

@@ -13,7 +13,7 @@ inline int sum(std::vector<int> vet) {
 }
 
 inline double average(const std::vector<int>& vet) {
-    (void) vet;
+    // (void) vet;
     return 0;
 }
 
@@ -31,6 +31,3 @@ inline std::string sex_battle(const std::vector<int>& vet) {
     (void) vet;
     return "";
 }
-
-struct Student {
-};

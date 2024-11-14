@@ -2,12 +2,7 @@
 #include "student.hpp"
 
 int main () {
-    Student stu("", "");
-    
-    if (Debug::debug) {
-        Debug::run();
-        return 0;
-    }
+    Student stu;
 
     while (true) {
         fn::write("$", "");
@@ -18,7 +13,7 @@ int main () {
 
         if      (args[0] == "end"  ) { break;                               }
 
-        else if (args[0] == "init" ) { stu = Student(args[1], args[2]);     }
+        else if (args[0] == "init" ) { stu.init(args[1], args[2]);     }
         else if (args[0] == "grow" ) { stu.grow(+args[1]);                  }
         else if (args[0] == "noise") { stu.noise();              }
         else if (args[0] == "show" ) { stu.show();               }

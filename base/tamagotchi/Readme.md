@@ -38,7 +38,7 @@ Seu sistema deverá:
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
   - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
-  - [Solver.java](.cache/draft/java/Solver.java)
+  - [Shell.java](.cache/draft/java/Shell.java)
   - [Student.java](.cache/draft/java/Student.java)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)

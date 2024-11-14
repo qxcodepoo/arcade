@@ -21,7 +21,7 @@ int main() {
             stu.setSecond(+args[3]);
         } 
         else if (args[0] == "init") {
-            stu = Student(+args[1], +args[2], +args[3]);
+            stu.init(+args[1], +args[2], +args[3]);
         }
         else if (args[0] == "show") {
             stu.show();

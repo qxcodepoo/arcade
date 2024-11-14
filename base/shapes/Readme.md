@@ -90,6 +90,13 @@ A implementação desta atividade exige que você siga rigorosamente as instruç
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Point2D {
     + x: double
@@ -167,6 +174,13 @@ class Rectangle {
     ' Rect: P1=(0.00, 0.00) P2=(0.00, 0.00)
     + toString(): string
 }
+
+'--
+Circle --|> Shape
+Rectangle --|> Shape
+Point2D  --*  Circle
+Point2D  --*  Rectangle
+@enduml
 ```
 
 <!-- load -->

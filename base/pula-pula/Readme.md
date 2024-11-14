@@ -22,13 +22,9 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 <!-- links .cache/draft -->
 - cpp
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
-  - [kid.hpp](.cache/draft/cpp/kid.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
-  - [trampoline.hpp](.cache/draft/cpp/trampoline.hpp)
 - java
-  - [Kid.java](.cache/draft/java/Kid.java)
   - [Shell.java](.cache/draft/java/Shell.java)
-  - [Trampoline.java](.cache/draft/java/Trampoline.java)
 - ts
   - [aashell.ts](.cache/draft/ts/aashell.ts)
   - [kid.ts](.cache/draft/ts/kid.ts)
@@ -42,6 +38,12 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+'==
 
 class Kid {
   - age : int
@@ -85,6 +87,10 @@ class Trampoline {
   ' para tentar remover a criança das duas filas
   + removeKid(name : string) : Kid | null
 }
+
+'--
+Trampoline "1" o--  "0..*" Kid : > stores
+@enduml
 ```
 
 <!-- load -->

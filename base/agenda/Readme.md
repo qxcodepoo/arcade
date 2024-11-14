@@ -42,6 +42,13 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Fone {
   - id : str
@@ -167,6 +174,12 @@ class Agenda {
   ' retorna os contatos separados por uma quebra de linha
   + toString() : String
 }
+
+'--
+Contact "1" *--  "0..*" Fone
+Agenda  "1" *--  "0..*" Contact
+
+@enduml
 ```
 
 <!-- load -->

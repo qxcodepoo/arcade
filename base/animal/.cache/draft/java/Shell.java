@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Shell {
 
     public static void main(String[] _args) {
-        Student adp = new Student("", "");
+        Student adp = new Student();
 
         while (true) {
             System.out.print("$");
@@ -13,7 +13,7 @@ public class Shell {
 
             if      (args[0].equals("end")  ) { break;                               }
 
-            else if (args[0].equals("init") ) { adp = new Student(args[1], args[2]); }
+            else if (args[0].equals("init") ) { adp.init(args[1], args[2]); }
             else if (args[0].equals("show") ) { adp.show();                          }
             else if (args[0].equals("noise")) { adp.noise();                         }
             else if (args[0].equals("grow") ) { adp.grow((int) number(args[1]));     }

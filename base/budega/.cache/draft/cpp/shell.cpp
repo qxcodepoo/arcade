@@ -4,11 +4,6 @@
 int main() {
     Adapter adp;
 
-    if (Student::debug) {
-        Student::run();
-        return 0;
-    }
-
     while (true) {
         auto line = fn::input();
         auto args = fn::split(line, ' ');
@@ -19,7 +14,7 @@ int main() {
         else if (args[0] == "call"  ) { adp.call(+args[1]);                             }
         else if (args[0] == "finish") { adp.finish(+args[1]);                           }
         else if (args[0] == "arrive") { adp.arrive(args[1]);                            }
-        else if (args[0] == "show"  ) { fn::write(adp.str());                          }
+        else if (args[0] == "show"  ) { adp.show();                          }
         else                          { fn::write("fail: comando invalido");            }
     }
 }

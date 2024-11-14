@@ -4,15 +4,16 @@ class Student {
     // Motorcycle motorcycle;
 public:
 
-    Student(int power = 1) {
-         (void) power;
+    void init(int power = 1) {
+        (void) power;
+        // motorcycle = Motorcycle(power);
     }
 
     void enter(std::string name, int age) {
-        // auto person = std::make_shared<Person>(name, age);
-        // motorcycle.insertPerson(person);
         (void) name;
         (void) age;
+        // auto person = std::make_shared<Person>(name, age);
+        // motorcycle.insertPerson(person);
     }
 
     void leave() {
@@ -25,13 +26,13 @@ public:
     }
 
     void buy(int time) {
-        // motorcycle.buyTime(time);
         (void) time;
+        // motorcycle.buyTime(time);
     }
 
     void drive(int time) {
-        // motorcycle.drive(time);
         (void) time;
+        // motorcycle.drive(time);
     }
 
     void show() const {

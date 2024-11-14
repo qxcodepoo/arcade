@@ -1,9 +1,5 @@
 class Adapter {
-    // car: Car;
-
-    constructor() {
-        // this.car = new Car();
-    }
+    // car: Car = new Car();
 
     enter(): void {
         // this.car.enter();

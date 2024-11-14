@@ -7,7 +7,7 @@ function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
 export {};
 
 function main() {
-    let stu = new Student(1);
+    let stu = new Student();
 
     while (true) {
         write("$", "");
@@ -18,7 +18,7 @@ function main() {
         if      (args[0] === "end")   { break;                          }
         
         else if (args[0] === "show")  { stu.show();                     }
-        else if (args[0] === "init")  { stu = new Student(+args[1]);    }
+        else if (args[0] === "init")  { stu.init(+args[1]);             }
         else if (args[0] === "enter") { stu.enter(args[1], +args[2]);   }
         else if (args[0] === "leave") { stu.leave();                    }
         else if (args[0] === "honk")  { stu.honk();                     }

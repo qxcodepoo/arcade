@@ -1,9 +1,5 @@
 public class Student {
-    // Car car;
-
-    public Student() {
-        // this.car = new Car();
-    }
+    // Car car = new Car();
     
     public void enter() {
         // car.enter();

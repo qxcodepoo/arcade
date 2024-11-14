@@ -5,7 +5,7 @@ function input(): string { let X: any = input; X.L = X.L || require("fs").readFi
 function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
 
 function main() {
-    let stu = new Student(0);
+    let stu: Student = new Student();
 
     while (true) {
         write("$", "");
@@ -14,7 +14,7 @@ function main() {
         let args = line.split(" ");
 
         if      (args[0] == "show"  ) { stu.show();                                  }
-        else if (args[0] == "init"  ) { stu = new Student(+args[1]);                 }
+        else if (args[0] == "init"  ) { stu.init(+args[1]);                 }
         else if (args[0] == "charge") { stu.charge(+args[1]);                        }
         else if (args[0] == "sum"   ) { stu.sum(+args[1], +args[2]);                 }
         else if (args[0] == "div"   ) { stu.div(+args[1], +args[2]);                 }

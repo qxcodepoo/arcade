@@ -40,6 +40,12 @@ ___
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+'==
   class Player {
 
     ' numero do jogador
@@ -109,6 +115,10 @@ ___
     ' mande o player par o fim da lista de jogadores
     + rollDice(value : int)
   }
+'--
+Board "1" *--  "2..*" Player : > has
+@enduml
+
 ```
 
 <!-- load -->

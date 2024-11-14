@@ -8,12 +8,12 @@ class Shell {
             String[] args = line.split(" ");
             write('$' + line);
 
-            if     (args[0].equals("init"     )) { adp = new Adapter(number(args[1])); }
-            else if(args[0].equals("arrive"   )) { adp.chegar(args[1]);      }
+            if     (args[0].equals("init"     )) { adp.init(number(args[1]));            }
+            else if(args[0].equals("arrive"   )) { adp.chegar(args[1]);                  }
             else if(args[0].equals("call"     )) { adp.chamarNoCaixa(number(args[1]));   }
             else if(args[0].equals("finish"   )) { adp.finalizar(number(args[1]));       }
-            else if(args[0].equals("show"     )) { write(adp.toString());                }
-            else if(args[0].equals("end"      )) { break;                                      }
+            else if(args[0].equals("show"     )) { adp.show();                           }
+            else if(args[0].equals("end"      )) { break;                                }
             else                                 { write("fail: comando invalido");      }
         }
     }

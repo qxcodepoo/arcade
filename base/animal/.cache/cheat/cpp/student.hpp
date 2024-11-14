@@ -39,7 +39,7 @@ inline std::ostream& operator<<(std::ostream& os, const Animal& animal) {
 
 struct Student {
     Animal animal;
-    Student(std::string especie = "", std::string barulho = "") {
+    void init(std::string especie = "", std::string barulho = "") {
         (void) especie;
         (void) barulho;
         animal = Animal(especie, barulho);
@@ -56,12 +56,5 @@ struct Student {
 
     void show() {
         std::cout << animal.str() << std::endl;
-    }
-};
-
-struct Debug {
-    static const bool debug = false;
-    static void run() {
-        std::cout << "Debug ativado" << std::endl;
     }
 };

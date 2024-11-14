@@ -19,12 +19,11 @@ function half_compare(vet: number[]): string {
 }
 
 function sex_battle(vet: number[]): string {
-
-
     return "";
 }
 
 if (require.main === module) {
+    console.log("Rodando o arquivo do estudante");
 }
 
 export { count, sum, average, more_men, half_compare, sex_battle };

@@ -6,8 +6,8 @@ public class Shell {
     public static void main(String[] _args) {
         while (true) {
             System.out.print("$");
-            String line = input();
-            String[] args = line.split(" ");
+            var line = input();
+            var args = line.split(" ");
             write(line);
 
             if ("show".equals(args[0])) {

@@ -53,6 +53,12 @@ Faça o modelo de uma lapiseira que pode conter vários.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+left to right direction
+'==
 ' Grafite
 class Lead {
     
@@ -135,6 +141,9 @@ class Pencil {
     __
     + toString() : string
 }
+'--
+Pencil "1" o--  "0..*" Lead : > Stores
+@enduml
 ```
 
 <!-- load -->
@@ -147,29 +156,29 @@ class Pencil {
 #TEST_CASE inserindo grafites
 $init 0.5
 $show
-calibre: 0.5, bico: [], tambor: {}
+calibre: 0.5, bico: [], tambor: <>
 #TEST_CASE calibre errado
 $insert 0.7 2B 50
 fail: calibre incompatível
 #TEST_CASE calibre certo
 $insert 0.5 2B 50
 $show
-calibre: 0.5, bico: [], tambor: {[0.5:2B:50]}
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50]>
 #TEST_CASE mais de um grafite
 $insert 0.5 2B 30
 $show
-calibre: 0.5, bico: [], tambor: {[0.5:2B:50][0.5:2B:30]}
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50][0.5:2B:30]>
 #TEST_CASE puxando grafite
 $pull
 $show
-calibre: 0.5, bico: [0.5:2B:50], tambor: {[0.5:2B:30]}
+calibre: 0.5, bico: [0.5:2B:50], tambor: <[0.5:2B:30]>
 #TEST_CASE puxando ocupado
 $pull
 fail: ja existe grafite no bico
 #TEST_CASE removendo do bico
 $remove
 $show
-calibre: 0.5, bico: [], tambor: {[0.5:2B:30]}
+calibre: 0.5, bico: [], tambor: <[0.5:2B:30]>
 $end
 ```
 
@@ -186,24 +195,24 @@ fail: nao existe grafite no bico
 #TEST_CASE puxando grafite
 $pull
 $show
-calibre: 0.9, bico: [0.9:4B:14], tambor: {[0.9:4B:16]}
+calibre: 0.9, bico: [0.9:4B:14], tambor: <[0.9:4B:16]>
 #TEST_CASE gastando grafite
 $write
 $show
-calibre: 0.9, bico: [0.9:4B:10], tambor: {[0.9:4B:16]}
+calibre: 0.9, bico: [0.9:4B:10], tambor: <[0.9:4B:16]>
 #TEST_CASE puxando novo
 $remove
 $pull
 $show
-calibre: 0.9, bico: [0.9:4B:16], tambor: {}
+calibre: 0.9, bico: [0.9:4B:16], tambor: <>
 $write
 $show
-calibre: 0.9, bico: [0.9:4B:12], tambor: {}
+calibre: 0.9, bico: [0.9:4B:12], tambor: <>
 #TEST_CASE folha incompleta
 $write
 fail: folha incompleta
 $show
-calibre: 0.9, bico: [0.9:4B:10], tambor: {}
+calibre: 0.9, bico: [0.9:4B:10], tambor: <>
 #TEST_CASE tamanho insuficiente
 $write
 fail: tamanho insuficiente

@@ -1,6 +1,6 @@
 class Student {
-    // calc: Calculator;
-    public constructor(batteryMax: number) {
+    // calc: Calculator = new Calculator(0);
+    public init(batteryMax: number): void {
         // this.calc = new Calculator(batteryMax);
     }
 

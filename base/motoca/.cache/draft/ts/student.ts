@@ -1,6 +1,6 @@
 class Student {
-    // motoca: Motoca;
-    constructor(potencia: number) {
+    // motoca: Motoca = new Motoca(1);
+    init(potencia: number): void {
         // this.motoca = new Motoca(potencia);
     }
 

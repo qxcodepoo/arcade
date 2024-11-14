@@ -1,6 +1,6 @@
 public class Student {
-    // Motorcycle moto;
-    public Student(int power) {
+    // Motorcycle moto = new Motorcycle(1);
+    public void init(int power) {
         // moto = new Motorcycle(power);
     }
 

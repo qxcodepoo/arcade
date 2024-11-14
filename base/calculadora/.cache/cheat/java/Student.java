@@ -52,9 +52,9 @@ class Calculator {
 
 
 public class Student {
-    private Calculator calc;
+    private Calculator calc = new Calculator(0);
     
-    Student() {
+    void init() {
         calc = new Calculator(0);
     }
 

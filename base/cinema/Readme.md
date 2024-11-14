@@ -96,7 +96,6 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
 <!-- links .cache/draft -->
 - cpp
   - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
-  - [flow.hpp](.cache/draft/cpp/flow.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Adapter.java](.cache/draft/java/Adapter.java)

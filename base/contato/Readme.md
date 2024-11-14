@@ -51,6 +51,13 @@ Seu programa deve:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Fone {
   - id : str
@@ -113,6 +120,12 @@ class Contact {
   ' ex: - david [oi:123, tim:9081, claro:5431]
   + toString() : str
 }
+
+
+'--
+Contact "1" *--  "0..*" Fone
+@enduml
+
 ```
 
 <!-- load -->

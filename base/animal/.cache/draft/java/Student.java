@@ -1,6 +1,6 @@
 public class Student {
-    // private Animal animal;
-    public Student(String especie, String barulho) {
+    // private Animal animal = new Animal("", "");
+    public void init(String especie, String barulho) {
         // animal = new Animal(especie, barulho);
     }
     

@@ -18,7 +18,6 @@ function find_min_if(vet: number[]): number {
     return 0;
 }
 
-
 if (require.main === module) {
     console.log("Rodando o arquivo do estudante");
 }

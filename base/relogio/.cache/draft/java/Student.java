@@ -1,7 +1,7 @@
 
 public class Student {
-    // private Time time;
-    public Student(int hour, int minute, int second){
+    // private Time time = new Time(0, 0, 0);
+    public void init(int hour, int minute, int second) {
         // time = new Time(hour, minute, second);
     }
 

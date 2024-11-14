@@ -5,9 +5,9 @@ import java.text.DecimalFormat;
     //     return String.format("display = %s, battery = %d", df.format(this.display), this.battery);
     // }
 public class Student {
-    // private Calculator calc;
+    // private Calculator calc = new Calculator(0);
     // 
-    Student() {
+    void init() {
         // calc = new Calculator(0);
     }
 

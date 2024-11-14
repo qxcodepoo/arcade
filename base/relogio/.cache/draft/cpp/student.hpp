@@ -6,7 +6,7 @@ private:
     // Time time;
 
 public:
-    Student(int hour = 0, int minute = 0, int second = 0) {
+    void init(int hour = 0, int minute = 0, int second = 0) {
         (void) hour;
         (void) minute;
         (void) second;

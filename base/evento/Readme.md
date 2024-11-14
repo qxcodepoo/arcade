@@ -28,6 +28,13 @@ Você deve desenvolver um sistema para gerenciar as vendas de uma bilheteria de 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
+'--
+@startuml
+
+skinparam defaultFontName Hasklig
+skinparam dpi 150
+
+'==
 
 class Bilheteria {
   - repVendas: Venda[]
@@ -101,6 +108,21 @@ class Venda {
   + getValor():number
   + toString():string
 }
+
+'--
+
+' Relações e multiplicidade
+
+Bilheteria *-- Venda
+Bilheteria *-- Pessoa
+Bilheteria *-- Evento
+
+Venda o-- Pessoa
+Venda o-- Evento
+
+
+'--
+@enduml
 ```
 
 <!-- load -->

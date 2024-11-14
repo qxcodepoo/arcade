@@ -7,11 +7,6 @@ int main() {
 
     auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP(strto<int>); };
 
-    if (Student::debug) {
-        Student::run();
-        return 0;
-    }
-
     while (true) {
         auto line = input();
         write("$" + line);

@@ -15,8 +15,8 @@ function main() {
         let args = line.split(" ");
 
         if      (args[0] == "end")    { break;                             }
-        else if (args[0] == "init")   { adp = new Adapter(+args[1]);       }
-        else if (args[0] == "show")   { write(adp.show());                 }
+        else if (args[0] == "init")   { adp.init(+args[1]);                }
+        else if (args[0] == "show")   { adp.show();                        }
         else if (args[0] == "arrive") { adp.arrive(args[1]);               }
         else if (args[0] == "call")   { adp.call(+args[1]);                }
         else if (args[0] == "finish") { adp.finish(+args[1]);              }

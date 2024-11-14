@@ -29,7 +29,6 @@
 
 - [ ] `@animal      .`[Animal que nasce, cresce, morre](base/animal/Readme.md)
 - [ ] `@carro       .`[Um carro simples](base/carro/Readme.md)
-- [ ] `@fusca       .`[Carro com os testes em código](base/fusca/Readme.md)
 - [ ] `@calculadora .`[Uma calculadora com bateria](base/calculadora/Readme.md)
 
 ### Modificadores de Acesso
