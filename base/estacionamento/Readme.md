@@ -43,12 +43,12 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
 <!-- load diagrama.puml fenced=java:filter -->
 
 ```java
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
-'==
+
 abstract class Veiculo {
   - id : string
   # tipo : string
@@ -112,7 +112,7 @@ class Estacionamento {
   + toString() : string
 }
 
-'--
+
 Estacionamento "1" o-- "0..*" Veiculo
 
 @enduml

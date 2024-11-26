@@ -1,7 +1,35 @@
+#include <iostream>
+#include <vector>
 #include <algorithm>
-#include "student.hpp"
 #include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 using namespace fn;
+
+inline bool in(std::vector<int> vet, int x) {
+    (void) vet;
+    (void) x;
+    return false;
+}
+
+inline int index_of(std::vector<int> vet, int x) {
+    (void) vet;
+    (void) x;
+    return 0;
+}
+
+inline int find_if(const std::vector<int>& vet) {
+    (void) vet;
+    return 0;
+}
+
+inline int min_element(const std::vector<int>& vet) {
+    (void) vet;
+    return 0;
+}
+
+inline int find_min_if(const std::vector<int>& vet) {
+    (void) vet;
+    return 0;
+}
 
 int main() {
 

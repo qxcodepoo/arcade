@@ -1,9 +1,34 @@
 import java.util.*;
 
+class Adapter {
+    // Car car = new Car();
+    
+    public void enter() {
+        // car.enter();
+    }
+
+    public void leave() {
+        // car.leave();
+    }
+
+    public void fuel(int gas) {
+        // car.fuel(gas);
+    }
+
+    public void drive(int km) {
+        // car.drive(km);
+    }
+
+    public void show() {
+        // System.out.println(car.toString());
+    }
+}
+
+
 public class Shell {
     
     public static void main(String[] a) {
-        Student adp = new Student();
+        Adapter adp = new Adapter();
         
         while (true) {
             System.out.print("$");

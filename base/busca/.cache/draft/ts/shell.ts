@@ -1,8 +1,27 @@
-import { inside, index_of, find_if, min_element, find_min_if } from "./student";
-
 function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
 // function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
 function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+
+
+function inside(vet: number[], value: number): boolean {
+    return false;
+}
+
+function index_of(vet: number[], value: number): number {
+    return 0;
+}
+
+function find_if(vet: number[]): number {
+    return 0;
+}
+
+function min_element(vet: number[]): number {
+    return 0;
+}
+
+function find_min_if(vet: number[]): number {
+    return 0;
+}
 
 
 function main() {
@@ -43,8 +62,6 @@ function main() {
 }
 
 main();
-
-
 
 // Função auxiliar para converter de string para vetor
 // "[1,2,3,4]" para [1, 2, 3, 4]

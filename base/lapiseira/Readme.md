@@ -53,95 +53,45 @@ Faça o modelo de uma lapiseira que pode conter vários.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 left to right direction
-'==
+
 ' Grafite
 class Lead {
-    
-    ' calibre do grafite
-    - thickness : float
-    
-    ' dureza do grafite HB, 2B, 4B, 6B
     - hardness  : string
-
-    ' tamanho do grafite em milímetros
-    - size      : int
+    - thickness : number
+    - size      : number
     __
-  
-    ' inicializa os atributos do grafite
-    + Lead(thickness : float, hardness : string, size : int)
-    
-    ' gastoPorFolha
-    ' retorna o gasto em milímetros para uma página escrita
-    ' 1mm para HB
-    ' 2mm para 2B
-    ' 4mm para 4B
-    ' 6mm para 6B
-    + usagePerSheet() : int
+    + Lead(thickness: number, hardness: string, size: number)
     __
-    
-    ' apenas os métodos get
+    + usagePerSheet(): number
+    + getSize()      : number
+    + getThickness() : number
     + getHardness()  : string
-    + getSize()      : int
-    + getThickness() : float
-
     __
-    + setSize(size : int)
+    + setSize(size : number)
     __
-    + toString()      : string
+    + toString(): string
 }
 
-' Lapiseira
 class Pencil {
-    
-    ' calibre da lapiseira
-    - thickness : float
-
-    ' guarda o grafite que está na ponta da lapiseira
-    ' um valor nulo indica que a lapiseira está sem grafite
-    - tip       : Lead | null
-
-    ' tambor da lapiseira, guarda os grafites
-    - barrel    : List<Lead>
+    - thickness: number
+    - tip      : Lead | null
+    - barrel   : Array<Lead>
     __
-
-    ' inicializa os atributos da lapiseira
-    ' tip para null
-    ' barrel para uma lista vazia
-    + Pencil(thickness : float)
+    + Pencil(thickness : number)
     __
-
-    ' insere um grafite no final do tambor
-    ' verifica se o grafite tem calibre compatível
-    + insert(lead : Lead) : boolean
-
-    ' remove o grafite da ponta
-    ' verifica se existe grafite na ponta
-    ' retorna o grafite removido
-    ' ou null se não tinha grafite
-    ' remover significa colocar o atributo tip para null
-    + remove()            : Lead | null
-
-    ' remove primeiro grafite do tambor e insere na ponta
-    ' precisa existir algum grafite no tambor
-    ' precisa a ponta estar vazia
-    + pull()              : boolean
-
-    ' escreve na folha gastando o grafite
-    ' verifica se existe grafite na ponta
-    ' tenta diminuir o tamanho do grafite 
-    '   utilizando os métodos getSize() e setSize()
-    '   escrever uma folha gasta tip.usagePerSheet() mm
-    ' verifica se existe tamanho para escrever a folha inteira
-    + writePage()
+    + insert(lead: Lead) : boolean
+    + remove()   : Lead | null
+    + pull()     : boolean
+    + writePage(): void
     __
     + toString() : string
 }
-'--
+
 Pencil "1" o--  "0..*" Lead : > Stores
 @enduml
 ```

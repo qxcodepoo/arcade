@@ -42,13 +42,13 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 
 class Fone {
   - id : str
@@ -175,7 +175,7 @@ class Agenda {
   + toString() : String
 }
 
-'--
+
 Contact "1" *--  "0..*" Fone
 Agenda  "1" *--  "0..*" Contact
 

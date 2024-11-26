@@ -1,10 +1,10 @@
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 
 class Point2D {
     + x: double
@@ -83,7 +83,7 @@ class Rectangle {
     + toString(): string
 }
 
-'--
+
 Circle --|> Shape
 Rectangle --|> Shape
 Point2D  --*  Circle

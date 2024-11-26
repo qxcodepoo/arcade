@@ -1,8 +1,45 @@
 import java.util.*;
 
 
-class Shell{
-    static Student adp = new Student();
+class Adapter {
+    // Motorcycle moto = new Motorcycle(1);
+    public void init(int power) {
+        // moto = new Motorcycle(power);
+    }
+
+    public void enter(String name, int age) {
+        // moto.enter(new Person(name, age));
+    }
+
+    public void buy(int price) {
+        // moto.buy(price);
+    }
+
+    public void drive(int km) {
+        // moto.drive(km);
+    }
+    
+    public void leave() {
+        // var person = moto.leave();
+        // if (person == null) {
+        //     System.out.println("---");
+        //     return;
+        // }
+        // System.out.println(person.toString());
+    }
+
+    public void honk() {
+        // System.out.println(moto.honk());
+    }
+
+    public void show() {
+        // System.out.println(moto.toString());
+    }
+}
+
+
+public class Shell{
+    static Adapter adp = new Adapter();
 
     public static void main(String[] args) {
         while(true) {

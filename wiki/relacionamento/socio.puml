@@ -1,6 +1,6 @@
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 Clube "0..*" o-- "0..*" Socio : sociedade

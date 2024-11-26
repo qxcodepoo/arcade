@@ -30,13 +30,13 @@ O Evento atua como repositório de Setores.
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 
 class Pessoa {
   - nome: string
@@ -136,7 +136,7 @@ class Bilheteria {
   + vender(nome_pessoa: string, nome_evento: string, nome_setor: string):void 
 }
 
-'--
+
 
 ' Relações e multiplicidade
 
@@ -150,7 +150,7 @@ Venda o-- Pessoa
 Venda o-- Evento
 Venda o-- Setor
 
-'--
+
 @enduml
 ```
 

@@ -1,4 +1,3 @@
-#pragma once
 #include "fn.hpp"
 
 struct Animal {
@@ -37,7 +36,7 @@ inline std::ostream& operator<<(std::ostream& os, const Animal& animal) {
     return os << animal.str();
 }
 
-struct Student {
+struct Adapter {
     Animal animal;
     void init(std::string especie = "", std::string barulho = "") {
         (void) especie;
@@ -58,3 +57,22 @@ struct Student {
         std::cout << animal.str() << std::endl;
     }
 };
+
+int main () {
+    Adapter adp;
+
+    while (true) {
+        fn::write("$", "");
+        auto line = fn::input();
+        auto args = fn::split(line, ' ');
+
+        fn::write(line); //test echo
+
+        if      (args[0] == "end"  ) { break;                               }
+        else if (args[0] == "init" ) { adp.init(args[1], args[2]);          }
+        else if (args[0] == "grow" ) { adp.grow(+args[1]);                  }
+        else if (args[0] == "noise") { adp.noise();                         }
+        else if (args[0] == "show" ) { adp.show();                          }
+        else                         { fn::write("fail: comando invalido"); }
+    }
+}

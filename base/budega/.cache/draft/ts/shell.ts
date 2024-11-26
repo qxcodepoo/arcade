@@ -1,11 +1,33 @@
-import { Adapter } from "./student";
-
 function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
 // function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
 function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
 
+class Adapter {
+    // private mercantil: Mercantil = new Mercantil(0);
+    init(nCaixas: number) {
+        // this.mercantil = new Mercantil(nCaixas);
+    }
+
+    arrive(nome: string): void {
+        // this.mercantil.chegar(new Pessoa(nome));
+    }
+
+    call(index: number): void {
+        // this.mercantil.chamar(index);
+    }
+
+    finish(index: number): void {
+        // this.mercantil.finalizar(index);
+    }
+
+    show(): void {
+        // console.log(this.mercantil.toString());
+    }
+}
+
+
 function main() {
-    let adp = new Adapter(0);
+    let adp = new Adapter();
 
     while (true) {
         write("$", "");

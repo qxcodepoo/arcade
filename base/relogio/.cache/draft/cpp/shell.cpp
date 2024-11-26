@@ -1,8 +1,42 @@
 #include "fn.hpp"
-#include "student.hpp"
+
+class Adapter {
+private:
+    // Time time;
+
+public:
+    void init(int hour = 0, int minute = 0, int second = 0) {
+        (void) hour;
+        (void) minute;
+        (void) second;
+        // this->time = Time(hour, minute, second);
+    }
+
+    void setHour(int hour) {
+        (void) hour;
+        // this->time.setHour(hour);
+    }
+
+    void setMinute(int minute) {
+        (void) minute;
+        // this->time.setMinute(minute);
+    }
+    void setSecond(int second) {
+        (void) second;
+        // this->time.setSecond(second);
+    }
+
+    void nextSecond() {
+        // this->time.nextSecond();
+    }
+    
+    void show() {
+        // fn::write(time);
+    }
+};
 
 int main() {
-    Student stu;
+    Adapter stu;
 
     while (true) {
         fn::write("$", "");

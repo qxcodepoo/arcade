@@ -12,11 +12,11 @@
 Essa atividade utiliza um padrão de projeto de requisições e respostas.
 
 - Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
-- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Student`.
-- Na classe `Student` é onde você deve implementar e conectar seu código.
-- A classe `Student` é apenas a classe de conexão, você deve criar as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
+- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
+- Na classe `Adapter` é onde você deve implementar e conectar seu código.
+- A classe `Adapter` é apenas a classe de conexão, você deve criar as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
 - Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
-- Ao mostrar uma string formatada, será utilizado o modelo do python `f"{variavel:param}"`.
+- Ao mostrar uma string formatada, será utilizado o modelo do python `"texto {variavel} texto"`.
 - Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
 
 ## Intro
@@ -39,8 +39,8 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
     - Invocar o método de crescimento após a morte do animal deve exibir uma mensagem de aviso: `warning: {especie} morreu`.
 - Responsabilidades
   - O código deve ser implementado na classe `Animal`.
-  - Os métodos da classe `Animal` devem ser chamados na classe `Student`.
-  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Student`.
+  - Os métodos da classe `Animal` devem ser chamados na classe `Adapter`.
+  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
   - `$show`: Mostra o estado atual do animal.
@@ -59,20 +59,20 @@ ___
 
 - Parte 1
   - Crie uma classe `Animal` com os atributos `especie`, `estagio` e `barulho`.
-  - Crie um método `String toString()` que retorna a representação do animal no formato `especie:estagio:barulho`.
+  - Crie um método `toString(): string` que retorna a representação do animal no formato `especie:estagio:barulho`.
   - Teste seu código
 - Parte 2
-  - Crie um método `void envelhecer(int qtd)` que envelhece o animal em `qtd` estágios.
+  - Crie um método `envelhecer(qtd: number): void` que envelhece o animal em `qtd` estágios.
     - Se ele for nível 1, e você pedir para envelhecer 2 vezes, ele deve passar para o estágio 3.
     - Se ele for nível 2, e você pedir para envelhecer 3 vezes, ele deve passar para o estágio 4, pois 4 é o estágio máximo.
   - Implemente a lógica de crescimento do animal e verifique se ele morreu.
   - Certifique-se de que o animal não pode crescer após a morte.
 - Parte 3
-  - Crie um método `fazerBarulho()` que retorna o barulho.
+  - Crie um método `fazerBarulho(): string` que retorna o barulho.
   - Implemente a lógica de barulho do animal fazendo tratamento especial para bebês e mortos.
-- Parte 4: Student
-  - Na classe `Student`, crie um atributo `animal` e o inicialize no construtor.
-  - Faça os ajustes necessários para chamar os métodos da classe Animal na classe Student.
+- Parte 4: Adapter
+  - Na classe `Adapter`, crie um atributo `animal` e o inicialize no construtor.
+  - Faça os ajustes necessários para chamar os métodos da classe Animal na classe Adapter.
 
 ## Shell
 
@@ -178,22 +178,19 @@ $end
 - cpp
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
-  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
-  - [Student.java](.cache/draft/java/Student.java)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
-  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
 - cpp
-  - [student.hpp](.cache/cheat/cpp/student.hpp)
+  - [shell.cpp](.cache/cheat/cpp/shell.cpp)
 - java
-  - [Student.java](.cache/cheat/java/Student.java)
+  - [Shell.java](.cache/cheat/java/Shell.java)
 - ts
-  - [student.ts](.cache/cheat/ts/student.ts)
+  - [shell.ts](.cache/cheat/ts/shell.ts)
 <!-- links -->

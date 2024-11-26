@@ -210,13 +210,13 @@ Além disso, a classe possui os seguintes métodos:
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 
 class Coin {
   - value  : double
@@ -302,7 +302,7 @@ class Pig {
   ' retorna se o porquinho está quebrado ou não
   + isBroken()     : boolean
 }
-'--
+
 @enduml
 
 ```

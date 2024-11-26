@@ -1,8 +1,8 @@
 # Porta minas de um grafite só
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
+[Intro](#intro) | [Orientações por linguagem](#orientações-por-linguagem) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -40,12 +40,12 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
     - Ela referencia um único objeto lapiseira como atributo.
     - E também possui um indicador de espessura `thickness`.
   - A class `Adapter` faz a integração entre as chamadas de teste e as classes `Lead` e `Pencil`.
-    - Um método de atenção especial é o `insert`. Nele o `Adapter` recebe os dados do `Lead`. 
+    - Um método de atenção especial é o `insert`. Nele o `Adapter` recebe os dados do `Lead`.
     - Ela deve criar o objeto `Lead` e passá-lo à lapiseira que ela gerencia.
 
 ```ts
 //Adapter
-void insert(thickness: number, hardness: string, size: number) {
+void insert(thickness: float, hardness: str, size: int) {
     this.pencil.insert(new Lead(thickness, hardness, size));
 }
 
@@ -67,6 +67,43 @@ void insert(thickness: number, hardness: string, size: number) {
       - `fail: nao existe grafite` - Se não houver grafite na lapiseira.
       - `fail: tamanho insuficiente` - Se o tamanho do grafite for insuficiente para começar a escrita.
       - `fail: folha incompleta` - Se o grafite não for suficiente para terminar a escrita.
+
+## Orientações por linguagem
+
+- Cada linguagem tem suas formas de definir ausência de valor.
+- Por exemplo, vamos criar uma variável que pode ser um inteiro ou não ter valor.
+
+- Python
+  - `None` é o valor padrão para ausência de valor.
+  - `variavel: int | None = None` - Define uma variável que pode ser `int` ou `None`.
+  - `variavel = 5` - Define a variável com um valor inteiro.
+  - Teste: `if variavel is not None:`
+- Java
+  - `null` é o valor padrão para ausência de valor.
+  - Tipos primitivos não podem ser null.
+  - Todos as referências a objetos podem ser null.
+  - Referências não inicializadas são null.
+  - `Integer variavel = null` - Define uma variável que pode ser `Integer` ou `null`.
+  - `variavel = 5` - Define a variável com um valor inteiro.
+  - Teste: `if (variavel != null) {`
+- C++
+  - `nullptr` é o valor padrão para ausência de valor.
+  - Apenas ponteiros podem ser nullptr.
+  - Valores estáticos não podem ser nullptr.
+  - Opções de abordagem com ponteiros:
+    - `int* variavel = nullptr` - Define um ponteiro que pode ser `int` ou `nullptr`.
+    - `std::shared_ptr<int> variavel = nullptr` - Define um ponteiro que pode ser `int` ou `nullptr`.
+    - `variavel = new int(5)` - Define a variável com um valor inteiro.
+    - Teste: `if (variavel != nullptr) {`
+  - Opções de abordagem estática utilizando wrapper(empacotador).
+    - `std::optional<int> variavel = std::nullopt` - Define uma variável que pode ser `int` ou `std::nullopt`.
+    - `variavel = 5` - Define a variável com um valor inteiro.
+    - Teste: `if (variavel.has_value()) {`
+- TypeScript
+  - `null` e `undefined` são os valores padrão para ausência de valor.
+  - `let variavel: number | null = null` - Define uma variável que pode ser `number` ou `null`.
+  - `variavel = 5` - Define a variável com um valor inteiro.
+  - Teste: `if (variavel !== null) {`
 
 ## Guide
 
@@ -92,7 +129,7 @@ void insert(thickness: number, hardness: string, size: number) {
   - Implemente o método `usagePerSheet` que retorna a quantidade de grafite gasto por folha.
   - Verifique se a lapiseira consegue escrever na folha.
   - Faça as verificações antes de escrever na folha.
-  - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa. 
+  - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa.
     - Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.
 
 ***
@@ -197,11 +234,8 @@ $end
 - cpp
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
-  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
-  - [Student.java](.cache/draft/java/Student.java)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
-  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->

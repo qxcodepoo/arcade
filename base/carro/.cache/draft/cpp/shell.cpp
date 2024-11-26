@@ -1,8 +1,30 @@
 #include "fn.hpp"
-#include "student.cpp"
+
+struct Adapter {
+    // Car car;
+    Adapter() {}
+
+    void enter() {
+        // car.enter();
+    }
+    void leave() {
+        // car.leave();
+    }
+    void fuel(int q) {
+        // car.fuel(q);
+        (void) q;
+    }
+    void drive(int q) {
+        // car.drive(q);
+        (void) q;
+    }
+    void show() {
+        // std::cout << car.str() << std::endl;
+    }
+};
 
 int main() {
-    Student stu;
+    Adapter stu;
 
     while (true) {
         fn::write("$", "");

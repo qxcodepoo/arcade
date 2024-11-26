@@ -1,10 +1,10 @@
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 
 enum Label {
   GIVE,
@@ -64,7 +64,7 @@ class Agiota {
   + toString() : String
 }
 
-'--
+
 Client "1" o--  "0..*" Operation
 Agiota "1" *--  "0..*" Operation
 Agiota "1" *--  "0..*" Client

@@ -55,13 +55,13 @@ O objetivo dessa atividade é implementar uma classe responsável por uma máqui
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 class Slot {
     - name : String
     - price : float
@@ -123,7 +123,7 @@ class VendingMachine {
     --
     + toString() : String
 }
-'--
+
 VendingMachine "1" o-- "1..*" Slot
 @enduml
 ```

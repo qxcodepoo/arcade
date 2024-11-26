@@ -1,8 +1,8 @@
 # Crianças andando de motoca
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Orientações por linguagem](#orientações-por-linguagem) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -25,7 +25,7 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
   - `$init` - Reinicia a motoca para o estado inicial, com potência 1, sem minutos e sem ninguém.
   - `$enter` - Permite uma pessoa subir na motoca. Deve ser seguido pelos argumentos `nome` e `idade` da pessoa.
   - `$leave` - Faz a pessoa atualmente na motoca descer.
-  - `$buy` - Permite comprar tempo em minutos para utilizar a motoca. O tempo recebido é incrementado ao tempo atual. 
+  - `$buy` - Permite comprar tempo em minutos para utilizar a motoca. O tempo recebido é incrementado ao tempo atual.
   - `$drive` - Permite dirigir a motoca por um tempo determinado.
   - `$honk` - Permite buzinar a motoca.
 
@@ -42,7 +42,7 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
 - Parte 1: Inserir
   - Crie a classe `Motoca` com os atributos `potencia`, `time` e `pessoa`.
   - Inicialize os atributos no construtor, onde `potencia` inicia com 1, `time` inicia com 0 e `pessoa` inicia como nulo.
-  - Crie o método `inserir(pessoa: Pessoa): boolean` que permite inserir uma pessoa na motoca.
+  - Crie o método `inserir(pessoa: Pessoa): bool` que permite inserir uma pessoa na motoca.
   - Verifique se há uma pessoa na motoca. Se houver, imprima "fail: busy motorcycle" e retorne falso.
   - Caso contrário, insira a pessoa na motoca e retorne verdadeiro.
   - Crie o método `toString()` para mostrar o estado da motoca.
@@ -69,19 +69,46 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
   - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Motoca`.
   - No métode inserir, observe que o `Adapter` recebe os argumentos `nome` e `idade` e cria um objeto `Pessoa` para inserir na motoca.
 
-```ts
-// Arquivo adapter
-  void inserir(String nome, int idade) {
-    motoca.inserir(new Pessoa(nome, idade));
-  }
-```
+## Orientações por linguagem
 
-***
+- Cada linguagem tem suas formas de definir ausência de valor.
+- Por exemplo, vamos criar uma variável que pode ser um inteiro ou não ter valor.
+
+- Python
+  - `null` é o valor padrão para ausência de valor.
+  - `variavel: int | null = null` - Define uma variável que pode ser `int` ou `null`.
+  - `variavel = 5` - Define a variável com um valor inteiro.
+  - Teste: `if variavel is not null:`
+- Java
+  - `null` é o valor padrão para ausência de valor.
+  - Tipos primitivos não podem ser null.
+  - Todos as referências a objetos podem ser null.
+  - Referências não inicializadas são null.
+  - `Integer variavel = null` - Define uma variável que pode ser `Integer` ou `null`.
+  - `variavel = 5` - Define a variável com um valor inteiro.
+  - Teste: `if (variavel != null) {`
+- C++
+  - `nullptr` é o valor padrão para ausência de valor.
+  - Apenas ponteiros podem ser nullptr.
+  - Valores estáticos não podem ser nullptr.
+  - Opções de abordagem com ponteiros:
+    - `int* variavel = nullptr` - Define um ponteiro que pode ser `int` ou `nullptr`.
+    - `std::shared_ptr<int> variavel = nullptr` - Define um ponteiro que pode ser `int` ou `nullptr`.
+    - `variavel = new int(5)` - Define a variável com um valor inteiro.
+    - Teste: `if (variavel != nullptr) {`
+  - Opções de abordagem estática utilizando wrapper(empacotador).
+    - `std::optional<int> variavel = std::nullopt` - Define uma variável que pode ser `int` ou `std::nullopt`.
+    - `variavel = 5` - Define a variável com um valor inteiro.
+    - Teste: `if (variavel.has_value()) {`
+- TypeScript
+  - `null` e `undefined` são os valores padrão para ausência de valor.
+  - `let variavel: number | null = null` - Define uma variável que pode ser `number` ou `null`.
+  - `variavel = 5` - Define a variável com um valor inteiro.
+  - Teste: `if (variavel !== null) {`
 
 ## Shell
 
-```s
-
+```sh
 #TEST_CASE subindo e buzinando
 $show
 power:1, time:0, person:(empty)
@@ -211,8 +238,6 @@ $end
   - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
-  - [Student.java](.cache/draft/java/Student.java)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
-  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->

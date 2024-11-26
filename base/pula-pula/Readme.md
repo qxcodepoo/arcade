@@ -26,9 +26,7 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [kid.ts](.cache/draft/ts/kid.ts)
-  - [trampoline.ts](.cache/draft/ts/trampoline.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
 <!-- links -->
 
 ## Guide
@@ -38,57 +36,41 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
-'==
+left to right direction
 
 class Kid {
-  - age : int
-  - name : string
+  - age : number
+  - name: string
   __
-  + Kid(name : string, age : int)
-  + toString() : string
+  + Kid(name: string, age: number)
+  + toString(): string
   __
-  + getAge()  : int
-  + getName() : string
-  + setAge(age : int)
-  + setName(name : string)
+  + getAge()    : number
+  + getName()   : string
+  + setAge (age : number): void
+  + setName(name: string): void
 }
 
 class Trampoline {
-  - playing : List<Kid>
-  - waiting : List<Kid>
+  - playing: List<Kid>
+  - waiting: List<Kid>
   __
-  
-  ' procura por uma criança na lista do parâmetro e se
-  ' encontrar, remove a criança e a retorna
-  - {static} removeFromList(name : string, list : List<Kid>) : Kid | null
+  - {static} removeFromList(name: string, list: List<Kid>): Kid | null
   __
   + Trampoline()
-  + toString() : string
+  + toString(): string
   __
-  
-  ' insere na posição mais a esquerda da lista de espera
-  + arrive(kid : Kid)
-  
-  ' se existir alguém na lista de espera
-  ' remove o que estiver mais a direita e insere na posição mais 
-  ' a esquerda da lista de playing
-  + enter()
-  
-  ' se existir alguém em playing, remove o que estiver mais a direita
-  ' e insere na posição mais a esquerda da lista de espera
-  + leave()
-  
-  ' utilize o método estático removeFromList
-  ' para tentar remover a criança das duas filas
-  + removeKid(name : string) : Kid | null
+  + arrive(kid: Kid): void
+  + enter()         : void
+  + leave()         : void
+  + removeKid(name: string): Kid | null
 }
 
-'--
+
 Trampoline "1" o--  "0..*" Kid : > stores
 @enduml
 ```

@@ -35,13 +35,13 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 
 class Account {
     # balance: double
@@ -168,7 +168,7 @@ class Agency {
     + updateMonthly(): void
 }
 
-'--
+
 CheckingAccount --|> Account
 SavingsAccount --|> Account
 

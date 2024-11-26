@@ -1,6 +1,6 @@
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 Aeroporto "1" -- "0..*" Voo : é origem

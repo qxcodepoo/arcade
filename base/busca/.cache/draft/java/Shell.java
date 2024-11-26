@@ -3,6 +3,33 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 
+class Student {
+    static boolean in(List<Integer> vet, int x) {
+        return false;
+    }
+
+    static int indexOf(List<Integer> vet, int x) {
+        return 0;
+    }
+
+    static int findIf(List<Integer> vet) {
+        return 0;
+    }
+
+    static int minElement(List<Integer> vet) {
+        return 0;
+    }
+
+    static int findMinIf(List<Integer> vet) {
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Rodando o arquivo do estudante");
+    }
+}
+
+
 public class Shell {
     public static void main(String[] _args) {
         while (true) {

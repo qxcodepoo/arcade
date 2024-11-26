@@ -51,13 +51,13 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 class Pass {
   - age  : int
   - name : string
@@ -113,7 +113,7 @@ class Topic {
   __
   + toString() : string
 }
-'--
+
 Topic "1" o-- "0..*" Pass
 @enduml
 ```

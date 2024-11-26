@@ -1,11 +1,11 @@
 #include <iostream>
 #include <string>
 
-class Student {
+class Adapter {
 private:
     // Game game;
 public:
-    Student(int energy, int hungry, int clean) {
+    Adapter(int energy, int hungry, int clean) {
         (void) energy;
         (void) hungry;
         (void) clean;

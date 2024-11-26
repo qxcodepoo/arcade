@@ -12,9 +12,9 @@
 Esta atividade utiliza um padrão de projeto de requisições e respostas.
 
 - Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
-- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Student`.
-- Na classe `Student`, você deve implementar e conectar seu código.
-- A classe `Student` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
+- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
+- Na classe `Adapter`, você deve implementar e conectar seu código.
+- A classe `Adapter` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
 - Mensagens de erro podem ser lançadas por exceções ou por comandos de `print` diretamente para o terminal.
 - Ao mostrar uma string formatada, será utilizado o modelo do Python `f"{variavel:param}"`.
 - Se houver, na seção [Cheat](#cheat), você pode conferir as respostas desta atividade.
@@ -27,8 +27,8 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
   - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Para simplificar, nosso carro esportivo suporta até 2 pessoas e seu tanque suporta até 100 litros de combustível.
 - Responsabilidades
   - O código deve ser implementado na classe `Carro`.
-  - A classe `Student` é responsável por chamar os métodos da classe `Carro`.
-  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Student`.
+  - A classe `Adapter` é responsável por chamar os métodos da classe `Carro`.
+  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
   - `$show` - Mostra o estado atual do carro.
@@ -78,9 +78,9 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Parte 5: dirigir longas distâncias
   - Crie testes para impedir que o carro dirija mais do que o combustível permite.
   - Teste seu código.
-- Parte 6: Student
-  - Na classe `Student`, crie um atributo `carro` e o inicialize no construtor.
-  - Nos outros métodos de `Student`, chame o método equivalente da classe `Car`.
+- Parte 6: Adapter
+  - Na classe `Adapter`, crie um atributo `carro` e o inicialize no construtor.
+  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Car`.
 
 ## Shell
 
@@ -155,16 +155,13 @@ $end
 - cpp
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
-  - [student.cpp](.cache/draft/cpp/student.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
-  - [Student.java](.cache/draft/java/Student.java)
 - py
   - [shell.py](.cache/draft/py/shell.py)
   - [student.py](.cache/draft/py/student.py)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
-  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->
 
 ## Cheat

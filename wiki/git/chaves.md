@@ -1,8 +1,17 @@
 # Criando repositórios local em máquina pessoal ou pública
 
+## Instale o WSL (Windows Subsystem for Linux) no windows
+
+Abra o powershell como administrador e cole o seguinte comando:
+
+```bash
+wsl --install
+```
+
+Após isso, reinicie o computador, abra o terminal do windows e digite `wsl` para abrir o terminal linux.
+
 ## Utilizando chave SSH para acesso permanente na sua máquina pessoal
 
-- Modo Fácil: Baixe, instale e configure pelo [Github Desktop](https://desktop.github.com/download).
 - Modo normal: [Criação e instalação das chaves](https://ryan.dev.br/2023-04-17-github-ssh-pt-br/)
 
 ## Utilizando um Token para acesso temporário nas máquinas de laboratório
@@ -27,7 +36,7 @@ git config --global user.name "seu nome"
 git config --global user.email "seu email"
 ```
 
-- Defina quanto tempo deseja que o token fique salvo em cache.
+- Defina quanto tempo deseja que o token fique salvo em cache, escolha uma das opções abaixo:
 
 ```bash
 git config --global credential.helper --unset # toda operação de clone ou push vai pedir o token
@@ -59,11 +68,11 @@ git config --global credential.helper store   # Salva o token permanentemente
 
 ### Para abrir seu repositório baixado no tko
 
-`tko play <pasta_onde_está_repositório>`
+`tko open <pasta_onde_está_repositório>`
 
-exemplo: `tko play poo`
+exemplo: `tko open poo`
 
-### Limpando o cache do git manualmente
+### Se quiser limpando o cache do git manualmente, caso tenha escolhido a opção de salvar o token permanentemente
 
 ```bash
 git credential-cache exit

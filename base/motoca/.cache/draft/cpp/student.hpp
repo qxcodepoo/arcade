@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-class Student {
+class Adapter {
     // Motorcycle motorcycle;
 public:
 

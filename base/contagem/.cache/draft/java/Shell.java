@@ -2,8 +2,35 @@ import java.util.List;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.text.DecimalFormat;
+
+class Adapter {
+
+    public static int count(List<Integer> vet, int value) {
+        return 0;
+    }
+
+    public static int sum(List<Integer> vet) {
+        return 0;
+    }
+
+    public static double average(List<Integer> vet) {
+        return 0;
+    }
+
+    public static String moreMen(List<Integer> vet) {
+        return "";
+    }
+
+    public static String halfCompare(List<Integer> vet) {
+        return "";
+    }
+
+    public static String sexBattle(List<Integer> vet) {
+        return "";
+    }
+}
+
 
 public class Shell {
     public static void main(String[] _args) {
@@ -17,23 +44,23 @@ public class Shell {
             if ("end".equals(args[0])) {
                 break;
             } else if (args[0].equals("count")) {
-                int result = Student.count(strToVet(args[1]), number(args[2]));
+                int result = Adapter.count(strToVet(args[1]), number(args[2]));
                 write("" + result);
             } else if (args[0].equals("half_compare")) {
-                String result = Student.halfCompare(strToVet(args[1]));
+                String result = Adapter.halfCompare(strToVet(args[1]));
                 write(result);
             } else if (args[0].equals("sex_battle")) {
-                String result = Student.sexBattle(strToVet(args[1]));
+                String result = Adapter.sexBattle(strToVet(args[1]));
                 write(result);
             } else if (args[0].equals("sum")) {
-                int result = Student.sum(strToVet(args[1]));
+                int result = Adapter.sum(strToVet(args[1]));
                 write("" + result);
             } else if (args[0].equals("average")) {
                 DecimalFormat df = new DecimalFormat("0.00");
-                String result = df.format(Student.average(strToVet(args[1])));
+                String result = df.format(Adapter.average(strToVet(args[1])));
                 write(result);
             } else if (args[0].equals("more_men")) {
-                String result = Student.moreMen(strToVet(args[1]));
+                String result = Adapter.moreMen(strToVet(args[1]));
                 write(result);
             } else {
                 write("fail: comando invalido");

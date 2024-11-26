@@ -1,38 +1,39 @@
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 left to right direction
 
 class Pet {
-    - energyMax: int
-    - hungryMax: int
-    - cleanMax: int
-    - energy: int
-    - hungry: int
-    - clean: int
-    - diamonds: int
-    - age: int
-    - alive: boolean
+    - energyMax: number
+    - hungryMax: number
+    - cleanMax : number
+    - energy   : number
+    - hungry   : number
+    - clean    : number
+    - diamonds : number
+    - age      : number
+    - alive    : boolean
     __
-    + Pet(energy: int, hungry: int, clean: int)
+    + Pet(energy: number, hungry: number, clean: number)
     + isAlive(): boolean
-    + toString(): String
+    + toString(): string
     __
-    + setEnergy(value: int): void
-    + setHungry(value: int): void
-    + setClean(value: int): void
-    + setDiamonds(value: int): void
-    + setAge(value: int): void
-    + getClean(): int
-    + getHungry(): int
-    + getEnergy(): int
-    + getCleanMax(): int
-    + getHungryMax(): int
-    + getEnergyMax(): int
-    + getDiamonds(): int
-    + getAge(): int
+    + setEnergy(value: number)  : void
+    + setHungry(value: number)  : void
+    + setClean(value: number)   : void
+    + setDiamonds(value: number): void
+    + setAge(value: number)     : void
+    __
+    + getClean()    : number
+    + getHungry()   : number
+    + getEnergy()   : number
+    + getCleanMax() : number
+    + getHungryMax(): number
+    + getEnergyMax(): number
+    + getDiamonds() : number
+    + getAge()      : number
 }
 
 class Game {
@@ -40,12 +41,12 @@ class Game {
     __
     + Game(pet: Pet)
     - testAlive(): boolean
-    + toString(): String
+    + toString() : string
     __
-    + play(): void
+    + play()  : void
     + shower(): void
-    + eat(): void
-    + sleep(): void
+    + eat()   : void
+    + sleep() : void
 }
 
 Game "1" *-- "1" Pet

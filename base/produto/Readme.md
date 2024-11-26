@@ -94,13 +94,13 @@ Serve como uma classe de controle, gerenciando a criação e manipulação dos p
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-'==
+
 
 ' Interface que define a responsabilidade de um produto
 interface IProduct {
@@ -165,7 +165,7 @@ class ProductManager {
   + toString(): String
 }
 
-'--
+
 IProduct <|.. Product
 IProduct <|.. Bundle
 IProduct <|.. DiscountedProduct

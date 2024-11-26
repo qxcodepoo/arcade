@@ -1,18 +1,18 @@
-'--
+
 @startuml
 
-skinparam defaultFontName Hasklig
+skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
-'==
+
 class Animal {
-    + especie: str
-    + barulho: str
-    + idade: int
+    + especie: string
+    + barulho: string
+    + idade  : number
     __
-    + Animal(especie: str, barulho: str)
-    + fazerBarulho() : str
-    + envelhecer(qtd: int) : void
-    + toString() : string
+    + Animal(especie: string, barulho: string)
+    + fazerBarulho(): string
+    + envelhecer(qtd: number): void
+    + toString(): string
 }
 
 class Legenda {
@@ -25,5 +25,5 @@ class Legenda {
   # métodoProtected()
 }
 
-'--
+
 @enduml
