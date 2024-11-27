@@ -15,32 +15,28 @@
 
 O modelo básico da main é:
 
-```cpp
-function main() {
+```py
+def main():
     
-    var coisa = new Coisa(); //Coisa a ser manipulada
+    coisa = Coisa(); // Elemento a ser manipulado
 
-    while (true) {
-        var line = input();         //lê a linha
-        var args = line.split(" "); // quebra em array de palavras
-        write("$" + line);          //mostra '$' na frente
+    while True:
+        print("$", end="");     // mostra '$' na frente
+        line = input();         // lê a linha
+        args = line.split(" "); // quebra em array de palavras
+        write(line);            // mostra a linha lida
 
-        if (args[0] == "nome do comando") {
+        if args[0] == "nome do comando":
             //aqui voce repassa os parametros para o objeto
             //convertendo os que precisam ser números ou inteiros
-            coisa.funcaoTal(args[1], number(args[2]), (int) number(args[3]));
-        }
-        else if (args[0] == "outro comando") {
+            coisa.funcaoTal(args[1], int(args[2]), args[3])
+
+        elif args[0] == "outro comando":
             //outra invocacao
-        }
-        else if (args[0] == "end") {
+        elif args[0] == "end":
             break;
-        }
-        else {
+        else:
             write("fail: comando invalido");
-        }
-    }
-}
 ```
 
 ## Shell

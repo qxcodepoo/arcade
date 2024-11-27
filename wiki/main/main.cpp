@@ -7,9 +7,10 @@ using namespace fn;
 int main() {
     std::vector<int> vet;
     while (true) {
+        write("$", "");
         auto line = input();
-        write("$" + line);
         auto args = split(line);
+        write(line);
 
         if      (args[0] == "end")   { break;                                                               }
         else if (args[0] == "push")  { 

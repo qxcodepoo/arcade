@@ -1,9 +1,10 @@
 import java.util.*;
 
 class Adapter {
-    // private Game game = new Game(new Pet(0, 0, 0));
-    //     public void init(int energy, int hungry, int clean) {
-        // this.game = new Game(new Pet(energy, hungry, clean));
+    // private Game game = new Game(new Pet(0, 0));
+    // 
+    public void init(int energy, int clean) {
+        // this.game = new Game(new Pet(energy, clean));
     }
 
     public void show() {
@@ -16,10 +17,6 @@ class Adapter {
 
     public void shower() {
         // this.game.shower();
-    }
-
-    public void eat() {
-        // this.game.eat();
     }
 
     public void sleep() {
@@ -36,14 +33,13 @@ public class Shell {
             write("$" + line);
             var args = line.split(" ");
 
-            if      (args[0].equals("end"))   { break;                                                                           }
-            else if (args[0].equals("show"))  { adp.show();                                                           }
-            else if (args[0].equals("init"))  { adp.init((int)number(args[1]), (int)number(args[2]), (int)number(args[3])); }
-            else if (args[0].equals("play"))  { adp.play();                                                                      }
-            else if (args[0].equals("eat"))   { adp.eat();                                                                       }
-            else if (args[0].equals("sleep")) { adp.sleep();                                                                     }
-            else if (args[0].equals("shower")){ adp.shower();                                                                    }
-            else                              { write("fail: comando invalido");                                                 }
+            if      (args[0].equals("end"))   { break;                                                }
+            else if (args[0].equals("show"))  { adp.show();                                           }
+            else if (args[0].equals("init"))  { adp.init((int)number(args[1]), (int)number(args[2])); }
+            else if (args[0].equals("play"))  { adp.play();                                           }
+            else if (args[0].equals("sleep")) { adp.sleep();                                          }
+            else if (args[0].equals("shower")){ adp.shower();                                         }
+            else                              { write("fail: comando invalido");                      }
         }
     }
 

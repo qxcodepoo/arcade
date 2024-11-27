@@ -7,32 +7,24 @@ left to right direction
 
 class Pet {
     - energyMax: number
-    - hungryMax: number
     - cleanMax : number
     - energy   : number
-    - hungry   : number
     - clean    : number
-    - diamonds : number
     - age      : number
     - alive    : boolean
     __
-    + Pet(energy: number, hungry: number, clean: number)
+    + Pet(energy: number, clean: number)
     + isAlive(): boolean
     + toString(): string
     __
-    + setEnergy(value: number)  : void
-    + setHungry(value: number)  : void
-    + setClean(value: number)   : void
-    + setDiamonds(value: number): void
-    + setAge(value: number)     : void
+    + setEnergy(value: number): void
+    + setClean(value: number) : void
+    + setAge(value: number)   : void
     __
     + getClean()    : number
-    + getHungry()   : number
-    + getEnergy()   : number
     + getCleanMax() : number
-    + getHungryMax(): number
+    + getEnergy()   : number
     + getEnergyMax(): number
-    + getDiamonds() : number
     + getAge()      : number
 }
 
@@ -40,12 +32,10 @@ class Game {
     - pet: Pet
     __
     + Game(pet: Pet)
-    - testAlive(): boolean
     + toString() : string
     __
     + play()  : void
     + shower(): void
-    + eat()   : void
     + sleep() : void
 }
 
