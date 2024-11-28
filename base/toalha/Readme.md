@@ -14,18 +14,18 @@
 
 ## Exemplo
 
+<!-- load solver.py fenced:filter:py -->
+
 ```py
-
 class Toalha:
-    def __init__(self, cor: str, tamanho: str): # construtor
-    def getMaxUmidade(self) -> int:             # método
-    def enxugar(self, quantidade: int) -> void: # método
-    def torcer(self) -> void:                   # método
-    def estaSeca(self) -> bool:                 # método                  
-    def __str__(self) -> str:                   # método toString
-    def mostrar(self) -> void:                  # só pra imprimir o toString
-
-
+    def __init__(self, cor: str, tamanho: str):
+    def getMaxUmidade(self) -> int:
+    def enxugar(self, quantidade: int) -> None:
+    def torcer(self) -> None:
+    def estaSeca(self) -> bool:
+    def __str__(self) -> str:
+    def mostrar(self) -> None:
+# Testes
 toalha = Toalha("Azul", "P")
 toalha.mostrar()  # Azul P 0
 toalha.enxugar(5)
@@ -46,3 +46,5 @@ toalha.mostrar()  # Verde G 30
 toalha.estaSeca() # False
 toalha.enxugar(1)  # msg: toalha encharcada
 ```
+
+<!-- load -->

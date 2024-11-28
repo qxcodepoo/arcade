@@ -13,8 +13,8 @@
 ```python
 
 class Notebook:
-    def __init__(self):
-        self.ligado: bool = False # inicializa desligado
+    def __init__(self): # isso é o construtor em python
+        self.__ligado: bool = False # ligado é atributo privado e inicializa com false
     # preencha com os métodos necessários
 
 notebook = Notebook() # criando notebook
@@ -44,14 +44,14 @@ ___
 ```python
 class Bateria:
     def __init__(self, capacidade):
-        self.capacidade: int = capacidade
-        self.carga: int = capacidade
+        self.__capacidade: int = capacidade # capacidade é privado
+        self.__carga: int = capacidade      # carga é privado e inicia com capacidade
     # preencha com os métodos necessários
 
 class Notebook:
     def __init__(self):
-        self.ligado: bool = False           # inicializa desligado
-        self.bateria: Bateria | None = None # inicializa sem bateria
+        self.__ligado: bool = False           # inicializa desligado
+        self.__bateria: Bateria | None = None # inicializa sem bateria
     # preencha com os métodos necessários
 
 notebook = Notebook() # criando notebook
@@ -78,7 +78,7 @@ bateira.mostrar()     # (0/50)
 ## Parte 3 - Notebook com carregador e bateria
 
 - Vamos modelar um notebook que pode ter ou não tanto carregador quanto bateria.
-- Terá que reagir às ações `usar <tempo>`, `ligar` e `desligar`.
+- Terá que reescrever os métodos `usar <tempo>`, `ligar`.
 - Só poderá `ligar` se tiver carga na bateria ou carregador.
 - Enquanto em uso
   - se tiver apenas na bateria, a carga da bateria deve diminuir.
@@ -88,29 +88,26 @@ bateira.mostrar()     # (0/50)
 - Para simplificar, vamos utilizar minutos como a unidade de tempo e de carga.
 - Uma bateria `15/50` significa que possui ainda 15 minutos de carga e suporta no máximo 50.
 - Um carregador com 3 de potência consegue em um minuto de uso, adicionar 3 minutos de carga na bateria.
-
-## Ações
-
 - Para facilitar, você pode imaginar o notebook sendo utilizado da seguinte forma.
 - Adapte a implementação para sua linguagem. Complete com os métodos necessários.
 
 ```python
 class Bateria:
     def __init__(self, capacidade):
-        self.capacidade: int = capacidade
-        self.carga: int = capacidade
+        self.__capacidade: int = capacidade
+        self.__carga: int = capacidade
     # preencha com os métodos necessários
   
 class Carregador:
     def __init__(self, potencia):
-        self.potencia: int = potencia
+        self.__potencia: int = potencia
     # preencha com os métodos necessários
 
 class Notebook:
     def __init__(self):
-        self.ligado: bool = False           # inicializa desligado
-        self.bateria: Bateria | None = None # inicializa sem bateria
-        self.carregador: Carregador | None = None # inicializa sem carregador
+        self.__ligado: bool = False           # inicializa desligado
+        self.__bateria: Bateria | None = None # inicializa sem bateria
+        self.__carregador: Carregador | None = None # inicializa sem carregador
     # preencha com os métodos necessários
 
 

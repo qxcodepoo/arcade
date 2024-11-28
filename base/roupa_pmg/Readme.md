@@ -1,4 +1,4 @@
-# Verificando o tamanho de uma Roupa
+# Comprando uma camisa XG
 
 ## Descrição
 
@@ -14,12 +14,12 @@
 
 ```py
 
-class Roupa:
+class Camisa:
     def __init__(self): # isso é o construtor em python
-        self.tamanho: str = ""
+        self.__tamanho: str = "" # atributos em python com __ na frente são privados
 
     def getTamanho(self) -> str: # métodos em python tem self como primeiro atributo
-        return self.tamanho
+        return self.__tamanho
 
     def setTamanho(self, valor: str):
         # implementar os testes de valor e disparar os avisos caso necessário

@@ -16,11 +16,11 @@
 
 class Chinela:
     # inicialização da chinela com valor de tamanho 0
-    def __init__(self): # isso é o construtor em python
-        self.tamanho = 0
+    def __init__(self):    # isso é o construtor em python
+        self.__tamanho = 0 # quando tem __ na frente em python é privado
 
     def getTamanho(self): # métodos em python tem self como primeiro atributo
-        return self.tamanho
+        return self.__tamanho
 
     def setTamanho(self, valor: int):
         # implementar os testes de valor e disparar os avisos caso necessário
