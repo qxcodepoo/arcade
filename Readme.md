@@ -44,7 +44,7 @@ Significado das tags nas questões:
 ### Modificadores de Acesso
 
 - [ ] `@chinela     :open`[Comprando uma chinela 40/41](base/chinela/Readme.md)
-- [ ] `@roupa_pmg   :open`[Comprando uma camisa XG](base/roupa_pmg/Readme.md)
+- [ ] `@camisa      :open`[Comprando uma camisa XG](base/camisa/Readme.md)
 - [ ] `@relogio     :test`[Garante uma hora válida no relógio](base/relogio/Readme.md)
 
 ### Agregação Simples
