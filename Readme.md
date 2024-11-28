@@ -56,6 +56,7 @@ Significado das tags nas questões:
 
 ### ArrayList I - Listas
 
+- [ ] `@array       :open`[Manipulações em Arrays](base/array/Readme.md)
 - [ ] `@budega      :test`[Gerencie a fila de espera e atendimento](base/budega/Readme.md)
 - [ ] `@lapiseira   :test`[Lapiseira com múltiplos grafites](base/lapiseira/Readme.md)
 - [ ] `@tabuleiro   :test`[Jogo de tabuleiro e armadilhas](base/tabuleiro/Readme.md)
