@@ -36,6 +36,7 @@ Significado das tags nas questões:
 
 ### Primeiras Classes
 
+- [ ] `@toalha      :open`[Toalha, o item mais útil do universo](base/toalha/Readme.md)
 - [ ] `@animal      :test`[Animal que nasce, cresce, morre](base/animal/Readme.md)
 - [ ] `@carro       :test`[Um carro simples](base/carro/Readme.md)
 - [ ] `@calculadora :test`[Uma calculadora com bateria](base/calculadora/Readme.md)
