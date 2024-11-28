@@ -1,19 +1,30 @@
 # Toalha, o item mais útil do universo
 
-- Crie uma classe `Toalha` com os atributos `cor`, `tamanho` e `humidade`.
-- Crie um construtor que inicialize todos os atributos `cor` e `tamanho` com valores recebidos como parâmetro e `humidade` com 0.
-- Crie um método `enxugar` que recebe um valor inteiro `humidade` e aumenta o atributo `humidade` da toalha.
-- Crie um método `torcer` que zera o atributo `humidade` da toalha.
-- O máximo de humidade que uma toalha pode ter é de acordo com o tamanho dela:
+- Crie uma classe `Toalha` com os atributos `cor`, `tamanho` e `umidade`.
+- Crie um construtor que inicialize todos os atributos `cor` e `tamanho` com valores recebidos como parâmetro e `umidade` com 0.
+- Crie um método `enxugar` que recebe um valor inteiro `umidade` e aumenta o atributo `umidade` da toalha.
+- Crie um método `torcer` que zera o atributo `umidade` da toalha.
+- Crie um método `pegarMaximoUmidade` que retorna o valor máximo de umidade que essa toalha pode ter.
+- O máximo de umidade que uma toalha pode ter é de acordo com o tamanho dela:
   - `P` -> 10
   - `M` -> 20
   - `G` -> 30
-- Crie um método `estaSeca` que retorna `true` se a humidade da toalha for 0 e `false` caso contrário.
+- Crie um método `estaSeca` que retorna `true` se a umidade da toalha for 0 e `false` caso contrário.
 - Faça um código de teste para validar o comportamento da classe `Toalha`.
 
 ## Exemplo
 
 ```py
+
+class Toalha:
+    def __init__(self, cor: str, tamanho: str): # construtor
+    def getMaxUmidade(self) -> int:             # método
+    def enxugar(self, quantidade: int) -> void: # método
+    def torcer(self) -> void:                   # método
+    def estaSeca(self) -> bool:                 # método                  
+    def __str__(self) -> str:                   # método toString
+    def mostrar(self) -> void:                  # só pra imprimir o toString
+
 
 toalha = Toalha("Azul", "P")
 toalha.mostrar()  # Azul P 0
