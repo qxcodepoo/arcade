@@ -50,6 +50,7 @@ Significado das tags nas questões:
 ### Agregação Simples
 
 - [ ] `@notebook    :open`[Notebook com carregador e bateria](base/notebook/Readme.md)
+- [ ] `@motouber    :test`[MotoUber com motorista e passageiro](base/motouber/Readme.md)
 - [ ] `@grafite     :test`[Porta minas de um grafite só](base/grafite/Readme.md)
 - [ ] `@motoca      :test`[Crianças andando de motoca](base/motoca/Readme.md)
 - [ ] `@tamagotchi  :test`[Alimente, brinque e mate](base/tamagotchi/Readme.md)
