@@ -37,6 +37,7 @@ Significado das tags nas questões:
 ### Primeiras Classes
 
 - [ ] `@toalha      :open`[Toalha, o item mais útil do universo](base/toalha/Readme.md)
+- [ ] `@enxugar     :test`[Toalha com testes](base/enxugar/Readme.md)
 - [ ] `@animal      :test`[Animal que nasce, cresce, morre](base/animal/Readme.md)
 - [ ] `@carro       :test`[Um carro simples](base/carro/Readme.md)
 - [ ] `@calculadora :test`[Uma calculadora com bateria](base/calculadora/Readme.md)
@@ -45,6 +46,7 @@ Significado das tags nas questões:
 
 - [ ] `@chinela     :open`[Comprando uma chinela 40/41](base/chinela/Readme.md)
 - [ ] `@camisa      :open`[Comprando uma camisa XG](base/camisa/Readme.md)
+- [ ] `@roupa       :test`[Roupa com testes](base/roupa/Readme.md)
 - [ ] `@relogio     :test`[Garante uma hora válida no relógio](base/relogio/Readme.md)
 
 ### Agregação Simples
