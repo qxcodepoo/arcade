@@ -20,18 +20,24 @@ $criar azul P
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 0
 
+#TEST_CASE esta_seca
 $seca
 sim
 
+#TEST_CASE enxugar
 $enxugar 5
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 5
 
+#TEST_CASE nao esta seca
 $seca
 nao
 
+#TEST_CASE toalha encharcada
 $enxugar 5
 toalha encharcada
+
+#TEST_CASE umidade maxima alcançada
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 10
 
@@ -41,6 +47,7 @@ toalha encharcada
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 10
 
+#TEST_CASE torcer
 $torcer
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 0
@@ -59,11 +66,14 @@ $criar verde G
 $mostrar
 Cor: verde, Tamanho: G, Umidade: 0
 
+#TEST_CASE limite de 30 e encharcada
+
 $enxugar 30
 toalha encharcada
 $mostrar
 Cor: verde, Tamanho: G, Umidade: 30
 
+#TEST_CASE não passa do limite
 $enxugar 1
 toalha encharcada
 $mostrar
