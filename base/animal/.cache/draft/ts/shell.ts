@@ -3,24 +3,40 @@ function input(): string { let X: any = input; X.L = X.L || require("fs").readFi
 function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
 export {};
 
+
+class Animal {
+    constructor(species: string, noise: string) {
+    }
+
+    makeNoise(): string {
+        return "";
+    }
+
+    ageBy(increment: number): void {
+    }
+
+    toString(): string {
+        return "";
+    }
+}
+
 class Adapter {
-    // animal: Animal = new Animal("", "");
+    animal: Animal = new Animal("", "");
+    
     init(species: string, noise: string): void {
-        // this.animal = new Animal(species, noise);
+        this.animal = new Animal(species, noise);
     }
 
     grow(increment: number): void {
-        // this.animal.ageBy(increment);
+        this.animal.ageBy(increment);
     }
 
     noise(): void {
-        // console.log(this.animal.makeNoise());
+        console.log(this.animal.makeNoise());
     }
 
-    // mostra a representação do animal como texto
-    // no formato "{especie}:{estagio}:{barulho}"
     show(): void {
-        // console.log(this.animal.toString());
+        console.log(this.animal.toString());
     }
 }
 

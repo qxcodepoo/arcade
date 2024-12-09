@@ -2,11 +2,11 @@ function input(): string { let X: any = input; X.L = X.L || require("fs").readFi
 function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
 export {};
 
+
 class Animal {
     species: string;
     noise: string;
     age: number;
-
     constructor(species: string, noise: string) {
         this.species = species;
         this.noise = noise;
@@ -38,6 +38,7 @@ class Animal {
 
 class Adapter {
     animal: Animal = new Animal("", "");
+    
     init(species: string, noise: string): void {
         this.animal = new Animal(species, noise);
     }

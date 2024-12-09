@@ -4,7 +4,6 @@ class Animal {
     private String species;
     private String noise;
     private int age;
-
     public Animal(String species, String noise) {
         this.species = species;
         this.noise = noise;
@@ -62,7 +61,7 @@ public class Shell {
             write("$");
             var line = input();
             var args = line.split(" ");
-            write(line + "\n"); //test echo
+            write(line + "\n");
 
             if      (args[0].equals("end")  ) { break;                                   }
             else if (args[0].equals("init") ) { adp.init(args[1], args[2]);              }

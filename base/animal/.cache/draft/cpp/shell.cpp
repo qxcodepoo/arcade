@@ -1,24 +1,40 @@
 #include "fn.hpp"
 
-struct Adapter {
-    // Animal animal;
-    void init(std::string species = "", std::string noise = "") {
+struct Animal {
+    Animal(std::string species = "", std::string noise = "") {
         (void) species;
         (void) noise;
-        // animal = Animal(species, noise);
+    }
+
+    std::string makeSound() const {
+        return "";
+    }
+
+    void oldBy(int increment) {
+        (void) increment;
+    }
+
+    std::string str() const {
+        return "";
+    }
+};
+
+struct Adapter {
+    Animal animal;
+    void init(std::string species = "", std::string noise = "") {
+        animal = Animal(species, noise);
     }
 
     void grow(int increment) {
-        (void) increment;
-        // animal.oldBy(increment);
+        animal.oldBy(increment);
     }
 
     void noise() {
-        // std::cout << animal.makeSound() << std::endl;
+        std::cout << animal.makeSound() << std::endl;
     }
 
     void show() {
-        // std::cout << animal.str() << std::endl;
+        std::cout << animal.str() << std::endl;
     }
 };
 

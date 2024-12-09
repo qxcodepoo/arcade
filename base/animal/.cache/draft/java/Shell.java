@@ -1,21 +1,37 @@
 import java.util.Scanner;
 
+class Animal {
+    public Animal(String species, String noise) {
+    }
+
+    public String makeNoise() {
+        return "";
+    }
+
+    public void ageBy(int increment) {
+    }
+
+    public String toString() {
+        return "";
+    }
+}
+
 class Adapter {
-    // private Animal animal = new Animal("", "");
+    private Animal animal = new Animal("", "");
     public void init(String species, String noise) {
-        // animal = new Animal(species, noise);
+        animal = new Animal(species, noise);
     }
     
     public void noise() {
-        // System.out.println(animal.makeNoise());
+        System.out.println(animal.makeNoise());
     }
 
     public void grow(int increment) {
-        // animal.ageBy(increment);
+        animal.ageBy(increment);
     }
 
     public void show() {
-        // System.out.println(animal.toString());
+        System.out.println(animal.toString());
     }
 }
 
@@ -28,7 +44,7 @@ public class Shell {
             write("$");
             var line = input();
             var args = line.split(" ");
-            write(line + "\n"); //test echo
+            write(line + "\n");
 
             if      (args[0].equals("end")  ) { break;                                   }
             else if (args[0].equals("init") ) { adp.init(args[1], args[2]);              }

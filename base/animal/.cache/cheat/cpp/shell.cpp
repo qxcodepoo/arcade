@@ -4,9 +4,12 @@ struct Animal {
     std::string species;
     std::string sound;
     int age;
-
-    Animal(std::string species = "", std::string noise = ""):
-        species(species), sound(noise), age(0) {
+    Animal(std::string species = "", std::string noise = "") {
+        (void) species;
+        (void) noise;
+        this->species = species;
+        this->sound = noise;
+        this->age = 0;
     }
 
     std::string makeSound() const {
@@ -20,6 +23,7 @@ struct Animal {
     }
 
     void oldBy(int increment) {
+        (void) increment;
         age += increment;
         if (age >= 4) {
             fn::print("warning: {} morreu\n", species);
@@ -32,20 +36,13 @@ struct Animal {
     }
 };
 
-inline std::ostream& operator<<(std::ostream& os, const Animal& animal) {
-    return os << animal.str();
-}
-
 struct Adapter {
     Animal animal;
     void init(std::string species = "", std::string noise = "") {
-        (void) species;
-        (void) noise;
         animal = Animal(species, noise);
     }
 
     void grow(int increment) {
-        (void) increment;
         animal.oldBy(increment);
     }
 
