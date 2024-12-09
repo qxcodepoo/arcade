@@ -45,9 +45,11 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
   - `passMax`: Máximo de 2 pessoas.
   - `gas`: 0 litros de gasolina.
   - `gasMax`: Máximo de 100 litros de gasolina.
-- `toString` - Retorna uma string com o estado atual do carro no formato:
+- Mostrar `$show`
+  - Imprime a chamada do método `toString` do carro.
+  - `toString` - Retorna uma string com o estado atual do carro no formato:
   - `"pass:{pass}, gas:{gas}, km:{km}"`.
-- Entrar `enter`
+- Entrar `$enter`
   - Embarca uma pessoa por vez, mas não além do máximo.
   - Se o carro estiver lotado, emite a mensagem de erro.
     - `fail: limite de pessoas atingido`.
@@ -55,10 +57,10 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
   - Desembarca uma pessoa por vez.
   - Se não houver ninguém no carro, emite a mensagem de erro.
     - `fail: nao ha ninguem no carro`.
-- Abastecer
+- Abastecer certa quantidade `$fuel increment`
   - Abastece o tanque com a quantidade de litros de combustível passada.
   - Caso tente abastecer acima do limite, descarta o valor excedente.
-- Dirigir
+- Dirigir certa distância `$drive distance`
   - Para dirigir, o carro consome combustível e aumenta a quilometragem.
   - Só pode dirigir se houver combustível e se houver alguém no carro.
   - Caso não haja ninguém no carro, emite a mensagem de erro.
