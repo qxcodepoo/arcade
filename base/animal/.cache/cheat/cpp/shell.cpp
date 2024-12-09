@@ -1,34 +1,34 @@
 #include "fn.hpp"
 
 struct Animal {
-    std::string especie;
-    std::string barulho;
-    int estagio;
+    std::string species;
+    std::string sound;
+    int age;
 
-    Animal(std::string especie = "", std::string barulho = ""):
-        especie(especie), barulho(barulho), estagio(0) {
+    Animal(std::string species = "", std::string noise = ""):
+        species(species), sound(noise), age(0) {
     }
 
-    std::string fazerBarulho() const {
-        if (estagio == 0) {
+    std::string makeSound() const {
+        if (age == 0) {
             return "---";
         }
-        if (estagio == 4) {
+        if (age == 4) {
             return "RIP";
         }
-        return this->barulho;
+        return this->sound;
     }
 
-    void envelhecer(int nivel) {
-        estagio += nivel;
-        if (estagio >= 4) {
-            fn::print("warning: {} morreu\n", especie);
-            estagio = 4;
+    void oldBy(int increment) {
+        age += increment;
+        if (age >= 4) {
+            fn::print("warning: {} morreu\n", species);
+            age = 4;
         }
     }
 
     std::string str() const {
-        return fn::format("{}:{}:{}", especie, estagio, barulho);
+        return fn::format("{}:{}:{}", species, age, sound);
     }
 };
 
@@ -38,19 +38,19 @@ inline std::ostream& operator<<(std::ostream& os, const Animal& animal) {
 
 struct Adapter {
     Animal animal;
-    void init(std::string especie = "", std::string barulho = "") {
-        (void) especie;
-        (void) barulho;
-        animal = Animal(especie, barulho);
+    void init(std::string species = "", std::string noise = "") {
+        (void) species;
+        (void) noise;
+        animal = Animal(species, noise);
     }
 
-    void grow(int nivel) {
-        (void) nivel;
-        animal.envelhecer(nivel);
+    void grow(int increment) {
+        (void) increment;
+        animal.oldBy(increment);
     }
 
     void noise() {
-        std::cout << animal.fazerBarulho() << std::endl;
+        std::cout << animal.makeSound() << std::endl;
     }
 
     void show() {

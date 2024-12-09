@@ -1,29 +1,27 @@
-
 @startuml
 
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 class Animal {
-    + especie: string
-    + barulho: string
-    + idade  : number
+    + species: string
+    + sound  : string
+    + age    : number
     __
-    + Animal(especie: string, barulho: string)
-    + fazerBarulho(): string
-    + envelhecer(qtd: number): void
+    + constructor(species: string, sound: string)
+    + makeSound(): string
+    + ageBy(increment: number): void
     + toString(): string
 }
 
-class Legenda {
-  + atributoPublic
-  - atributoPrivate
-  # atributoProtected
+class Legend {
+  + publicAttribute
+  - privateAttribute
+  # protectedAttribute
   __
-  + métodoPublic()
-  - métodoPrivate()
-  # métodoProtected()
+  + publicMethod()
+  - privateMethod()
+  # protectedMethod()
 }
-
 
 @enduml

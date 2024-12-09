@@ -12,22 +12,22 @@ class Car {
 
   __
   
-  + Car()
+  + constructor()
   + enter(): void
   + leave(): void
-  + drive(value : number): void  
-  + fuel (value : number): void
+  + drive(distance : number): void  
+  + fuel (increment : number): void
   + toString() : string
 }
 
-class Legenda {
-  + atributoPublic
-  - atributoPrivate
-  # atributoProtected
+class Legend {
+  + publicAttribute
+  - privateAttribute
+  # protectedAttribute
   __
-  + métodoPublic()
-  - métodoPrivate()
-  # métodoProtected()
+  + publicMethod()
+  - privateMethod()
+  # protectedMethod()
 }
 
 

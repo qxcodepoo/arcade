@@ -1,60 +1,76 @@
 # Um carro simples
 
 <!-- toch -->
-[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
--- | -- | -- | -- | -- | --
+[Model](#model) | [Guide](#guide) | [Intro](#intro) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
+UML | Testes | Rascunho | Adapter | Esqueleto
+--- | ------ | -------- | ------- | ---------
+sim | sim    | sim      | sim     | não
+
 ## Model
 
-Esta atividade utiliza um padrão de projeto de requisições e respostas.
+Essa atividade utiliza testes através de requisições e respostas em texto. Ela é composta por três componentes.
 
-- Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
-- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
-- Na classe `Adapter`, você deve implementar e conectar seu código.
-- A classe `Adapter` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
-- Mensagens de erro podem ser lançadas por exceções ou por comandos de `print` diretamente para o terminal.
-- Ao mostrar uma string formatada, será utilizado o modelo do Python `f"{variavel:param}"`.
-- Se houver, na seção [Cheat](#cheat), você pode conferir as respostas desta atividade.
+- `Suas classes de resolução`: Classes que você deve implementar e que resolvem o problema proposto.
+- `Shell`: Responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
+  - Normalmente, você não precisa alterar essa classe.
+- `Adapter`: Responsável por instanciar e chamar os métodos das `Suas classes de resolução`.
+  - Todos os métodos do `Adapter` são `void`, sem retorno.
+  - Todos os métodos possuem o mesmo nome e parâmetros das requisições dos testes.
+    - `linha de teste`: `$somar 1 2`
+    - `método Adapter`: `void somar(int a, int b)`
+  - Se a requisição exigir uma resposta, ela deve ser impressa no `Adapter`.
+    - `print(calculadora.somar(a, b))`
+
+## Guide
+
+- Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
+- Começe analisando os testes e entendendo tudo que seu código precisa fazer.
+- Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
+- Após implementar sua classe e conectar no `Adapter`, rode os testes para verificar se a atividade está correta.
+- Passe para o próximo teste até implementar tudo que é pedido.
 
 ## Intro
 
 Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de embarcar e desembarcar pessoas, abastecer e andar.
 
-- Descrição
-  - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Para simplificar, nosso carro esportivo suporta até 2 pessoas e seu tanque suporta até 100 litros de combustível.
-- Responsabilidades
-  - O código deve ser implementado na classe `Carro`.
-  - A classe `Adapter` é responsável por chamar os métodos da classe `Carro`.
-  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
-- Comandos
-  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
-  - `$show` - Mostra o estado atual do carro.
-    - `f"pass:{this.pass},gas:{this.gas},km:{this.km}"`.
-    - Exemplo: `pass: 0, gas: 0, km: 0`.
-  - `$init` - Inicializa todos os atributos.
-    - Tanque vazio.
-    - 0 passageiros.
-    - 0 quilômetros percorridos.
-    - Máximo de 2 pessoas.
-    - Máximo de 100 litros de gasolina.
-  - `$enter` - Embarca uma pessoa por vez, mas não além do máximo.
-    - Se o carro estiver lotado, emite a mensagem de erro `fail: limite de pessoas atingido`.
-  - `$leave` - Desembarca uma pessoa por vez.
-    - Se não houver ninguém no carro, emite a mensagem de erro `fail: nao ha ninguem no carro`.
-  - `$fuel qtd` - Abastece o tanque com a quantidade de litros de combustível passada.
-    - Caso tente abastecer acima do limite, descarta o valor excedente.
-  - `$drive dist` - Para dirigir, o carro consome combustível e aumenta a quilometragem.
-    - Só pode dirigir se houver combustível e se houver alguém no carro.
-    - Caso não haja ninguém no carro, emite a mensagem de erro “fail: não há ninguém no carro”.
-    - Caso não haja combustível, emite a mensagem de erro “fail: tanque vazio”.
-    - Caso não exista combustível suficiente para completar a viagem inteira, dirige o máximo possível e emite uma mensagem indicando quanto foi percorrido, como no exemplo `fail: tanque vazio após andar {qtd} km`.
-
-## Guide
+- O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Suporta até 2 pessoas e até 100 litros de combustível.
+- Construtor do Carro
+  - `pass`: 0 passageiros.
+  - `km`: 0 quilômetros percorridos.
+  - `passMax`: Máximo de 2 pessoas.
+  - `gas`: 0 litros de gasolina.
+  - `gasMax`: Máximo de 100 litros de gasolina.
+- `toString` - Retorna uma string com o estado atual do carro no formato:
+  - `"pass:{pass}, gas:{gas}, km:{km}"`.
+- Entrar `enter`
+  - Embarca uma pessoa por vez, mas não além do máximo.
+  - Se o carro estiver lotado, emite a mensagem de erro.
+    - `fail: limite de pessoas atingido`.
+- Sair `$leave`
+  - Desembarca uma pessoa por vez.
+  - Se não houver ninguém no carro, emite a mensagem de erro.
+    - `fail: nao ha ninguem no carro`.
+- Abastecer
+  - Abastece o tanque com a quantidade de litros de combustível passada.
+  - Caso tente abastecer acima do limite, descarta o valor excedente.
+- Dirigir
+  - Para dirigir, o carro consome combustível e aumenta a quilometragem.
+  - Só pode dirigir se houver combustível e se houver alguém no carro.
+  - Caso não haja ninguém no carro, emite a mensagem de erro.
+    - `fail: não há ninguém no carro`
+  - Caso não haja combustível, emite a mensagem de erro.
+    - `fail: tanque vazio`
+  - Caso não exista combustível suficiente para completar a viagem inteira, dirija o máximo possível e emite uma mensagem indicando quanto foi percorrido
+    - `fail: tanque vazio após andar {distancia} km`.
 
 ![diagrama](diagrama.png)
+
+<!--
 
 - Parte 1: entrar
   - Crie a classe Car com os atributos pass, passMax, gas, gasMax e km;
@@ -81,6 +97,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Parte 6: Adapter
   - Na classe `Adapter`, crie um atributo `carro` e o inicialize no construtor.
   - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Car`.
+-->
 
 ## Shell
 
@@ -162,9 +179,4 @@ $end
   - [student.py](.cache/draft/py/student.py)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
-<!-- links -->
-
-## Cheat
-
-<!-- links .cache/cheat -->
 <!-- links -->

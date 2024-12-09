@@ -1,0 +1,19 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+class Towel {
+    - color: String
+    - size: String
+    - wetness: number
+    __
+    + constructor(color: string, size: string)
+    + dry(increment: number): void
+    + wringOut(): void
+    + getMaxWetness(): number
+    + isDry(): boolean
+    + toString(): string
+    + show(): void
+}
+@enduml

@@ -10,21 +10,21 @@ class Calculator {
   + display    : number
   __
 
-  + Calculator(batteryMax : number)
-  + charge(value : number): void
+  + constructor(batteryMax : number)
+  + charge(increment : number): void
   + sum(a : number, b : number): void
   + division(num : number, den : number): void
   + toString(): string
 }
 
 class Legenda {
-  + atributoPublic
-  - atributoPrivate
-  # atributoProtected
+  + atributePublic
+  - atributePrivate
+  # atributeProtected
   __
-  + métodoPublic()
-  - métodoPrivate()
-  # métodoProtected()
+  + methodPublic()
+  - methodPrivate()
+  # methodProtected()
 }
 
 @enduml

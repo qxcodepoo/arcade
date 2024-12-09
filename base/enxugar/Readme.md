@@ -1,5 +1,13 @@
 # Toalha com testes
 
+![_](cover.jpg)
+
+UML | Testes | Rascunho | Adapter | Esqueleto
+--- | ------ | -------- | ------- | ---------
+não | sim    | sim      | não     | não
+
+## Intro
+
 - Crie uma classe `Toalha` com os atributos `cor`, `tamanho` e `umidade`.
 - Crie um construtor que inicialize todos os atributos `cor` e `tamanho` com valores recebidos como parâmetro e `umidade` com 0.
 - Crie um método `enxugar` que recebe um valor inteiro `umidade` e aumenta o atributo `umidade` da toalha.

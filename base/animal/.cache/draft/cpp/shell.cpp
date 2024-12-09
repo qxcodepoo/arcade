@@ -2,19 +2,19 @@
 
 struct Adapter {
     // Animal animal;
-    void init(std::string especie = "", std::string barulho = "") {
-        (void) especie;
-        (void) barulho;
-        // animal = Animal(especie, barulho);
+    void init(std::string species = "", std::string noise = "") {
+        (void) species;
+        (void) noise;
+        // animal = Animal(species, noise);
     }
 
-    void grow(int nivel) {
-        (void) nivel;
-        // animal.envelhecer(nivel);
+    void grow(int increment) {
+        (void) increment;
+        // animal.oldBy(increment);
     }
 
     void noise() {
-        // std::cout << animal.fazerBarulho() << std::endl;
+        // std::cout << animal.makeSound() << std::endl;
     }
 
     void show() {

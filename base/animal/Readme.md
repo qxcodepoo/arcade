@@ -1,22 +1,39 @@
 # Animal que nasce, cresce, morre
 
 <!-- toch -->
-[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
--- | -- | -- | -- | -- | --
+[Model](#model) | [Guide](#guide) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
+UML | Testes | Rascunho | Adapter | Esqueleto
+--- | ------ | -------- | ------- | ---------
+sim | sim    | sim      | sim     | não
+
 ## Model
 
-Essa atividade utiliza um padrão de projeto de requisições e respostas.
+Essa atividade utiliza testes através de requisições e respostas em texto. Ela é composta por três componentes.
 
-- Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
-- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
-- Na classe `Adapter` é onde você deve implementar e conectar seu código.
-- A classe `Adapter` é apenas a classe de conexão, você deve criar as classes que implementam a lógica do problema. Use como base o diagrama de classes e a descrição do problema.
-- Mensagens de erros podem ser lançadas por exceções ou comandos de `print` diretamente para o terminal.
-- Ao mostrar uma string formatada, será utilizado o modelo do python `"texto {variavel} texto"`.
+- `Suas classes de resolução`: Classes que você deve implementar e que resolvem o problema proposto.
+- `Shell`: Responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
+  - Normalmente, você não precisa alterar essa classe.
+- `Adapter`: Responsável por instanciar e chamar os métodos das `Suas classes de resolução`.
+  - Todos os métodos do `Adapter` são `void`, sem retorno.
+  - Todos os métodos possuem o mesmo nome e parâmetros das requisições dos testes.
+    - `linha de teste`: `$somar 1 2`
+    - `método Adapter`: `void somar(int a, int b)`
+  - Se a requisição exigir uma resposta, ela deve ser impressa no `Adapter`.
+    - `print(calculadora.somar(a, b))`
+
+## Guide
+
+- Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
+- Começe analisando os testes e entendendo tudo que seu código precisa fazer.
+- Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
+- Após implementar sua classe e conectar no `Adapter`, rode os testes para verificar se a atividade está correta.
+- Passe para o próximo teste até implementar tudo que é pedido.
+
 - Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
 
 ## Intro
@@ -24,38 +41,32 @@ Essa atividade utiliza um padrão de projeto de requisições e respostas.
 O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
 
 - Descrição
-  - O animal tem uma espécie, um estágio de vida e um barulho que ele faz.
+  - O animal tem uma espécie `species`, um estágio `age` de vida e um barulho `sound` que ele faz.
+  - O construtor do animal
+    - Recebe a espécie e o barulho e inicia o estágio com 0.
+  - O toString do animal deve retornar a representação do animal no formato
+    - `{species}:{age}:{sound}`.
   - Os estágios pelos quais o animal passa são:
     - 0: Filhote
     - 1: Criança
     - 2: Adulto
     - 3: Idoso
     - 4: Morto
+  - Ao envelhecer no método `ageBy`, o animal avança estágios na sua vida de acordo com o parâmetro `increment`.
+    - Ao morrer ou tentar envelhecer após a morte do aninal, deve ser exibida a mensagem de aviso:
+      - `warning: {species} morreu`.
+      - Como essa é uma mensagem de erro, você pode imprimir diretamente no método `ageBy`.
   - Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:
     - Se for filhote, emite um "---".
     - Se estiver morto, emite um "RIP".
-  - Ao crescer, o animal avança estágios na sua vida.
-    - Ao morrer, deve ser exibida uma mensagem de aviso: `warning: {especie} morreu`.
-    - Invocar o método de crescimento após a morte do animal deve exibir uma mensagem de aviso: `warning: {especie} morreu`.
-- Responsabilidades
-  - O código deve ser implementado na classe `Animal`.
-  - Os métodos da classe `Animal` devem ser chamados na classe `Adapter`.
-  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
-- Comandos
-  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
-  - `$show`: Mostra o estado atual do animal.
-    - formato: `f"{especie}:{estagio}:{barulho}"`
-    - exemplo: `gato:0:miau`
-  - `$init especie barulho`: Inicializa o animal passando a espécie e o barulho.
-  - `$grow qtd`: Faz o animal crescer uma `qtd` etapas na vida.
-  - `$noise`: Faz o animal emitir um som.
-  - `$end`: Finaliza a execução.
+    - Como não são mensagens de erro, o barulho do animal deve ser retornado no método `makeSound` e impresso no `Adapter`.
+
+![_](diagrama.png)
 
 ___
 
+<!--
 ## Guide
-
-![_](diagrama.png)
 
 - Parte 1
   - Crie uma classe `Animal` com os atributos `especie`, `estagio` e `barulho`.
@@ -73,6 +84,8 @@ ___
 - Parte 4: Adapter
   - Na classe `Adapter`, crie um atributo `animal` e o inicialize no construtor.
   - Faça os ajustes necessários para chamar os métodos da classe Animal na classe Adapter.
+
+-->
 
 ## Shell
 

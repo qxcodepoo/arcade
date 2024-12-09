@@ -3,51 +3,51 @@ function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
 export {};
 
 class Animal {
-    especie: string;
-    barulho: string;
-    estagio: number;
+    species: string;
+    noise: string;
+    age: number;
 
-    constructor(especie: string, barulho: string) {
-        this.especie = especie;
-        this.barulho = barulho;
-        this.estagio = 0;
+    constructor(species: string, noise: string) {
+        this.species = species;
+        this.noise = noise;
+        this.age = 0;
     }
 
-    fazerBarulho(): string {
-        if (this.estagio === 0) {
+    makeNoise(): string {
+        if (this.age === 0) {
             return "---";
         }
-        if (this.estagio === 4) {
+        if (this.age === 4) {
             return "RIP";
         }
-        return this.barulho;
+        return this.noise;
     }
 
-    envelhecer(nivel: number): void {
-        this.estagio += nivel;
-        if (this.estagio >= 4) {
-            console.log(`warning: ${this.especie} morreu`);
-            this.estagio = 4;
+    ageBy(increment: number): void {
+        this.age += increment;
+        if (this.age >= 4) {
+            console.log(`warning: ${this.species} morreu`);
+            this.age = 4;
         }
     }
 
     toString(): string {
-        return `${this.especie}:${this.estagio}:${this.barulho}`;
+        return `${this.species}:${this.age}:${this.noise}`;
     }
 }
 
 class Adapter {
     animal: Animal = new Animal("", "");
-    init(especie: string, barulho: string): void {
-        this.animal = new Animal(especie, barulho);
+    init(species: string, noise: string): void {
+        this.animal = new Animal(species, noise);
     }
 
-    grow(qtd: number): void {
-        this.animal.envelhecer(qtd);
+    grow(increment: number): void {
+        this.animal.ageBy(increment);
     }
 
     noise(): void {
-        console.log(this.animal.fazerBarulho());
+        console.log(this.animal.makeNoise());
     }
 
     show(): void {

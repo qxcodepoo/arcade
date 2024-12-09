@@ -7,50 +7,50 @@
 
 ![cover](cover.jpg)
 
+UML | Testes | Rascunho | Adapter | Esqueleto
+--- | ------ | -------- | ------- | ---------
+sim | sim    | sim      | não     | não
+
 ## Model
 
-Esta atividade utiliza um padrão de projeto de requisições e respostas.
-
-- Os testes são feitos através de requisições de texto e podem ser vistos na seção [Shell](#shell).
-- A classe `Shell` é responsável por ler as requisições de texto, decodificar e chamar os métodos da classe `Adapter`.
-- Na classe `Adapter`, você deve implementar e conectar seu código.
-- A classe `Adapter` é apenas a classe de conexão. Você deve implementar as classes que contêm a lógica do problema. Utilize como base o diagrama de classes e a descrição do problema.
-- Mensagens de erro podem ser lançadas por exceções ou por comandos de `print` diretamente para o terminal.
-- Ao mostrar uma string formatada, será utilizado o modelo do Python `f"{variavel:param}"`.
-- Se houver, na seção [Cheat](#cheat), você pode conferir as respostas desta atividade.
+- Esta atividade utiliza um padrão de projeto de requisições e respostas.
+- Veja mais detalhes sobre esse modelo nas atividades do Carro e do Animal.
 
 ## Intro
 
-O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
+O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
 - Descrição
-  - A calculadora possui um display e uma bateria. Ela guarda o valor atual da bateria e o valor máximo.
+  - A calculadora possui um display `display` e uma bateria `battery`. Ela guarda o valor atual da bateria e o valor máximo `batteryMax`.
   - O display é onde o resultado das operações é armazenado.
   - A bateria é a quantidade de energia que a calculadora possui.
   - Cada operação gasta um ponto de bateria.
   - A calculadora não pode realizar operações se não houver bateria.
   - A calculadora não pode realizar divisões por zero.
-- Reponsabilidades
-  - O código deve ser implementado na classe `Calculadora`.
-  - A classe `Adapter` é responsável por chamar os métodos da classe `Calculadora`.
-  - A classe `Shell` é responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
-- Comandos
-  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
-  - `$show` - Mostra o display e a bateria.
-    - `f"{this.display:.2f}, {this.battery}"`
-  - `$init batteryMax` - Inicializa a calculadora com bateria e display zerados e o valor de bateria máximo definido pelo parâmetro.
-  - `$charge value` - Adiciona carga à bateria, mas não pode ultrapassar o limite.
-  - `$sum a b` - Soma dois valores e guarda no display.
-    - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
-  - `$div a b` - Divide dois valores e guarda no display.
-    - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
-    - Se houver divisão por zero, emita a mensagem `fail: divisao por zero`.
-  - `$end` - Finaliza a execução.
-
-## Guide
+- Construtor
+  - Requisição `$init batteryMax`
+  - Receba o máximo de bateria como parâmetro no construtor da Calculadora.
+- `toString`
+  - Deve ser invocado na requisição `$show`.
+  - Retorna a representação da calculadora no formato:
+    - `display = {display:.2f}, battery = {battery}"`
+    - Exemplo: `display = 0.00, battery = 0`
+- Recarregar
+  - Requisição: `$charge increment`
+  - Adiciona carga à bateria, mas não pode ultrapassar o limite.
+- Somar
+  - Requisição: `$sum a b`
+  - Soma dois valores e guarda no display.
+  - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
+- Divisão
+  - Requisição: `$div den num`
+  - Divide dois valores e guarda no display.
+  - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
+  - Se houver divisão por zero, emita a mensagem `fail: divisao por zero`.
 
 ![diagrama](diagrama.png)
 
+<!--
 - Parte 1
   - Crie a classe `Calculadora` com os três atributos.
   - Através do construtor, inicialize os valores adequadamente.
@@ -74,7 +74,12 @@ O objetivo dessa atividade é implementar uma calculadora a bateria. Se há bate
   - Tente integrar seu código na classe `Adapter`.
   - Crie uma `Calculadora` como atributo de `Adapter` e a inicialize no construtor.
   - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Calculadora`.
-  
+-->
+
+## Guide
+
+- Como formatar com duas casas decimais em diferentes linguagens.
+
 ```java
 // java
 public String toString() {
@@ -86,7 +91,7 @@ public String toString() {
 
 //ts
 toString(): string {
-    // o typescript usa o modelo crase %{} para string de substituição
+    // o typescript usa o modelo crase ${} para string de substituição
     return `display = ${this.display.toFixed(2)}, battery = ${this.battery}`;
 }
 

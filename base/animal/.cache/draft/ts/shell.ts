@@ -5,16 +5,16 @@ export {};
 
 class Adapter {
     // animal: Animal = new Animal("", "");
-    init(especie: string, barulho: string): void {
-        // this.animal = new Animal(especie, barulho);
+    init(species: string, noise: string): void {
+        // this.animal = new Animal(species, noise);
     }
 
-    grow(qtd: number): void {
-        // this.animal.envelhecer(qtd);
+    grow(increment: number): void {
+        // this.animal.ageBy(increment);
     }
 
     noise(): void {
-        // console.log(this.animal.fazerBarulho());
+        // console.log(this.animal.makeNoise());
     }
 
     // mostra a representação do animal como texto

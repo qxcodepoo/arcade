@@ -1,51 +1,51 @@
 import java.util.Scanner;
 
 class Animal {
-    private String especie;
-    private String barulho;
-    private int estagio;
+    private String species;
+    private String noise;
+    private int age;
 
-    public Animal(String especie, String barulho) {
-        this.especie = especie;
-        this.barulho = barulho;
-        this.estagio = 0;
+    public Animal(String species, String noise) {
+        this.species = species;
+        this.noise = noise;
+        this.age = 0;
     }
 
-    public String fazerBarulho() {
-        if (estagio == 0) {
+    public String makeNoise() {
+        if (age == 0) {
             return "---";
         }
-        if (estagio == 4) {
+        if (age == 4) {
             return "RIP";
         }
-        return this.barulho;
+        return this.noise;
     }
 
-    public void envelhecer(int nivel) {
-        estagio += nivel;
-        if (estagio >= 4) {
-            System.out.printf("warning: %s morreu%n", especie);
-            estagio = 4;
+    public void ageBy(int increment) {
+        age += increment;
+        if (age >= 4) {
+            System.out.printf("warning: %s morreu%n", species);
+            age = 4;
         }
     }
 
     public String toString() {
-        return String.format("%s:%d:%s", especie, estagio, barulho);
+        return String.format("%s:%d:%s", species, age, noise);
     }
 }
 
 class Adapter {
     private Animal animal = new Animal("", "");
-    public void init(String especie, String barulho) {
-        animal = new Animal(especie, barulho);
+    public void init(String species, String noise) {
+        animal = new Animal(species, noise);
     }
     
     public void noise() {
-        System.out.println(animal.fazerBarulho());
+        System.out.println(animal.makeNoise());
     }
 
-    public void grow(int nivel) {
-        animal.envelhecer(nivel);
+    public void grow(int increment) {
+        animal.ageBy(increment);
     }
 
     public void show() {

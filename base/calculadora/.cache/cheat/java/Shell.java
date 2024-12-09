@@ -52,7 +52,6 @@ class Calculator {
     }
 }
 
-
 class Adapter {
     private Calculator calc = new Calculator(0);
     

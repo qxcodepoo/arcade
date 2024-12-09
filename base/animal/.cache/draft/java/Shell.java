@@ -2,16 +2,16 @@ import java.util.Scanner;
 
 class Adapter {
     // private Animal animal = new Animal("", "");
-    public void init(String especie, String barulho) {
-        // animal = new Animal(especie, barulho);
+    public void init(String species, String noise) {
+        // animal = new Animal(species, noise);
     }
     
     public void noise() {
-        // System.out.println(animal.fazerBarulho());
+        // System.out.println(animal.makeNoise());
     }
 
-    public void grow(int nivel) {
-        // animal.envelhecer(nivel);
+    public void grow(int increment) {
+        // animal.ageBy(increment);
     }
 
     public void show() {
