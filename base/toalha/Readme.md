@@ -8,17 +8,17 @@ sim | não    | não      | não     | não
 
 ## Guide
 
-- Crie uma classe `Toalha` com os atributos cor `color`, tamanho `size` e umidade `wetness`.
+- Crie uma classe Toalha `Towel` com os atributos cor `color`, tamanho `size` e umidade `wetness`.
 - Crie um construtor que inicialize todos os atributos cor e tamanho com valores recebidos como parâmetro e umidade com 0.
-- Crie um método enxugar `dry` que recebe um valor inteiro `amout` e AUMENTA o atributo umidade da towel.
+- Crie um método enxugar `dry` que recebe um valor inteiro quantidade `amout` e AUMENTA o atributo umidade da toalha.
 - Crie um método torcer `wringOut` que zera o atributo umidade da towel.
-- Crie um método para pegar o máximo de umidade `getMaxWetness` que retorna o valor máximo de umidade que essa toalha pode ter.
+- Crie um método para pegar máximo de umidade `getMaxWetness` que retorna o valor máximo de umidade que essa toalha pode ter.
 - O máximo de umidade que uma toalha pode ter é de acordo com o tamanho dela:
   - `P` -> 10
   - `M` -> 20
   - `G` -> 30
 - Crie um método que retorna se a toalha esta seca `isDry`, que retorna `true` se a umidade da toalha for 0 e `false` caso contrário.
-- Faça um código de teste para validar o comportamento da classe `Toalha`.
+- Faça um código de teste para validar o comportamento da classe Toalha.
 
 ![diagrama](diagrama.png)
 
