@@ -1,8 +1,8 @@
 # Gerenciando assentos prioritários e normais
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Shell](#shell)
+-- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -39,86 +39,7 @@ Existe uma lista para as cadeiras normais e outra para as preferenciais. Para fa
 
 ***
 
-## Draft
-
--[Solver.java](.cache/draft.java)
--[solver.cpp](.cache/draft.cpp)
-
-## Guide
-
 ![diagrama](diagrama.png)
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-
-
-class Pass {
-  - age  : int
-  - name : string
-  __
-  + Pass(name : string, age : int)
-  __
-  + getAge()     : int
-  + getName()    : string
-  
-  ' return true se o passageiro tem mais de 64 anos
-  + isPriority() : boolean
-  + setAge(age : int)
-  + setName(name : string)
-  __
-  + toString() : string
-}
-
-class Topic {
-  - prioritySeats : Array<Pass | null>
-  - normalSeats   : Array<Pass | null>
-  __
-  
-  ' inicia prioritySeats com qtdPriority nulls
-  ' inicia normalSeats com (capacity - qtdPriority) nulls
-  + Topic(capacity : int, qtdPriority : int)
-  
-  ' verifica se já está na topic
-  ' utilize o método estático para realizar as inserções
-  ' se for prioridade 
-  '     tenta primeiro na prioridade, depois na normal
-  ' se não for prioridade
-  '     tenta primeiro na normal, depois na prioridade
-  ' se nao conseguir
-  '     avisa que esta lotado
-  + insert(pass : Pass) : boolean
-  
-  ' chama o método remover privado estático para 
-  ' tentar remover de ambas as listas
-  + remove(name : string) : boolean
-  __
-  
-  ' procura pela primeira posição vazia ou -1
-  - findFree(list : List<Pass | null>) : int {static}
-  
-  ' procura por nome nos elementos não nulos e retorna o indice ou -1 
-  - findName(list : List<Pass | null>, name : string) : int {static}
-  
-  ' usa o método findFree para encontrar a posição vazia e inserir o passageiro
-  - insert  (list : List<Pass | null>, pass : Pass)   : boolean {static}
-  
-  ' usa o método findName para encontrar o passageiro e remover
-  - remove  (list : List<Pass | null>, name : string) : boolean {static}
-  __
-  + toString() : string
-}
-
-Topic "1" o-- "0..*" Pass
-@enduml
-```
-
-<!-- load -->
 
 ***
 

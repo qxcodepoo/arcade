@@ -1,19 +1,35 @@
 import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Adapter {
+    public void init(int capacity) {
+    }
+  
+    public void reserve(String id, String phone, int index) {
+    }
+  
+    public void cancel(String id) {
+    }
+  
+    public void show() {
+    }
+  }
 
 public class Shell {
     public static void main(String[] _args) {
-        Adapter adp = new Adapter(0);
+        Adapter adp = new Adapter();
         while (true) {
             var line = input();
             var args = line.split(" ");
             write('$' + line);
 
-            if (args[0].equals("end")) { break; }
-            else if (args[0].equals("init"))     { adp = new Adapter(Integer.parseInt(args[1])); }
-            else if (args[0].equals("show"))     { write(adp.toString()); }
-            else if (args[0].equals("reservar")) { adp.reservar(args[1], args[2], (int) number(args[3])); }
-            else if (args[0].equals("cancelar")) { adp.cancelar(args[1]); }
-            else                                 { write("fail: comando invalido"); }
+            if (args[0].equals("end"))           { break;                                                }
+            else if (args[0].equals("init"))     { adp.init((int) number(args[1]));                      }
+            else if (args[0].equals("show"))     { adp.show();                                           }
+            else if (args[0].equals("reserve"))  { adp.reserve(args[1], args[2], (int) number(args[3])); }
+            else if (args[0].equals("cancel"))   { adp.cancel(args[1]);                                  }
+            else                                 { write("fail: comando invalido");                }  
         }
     }
 

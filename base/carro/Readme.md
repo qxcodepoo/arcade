@@ -72,35 +72,6 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ![diagrama](diagrama.png)
 
-<!--
-
-- Parte 1: entrar
-  - Crie a classe Car com os atributos pass, passMax, gas, gasMax e km;
-  - Inicialize os atributos no construtor;
-  - Crie o método enter que incrementa pass;
-  - Crie um if para impedir que pass ultrapasse passMax;
-  - Crie o método toString mostrar o estado do carro.
-  - Teste seu código.
-- Parte 2: desembarcar
-  - Crie o método `leave` que decrementa `pass`.
-  - Crie um condicional para impedir que `pass` seja menor que 0.
-  - Teste seu código.
-- Parte 3: abastecer
-  - Crie o método `fuel` que incrementa `gas` com o valor passado.
-  - Crie um condicional para impedir que `gas` ultrapasse `gasMax`.
-  - Teste seu código.
-- Parte 4: dirigir
-  - Crie o método `drive` que incrementa `km` e decrementa `gas` com o valor passado.
-  - Crie testes para impedir que o carro dirija sem passageiros ou sem combustível.
-  - Teste seu código.
-- Parte 5: dirigir longas distâncias
-  - Crie testes para impedir que o carro dirija mais do que o combustível permite.
-  - Teste seu código.
-- Parte 6: Adapter
-  - Na classe `Adapter`, crie um atributo `carro` e o inicialize no construtor.
-  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Car`.
--->
-
 ## Shell
 
 ```bash

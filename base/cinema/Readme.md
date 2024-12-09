@@ -1,8 +1,8 @@
 # Gerenciando reservas e cancelamentos de uma sala de cinema
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
+-- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -12,31 +12,28 @@
 O objetivo desta atividade é implementar métodos para manipular uma sala de cinema, permitindo a reserva, cancelamento e consulta de cadeiras.
 
 - **Descrição**
-  - A sala de cinema é representada pela classe `Sala`, que possui um conjunto de cadeiras, cada uma associada a um cliente ou vazia.
+  - A sala de cinema é representada pela classe Sala `Theater`, que possui um conjunto de cadeiras, cada uma associada a um cliente ou vazia.
   - Os métodos a serem implementados permitirão reservar uma cadeira para um cliente, cancelar a reserva de uma cadeira e consultar o estado das cadeiras na sala.
-  - Cada cadeira pode estar associada a um objeto `Client`, representando um cliente que reservou a cadeira, ou ser nula, indicando que a cadeira está vazia.
+  - Cada cadeira pode estar associada a um objeto Cliente `Client`, representando um cliente que reservou a cadeira, ou ser nula, indicando que a cadeira está vazia.
   - Os métodos fornecidos devem lidar com validações, como verificar se a cadeira existe, se está ocupada e se o cliente já está presente na sala.
 
 - **Responsabilidades**
-  - A classe `Sala` é responsável por gerenciar as operações relacionadas às cadeiras na sala de cinema.
+  - A classe Sala `Theater` é responsável por gerenciar as operações relacionadas às cadeiras na sala de cinema.
     - Métodos a serem implementados:
       - públicos: são métodos acessados por outras classes.
-        - `reservar(id: string, fone: number, ind: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.
-        - `cancelar(id: string)`: Cancela a reserva de uma cadeira para o cliente com o ID especificado.
-        - `getCadeiras(): Array(Client | null)`: Retorna um array contendo o estado atual de todas as cadeiras na sala.
+        - `reserve(id: string, phone: number, index: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.
+        - `cancel(id: string)`: Cancela a reserva de uma cadeira para o cliente com o ID especificado.
+        - `getSeats(): Array<Client | null>`: Retorna um array contendo o estado atual de todas as cadeiras na sala.
         - `toString(): string`: Retorna uma representação em string do estado atual das cadeiras na sala.
       - privados: são métodos apenas de uso interno, utilizados para auxiliar as operações da classe.
-        - `procurar(nome: string): int`: Procura o índice da cadeira reservada pelo cliente com o nome especificado.
-        - `verificarIndice(indice: number)`: Verifica se um índice de cadeira é válido na sala.
+        - `search(name: string): int`: Procura o índice da cadeira reservada pelo cliente com o nome especificado.
+        - `verifyIndix(index: number)`: Verifica se um índice de cadeira é válido na sala.
   - A classe `Client` é responsável por representar os clientes que reservam cadeiras na sala de cinema.
     - A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.
-  - A classe `Adapter` atua como uma ponte entre os métodos de teste e as operações da sala de cinema.
-    - Ela integra os métodos de teste com as operações da sala de cinema, permitindo a execução de comandos como reserva, cancelamento e consulta de cadeiras.
-
-## Guide
 
 ![diagrama](diagrama.png)
 
+<!--
 ### Parte 1: Reservar Cadeira
 
 - **Passo 1:** Crie a classe `Client` com os atributos `id` e `fone`. Lembre de implementar os gets e os sets. Crie também o método toString. Exemplo de retorno: `joao:3131`.
@@ -91,18 +88,18 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
 
 - **Passo 1:** Utilize a classe `Adapter` para integrar os métodos de reserva, cancelamento e consulta de cadeiras na sala de cinema.
 
+-->
+
 ## Draft
 
 <!-- links .cache/draft -->
 - cpp
-  - [adapter.hpp](.cache/draft/cpp/adapter.hpp)
+  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Adapter.java](.cache/draft/java/Adapter.java)
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
 <!-- links -->
 
 ## Shell
@@ -126,19 +123,19 @@ $end
 #TEST_CASE reservas
 
 $init 4
-$reservar davi 3232 0
-$reservar joao 3131 3
+$reserve davi 3232 0
+$reserve joao 3131 3
 $show
 [davi:3232 - - joao:3131]
 
 #TEST_CASE ocupado
 
-$reservar rute 3030 0
+$reserve rute 3030 0
 fail: cadeira ja esta ocupada
 
 #TEST_CASE duplicado
 
-$reservar davi 3234 2
+$reserve davi 3234 2
 fail: cliente ja esta no cinema
 $end
 ```
@@ -147,23 +144,22 @@ $end
 #TEST_CASE cadeira invalida
 
 $init 4
-$reservar davi 3232 5
+$reserve davi 3232 5
 fail: cadeira nao existe
 
 #TEST_CASE cancelamentos
 
-$reservar davi 3232 0
-$reservar joao 3131 3
-$cancelar davi
+$reserve davi 3232 0
+$reserve joao 3131 3
+$cancel davi
 $show
 [- - - joao:3131]
 
 #TEST_CASE cancelamentos errado
 
-$cancelar rita
+$cancel rita
 fail: cliente nao esta no cinema
 $show
 [- - - joao:3131]
 $end
 ```
-

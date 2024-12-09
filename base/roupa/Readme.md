@@ -1,5 +1,9 @@
 # Roupa com testes
 
+UML | Testes | Rascunho | Adapter | Esqueleto
+--- | ------ | -------- | ------- | ---------
+não | sim    | sim      | não     | não
+
 ## Descrição
 
 - Vamos implementar uma classe que controla os possíveis valores de tamanho para uma roupa.

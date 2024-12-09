@@ -1,4 +1,5 @@
-#include <memory>
+#define __MEMORY
+#define __LIST
 #include "fn.hpp"
 class Adapter {
     // Trampoline tr;

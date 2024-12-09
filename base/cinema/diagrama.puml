@@ -6,50 +6,34 @@ skinparam dpi 150
 
 
 class Client {
-  - fone : number
   - id   : string
+  - phone: number
   __
-  + Client(id : string, fone : number)
+  + constructor(id : string, phone : number)
   __
-  + getFone() : number
-  + getId()   : string
-  + setFone(fone : number)
+  + getPhone(): number
+  + setPhone(fone : number)
+  + getId(): string
   + setId(id : string)
   __
-  + toString() : string
+  + toString(): string
 }
 
-class Sala {
+class Theater {
   
-  - cadeiras : Array<Client | null>
-  
-  ' procura em todas as cadeiras não nulas
-  ' pelo nome do cliente e se encontrar
-  ' retorna o índice ou então -1
-  - procurar(nome: string): int
-  
-  ' verifica se o indice da cadeira é válido
-  - verificarIndice(indice: int): boolean
+  - seats : Array<Client | null>
+  - search(name: string): number  
+  - verifyIndex(index: number): boolean
   __
-  
-  ' inicia todas as cadeiras como null
-  + Sala(capacidade : int)
-  
-  ' verifica se o índice é válido (use o método verificarIndice)
-  ' verifica se a cadeira está ocupada
-  ' verifica se o cliente já está na sala (use o método procurar)
-  ' cria o cliente e coloca na cadeira
-  + reservar(id : string, fone : number, ind : int) : boolean
-  
-  ' procura o cliente pelo nome (use o método procurar)
-  ' remover o cliente da cadeira
-  + cancelar(id : string)
+  + constructor(capacity : number)  
   __
-  + getCadeiras() : Array<Client | null>
+  + reserve(id : string, phone : number, index : number) : boolean
+  + cancel(id : string)
+  + getSeats() : Array<Client | null>
   __
   + toString() : string
 }
 
 
-Sala "1" o-- "0..*" Client
+Theater "1" o-- "0..*" Client
 @enduml

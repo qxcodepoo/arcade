@@ -5,7 +5,7 @@
 - Vamos implementar uma classe que controla os possíveis valores de calçados para uma chinela.
 - As regras de validação de valores são as seguintes.
 - Uma chinela tem um valor tamanho que é um número par entre 20 e 50, incluindo 20 e 50.
-- Faça o objeto chinela iniciar com tamanho 0, e controle através do método setTamanho que apenas valores válidos de tamanho sejam atribuídos.
+- Faça o objeto chinela iniciar com tamanho 0 e controle através do método setTamanho que apenas valores válidos de tamanho sejam atribuídos.
 - Por fim, crie um loop no qual um objeto chinela é criado e é perguntado ao usuário qual seu tamanho de chinela.
 - Mantenha o usuário preso no loop até que ele insira um valor válido.
 - Caso ele digite um valor inválido, avise e dê uma mensagem de erro adequada.

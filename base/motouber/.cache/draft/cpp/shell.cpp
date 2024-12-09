@@ -1,4 +1,4 @@
-#include <iostream>
+#define __MEMORY //enable print for shared_ptr
 #include "fn.hpp"
 
 

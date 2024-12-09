@@ -1,60 +1,66 @@
 # Garante uma hora válida no relógio
 
 <!-- toch -->
-[Intro](#intro) | [Treino](#treino) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
 
+UML | Testes | Rascunho | Adapter | Esqueleto
+--- | ------ | -------- | ------- | ---------
+sim | sim    | sim      | sim     | não
+
 ## Intro
 
-Utilizando os comandos set para manter a hora correta
+Seu objetivo é construtir uma Classe Relógio `Watch` que garanta que a hora, minuto e segundo sejam válidos.
 
-O sistema deverá:
-
-- Gerenciar uma classe que guarda a hora, minuto e segundo.
-- Ao iniciar a classe, hora, minuto e segundo devem ser setados para 0.
+- Construtor
   - O construtor deve receber 3 parâmetros, hora, minuto e segundo.
   - Para fazer a inicialização dos 3 parâmetros, utilize os métodos set.
 - Crie os métodos getters e setters para cada atributo.
   - Os métodos set devem garantir que os valor atribuído sempre seja válido, ou não realize nenhuma mudança.
-- Crie um método que imprime a hora no formato HH:MM:SS.
-- Crie um método que incrementa o segundo em 1.
-
-## Treino
-
-- Parte 1: atributos públicos
-  - Crie a classe relógio com os atributos públicos hora, minuto e segundo.
-  - Crie o método construtor que inicializa os atributos com 0.
-  - Crie o método toString que retorna a hora no formato HH:MM:SS.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Atribua valores inválidos para hora, minuto e segundo e imprima a hora.
-- Parte 2: atributos privados
-  - Torne os atributos hora, minuto e segundo privados.
-  - Crie os métodos getters e setters para cada atributo.
-    - Nos métodos set, NÃO realize nenhuma validação.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Atribua valores inválidos para hora, minuto e segundo e imprima a hora.
-- Parte 3: validação
-  - Nos métodos set, realize a validação dos valores.
-    - Hora deve ser entre 0 e 23. Minuto e segundo devem ser entre 0 e 59.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Tente atribuir valores inválidos para hora, minuto e segundo e verifique se a hora permaneceu a mesma.
-- Parte 4: construtor
-  - Crie um método construtor que recebe hora, minuto e segundo.
-  - Utilize os métodos set para fazer a inicialização dos atributos.
-  - Tente atribuir valores inválidos para hora, minuto e segundo através do construtor e verifique se a hora permaneceu a mesma.
-- Parte 5: nextSecond
+- `toString`
+  - Crie um método que imprime a hora no formato HH:MM:SS.
+  - Você precisará pesquisar como formatar números menores que 10 com 2 dígitos (ex: 01, 02, 03).
+- Nos métodos set, realize a validação dos valores.
+  - Hora deve ser entre 0 e 23.
+  - Minuto e segundo devem ser entre 0 e 59.
+- Próximo Segundo `nextSecond`
   - Crie um método nextSecond que incrementa o segundo em 1.
-  - Crie um objeto relógio, atribua valores para hora, minuto e segundo e imprima a hora.
-  - Teste o método nextSecond criando horas com os seguintes valores e testando:
-    - 10:02:30
-    - 15:50:59
-    - 21:59:59
-    - 23:59:59
+  - Se o segundo for 59, ele deve ser zerado e o minuto incrementado.
+  - Se o minuto for 59, ele deve ser zerado e a hora incrementada.
+  - Se a hora for 23, ela deve ser zerada.
 
-***
+![diagrama](diagrama.png)
+
+## Guide
+
+Para formatar com 2 dígitos utilize a seguinte estratégia:
+
+```java
+//java
+public String toString() {
+  return String.format("%02d:%02d:%02d", hora, minuto, segundo);
+}
+```
+
+```cpp
+//cpp
+std::string str() {
+  return fn::format("{%02d}:{%02d}:{%02d}", hora, minuto, segundo);
+}
+```
+
+```ts
+//typescript
+public toString(): string {
+  let hora = String(this.hora).padStart(2, '0');
+  let minuto = String(this.minuto).padStart(2, '0');
+  let segundo = String(this.segundo).padStart(2, '0');
+  return `${hora}:${minuto}:${segundo}`;
+}
+```
 
 ## Draft
 
@@ -67,10 +73,6 @@ O sistema deverá:
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
 <!-- links -->
-
-## Guide
-
-![diagrama](diagrama.png)
 
 ***
 

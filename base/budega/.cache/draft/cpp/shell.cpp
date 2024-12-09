@@ -1,3 +1,5 @@
+#define __LIST
+#define __MEMORY
 #include "fn.hpp"
 #include "student.hpp"
 
