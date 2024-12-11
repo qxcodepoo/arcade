@@ -20,7 +20,7 @@ function main(): void {
         write("$", "");
         const line: string = input();
         const args: string[] = line.split(" ");
-        write(line); // _TEST_ONLY_
+        write(line);
 
         if      (args[0] === "end")  { break;                           }
         else if (args[0] === "size") { adapter.size(args[1]);           }

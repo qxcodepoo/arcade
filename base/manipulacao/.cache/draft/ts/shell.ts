@@ -44,7 +44,7 @@ function main() {
     while (true) {
         write("$", "");
         let line = input();
-        write(line); // _TEST_ONLY_
+        write(line);
         let args = line.split(" ");
 
         if      (args[0] === "end")             { break;                                                       }

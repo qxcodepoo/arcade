@@ -8,7 +8,7 @@ function main(): void {
     while (true) {
         write("$", "");
         let line = input();
-        write(line); // _TEST_ONLY_
+        write(line);
         
         let args = line.split(" ");
         

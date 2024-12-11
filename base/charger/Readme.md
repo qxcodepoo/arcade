@@ -20,8 +20,6 @@
 - Vá implementando orientado aos testes, implementando apenas o necessário para passar em cada teste.
 - Seu código será pontuado pela quantidade de testes que passarem, não pela quantidade de código escrito.
 
-```python
-
 ## Testes
 
 ```bash

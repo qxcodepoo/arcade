@@ -29,7 +29,7 @@ function main() {
         write("$", "");
         let line = input();
         let args = line.split(" ");
-        write(line); // _TEST_ONLY_
+        write(line);
         if      (args[0] === "criar")   { adp.criar(args[1], args[2]); }
         else if (args[0] === "enxugar") { adp.enxugar(+args[1]); }
         else if (args[0] === "seca")    { adp.seca(); }

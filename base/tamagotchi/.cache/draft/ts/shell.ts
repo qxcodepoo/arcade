@@ -33,7 +33,7 @@ function main() {
         write("$", "");
         let line = input();
         let args = line.split(" ");
-        write(line); // _TEST_ONLY_
+        write(line);
 
         if      (args[0] === "end")   { break;                          }
         else if (args[0] === "init")  { adp.init(+args[1], +args[2]);   }
