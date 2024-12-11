@@ -56,6 +56,7 @@ Significado das tags nas questões:
 - [ ] `@grafite     :test`[Porta minas de um grafite só](base/grafite/Readme.md)
 - [ ] `@motoca      :test`[Crianças andando de motoca](base/motoca/Readme.md)
 - [ ] `@tamagotchi  :test`[Alimente, brinque e mate](base/tamagotchi/Readme.md)
+- [ ] `@charger     :test`[Notebook com TESTES](base/charger/Readme.md)
 
 ### ArrayList I - Listas
 

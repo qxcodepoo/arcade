@@ -3,14 +3,13 @@
 
 
 class Adapter {
+    Uber uber;
 public:
     void setDriver(std::string name, int money) {
-        (void) name;
-        (void) money;
+        uber.setDriver(std::make_shared<Person>(name, money));
     }
     void setPass(std::string name, int money) {
-        (void) name;
-        (void) money;
+        uber.setPass(std::make_shared<Person>(name, money));
     }
     void drive(int distance) {
         (void) distance;
