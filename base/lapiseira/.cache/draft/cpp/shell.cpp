@@ -1,5 +1,7 @@
+#define __LIST
+#define __MEMORY
+#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
 
-#include "fn.hpp"
 
 struct Adapter {
     // Lapiseira lapiseira;

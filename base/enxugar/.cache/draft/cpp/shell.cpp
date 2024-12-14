@@ -1,43 +1,31 @@
 #include "fn.hpp"
 
-
-class Adapter {
-public:
-    Adapter() {}
-
-    void criar(const std::string& cor, const std::string& tamanho) {
-        (void) cor;
-        (void) tamanho;
-    }
-
-    void enxugar(int quantidade) {
-        (void) quantidade;
-    }
-
-    void seca() {
-    }
-
-    void torcer() {
-    }
-
-    void mostrar() const {
-    }
-};
-
 int main() {
-    Adapter adapter;
+    // Toalha toalha("", "");
     while (true) {
-        fn::write("$", "");
         auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write(line);
+        fn::write("$" + line);
 
-        if      (args[0] == "end"    ) { break;                           }
-        else if (args[0] == "criar"  ) { adapter.criar(args[1], args[2]); }
-        else if (args[0] == "enxugar") { adapter.enxugar(+args[1]);       }
-        else if (args[0] == "seca"   ) { adapter.seca();                  }
-        else if (args[0] == "torcer" ) { adapter.torcer();                }
-        else if (args[0] == "mostrar") { adapter.mostrar();               }
-        else                           { fn::write("comando invalido");   }
+        auto par = fn::split(line, ' ');
+        auto cmd = par[0];
+
+        if (cmd == "mostrar") {
+            // TODO
+        } else if (cmd == "criar") {
+            // TODO
+            // auto cor = par[1];
+            // auto tamanho = par[2];
+        } else if (cmd == "enxugar") {
+            // TODO
+            // auto umidade = std::stoi(par[1]);
+        } else if (cmd == "torcer") {
+            // TODO
+        } else if (cmd == "seca") {
+            // TODO
+        } else if (cmd == "end") {
+            break;
+        } else {
+            fn::write("fail: comando invalido");
+        }
     }
 }

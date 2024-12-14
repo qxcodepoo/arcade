@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 class Animal {
     private String species;
     private String noise;
@@ -33,47 +34,36 @@ class Animal {
     }
 }
 
-class Adapter {
-    private Animal animal = new Animal("", "");
-    public void init(String species, String noise) {
-        animal = new Animal(species, noise);
-    }
-    
-    public void noise() {
-        System.out.println(animal.makeNoise());
-    }
-
-    public void grow(int increment) {
-        animal.ageBy(increment);
-    }
-
-    public void show() {
-        System.out.println(animal.toString());
-    }
-}
-
 public class Shell {
 
     public static void main(String[] _args) {
-        Adapter adp = new Adapter();
+        Animal animal = new Animal("", "");
 
         while (true) {
-            write("$");
-            var line = input();
-            var args = line.split(" ");
-            write(line + "\n");
+            var line = scanner.nextLine();
+            System.out.println("$" + line);
 
-            if      (args[0].equals("end")  ) { break;                                   }
-            else if (args[0].equals("init") ) { adp.init(args[1], args[2]);              }
-            else if (args[0].equals("show") ) { adp.show();                              }
-            else if (args[0].equals("noise")) { adp.noise();                             }
-            else if (args[0].equals("grow") ) { adp.grow((int) number(args[1]));         }
-            else                              { write("fail: comando invalido\n"); }
+            var par = line.split(" ");
+            var cmd = par[0];
+
+            if (cmd.equals("init") ) {
+                var species = par[1];
+                var noise = par[2];
+                animal = new Animal(species, noise);
+            } else if (cmd.equals("show")) {
+                System.out.println(animal);
+            } else if (cmd.equals("noise")) {
+                System.out.println(animal.makeNoise());
+            } else if (cmd.equals("grow") ) {
+                var increment = Integer.parseInt(par[1]);
+                animal.ageBy(increment);
+            } else if (cmd.equals("end")  ) { 
+                break;
+            } else {
+                System.out.println("fail: comando invalido\n");
+            }
         }
     }
 
     static Scanner scanner = new Scanner(System.in);
-    public static String input()           { return scanner.nextLine();    }
-    public static void write(String value) { System.out.print(value);}
-    public static double number(String str)   { return Double.parseDouble(str); }
 }

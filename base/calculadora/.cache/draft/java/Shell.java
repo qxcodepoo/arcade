@@ -1,50 +1,42 @@
 import java.util.*;
-
 import java.text.DecimalFormat;
-
-class Adapter {
-    void init() {
-    }
-
-    void show() {
-    }
-
-    void init(int batteryMax) {
-    }
-
-    void charge(int value) {
-    }
-
-    void sum(int a, int b) {
-    }
-
-    void div(int a, int b) {
-    }
-}
 
 
 public class Shell {
-    static Adapter adp = new Adapter();
 
-    public static void main(String[] _args) {
+    public static void main(String[] args) {
+        // Calculator calculator = new Calculator(0);
+        
         while (true) {
-            System.out.print("$");
-            var line = input();
-            var args = line.split(" ");
-            write(line);
+            var line = scanner.nextLine();
+            System.out.println("$" + line);
 
-            if      (args[0].equals("end"   )) { break;                                                 }
-            else if (args[0].equals("show"  )) { adp.show();                                            }
-            else if (args[0].equals("init"  )) { adp.init((int) number(args[1]));                       }
-            else if (args[0].equals("charge")) { adp.charge((int) number(args[1]));                     }
-            else if (args[0].equals("sum"   )) { adp.sum((int) number(args[1]), (int) number(args[2])); }
-            else if (args[0].equals("div"   )) { adp.div((int) number(args[1]), (int) number(args[2])); }
-            else                               { write("fail: comando invalido");                 }
+            var par = line.split(" ");
+            var cmd = par[0];
+
+            if (cmd.equals("init")) {
+                // TODO
+                // int batteryMax = Integer.parseInt(par[1]);
+            } else if (cmd.equals("show")) {
+                // TODO
+            } else if (cmd.equals("charge")) {
+                // TODO
+                // int value = Integer.parseInt(par[1]);
+            } else if (cmd.equals("sum")) {
+                // TODO
+                // int a = Integer.parseInt(par[1]);
+                // int b = Integer.parseInt(par[2]);
+            } else if (cmd.equals("div")) {
+                // TODO
+                // int num = Integer.parseInt(par[1]);
+                // int den = Integer.parseInt(par[2]);
+            } else if (cmd.equals("end")) {
+                break;
+            } else {
+                System.out.println("fail: comando invalido");
+            }
         }
     }
 
     private static Scanner scanner = new Scanner(System.in);
-    private static String input() { return scanner.nextLine(); }
-    private static double number(String value) { return Double.parseDouble(value); }
-    private static void write(String value) { System.out.println(value); }
 }

@@ -1,7 +1,5 @@
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+function input() { return ""; };
 export {};
-
 
 class Animal {
     species: string;
@@ -36,44 +34,31 @@ class Animal {
     }
 }
 
-class Adapter {
-    animal: Animal = new Animal("", "");
-    
-    init(species: string, noise: string): void {
-        this.animal = new Animal(species, noise);
-    }
-
-    grow(increment: number): void {
-        this.animal.ageBy(increment);
-    }
-
-    noise(): void {
-        console.log(this.animal.makeNoise());
-    }
-
-    show(): void {
-        console.log(this.animal.toString());
-    }
-}
-
-
 function main(): void {
-    let adp: Adapter = new Adapter();
-
+    let animal: Animal = new Animal("", "");
     while (true) {
-        write("$", "");
-        const line: string = input();
-        const args: string[] = line.split(' ');
-        write(line); //_TEST_ONLY_
+        const line = input();
+        console.log("$" + line);
 
-        if      (args[0] === "end"  ) { break;                               }
-
-        else if (args[0] === "init" ) { adp.init(args[1], args[2]); }
-        else if (args[0] === "grow" ) { adp.grow(parseInt(args[1]));         }
-        else if (args[0] === "noise") { adp.noise();                         }
-        else if (args[0] === "show" ) { adp.show();                          }
-
-        else                          { write("fail: comando invalido");     }
+        const par = line.split(' ');
+        const cmd = par[0];
+        
+        if (cmd === "init") {
+            let species = par[1];
+            let noise = par[2];
+            animal = new Animal(species, noise);
+        } else if (cmd === "grow") {
+            let increment = +par[1];
+            animal.ageBy(increment); 
+        } else if (cmd === "noise") {
+            console.log(animal.makeNoise());
+        } else if (cmd === "show") {
+            console.log(animal.toString());
+        } else if (cmd === "end") { 
+            break;
+        } else {
+            console.log("fail: comando invalido");
+        }
     }
 }
 

@@ -55,6 +55,7 @@ Caixas: [-----, -----]
 Espera: [carla, maria, rubia]
 ```
 
+- Pesquise na sua linguagem e aprenda a utilizar os métodos map, join se existirem.
 - Use a função `map()` para percorrer o vetor de caixas e a fila de espera e criar uma string que represente cada caixa e cada cliente na fila.
 - Utilize if e else ou operador ternário para verificar se cada caixa está vazio ou ocupado e ajustar a representação de acordo.
 - Junte as strings individuais de cada caixa e da fila de espera usando o método `join()` para criar uma representação coerente do estado do mercantil.
@@ -67,7 +68,7 @@ Espera: [carla, maria, rubia]
 
 ### Parte 4: Chamar Cliente
 
-- Na classe `Mercantil`, crie o método `chamar(index: number): void` que permite chamar o primeiro cliente da lista de espera para ser atendido em um caixa específico. 
+- Na classe `Mercantil`, crie o método `chamar(index: number): void` que permite chamar o primeiro cliente da lista de espera para ser atendido em um caixa específico.
 - Se não houver ninguém na fila de espera, emita a mensagem de erro "fail: sem clientes".
 - Se o caixa estiver ocupado, imprima a mensagem de erro "fail: caixa ocupado".
 
@@ -77,11 +78,6 @@ Espera: [carla, maria, rubia]
 - Verifique se o índice do caixa é válido e, se não for, emita a mensagem de erro `fail: caixa inexistente`.
 - Verifique se há alguém sendo atendido no caixa. Se não houver, emita a mensagem de erro `fail: caixa vazio`.
 - Retorne o cliente que foi atendido e libere o caixa, definindo-o como null.
-
-### Parte 4: Adapter
-
-- Na classe `Adapter`, crie um atributo `mercantil` e o inicialize no construtor.
-- Nos outros métodos de `Adapter`, chame o método equivalente da classe `Mercantil`.
 
 ## Answers
 
@@ -192,7 +188,6 @@ $end
 - cpp
   - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
-  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts

@@ -1,3 +1,6 @@
+function input() { return ""; }
+export {};
+
 
 class Calculator {
     batteryMax: number;
@@ -45,49 +48,37 @@ class Calculator {
 }
 
 
-class Adapter {
-    calc: Calculator = new Calculator(0);
-    public init(batteryMax: number): void {
-        this.calc = new Calculator(batteryMax);
-    }
-
-    public show(): void {
-        console.log(this.calc.toString());
-    }
-
-    public charge(value: number): void {
-        this.calc.chargeBattery(value);
-    }
-
-    public sum(a: number, b: number): void {
-        this.calc.sum(a, b);
-    }
-
-    public div(a: number, b: number): void {
-        this.calc.division(a, b);
-    }
-}
-
-
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
-
 function main() {
-    let adp: Adapter = new Adapter();
+    let calc = new Calculator(0);
 
     while (true) {
-        write("$", "");
-        let line = input();
-        write(line);
-        let args = line.split(" ");
+        const line = input();
+        console.log("$" + line);
 
-        if      (args[0] == "show"  ) { adp.show();                                  }
-        else if (args[0] == "init"  ) { adp.init(+args[1]);                          }
-        else if (args[0] == "charge") { adp.charge(+args[1]);                        }
-        else if (args[0] == "sum"   ) { adp.sum(+args[1], +args[2]);                 }
-        else if (args[0] == "div"   ) { adp.div(+args[1], +args[2]);                 }
-        else if (args[0] == "end"   ) { break;                                       }
-        else                          { console.log("fail: comando nao encontrado"); }
+        const par = line.split(" ");
+        const cmd = par[0];
+
+        if (cmd == "init") {
+            const batteryMax = parseInt(par[1]);
+            calc = new Calculator(batteryMax);
+        } else if (cmd == "charge") {
+            const value = parseInt(par[1]);
+            calc.chargeBattery(value);
+        } else if (cmd == "sum") {
+            const a = parseInt(par[1]);
+            const b = parseInt(par[2]);
+            calc.sum(a, b);
+        } else if (cmd == "div") {
+            const num = parseInt(par[1]);
+            const den = parseInt(par[2]);
+            calc.division(num, den);
+        } else if (cmd == "show") {
+            console.log(calc.toString());
+        } else if (cmd == "end") {
+            break;
+        } else {
+            console.log("fail: comando invalido");
+        }
     }
 }
 

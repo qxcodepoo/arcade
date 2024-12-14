@@ -1,44 +1,29 @@
 #include "fn.hpp"
 
-struct Adapter {
-    // Car car;
-    Adapter() {}
-
-    void enter() {
-        // car.enter();
-    }
-    void leave() {
-        // car.leave();
-    }
-    void fuel(int q) {
-        // car.fuel(q);
-        (void) q;
-    }
-    void drive(int q) {
-        // car.drive(q);
-        (void) q;
-    }
-    void show() {
-        // std::cout << car.str() << std::endl;
-    }
-};
 
 int main() {
-    Adapter stu;
-
+    // Car car;
     while (true) {
-        fn::write("$", "");
         auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write(line);
+        fn::write("$" + line);
 
-        if      (args[0] == "show")  { stu.show();                          }
-        else if (args[0] == "enter") { stu.enter();                         } 
-        else if (args[0] == "leave") { stu.leave();                         }
-        else if (args[0] == "fuel")  { stu.fuel(+args[1]);                  }
-        else if (args[0] == "drive") { stu.drive(+args[1]);                 }
-
-        else if (args[0] == "end")   { break;                               }
-        else                         { fn::write("fail: comando invalido"); }
+        auto par = fn::split(line, ' ');
+        auto cmd = par[0];
+        
+        if (cmd == "show") {
+            // TODO
+        } else if (cmd == "enter") {
+            // TODO
+        } else if (cmd == "leave") {
+            // TODO
+        } else if (cmd == "fuel") {
+            // int increment = std::stoi(par[1]);
+        } else if (cmd == "drive") {
+            // int distance = std::stoi(par[1]);
+        } else if (par[0] == "end")   {
+            break;
+        } else {
+            fn::write("fail: comando invalido");
+        }
     }
 }

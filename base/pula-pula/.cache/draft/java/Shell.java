@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.LinkedList;
+import java.util.stream.Collectors;
+
 
 class Adapter {
     // Trampoline tr = new Trampoline();
