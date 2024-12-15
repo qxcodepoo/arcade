@@ -1,10 +1,11 @@
 # Toalha com testes
 
-![_](cover.jpg)
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Testes](#testes) | [Draft](#draft)
+-- | -- | -- | --
+<!-- toch -->
 
-UML | Testes | Rascunho | Adapter | Esqueleto
---- | ------ | -------- | ------- | ---------
-sim | sim    | sim      | não     | não
+![_](cover.jpg)
 
 ## Intro
 
@@ -19,6 +20,8 @@ sim | sim    | sim      | não     | não
   - `G` -> 30
 - Crie um método que retorna se a toalha esta seca `isDry`, que retorna `true` se a umidade da toalha for 0 e `false` caso contrário.
 - Faça um código de teste para validar o comportamento da classe Toalha.
+
+## Guide
 
 ![diagrama](diagrama.png)
 
@@ -90,3 +93,14 @@ $mostrar
 Cor: verde, Tamanho: G, Umidade: 30
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->

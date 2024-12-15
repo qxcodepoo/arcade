@@ -1,6 +1,13 @@
 # MotoUber com motorista e passageiro
 
-## Requisitos
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+-- | -- | --
+<!-- toch -->
+
+![_](cover.jpg)
+
+## Intro
 
 - Você vai gerenciar um objeto da classe moto que faz corridas com passageiros.
 - A moto pode ter um motorista e pode ter um passageiro.
@@ -14,15 +21,14 @@
 - Se não tiver dinheiro suficiente, o passageiro dá tudo que tem.
 - O motorista sempre recebe o valor completo da corrida, porque o Uber paga o que falta.
 
-## Implementação
+## Guide
 
 - Crie a classe Pessoa com os atributos nome e dinheiro.
 - Crie a classe Moto com os atributos custo, motorista e passageiro.
 - Ambas as classes devem ter atributos privados.
 - Crie os métodos que julgar necessário com os devidos modificadores de acesso.
-- Cria a moto no `Adapter` e implemente os métodos `setDriver`, `setPass`, `drive`, `leavePass` e `show`.
 
-## Exemplo
+## Shell
 
 ```bash
 #TEST_CASE criar

@@ -1,38 +1,11 @@
 # Um carro simples
 
 <!-- toch -->
-[Model](#model) | [Guide](#guide) | [Intro](#intro) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
-
-UML | Testes | Rascunho | Adapter | Esqueleto
---- | ------ | -------- | ------- | ---------
-sim | sim    | sim      | sim     | não
-
-## Model
-
-Essa atividade utiliza testes através de requisições e respostas em texto. Ela é composta por três componentes.
-
-- `Suas classes de resolução`: Classes que você deve implementar e que resolvem o problema proposto.
-- `Shell`: Responsável por ler as requisições de texto e chamar os métodos da classe `Adapter`.
-  - Normalmente, você não precisa alterar essa classe.
-- `Adapter`: Responsável por instanciar e chamar os métodos das `Suas classes de resolução`.
-  - Todos os métodos do `Adapter` são `void`, sem retorno.
-  - Todos os métodos possuem o mesmo nome e parâmetros das requisições dos testes.
-    - `linha de teste`: `$somar 1 2`
-    - `método Adapter`: `void somar(int a, int b)`
-  - Se a requisição exigir uma resposta, ela deve ser impressa no `Adapter`.
-    - `print(calculadora.somar(a, b))`
-
-## Guide
-
-- Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
-- Começe analisando os testes e entendendo tudo que seu código precisa fazer.
-- Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
-- Após implementar sua classe e conectar no `Adapter`, rode os testes para verificar se a atividade está correta.
-- Passe para o próximo teste até implementar tudo que é pedido.
 
 ## Intro
 
@@ -69,6 +42,13 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
     - `fail: tanque vazio`
   - Caso não exista combustível suficiente para completar a viagem inteira, dirija o máximo possível e emite uma mensagem indicando quanto foi percorrido
     - `fail: tanque vazio após andar {distancia} km`.
+
+## Guide
+
+- Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
+- Começe analisando os testes e entendendo tudo que seu código precisa fazer.
+- Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
+- Passe para o próximo teste até implementar tudo que é pedido.
 
 ![diagrama](diagrama.png)
 
@@ -143,13 +123,9 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
-- py
-  - [shell.py](.cache/draft/py/shell.py)
-  - [student.py](.cache/draft/py/student.py)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
 <!-- links -->

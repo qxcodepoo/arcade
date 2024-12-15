@@ -1,6 +1,13 @@
 # Comprando uma camisa XG
 
-## Descrição
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide)
+-- | --
+<!-- toch -->
+
+![_](cover.jpg)
+
+## Intro
 
 - Vamos implementar uma classe que controla os possíveis valores de tamanho para uma roupa.
 - Os tamanhos serão identificados como uma variável tipo texto, e os valores válidos são "PP", "P", "M" e "G", "GG" e "XG".
@@ -10,7 +17,9 @@
 - Faça um código de teste iniciando uma roupa com tamanho vazio e pedindo para o usuário informar o tamanho da roupa.
 - Mantenha o usuário preso no loop até que ele insira um valor válido.
 
-## Exemplo em python
+## Guide
+
+Aqui um exemplo de código python incompleto que implementa a classe Camisa e um loop para pedir o tamanho da camisa ao usuário.
 
 ```py
 

@@ -1,27 +1,26 @@
-#include "fn.hpp"
-
-class Adapter {
-public:
-    Adapter() {
-    }
-    void size(const std::string& size) {
-        (void) size;
-    }
-    void show() {
-    }
-};
+#include <iostream>
+#include <vector>
+#include <sstream>
+using namespace std;
 
 int main() {
-    Adapter adapter;
+    // CRIE SEU OBJETO AQUI
     while (true) {
-        fn::write("$", "");
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write(line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
 
-        if      (args[0] == "end")  { break;                         }
-        else if (args[0] == "size") { adapter.size(args[1]);         }
-        else if (args[0] == "show") { adapter.show();                }
-        else                        { fn::write("Comando inválido"); }
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "size") { // TENTE ATRIBUIR UM TAMANHO
+            // string size;
+            // ss >> size;
+        } else if (cmd == "show") { // MOSTRE AS INFORMAÇÕES DO OBJETO
+        } else if (cmd == "end") {
+            break;
+        } else {
+            cout << "fail: Comando inválido" << endl;
+        }
     }
 }

@@ -1,6 +1,15 @@
 # Notebook com carregador e bateria
 
-## Parte 1 - Apenas o notebook
+<!-- toch -->
+[Guide](#guide)
+--
+<!-- toch -->
+
+![_](cover.jpg)
+
+## Guide
+
+### Parte 1 - Apenas o notebook
 
 - Vamos modelar um notebook que pode ser ligado e desligado.
 - Crie a classe Notebook com os métodos `ligar` e `desligar`.
@@ -26,9 +35,7 @@ notebook.usar(10)     # msg: Usando por 10 minutos
 notebook.desligar()   # msg: notebook desligado
 ```
 
-___
-
-## Parte 2 - Notebook com bateria
+### Parte 2 - Notebook com bateria
 
 - Nosso notebook vai ser modificado para ter um atributo `bateria`.
 - Esse atributo pode conter uma instância de uma bateria ou `null` se não houver bateria.
@@ -75,7 +82,7 @@ bateira = notebook.rmBateria() # msg: bateria removida
 bateira.mostrar()     # (0/50)
 ```
 
-## Parte 3 - Notebook com carregador e bateria
+### Parte 3 - Notebook com carregador e bateria
 
 - Vamos modelar um notebook que pode ter ou não tanto carregador quanto bateria.
 - Terá que reescrever os métodos `usar <tempo>`, `ligar`.

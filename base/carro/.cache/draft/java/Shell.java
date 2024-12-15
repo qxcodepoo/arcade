@@ -4,7 +4,7 @@ import java.util.*;
 public class Shell {
     
     public static void main(String[] a) {
-        // Car car = new Car();
+        // CRIE SEU CARRO AQUI
         while (true) {
             var line = scanner.nextLine();
             System.out.println("$" + line);
@@ -13,16 +13,16 @@ public class Shell {
             var cmd = par[0];
 
             if (cmd.equals("show")) {
-                // TODO
+                // MOSTRE OS ATRIBUTOS DO CARRO
             } else if (cmd.equals("enter")) {
-                // TODO
+                // TENTE EMBARCAR UMA PESSOA
             } else if (cmd.equals("leave")) {
-                // TODO
+                // TENTE DESEMBARCAR UMA PESSOA
             } else if (cmd.equals("fuel")) {
-                // TODO
+                // AUMENTE A QUANTIDADE DE COMBUSTIVEL
                 // int increment = Integer.parseInt(par[1]);
             } else if (cmd.equals("drive")) {
-                // TODO
+                // TENTE DIRIGIR UMA CERTA DISTANCIA
                 // int distance = Integer.parseInt(par[1]);
             } else if (cmd.equals("end")) {
                 break;

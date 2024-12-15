@@ -1,8 +1,8 @@
 # Crianças andando de motoca
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Orientações por linguagem](#orientações-por-linguagem) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -64,12 +64,8 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
   - Crie o método `honk()` que permite buzinar a motoca.
   - Construa a string da buzina, onde o número de "e" é igual à potência da motoca.
   - Retorne a buzina.
-- Parte 6: Adapter
-  - Na classe `Adapter`, crie um atributo `motoca` e o inicialize no construtor.
-  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Motoca`.
-  - No métode inserir, observe que o `Adapter` recebe os argumentos `nome` e `idade` e cria um objeto `Pessoa` para inserir na motoca.
 
-## Orientações por linguagem
+___
 
 - Cada linguagem tem suas formas de definir ausência de valor.
 - Por exemplo, vamos criar uma variável que pode ser um inteiro ou não ter valor.
@@ -152,7 +148,6 @@ heitor:6
 #TEST_CASE empty
 $leave
 fail: empty motorcycle
----
 
 #TEST_CASE replace
 $enter suzana 8
@@ -233,9 +228,7 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
-  - [student.hpp](.cache/draft/cpp/student.hpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts

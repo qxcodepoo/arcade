@@ -1,24 +1,48 @@
-#include "fn.hpp"
-#include "student.hpp"
+#include <iostream>
+#include <memory> //shared_ptr
+#include <sstream> //stringstream
+#include <utility> //exchange
+using namespace std;
 
 int main() {
-    Adapter adp;
-
+    // CRIE SUA MOTO AQUI COM POTENCIA 1
     while (true) {
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write('$' + line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
 
-        if      (args[0] == "end"  ) { break;                              }
+        stringstream ss(line);
+        ss >> cmd;
 
-        else if (args[0] == "init" ) { adp.init(+args[1]);                 }
-        else if (args[0] == "show" ) { adp.show();                         }
-        else if (args[0] == "leave") { adp.leave();                        }
-        else if (args[0] == "honk" ) { adp.honk();                         }
-        else if (args[0] == "enter") { adp.enter( args[1], +args[2]);      }
-        else if (args[0] == "buy"  ) { adp.buy(  +args[1]);                }
-        else if (args[0] == "drive") { adp.drive(+args[1]);                }
-
-        else                         { fn::write("fail: invalid command"); }
+        if (cmd == "init") {
+            // INICIE A MOTO AQUI USANDO O CONSTRUTOR
+            // int power {};
+            // ss >> power;
+        } else if (cmd == "show") {
+            // MOSTRE A MOTO AQUI
+        } else if (cmd == "leave") {
+            // RETIRE A PESSOA DA MOTO
+            // SE EXISTIR, MOSTRE A PESSOA
+        } else if (cmd == "honk") {
+            // BUZINE A MOTO
+        } else if (cmd == "enter") {
+            // CRIE UM PONTEIRO PARA PESSOA E INICIE-O AQUI
+            // DEPOIS INSIRA A PERSON NA MOTO
+            // string name {};
+            // int age {};
+            // ss >> name >> age;
+        } else if (cmd == "buy") {
+            // COMPRE TEMPO PARA DIRIGIR
+            // int time {};
+            // ss >> time;
+        } else if (cmd == "drive") {
+            // DIRIJA A MOTO POR UM TEMPO
+            // int time {};
+            // ss >> time;
+        } else if (cmd == "end") {
+            break;
+        } else {
+            cout << "fail: invalid command\n";
+        }
     }
 }

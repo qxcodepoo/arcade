@@ -15,19 +15,19 @@ public class Shell {
             var cmd = par[0];
 
             if (cmd.equals("init")) {
-                // TODO
+                // CHAME O CONSTRUTOR
                 // int batteryMax = Integer.parseInt(par[1]);
             } else if (cmd.equals("show")) {
-                // TODO
+                // MOSTRAR
             } else if (cmd.equals("charge")) {
-                // TODO
+                // RECARREGAR A BATERIA
                 // int value = Integer.parseInt(par[1]);
             } else if (cmd.equals("sum")) {
-                // TODO
+                // SOMAR
                 // int a = Integer.parseInt(par[1]);
                 // int b = Integer.parseInt(par[2]);
             } else if (cmd.equals("div")) {
-                // TODO
+                // DIVIDIR
                 // int num = Integer.parseInt(par[1]);
                 // int den = Integer.parseInt(par[2]);
             } else if (cmd.equals("end")) {

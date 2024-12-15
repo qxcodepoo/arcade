@@ -1,24 +1,34 @@
-#include "fn.hpp"
+#include <iostream>
+#include <sstream>
+using namespace std;
 
 
 int main () {
-    // Animal animal("", "");
+    // CRIE SEU OBJETO AQUI
     while (true) {
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write("$" + line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << '\n';
 
-        if (args[0] == "init" ) {
-            // auto species = args[1];
-            // auto sound = args[2];
-        } else if (args[0] == "grow" ) {
-            // auto increment = +args[1];
-        } else if (args[0] == "noise") {
-        } else if (args[0] == "show" ) {
-        } else if (args[0] == "end") {
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "init" ) {
+            // INICIE SEU OBJETO AQUI USANDO O CONSTRUTOR
+            // string species, sound;
+            // ss >> species >> sound;
+        } else if (cmd == "grow" ) {
+            // CHAME O MÉTODO PARA CRESCER
+            // int increment {};
+            // ss >> increment;
+        } else if (cmd == "noise") {
+            // OBTENHA O SOM DO ANIMAL E IMPRIMA
+        } else if (cmd == "show" ) {
+            // IMPRIMA O ANIMAL
+        } else if (cmd == "end") {
             break;
         } else {
-            fn::write("fail: comando invalido");
+            cout << "fail: comando invalido\n";
         }
     }
 }

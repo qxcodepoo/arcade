@@ -1,31 +1,29 @@
-#include "fn.hpp"
+#include <iostream>
+#include <sstream>
+using namespace std;
 
 int main() {
-    // Toalha toalha("", "");
+    // CRIE SUA TOALHA AQUI
     while (true) {
-        auto line = fn::input();
-        fn::write("$" + line);
+        string line, cmd;
+        getline(cin, line);
 
-        auto par = fn::split(line, ' ');
-        auto cmd = par[0];
+        stringstream par(line);
+        par >> cmd;
 
-        if (cmd == "mostrar") {
-            // TODO
-        } else if (cmd == "criar") {
-            // TODO
-            // auto cor = par[1];
-            // auto tamanho = par[2];
-        } else if (cmd == "enxugar") {
-            // TODO
-            // auto umidade = std::stoi(par[1]);
-        } else if (cmd == "torcer") {
-            // TODO
-        } else if (cmd == "seca") {
-            // TODO
+        if (cmd == "mostrar") { // MOSTRE A TOALHA
+        } else if (cmd == "criar") { // ATUALIZE A TOALHA UTILIZAND O CONSTRUTOR
+            // string cor, tamanho;
+            // par >> cor >> tamanho;
+        } else if (cmd == "enxugar") { // USE O METODO ENXUGAR
+            // int umidade {};
+            // par >> umidade;
+        } else if (cmd == "torcer") { // USE O METODO TORCER
+        } else if (cmd == "seca") { // VERIFIQUE SE ESTA SECA E IMPRIMA "sim" OU "nao"
         } else if (cmd == "end") {
             break;
         } else {
-            fn::write("fail: comando invalido");
+            cout << "fail: comando invalido" << endl;
         }
     }
 }

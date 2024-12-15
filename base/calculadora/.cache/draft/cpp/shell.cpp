@@ -1,35 +1,41 @@
-#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
+#include <iostream> // fixed, cout, endl, string
+#include <sstream> // stringstream
+#include <iomanip> // setprecision
+using namespace std;
 
 int main() {
-    // Calculator calc;
+    // CRIE SUA CALCULADORA AQUI
 
     while (true) {
-        auto line = fn::input();
-        fn::write("$" + line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << '\n';
 
-        auto par = fn::split(line, ' ');
-        auto cmd = par[0];
+        stringstream par(line);
+        par >> cmd;
 
         if (cmd == "init") {
-            // TODO
-            // int batteryMax = std::stoi(par[1]);
+            // SUBSTITUA A CALCULADORA UTILIZANDO O CONSTRUTOR
+            // int batteryMax {};
+            // par >> batteryMax;
         } else if (cmd == "show") {
-            // TODO
+            // MOSTRE A CALCULADORA
         } else if (cmd == "charge") {
-            // TODO
-            // int increment = std::stoi(par[1]);
+            // RECARREGAR
+            // int increment {};
+            // par >> increment;
         } else if (cmd == "sum") {
-            // TODO
-            // int a = std::stoi(par[1]);
-            // int b = std::stoi(par[2]);
+            // SOMAR
+            // int a {}, b {};
+            // par >> a >> b;
         } else if (cmd == "div") {
-            // TODO
-            // int num = std::stoi(par[1]);
-            // int den = std::stoi(par[2]);
+            // DIVIDIR
+            // int num {}, den {};
+            // par >> num >> den;
         } else if (cmd == "end") {
             break;
         } else {
-            fn::write("fail: comando invalido");
+            cout << "fail: comando invalido" << endl;
         }
     }
 

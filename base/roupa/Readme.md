@@ -1,10 +1,13 @@
 # Roupa com testes
 
-UML | Testes | Rascunho | Adapter | Esqueleto
---- | ------ | -------- | ------- | ---------
-não | sim    | sim      | não     | não
+<!-- toch -->
+[Intro](#intro) | [Shell](#shell) | [Draft](#draft)
+-- | -- | --
+<!-- toch -->
 
-## Descrição
+![_](cover.jpg)
+
+## Intro
 
 - Vamos implementar uma classe que controla os possíveis valores de tamanho para uma roupa.
 - Os tamanhos serão identificados como uma variável tipo texto, e os valores válidos são "PP", "P", "M" e "G", "GG" e "XG".
@@ -14,7 +17,7 @@ não | sim    | sim      | não     | não
   - Caso o valor seja inválido, avise e dê uma mensagem de erro informando quais os valores permitidos.
 - Coloque o atributo tamanho como privado e crie um método getTamanho para acessá-lo e setTamanho para alterá-lo.
 
-## Testes
+## Shell
 
 ```bash
 #TEST_CASE
@@ -34,3 +37,14 @@ size: (PP)
 $end
 
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->

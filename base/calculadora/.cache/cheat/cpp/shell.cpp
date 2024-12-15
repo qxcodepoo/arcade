@@ -1,4 +1,7 @@
-#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
+#include <iostream> // fixed, cout, endl, string
+#include <sstream> // stringstream
+#include <iomanip> // setprecision
+using namespace std;
 
 struct Calculator {
     int batteryMax;
@@ -20,7 +23,7 @@ struct Calculator {
 
     void sum(int a, int b) {
         if(this->battery == 0){
-            fn::write("fail: bateria insuficiente");
+            cout << "fail: bateria insuficiente" << endl;
             return;
         }
         this->battery -= 1;
@@ -30,56 +33,57 @@ struct Calculator {
 
     void division(int num, int den) {
         if(this->battery == 0){
-            fn::write("fail: bateria insuficiente");
+            cout << "fail: bateria insuficiente" << endl;
             return;
         }
         this->battery -= 1;
         if(den == 0) {
-            fn::write("fail: divisao por zero");
+            cout << "fail: divisao por zero" << endl;
             return;
         }
         this->display = (float) num / den;
     }
 
     std::string str() const {
-        return fn::format("display = {%.2f}, battery = {}", this->display, this->battery); 
+        stringstream ss;
+        ss << "display = " << fixed << setprecision(2) << this->display << ", battery = " << this->battery;
+        return ss.str();
     }
 };
-
-inline std::ostream& operator<<(std::ostream& os, const Calculator& c) {
-    return (os << c.str());
-}
 
 int main() {
     Calculator calc;
 
     while (true) {
-        auto line = fn::input();
-        fn::write("$" + line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << '\n';
 
-        auto par = fn::split(line, ' ');
-        auto cmd = par[0];
+        stringstream par(line);
+        par >> cmd;
 
         if (cmd == "init") {
-            int batteryMax = std::stoi(par[1]);
+            int batteryMax {};
+            par >> batteryMax;
             calc = Calculator(batteryMax);
         } else if (cmd == "show") {
-            fn::write(calc.str());
+            cout << calc.str() << '\n';
         } else if (cmd == "charge") {
-            int increment = std::stoi(par[1]);
+            int increment {};
+            par >> increment;
             calc.chargeBattery(increment);
         } else if (cmd == "sum") {
-            int a = std::stoi(par[1]);
-            int b = std::stoi(par[2]);
+            int a {}, b {};
+            par >> a >> b;
             calc.sum(a, b);
         } else if (cmd == "div") {
-            int num = std::stoi(par[1]);
-            int den = std::stoi(par[2]);
+            int num {}, den {};
+            par >> num >> den;
             calc.division(num, den);
         } else if (cmd == "end") {
             break;
         } else {
-            fn::write("fail: comando invalido");
+            cout << "fail: comando invalido" << endl;
         }
     }
 

@@ -1,12 +1,13 @@
 # Toalha, o item mais útil do universo
 
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide)
+-- | --
+<!-- toch -->
+
 ![_](cover.jpg)
 
-UML | Testes | Rascunho | Adapter | Esqueleto
---- | ------ | -------- | ------- | ---------
-sim | não    | não      | não     | não
-
-## Guide
+## Intro
 
 - Crie uma classe Toalha `Towel` com os atributos cor `color`, tamanho `size` e umidade `wetness`.
 - Crie um construtor que inicialize todos os atributos cor e tamanho com valores recebidos como parâmetro e umidade com 0.
@@ -22,7 +23,10 @@ sim | não    | não      | não     | não
 
 ![diagrama](diagrama.png)
 
-## Exemplo
+## Guide
+
+- Abaixo você tem um exemplo de código em python que implementa a classe `Towel` e testa seu comportamento.
+- Adapte a ideia para a linguagem que você está estudando e crie seus próprios testes.
 
 <!-- load solver.py fenced:filter:py -->
 

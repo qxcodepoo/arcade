@@ -3,7 +3,7 @@ export {};
 
 
 function main() {
-    // const car = new Car();
+    // CRIE SEU CARRO AQUI
     while(true) {
         let line = input();
         console.log("$" + line);
@@ -12,16 +12,16 @@ function main() {
         const cmd = par[0];
 
         if (cmd == "show") {
-            // TODO
+            // MOSTRE O CARRO
         } else if (cmd == "enter") {
-            // TODO
+            // TENTE EMBARCAR UMA PESSOA
         } else if (cmd == "leave") {
-            // TODO
+            // TENTE DESEMBARCAR UMA PESSOA
         } else if (cmd == "fuel") {
-            // TODO
+            // INCREMENTE O COMBUSTIVEL
             // const increment = parseInt(par[1]);
         } else if (cmd == "drive") {
-            // TODO
+            // TENTE DIRIGIR CERTA DISTANCIA
             // const distance = parseInt(par[1]);
         } else if (cmd == "end") {
             break;

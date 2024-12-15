@@ -1,6 +1,13 @@
 # Notebook com TESTES
 
+<!-- toch -->
+[INTRO](#intro) | [GUIDE](#guide) | [SHELL](#shell)
+-- | -- | --
+<!-- toch -->
+
 ![imagem de notebook](cover.jpg)
+
+## INTRO
 
 - Vamos modelar um notebook que pode ter ou não tanto carregador quanto bateria.
 - Terá que reescrever os métodos `usar <tempo>`, `ligar`.
@@ -14,13 +21,13 @@
 - Uma bateria `15/50` significa que possui ainda 15 minutos de carga e suporta no máximo 50.
 - Um carregador com 3 de potência consegue em um minuto de uso, adicionar 3 minutos de carga na bateria.
 
-## Observações
+## GUIDE
 
 - Crie sempre atributos privados e os utilize através de métodos públicos.
 - Vá implementando orientado aos testes, implementando apenas o necessário para passar em cada teste.
 - Seu código será pontuado pela quantidade de testes que passarem, não pela quantidade de código escrito.
 
-## Testes
+## SHELL
 
 ```bash
 #TEST_CASE iniciar
@@ -235,3 +242,12 @@ Notebook: ligado por 46 min, Carregador 5W
 
 $end
 ```
+
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->

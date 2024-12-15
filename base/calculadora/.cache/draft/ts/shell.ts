@@ -12,21 +12,21 @@ function main() {
         const cmd = par[0];
 
         if (cmd == "init") {
-            //TODO
+            // CHAME O CONSTRUTOR AQUI
             // const batteryMax = parseInt(par[1]);
         } else if (cmd == "charge") {
-            //TODO
+            // RECARREGAR A BATERIA
             // const value = parseInt(par[1]);
         } else if (cmd == "sum") {
-            //TODO
+            // SOMAR
             // const a = parseInt(par[1]);
             // const b = parseInt(par[2]);
         } else if (cmd == "div") {
-            //TODO
+            // DIVIDIR
             // const num = parseInt(par[1]);
             // const den = parseInt(par[2]);
         } else if (cmd == "show") {
-            //TODO
+            // MOSTRAR
         } else if (cmd == "end") {
             break;
         } else {

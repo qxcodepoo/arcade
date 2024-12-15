@@ -13,11 +13,15 @@ public class Shell {
             var cmd = par[0];
 
             if (cmd.equals("init") ) {
+                // INICIE O ANIMAL UTILIZANDO O CONSTRUTOR
                 // var species = par[1];
                 // var noise = par[2];
             } else if (cmd.equals("show")) {
+                // MOSTRE O ANIMAL
             } else if (cmd.equals("noise")) {
+                // OBTER O BARULHO DO ANIMAL E IMPRIMA
             } else if (cmd.equals("grow") ) {
+                // AUMENTE A IDADE DO ANIMAL
                 // var increment = Integer.parseInt(par[1]);
             } else if (cmd.equals("end")  ) { 
                 break;

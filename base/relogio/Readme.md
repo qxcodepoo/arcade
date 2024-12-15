@@ -1,15 +1,11 @@
 # Garante uma hora válida no relógio
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
-
-UML | Testes | Rascunho | Adapter | Esqueleto
---- | ------ | -------- | ------- | ---------
-sim | sim    | sim      | sim     | não
 
 ## Intro
 
@@ -47,8 +43,14 @@ public String toString() {
 
 ```cpp
 //cpp
-std::string str() {
-  return fn::format("{%02d}:{%02d}:{%02d}", hora, minuto, segundo);
+//strinstream é uma classe da biblioteca sstream
+//setfill e setw são funções da biblioteca iomanip
+std::string str() const {
+    stringstream ss;
+    ss << setfill('0') << setw(2) << hour << ":";
+    ss << setfill('0') << setw(2) << minute << ":";
+    ss << setfill('0') << setw(2) << second;
+    return ss.str();
 }
 ```
 
@@ -61,20 +63,6 @@ public toString(): string {
   return `${hora}:${minuto}:${segundo}`;
 }
 ```
-
-## Draft
-
-<!-- links .cache/draft -->
-- cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
-  - [shell.cpp](.cache/draft/cpp/shell.cpp)
-- java
-  - [Shell.java](.cache/draft/java/Shell.java)
-- ts
-  - [shell.ts](.cache/draft/ts/shell.ts)
-<!-- links -->
-
-***
 
 ## Shell
 
@@ -172,3 +160,14 @@ $show
 
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->

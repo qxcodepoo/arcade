@@ -1,70 +1,41 @@
-#include "fn.hpp"
-
-class Adapter {
-private:
-    // Time time;
-
-public:
-    void init(int hour = 0, int minute = 0, int second = 0) {
-        (void) hour;
-        (void) minute;
-        (void) second;
-        // this->time = Time(hour, minute, second);
-    }
-
-    void setHour(int hour) {
-        (void) hour;
-        // this->time.setHour(hour);
-    }
-
-    void setMinute(int minute) {
-        (void) minute;
-        // this->time.setMinute(minute);
-    }
-    void setSecond(int second) {
-        (void) second;
-        // this->time.setSecond(second);
-    }
-
-    void nextSecond() {
-        // this->time.nextSecond();
-    }
-    
-    void show() {
-        // fn::write(time);
-    }
-};
+#include <iostream>
+#include <sstream>
+#include <iomanip> // std::setfill, std::setw
+using namespace std;
 
 int main() {
-    Adapter stu;
+    // CRIE SEU RELÓGIO AQUI
 
     while (true) {
-        fn::write("$", "");
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
 
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
+        stringstream ss(line);
+        ss >> cmd;
 
-        fn::write(line);
-
-        if (args[0] == "end") {
+        if (cmd == "set") {
+            // TODO
+            // Chame os métodos setHour, setMinute e setSecond
+            // int hour {}, minute {}, second {};
+            // ss >> hour >> minute >> second;
+        } else if (cmd == "init") {
+            // TODO
+            // Chame o construtor para inicializar o relógio
+            // int hour {}, minute {}, second {};
+            // ss >> hour >> minute >> second;
+        } else if (cmd == "show") {
+            // TODO
+            // Chame o método str e imprima o horário
+            // cout << time.str() << endl;
+        } else if (cmd == "next") {
+            // TODO
+            // Chame o método nextSecond
+            // time.nextSecond();
+        } else if (cmd == "end") {
             break;
-        }
-        else if (args[0] == "set") {
-            stu.setHour(+args[1]);
-            stu.setMinute(+args[2]);
-            stu.setSecond(+args[3]);
-        } 
-        else if (args[0] == "init") {
-            stu.init(+args[1], +args[2], +args[3]);
-        }
-        else if (args[0] == "show") {
-            stu.show();
-        }
-        else if (args[0] == "next") {
-            stu.nextSecond();
-        }
-        else {
-            fn::write("fail: comando invalido");
+        } else {
+            cout << "fail: comando invalido" << endl;
         }
     }
 }

@@ -1,20 +1,11 @@
 # Uma calculadora com bateria
 
 <!-- toch -->
-[Model](#model) | [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
--- | -- | -- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
-
-UML | Testes | Rascunho | Adapter | Esqueleto
---- | ------ | -------- | ------- | ---------
-sim | sim    | sim      | não     | não
-
-## Model
-
-- Esta atividade utiliza um padrão de projeto de requisições e respostas.
-- Veja mais detalhes sobre esse modelo nas atividades do Carro e do Animal.
 
 ## Intro
 
@@ -48,35 +39,9 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
   - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
   - Se houver divisão por zero, emita a mensagem `fail: divisao por zero`.
 
-![diagrama](diagrama.png)
-
-<!--
-- Parte 1
-  - Crie a classe `Calculadora` com os três atributos.
-  - Através do construtor, inicialize os valores adequadamente.
-  - Crie o método `toString` e gere a saída conforme.
-  - Inicie algumas calculadoras e teste imprimir o `toString`.
-  - Se ainda estiver aprendendo, consulte os códigos abaixo. Lembre que o `toString` não imprime, ele retorna o valor.
-- Parte 2
-  - Crie o método `charge`. Tente adicionar carga à bateria.
-  - Verifique se ele adiciona além do limite.
-- Parte 3
-  - Crie o método para somar.
-  - Verifique se a soma é guardada no display ao invés de impressa diretamente.
-  - Imprima a mensagem de erro adequada se não houver bateria.
-  - Lembre de gastar bateria.
-- Parte 4
-  - Crie o método para dividir.
-  - Verifique se existe bateria, se existir gaste, se não, emita o erro.
-  - Verifique se a divisão é possível, se não for, emita o erro e retorne.
-  - Guarde o resultado no display.
-- Parte 5 - Integração
-  - Tente integrar seu código na classe `Adapter`.
-  - Crie uma `Calculadora` como atributo de `Adapter` e a inicialize no construtor.
-  - Nos outros métodos de `Adapter`, chame o método equivalente da classe `Calculadora`.
--->
-
 ## Guide
+
+![diagrama](diagrama.png)
 
 - Como formatar com duas casas decimais em diferentes linguagens.
 
@@ -97,8 +62,9 @@ toString(): string {
 
 //cpp
 std::string str() const {
-    // a biblioteca auxiliar de formatação permite formatar como o format do python
-    return fn::format("display = {%.2f}, battery = {}", this->display, this->battery); 
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(2) << "display = " << this->display << ", battery = " << this->battery;
+    return ss.str();
 }
 
 ```
@@ -233,7 +199,6 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)

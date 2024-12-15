@@ -1,29 +1,36 @@
-#include "fn.hpp"
-
+#include <iostream>
+#include <sstream>
+using namespace std;
 
 int main() {
-    // Car car;
+    // CRIE SEU CARRO AQUI
     while (true) {
-        auto line = fn::input();
-        fn::write("$" + line);
+        
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << '\n';
 
-        auto par = fn::split(line, ' ');
-        auto cmd = par[0];
+        stringstream ss(line);
+        ss >> cmd;
         
         if (cmd == "show") {
-            // TODO
+            // MOSTRE O CARRO
         } else if (cmd == "enter") {
-            // TODO
+            // TENTE EMBARCAR
         } else if (cmd == "leave") {
-            // TODO
+            // TENTE DESCEMBARCAR
         } else if (cmd == "fuel") {
-            // int increment = std::stoi(par[1]);
+            // AUMENTE O COMBUSTIVEL
+            // int increment{};
+            // ss >> increment;
         } else if (cmd == "drive") {
-            // int distance = std::stoi(par[1]);
-        } else if (par[0] == "end")   {
+            // TENTE DIRIGIR
+            // int distance {};
+            // ss >> distance;
+        } else if (cmd == "end")   {
             break;
         } else {
-            fn::write("fail: comando invalido");
+            cout << "fail: comando invalido\n";
         }
     }
 }

@@ -1,47 +1,29 @@
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+function input() { return ""; }
 export {};
 
-class Adapter {
-    // private game: Game = new Game(new Pet(0, 0));
-    init(energy: number, clean: number) {
-        // this.game = new Game(new Pet(energy, clean));
-    }
-
-    public show() {
-        // console.log(this.game.toString());
-    }
-
-    public play() {
-        // this.game.play();
-    }
-
-    public shower() {
-        // this.game.shower();
-    }
-    
-    public sleep() {
-        // this.game.sleep();
-    }
-}
-
 function main() {
-    let adp = new Adapter();
+    // CRIE SEU JOGO AQUI COM UM PET ZERADO
 
     while (true) {
-        write("$", "");
-        let line = input();
-        let args = line.split(" ");
-        write(line);
+        const line = input();
+        console.log("$" + line);
 
-        if      (args[0] === "end")   { break;                          }
-        else if (args[0] === "init")  { adp.init(+args[1], +args[2]);   }
-        else if (args[0] === "show")  { adp.show();                     }
-        else if (args[0] === "play")  { adp.play();                     }
-        else if (args[0] === "sleep") { adp.sleep();                    }
-        else if (args[0] === "shower"){ adp.shower();                   }
-        else                          { write("fail: comando invalido");}
+        const par = line.split(" ");
+        const cmd = par[0];
+
+        if (cmd == "init") {
+            // CRIE UM NOVO JOGO COM UM NOVO PET
+            // const energy = parseInt(par[1]);
+            // const clean = parseInt(par[2]);
+        } else if (cmd == "play") { // TODO
+        } else if (cmd == "shower") { // TODO
+        } else if (cmd == "sleep") { // TODO
+        } else if (cmd == "show") { // TODO
+        } else if (cmd == "end") {
+            break;
+        } else {
+            console.log("fail: comando invalido");
+        }
     }
 }
 

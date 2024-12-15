@@ -1,7 +1,7 @@
 # Alimente, brinque e mate
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -28,20 +28,6 @@ Seu sistema deverá:
   - É onde estão localizadas as lógicas sobre as ações de brincar `play`, dar banho `shower` e dormir `sleep`.
   - Cada operação causa aumento e reduções nos atributos utilizando-se os métodos `set` e `get` do `Tamagotchi`.
   - Antes de qualquer ação, é necessário verificar se o bicho está vivo. Pois brincar com bichos mortos não é recomendado.
-
-***
-
-## Draft
-
-<!-- links .cache/draft -->
-- cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
-  - [shell.cpp](.cache/draft/cpp/shell.cpp)
-- java
-  - [Shell.java](.cache/draft/java/Shell.java)
-- ts
-  - [shell.ts](.cache/draft/ts/shell.ts)
-<!-- links -->
 
 ## Guide
 
@@ -136,3 +122,14 @@ $show
 E:0/5, L:1/10, I:3
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->

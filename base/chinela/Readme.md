@@ -1,6 +1,13 @@
 # Comprando uma chinela 40/41
 
-## Descrição
+<!-- toch -->
+[Intro](#intro) | [Guide](#guide)
+-- | --
+<!-- toch -->
+
+![_](cover.jpg)
+
+## Intro
 
 - Vamos implementar uma classe que controla os possíveis valores de calçados para uma chinela.
 - As regras de validação de valores são as seguintes.
@@ -10,7 +17,7 @@
 - Mantenha o usuário preso no loop até que ele insira um valor válido.
 - Caso ele digite um valor inválido, avise e dê uma mensagem de erro adequada.
 
-## Exemplo em python
+## Guide
 
 ```py
 

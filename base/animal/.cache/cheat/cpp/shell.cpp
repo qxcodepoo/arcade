@@ -1,16 +1,18 @@
-#include "fn.hpp"
+#include <iostream>
+#include <sstream>
+using namespace std;
 
 struct Animal {
-    std::string species;
-    std::string sound;
+    string species;
+    string sound;
     int age;
-    Animal(std::string species = "", std::string noise = "") {
+    Animal(string species = "", string noise = "") {
         this->species = species;
         this->sound = noise;
         this->age = 0;
     }
 
-    std::string makeSound() const {
+    string makeSound() const {
         if (age == 0) {
             return "---";
         }
@@ -23,13 +25,13 @@ struct Animal {
     void ageBy(int increment) {
         age += increment;
         if (age >= 4) {
-            fn::print("warning: {} morreu\n", species);
+            cout << "warning: " << species << " morreu\n";
             age = 4;
         }
     }
 
-    std::string str() const {
-        return fn::format("{}:{}:{}", species, age, sound);
+    string str() const {
+        return (stringstream() << species << ":" << age << ":" << sound).str();
     }
 };
 
@@ -37,25 +39,29 @@ struct Animal {
 int main () {
     Animal animal("", "");
     while (true) {
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write("$" + line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << '\n';
 
-        if (args[0] == "init" ) {
-            auto species = args[1];
-            auto sound = args[2];
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "init" ) {
+            string species, sound;
+            ss >> species >> sound;
             animal = Animal(species, sound);
-        } else if (args[0] == "grow" ) {
-            auto increment = +args[1];
+        } else if (cmd == "grow" ) {
+            int increment {};
+            ss >> increment;
             animal.ageBy(increment);
-        } else if (args[0] == "noise") {
-            fn::write(animal.makeSound());
-        } else if (args[0] == "show" ) {
-            fn::write(animal.str());
-        } else if (args[0] == "end") {
+        } else if (cmd == "noise") {
+            cout << animal.makeSound() << '\n';
+        } else if (cmd == "show" ) {
+            cout << animal.str() << '\n';
+        } else if (cmd == "end") {
             break;
         } else {
-            fn::write("fail: comando invalido");
+            cout << "fail: comando invalido\n";
         }
     }
 }
