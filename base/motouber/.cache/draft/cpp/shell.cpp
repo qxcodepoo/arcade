@@ -1,39 +1,36 @@
-#define __MEMORY //enable print for shared_ptr
-#include "fn.hpp"
+#include <iostream>
+#include <sstream>
+#include <memory>
+using namespace std;
 
-
-class Adapter {
-    Uber uber;
-public:
-    void setDriver(std::string name, int money) {
-        uber.setDriver(std::make_shared<Person>(name, money));
-    }
-    void setPass(std::string name, int money) {
-        uber.setPass(std::make_shared<Person>(name, money));
-    }
-    void drive(int distance) {
-        (void) distance;
-    }
-    void leavePass() {
-    }
-    void show() {
-    }
-};
 
 int main() {
-    Adapter adp;
-    while (true) {
-        fn::write("$", "");
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write(line);
 
-        if      (args[0] == "end")       { break;                                  }
-        else if (args[0] == "setDriver") { adp.setDriver(args[1], +args[2]);       }
-        else if (args[0] == "setPass")   { adp.setPass(args[1], +args[2]);         }
-        else if (args[0] == "drive")     { adp.drive(+args[1]);                    }
-        else if (args[0] == "leavePass") { adp.leavePass();                        }
-        else if (args[0] == "show")      { adp.show();                             }
-        else                             { fn::write("fail: command not found\n"); }
+    while (true) {
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
+
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "show") { // TODO
+        } else if (cmd == "setDriver") { // TODO
+            // string name;
+            // int money;
+            // ss >> name >> money;
+        } else if (cmd == "setPass") { // TODO
+            // string name;
+            // int money;
+            // ss >> name >> money;
+        } else if (cmd == "drive") { // TODO
+            // int distance;
+            // ss >> distance;
+        } else if (cmd == "leavePass") { // TODO
+        } else if (cmd == "end") {
+            break;
+        } else {
+            cout << "fail: command not found\n";
+        }
     }
 }

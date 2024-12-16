@@ -1,49 +1,34 @@
-#include "fn.hpp"
 #include <iostream>
-class Adapter {
-private:
-    // Pencil pencil;
-public:
-    Adapter(double thickness) {
-        (void) thickness;
-    };
-    
-    void insert(double thickness, std::string hardness, int length) {
-        (void) thickness;
-        (void) hardness;
-        (void) length;
-        // pencil.insert(std::make_shared<Lead>(thickness, hardness, length));
-    }
-
-    void remove() {
-        // pencil.remove();
-    }
-
-    void writePage() {
-        // pencil.writePage();
-    }
-
-    void show() {
-        // fn::write(pencil.str());
-    }
-};
-
+#include <memory>
+#include <utility> //exchange
+#include <sstream>
+using namespace std;
 
 int main() {
-    Adapter adp(0);
-
+    
     while (true) {
-        fn::write("$", "");
-        auto line = fn::input();
-        auto args = fn::split(line);
-        fn::write(line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
 
-        if      (args[0] == "show"  ) { adp.show();                                    }
-        else if (args[0] == "init"  ) { adp = Adapter(+args[1]);                       }
-        else if (args[0] == "insert") { adp.insert(+args[1], args[2], (int) +args[3]); }
-        else if (args[0] == "remove") { adp.remove();                                  }
-        else if (args[0] == "write" ) { adp.writePage();                               }
-        else if (args[0] == "end"   ) { break;                                         }
-        else                          { fn::write("fail: comando invalido");           }
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "show") { // TODO
+        } else if (cmd == "init") { // TODO
+            // float thickness;
+            // ss >> thickness;
+        } else if (cmd == "insert") { // TODO
+            // float thickness;
+            // string hardness;
+            // int size;
+            // ss >> thickness >> hardness >> size;
+        } else if (cmd == "remove") { // TODO
+        } else if (cmd == "write") { // TODO
+        } else if (cmd == "end") {
+            break;
+        } else {
+            cout << "fail: comando invalido" << endl;
+        }
     }
 }

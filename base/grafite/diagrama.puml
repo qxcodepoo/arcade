@@ -8,10 +8,9 @@ class Lead {
     - hardness : string
     - size     : number
     __
-  
     + Lead(thickness: number, hardness: string, size: number)
     + usagePerSheet(): number
-    __    
+    __
     + getHardness() : string
     + getSize()     : number
     + getThickness(): number

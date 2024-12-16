@@ -39,9 +39,6 @@ O objetivo dessa atividade é implementar uma classe responsável por uma máqui
         - erros: `fail: indice nao existe`, `fail: saldo insuficiente`, `fail: espiral sem produtos`.
       - `getSaldo(): number`: Retorna o saldo atual na máquina.
       - `toString(): string`: Retorna uma representação em string do estado atual da máquina.
-  - A classe `Adapter` atua como uma interface entre os métodos de teste e as operações da máquina de vendas.
-    - Ela permite a execução de comandos como configuração de slots, inserção de dinheiro, compra de produtos, entre outras operações.
-    - A classe `Adapter` delega as operações para a classe `Machine`, mantendo a separação de responsabilidades.
 
 ## Draft
 

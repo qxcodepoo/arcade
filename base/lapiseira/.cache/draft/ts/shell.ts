@@ -1,63 +1,32 @@
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+function input() { return ""; }
 export {};
 
-
-class Adapter {
-    // private pencil: Pencil;
-    public init(thickness: number): void {
-        // this.pencil = new Pencil(thickness);
-    }
-
-    public insert(calibre: number, dureza: string, tamanho: number): void {
-        // this.pencil.insert(new Lead(calibre, dureza, tamanho));
-    }
-
-    public remove(): void {
-        // this.pencil.remove();
-    }
-
-    public pull(): void {
-        // this.pencil.pull();
-    }
-
-    public writePage(): void {
-        // this.pencil.writePage();
-    }
-
-    public show(): void {
-        // console.log(this.pencil.toString());
-    }
-}
-
 function main() {
-    let adapter = new Adapter();
 
     while (true) {
-        write("$", "");
-        let line = input();
-        write(line);
-        let args = line.split(" ");
+        const line = input();
+        console.log("$" + line);
 
-        if (args[0] == "end") {
+        const par = line.split(" ");
+        const cmd = par[0];
+
+        if (cmd === "show") { // TODO
+        } else if (cmd === "init") { // TODO
+            // const thickness = parseFloat(par[1]);
+        } else if (cmd === "insert") { // TODO
+            // const thickness = parseFloat(par[1]);
+            // const hardness = par[2];
+            // const size = parseInt(par[3]);
+        } else if (cmd === "remove") { // TODO
+        } else if (cmd === "show") { // TODO
+        } else if (cmd === "write") { // TODO
+        } else if (cmd === "pull") { // TODO
+        } else if (cmd === "end") {
             break;
-        } else if (args[0] == "init") {
-            adapter.init(+args[1]);
-        } else if (args[0] == "insert") {
-            adapter.insert(+args[1], args[2], +args[3]);
-        } else if (args[0] == "remove") {
-            adapter.remove();
-        } else if (args[0] == "pull") {
-            adapter.pull();
-        } else if (args[0] == "write") {
-            adapter.writePage();
-        } else if (args[0] == "show") {
-            adapter.show();
         } else {
-            write("fail: comando invalido");
+            console.log("fail: comando invalido");
         }
     }
 }
 
-main()
+main();

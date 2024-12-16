@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.text.DecimalFormat;
 
-class Adapter {
+class Student {
 
     public static int count(List<Integer> vet, int value) {
         return 0;
@@ -35,35 +35,35 @@ class Adapter {
 public class Shell {
     public static void main(String[] _args) {
         while (true) {
-            System.out.print("$");
-            String line = input();
-            write(line); // Test only
+            String line = scanner.nextLine();
+            System.out.println("$" + line);
             
-            String[] args = line.split(" ");
+            var args = line.split(" ");
+            var cmd = args[0];
             
-            if ("end".equals(args[0])) {
+            if (cmd.equals("end")) {
                 break;
             } else if (args[0].equals("count")) {
-                int result = Adapter.count(strToVet(args[1]), number(args[2]));
-                write("" + result);
+                int result = Student.count(strToVet(args[1]), Integer.parseInt(args[2]));
+                System.out.println("" + result);
             } else if (args[0].equals("half_compare")) {
-                String result = Adapter.halfCompare(strToVet(args[1]));
-                write(result);
+                String result = Student.halfCompare(strToVet(args[1]));
+                System.out.println(result);
             } else if (args[0].equals("sex_battle")) {
-                String result = Adapter.sexBattle(strToVet(args[1]));
-                write(result);
+                String result = Student.sexBattle(strToVet(args[1]));
+                System.out.println(result);
             } else if (args[0].equals("sum")) {
-                int result = Adapter.sum(strToVet(args[1]));
-                write("" + result);
+                int result = Student.sum(strToVet(args[1]));
+                System.out.println("" + result);
             } else if (args[0].equals("average")) {
                 DecimalFormat df = new DecimalFormat("0.00");
-                String result = df.format(Adapter.average(strToVet(args[1])));
-                write(result);
+                String result = df.format(Student.average(strToVet(args[1])));
+                System.out.println(result);
             } else if (args[0].equals("more_men")) {
-                String result = Adapter.moreMen(strToVet(args[1]));
-                write(result);
+                String result = Student.moreMen(strToVet(args[1]));
+                System.out.println(result);
             } else {
-                write("fail: comando invalido");
+                System.out.println("fail: comando invalido");
             }
         }
     }
@@ -79,8 +79,4 @@ public class Shell {
     }
 
     static Scanner scanner = new Scanner(System.in);
-    public static String input()           { return scanner.nextLine();    }
-    public static void write(String value) { System.out.println(value);    }
-    public static void write(char value)   { System.out.print(value);      }
-    public static int number(String str)   { return Integer.parseInt(str); }
 }

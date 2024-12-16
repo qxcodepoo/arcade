@@ -33,68 +33,10 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
 
 ![diagrama](diagrama.png)
 
-<!--
-### Parte 1: Reservar Cadeira
-
-- **Passo 1:** Crie a classe `Client` com os atributos `id` e `fone`. Lembre de implementar os gets e os sets. Crie também o método toString. Exemplo de retorno: `joao:3131`.
-
-- **Passo 2:** Crie a classe `Sala` com o atributo `cadeiras`, um array de cadeiras que pode conter objetos `Client` ou ser nulo. Ao inicializar o array de cadeiras no construtor, todas as posições devem ser nulas.
-
-- **Passo 3:** Implemente o método `toString(): string` na classe `Sala`:
-  - Percorra o array de cadeiras.
-  - Para cada cadeira ocupada, adicione a representação do cliente à string resultante.
-  - Para cadeiras vazias, adicione '-' à string resultante.
-  - Exemplo: `[davi:3232 - - joao:3131]`
-
-- **Passo 4:** Implemente o método `procurar(nome: string): number` na classe `Sala`:
-  - Percorra o array de cadeiras.
-  - Se encontrar uma cadeira ocupada com o ID fornecido, retorne o índice da cadeira.
-  - Se não encontrar, retorne -1.
-
-- **Passo 5:** Implemente o método `verificarIndice(indice: number): boolean` na classe `Sala`:
-  - Verifique se o índice fornecido está dentro dos limites do array de cadeiras.
-  - Retorne true se estiver dentro dos limites, caso contrário, retorne false.
-
-- **Passo 6:** Implemente o método `reservar(id: string, fone: number, ind: number): boolean` na classe `Sala`:
-  - Verifique se o índice da cadeira fornecido é válido. Se não for, emita a mensagem de erro `fail: cadeira nao existe`.
-  - Verifique se a cadeira está vazia. Se não estiver, emita a mensagem de erro `fail: cadeira ja esta ocupada`.
-  - Verifique se o cliente já está na sala. Se estiver, emita a mensagem de erro `fail: cliente ja esta no cinema`.
-  - Se todas as verificações passarem, crie um novo objeto `Client` e insira na cadeira.
-  - Retorne true se a reserva for bem-sucedida, caso contrário, retorne false.
-
-- **Passo 7:** Implemente o método `cancelar(id: string): void` na classe `Sala`:
-  - Verifique se o cliente está na sala. Se não estiver, emita a mensagem de erro `fail: cliente nao esta no cinema`.
-  - Se estiver, remova o cliente da cadeira.
-
-- **Passo 8:** Crie um objeto `sala` e verifique se está vazia.
-
-- **Passo 9:** Reserva uma cadeira para um cliente usando o método `reservar(id, fone, ind)`.
-
-- **Passo 10:** Verifique se a cadeira foi reservada corretamente.
-
-### Parte 2: Cancelar Reserva de Cadeira
-
-- **Passo 1:** Tente cancelar a reserva de uma cadeira usando o método `cancelar(id)`.
-
-- **Passo 2:** Verifique se a reserva foi cancelada corretamente.
-
-### Parte 3: Consultar Estado das Cadeiras
-
-- **Passo 1:** Chame o método `toString()` da sala para obter uma representação do estado atual das cadeiras.
-
-- **Passo 2:** Verifique se a representação das cadeiras está correta.
-
-### Integração com a Classe Adapter
-
-- **Passo 1:** Utilize a classe `Adapter` para integrar os métodos de reserva, cancelamento e consulta de cadeiras na sala de cinema.
-
--->
-
 ## Draft
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)

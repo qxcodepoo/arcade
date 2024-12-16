@@ -21,7 +21,6 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
@@ -33,51 +32,6 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ![diagrama](diagrama.png)
 
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-left to right direction
-
-class Kid {
-  - age : number
-  - name: string
-  __
-  + Kid(name: string, age: number)
-  + toString(): string
-  __
-  + getAge()    : number
-  + getName()   : string
-  + setAge (age : number): void
-  + setName(name: string): void
-}
-
-class Trampoline {
-  - playing: List<Kid>
-  - waiting: List<Kid>
-  __
-  - {static} removeFromList(name: string, list: List<Kid>): Kid | null
-  __
-  + Trampoline()
-  + toString(): string
-  __
-  + arrive(kid: Kid): void
-  + enter()         : void
-  + leave()         : void
-  + removeKid(name: string): Kid | null
-}
-
-
-Trampoline "1" o--  "0..*" Kid : > stores
-@enduml
-```
-
-<!-- load -->
-
-***
 
 ## Shell
 
@@ -132,10 +86,12 @@ $show
 $arrive mario 5
 $show
 [mario:5] => []
+
 #TEST_CASE empty enter
 $enter
 $show
 [] => [mario:5]
+
 #TEST_CASE empty leave
 $leave
 $show
@@ -143,12 +99,16 @@ $show
 $leave
 $show
 [mario:5] => []
+
 #TEST_CASE remove from waiting
 $remove mario
 $show
 [] => []
+
 #TEST_CASE remove empty
 $remove rebeca
+fail: rebeca nao esta no pula-pula
+
 $show
 [] => []
 $end

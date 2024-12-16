@@ -37,7 +37,6 @@
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)

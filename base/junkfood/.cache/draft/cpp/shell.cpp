@@ -1,38 +1,58 @@
-#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <iomanip>
+using namespace std;
+
+template<typename CONTAINER, typename FUNC>
+string map_join(const CONTAINER& cont, FUNC func, string delim) {
+    stringstream ss;
+    for (auto it = cont.begin(); it != cont.end(); it++) {
+        ss << (it == cont.begin() ? "" : delim);
+        ss << func(*it);
+    }
+    return ss.str();
+}
 
 
 int main() {
     while (true) {
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write("$" + line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
+
+        stringstream ss(line);
+        ss >> cmd;
 
         try {
-            if (args[0] == "show") {
+            if (cmd == "show") {
                 // IMPRIMIR
-            } else if (args[0] == "init") {
-                // int n_espirais = +args[1];
-            } else if (args[0] == "limpar") {
-                // int indice = +args[1];
-            } else if (args[0] == "dinheiro") {
-                // int value = +args[1];
-            } else if (args[0] == "comprar") {
-                // int index = +args[1];
-            } else if (args[0] == "set") {
-                // int index = +args[1];
-                // std::string name = args[2];
-                // int qtd = +args[3];
-                // double price = +args[4];
-            } else if (args[0] == "troco") {
-                // double troco = machine.pedirTroco();
-                // fn::print("voce recebeu {%.2f} RS\n", troco); 
-            } else if (args[0] == "end") {
+            } else if (cmd == "init") {
+                // int n_espirais {};
+                // ss >> n_espirais;
+            } else if (cmd == "limpar") {
+                // int indice {};
+                // ss >> indice;
+            } else if (cmd == "dinheiro") {
+                // int value {};
+                // ss >> value;
+            } else if (cmd == "comprar") {
+                // int index {};
+                // ss >> index;
+            } else if (cmd == "set") {
+                // int index {};
+                // string name;
+                // int qtd {};
+                // double price {};
+                // ss >> index >> name >> qtd >> price;
+            } else if (cmd == "troco") {
+            } else if (cmd == "end") {
                 break;
             } else {
-                fn::write("comando invalido");
+                cout << "comando invalido" << endl;
             }
         } catch (const char* e) {
-            fn::write(e);
+            cout << e << endl;
         }
     }
 }

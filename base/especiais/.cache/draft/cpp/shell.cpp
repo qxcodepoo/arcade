@@ -1,73 +1,120 @@
 #include <map>
 #include <algorithm>
-#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
+#include <vector>
+#include <sstream>
+#include <iostream>
 
-using namespace fn;
+using namespace std;
 
-std::vector<std::pair<int, int>> occurr(std::vector<int> vet) {
+vector<pair<int, int>> occurr(vector<int> vet) {
     (void) vet;
     return {};
 }
 
-std::vector<std::pair<int, int>> teams(std::vector<int> vet) {
+vector<pair<int, int>> teams(vector<int> vet) {
     (void) vet;
     return {};
 }
 
-std::vector<int> mnext(std::vector<int> vet) {
+vector<int> mnext(vector<int> vet) {
     (void) vet;
     return {};
 }
 
-std::vector<int> alone(std::vector<int> vet) {
+vector<int> alone(vector<int> vet) {
     (void) vet;
     return {};
 }
 
-int couple(std::vector<int> vet) {
+int couple(vector<int> vet) {
     (void) vet;
     return {};
 }
 
-bool has_subseq(std::vector<int> vet, std::vector<int> seq, int pos) {
+bool has_subseq(vector<int> vet, vector<int> seq, int pos) {
     (void) vet;
     (void) seq;
     (void) pos;
     return {};
 }
 
-int subseq(std::vector<int> vet, std::vector<int> seq) {
+int subseq(vector<int> vet, vector<int> seq) {
     (void) vet;
     (void) seq;
     return {};
 }
 
-std::vector<int> erase(std::vector<int> vet, std::vector<int> pos_list) {
+vector<int> erase(vector<int> vet, vector<int> pos_list) {
     (void) vet;
     (void) pos_list;
     return {};
 }
 
-std::vector<int> clear(std::vector<int> vet, int value) {
+vector<int> clear(vector<int> vet, int value) {
     (void) vet;
     (void) value;
     return {};
 }
 
+
+vector<string> split(string str, char delim) {
+    vector<string> tokens;
+    stringstream ss(str);
+    string token;
+    while (getline(ss, token, delim))
+        tokens.push_back(token);
+    return tokens;
+}
+
+vector<int> str2vet(string str) {
+    vector<int> vet;
+    stringstream ss(str.substr(1, str.size() - 2));
+    string token;
+    while (getline(ss, token, ','))
+        vet.push_back(stoi(token));
+    return vet;
+}
+
+void write(vector<pair<int, int>> output) {
+    cout << "[";
+    for (int i = 0; i < (int) output.size(); i++) {
+        cout << "(" << output[i].first << ", " << output[i].second << ")";
+        if (i != (int) output.size() - 1)
+            cout << ", ";
+    }
+    cout << "]" << endl;
+}
+void write(vector<int> output) {
+    cout << "[";
+    for (int i = 0; i < (int) output.size(); i++) {
+        cout << output[i];
+        if (i != (int) output.size() - 1)
+            cout << ", ";
+    }
+    cout << "]" << endl;
+}
+void write(string output) {
+    cout << output << endl;
+}
+void write(int output) {
+    cout << output << endl;
+}
+
 int main(){
-    auto str2vet = [](auto s) { return s | SLICE(1, -1) | JOIN() | SPLIT(',') | MAP([](auto x){return (int)+x;}); };    
+ 
     
     while(true) {
-        std::string line = input();
+        string line;
+        getline(cin, line);
+        cout << "$" << line << endl;
         auto args = split(line, ' ');
-        write('$' + line);
 
         if     (args[0] == "occurr" ) { write(occurr(str2vet(args[1])));                   }
         else if(args[0] == "teams"  ) { write(teams(str2vet(args[1])));                    }
         else if(args[0] == "mnext"  ) { write(mnext(str2vet(args[1])));                    }
         else if(args[0] == "alone"  ) { write(alone(str2vet(args[1])));                    }
         else if(args[0] == "erase"  ) { write(erase(str2vet(args[1]), str2vet(args[2])));  }
-        else if(args[0] == "clear"  ) { write(clear(str2vet(args[1]), (int)+args[2]));     }
+        else if(args[0] == "clear"  ) { write(clear(str2vet(args[1]), stoi(args[2])));     }
         else if(args[0] == "subseq" ) { write(subseq(str2vet(args[1]), str2vet(args[2]))); }
         else if(args[0] == "couple" ) { write(couple(str2vet(args[1])));                   }
         else if(args[0] == "end"    ) { break;                                             }

@@ -2,7 +2,7 @@
 
 Padrões de projeto são soluções para problemas comuns que encontramos ao projetar um sistema. Eles são como receitas de bolo que podemos aplicar em nossos projetos para resolver problemas recorrentes. Os padrões de projeto são divididos em três categorias: padrões de criação, padrões estruturais e padrões comportamentais.
 
-Vamos trabalhar os conceitos de dois padrões de projeto: Composite e Decorator, e adicionar o conceito de uma classe de controle usando o padrão Adapter.
+Vamos trabalhar os conceitos de dois padrões de projeto: Composite e Decorator.
 
 ## Composite
 
@@ -73,19 +73,6 @@ Serve para gerenciar a criação e manipulação dos produtos.
   - `addBundle(indexes: number[])`: Cria um novo pacote com base nos índices fornecidos e adiciona ao array.
   - `addDiscount(index: number, discount: number)`: Adiciona um desconto a um produto existente.
   - `toString()`: Retorna uma string com informações sobre todos os produtos no array.
-
-#### Classe Adapter
-
-Serve como uma classe de controle, gerenciando a criação e manipulação dos produtos.
-
-- **Atributos:**
-  - `manager`: Instância da classe `Manager`.
-- **Métodos:**
-  - `constructor()`: Inicializa a instância de `Manager`.
-  - `addProduct(label: string, price: number)`: Adiciona um novo produto ao manager.
-  - `addBundle(indexes: number[])`: Adiciona um novo pacote ao manager.
-  - `addDiscount(index: number, discount: number)`: Adiciona um desconto a um produto no manager.
-  - `toString()`: Retorna uma string com a representação de todos os produtos no manager.
 
 ## Guide
 

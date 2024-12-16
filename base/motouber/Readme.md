@@ -52,7 +52,7 @@ Cost: 10, Driver: Tobias:50, Passenger: Ana:20
 
 #TEST_CASE descer passageiro
 $leavePass
-Ana:10 leave
+Ana:10 left
 
 $show
 Cost: 0, Driver: Tobias:60, Passenger: None
@@ -88,7 +88,7 @@ Cost: 30, Driver: Tobias:20, Passenger: Ana:10
 
 $leavePass
 fail: Passenger does not have enough money
-Ana:0 leave
+Ana:0 left
 
 $show
 Cost: 0, Driver: Tobias:50, Passenger: None

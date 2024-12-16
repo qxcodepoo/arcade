@@ -1,49 +1,29 @@
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+function input() { return ""; }
 export {};
 
 
-
-class Adapter {
-    // trampoline: Trampoline = new Trampoline();
-    arrive(name: string, weight: number): void {
-        // this.trampoline.arrive(new Kid(name, weight));
-    }
-
-    enter(): void {
-        // this.trampoline.enter();
-    }
-
-    leave(): void {
-        // this.trampoline.leave();
-    }
-
-    remove(name: string): void {
-        // this.trampoline.removeKid(name);
-    }
-
-    show(): void {
-        // console.log(this.trampoline.toString());
-    }
-}
-
 function main() {
-    let adp = new Adapter();
 
     while (true) {
-        write("$", "");
-        let line = input();
-        write(line);
-        let args = line.split(" ");
+        const line = input();
+        console.log("$" + line);
 
-        if      (args[0] == "end"   ) { break                                   }
-        else if (args[0] == "show"  ) { adp.show();                             }
-        else if (args[0] == "arrive") { adp.arrive(args[1], +args[2]);          }
-        else if (args[0] == "enter" ) { adp.enter();                            }
-        else if (args[0] == "leave" ) { adp.leave();                            }
-        else if (args[0] == "remove") { adp.remove(args[1]);                    }
-        else                          { write("fail: comando invalido");        }
+        const par = line.split(" ");
+        const cmd = par[0];
+
+        if (cmd == "show") { //TODO
+        } else if (cmd == "arrive") {
+            // const name = par[1];
+            // const age = parseInt(par[2]);
+        } else if (cmd == "enter") {
+        } else if (cmd == "leave") {
+        } else if (cmd == "remove") {
+            // const name = par[1];
+        } else if (cmd == "end") {
+            break;
+        } else {
+            console.log("fail: comando invalido");
+        }
     }
 }
 

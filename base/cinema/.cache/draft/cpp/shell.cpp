@@ -1,39 +1,44 @@
-#define __MEMORY
-#include "fn.hpp"
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <memory>
+using namespace std;
 
-class Adapter{
-public:
-    Adapter() {}
-    void init(int qtd) {
-        (void) qtd;
+template<class CONTAINER, class FUNC>
+string map_join(const CONTAINER& c, FUNC f, string sep) {
+    stringstream ss;
+    for (auto it = c.begin(); it != c.end(); it++) {
+        ss << (it == c.begin() ? "" : sep);
+        ss << f(*it);
     }
-
-    void reserve(std::string id, std::string phone, int index) {
-        (void) id;
-        (void) phone;
-        (void) index;
-    }
-
-    void cancel(std::string id) {
-        (void) id;
-    }
-
-    void show() const {
-    }
-};
+    return ss.str();
+}
 
 int main() {
-    Adapter adp;
-    while (true) {
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write("$" + line);
 
-        if      (args[0] == "end")     { break;                                        } 
-        else if (args[0] == "show")    { adp.show();                                   } 
-        else if (args[0] == "init")    { adp.init(+args[1]);                           } 
-        else if (args[0] == "reserve") { adp.reserve(args[1], args[2], (int) +args[3]);}
-        else if (args[0] == "cancel")  { adp.cancel(args[1]);                          } 
-        else                           { fn::write("fail: comando invalido");          }
+    while (true) {
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
+
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "show") {
+        } else if (cmd == "init") {
+            // int qtd;
+            // ss >> qtd;
+        } else if (cmd == "reserve") {
+            // string id, phone;
+            // int index;
+            // ss >> id >> phone >> index;
+        } else if (cmd == "cancel") {
+            // string id;
+            // ss >> id;
+        } else if (cmd == "end") {
+            break;    
+        } else {
+            cout << "fail: comando invalido" << endl;
+        }
     }
 }

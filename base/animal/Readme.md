@@ -30,7 +30,7 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
   - Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:
     - Se for filhote, emite um "---".
     - Se estiver morto, emite um "RIP".
-    - Como não são mensagens de erro, o barulho do animal deve ser retornado no método `makeSound` e impresso no `Adapter`.
+    - Como não são mensagens de erro, o barulho do animal deve ser retornado no método `makeSound` e impresso na `main`.
 
 ## Guide
 

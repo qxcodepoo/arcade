@@ -1,54 +1,45 @@
-#define __LIST
-#define __MEMORY
-#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
+#include <iostream>
+#include <list>
+#include <sstream>
+#include <memory>
+using namespace std;
 
-
-struct Adapter {
-    // Lapiseira lapiseira;
-    void show() {
-        // std::cout << lapiseira << std::endl;
+// Função auxiliar para mapear e juntar elementos de um container
+template <typename CONTAINER, typename FUNC>
+auto map_join(const CONTAINER& c, FUNC f, const string& sep = ", ") {
+    stringstream ss;
+    for (auto it = c.begin(); it != c.end(); ++it) {
+        ss << (it != c.begin() ? sep : "");
+        ss << f(*it);
     }
-
-    void init(float calibre) {
-        (void) calibre;
-        // lapiseira = Lapiseira(calibre);
-    }
-
-    void insert(float calibre, std::string dureza, int tamanho) {
-        (void) calibre;
-        (void) dureza;
-        (void) tamanho;
-        // lapiseira.inserir(std::make_shared<Grafite>(calibre, dureza, tamanho));
-    }
-
-    void remove() {
-        // lapiseira.remover();
-    }
-
-    void pull() {
-        // lapiseira.puxar();
-    }
-
-    void write() {
-        // lapiseira.write();
-    }
-
-};
+    return ss.str();
+}
 
 int main() {
-    Adapter adp;
     while (true) {
-        auto line = fn::input();
-        auto args = fn::split(line, ' ');
-        fn::write("$" + line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
 
-        if (args[0] == "end") { break; }
-        else if (args[0] == "show") { adp.show(); }
-        else if (args[0] == "init") { adp.init((float) +args[1]); }
-        else if (args[0] == "insert") { adp.insert((float) +args[1], args[2], +args[3]); }
-        else if (args[0] == "remove") { adp.remove(); }
-        else if (args[0] == "pull") { adp.pull(); }
-        else if (args[0] == "write") { adp.write(); }
-        else { fn::write("fail: comando invalido"); }
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "show") { // TODO
+        } else if (cmd == "init") { // TODO
+            // float calibre;
+            // ss >> calibre;
+        } else if (cmd == "insert") { // TODO
+            // float calibre;
+            // string dureza;
+            // int tamanho;
+            // ss >> calibre >> dureza >> tamanho;
+        } else if (cmd == "remove") { // TODO
+        } else if (cmd == "pull") { // TODO
+        } else if (cmd == "write") { // TODO
+        } else if (cmd == "end") {
+            break;  
+        } else {
+            cout << "fail: comando invalido\n";
+        }
     }
 }

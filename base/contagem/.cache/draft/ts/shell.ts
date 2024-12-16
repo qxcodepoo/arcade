@@ -1,25 +1,46 @@
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+function input() { return ""; }
 export {};
 
-import { count, sum, average, more_men, half_compare, sex_battle } from "./student";
+function count(vet: number[], value: number): number {
+    return 0;
+}
+
+function sum(vet: number[]): number {
+    return 0;
+}
+
+function average(vet: number[]): number {
+    return 0;
+}
+
+function more_men(vet: number[]): string {
+    return "";
+}
+
+function half_compare(vet: number[]): string {
+    return "";
+}
+
+function sex_battle(vet: number[]): string {
+    return "";
+}
 
 function main() {
     while (true) {
-        write("$", "");
         let line = input();
-        write(line);
-        let args = line.split(" ");
+        console.log("$" + line);
 
-        if      (args[0] === "end")          { break;                                                       }
-        else if (args[0] === "count")        { write(count(to_vet(args[1]), +args[2]));                     }
-        else if (args[0] === "sum")          { write(sum(to_vet(args[1])));                                 }
-        else if (args[0] === "average")      { write(average(to_vet(args[1]))?.toFixed(2));                  }
-        else if (args[0] === "more_men")     { write(more_men(to_vet(args[1])));                            }
-        else if (args[0] === "half_compare") { write(half_compare(to_vet(args[1])));                    }
-        else if (args[0] === "sex_battle")   { write(sex_battle(to_vet(args[1])));                          }
-        else                                 { write("fail: comando invalido");                             }
+        let args = line.split(" ");
+        let cmd = args[0];
+
+        if      (cmd === "end")          { break;                                             }
+        else if (cmd === "count")        { console.log(count(to_vet(args[1]), +args[2]));     }
+        else if (cmd === "sum")          { console.log(sum(to_vet(args[1])));                 }
+        else if (cmd === "average")      { console.log(average(to_vet(args[1]))?.toFixed(2)); }
+        else if (cmd === "more_men")     { console.log(more_men(to_vet(args[1])));            }
+        else if (cmd === "half_compare") { console.log(half_compare(to_vet(args[1])));        }
+        else if (cmd === "sex_battle")   { console.log(sex_battle(to_vet(args[1])));          }
+        else                             { console.log("fail: comando invalido");             }
     }
 }
 

@@ -1,7 +1,7 @@
 # Lapiseira com múltiplos grafites
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -38,67 +38,9 @@ Faça o modelo de uma lapiseira que pode conter vários.
   - O último centímetro de um grafite não pode ser aproveitado, quando o grafite estiver com 10mm, não é mais possível escrever e o grafite deve ser retirado.
   - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
 
-***
-
-## Draft
-
-- [Solver.java](.cache/draft.java)
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
-
 ## Guide
 
 ![diagrama](diagrama.png)
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-
-@startuml
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-left to right direction
-
-' Grafite
-class Lead {
-    - hardness  : string
-    - thickness : number
-    - size      : number
-    __
-    + Lead(thickness: number, hardness: string, size: number)
-    __
-    + usagePerSheet(): number
-    + getSize()      : number
-    + getThickness() : number
-    + getHardness()  : string
-    __
-    + setSize(size : number)
-    __
-    + toString(): string
-}
-
-class Pencil {
-    - thickness: number
-    - tip      : Lead | null
-    - barrel   : Array<Lead>
-    __
-    + Pencil(thickness : number)
-    __
-    + insert(lead: Lead) : boolean
-    + remove()   : Lead | null
-    + pull()     : boolean
-    + writePage(): void
-    __
-    + toString() : string
-}
-
-Pencil "1" o--  "0..*" Lead : > Stores
-@enduml
-```
-
-<!-- load -->
-
-***
 
 ## Shell
 
@@ -132,24 +74,28 @@ calibre: 0.5, bico: [], tambor: <[0.5:2B:30]>
 $end
 ```
 
-***
+___
 
 ```bash
 #TEST_CASE escrevendo 
 $init 0.9
 $insert 0.9 4B 14
 $insert 0.9 4B 16
+
 #TEST_CASE sem grafite no bico
 $write
 fail: nao existe grafite no bico
+
 #TEST_CASE puxando grafite
 $pull
 $show
 calibre: 0.9, bico: [0.9:4B:14], tambor: <[0.9:4B:16]>
+
 #TEST_CASE gastando grafite
 $write
 $show
 calibre: 0.9, bico: [0.9:4B:10], tambor: <[0.9:4B:16]>
+
 #TEST_CASE puxando novo
 $remove
 $pull
@@ -158,13 +104,26 @@ calibre: 0.9, bico: [0.9:4B:16], tambor: <>
 $write
 $show
 calibre: 0.9, bico: [0.9:4B:12], tambor: <>
+
 #TEST_CASE folha incompleta
 $write
 fail: folha incompleta
 $show
 calibre: 0.9, bico: [0.9:4B:10], tambor: <>
+
 #TEST_CASE tamanho insuficiente
 $write
 fail: tamanho insuficiente
 $end
 ```
+
+## Draft
+
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->

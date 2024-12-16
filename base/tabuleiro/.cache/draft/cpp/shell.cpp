@@ -1,42 +1,35 @@
-#include "fn.hpp" // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
-
-struct Adapter {
-    // Board board;
-    Adapter() {}
-    void init(int n_players, int size) {
-        (void) n_players;
-        (void) size;
-        // this->board = Board(n_players, size);
-    }
-
-    void addTrap(int pos) {
-        (void) pos;
-        // this->board.addTrap(pos);
-    }
-
-    void roll(int value) {
-        (void) value;
-        // this->board.rollDice(value);
-    }
-
-    void show() {
-        // fn::write(this->board.toString());
-    }
-};
+#include <iostream>
+#include <vector>
+#include <sstream>
+using namespace std;
 
 int main() {
-    Adapter board;
 
     while(true) {
-        auto line = fn::input();
-        fn::write("$" + line);
-        auto args = fn::split(line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
 
-        if      (args[0] == "end"    ) { break;                                 }
-        else if (args[0] == "init"   ) { board.init(+args[1], +args[2]);        }
-        else if (args[0] == "addTrap") { board.addTrap(+args[1]);               }
-        else if (args[0] == "roll"   ) { board.roll(+args[1]);                  }
-        else if (args[0] == "show"   ) { board.show();                          }
-        else                           { fn::write("fail: command not found");  }
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "init") {
+            // int nPlayers, size;
+            // ss >> nPlayers >> size;
+            // board = Board(nPlayers, size);
+        } else if (cmd == "addTrap") {
+            // int pos;
+            // ss >> pos;
+            // board.addTrap(pos);
+        } else if (cmd == "roll") {
+            // int value;
+            // ss >> value;
+        } else if (cmd == "show") {
+        } else if (cmd == "end") {
+            break;
+        } else {
+            cout << "fail: command not found" << endl;
+        }
+
     }
 }

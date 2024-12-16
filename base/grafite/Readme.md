@@ -25,7 +25,7 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
   - Se não houver grafite suficiente para terminar a escrita na folha, é emitido um aviso de texto incompleto.
 
 - Responsabilidades
-  - A classe `Lead` é responsável por armazenar as informações do grafite.
+  - A classe Grafite `Lead` é responsável por armazenar as informações do grafite.
     - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
     - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
     - O método `usagePerSheet` retorna a quantidade de grafite gasto por folha.
@@ -59,18 +59,14 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
 ![diagrama](diagrama.png)
 
 - Parte 1: Inserir
-  - Crie a classe `Grafite` com o atributo `size`.
-  - Crie a classe `Lapiseira` com o atributo `tip` inicializado como `null`.
-  - Implemente o método `hasGrafite` que retorna `true` se houver grafite na lapiseira.
-  - Implemente o método `insert` que insere um grafite na lapiseira, se não houver grafite.
+  - Crie a classe Grafite `Lead` com o atributo tamanho `size`.
+  - Crie a classe Lapiseira `Pencil` com o atributo ponta `tip` inicializado como `null`.
+  - Implemente o método tem grafite `hasGrafite` que retorna `true` se houver grafite na lapiseira.
+  - Implemente o método inserir `insert` que insere um grafite na lapiseira, se não houver grafite.
   - Implemente o método `toString` que mostra a lapiseira e o grafite presente.
-  - Crie um objeto `lapiseira` e verifique se está vazia.
-  - Crie um objeto `grafite` e insira na lapiseira.
-  - Verifique se a lapiseira possui o grafite inserido.
 
 - Parte 2: Remover Grafite
   - Implemente o método `remove` que retira o grafite da lapiseira, se houver.
-  - Verifique se o grafite foi removido corretamente.
   - Verifique se o método `remove` retorna o grafite removido ou `null` se não havia grafite.
 
 - Parte 3: Escrever na Folha
@@ -179,7 +175,6 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)

@@ -1,32 +1,32 @@
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+function input() { return ""; }
+export {};
 
 
 function main() {
     while (true) {
         let line = input();
+        console.log("$" + line);
+        
         let args = line.split(" ");
-        let action = args[0];
-        write("$" + line);
+        let cmd = args[0];
 
-        if (action == "show") {
-        } else if (action == "init") {
+        if (cmd == "show") {
+        } else if (cmd == "init") {
             // let qtd_espirais = parseInt(args[1]);
-        } else if (action == "limpar") {
+        } else if (cmd == "limpar") {
             // let indice = parseInt(args[1]);
-        } else if (action == "dinheiro") {
+        } else if (cmd == "dinheiro") {
             // let value = parseFloat(args[1]);
-        } else if (action == "comprar") {
+        } else if (cmd == "comprar") {
             // let ind = parseInt(args[1]);
-        } else if (action == "set") {
+        } else if (cmd == "set") {
             // let indice = parseInt(args[1]);
             // let nome = args[2];
             // let qtd = parseInt(args[3]);
             // let preco = parseFloat(args[4]);
-        } else if (action == "troco") {
+        } else if (cmd == "troco") {
             // let troco = machine.pedirTroco();
-        } else if (action == "end") {
+        } else if (cmd == "end") {
             break;
         } else {
             console.log("comando invalido");

@@ -20,8 +20,14 @@
 
 ## Draft
 
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->
 
 ## Shell
 

@@ -1,46 +1,44 @@
-#define __MEMORY
-#define __LIST
-#include "fn.hpp"
-class Adapter {
-    // Trampoline tr;
-public:
-    void init() {
-        // tr = Trampoline();
+#include <iostream>
+#include <memory>
+#include <sstream>
+#include <list>
+using namespace std;
+
+template<class CONTAINER, class FUNC>
+string map_join(const CONTAINER& c, FUNC f, string sep) {
+    stringstream ss;
+    for (auto it = c.begin(); it != c.end(); it++) {
+        ss << (it == c.begin() ? "" : sep);
+        ss << f(*it);
     }
-    void arrive(std::string name, int age) {
-        (void) age;
-        (void) name;
-        // tr.arrive(std::make_shared<Kid>(name, age));
-    }
-    void enter() {
-        // tr.enter();
-    }
-    void leave() {
-        // tr.leave();
-    }
-    void remove(std::string name) {
-        (void) name;
-        // tr.removeKid(name);
-    }
-    void show() {
-        // fn::write(tr);
-    }
-};
+    return ss.str();
+}
+
 
 int main() {
-    Adapter adp;
 
     while (true) {
-        auto line = fn::input();
-        fn::write("$" + line);
-        auto args = fn::split(line);
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << endl;
 
-        if      (args[0] == "end"   ) { break;                               }
-        else if (args[0] == "arrive") { adp.arrive(args[1], (int) +args[2]); }
-        else if (args[0] == "enter" ) { adp.enter();                         }
-        else if (args[0] == "leave" ) { adp.leave();                         }
-        else if (args[0] == "remove") { adp.remove(args[1]);                 }
-        else if (args[0] == "show"  ) { adp.show();                          }
-        else                          { fn::write("fail: invalid command");  }
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "show") {
+        } else if (cmd == "arrive") {
+            // string name;
+            // int age;
+            // ss >> name >> age;
+        } else if (cmd == "enter") {
+        } else if (cmd == "leave") {
+        } else if (cmd == "remove") {
+            // string name;
+            // ss >> name;
+        } else if (cmd == "end") {
+            break;
+        } else {
+            cout << "fail: comando invalido" << endl;
+        }
     }
 }
