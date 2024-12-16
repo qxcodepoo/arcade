@@ -9,12 +9,19 @@
 
 ## Intro
 
-Este é um projeto de modelagem e implementação de um mercantil, que simula o funcionamento de caixas de atendimento e uma fila de espera. Para isso, serão implementadas duas classes principais: `Cliente` e `Mercantil`.
+Este é um projeto de modelagem e implementação de um mercantil, que simula o funcionamento de caixas de atendimento e uma fila de espera. Para isso, serão implementadas duas classes principais: Pessoa `Person` e Mercado `Market`.
 
-- A classe `Mercantil` representa o estabelecimento, com atributos como caixas de atendimento e uma fila de espera de clientes.
-- Os caixas são modelados como um vetor de clientes de tamanho fixo. Uma posição do caixa terá o valor `null` para indicar que o caixa está vazio ou terá um objeto cliente.
-- A fila de espera é uma lista de clientes de tamanho variável. Todo cliente que chega é inserido no final da fila.
-- As operações principais incluem chegar, chamar no caixa e finalizar atendimento.
+- A classe `Market` representa o estabelecimento, com atributos como caixas de atendimento `counters` e uma fila de espera de clientes `wainting`.
+- Os caixas `counters` são modelados como um vetor de clientes de tamanho fixo. Uma posição do caixa terá o valor `null` para indicar que o caixa está vazio ou terá um objeto cliente.
+  - typescript: `counters: (Person | null)[]`
+  - java: `ArrayList<Person> counters`
+  - cpp: `vector<Person*> counters`
+- A fila de espera `queue` é uma lista de clientes de tamanho variável. Todo cliente que chega é inserido no final da fila. Todo cliente que é chamado para um caixa é removido do início da fila.
+  - typescript: `waiting: Person[]`
+  - java: `LinkedList<Person> waiting`
+  - cpp: `list<Person*> waiting`
+- As operações principais incluem chegar cliente `arrive`, chamar no caixa `call` e finalizar atendimento `finish`.
+- As operações "bônus" são furar fila `cutInLine` e abandonar fila de espera `giveup`.
 
 ### Comandos
 
@@ -42,7 +49,7 @@ Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma
 
 #### Construtor
 
-- Implemente o construtor da classe `Mercantil`, que recebe a quantidade de caixas como parâmetro.
+- Implemente o construtor da classe `Market`, que recebe a quantidade de caixas como parâmetro.
 - Inicialize os atributos da classe, incluindo o vetor de caixas e a fila de espera.
 - Preencha o vetor de caixas com `null` para indicar que todos os caixas estão vazios.
 
@@ -63,18 +70,18 @@ Espera: [carla, maria, rubia]
 
 ### Parte 3: Chegar
 
-- Na classe `Mercantil`, crie o método `chegar(pessoa: Pessoa): void` que permite que uma pessoa chegue na fila de espera.
+- Na classe `Market`, crie o método `arrive(person: Person): void` que permite que uma pessoa chegue na fila de espera.
 - Adicione a pessoa ao final da fila de espera.
 
 ### Parte 4: Chamar Cliente
 
-- Na classe `Mercantil`, crie o método `chamar(index: number): void` que permite chamar o primeiro cliente da lista de espera para ser atendido em um caixa específico.
+- Na classe `Market`, crie o método `call(index: number): void` que permite chamar o primeiro cliente da lista de espera para ser atendido em um caixa específico.
 - Se não houver ninguém na fila de espera, emita a mensagem de erro "fail: sem clientes".
 - Se o caixa estiver ocupado, imprima a mensagem de erro "fail: caixa ocupado".
 
 ### Parte 5: Finalizar Atendimento
 
-- Na classe `Mercantil`, crie o método `finalizar(index: number): Pessoa | null` que permite finalizar o atendimento de um cliente em um caixa específico.
+- Na classe `Market`, crie o método `finish(index: number): Pessoa | null` que permite finalizar o atendimento de um cliente em um caixa específico.
 - Verifique se o índice do caixa é válido e, se não for, emita a mensagem de erro `fail: caixa inexistente`.
 - Verifique se há alguém sendo atendido no caixa. Se não houver, emita a mensagem de erro `fail: caixa vazio`.
 - Retorne o cliente que foi atendido e libere o caixa, definindo-o como null.
@@ -82,8 +89,6 @@ Espera: [carla, maria, rubia]
 ## Answers
 
 [![_](../../wiki/images/resolucao.png)](https://youtu.be/Z7karsbg1ok)
-
-***
 
 ## Shell
 
@@ -186,7 +191,6 @@ $end
 
 <!-- links .cache/draft -->
 - cpp
-  - [fn.hpp](.cache/draft/cpp/fn.hpp)
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)

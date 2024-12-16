@@ -1,35 +1,34 @@
-
 @startuml
 
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 left to right direction
 
-class Pessoa {
-  - nome : string
+class Person {
+  - name : string
   __
-  + Pessoa(nome : string)
-  + toString()  : string
+  + Person(name : string)
+  + toString() : string
   __
-  + getNome()    : string
-  + setNome(nome : string): void
+  + getName() : string
+  + setName(name : string): void
 }
 
-class Mercantil {
-  - caixas : Array<Pessoa | null>
-  - espera : List <Pessoa>
+class Market {
+  - counters : Array <Person | null>
+  - waiting  : Array <Person>
   __
-  - validarIndice(indice: int): boolean
+  - validateIndex(index: number): boolean
   __
-  + Mercantil(qtdCaixas: int)
+  + Market(counterCount: number)
   + toString(): string
   __
-  + chegar   (pessoa : Pessoa): void
-  + chamar   (indice : int)   : boolean
-  + finalizar(indice : int)   : Pessoa | null
-  + furarFila(furao: Pessoa, besta: string): boolean
-  + desistir (desistente: string): boolean
+  + arrive (person: Person): void
+  + call   (index : number): boolean
+  + finish (index : number): Person | null
+  + cutInLine(sneaky: Person, fool: string): boolean
+  + giveUp (quitter: string): Person | null
 }
 
-Pessoa "0..*" --o  "1" Mercantil
+Person "0..*" --o "1" Market
 @enduml
