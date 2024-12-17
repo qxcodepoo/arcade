@@ -40,85 +40,39 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
 
 ![_](diagrama.png)
 
-<!-- load diagrama.puml fenced=java:filter -->
+Você pode controlar o alinhamento e preenchimento com "_" que o método `toString()` deve retornar assim.
 
-```java
-
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-
-abstract class Veiculo {
-  - id : string
-  # tipo : string
-  # horaEntrada : number
-
-  ' tipo será definido na classe filha
-  ' id será o nome do dono da bike ou a placa do carro/moto
-  + Veiculo(id : string, tipo : string)
-
-  + setEntrada(horaEntrada : number) : void
-  + getEntrada() : number
-
-  + getTipo() : string
-  + getId() : string
-
-  ' mostra o valor a ser pago
-  + abstract calcularValor(horaSaida: number): void
-
-  ' retornar {tipo} : {id} : {horaEntrada}
-  ' alinhado   10      10
-  + toString() : string
+```cpp
+//cpp
+virtual string toString() const {
+    stringstream ss;
+    ss << setw(10) << setfill('_') <<  tipo << " : " << setw(10) << setfill('_') << id << " : " << entrada;
+    return ss.str();
 }
-
-class Bike extends Veiculo {
-  + Bike(id : string)
-  + calcularValor(horaSaida : number) : void
-}
-
-class Moto extends Veiculo {
-  + Moto(id : string)
-  + calcularValor(horaSaida : number) : void
-}
-
-class Carro extends Veiculo {
-  + Carro(id : string)
-  + calcularValor(horaSaida : number) : void
-}
-
-class Estacionamento {
-  - veiculos : Veiculo[]
-  - horaAtual : number
-
-  + Estacionamento()
-
-  ' retorna -1 se não encontrar ou o indice do veiculo no array
-  - procurarVeiculo(id : string) : number
-
-  ' estaciona o veiculo no array, salva a hora de entrada
-  + estacionar(veiculo : Veiculo) : void
-
-  ' procurar o veiculo no array, calcular o valor para pagar
-  + pagar(id : string) : void
-
-  ' procurar o veiculo no array e o remove
-  + sair(id : string) : void
-
-  ' incrementa a hora atual
-  + passarTempo(tempo : number) : void
-
-  ' mostra a lista de veículos na ordem que foram estacionados
-  + toString() : string
-}
-
-
-Estacionamento "1" o-- "0..*" Veiculo
-
-@enduml
 ```
 
-<!-- load -->
+```java
+//java
+//Em java não existe método de alinhamento que permite escolher o caracter de preenchimento
+//Então vamos fazer uma adaptação
+public String toString() {
+    return String.format(
+        "%10s-:-%10s-:-%s", //alinhar a direita 10 caracteres inserindo espaços
+        this.tipo,
+        this.id,
+        this.horaEntrada
+    )
+        .replace(' ', '_') //substituir espaço por underline
+        .replace('-', ' '); //substituir hífen por espaço
+}
+```
+
+```ts
+//ts
+toString(): string {
+    return this.tipo.padStart(10, "_") + " : " + this.id.padStart(10, "_") + " : " + this.entrada;
+}
+```
 
 ## Shell
 
@@ -173,10 +127,10 @@ $end
 ## Draft
 
 <!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Adapter.java](.cache/draft/java/Adapter.java)
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts
   - [shell.ts](.cache/draft/ts/shell.ts)
-  - [student.ts](.cache/draft/ts/student.ts)
 <!-- links -->
