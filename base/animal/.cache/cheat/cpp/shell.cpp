@@ -46,21 +46,26 @@ int main () {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "init" ) {
+        if (cmd == "end") {
+            break;
+        }
+        else if (cmd == "init" ) {
             string species, sound;
             ss >> species >> sound;
             animal = Animal(species, sound);
-        } else if (cmd == "grow" ) {
+        } 
+        else if (cmd == "show" ) {
+            cout << animal.str() << '\n';
+        } 
+        else if (cmd == "grow" ) {
             int increment {};
             ss >> increment;
             animal.ageBy(increment);
-        } else if (cmd == "noise") {
+        } 
+        else if (cmd == "noise") {
             cout << animal.makeSound() << '\n';
-        } else if (cmd == "show" ) {
-            cout << animal.str() << '\n';
-        } else if (cmd == "end") {
-            break;
-        } else {
+        } 
+        else {
             cout << "fail: comando invalido\n";
         }
     }

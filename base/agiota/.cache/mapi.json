@@ -10,5 +10,27 @@
     ],
     "keep": [],
     "required": [],
-    "draft": {}
+    "draft": {
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n\n    while (true) {\n        const line = input(); // Assume input() is defined elsewhere\n        console.log(`$${line}`);\n\n        const parts = line.split(\" \");\n        const cmd = parts[0];\n\n        if (cmd === \"end\") {\n            break;\n        } else if (cmd === \"show\") {\n        } else if (cmd === \"addCli\") {\n            // const name = parts[1];\n            // const limite = parseInt(parts[2]);\n        } else if (cmd === \"showCli\") {\n            // const name = parts[1];\n        } else if (cmd === \"kill\") {\n            // const name = parts[1];\n        } else if (cmd === \"give\") {\n            // const name = parts[1];\n            // const value = parseInt(parts[2]);\n        } else if (cmd === \"take\") {\n            // const name = parts[1];\n            // const value = parseInt(parts[2]);\n        } else if (cmd === \"plus\") {\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
+                "encoding": 0
+            }
+        ],
+        "java": [
+            {
+                "name": "Shell.java",
+                "contents": "import java.util.*;\n\npublic class Shell {\n    static Scanner scanner = new Scanner(System.in);\n    public static void main(String[] args) {\n        Agiota agiota = new Agiota();\n\n        while (true) {\n            String line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n\n            String[] parts = line.split(\" \");\n            String cmd = parts[0];\n\n            if (cmd.equals(\"end\")) {\n                break;\n            }\n            else if (cmd.equals(\"show\")) {\n            }\n            else if (cmd.equals(\"addCli\")) {\n                // String name = parts[1];\n                // int limite = Integer.parseInt(parts[2]);\n            }\n            else if (cmd.equals(\"showCli\")) {\n                // String name = parts[1];\n            }\n            else if (cmd.equals(\"kill\")) {\n                // String name = parts[1];\n            }\n            else if (cmd.equals(\"give\")) {\n                // String name = parts[1];\n                // int value = Integer.parseInt(parts[2]);\n            }\n            else if (cmd.equals(\"take\")) {\n                // String name = parts[1];\n                // int value = Integer.parseInt(parts[2]);\n            }\n            else if (cmd.equals(\"plus\")) {\n            }\n            else {\n                System.out.println(\"fail: comando invalido\");\n            }\n        }\n    }\n}\n",
+                "encoding": 0
+            }
+        ],
+        "cpp": [
+            {
+                "name": "shell.cpp",
+                "contents": "#include <sstream>\n#include <iostream>\nusing namespace std;\n\ntemplate <typename CONTAINER, typename FN>\nstring map_join(const CONTAINER& container, FN fn, string sep = \", \") {\n    stringstream ss;\n    for (auto it = container.begin(); it != container.end(); ++it) {\n        ss << (it != container.begin() ? sep : \"\") << fn(*it);\n    }\n    return ss.str();\n}\n\nint main() {\n    while(true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if(cmd == \"end\") {\n            break;\n        }\n        else if(cmd == \"addCli\") {\n            // string name;\n            // int limite {};\n            // ss >> name >> limite;\n        }\n        else if(cmd == \"show\") {\n        }\n        else if(cmd == \"showCli\") {\n            // string name;\n            // ss >> name;\n        }\n        else if(cmd == \"kill\") {\n            // string name;\n            // ss >> name;\n        }\n        else if(cmd == \"give\") {\n            // string name;\n            // int value;\n            // ss >> name >> value;\n        }\n        else if(cmd == \"take\") {\n            // string name;\n            // int value;\n            // ss >> name >> value;\n        }\n        else if(cmd == \"plus\") {\n        }\n        else {\n            cout << \"fail: comando invalido\\n\";\n        }\n    }\n}\n",
+                "encoding": 0
+            }
+        ]
+    }
 }

@@ -13,21 +13,26 @@ int main () {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "init" ) {
+        if (cmd == "end") {
+            break;
+        }
+        else if (cmd == "init" ) {
             // INICIE SEU OBJETO AQUI USANDO O CONSTRUTOR
             // string species, sound;
             // ss >> species >> sound;
-        } else if (cmd == "grow" ) {
+        } 
+        else if (cmd == "show" ) {
+            // IMPRIMA O ANIMAL
+        } 
+        else if (cmd == "grow" ) {
             // CHAME O MÉTODO PARA CRESCER
             // int increment {};
             // ss >> increment;
-        } else if (cmd == "noise") {
+        } 
+        else if (cmd == "noise") {
             // OBTENHA O SOM DO ANIMAL E IMPRIMA
-        } else if (cmd == "show" ) {
-            // IMPRIMA O ANIMAL
-        } else if (cmd == "end") {
-            break;
-        } else {
+        } 
+        else {
             cout << "fail: comando invalido\n";
         }
     }

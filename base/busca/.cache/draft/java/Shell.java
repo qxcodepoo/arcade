@@ -33,35 +33,41 @@ class Student {
 public class Shell {
     public static void main(String[] _args) {
         while (true) {
-            String line = input();
-            String[] args = line.split(" ");
-            write('$' + line);
+            String line = scanner.nextLine();
+            System.out.println('$' + line);
 
-            if      ("end".equals(args[0])        ) {
+            var par = line.split(" ");
+            var cmd = cmd;
+
+            if ("end".equals(cmd)) {
                 break;
             }
-            else if ("in".equals(args[0])         ) {
-                var result = Student.in(strToVet(args[1]), number(args[2])); 
-                write(result ? "true" : "false");
+            else if ("in".equals(cmd)) {
+                var array = strToVet(par[1]);
+                var value = Integer.parseInt(par[2]);
+                var result = Student.in(array, value); 
+                System.out.println(result ? "true" : "false");
             }
-            else if ("index_of".equals(args[0])   ) {
-                var result = Student.indexOf(strToVet(args[1]), number(args[2]));
-                write("" + result);
+            else if ("index_of".equals(cmd)) {
+                var array = strToVet(par[1]);
+                var value = Integer.parseInt(par[2]);
+                var result = Student.indexOf(array, value);
+                System.out.println("" + result);
             }
-            else if ("find_if".equals(args[0])    ) {
-                var result = Student.findIf(strToVet(args[1]));
-                write("" + result);
+            else if ("find_if".equals(cmd)) {
+                var result = Student.findIf(strToVet(par[1]));
+                System.out.println("" + result);
             }
-            else if ("min_element".equals(args[0])) {
-                var result = Student.minElement(strToVet(args[1]));
-                write("" + result);
+            else if ("min_element".equals(cmd)) {
+                var result = Student.minElement(strToVet(par[1]));
+                System.out.println("" + result);
             }
-            else if ("find_min_if".equals(args[0])) {
-                var result = Student.findMinIf(strToVet(args[1]));
-                write("" + result);
+            else if ("find_min_if".equals(cmd)) {
+                var result = Student.findMinIf(strToVet(par[1]));
+                System.out.println("" + result);
             }
             else { 
-                write("fail: comando invalido");
+                System.out.println("fail: comando invalido");
             }
         }
     }
@@ -76,7 +82,4 @@ public class Shell {
     }
 
     static Scanner scanner = new Scanner(System.in);
-    public static String input()           { return scanner.nextLine();    }
-    public static void write(String value) { System.out.println(value);    }
-    public static int number(String str)   { return Integer.parseInt(str); }
 }

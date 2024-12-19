@@ -49,11 +49,11 @@ std::string input() {
 }
 
 template <typename T>
-void write(T t) {
+void print(T t) {
     std::cout << t << std::endl;
 }
 
-void write(std::vector<int> vet) {
+void print(std::vector<int> vet) {
     std::cout << '[';
     for (int i = 0; i < (int) vet.size(); i++) {
         std::cout << (i == 0 ? "" : ", ");
@@ -93,20 +93,20 @@ int main() {
     while(true) {
         std::string line = input();
         auto args = split(line, ' ');
-        write('$' + line);
+        print('$' + line);
 
-        if     (args[0] == "get_men"        ) { write(get_men(str2vet(args[1])));        }
-        else if(args[0] == "get_calm_women" ) { write(get_calm_women(str2vet(args[1]))); }
-        else if(args[0] == "sort"           ) { write(sort(str2vet(args[1])));           }
-        else if(args[0] == "sort_stress"    ) { write(sort_stress(str2vet(args[1])));    }
-        else if(args[0] == "reverse"        ) { write(reverse(str2vet(args[1])));        }
+        if     (args[0] == "get_men"        ) { print(get_men(str2vet(args[1])));        }
+        else if(args[0] == "get_calm_women" ) { print(get_calm_women(str2vet(args[1]))); }
+        else if(args[0] == "sort"           ) { print(sort(str2vet(args[1])));           }
+        else if(args[0] == "sort_stress"    ) { print(sort_stress(str2vet(args[1])));    }
+        else if(args[0] == "reverse"        ) { print(reverse(str2vet(args[1])));        }
         else if(args[0] == "reverse_inplace") { 
             auto vet = str2vet(args[1]);
             reverse_inplace(vet);
-            write(vet);
+            print(vet);
         }
-        else if(args[0] == "unique"         ) { write(unique(str2vet(args[1])));         }
-        else if(args[0] == "repeated"       ) { write(repeated(str2vet(args[1])));       }
+        else if(args[0] == "unique"         ) { print(unique(str2vet(args[1])));         }
+        else if(args[0] == "repeated"       ) { print(repeated(str2vet(args[1])));       }
         else if(args[0] == "end"            ) { break;                                   }
     }
 }

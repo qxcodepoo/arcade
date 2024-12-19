@@ -43,20 +43,25 @@ function main(): void {
         const par = line.split(' ');
         const cmd = par[0];
         
-        if (cmd === "init") {
+        if (cmd === "end") { 
+            break;
+        } 
+        else if (cmd === "init") {
             let species = par[1];
             let noise = par[2];
             animal = new Animal(species, noise);
-        } else if (cmd === "grow") {
+        } 
+        else if (cmd === "grow") {
             let increment = +par[1];
             animal.ageBy(increment); 
-        } else if (cmd === "noise") {
+        } 
+        else if (cmd === "noise") {
             console.log(animal.makeNoise());
-        } else if (cmd === "show") {
+        } 
+        else if (cmd === "show") {
             console.log(animal.toString());
-        } else if (cmd === "end") { 
-            break;
-        } else {
+        }
+        else {
             console.log("fail: comando invalido");
         }
     }

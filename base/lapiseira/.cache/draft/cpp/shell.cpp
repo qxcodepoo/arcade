@@ -24,21 +24,28 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "show") { // TODO
-        } else if (cmd == "init") { // TODO
+        if (cmd == "end") {
+            break;  
+        }
+        else if (cmd == "show") { 
+        } 
+        else if (cmd == "init") { 
             // float calibre;
             // ss >> calibre;
-        } else if (cmd == "insert") { // TODO
+        } 
+        else if (cmd == "insert") { 
             // float calibre;
             // string dureza;
             // int tamanho;
             // ss >> calibre >> dureza >> tamanho;
-        } else if (cmd == "remove") { // TODO
-        } else if (cmd == "pull") { // TODO
-        } else if (cmd == "write") { // TODO
-        } else if (cmd == "end") {
-            break;  
-        } else {
+        } 
+        else if (cmd == "remove") { 
+        } 
+        else if (cmd == "pull") { 
+        } 
+        else if (cmd == "write") { 
+        } 
+        else {
             cout << "fail: comando invalido\n";
         }
     }

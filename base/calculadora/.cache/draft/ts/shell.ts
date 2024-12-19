@@ -10,26 +10,31 @@ function main() {
 
         const par = line.split(" ");
         const cmd = par[0];
-
-        if (cmd == "init") {
+        if (cmd == "end") {
+            break;
+        } 
+        else if (cmd == "init") {
             // CHAME O CONSTRUTOR AQUI
             // const batteryMax = parseInt(par[1]);
-        } else if (cmd == "charge") {
+        } 
+        else if (cmd == "charge") {
             // RECARREGAR A BATERIA
             // const value = parseInt(par[1]);
-        } else if (cmd == "sum") {
+        } 
+        else if (cmd == "sum") {
             // SOMAR
             // const a = parseInt(par[1]);
             // const b = parseInt(par[2]);
-        } else if (cmd == "div") {
+        } 
+        else if (cmd == "div") {
             // DIVIDIR
             // const num = parseInt(par[1]);
             // const den = parseInt(par[2]);
-        } else if (cmd == "show") {
+        } 
+        else if (cmd == "show") {
             // MOSTRAR
-        } else if (cmd == "end") {
-            break;
-        } else {
+        } 
+        else {
             console.log("fail: comando invalido");
         }
     }

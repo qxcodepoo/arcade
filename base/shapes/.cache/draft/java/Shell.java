@@ -1,25 +1,44 @@
 import java.util.*;
+import java.util.stream.Collectors;
+import java.text.DecimalFormat;
 
 public class Shell {
-    public static void main(String[] a) {
-        Adapter adp = new Adapter();
-        
-        while (true) {
-            var line = input();
-            write("$" + line);
-            var args = line.split(" ");
 
-            if      (args[0].equals("show"))   { System.out.println(adp);                                                                                   }
-            else if (args[0].equals("circle")) { adp.circle(number(args[1]), number(args[2]), number(args[3]));                           }
-            else if (args[0].equals("rect"))   { adp.rectangle(number(args[1]), number(args[2]), number(args[3]), number(args[4])); }
-            else if (args[0].equals("info"))   { System.out.println(adp.info());                                                                            }
-            else if (args[0].equals("end"))    { break;                                                                                                     }
-            else                                        { write("fail: comando invalido");                                                                     }
+    // public static String info(Shape shape) {
+    //     DecimalFormat df = new DecimalFormat("#.00");
+    //     return String.format("%s: A=%s P=%s", shape.getName(), df.format(shape.getArea()), df.format(shape.getPerimeter()));   
+    // }
+    public static void main(String[] a) {
+        while (true) {
+            var line = scanner.nextLine();
+            System.out.println("$" + line);
+    
+            var par = line.split(" ");
+            var cmd = par[0];
+            
+            if (cmd.equals("end")) {
+                break;
+            }
+            else if (cmd.equals("show")) {
+            }
+            else if (cmd.equals("circle")) {
+                // var x = Double.parseDouble(par[1]);
+                // var y = Double.parseDouble(par[2]);
+                // var radius = Double.parseDouble(par[3]);
+            }
+            else if (cmd.equals("rect")) {
+                // var x1 = Double.parseDouble(par[1]);
+                // var y1 = Double.parseDouble(par[2]);
+                // var x2 = Double.parseDouble(par[3]);
+                // var y2 = Double.parseDouble(par[4]);
+            }
+            else if (cmd.equals("info")) {
+            }
+            else {
+                System.out.println("Comando inválido");
+            }
         }
     }
 
     private static Scanner scanner = new Scanner(System.in);
-    private static String  input()              { return scanner.nextLine(); }
-    private static double  number(String value) { return Double.parseDouble(value); }
-    private static void    write(String value)  { System.out.println(value); }
 }

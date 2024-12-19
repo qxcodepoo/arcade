@@ -9,13 +9,12 @@
 
 ## Intro
 
-O objetivo desta atividade é implementar um sistema para gerenciar formas geométricas. Você precisará criar classes para representar pontos, círculos e retângulos, além de uma classe de controle chamada `Adapter` que gerenciará essas formas. O sistema permitirá adicionar formas e obter informações sobre elas.
+O objetivo desta atividade é implementar um sistema para gerenciar formas geométricas. Você precisará criar classes para representar pontos, círculos e retângulos.
 
 - **Descrição**
   - A interface `Shape` define métodos que todas as formas geométricas devem implementar.
   - A classe `Point2D` representa um ponto no plano bidimensional.
   - As classes `Circle` e `Rectangle` implementam a interface `Shape` e representam um círculo e um retângulo, respectivamente.
-  - A classe `Adapter` serve como uma classe de controle, gerenciando a criação e manipulação das formas geométricas.
 
 ### Interface Shape
 
@@ -68,122 +67,14 @@ A classe `Rectangle` também implementa a interface `Shape` e representa um ret�
   - `getPerimeter()`: Calcula e retorna o perímetro do retângulo usando a fórmula `2 * (largura + altura)`.
   - `toString()`: Retorna uma string no formato "Rect: P1=(x1, y1) P2=(x2, y2)".
 
-### Classe de Controle Adapter
+### Função principal
 
-A classe `Adapter` serve como uma classe de controle para gerenciar as formas geométricas. Deve incluir:
-
-- **Atributos:**
-  - `shapes`: Array para armazenar as formas.
-- **Métodos:**
-  - `constructor()`: Inicializa o array `shapes`.
-  - `circle(x: number, y: number, r: number)`: Cria um novo círculo com centro em `(x, y)` e raio `r`, adicionando-o ao array `shapes`.
-  - `rectangle(x1: number, y1: number, x2: number, y2: number)`: Cria um novo retângulo com os vértices `(x1, y1)` e `(x2, y2)`, adicionando-o ao array `shapes`.
-  - `info()`: Retorna uma string com informações sobre todas as formas no array `shapes`, incluindo nome, área e perímetro.
-  - `toString()`: Retorna uma string com a representação de todas as formas no array `shapes`.
-
-A implementação desta atividade exige que você siga rigorosamente as instruções para garantir a correta funcionalidade e integridade do sistema de gerenciamento de formas geométricas.
+- Crie um vetor de shapes para gerenciar.
+- Nas ações `circle` e `rect`, instancie o objeto adequado e adicione-o ao vetor de shapes.
 
 ## Guide
 
 ![diagrama](diagrama.png)
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-
-
-
-class Point2D {
-    + x: double
-    + y: double
-    
-    + Point2D(x: double, y: double)
-
-    ' gera uma string no formato
-    ' (0.00, 0.00)
-    + toString(): string
-}
-
-class Calc {
-    ' método estático para calcular a distância entre dois pontos
-    + {static} distance(a: Point2D, b: Point2D): double
-}
-
-interface Shape {
-    ' getName(): string
-    + getName(): string
-
-    ' os métodos abaixo não são implementadas
-    ' na classe Shape, apenas nas classes filhas
-
-    ' retorna se o ponto está dentro da forma
-    + inside(Point2D: point): boolean
-
-    ' retorna a área da forma
-    + getArea(): double
-
-    ' retorna o perímetro da forma
-    + getPerimeter(): double
-}
-
-class Circle {
-    + center: Point2D
-    + radius: double
-
-    __
-    ' invoca o construtor da superclasse
-    ' passando o nome Circ
-    ' guarda os outros valores nos atributos
-    ' da classe Circle
-    + Circle(center: Point2D, radius: double)
-
-    ' implementa os métodos abstratos
-    + inside(point: Point2D): boolean
-    + getArea(): double
-    + getPerimeter(): double
-
-    ' retorna o nome da classe e os valores no seguinte formato
-    ' Circ: C=(0.00, 0.00), R=0.00
-    ' O ponto deve ser gerado pelo método toString da classe Point2D
-    + toString(): string
-}
-
-class Rectangle {
-    ' ponto superior esquerdo
-    + P1: Point2D
-    ' ponto inferior direito
-    + P2: Point2D
-
-    __
-    ' invoca o construtor da superclasse
-    ' passando o nome Rect
-    ' inicializa o resto dos atributos
-    + Rectangle(P1: Point2D, P2: Point2D)
-
-    ' implementa os métodos abstratos
-    + inside(point: Point2D): boolean
-    + getArea(): double
-    + getPerimeter(): double
-
-    ' retorna o nome da classe e os valores no seguinte formato
-    ' Rect: P1=(0.00, 0.00) P2=(0.00, 0.00)
-    + toString(): string
-}
-
-
-Circle --|> Shape
-Rectangle --|> Shape
-Point2D  --*  Circle
-Point2D  --*  Rectangle
-@enduml
-```
-
-<!-- load -->
 
 ## Shell
 
@@ -221,10 +112,10 @@ $end
 ## Draft
 
 <!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
 - java
-  - [Adapter.java](.cache/draft/java/Adapter.java)
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts
-  - [aashell.ts](.cache/draft/ts/aashell.ts)
-  - [adapter.ts](.cache/draft/ts/adapter.ts)
+  - [shell.ts](.cache/draft/ts/shell.ts)
 <!-- links -->

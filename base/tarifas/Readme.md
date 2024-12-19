@@ -151,6 +151,7 @@ Operation "1" *-->  "1" Label
 BalanceManager "1" *-->  "0..*" Operation
 Account "1" *-->  "1" BalanceManager
 @enduml
+
 ```
 
 <!-- load -->

@@ -15,17 +15,23 @@ public class Shell {
 
             if (cmd.equals("end")) {
                 break;
-            } else if (cmd.equals("init")) {
-            } else if (cmd.equals("estacionar")) {
+            }
+            else if (cmd.equals("show")) {
+            }
+            else if (cmd.equals("init")) {
+            }
+            else if (cmd.equals("estacionar")) {
                 // var veiculo = par[1];
                 // var id = par[2];
-            } else if (cmd.equals("pagar")) {
+            }
+            else if (cmd.equals("pagar")) {
                 // CHAME OS METODOS DE PAGAMENTO E SAIDA
                 // var veiculo = par[1];
-            } else if (cmd.equals("show")) {
-            } else if (cmd.equals("tempo")) {
+            }
+            else if (cmd.equals("tempo")) {
                 // var tempo = Integer.parseInt(par[1]);
-            } else {
+            }
+            else {
                 System.out.println("fail: comando inválido");
             }
         }

@@ -10,20 +10,25 @@ function main(): void {
         const par = line.split(' ');
         const cmd = par[0];
         
-        if (cmd === "init") {
+        if (cmd === "end") { 
+            break;
+        } 
+        else if (cmd === "init") {
             // INICIE O ANIMAL UTILIZANDO O CONSTRUTOR
             // let species = par[1];
             // let noise = par[2];
-        } else if (cmd === "grow") {
+        } 
+        else if (cmd === "grow") {
             // AUMENTE A IDADE DO ANIMAL
             // let increment = +par[1];
-        } else if (cmd === "noise") {
+        } 
+        else if (cmd === "noise") {
             // OBTENHA O BARULHO DO ANIMAL E IMPRIMA
-        } else if (cmd === "show") {
+        } 
+        else if (cmd === "show") {
             // IMPRIMA O ANIMAL
-        } else if (cmd === "end") { 
-            break;
-        } else {
+        }
+        else {
             console.log("fail: comando invalido");
         }
     }

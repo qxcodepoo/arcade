@@ -1,4 +1,4 @@
-function input() { return ""; }
+const input = () => ""; // MODO_TESTE
 export {};
 
 function main() {
@@ -10,20 +10,26 @@ function main() {
         const par = line.split(" ");
         const cmd = par[0];
 
-        if (cmd === "show") { // TODO
-        } else if (cmd === "init") { // TODO
+        if (cmd === "end") {
+            break;
+        }
+        else if (cmd === "show") { 
+        }
+        else if (cmd === "init") { 
             // const thickness = parseFloat(par[1]);
-        } else if (cmd === "insert") { // TODO
+        }
+        else if (cmd === "insert") { 
             // const thickness = parseFloat(par[1]);
             // const hardness = par[2];
             // const size = parseInt(par[3]);
-        } else if (cmd === "remove") { // TODO
-        } else if (cmd === "show") { // TODO
-        } else if (cmd === "write") { // TODO
-        } else if (cmd === "pull") { // TODO
-        } else if (cmd === "end") {
-            break;
-        } else {
+        }
+        else if (cmd === "remove") { 
+        }
+        else if (cmd === "write") { 
+        }
+        else if (cmd === "pull") { 
+        }
+        else {
             console.log("fail: comando invalido");
         }
     }

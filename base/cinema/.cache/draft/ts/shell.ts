@@ -1,4 +1,4 @@
-function input() { return ""; }
+const input = () => ""; // MODO_TESTE
 export {};
 
 
@@ -12,17 +12,17 @@ function main() {
         const par = line.split(" ");
         const cmd = par[0];
 
-        if (cmd === "show") { // TODO
+        if (cmd === "end") {
+            break;
+        } else if (cmd === "show") { 
         } else if (cmd === "init") {
             // const seats = parseInt(par[1], 10);
         } else if (cmd === "reserve") {
             // const id = par[1];
-            // const phone = par[2];
+            // const phone = parseInt(par[2]);
             // const index = parseInt(par[3], 10);
         } else if (cmd === "cancel") {
             // const id = par[1];
-        } else if (cmd === "end") {
-            break;
         } else {
             console.log("fail: comando invalido");
         }

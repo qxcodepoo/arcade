@@ -12,18 +12,23 @@ public class Shell {
             var args = line.split(" ");
             var cmd = args[0];
 
-            if (cmd.equals("show")) { // TODO
-            } else if (cmd.equals("init")) {
+            if (cmd.equals("end")) {
+                break;
+            }
+            else if (cmd.equals("show")) { 
+            }
+            else if (cmd.equals("init")) {
                 // var seats = Integer.parseInt(args[1]);
-            } else if (cmd.equals("reserve")) {
+            }
+            else if (cmd.equals("reserve")) {
                 // var id = args[1];
                 // var phone = args[2];
                 // var index = Integer.parseInt(args[3]);
-            } else if (cmd.equals("cancel")) {
+            }
+            else if (cmd.equals("cancel")) {
                 // var id = args[1];
-            } else if (cmd.equals("end")) {
-                break;
-            } else {
+            }
+            else {
                 System.out.println("fail: comando invalido");
             }
         }

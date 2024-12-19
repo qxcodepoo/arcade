@@ -10,18 +10,24 @@ class Shell {
             var par = line.split(" ");
             var cmd = par[0];
 
-            if (cmd.equals("init")) { // TODO
-                // var qtd_caixas = Integer.parseInt(par[1]);
-            } else if (cmd.equals("show")) { // TODO
-            } else if (cmd.equals("arrive")) { // TODO
-                // var nome = par[1];
-            } else if (cmd.equals("call")) { // TODO
-                // var indice = Integer.parseInt(par[1]);
-            } else if (cmd.equals("finish")) { // TODO
-                // var indice = Integer.parseInt(par[1]);
-            } else if (cmd.equals("end")) {
+            if (cmd.equals("end")) {
                 break;
-            } else {
+            }
+            else if (cmd.equals("init")) { 
+                // var qtd_caixas = Integer.parseInt(par[1]);
+            }
+            else if (cmd.equals("show")) { 
+            }
+            else if (cmd.equals("arrive")) { 
+                // var nome = par[1];
+            }
+            else if (cmd.equals("call")) { 
+                // var indice = Integer.parseInt(par[1]);
+            }
+            else if (cmd.equals("finish")) { 
+                // var indice = Integer.parseInt(par[1]);
+            }
+            else {
                 System.out.println("fail: comando invalido");
 
             }

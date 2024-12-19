@@ -21,20 +21,20 @@ def main():
     coisa = Coisa(); // Elemento a ser manipulado
 
     while True:
-        print("$", end="");     // mostra '$' na frente
         line = input();         // lê a linha
         args = line.split(" "); // quebra em array de palavras
-        write(line);            // mostra a linha lida
+        cmd = args[0]           // o comando é a primeira palavra
+        print("$" + line);      // mostra a linha lida
 
-        if args[0] == "nome do comando":
-            //aqui voce repassa os parametros para o objeto
-            //convertendo os que precisam ser números ou inteiros
-            coisa.funcaoTal(args[1], int(args[2]), args[3])
-
-        elif args[0] == "outro comando":
-            //outra invocacao
-        elif args[0] == "end":
+        if cmd == "end":
             break;
+        elif cmd == "nome do comando":
+            valor = int(args[1])
+            nome = args[2]
+            coisa.funcaoTal(valor, nome)
+
+        elif cmd == "outro comando":
+            //outra invocacao
         else:
             write("fail: comando invalido");
 ```

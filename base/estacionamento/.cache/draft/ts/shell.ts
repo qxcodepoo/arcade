@@ -1,4 +1,4 @@
-const input = () => "";
+const input = () => ""; // MODO_TESTE
 export {};
 
 function main() {
@@ -14,13 +14,13 @@ function main() {
             break;
         } else if (cmd === "show") {
         } else if (cmd === "estacionar") {
-            const tipo = args[1];
-            const id = args[2];
+            // const tipo = args[1];
+            // const id = args[2];
         } else if (cmd === "tempo") {
             const tempo = +args[1];
         } else if (cmd === "pagar") {
             // CHAME OS METODOS PAGAR E SAIR
-            const id = args[1];
+            // const id = args[1];
         } else {
             console.log("fail: comando invalido");
         }

@@ -201,7 +201,8 @@ class Solver {
                 System.out.println(agenda.getStarred().stream().map(c -> "" + c).collect(Collectors.joining("\n")));
             } else if(ui[0].equals("search")) {
                 System.out.println(agenda.search(ui[1]).stream().map(c -> "" + c).collect(Collectors.joining("\n")));
-            } else {
+            }
+            else {
                 System.out.println("fail: invalid command");
             }
         }

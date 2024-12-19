@@ -1,7 +1,5 @@
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
-
+const input = () => "";
+export {};
 
 function inside(vet: number[], value: number): boolean {
     return false;
@@ -26,9 +24,8 @@ function find_min_if(vet: number[]): number {
 
 function main() {
     while (true) {
-        write("$", "");
         let line = input();
-        write(line);
+        console.log("$" + line);
         
         let args = line.split(" ");
 
@@ -37,26 +34,26 @@ function main() {
         }
         else if (args[0] === "in"){
             let result = inside(to_vet(args[1]), +args[2]);
-            write(result ? "true" : "false");
+            console.log(result ? "true" : "false");
         }
         else if (args[0] === "index_of"){
             let result = index_of(to_vet(args[1]), +args[2]);
-            write(result);
+            console.log(result);
         }
         else if (args[0] === "find_if"){
             let result = find_if(to_vet(args[1]));
-            write(result);
+            console.log(result);
         }
         else if (args[0] === "min_element"){
             let result = min_element(to_vet(args[1]));
-            write(result);
+            console.log(result);
         }
         else if (args[0] === "find_min_if"){
             let result = find_min_if(to_vet(args[1]));
-            write(result);
+            console.log(result);
         }
         else {
-            write("fail: Comando inválido");
+            console.log("fail: Comando inválido");
         }
     }
 }

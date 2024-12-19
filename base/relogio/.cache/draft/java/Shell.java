@@ -12,23 +12,28 @@ public class Shell {
             var par = line.split(" ");
             var cmd = par[0];
 
-            if (cmd.equals("show")) {
+            if (cmd.equals("end")) {
+                break;
+            }
+            else if (cmd.equals("show")) {
                 // MOSTRE O RELÓGIO AQUI
-            } else if (cmd.equals("init")) {
+            }
+            else if (cmd.equals("init")) {
                 // INICIE O RELÓGIO AQUI utilizando o construtor
                 // int hour = Integer.parseInt(par[1]);
                 // int minute = Integer.parseInt(par[2]);
                 // int second = Integer.parseInt(par[3]);
-            } else if (cmd.equals("set")) {
+            }
+            else if (cmd.equals("set")) {
                 // CHAME OS MÉTODOS SET AQUI
                 // int hour = Integer.parseInt(par[1]);
                 // int minute = Integer.parseInt(par[2]);
                 // int second = Integer.parseInt(par[3]);
-            } else if (cmd.equals("next")) {
+            }
+            else if (cmd.equals("next")) {
                 // CHAME O MÉTODO nextSecond AQUI
-            } else if (cmd.equals("end")) {
-                break;
-            } else {
+            }
+            else {
                 System.out.println("fail: comando invalido");
             }
         }

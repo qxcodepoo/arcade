@@ -43,26 +43,33 @@ public class Shell {
             
             if (cmd.equals("end")) {
                 break;
-            } else if (args[0].equals("count")) {
+            }
+            else if (args[0].equals("count")) {
                 int result = Student.count(strToVet(args[1]), Integer.parseInt(args[2]));
                 System.out.println("" + result);
-            } else if (args[0].equals("half_compare")) {
+            }
+            else if (args[0].equals("half_compare")) {
                 String result = Student.halfCompare(strToVet(args[1]));
                 System.out.println(result);
-            } else if (args[0].equals("sex_battle")) {
+            }
+            else if (args[0].equals("sex_battle")) {
                 String result = Student.sexBattle(strToVet(args[1]));
                 System.out.println(result);
-            } else if (args[0].equals("sum")) {
+            }
+            else if (args[0].equals("sum")) {
                 int result = Student.sum(strToVet(args[1]));
                 System.out.println("" + result);
-            } else if (args[0].equals("average")) {
+            }
+            else if (args[0].equals("average")) {
                 DecimalFormat df = new DecimalFormat("0.00");
                 String result = df.format(Student.average(strToVet(args[1])));
                 System.out.println(result);
-            } else if (args[0].equals("more_men")) {
+            }
+            else if (args[0].equals("more_men")) {
                 String result = Student.moreMen(strToVet(args[1]));
                 System.out.println(result);
-            } else {
+            }
+            else {
                 System.out.println("fail: comando invalido");
             }
         }

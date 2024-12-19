@@ -123,6 +123,7 @@ class VendingMachine {
 
 VendingMachine "1" o-- "1..*" Slot
 @enduml
+
 ```
 
 <!-- load -->

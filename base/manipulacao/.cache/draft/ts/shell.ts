@@ -1,3 +1,5 @@
+const input = () => ""; 
+export {};
 
 function get_men(vet: number[]): number[] {
     return [];
@@ -28,34 +30,23 @@ function repeated(vet: number[]): number[] {
 }
 
 
-
-
-
-//DEL!------------------------ MAIN --------------------------
-
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
-export {};
-
 function main() {
     let vet = new Array<string>();
 
     while (true) {
-        write("$", "");
         let line = input();
-        write(line);
+        console.log("$", line);
         let args = line.split(" ");
 
         if      (args[0] === "end")             { break;                                                       }
-        else if (args[0] === "get_men")         { write(fmt(get_men(       to_vet(args[1])))); }
-        else if (args[0] === "get_calm_women")  { write(fmt(get_calm_women(to_vet(args[1])))); }
-        else if (args[0] === "sort")            { write(fmt(sort(          to_vet(args[1])))); }
-        else if (args[0] === "sort_stress")     { write(fmt(sort_stress(   to_vet(args[1])))); }
-        else if (args[0] === "reverse")         { write(fmt(reverse(       to_vet(args[1])))); }
-        else if (args[0] === "unique")          { write(fmt(unique(        to_vet(args[1])))); }
-        else if (args[0] === "repeated")        { write(fmt(repeated(      to_vet(args[1])))); }
-        else                                    { write("fail: comando invalido");                             }
+        else if (args[0] === "get_men")         { console.log(fmt(get_men(       to_vet(args[1])))); }
+        else if (args[0] === "get_calm_women")  { console.log(fmt(get_calm_women(to_vet(args[1])))); }
+        else if (args[0] === "sort")            { console.log(fmt(sort(          to_vet(args[1])))); }
+        else if (args[0] === "sort_stress")     { console.log(fmt(sort_stress(   to_vet(args[1])))); }
+        else if (args[0] === "reverse")         { console.log(fmt(reverse(       to_vet(args[1])))); }
+        else if (args[0] === "unique")          { console.log(fmt(unique(        to_vet(args[1])))); }
+        else if (args[0] === "repeated")        { console.log(fmt(repeated(      to_vet(args[1])))); }
+        else                                    { console.log("fail: comando invalido");                             }
     }
 }
 

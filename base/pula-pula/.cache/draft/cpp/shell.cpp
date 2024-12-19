@@ -25,7 +25,9 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "show") {
+        if (cmd == "end") {
+            break;
+        } else if (cmd == "show") {
         } else if (cmd == "arrive") {
             // string name;
             // int age;
@@ -35,8 +37,6 @@ int main() {
         } else if (cmd == "remove") {
             // string name;
             // ss >> name;
-        } else if (cmd == "end") {
-            break;
         } else {
             cout << "fail: comando invalido" << endl;
         }

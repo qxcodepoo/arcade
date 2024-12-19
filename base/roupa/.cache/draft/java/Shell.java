@@ -11,12 +11,15 @@ public class Shell {
             var par = line.split(" ");
             var cmd = par[0];
             
-            if (cmd.equals("size")) { // TENTE ATRIBUIR UM TAMANHO A ROUPA
-                // String size = par[1];
-            } else if (cmd.equals("show")) { // MOSTRE A ROUPA
-            } else if (cmd.equals("end")) {
+            if (cmd.equals("end")) {
                 break;
-            } else {
+            }
+            else if (cmd.equals("size")) { // TENTE ATRIBUIR UM TAMANHO A ROUPA
+                // String size = par[1];
+            }
+            else if (cmd.equals("show")) { // MOSTRE A ROUPA
+            }
+            else {
                 System.out.println("fail: Comando inválido");
             }
         }

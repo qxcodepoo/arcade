@@ -1,12 +1,12 @@
-function input() { return ""; }
-export {};
+const input = () => ""; // MODO_TESTE
+export { };
 
 
 function main() {
     while (true) {
         let line = input();
         console.log("$" + line);
-        
+
         let args = line.split(" ");
         let cmd = args[0];
 

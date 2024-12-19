@@ -12,21 +12,27 @@ public class Shell {
             var par = line.split(" ");
             var cmd = par[0];
 
-            if (cmd.equals("show")) {
+            if (cmd.equals("end")) {
+                break;
+            }
+            else if (cmd.equals("show")) {
                 // MOSTRE OS ATRIBUTOS DO CARRO
-            } else if (cmd.equals("enter")) {
+            } 
+            else if (cmd.equals("enter")) {
                 // TENTE EMBARCAR UMA PESSOA
-            } else if (cmd.equals("leave")) {
+            } 
+            else if (cmd.equals("leave")) {
                 // TENTE DESEMBARCAR UMA PESSOA
-            } else if (cmd.equals("fuel")) {
+            } 
+            else if (cmd.equals("fuel")) {
                 // AUMENTE A QUANTIDADE DE COMBUSTIVEL
                 // int increment = Integer.parseInt(par[1]);
-            } else if (cmd.equals("drive")) {
+            } 
+            else if (cmd.equals("drive")) {
                 // TENTE DIRIGIR UMA CERTA DISTANCIA
                 // int distance = Integer.parseInt(par[1]);
-            } else if (cmd.equals("end")) {
-                break;
-            } else {
+            }  
+            else {
                 System.out.println("fail: comando invalido");
             }
         }   

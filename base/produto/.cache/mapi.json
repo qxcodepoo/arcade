@@ -13,23 +13,8 @@
     "draft": {
         "ts": [
             {
-                "name": "adapter.ts",
-                "contents": "\nclass Adapter {\n    addProduct(label: string, price: number): void {\n        this.manager.addProduct(label, price);\n    }\n\n    addBundle(indexes: number[]): void {\n        this.manager.addBundle(indexes);\n    }\n\n    addDiscount(index: number, discount: number) {\n        this.manager.addDiscount(index, discount);\n    }\n\n    toString(): string {\n        return this.manager.toString();\n        return \"\";\n    }\n\n\n}\n\nexport { Adapter};",
-                "encoding": 0
-            },
-            {
-                "name": "produtct.ts",
-                "contents": "\n",
-                "encoding": 0
-            },
-            {
-                "name": "aashell.ts",
-                "contents": "import { Adapter } from \"./adapter\";\n\nfunction input(): string { let X: any = input; X.L = X.L || require(\"fs\").readFileSync(0).toString().split(/\\r?\\n/); return X.L.shift(); } // _TEST_ONLY_\n// function input(): string { let X: any = input; X.P = X.P || require(\"readline-sync\"); return X.P.question() } // _FREE_ONLY_\nfunction write(text: any, endl=\"\\n\") { process.stdout.write(\"\" + text + endl); }\nexport {};\n\nfunction main() {\n    let adp = new Adapter();\n\n    while (true) {\n        write(\"$\", \"\");\n        let line = input();\n        write(line);\n        let args = line.split(\" \");\n\n        if (args[0] === \"end\") {\n            break;\n        }\n        else if (args[0] === \"add\") {\n            let label = args[1];\n            let preco = +args[2];\n            adp.addProduct(label, preco);\n        }\n        else if (args[0] === \"addPacote\") {\n            let indexes = args.slice(1).map(x => +x);\n            adp.addBundle(indexes);\n        }\n        else if (args[0] === \"addDesconto\") {\n            let index = +args[1];\n            let desconto = +args[2];\n            adp.addDiscount(index, desconto);\n        }\n        else if (args[0] === \"show\") {\n            write(adp.toString());\n        }\n        else {\n            write(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();",
-                "encoding": 0
-            },
-            {
-                "name": "manager.ts",
-                "contents": "\n",
+                "name": "shell.ts",
+                "contents": "const input = () => \"\";\nexport {};\n\n",
                 "encoding": 0
             }
         ]

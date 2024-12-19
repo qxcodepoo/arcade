@@ -1,32 +1,64 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include <fn.hpp> // https://raw.githubusercontent.com/senapk/cppaux/master/fn.hpp
-using namespace fn;
+#include <iomanip>
+using namespace std;
 
-int main() {
+template <typename CONTAINER, typename FUNC>
+string join(const CONTAINER& c, FUNC f, const string& delim) {
+    stringstream ss;
+    for (auto it = c.begin(); it != c.end(); ++it) {
+        ss << (it == c.begin() ? "" : delim) << f(*it);
+    }
+    return ss.str();
+}
+
+int main()
+{
     std::vector<int> vet;
-    while (true) {
-        write("$", "");
-        auto line = input();
-        auto args = split(line);
-        write(line);
+    while (true)
+    {
+        string line, cmd;
+        getline(cin, line);
+        cout << "$" << line << '\n';
 
-        if      (args[0] == "end")   { break;                                                               }
-        else if (args[0] == "push")  { 
-            for (size_t i = 1; i < args.size(); ++i) { 
-                vet.push_back((int) number(args[i])); 
-            } 
+        stringstream ss(line);
+        ss >> cmd;
+
+        if (cmd == "end")
+        {
+            break;
         }
-        else if (args[0] == "show")  { write("[" + join(vet, ", ") + "]");                                  }
-        else if (args[0] == "erase") { vet.erase(vet.begin() + (int) number(args[1]));                      }
-        else if (args[0] == "media") {
+        else if (cmd == "push")
+        {
+            int value{};
+            while (ss >> value)
+            {
+                vet.push_back(value);
+            }
+        }
+        else if (cmd == "show")
+        {
+            cout << "[" + join(vet, [](auto x){return x;}, ", ") + "]" << '\n';
+        }
+        else if (cmd == "erase")
+        {
+            int index{};
+            ss >> index;
+            vet.erase(vet.begin() + index);
+        }
+        else if (cmd == "media")
+        {
             double sum = 0;
-            for (auto item : vet) {
+            for (auto item : vet)
+            {
                 sum += item;
             }
-            write(format("{%.2f}", sum / vet.size()));
+            cout << fixed << setprecision(2) << sum / vet.size() << '\n';
         }
-        else                         { write("fail: invalid command");                                      }
+        else
+        {
+            cout << "fail: invalid command" << '\n';
+        }
     }
 }

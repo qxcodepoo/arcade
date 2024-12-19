@@ -24,7 +24,9 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "show") {
+        if (cmd == "end") {
+            break;    
+        } else if (cmd == "show") {
         } else if (cmd == "init") {
             // int qtd;
             // ss >> qtd;
@@ -35,8 +37,6 @@ int main() {
         } else if (cmd == "cancel") {
             // string id;
             // ss >> id;
-        } else if (cmd == "end") {
-            break;    
         } else {
             cout << "fail: comando invalido" << endl;
         }

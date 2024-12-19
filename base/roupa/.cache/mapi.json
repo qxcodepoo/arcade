@@ -14,21 +14,21 @@
         "ts": [
             {
                 "name": "shell.ts",
-                "contents": "function input() { return \"\" };\nexport {};\n\nfunction main(): void {\n    // CRIE SEU OBJETO AQUI\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n            // const size = args[1];\n        } else if (cmd == \"show\") { // MOSTRE A ROUPA\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"fail: Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();",
+                "contents": "function input() { return \"\" };\nexport {};\n\nfunction main(): void {\n    // CRIE SEU OBJETO AQUI\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n            // const size = args[1];\n        } else if (cmd == \"show\") { // MOSTRE A ROUPA\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"fail: Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();\n",
                 "encoding": 0
             }
         ],
         "java": [
             {
                 "name": "Shell.java",
-                "contents": "import java.util.*;\n\npublic class Shell {    \n    public static void main(String[] args) {\n        // CRIE SEU OBJETO AQUI\n        \n        while (true) {\n            var line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n            \n            var par = line.split(\" \");\n            var cmd = par[0];\n            \n            if (cmd.equals(\"size\")) { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n                // String size = par[1];\n            } else if (cmd.equals(\"show\")) { // MOSTRE A ROUPA\n            } else if (cmd.equals(\"end\")) {\n                break;\n            } else {\n                System.out.println(\"fail: Comando inv\u00e1lido\");\n            }\n        }\n    }\n    private static Scanner scanner = new Scanner(System.in);\n}\n",
+                "contents": "import java.util.*;\n\npublic class Shell {    \n    public static void main(String[] args) {\n        // CRIE SEU OBJETO AQUI\n        \n        while (true) {\n            var line = scanner.nextLine();\n            System.out.println(\"$\" + line);\n            \n            var par = line.split(\" \");\n            var cmd = par[0];\n            \n            if (cmd.equals(\"end\")) {\n                break;\n            }\n            else if (cmd.equals(\"size\")) { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n                // String size = par[1];\n            }\n            else if (cmd.equals(\"show\")) { // MOSTRE A ROUPA\n            }\n            else {\n                System.out.println(\"fail: Comando inv\u00e1lido\");\n            }\n        }\n    }\n    private static Scanner scanner = new Scanner(System.in);\n}\n",
                 "encoding": 0
             }
         ],
         "cpp": [
             {
                 "name": "shell.cpp",
-                "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // CRIE SEU OBJETO AQUI\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO\n            // string size;\n            // ss >> size;\n        } else if (cmd == \"show\") { // MOSTRE AS INFORMA\u00c7\u00d5ES DO OBJETO\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            cout << \"fail: Comando inv\u00e1lido\" << endl;\n        }\n    }\n}",
+                "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // CRIE SEU OBJETO AQUI\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO\n            // string size;\n            // ss >> size;\n        } else if (cmd == \"show\") { // MOSTRE AS INFORMA\u00c7\u00d5ES DO OBJETO\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            cout << \"fail: Comando inv\u00e1lido\" << endl;\n        }\n    }\n}\n",
                 "encoding": 0
             }
         ]

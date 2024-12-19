@@ -62,27 +62,33 @@ int main() {
         stringstream par(line);
         par >> cmd;
 
-        if (cmd == "init") {
+        if (cmd == "end") {
+            break;
+        } 
+        else if (cmd == "init") {
             int batteryMax {};
             par >> batteryMax;
             calc = Calculator(batteryMax);
-        } else if (cmd == "show") {
+        } 
+        else if (cmd == "show") {
             cout << calc.str() << '\n';
-        } else if (cmd == "charge") {
+        } 
+        else if (cmd == "charge") {
             int increment {};
             par >> increment;
             calc.chargeBattery(increment);
-        } else if (cmd == "sum") {
+        } 
+        else if (cmd == "sum") {
             int a {}, b {};
             par >> a >> b;
             calc.sum(a, b);
-        } else if (cmd == "div") {
+        } 
+        else if (cmd == "div") {
             int num {}, den {};
             par >> num >> den;
             calc.division(num, den);
-        } else if (cmd == "end") {
-            break;
-        } else {
+        } 
+        else {
             cout << "fail: comando invalido" << endl;
         }
     }

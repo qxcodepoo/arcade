@@ -13,23 +13,29 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
         
-        if (cmd == "show") {
+        if (cmd == "end")   {
+            break;
+        } 
+        else if (cmd == "show") {
             // MOSTRE O CARRO
-        } else if (cmd == "enter") {
+        } 
+        else if (cmd == "enter") {
             // TENTE EMBARCAR
-        } else if (cmd == "leave") {
+        } 
+        else if (cmd == "leave") {
             // TENTE DESCEMBARCAR
-        } else if (cmd == "fuel") {
+        } 
+        else if (cmd == "fuel") {
             // AUMENTE O COMBUSTIVEL
             // int increment{};
             // ss >> increment;
-        } else if (cmd == "drive") {
+        } 
+        else if (cmd == "drive") {
             // TENTE DIRIGIR
             // int distance {};
             // ss >> distance;
-        } else if (cmd == "end")   {
-            break;
-        } else {
+        } 
+        else {
             cout << "fail: comando invalido\n";
         }
     }

@@ -10,19 +10,25 @@ public class Shell {
             var par = line.split(" ");
             var cmd = par[0];
 
-            if (cmd.equals("show")) { // TODO
-            } else if (cmd.equals("setDriver")) { // TODO
-                // String name = par[1];
-                // int money = Integer.parseInt(par[2]);
-            } else if (cmd.equals("setPass")) { // TODO
-                // String name = par[1];
-                // int money = Integer.parseInt(par[2]);
-            } else if (cmd.equals("drive")) { // TODO
-                // int distance = Integer.parseInt(par[1]);
-            } else if (cmd.equals("leavePass")) { // TODO
-            } else if (cmd.equals("end")) {
+            if (cmd.equals("end")) {
                 break;
-            } else {
+            }
+            // else if (cmd.equals("show")) { 
+            // }
+            // else if (cmd.equals("setDriver")) { 
+            //     String name = par[1];
+            //     int money = Integer.parseInt(par[2]);
+            // }
+            // else if (cmd.equals("setPass")) { 
+            //     String name = par[1];
+            //     int money = Integer.parseInt(par[2]);
+            // }
+            // else if (cmd.equals("drive")) { 
+            //     int distance = Integer.parseInt(par[1]);
+            // }
+            // else if (cmd.equals("leavePass")) { 
+            // }
+            else {
                 System.out.println("fail: command not found");
             }
         }

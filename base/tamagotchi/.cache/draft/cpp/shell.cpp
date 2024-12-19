@@ -13,18 +13,25 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "init") {
-            // CRIE UM NOVO JOGO COM UM NOVO PET
-            // int energy, clean;
-            // ss >> energy >> clean;
-        } else if (cmd == "show") { // TODO
-        } else if (cmd == "play") { // TODO
-        } else if (cmd == "shower") { // TODO
-        } else if (cmd == "eat") { // TODO
-        } else if (cmd == "sleep") { // TODO
-        } else if (cmd == "end") {
+        if (cmd == "end") {
             break;
-        } else {
+        } 
+        // else if (cmd == "init") {
+        //     // CRIE UM NOVO JOGO COM UM NOVO PET
+        //     int energy, clean;
+        //     ss >> energy >> clean;
+        // }
+        // else if (cmd == "show") { 
+        // } 
+        // else if (cmd == "play") { 
+        // } 
+        // else if (cmd == "shower") { 
+        // } 
+        // else if (cmd == "eat") { 
+        // } 
+        // else if (cmd == "sleep") { 
+        // } 
+        else {
             cout << "fail: comando invalido" << endl;
         }
     }

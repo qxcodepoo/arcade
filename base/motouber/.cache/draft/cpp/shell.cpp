@@ -14,22 +14,28 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "show") { // TODO
-        } else if (cmd == "setDriver") { // TODO
-            // string name;
-            // int money;
-            // ss >> name >> money;
-        } else if (cmd == "setPass") { // TODO
-            // string name;
-            // int money;
-            // ss >> name >> money;
-        } else if (cmd == "drive") { // TODO
-            // int distance;
-            // ss >> distance;
-        } else if (cmd == "leavePass") { // TODO
-        } else if (cmd == "end") {
+        if (cmd == "end") {
             break;
-        } else {
+        } 
+        // else if (cmd == "show") { 
+        // }
+        // else if (cmd == "setDriver") { 
+        //     string name;
+        //     int money;
+        //     ss >> name >> money;
+        // }
+        // else if (cmd == "setPass") { 
+        //     string name;
+        //     int money;
+        //     ss >> name >> money;
+        // }
+        // else if (cmd == "drive") { 
+        //     int distance;
+        //     ss >> distance;
+        // }
+        // else if (cmd == "leavePass") { 
+        // }
+        else {
             cout << "fail: command not found\n";
         }
     }

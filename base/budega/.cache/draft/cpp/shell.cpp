@@ -12,8 +12,7 @@ template <typename CONTAINER, typename FUNC>
 auto map_join(const CONTAINER& c, FUNC f, const string& sep = ", ") {
     stringstream ss;
     for (auto it = c.begin(); it != c.end(); ++it) {
-        ss << (it != c.begin() ? sep : "");
-        ss << f(*it);
+        ss << (it != c.begin() ? sep : "") << f(*it);
     }
     return ss.str();
 }
@@ -27,21 +26,21 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "show") { // TODO
-        } else if (cmd == "init") { // TODO
+        if (cmd == "end") {
+            break;
+        } else if (cmd == "show") { 
+        } else if (cmd == "init") { 
             // int qtd_caixas;
             // ss >> qtd_caixas;
-        } else if (cmd == "arrive") { // TODO
+        } else if (cmd == "arrive") { 
             // string nome;
             // ss >> nome;
-        } else if (cmd == "call") { // TODO
+        } else if (cmd == "call") { 
             // int indice;
             // ss >> indice;
-        } else if (cmd == "finish") { // TODO
+        } else if (cmd == "finish") { 
             // int indice;
             // ss >> indice;
-        } else if (cmd == "end") {
-            break;
         } else {
             cout << "fail: comando invalido\n";
         }

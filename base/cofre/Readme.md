@@ -133,6 +133,7 @@ Pig "1" o--> "0..*" Valuable
 Coin ..|> Valuable 
 Item ..|> Valuable 
 @enduml
+
 ```
 
 <!-- load -->

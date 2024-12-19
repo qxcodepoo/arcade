@@ -10,17 +10,23 @@ public class Shell {
             var par = line.split(" ");
             var cmd = par[0];
 
-            if (cmd.equals("show")) { // TODO
-            } else if (cmd.equals("arrive")) {
+            if (cmd.equals("end")) {
+                break;
+            }
+            else if (cmd.equals("show")) { 
+            }
+            else if (cmd.equals("arrive")) {
                 // var name = par[1];
                 // var age = Integer.parseInt(par[2]);
-            } else if (cmd.equals("enter")) {
-            } else if (cmd.equals("leave")) {
-            } else if (cmd.equals("remove")) {
+            }
+            else if (cmd.equals("enter")) {
+            }
+            else if (cmd.equals("leave")) {
+            }
+            else if (cmd.equals("remove")) {
                 // var name = par[1];
-            } else if (cmd.equals("end")) {
-                break;
-            } else {
+            }
+            else {
                 System.out.println("fail: comando invalido");
             }
         }

@@ -136,7 +136,8 @@ public class Solver {
                 System.out.print(hospital.toString());
             } else if (ui.get(0).equals("tie")) {
                 ui.stream().skip(2).forEach(name -> hospital.vincular(ui.get(1), name));
-            } else {
+            }
+            else {
                 System.out.println("fail: comando invalido");
             }
         }

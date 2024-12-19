@@ -63,25 +63,31 @@ public class Shell {
             var par = line.split(" ");
             var cmd = par[0];
 
-            if (cmd.equals("init")) {
+            if (cmd.equals("end")) {
+                break;
+            }
+            else if (cmd.equals("init")) {
                 int batteryMax = Integer.parseInt(par[1]);
                 calculator = new Calculator(batteryMax);
-            } else if (cmd.equals("show")) {
+            } 
+            else if (cmd.equals("show")) {
                 System.out.println(calculator);
-            } else if (cmd.equals("charge")) {
+            } 
+            else if (cmd.equals("charge")) {
                 int value = Integer.parseInt(par[1]);
                 calculator.chargeBattery(value);
-            } else if (cmd.equals("sum")) {
+            } 
+            else if (cmd.equals("sum")) {
                 int a = Integer.parseInt(par[1]);
                 int b = Integer.parseInt(par[2]);
                 calculator.sum(a, b);
-            } else if (cmd.equals("div")) {
+            } 
+            else if (cmd.equals("div")) {
                 int num = Integer.parseInt(par[1]);
                 int den = Integer.parseInt(par[2]);
                 calculator.division(num, den);
-            } else if (cmd.equals("end")) {
-                break;
-            } else {
+            } 
+            else {
                 System.out.println("fail: comando invalido");
             }
         }

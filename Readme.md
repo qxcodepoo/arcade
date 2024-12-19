@@ -69,7 +69,6 @@ Significado das tags nas questões:
 ### ArrayList II - Arrays de Null
 
 - [ ] `@cinema      :test`[Gerenciando reservas e cancelamentos de uma sala de cinema](base/cinema/Readme.md)
-- [ ] `@topic       :test`[Gerenciando assentos prioritários e normais](base/topic/Readme.md)
 - [ ] `@junkfood    :test`[Comprando comida cara e duvidosa](base/junkfood/Readme.md)
 
 ### ArrayList III - Composição e Enum
@@ -82,8 +81,6 @@ Significado das tags nas questões:
 
 - [ ] `@agenda      :test`[Gerencie os vários contatos de uma agenda](base/agenda/Readme.md)
 - [ ] `@agiota      :test`[Gerencie os empŕestimos do agiota](base/agiota/Readme.md)
-- [ ] `@evento      :test`[Bilheteria de um evento](base/evento/Readme.md)
-- [ ] `@setor       :test`[Eventos e setores em uma bilheteria](base/setor/Readme.md)
 
 ### Herança I
 
@@ -91,11 +88,6 @@ Significado das tags nas questões:
 - [ ] `@estacionamento :test`[Cobrando o valor de carros e motos](base/estacionamento/Readme.md)
 - [ ] `@cofre          :test`[Seu porquinho cresceu](base/cofre/Readme.md)
 - [ ] `@cadastro       :test`[Crie as contas poupança e corrente](base/cadastro/Readme.md)
-
-### Referências Cruzadas
-
-- [ ] `@matricula      :test`[Vínculos entre alunos e disciplina](base/matricula/Readme.md)
-- [ ] `@twitter        :test`[Twitter antes de ser bloqueado](base/twitter/Readme.md)
 
 ## Linguagem C++
 
@@ -139,6 +131,7 @@ Significado das tags nas questões:
 
 ### Em atualização
 
+- [ ] `@twitter        :test`[Twitter antes de ser bloqueado](base/twitter/Readme.md)
 - [ ] [@salario](base/salario/Readme.md)
 - [ ] [@comunicador](base/comunicador/Readme.md)
 - [ ] [@paciente](base/paciente/Readme.md)

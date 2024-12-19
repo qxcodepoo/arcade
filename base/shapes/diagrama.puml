@@ -11,14 +11,10 @@ class Point2D {
     + y: double
     
     + Point2D(x: double, y: double)
-
-    ' gera uma string no formato
-    ' (0.00, 0.00)
     + toString(): string
 }
 
 class Calc {
-    ' método estático para calcular a distância entre dois pontos
     + {static} distance(a: Point2D, b: Point2D): double
 }
 
@@ -44,42 +40,23 @@ class Circle {
     + radius: double
 
     __
-    ' invoca o construtor da superclasse
-    ' passando o nome Circ
-    ' guarda os outros valores nos atributos
-    ' da classe Circle
     + Circle(center: Point2D, radius: double)
-
-    ' implementa os métodos abstratos
     + inside(point: Point2D): boolean
     + getArea(): double
     + getPerimeter(): double
-
-    ' retorna o nome da classe e os valores no seguinte formato
-    ' Circ: C=(0.00, 0.00), R=0.00
-    ' O ponto deve ser gerado pelo método toString da classe Point2D
     + toString(): string
 }
 
 class Rectangle {
-    ' ponto superior esquerdo
     + P1: Point2D
-    ' ponto inferior direito
     + P2: Point2D
 
     __
-    ' invoca o construtor da superclasse
-    ' passando o nome Rect
-    ' inicializa o resto dos atributos
     + Rectangle(P1: Point2D, P2: Point2D)
 
-    ' implementa os métodos abstratos
     + inside(point: Point2D): boolean
     + getArea(): double
     + getPerimeter(): double
-
-    ' retorna o nome da classe e os valores no seguinte formato
-    ' Rect: P1=(0.00, 0.00) P2=(0.00, 0.00)
     + toString(): string
 }
 

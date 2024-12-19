@@ -57,26 +57,31 @@ function main() {
 
         const par = line.split(" ");
         const cmd = par[0];
-
-        if (cmd == "init") {
+        if (cmd == "end") {
+            break;
+        } 
+        else if (cmd == "init") {
             const batteryMax = parseInt(par[1]);
             calc = new Calculator(batteryMax);
-        } else if (cmd == "charge") {
+        } 
+        else if (cmd == "charge") {
             const value = parseInt(par[1]);
             calc.chargeBattery(value);
-        } else if (cmd == "sum") {
+        } 
+        else if (cmd == "sum") {
             const a = parseInt(par[1]);
             const b = parseInt(par[2]);
             calc.sum(a, b);
-        } else if (cmd == "div") {
+        } 
+        else if (cmd == "div") {
             const num = parseInt(par[1]);
             const den = parseInt(par[2]);
             calc.division(num, den);
-        } else if (cmd == "show") {
+        } 
+        else if (cmd == "show") {
             console.log(calc.toString());
-        } else if (cmd == "end") {
-            break;
-        } else {
+        } 
+        else {
             console.log("fail: comando invalido");
         }
     }

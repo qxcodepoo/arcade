@@ -13,7 +13,9 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "init") {
+        if (cmd == "end") {
+            break;
+        } else if (cmd == "init") {
             // int nPlayers, size;
             // ss >> nPlayers >> size;
             // board = Board(nPlayers, size);
@@ -25,8 +27,6 @@ int main() {
             // int value;
             // ss >> value;
         } else if (cmd == "show") {
-        } else if (cmd == "end") {
-            break;
         } else {
             cout << "fail: command not found" << endl;
         }

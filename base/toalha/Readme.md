@@ -38,11 +38,38 @@ class Towel:
         self.wetness: int = 0
     
     def getMaxWetness(self) -> int:
+        #DEL!
+        if self.size == "P":
+            return 10
+        if self.size == "M":
+            return 20
+        if self.size == "G":
+            return 30
+        return 0
+
     def dry(self, amount: int) -> None:
+        #DEL!
+        self.wetness += amount
+        if self.wetness > self.getMaxWetness():
+            print("toalha encharcada")
+            self.wetness = self.getMaxWetness()
+    
     def wringOut(self) -> None:
+        #DEL!
+        self.wetness = 0
+    
     def isDry(self) -> bool:
+        #DEL!
+        return self.wetness == 0
+
     def __str__(self) -> str:
+        #DEL!
+        return f"{self.color} {self.size} {self.wetness}"
+
     def show(self) -> None:
+        #DEL!
+        print(self)
+
 # Testes
 towel = Towel("Azul", "P")
 towel.show()  # Azul P 0
@@ -63,6 +90,7 @@ towel.dry(30)
 towel.show()  # Verde G 30
 print(towel.isDry()) # False
 towel.dry(1)  # msg: toalha encharcada
+
 ```
 
 <!-- load -->

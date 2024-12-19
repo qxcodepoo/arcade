@@ -1,8 +1,8 @@
 # Guardando moedas e itens em um cofrinho
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
+[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toch -->
 
 ![cover](cover.jpg)
@@ -30,6 +30,8 @@ A classe Pig (Porquinho) representa um cofre que permite aos usuários adicionar
   - Também podem verificar o volume total ocupado pelos itens e moedas.
 
 ## Guide
+
+![diagrama](diagrama.png)
 
 ### Classe Coin
 
@@ -147,169 +149,17 @@ A classe `Pig` possui os seguintes atributos:
      - Retorna uma representação em string do estado atual do porquinho, incluindo se está intacto ou quebrado, a lista de moedas e itens armazenados, o valor total e o volume ocupado.
      - Formato de retorno: `state=estado : coins=[moedas] : items=[itens] : value=valor : volume=volumeAtual/volumeMaximo`.
 
-### Classe Adapter
-
-A classe `Adapter` possui um atributo:
-
-- `pig`: Objeto da classe `Pig`.
-
-Além disso, a classe possui os seguintes métodos:
-
-1. **Definição da Classe Adapter:**
-
-   - Definir a classe `Adapter` com o atributo `pig`, que é um objeto da classe `Pig`.
-   - Implementar o construtor que recebe `volumeMax` como parâmetro e inicializa o objeto `pig` com um novo objeto `Pig` passando `volumeMax` como argumento.
-
-2. **Implementação dos Métodos:**
-
-   - **Método `addCoin(value: number): void`**
-     - Adiciona uma moeda ao porquinho usando o método `addCoin(coin: Coin)` da classe `Pig`.
-     - Parâmetros:
-       - `value`: Valor da moeda a ser adicionada.
-     - Exemplo de uso em typescript:
-       ```typescript
-       if      (value === 10)   { this.pig.addCoin(Coin.C10); } // Adiciona uma moeda de 0.10 à ao porquinho
-       ```
-
-   - **Método `addItem(label: string, volume: number): void`**
-     - Cria um item e adiciona ao porquinho usando o método `addItem(item: Item)` da classe `Pig`.
-     - Parâmetros:
-       - `label`: Rótulo do item a ser adicionado.
-       - `volume`: Volume do item a ser adicionado.
-
-   - **Método `breakPig(): void`**
-     - Quebra o porquinho usando o método `breakPig()` da classe `Pig`.
-
-   - **Método `extractItems(): string`**
-     - Remove e retorna todos os itens do porquinho usando o método `extractItems()` da classe `Pig`.
-     - Retorna uma string representando os itens removidos.
-
-   - **Método `extractCoins(): string`**
-     - Remove e retorna todas as moedas da "cochonilha" usando o método `extractCoins()` da classe `Pig`.
-     - Retorna uma string representando as moedas removidas.
-
-   - **Método `toString(): string`**
-     - Retorna uma representação em string do estado do porquinho usando o método `toString()` da classe `Pig`.
-     - Retorna uma string representando o estado atual do porquinho.
-     - Exemplo de uso:
-       ```typescript
-       toString(); // Retorna uma representação em string do estado do porquinho.
-       ```
-***
-
 ## Draft
 
-- [draft.cpp](.cache/draft.cpp)
-- [draft.java](.cache/draft.java)
-- [draft.ts](.cache/draft.ts)
-
-## Guide
-
-![diagrama](diagrama.png)
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-
-
-
-class Coin {
-  - value  : double
-  - volume : int
-  - label  : string
-  __
-  ' static const Coin C10; //c++
-  + {static} C10  : Coin
-  + {static} C25  : Coin
-  + {static} C50  : Coin
-  + {static} C100 : Coin
-  __
-  - Coin(value: double, volume: int, label: string)
-  __
-  + getValue()  : double
-  + getVolume() : int
-  + getLabel()  : string
-  __
-  ' retorna value:volume
-  + toString() : string
-}
-
-class Item {
-  - label  : string
-  - volume : int
-  __
-  + Item(label : string, volume : int)
-  __
-  + getLabel()  : string
-  + getVolume() : int
-  + setLabel (label  : string)
-  + setVolume(volume : int)
-  __
-  ' retorna label:volume
-  + toString() : String
-}
-
-class Pig {
-  - broken    : boolean
-
-  - coins     : Array<Coin>
-  - items     : Array<Item>
-
-  - volumeMax : int
-  __
-  
-  ' inicializa o volumeMax
-  + Pig(volumeMax : int)
-  
-  ' se nao estiver quebrado e couber, adicione a moeda ao vetor de moedas
-  + addCoin(coin  : Coin) : boolean
-  
-  ' se não estiver quebrado e couber, adicione o item ao vetor de itens
-  + addItem(item  : Item) : boolean
-  
-  ' se o porco não estiver quebrado, quebre o porco
-  + breakPig() : boolean
-  
-  ' se estiver quebrado, pegue e retorne as moedas
-  ' se não estiver quebrado, retorne um vetor vazio
-  + extractCoins() : Array<Coin>
-  
-  ' se estiver quebrado, pegue e retorne os itens
-  ' se não estiver quebrado, retorne um vetor vazio
-  + extractItems() : Array<Item>
-  
-  ' retorna uma string com uma lista de itens, valor, volume / volumeMax, 
-  ' e se o porquinho está quebrado ou não
-  + toString() : String
-  __
-  ' se estiver quebrado
-    ' retorne zero
-  ' se não estiver quebrado
-    ' percorre o vetor de moedas e o vetor de itens somando o volume de cada um
-  + getVolume()    : int
-
-  ' percorre o vetor de moedas somando o valor de cada moeda
-  + getValue()     : double
-
-  ' retorna o volumeMax
-  + getVolumeMax() : int
-
-  ' retorna se o porquinho está quebrado ou não
-  + isBroken()     : boolean
-}
-
-@enduml
-
-```
-
-<!-- load -->
-
-***
+<!-- links .cache/draft -->
+- [Solver.java](.cache/draft/Solver.java)
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->
 
 ## Shell
 

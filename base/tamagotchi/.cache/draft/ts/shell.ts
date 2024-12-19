@@ -1,4 +1,4 @@
-function input() { return ""; }
+const input = () => ""; // MODO_TESTE
 export {};
 
 function main() {
@@ -11,17 +11,23 @@ function main() {
         const par = line.split(" ");
         const cmd = par[0];
 
-        if (cmd == "init") {
-            // CRIE UM NOVO JOGO COM UM NOVO PET
-            // const energy = parseInt(par[1]);
-            // const clean = parseInt(par[2]);
-        } else if (cmd == "play") { // TODO
-        } else if (cmd == "shower") { // TODO
-        } else if (cmd == "sleep") { // TODO
-        } else if (cmd == "show") { // TODO
-        } else if (cmd == "end") {
+        if (cmd == "end") {
             break;
-        } else {
+        } 
+        // else if (cmd == "init") {
+        //     // CRIE UM NOVO JOGO COM UM NOVO PET
+        //     const energy = parseInt(par[1]);
+        //     const clean = parseInt(par[2]);
+        // } 
+        // else if (cmd == "play") { 
+        // } 
+        // else if (cmd == "shower") { 
+        // } 
+        // else if (cmd == "sleep") { 
+        // } 
+        // else if (cmd == "show") { 
+        // } 
+        else {
             console.log("fail: comando invalido");
         }
     }

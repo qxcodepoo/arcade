@@ -75,7 +75,7 @@ vector<int> str2vet(string str) {
     return vet;
 }
 
-void write(vector<pair<int, int>> output) {
+void print(vector<pair<int, int>> output) {
     cout << "[";
     for (int i = 0; i < (int) output.size(); i++) {
         cout << "(" << output[i].first << ", " << output[i].second << ")";
@@ -84,7 +84,7 @@ void write(vector<pair<int, int>> output) {
     }
     cout << "]" << endl;
 }
-void write(vector<int> output) {
+void print(vector<int> output) {
     cout << "[";
     for (int i = 0; i < (int) output.size(); i++) {
         cout << output[i];
@@ -93,10 +93,10 @@ void write(vector<int> output) {
     }
     cout << "]" << endl;
 }
-void write(string output) {
+void print(string output) {
     cout << output << endl;
 }
-void write(int output) {
+void print(int output) {
     cout << output << endl;
 }
 
@@ -109,15 +109,15 @@ int main(){
         cout << "$" << line << endl;
         auto args = split(line, ' ');
 
-        if     (args[0] == "occurr" ) { write(occurr(str2vet(args[1])));                   }
-        else if(args[0] == "teams"  ) { write(teams(str2vet(args[1])));                    }
-        else if(args[0] == "mnext"  ) { write(mnext(str2vet(args[1])));                    }
-        else if(args[0] == "alone"  ) { write(alone(str2vet(args[1])));                    }
-        else if(args[0] == "erase"  ) { write(erase(str2vet(args[1]), str2vet(args[2])));  }
-        else if(args[0] == "clear"  ) { write(clear(str2vet(args[1]), stoi(args[2])));     }
-        else if(args[0] == "subseq" ) { write(subseq(str2vet(args[1]), str2vet(args[2]))); }
-        else if(args[0] == "couple" ) { write(couple(str2vet(args[1])));                   }
+        if     (args[0] == "occurr" ) { print(occurr(str2vet(args[1])));                   }
+        else if(args[0] == "teams"  ) { print(teams(str2vet(args[1])));                    }
+        else if(args[0] == "mnext"  ) { print(mnext(str2vet(args[1])));                    }
+        else if(args[0] == "alone"  ) { print(alone(str2vet(args[1])));                    }
+        else if(args[0] == "erase"  ) { print(erase(str2vet(args[1]), str2vet(args[2])));  }
+        else if(args[0] == "clear"  ) { print(clear(str2vet(args[1]), stoi(args[2])));     }
+        else if(args[0] == "subseq" ) { print(subseq(str2vet(args[1]), str2vet(args[2]))); }
+        else if(args[0] == "couple" ) { print(couple(str2vet(args[1])));                   }
         else if(args[0] == "end"    ) { break;                                             }
-        else                          { write("Invalid command");                          }
+        else                          { print("Invalid command");                          }
     }
 }

@@ -1,4 +1,4 @@
-function input() { return ""; }
+const input = () => ""; // MODO_TESTE
 export {};
 
 
@@ -10,18 +10,23 @@ function main() {
 
         let args = line.split(" ");
         let cmd = args[0];
-
-        if (cmd == "init") {
+        
+        if (cmd == "end") {
+            break;
+        }
+        else if (cmd == "init") {
             // let nPlayers = parseInt(args[1]);
             // let size = parseInt(args[2]);
-        } else if (cmd == "addTrap") {
+        }
+        else if (cmd == "addTrap") {
             // let pos = parseInt(args[1]);
-        } else if (cmd == "roll") {
+        }
+        else if (cmd == "roll") {
             // let value = parseInt(args[1]);
-        } else if (cmd == "show") {
-        } else if (cmd == "end") {
-            break;
-        } else {
+        }
+        else if (cmd == "show") {
+        }  
+        else {
             console.log("Comando inválido");
         }
     }

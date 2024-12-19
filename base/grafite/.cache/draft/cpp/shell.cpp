@@ -14,20 +14,26 @@ int main() {
         stringstream ss(line);
         ss >> cmd;
 
-        if (cmd == "show") { // TODO
-        } else if (cmd == "init") { // TODO
-            // float thickness;
-            // ss >> thickness;
-        } else if (cmd == "insert") { // TODO
-            // float thickness;
-            // string hardness;
-            // int size;
-            // ss >> thickness >> hardness >> size;
-        } else if (cmd == "remove") { // TODO
-        } else if (cmd == "write") { // TODO
-        } else if (cmd == "end") {
+        if (cmd == "end") {
             break;
-        } else {
+        } 
+        // else if (cmd == "show") { 
+        // }
+        // else if (cmd == "init") { 
+        //     float thickness;
+        //     ss >> thickness;
+        // }
+        // else if (cmd == "insert") { 
+        //     float thickness;
+        //     string hardness;
+        //     int size;
+        //     ss >> thickness >> hardness >> size;
+        // }
+        // else if (cmd == "remove") { 
+        // }
+        // else if (cmd == "write") { 
+        // }
+        else {
             cout << "fail: comando invalido" << endl;
         }
     }

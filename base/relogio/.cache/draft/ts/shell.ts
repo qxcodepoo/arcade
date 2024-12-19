@@ -1,4 +1,4 @@
-function input() { return ""; }
+const input = () => ""; // MODO_TESTE
 export {};
 function main() {
     // CRIE SEU RELÓGIO AQUI
@@ -9,7 +9,9 @@ function main() {
         const args = line.split(" ");
         const cmd = args[0];
 
-        if (cmd == "show") {
+        if (cmd == "end") {
+            break;
+        } else if (cmd == "show") {
             // MOSTRE SEU RELÓGIO AQUI
         } else if (cmd == "init") {
             // INICIE SEU RELÓGIO AQUI UTILIZANDO O CONSTRUTOR
@@ -23,8 +25,6 @@ function main() {
             // const second = parseInt(args[3]);
         } else if (cmd == "next") {
             // AVANCE SEU RELÓGIO AQUI CHAMANDO O MÉTODO nextSecond
-        } else if (cmd == "end") {
-            break;
         } else {
             console.log("fail: comando invalido");
         }

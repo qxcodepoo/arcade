@@ -36,49 +36,45 @@ function clear(vet: number[], value: number): number[] {
     return [];
 }
 
-//DEL!------------------------ MAIN --------------------------
 
-function input(): string { let X: any = input; X.L = X.L || require("fs").readFileSync(0).toString().split(/\r?\n/); return X.L.shift(); } // _TEST_ONLY_
-// function input(): string { let X: any = input; X.P = X.P || require("readline-sync"); return X.P.question() } // _FREE_ONLY_
-function write(text: any, endl="\n") { process.stdout.write("" + text + endl); }
+const input = () => ""; 
 export {};
 
 function main() {
     while (true) {
-        write("$", "");
         let line = input();
-        write(line);
+        console.log("$" + line);
         let args = line.split(" ");
 
         if      (args[0] === "end")   {
             break; 
         }
         else if (args[0] === "occurr") {
-            write(fmtpair(occurr(to_vet(args[1]))));
+            console.log(fmtpair(occurr(to_vet(args[1]))));
         }
         else if (args[0] === "teams") {
-            write(fmtpair(teams(to_vet(args[1]))));
+            console.log(fmtpair(teams(to_vet(args[1]))));
         }
         else if (args[0] === "mnext") {
-            write(fmt(mnext(to_vet(args[1]))));
+            console.log(fmt(mnext(to_vet(args[1]))));
         }
         else if (args[0] === "alone") {
-            write(fmt(alone(to_vet(args[1]))));
+            console.log(fmt(alone(to_vet(args[1]))));
         }
         else if (args[0] === "couple") {
-            write(couple(to_vet(args[1])));
+            console.log(couple(to_vet(args[1])));
         }
         else if (args[0] === "subseq") {
-            write(subseq(to_vet(args[1]), to_vet(args[2])));
+            console.log(subseq(to_vet(args[1]), to_vet(args[2])));
         }
         else if (args[0] === "erase") {
-            write(fmt(erase(to_vet(args[1]), to_vet(args[2]))));
+            console.log(fmt(erase(to_vet(args[1]), to_vet(args[2]))));
         }
         else if (args[0] === "clear") {
-            write(fmt(clear(to_vet(args[1]), +args[2])));
+            console.log(fmt(clear(to_vet(args[1]), +args[2])));
         }
         else {
-            write("Comando invalido");
+            console.log("Comando invalido");
         }
     }
 }
