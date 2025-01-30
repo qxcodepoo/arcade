@@ -1,3 +1,8 @@
+---
+level_one: 50
+level_mult: 1.2
+---
+
 # Repositório de POO
 
 Significado das tags nas questões:
