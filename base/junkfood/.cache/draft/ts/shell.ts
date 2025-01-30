@@ -25,7 +25,6 @@ function main() {
             // let qtd = parseInt(args[3]);
             // let preco = parseFloat(args[4]);
         } else if (cmd == "troco") {
-            // let troco = machine.pedirTroco();
         } else if (cmd == "end") {
             break;
         } else {

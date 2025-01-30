@@ -14,7 +14,7 @@
         "ts": [
             {
                 "name": "shell.ts",
-                "contents": "function input() { return \"\" };\nexport {};\n\nfunction main(): void {\n    // CRIE SEU OBJETO AQUI\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n            // const size = args[1];\n        } else if (cmd == \"show\") { // MOSTRE A ROUPA\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"fail: Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();\n",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main(): void {\n    // CRIE SEU OBJETO AQUI\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n            // const size = args[1];\n        } else if (cmd == \"show\") { // MOSTRE A ROUPA\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"fail: Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();\n",
                 "encoding": 0
             }
         ],

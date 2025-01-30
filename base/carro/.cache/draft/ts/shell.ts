@@ -1,7 +1,6 @@
 function input() { return ""; }
 export {};
 
-    toString(): string {
 
 function main() {
     // CRIE SEU CARRO AQUI

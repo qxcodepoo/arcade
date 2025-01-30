@@ -1,4 +1,4 @@
-function input() { return "" };
+const input = () => ""; // MODO_TESTE
 export {};
 
 function main(): void {
