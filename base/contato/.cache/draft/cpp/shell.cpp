@@ -30,28 +30,27 @@ int main()
         {
             break;
         }
-        // else if (cmd == "init")
-        // {
-        //     string name;
-        //     ss >> name;
-        // }
-        // else if (cmd == "add")
-        // {
-        //     // Adicione um novo telefone ao contato
-        //     string id, number;
-        //     ss >> id >> number;
-        // }
-        // else if (cmd == "rm")
-        // {
-        //     int index{};
-        //     ss >> index;
-        // }
-        // else if (cmd == "tfav")
-        // {
-        // }
-        // else if (cmd == "show")
-        // {
-        // }
+        else if (cmd == "init")
+        {
+            // string name;
+            // ss >> name;
+        }
+        else if (cmd == "add")
+        {
+            // string id, number;
+            // ss >> id >> number;
+        }
+        else if (cmd == "rm")
+        {
+            // int index{};
+            // ss >> index;
+        }
+        else if (cmd == "tfav")
+        {
+        }
+        else if (cmd == "show")
+        {
+        }
         else
         {
             cout << "fail: comando invalido" << endl;

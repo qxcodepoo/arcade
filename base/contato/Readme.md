@@ -9,7 +9,7 @@
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
-Essa classe Contact será reutilizada nas atividades @agenda e @favoritos.
+Essa classe Contact será reutilizada nas atividades @agenda.
 
 ## Intro
 
@@ -43,92 +43,16 @@ Seu programa deve:
 
 ## Guide
 
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
-
 ![diagrama](diagrama.png)
 
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-
-
-
-class Fone {
-  - id : str
-  - number : str
-  __
-  ' inicializa as variaveis
-  + Fone(id : str, number : str)
-  
-  ' verifica se o número é um número de telefone válido
-  ' crie uma str "validos" com todos os caracteres válidos
-  ' para cada caractere c do número:
-  '   se c não estiver em validos:
-  '     retorne false
-  ' retorne true
-  + isValid() : bool
-  __
-  + getId() : str
-  + getNumber() : str
-  __
-  ' Gera uma string para impressão
-  ' ex: oi:1234
-  + toString() : str
-}
-
-class Contact {
-  - favorited : bool
-  - fones : List<Fone>
-  - name : str
-  __
-  
-  ' inicialize o fone com o nome, favorited como false e a lista de fones vazia
-  + Contact(name : str)
-  __
-  ' se fone for válido:
-  '   insira no fim da lista de fones
-  ' se não:
-  '   informe o erro
-  + addFone(id: str, number : str): void
-  
-  ' se o índice existir:
-  '   remove o fone pelo indice
-  + rmFone(index : int): void
-  
-  __
-  ' favorita ou desfavorita o contato
-  + toogleFavorited(): void
-
-  ' retorna se o contato está favoritado
-  + isFavorited() : bool
-  __
-  + getFones() : List<Fone>
-  + getName() : str
-  + setName(name : str): void
-
-  __
-  ' use um contador para mostrar o índice do telefone
-  ' use o toString do fone para adicioná-lo à saída
-  ' se o contato estiver favoritado, adicione um @ antes do nome
-  ' o resultado dever ficar assim:
-  ' ex: - david [oi:123, tim:9081, claro:5431]
-  + toString() : str
-}
-
-
-
-Contact "1" *--  "0..*" Fone
-@enduml
-
-```
-
-<!-- load -->
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->
 
 ***
 

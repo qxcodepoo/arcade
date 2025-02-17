@@ -12,11 +12,12 @@ function main(): void {
         if (args[0] === "end") {
             break;
         } else if (args[0] === "add") {//name id:fone id:fone ...
+            // const name = args[1];
             // const fones: Fone[] = [];
             // for (let i = 2; i < args.length; i++) {
-            //     const parts: string[] = args[i].split(':');
+            //     const [label, number] = args[i].split(':');
+            //     fones.push(new Fone(label, number));
             // }
-            // agenda.addContact(args[1], fones);
         } else if (args[0] === "show") {
         } else if (args[0] === "rmFone") {//id index
             // const id = args[1];
