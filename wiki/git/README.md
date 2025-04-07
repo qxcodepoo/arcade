@@ -64,7 +64,7 @@ No repositório da disciplina, você não tem direito de `escrita`, você pode a
   - `git clone <url_do_repositório_do_professor>`
   - Ex: `git clone github.com/senapk/poo_2020_2`
 - **Atualizar**: Sempre que o professor fizer uma alteração no repositório externo, você pode atualizar a sua pasta do repositório local **entrando na pasta** e digitando:
-  - `git pull origin main`
+  - `git pull`
 
 ## Trabalhando com seu repositório Git
 
@@ -101,7 +101,7 @@ No repositório da disciplina, você não tem direito de `escrita`, você pode a
   - `git log`
   - O log vai mostrar o "id", o horário, o usuário e a mensagem do commit.
 - Se você já vinculou os repositórios (usando o clone ou o init), já pode enviar seus commits para o repositório remoto utilizando:
-  - `git push origin main`
+  - `git push`
   - Você só pode enviar pushs para repositórios que você tem direito de escrita, como por exemplo o seu repositório.
 
 ## Conflitos

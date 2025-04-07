@@ -10,7 +10,7 @@ Significado das tags nas questões:
 | marcador  | significado
 | --------- | -----------
 | test      | Problema de código com testes
-| open      | Problema de programação aberto sem testes
+| open      | Problema de programação abertos sem testes
 | info      | Conteúdo informativo de leitura ou vídeo
 | task      | Outras atividades
 
