@@ -97,45 +97,43 @@ Significado das tags nas questões:
 
 ## Linguagem C++
 
-### CPP - Configuração
+### CPP - Configuração<!-- l:c -->
 
 - [ ] `#cpp_install    :info`[Instalação C++ e TS](wiki/instalacao/cpp.md)
 - [ ] `#cpp_aux        :info`[Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
 
-### CPP - Introdução
+### CPP - Introdução<!-- l:c -->
 
 - [ ] `@cpp_intro      :task`[Pesquisa sobre C++](wiki/cpp/intro_cpp.md)
 - [ ] `@cpp_memory     :task`[Pesquisa sobre alocação de memória](wiki/memoria/README.md)
 
 ## Linguagem TS
 
-### TS install
+### TS install<!-- l:ts -->
 
 - [ ] `#ts_install    :info`[Instalação C++ e TS](wiki/instalacao/ts.md)
 
-### TS FUP
+### TS FUP<!-- l:ts -->
 
 - [ ] `@ts_fup_1      :task`[Revisão de FUP](typescript/fup_leitura.md)
 - [ ] `@ts_fup_2      :task`[Revisão](typescript/fup_revisao.md)
 - [ ] `@ts_fup_3      :task`[Prática](typescript/fup_pratica.md)
 
-### TS Classes
+### TS Classes<!-- l:ts -->
 
 - [ ] `@ts_poo_1      :task`[Classes Leitura](typescript/classes_leitura.md)
 - [ ] `@ts_poo_2      :task`[Classes Revisão](typescript/classes_revisao.md)
 - [ ] `@ts_poo_3      :task`[Classes prática](typescript/classes_pratica.md)
 
-### TS Arrays
+### TS Arrays<!-- l:ts -->
 
 - [ ] `@ts_arr_1      :task`[Leitura arrays](typescript/arrays_leitura.md)
 - [ ] `@ts_arr_2      :task`[Revisão Arrays](typescript/arrays_revisao.md)
 - [ ] `@ts_arr_3      :task`[Arrays - Prática](typescript/arrays_pratica.md)
 
-## Linguagem Java
-
 ## Futuro
 
-### Em atualização
+### Em atualização<!-- l:todo -->
 
 - [ ] `@twitter        :test`[Twitter antes de ser bloqueado](base/twitter/Readme.md)
 - [ ] [@salario](base/salario/Readme.md)
@@ -152,6 +150,6 @@ Significado das tags nas questões:
 - [ ] [Cache e redundância em @favoritos](base/favoritos/Readme.md)
 - [ ] [@trem](base/trem/Readme.md)
 
-### Rascunhos
+### Rascunhos<!-- l:todo -->
 
 - [@produto - Padrão Composite e Decorator](base/produto/Readme.md)

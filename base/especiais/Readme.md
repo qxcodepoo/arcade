@@ -28,8 +28,8 @@
 
 ### remoções
 
-- **erase**: dado a lista com os índices de todas as pessoas que saíram da fila, qual a fila resultante?
 - **clear**: dado um valor, remova todas as vezes que esse valor aparece na lista.
+- **erase**: dado a lista com os índices de todas as pessoas que saíram da fila, qual a fila resultante?
 
 ***
 
