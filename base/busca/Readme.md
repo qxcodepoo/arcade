@@ -38,6 +38,8 @@
 <!-- links .cache/draft -->
 - cpp
   - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- go
+  - [shell.go](.cache/draft/go/shell.go)
 - java
   - [Shell.java](.cache/draft/java/Shell.java)
 - ts
