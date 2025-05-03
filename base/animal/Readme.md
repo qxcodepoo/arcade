@@ -43,7 +43,7 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 
 - Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
 
-[![youtube icon](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Logo_of_YouTube_%282006-2011%29.svg/960px-Logo_of_YouTube_%282006-2011%29.svg.png)](https://youtu.be/QZfjLVrk7p8)
+[![youtube icon](youtube.png)](https://youtu.be/QZfjLVrk7p8)
 
 ## Shell
 
