@@ -1,0 +1,226 @@
+>>>>>>>> INSERT inicio
+init 20 15
+show
+init 10 50
+show
+end
+======== EXPECT
+$init 20 15
+$show
+E:20/20, L:15/15, I:0
+$init 10 50
+$show
+E:10/10, L:50/50, I:0
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT play - Brincar 
+init 20 15
+play
+show
+play
+play
+show
+end
+======== EXPECT
+$init 20 15
+$play
+$show
+E:18/20, L:12/15, I:1
+$play
+$play
+$show
+E:14/20, L:6/15, I:3
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT dormir
+init 20 15
+play
+show
+play
+play
+show
+sleep
+show
+end
+======== EXPECT
+$init 20 15
+$play
+$show
+E:18/20, L:12/15, I:1
+$play
+$play
+$show
+E:14/20, L:6/15, I:3
+$sleep
+$show
+E:20/20, L:6/15, I:9
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT tomar banho
+init 20 15
+play
+show
+play
+play
+show
+sleep
+show
+shower
+show
+end
+======== EXPECT
+$init 20 15
+$play
+$show
+E:18/20, L:12/15, I:1
+$play
+$play
+$show
+E:14/20, L:6/15, I:3
+$sleep
+$show
+E:20/20, L:6/15, I:9
+$shower
+$show
+E:17/20, L:15/15, I:11
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT dormir sem sono
+init 20 15
+play
+show
+play
+play
+show
+sleep
+show
+shower
+show
+sleep
+end
+======== EXPECT
+$init 20 15
+$play
+$show
+E:18/20, L:12/15, I:1
+$play
+$play
+$show
+E:14/20, L:6/15, I:3
+$sleep
+$show
+E:20/20, L:6/15, I:9
+$shower
+$show
+E:17/20, L:15/15, I:11
+$sleep
+fail: nao esta com sono
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT morrer
+init 20 15
+play
+show
+play
+play
+show
+sleep
+show
+shower
+show
+sleep
+play
+play
+play
+play
+show
+play
+show
+play
+shower
+sleep
+end
+======== EXPECT
+$init 20 15
+$play
+$show
+E:18/20, L:12/15, I:1
+$play
+$play
+$show
+E:14/20, L:6/15, I:3
+$sleep
+$show
+E:20/20, L:6/15, I:9
+$shower
+$show
+E:17/20, L:15/15, I:11
+$sleep
+fail: nao esta com sono
+$play
+$play
+$play
+$play
+$show
+E:9/20, L:3/15, I:15
+$play
+fail: pet morreu de sujeira
+$show
+E:7/20, L:0/15, I:16
+$play
+fail: pet esta morto
+$shower
+fail: pet esta morto
+$sleep
+fail: pet esta morto
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT fraqueza
+init 5 10
+play
+play
+play
+end
+======== EXPECT
+$init 5 10
+$play
+$play
+$play
+fail: pet morreu de fraqueza
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT morto de fraqueza
+init 5 10
+play
+play
+play
+play
+show
+end
+======== EXPECT
+$init 5 10
+$play
+$play
+$play
+fail: pet morreu de fraqueza
+$play
+fail: pet esta morto
+$show
+E:0/5, L:1/10, I:3
+$end
+<<<<<<<< FINISH
+

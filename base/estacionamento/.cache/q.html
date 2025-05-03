@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>@estacionamento: Cobrando o valor de carros e motos</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="cobrando-o-valor-de-carros-e-motos">Cobrando o valor de carros e
+motos</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr class="header">
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+<th><a href="#draft">Draft</a></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<!-- toch -->
+<figure>
+<img
+src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/cover.jpg"
+alt="_" />
+<figcaption aria-hidden="true">_</figcaption>
+</figure>
+<h2 id="intro">Intro</h2>
+<p>O sistema de estacionamento é responsável por gerenciar veículos em
+um estacionamento, registrando a entrada e saída de veículos, calculando
+o valor a ser pago pelo tempo de permanência e fornecendo informações
+sobre os veículos estacionados.</p>
+<ul>
+<li>Você deve utilizar herança para construir um sistema para gerenciar
+um estacionamento de bicicletas, carros e motos.</li>
+<li>A classe Veículo é uma classe abstrata que possui os atributos
+<code>id</code>, <code>entrada</code> e <code>tipo</code>.</li>
+<li>A classe Veículo possui um método abstrato
+<code>calcularValor()</code> que deve ser implementado pelas classes
+filhas.</li>
+<li>A classe Veículo possui um método <code>toString()</code>.</li>
+</ul>
+<h3 id="responsabilidades">Responsabilidades</h3>
+<ul>
+<li><strong>Registrar Entrada de Veículo:</strong>
+<ul>
+<li>O sistema deve permitir que novos veículos entrem no estacionamento,
+registrando o tipo de veículo e seu identificador.</li>
+<li>O tempo de entrada do veículo deve ser registrado.</li>
+</ul></li>
+<li><strong>Registrar Saída de Veículo:</strong>
+<ul>
+<li>O sistema deve permitir que veículos saiam do estacionamento,
+registrando o tempo de saída do veículo.</li>
+<li>Com base no tempo de entrada e saída, o sistema deve calcular o
+valor a ser pago pelo estacionamento.</li>
+</ul></li>
+<li><strong>Calcular Valor a Pagar:</strong>
+<ul>
+<li>O valor a ser pago pelo estacionamento é calculado com base no tipo
+de veículo estacionado e no tempo de permanência.</li>
+<li>O cálculo do valor varia de acordo com o tipo de veículo:
+<ul>
+<li><strong>Bike:</strong> paga R$3 fixos.</li>
+<li><strong>Moto:</strong> paga o valor em minutos dividido por 20.</li>
+<li><strong>Carro:</strong> paga o valor em minutos dividido por 10, mas
+o valor mínimo é 5.00.</li>
+</ul></li>
+</ul></li>
+<li><strong>Obter Lista de Veículos Estacionados:</strong>
+<ul>
+<li>O sistema deve ser capaz de fornecer uma lista de todos os veículos
+atualmente estacionados, incluindo o tipo de veículo, identificador e
+tempo de entrada.</li>
+</ul></li>
+</ul>
+<h2 id="guide">Guide</h2>
+<figure>
+<img
+src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/diagrama.png"
+alt="_" />
+<figcaption aria-hidden="true">_</figcaption>
+</figure>
+<p>Você pode controlar o alinhamento e preenchimento com “_” que o
+método <code>toString()</code> deve retornar assim.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">//cpp</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> string toString<span class="op">()</span> <span class="at">const</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    stringstream ss<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    ss <span class="op">&lt;&lt;</span> setw<span class="op">(</span><span class="dv">10</span><span class="op">)</span> <span class="op">&lt;&lt;</span> setfill<span class="op">(</span><span class="ch">&#39;_&#39;</span><span class="op">)</span> <span class="op">&lt;&lt;</span>  tipo <span class="op">&lt;&lt;</span> <span class="st">&quot; : &quot;</span> <span class="op">&lt;&lt;</span> setw<span class="op">(</span><span class="dv">10</span><span class="op">)</span> <span class="op">&lt;&lt;</span> setfill<span class="op">(</span><span class="ch">&#39;_&#39;</span><span class="op">)</span> <span class="op">&lt;&lt;</span> id <span class="op">&lt;&lt;</span> <span class="st">&quot; : &quot;</span> <span class="op">&lt;&lt;</span> entrada<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> ss<span class="op">.</span>str<span class="op">();</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">//java</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">//Em java não existe método de alinhamento que permite escolher o caracter de preenchimento</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">//Então vamos fazer uma adaptação</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="bu">String</span> <span class="fu">toString</span><span class="op">()</span> <span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">String</span><span class="op">.</span><span class="fu">format</span><span class="op">(</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;</span><span class="sc">%10s</span><span class="st">-:-</span><span class="sc">%10s</span><span class="st">-:-</span><span class="sc">%s</span><span class="st">&quot;</span><span class="op">,</span> <span class="co">//alinhar a direita 10 caracteres inserindo espaços</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">tipo</span><span class="op">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">id</span><span class="op">,</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">this</span><span class="op">.</span><span class="fu">horaEntrada</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">)</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">replace</span><span class="op">(</span><span class="ch">&#39; &#39;</span><span class="op">,</span> <span class="ch">&#39;_&#39;</span><span class="op">)</span> <span class="co">//substituir espaço por underline</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">replace</span><span class="op">(</span><span class="ch">&#39;-&#39;</span><span class="op">,</span> <span class="ch">&#39; &#39;</span><span class="op">);</span> <span class="co">//substituir hífen por espaço</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ts"><code class="sourceCode typescript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">//ts</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">toString</span>()<span class="op">:</span> <span class="dt">string</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="kw">this</span><span class="op">.</span><span class="at">tipo</span><span class="op">.</span><span class="fu">padStart</span>(<span class="dv">10</span><span class="op">,</span> <span class="st">&quot;_&quot;</span>) <span class="op">+</span> <span class="st">&quot; : &quot;</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">id</span><span class="op">.</span><span class="fu">padStart</span>(<span class="dv">10</span><span class="op">,</span> <span class="st">&quot;_&quot;</span>) <span class="op">+</span> <span class="st">&quot; : &quot;</span> <span class="op">+</span> <span class="kw">this</span><span class="op">.</span><span class="at">entrada</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<h2 id="shell">Shell</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE entrada bike</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">Hora</span> atual: 0</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">$tempo</span> 30</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">$estacionar</span> bike elias</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ex">______Bike</span> : _____elias : 30</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">Hora</span> atual: 30</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE entrada moto</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="va">$tempo</span> 20</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="va">$estacionar</span> moto abc1234</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">______Bike</span> : _____elias : 30</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">______Moto</span> : ___abc1234 : 50</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">Hora</span> atual: 50</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE entrada carro</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="va">$tempo</span> 50</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="va">$estacionar</span> carro pog1000</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">______Bike</span> : _____elias : 30</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ex">______Moto</span> : ___abc1234 : 50</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ex">_____Carro</span> : ___pog1000 : 100</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ex">Hora</span> atual: 100</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="va">$tempo</span> 100</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="va">$estacionar</span> carro uva9999</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="va">$tempo</span> 30</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ex">______Bike</span> : _____elias : 30</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ex">______Moto</span> : ___abc1234 : 50</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ex">_____Carro</span> : ___pog1000 : 100</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="ex">_____Carro</span> : ___uva9999 : 200</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="ex">Hora</span> atual: 230</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE saida</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="va">$pagar</span> elias</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="ex">Bike</span> chegou 30 saiu 230. Pagar R$ 3.00</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="va">$pagar</span> abc1234</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="ex">Moto</span> chegou 50 saiu 230. Pagar R$ 9.00</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="va">$pagar</span> pog1000</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="ex">Carro</span> chegou 100 saiu 230. Pagar R$ 13.00</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="va">$pagar</span> uva9999</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="ex">Carro</span> chegou 200 saiu 230. Pagar R$ 5.00</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="va">$end</span></span></code></pre></div>
+<h2 id="draft">Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li>cpp
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul></li>
+<li>java
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul></li>
+<li>ts
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/estacionamento/.cache/draft/ts/shell.ts">shell.ts</a>
+<!-- links --></li>
+</ul></li>
+</ul>
+</body>
+</html>

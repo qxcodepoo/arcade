@@ -1,0 +1,224 @@
+>>>>>>>> INSERT criação
+criar azul P
+mostrar
+end
+======== EXPECT
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT esta_seca
+criar azul P
+mostrar
+seca
+end
+======== EXPECT
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT enxugar
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+end
+======== EXPECT
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT nao esta seca
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+end
+======== EXPECT
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT toalha encharcada
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+enxugar 5
+end
+======== EXPECT
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$enxugar 5
+toalha encharcada
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT umidade maxima alcançada
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+enxugar 5
+mostrar
+enxugar 5
+mostrar
+end
+======== EXPECT
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT torcer
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+enxugar 5
+mostrar
+enxugar 5
+mostrar
+torcer
+mostrar
+end
+======== EXPECT
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$torcer
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT criação
+criar verde G
+mostrar
+end
+======== EXPECT
+$criar verde G
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 0
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT limite de 30 e encharcada
+criar verde G
+mostrar
+enxugar 30
+mostrar
+end
+======== EXPECT
+$criar verde G
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 0
+$enxugar 30
+toalha encharcada
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 30
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT não passa do limite
+criar verde G
+mostrar
+enxugar 30
+mostrar
+enxugar 1
+mostrar
+end
+======== EXPECT
+$criar verde G
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 0
+$enxugar 30
+toalha encharcada
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 30
+$enxugar 1
+toalha encharcada
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 30
+$end
+<<<<<<<< FINISH
+

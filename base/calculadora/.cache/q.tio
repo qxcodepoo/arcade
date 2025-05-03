@@ -1,0 +1,262 @@
+>>>>>>>> INSERT iniciar mostrar e recarregar
+init 5
+show
+end
+======== EXPECT
+$init 5
+$show
+display = 0.00, battery = 0
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT charge
+init 5
+show
+charge 3
+show
+charge 1
+show
+end
+======== EXPECT
+$init 5
+$show
+display = 0.00, battery = 0
+$charge 3
+$show
+display = 0.00, battery = 3
+$charge 1
+$show
+display = 0.00, battery = 4
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT boundary
+init 5
+show
+charge 3
+show
+charge 1
+show
+charge 2
+show
+end
+======== EXPECT
+$init 5
+$show
+display = 0.00, battery = 0
+$charge 3
+$show
+display = 0.00, battery = 3
+$charge 1
+$show
+display = 0.00, battery = 4
+$charge 2
+$show
+display = 0.00, battery = 5
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT reset
+init 5
+show
+charge 3
+show
+charge 1
+show
+charge 2
+show
+init 4
+charge 2
+show
+charge 3
+show
+end
+======== EXPECT
+$init 5
+$show
+display = 0.00, battery = 0
+$charge 3
+$show
+display = 0.00, battery = 3
+$charge 1
+$show
+display = 0.00, battery = 4
+$charge 2
+$show
+display = 0.00, battery = 5
+$init 4
+$charge 2
+$show
+display = 0.00, battery = 2
+$charge 3
+$show
+display = 0.00, battery = 4
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT somando
+init 2
+charge 2
+sum 4 3
+show
+end
+======== EXPECT
+$init 2
+$charge 2
+$sum 4 3
+$show
+display = 7.00, battery = 1
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT gastando bateria
+init 2
+charge 2
+sum 4 3
+show
+sum 2 3
+show
+end
+======== EXPECT
+$init 2
+$charge 2
+$sum 4 3
+$show
+display = 7.00, battery = 1
+$sum 2 3
+$show
+display = 5.00, battery = 0
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT sem bateria
+init 2
+charge 2
+sum 4 3
+show
+sum 2 3
+show
+sum -4 -1
+end
+======== EXPECT
+$init 2
+$charge 2
+$sum 4 3
+$show
+display = 7.00, battery = 1
+$sum 2 3
+$show
+display = 5.00, battery = 0
+$sum -4 -1
+fail: bateria insuficiente
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT recarregando
+init 2
+charge 2
+sum 4 3
+show
+sum 2 3
+show
+sum -4 -1
+charge 1
+show
+sum -4 -2
+show
+end
+======== EXPECT
+$init 2
+$charge 2
+$sum 4 3
+$show
+display = 7.00, battery = 1
+$sum 2 3
+$show
+display = 5.00, battery = 0
+$sum -4 -1
+fail: bateria insuficiente
+$charge 1
+$show
+display = 5.00, battery = 1
+$sum -4 -2
+$show
+display = -6.00, battery = 0
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT dividindo
+init 3
+charge 3
+div 6 3
+show
+end
+======== EXPECT
+$init 3
+$charge 3
+$div 6 3
+$show
+display = 2.00, battery = 2
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT dividindo por zero gastando bateria
+init 3
+charge 3
+div 6 3
+show
+div 7 0
+show
+end
+======== EXPECT
+$init 3
+$charge 3
+$div 6 3
+$show
+display = 2.00, battery = 2
+$div 7 0
+fail: divisao por zero
+$show
+display = 2.00, battery = 1
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT gastando bateria
+init 3
+charge 3
+div 6 3
+show
+div 7 0
+show
+div 7 2
+div 10 2
+show
+end
+======== EXPECT
+$init 3
+$charge 3
+$div 6 3
+$show
+display = 2.00, battery = 2
+$div 7 0
+fail: divisao por zero
+$show
+display = 2.00, battery = 1
+$div 7 2
+$div 10 2
+fail: bateria insuficiente
+$show
+display = 3.50, battery = 0
+$end
+<<<<<<<< FINISH
+

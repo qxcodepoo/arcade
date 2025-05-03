@@ -1,0 +1,601 @@
+>>>>>>>> INSERT init
+init 3
+show
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT inserindo comida
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT limpando
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT dinheiro
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+dinheiro 5
+dinheiro 4
+show   
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT troco
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+dinheiro 5
+dinheiro 4
+show   
+troco
+show
+dinheiro 8
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$troco
+voce recebeu 9.00 RS
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$dinheiro 8
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT comprar
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+dinheiro 5
+dinheiro 4
+show   
+troco
+show
+dinheiro 8
+comprar 1
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$troco
+voce recebeu 9.00 RS
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$dinheiro 8
+$comprar 1
+voce comprou um xaverde
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT comprar sem dinheiro
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+dinheiro 5
+dinheiro 4
+show   
+troco
+show
+dinheiro 8
+comprar 1
+comprar 1
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$troco
+voce recebeu 9.00 RS
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$dinheiro 8
+$comprar 1
+voce comprou um xaverde
+$comprar 1
+fail: saldo insuficiente
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT comprar
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+dinheiro 5
+dinheiro 4
+show   
+troco
+show
+dinheiro 8
+comprar 1
+comprar 1
+comprar 0
+show
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$troco
+voce recebeu 9.00 RS
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$dinheiro 8
+$comprar 1
+voce comprou um xaverde
+$comprar 1
+fail: saldo insuficiente
+$comprar 0
+voce comprou um tampico
+$show
+saldo: 1.50
+0 [ tampico : 0 U : 1.50 RS]
+1 [ xaverde : 2 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT comprar sem produtos
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+dinheiro 5
+dinheiro 4
+show   
+troco
+show
+dinheiro 8
+comprar 1
+comprar 1
+comprar 0
+show
+comprar 0
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$troco
+voce recebeu 9.00 RS
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$dinheiro 8
+$comprar 1
+voce comprou um xaverde
+$comprar 1
+fail: saldo insuficiente
+$comprar 0
+voce comprou um tampico
+$show
+saldo: 1.50
+0 [ tampico : 0 U : 1.50 RS]
+1 [ xaverde : 2 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$comprar 0
+fail: espiral sem produtos
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT comprar fora do indice
+init 3
+show
+set 2 todinho 3 2.50
+show
+set 0 tampico 1 1.50
+set 1 xaverde 3 5.00
+show   
+limpar 2
+show
+set 4 ovo 2 4.30
+dinheiro 5
+dinheiro 4
+show   
+troco
+show
+dinheiro 8
+comprar 1
+comprar 1
+comprar 0
+show
+comprar 0
+comprar 4
+troco
+end
+======== EXPECT
+$init 3
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 2 todinho 3 2.50
+$show
+saldo: 0.00
+0 [   empty : 0 U : 0.00 RS]
+1 [   empty : 0 U : 0.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$set 0 tampico 1 1.50
+$set 1 xaverde 3 5.00
+$show   
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [ todinho : 3 U : 2.50 RS]
+$limpar 2
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$set 4 ovo 2 4.30
+fail: indice nao existe
+$dinheiro 5
+$dinheiro 4
+$show   
+saldo: 9.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$troco
+voce recebeu 9.00 RS
+$show
+saldo: 0.00
+0 [ tampico : 1 U : 1.50 RS]
+1 [ xaverde : 3 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$dinheiro 8
+$comprar 1
+voce comprou um xaverde
+$comprar 1
+fail: saldo insuficiente
+$comprar 0
+voce comprou um tampico
+$show
+saldo: 1.50
+0 [ tampico : 0 U : 1.50 RS]
+1 [ xaverde : 2 U : 5.00 RS]
+2 [   empty : 0 U : 0.00 RS]
+$comprar 0
+fail: espiral sem produtos
+$comprar 4
+fail: indice nao existe
+$troco
+voce recebeu 1.50 RS
+$end
+<<<<<<<< FINISH
+

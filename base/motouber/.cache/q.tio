@@ -1,0 +1,187 @@
+>>>>>>>> INSERT criar
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT inserir motorista
+show
+setDriver Tobias 50
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$setDriver Tobias 50
+$show
+Cost: 0, Driver: Tobias:50, Passenger: None
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT inserir passageiro
+show
+setDriver Tobias 50
+show
+setPass Ana 20
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$setDriver Tobias 50
+$show
+Cost: 0, Driver: Tobias:50, Passenger: None
+$setPass Ana 20
+$show
+Cost: 0, Driver: Tobias:50, Passenger: Ana:20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT subir passageiro
+show
+setDriver Tobias 50
+show
+setPass Ana 20
+show
+drive 10
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$setDriver Tobias 50
+$show
+Cost: 0, Driver: Tobias:50, Passenger: None
+$setPass Ana 20
+$show
+Cost: 0, Driver: Tobias:50, Passenger: Ana:20
+$drive 10
+$show
+Cost: 10, Driver: Tobias:50, Passenger: Ana:20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT descer passageiro
+show
+setDriver Tobias 50
+show
+setPass Ana 20
+show
+drive 10
+show
+leavePass
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$setDriver Tobias 50
+$show
+Cost: 0, Driver: Tobias:50, Passenger: None
+$setPass Ana 20
+$show
+Cost: 0, Driver: Tobias:50, Passenger: Ana:20
+$drive 10
+$show
+Cost: 10, Driver: Tobias:50, Passenger: Ana:20
+$leavePass
+Ana:10 left
+$show
+Cost: 0, Driver: Tobias:60, Passenger: None
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT criar
+show
+setDriver Tobias 20
+show
+setPass Ana 10
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$setDriver Tobias 20
+$show
+Cost: 0, Driver: Tobias:20, Passenger: None
+$setPass Ana 10
+$show
+Cost: 0, Driver: Tobias:20, Passenger: Ana:10
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT Dirigir e Dirigir
+show
+setDriver Tobias 20
+show
+setPass Ana 10
+show
+drive 20
+show
+drive 10
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$setDriver Tobias 20
+$show
+Cost: 0, Driver: Tobias:20, Passenger: None
+$setPass Ana 10
+$show
+Cost: 0, Driver: Tobias:20, Passenger: Ana:10
+$drive 20
+$show
+Cost: 20, Driver: Tobias:20, Passenger: Ana:10
+$drive 10
+$show
+Cost: 30, Driver: Tobias:20, Passenger: Ana:10
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT descer passageiro fiado
+show
+setDriver Tobias 20
+show
+setPass Ana 10
+show
+drive 20
+show
+drive 10
+show
+leavePass
+show
+end
+======== EXPECT
+$show
+Cost: 0, Driver: None, Passenger: None
+$setDriver Tobias 20
+$show
+Cost: 0, Driver: Tobias:20, Passenger: None
+$setPass Ana 10
+$show
+Cost: 0, Driver: Tobias:20, Passenger: Ana:10
+$drive 20
+$show
+Cost: 20, Driver: Tobias:20, Passenger: Ana:10
+$drive 10
+$show
+Cost: 30, Driver: Tobias:20, Passenger: Ana:10
+$leavePass
+fail: Passenger does not have enough money
+Ana:0 left
+$show
+Cost: 0, Driver: Tobias:50, Passenger: None
+$end
+<<<<<<<< FINISH
+

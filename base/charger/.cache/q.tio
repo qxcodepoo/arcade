@@ -1,0 +1,443 @@
+>>>>>>>> INSERT iniciar
+show
+end
+======== EXPECT
+$show
+Notebook: desligado
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT não pode ligar
+show
+turn_on
+end
+======== EXPECT
+$show
+Notebook: desligado
+$turn_on
+fail: não foi possível ligar
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT tentando usar desligado
+show
+turn_on
+use 5
+end
+======== EXPECT
+$show
+Notebook: desligado
+$turn_on
+fail: não foi possível ligar
+$use 5
+fail: desligado
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT adicionando carregador
+set_charger 2
+show
+end
+======== EXPECT
+$set_charger 2
+$show
+Notebook: desligado, Carregador 2W
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT ligando no carregador
+set_charger 2
+show
+turn_on
+show
+end
+======== EXPECT
+$set_charger 2
+$show
+Notebook: desligado, Carregador 2W
+$turn_on
+$show
+Notebook: ligado por 0 min, Carregador 2W
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT usando
+set_charger 2
+show
+turn_on
+show
+use 5
+show
+use 7
+show
+end
+======== EXPECT
+$set_charger 2
+$show
+Notebook: desligado, Carregador 2W
+$turn_on
+$show
+Notebook: ligado por 0 min, Carregador 2W
+$use 5
+$show
+Notebook: ligado por 5 min, Carregador 2W
+$use 7
+$show
+Notebook: ligado por 12 min, Carregador 2W
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT desligando
+set_charger 2
+show
+turn_on
+show
+use 5
+show
+use 7
+show
+turn_off
+show
+end
+======== EXPECT
+$set_charger 2
+$show
+Notebook: desligado, Carregador 2W
+$turn_on
+$show
+Notebook: ligado por 0 min, Carregador 2W
+$use 5
+$show
+Notebook: ligado por 5 min, Carregador 2W
+$use 7
+$show
+Notebook: ligado por 12 min, Carregador 2W
+$turn_off
+$show
+Notebook: desligado, Carregador 2W
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT adicionando carregador
+set_charger 3
+set_charger 4
+turn_on
+use 4
+show
+end
+======== EXPECT
+$set_charger 3
+$set_charger 4
+fail: carregador já conectado
+$turn_on
+$use 4
+$show
+Notebook: ligado por 4 min, Carregador 3W
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT removendo carregador
+set_charger 3
+set_charger 4
+turn_on
+use 4
+show
+rm_charger
+rm_charger
+show
+end
+======== EXPECT
+$set_charger 3
+$set_charger 4
+fail: carregador já conectado
+$turn_on
+$use 4
+$show
+Notebook: ligado por 4 min, Carregador 3W
+$rm_charger
+Removido 3W
+$rm_charger
+fail: Sem carregador
+$show
+Notebook: desligado
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT adicionando bateria
+set_battery 50
+show
+end
+======== EXPECT
+$set_battery 50
+$show
+Notebook: desligado, Bateria 50/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT ligando na bateria
+set_battery 50
+show
+turn_on
+show
+end
+======== EXPECT
+$set_battery 50
+$show
+Notebook: desligado, Bateria 50/50
+$turn_on
+$show
+Notebook: ligado por 0 min, Bateria 50/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT usando
+set_battery 50
+show
+turn_on
+show
+use 5
+show
+use 10
+show
+end
+======== EXPECT
+$set_battery 50
+$show
+Notebook: desligado, Bateria 50/50
+$turn_on
+$show
+Notebook: ligado por 0 min, Bateria 50/50
+$use 5
+$show
+Notebook: ligado por 5 min, Bateria 45/50
+$use 10
+$show
+Notebook: ligado por 15 min, Bateria 35/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT desligando
+set_battery 50
+show
+turn_on
+show
+use 5
+show
+use 10
+show
+turn_off
+show
+end
+======== EXPECT
+$set_battery 50
+$show
+Notebook: desligado, Bateria 50/50
+$turn_on
+$show
+Notebook: ligado por 0 min, Bateria 50/50
+$use 5
+$show
+Notebook: ligado por 5 min, Bateria 45/50
+$use 10
+$show
+Notebook: ligado por 15 min, Bateria 35/50
+$turn_off
+$show
+Notebook: desligado, Bateria 35/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT retirando bateria
+set_battery 50
+turn_on
+use 5
+show
+rm_battery
+rm_battery
+show
+end
+======== EXPECT
+$set_battery 50
+$turn_on
+$use 5
+$show
+Notebook: ligado por 5 min, Bateria 45/50
+$rm_battery
+Removido 45/50
+$rm_battery
+fail: Sem bateria
+$show
+Notebook: desligado
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT usando bateria até descarregar
+set_battery 50
+turn_on
+use 45
+show
+use 10
+show
+end
+======== EXPECT
+$set_battery 50
+$turn_on
+$use 45
+$show
+Notebook: ligado por 45 min, Bateria 5/50
+$use 10
+fail: descarregou
+$show
+Notebook: desligado, Bateria 0/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT usando bateria até descarregar
+set_battery 50
+turn_on
+use 40
+show
+use 10
+show
+end
+======== EXPECT
+$set_battery 50
+$turn_on
+$use 40
+$show
+Notebook: ligado por 40 min, Bateria 10/50
+$use 10
+fail: descarregou
+$show
+Notebook: desligado, Bateria 0/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT bateria e carregador
+set_battery 50
+show
+turn_on
+use 45
+show
+set_charger 1
+show
+use 20
+show
+use 30
+show
+end
+======== EXPECT
+$set_battery 50
+$show
+Notebook: desligado, Bateria 50/50
+$turn_on
+$use 45
+$show
+Notebook: ligado por 45 min, Bateria 5/50
+$set_charger 1
+$show
+Notebook: ligado por 45 min, Carregador 1W, Bateria 5/50
+$use 20
+$show
+Notebook: ligado por 65 min, Carregador 1W, Bateria 25/50
+$use 30
+$show
+Notebook: ligado por 95 min, Carregador 1W, Bateria 50/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT bateria e carregador
+set_battery 50
+turn_on
+use 40
+show
+set_charger 5
+show
+end
+======== EXPECT
+$set_battery 50
+$turn_on
+$use 40
+$show
+Notebook: ligado por 40 min, Bateria 10/50
+$set_charger 5
+$show
+Notebook: ligado por 40 min, Carregador 5W, Bateria 10/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT turbo carregador
+set_battery 50
+turn_on
+use 40
+show
+set_charger 5
+show
+use 6
+show
+end
+======== EXPECT
+$set_battery 50
+$turn_on
+$use 40
+$show
+Notebook: ligado por 40 min, Bateria 10/50
+$set_charger 5
+$show
+Notebook: ligado por 40 min, Carregador 5W, Bateria 10/50
+$use 6
+$show
+Notebook: ligado por 46 min, Carregador 5W, Bateria 40/50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT remover bateria com carregador
+set_battery 50
+turn_on
+use 40
+show
+set_charger 5
+show
+use 6
+show
+rm_battery
+show
+end
+======== EXPECT
+$set_battery 50
+$turn_on
+$use 40
+$show
+Notebook: ligado por 40 min, Bateria 10/50
+$set_charger 5
+$show
+Notebook: ligado por 40 min, Carregador 5W, Bateria 10/50
+$use 6
+$show
+Notebook: ligado por 46 min, Carregador 5W, Bateria 40/50
+$rm_battery
+Removido 40/50
+$show
+Notebook: ligado por 46 min, Carregador 5W
+$end
+<<<<<<<< FINISH
+

@@ -152,4 +152,4 @@ Significado das tags nas questões:
 
 ### Rascunhos<!-- l:todo -->
 
-- [@produto - Padrão Composite e Decorator](base/produto/Readme.md)
+- [ ] [@produto - Padrão Composite e Decorator](base/produto/Readme.md)

@@ -1,0 +1,275 @@
+>>>>>>>> INSERT unico
+arrive mario 5
+arrive livia 4
+arrive luana 3
+show
+end
+======== EXPECT
+$arrive mario 5
+$arrive livia 4
+$arrive luana 3
+$show
+[luana:3, livia:4, mario:5] => []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT entrando
+arrive mario 5
+arrive livia 4
+arrive luana 3
+show
+enter
+show
+end
+======== EXPECT
+$arrive mario 5
+$arrive livia 4
+$arrive luana 3
+$show
+[luana:3, livia:4, mario:5] => []
+$enter
+$show
+[luana:3, livia:4] => [mario:5]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT segunda pessoa
+arrive mario 5
+arrive livia 4
+arrive luana 3
+show
+enter
+show
+enter
+show
+end
+======== EXPECT
+$arrive mario 5
+$arrive livia 4
+$arrive luana 3
+$show
+[luana:3, livia:4, mario:5] => []
+$enter
+$show
+[luana:3, livia:4] => [mario:5]
+$enter
+$show
+[luana:3] => [livia:4, mario:5]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT saindo
+arrive mario 5
+arrive livia 4
+arrive luana 3
+show
+enter
+show
+enter
+show
+leave
+show
+end
+======== EXPECT
+$arrive mario 5
+$arrive livia 4
+$arrive luana 3
+$show
+[luana:3, livia:4, mario:5] => []
+$enter
+$show
+[luana:3, livia:4] => [mario:5]
+$enter
+$show
+[luana:3] => [livia:4, mario:5]
+$leave
+$show
+[mario:5, luana:3] => [livia:4]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT remove
+arrive mario 5
+arrive livia 4
+arrive luana 3
+show
+enter
+show
+enter
+show
+leave
+show
+remove luana
+show
+remove livia
+show
+end
+======== EXPECT
+$arrive mario 5
+$arrive livia 4
+$arrive luana 3
+$show
+[luana:3, livia:4, mario:5] => []
+$enter
+$show
+[luana:3, livia:4] => [mario:5]
+$enter
+$show
+[luana:3] => [livia:4, mario:5]
+$leave
+$show
+[mario:5, luana:3] => [livia:4]
+$remove luana
+$show
+[mario:5] => [livia:4]
+$remove livia
+$show
+[mario:5] => []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT 2
+show
+arrive mario 5
+show
+end
+======== EXPECT
+$show
+[] => []
+$arrive mario 5
+$show
+[mario:5] => []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT empty enter
+show
+arrive mario 5
+show
+enter
+show
+end
+======== EXPECT
+$show
+[] => []
+$arrive mario 5
+$show
+[mario:5] => []
+$enter
+$show
+[] => [mario:5]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT empty leave
+show
+arrive mario 5
+show
+enter
+show
+leave
+show
+leave
+show
+end
+======== EXPECT
+$show
+[] => []
+$arrive mario 5
+$show
+[mario:5] => []
+$enter
+$show
+[] => [mario:5]
+$leave
+$show
+[mario:5] => []
+$leave
+$show
+[mario:5] => []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT remove from waiting
+show
+arrive mario 5
+show
+enter
+show
+leave
+show
+leave
+show
+remove mario
+show
+end
+======== EXPECT
+$show
+[] => []
+$arrive mario 5
+$show
+[mario:5] => []
+$enter
+$show
+[] => [mario:5]
+$leave
+$show
+[mario:5] => []
+$leave
+$show
+[mario:5] => []
+$remove mario
+$show
+[] => []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT remove empty
+show
+arrive mario 5
+show
+enter
+show
+leave
+show
+leave
+show
+remove mario
+show
+remove rebeca
+show
+end
+======== EXPECT
+$show
+[] => []
+$arrive mario 5
+$show
+[mario:5] => []
+$enter
+$show
+[] => [mario:5]
+$leave
+$show
+[mario:5] => []
+$leave
+$show
+[mario:5] => []
+$remove mario
+$show
+[] => []
+$remove rebeca
+fail: rebeca nao esta no pula-pula
+$show
+[] => []
+$end
+<<<<<<<< FINISH
+

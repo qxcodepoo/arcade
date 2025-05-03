@@ -38,9 +38,12 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - Começe analisando os testes e entendendo tudo que seu código precisa fazer.
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
-- Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
 
 ![_](diagrama.png)
+
+- Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
+
+[![youtube icon](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Logo_of_YouTube_%282006-2011%29.svg/960px-Logo_of_YouTube_%282006-2011%29.svg.png)](https://youtu.be/QZfjLVrk7p8)
 
 ## Shell
 

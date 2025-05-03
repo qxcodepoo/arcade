@@ -1,0 +1,330 @@
+>>>>>>>> INSERT init
+init 20
+show
+end
+======== EXPECT
+$init 20
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT insert
+init 20
+show
+addCoin 10
+addCoin 50
+show
+end
+======== EXPECT
+$init 20
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
+$addCoin 10
+$addCoin 50
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT itens
+init 20
+show
+addCoin 10
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+end
+======== EXPECT
+$init 20
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
+$addCoin 10
+$addCoin 50
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
+$addItem ouro 3
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
+$addItem passaporte 2
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT failed break
+init 20
+show
+addCoin 10
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+extractItems
+extractCoins
+show
+end
+======== EXPECT
+$init 20
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
+$addCoin 10
+$addCoin 50
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
+$addItem ouro 3
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
+$addItem passaporte 2
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$extractItems
+fail: you must break the pig first
+[]
+$extractCoins
+fail: you must break the pig first
+[]
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT breaking
+init 20
+show
+addCoin 10
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+extractItems
+extractCoins
+show
+break
+show
+end
+======== EXPECT
+$init 20
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
+$addCoin 10
+$addCoin 50
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
+$addItem ouro 3
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
+$addItem passaporte 2
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$extractItems
+fail: you must break the pig first
+[]
+$extractCoins
+fail: you must break the pig first
+[]
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$break
+$show
+state=broken : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=0/20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT getItems
+init 20
+show
+addCoin 10
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+extractItems
+extractCoins
+show
+break
+show
+extractItems
+show
+end
+======== EXPECT
+$init 20
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
+$addCoin 10
+$addCoin 50
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
+$addItem ouro 3
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
+$addItem passaporte 2
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$extractItems
+fail: you must break the pig first
+[]
+$extractCoins
+fail: you must break the pig first
+[]
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$break
+$show
+state=broken : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=0/20
+$extractItems
+[ouro:3, passaporte:2]
+$show
+state=broken : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=0/20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT getCoins
+init 20
+show
+addCoin 10
+addCoin 50
+show
+addItem ouro 3
+show
+addItem passaporte 2
+show
+extractItems
+extractCoins
+show
+break
+show
+extractItems
+show
+extractCoins
+show
+end
+======== EXPECT
+$init 20
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
+$addCoin 10
+$addCoin 50
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
+$addItem ouro 3
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
+$addItem passaporte 2
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$extractItems
+fail: you must break the pig first
+[]
+$extractCoins
+fail: you must break the pig first
+[]
+$show
+state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+$break
+$show
+state=broken : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=0/20
+$extractItems
+[ouro:3, passaporte:2]
+$show
+state=broken : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=0/20
+$extractCoins
+[0.10:1, 0.50:3]
+$show
+state=broken : coins=[] : items=[] : value=0.00 : volume=0/20
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT
+init 10
+break
+addCoin 10
+show
+addItem bilhete 2
+show
+end
+======== EXPECT
+$init 10
+$break
+$addCoin 10
+fail: the pig is broken
+$show
+state=broken : coins=[] : items=[] : value=0.00 : volume=0/10
+$addItem bilhete 2
+fail: the pig is broken
+$show
+state=broken : coins=[] : items=[] : value=0.00 : volume=0/10
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT full coin
+init 5
+addCoin 10
+addCoin 25
+show
+addCoin 50
+show
+end
+======== EXPECT
+$init 5
+$addCoin 10
+$addCoin 25
+$show
+state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
+$addCoin 50
+fail: the pig is full
+$show
+state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT full item
+init 5
+addCoin 10
+addCoin 25
+show
+addCoin 50
+show
+addItem ouro 1
+show
+addItem pirulito 2
+show
+end
+======== EXPECT
+$init 5
+$addCoin 10
+$addCoin 25
+$show
+state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
+$addCoin 50
+fail: the pig is full
+$show
+state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
+$addItem ouro 1
+$show
+state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
+$addItem pirulito 2
+fail: the pig is full
+$show
+state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
+$end
+<<<<<<<< FINISH
+

@@ -2,7 +2,7 @@ const input = () => ""; // MODO_TESTE
 export {};
 
 function main() {
-//     const shapes: Shape[] = []; 
+    // const shapes: Shape[] = [];
 
     while (true) {
         const line = input();

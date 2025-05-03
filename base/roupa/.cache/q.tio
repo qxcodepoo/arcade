@@ -1,0 +1,20 @@
+>>>>>>>> INSERT
+show
+size F
+show
+size PP
+show
+end
+======== EXPECT
+$show
+size: ()
+$size F
+fail: Valor inválido, tente PP, P, M, G, GG ou XG
+$show
+size: ()
+$size PP
+$show
+size: (PP)
+$end
+<<<<<<<< FINISH
+

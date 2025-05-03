@@ -1,0 +1,104 @@
+>>>>>>>> INSERT iniciando
+init gato miau
+show
+init cachorro auau
+show
+init galinha cocorico
+show
+end
+======== EXPECT
+$init gato miau
+$show
+gato:0:miau
+$init cachorro auau
+$show
+cachorro:0:auau
+$init galinha cocorico
+$show
+galinha:0:cocorico
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT grow
+init vaca muu
+show
+grow 2
+show
+grow 2
+show
+grow 3
+show
+end
+======== EXPECT
+$init vaca muu
+$show
+vaca:0:muu
+$grow 2
+$show
+vaca:2:muu
+$grow 2
+warning: vaca morreu
+$show
+vaca:4:muu
+$grow 3
+warning: vaca morreu
+$show
+vaca:4:muu
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT noise
+init cabra beeh
+noise
+grow 1
+noise
+grow 3
+noise
+end
+======== EXPECT
+$init cabra beeh
+$noise
+---
+$grow 1
+$noise
+beeh
+$grow 3
+warning: cabra morreu
+$noise
+RIP
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT extra
+init passaro piupiu
+show
+noise
+grow 1
+noise
+grow 2
+noise
+grow 1
+noise
+end
+======== EXPECT
+$init passaro piupiu
+$show
+passaro:0:piupiu
+$noise
+---
+$grow 1
+$noise
+piupiu
+$grow 2
+$noise
+piupiu
+$grow 1
+warning: passaro morreu
+$noise
+RIP
+$end
+<<<<<<<< FINISH
+

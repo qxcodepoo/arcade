@@ -1,0 +1,377 @@
+>>>>>>>> INSERT inserindo grafites
+init 0.5
+show
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, bico: [], tambor: <>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT calibre errado
+init 0.5
+show
+insert 0.7 2B 50
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, bico: [], tambor: <>
+$insert 0.7 2B 50
+fail: calibre incompatível
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT calibre certo
+init 0.5
+show
+insert 0.7 2B 50
+insert 0.5 2B 50
+show
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, bico: [], tambor: <>
+$insert 0.7 2B 50
+fail: calibre incompatível
+$insert 0.5 2B 50
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50]>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT mais de um grafite
+init 0.5
+show
+insert 0.7 2B 50
+insert 0.5 2B 50
+show
+insert 0.5 2B 30
+show
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, bico: [], tambor: <>
+$insert 0.7 2B 50
+fail: calibre incompatível
+$insert 0.5 2B 50
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50]>
+$insert 0.5 2B 30
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50][0.5:2B:30]>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT puxando grafite
+init 0.5
+show
+insert 0.7 2B 50
+insert 0.5 2B 50
+show
+insert 0.5 2B 30
+show
+pull
+show
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, bico: [], tambor: <>
+$insert 0.7 2B 50
+fail: calibre incompatível
+$insert 0.5 2B 50
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50]>
+$insert 0.5 2B 30
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50][0.5:2B:30]>
+$pull
+$show
+calibre: 0.5, bico: [0.5:2B:50], tambor: <[0.5:2B:30]>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT puxando ocupado
+init 0.5
+show
+insert 0.7 2B 50
+insert 0.5 2B 50
+show
+insert 0.5 2B 30
+show
+pull
+show
+pull
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, bico: [], tambor: <>
+$insert 0.7 2B 50
+fail: calibre incompatível
+$insert 0.5 2B 50
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50]>
+$insert 0.5 2B 30
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50][0.5:2B:30]>
+$pull
+$show
+calibre: 0.5, bico: [0.5:2B:50], tambor: <[0.5:2B:30]>
+$pull
+fail: ja existe grafite no bico
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT removendo do bico
+init 0.5
+show
+insert 0.7 2B 50
+insert 0.5 2B 50
+show
+insert 0.5 2B 30
+show
+pull
+show
+pull
+remove
+show
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, bico: [], tambor: <>
+$insert 0.7 2B 50
+fail: calibre incompatível
+$insert 0.5 2B 50
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50]>
+$insert 0.5 2B 30
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:50][0.5:2B:30]>
+$pull
+$show
+calibre: 0.5, bico: [0.5:2B:50], tambor: <[0.5:2B:30]>
+$pull
+fail: ja existe grafite no bico
+$remove
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:2B:30]>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT escrevendo 
+init 0.9
+insert 0.9 4B 14
+insert 0.9 4B 16
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 14
+$insert 0.9 4B 16
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT sem grafite no bico
+init 0.9
+insert 0.9 4B 14
+insert 0.9 4B 16
+write
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 14
+$insert 0.9 4B 16
+$write
+fail: nao existe grafite no bico
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT puxando grafite
+init 0.9
+insert 0.9 4B 14
+insert 0.9 4B 16
+write
+pull
+show
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 14
+$insert 0.9 4B 16
+$write
+fail: nao existe grafite no bico
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:14], tambor: <[0.9:4B:16]>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT gastando grafite
+init 0.9
+insert 0.9 4B 14
+insert 0.9 4B 16
+write
+pull
+show
+write
+show
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 14
+$insert 0.9 4B 16
+$write
+fail: nao existe grafite no bico
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:14], tambor: <[0.9:4B:16]>
+$write
+$show
+calibre: 0.9, bico: [0.9:4B:10], tambor: <[0.9:4B:16]>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT puxando novo
+init 0.9
+insert 0.9 4B 14
+insert 0.9 4B 16
+write
+pull
+show
+write
+show
+remove
+pull
+show
+write
+show
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 14
+$insert 0.9 4B 16
+$write
+fail: nao existe grafite no bico
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:14], tambor: <[0.9:4B:16]>
+$write
+$show
+calibre: 0.9, bico: [0.9:4B:10], tambor: <[0.9:4B:16]>
+$remove
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:16], tambor: <>
+$write
+$show
+calibre: 0.9, bico: [0.9:4B:12], tambor: <>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT folha incompleta
+init 0.9
+insert 0.9 4B 14
+insert 0.9 4B 16
+write
+pull
+show
+write
+show
+remove
+pull
+show
+write
+show
+write
+show
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 14
+$insert 0.9 4B 16
+$write
+fail: nao existe grafite no bico
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:14], tambor: <[0.9:4B:16]>
+$write
+$show
+calibre: 0.9, bico: [0.9:4B:10], tambor: <[0.9:4B:16]>
+$remove
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:16], tambor: <>
+$write
+$show
+calibre: 0.9, bico: [0.9:4B:12], tambor: <>
+$write
+fail: folha incompleta
+$show
+calibre: 0.9, bico: [0.9:4B:10], tambor: <>
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT tamanho insuficiente
+init 0.9
+insert 0.9 4B 14
+insert 0.9 4B 16
+write
+pull
+show
+write
+show
+remove
+pull
+show
+write
+show
+write
+show
+write
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 14
+$insert 0.9 4B 16
+$write
+fail: nao existe grafite no bico
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:14], tambor: <[0.9:4B:16]>
+$write
+$show
+calibre: 0.9, bico: [0.9:4B:10], tambor: <[0.9:4B:16]>
+$remove
+$pull
+$show
+calibre: 0.9, bico: [0.9:4B:16], tambor: <>
+$write
+$show
+calibre: 0.9, bico: [0.9:4B:12], tambor: <>
+$write
+fail: folha incompleta
+$show
+calibre: 0.9, bico: [0.9:4B:10], tambor: <>
+$write
+fail: tamanho insuficiente
+$end
+<<<<<<<< FINISH
+
