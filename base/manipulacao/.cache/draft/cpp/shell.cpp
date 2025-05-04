@@ -28,10 +28,6 @@ std::vector<int> reverse(std::vector<int> vet) {
     return {};
 }
 
-void reverse_inplace(std::vector<int> &vet) {
-    (void) vet;
-}
-
 std::vector<int> unique(std::vector<int> vet) {
     (void) vet;
     return {};
@@ -99,11 +95,11 @@ int main() {
         else if(args[0] == "get_calm_women" ) { print(get_calm_women(str2vet(args[1]))); }
         else if(args[0] == "sort"           ) { print(sort(str2vet(args[1])));           }
         else if(args[0] == "sort_stress"    ) { print(sort_stress(str2vet(args[1])));    }
-        else if(args[0] == "reverse"        ) { print(reverse(str2vet(args[1])));        }
-        else if(args[0] == "reverse_inplace") { 
-            auto vet = str2vet(args[1]);
-            reverse_inplace(vet);
-            print(vet);
+        else if(args[0] == "reverse"        ) {
+            auto array = str2vet(args[1]);
+            auto other = reverse(array);
+            print(array);
+            print(other);
         }
         else if(args[0] == "unique"         ) { print(unique(str2vet(args[1])));         }
         else if(args[0] == "repeated"       ) { print(repeated(str2vet(args[1])));       }

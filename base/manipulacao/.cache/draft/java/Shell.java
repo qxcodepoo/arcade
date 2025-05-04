@@ -25,9 +25,6 @@ public class Shell {
         return new ArrayList<>();
     }
 
-    static void reverse_inplace(List<Integer> vet) {
-    }
-
     static boolean exists(List<Integer> vet, int value) {
         return false;
     }
@@ -63,11 +60,9 @@ public class Shell {
                 System.out.println("" + sort_stress(array));
             } else if (cmd.equals("reverse")) {
                 var array = strToVet(args[1]);
-                System.out.println("" + reverse(array));
-            } else if (cmd.equals("reverse_inplace")) {
-                var array = strToVet(args[1]);
-                reverse_inplace(array);
+                var other = reverse(array);
                 System.out.println("" + array);
+                System.out.println("" + other);
             } else if (cmd.equals("exists")) {
                 var array = strToVet(args[1]);
                 var value = Integer.parseInt(args[2]);

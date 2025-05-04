@@ -1,7 +1,7 @@
 # Estressados Operações III
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
 -- | -- | --
 <!-- toch -->
 
@@ -32,11 +32,18 @@
 
 ***
 
-## Guide
+## Draft
 
-- [solver.cpp](.cache/draft.cpp)
-- [solver.ts](.cache/draft.ts)
-- [solver.java](.cache/draft.java)
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- go
+  - [shell.go](.cache/draft/go/shell.go)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->
 
 ## Shell
 
@@ -80,10 +87,18 @@ $end
 
 ```sh
 #TEST_CASE reverse
-$reverse [5,3,-1,-50,-1,-99]
-[-99, -1, -50, -1, 3, 5]
 $reverse []
 []
+[]
+$reverse [1]
+[1]
+[1]
+$reverse [1,2]
+[1, 2]
+[2, 1]
+$reverse [5,3,-1,-50,-1,-99]
+[5, 3, -1, -50, -1, -99]
+[-99, -1, -50, -1, 3, 5]
 $end
 ```
 

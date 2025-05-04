@@ -33,9 +33,6 @@ func reverse(vet []int) []int {
 	return nil
 }
 
-func reverseInplace(vet []int) {
-	_ = vet
-}
 func unique(vet []int) []int {
 	_ = vet
 	return nil
@@ -68,11 +65,10 @@ func main() {
 		case "sort_stress":
 			printVec(sortStress(str2vet(args[1])))
 		case "reverse":
-			printVec(reverse(str2vet(args[1])))
-		case "reverse_inplace":
-			vet := str2vet(args[1])
-			reverseInplace(vet)
-			printVec(vet)
+			array := str2vet(args[1])
+			other := reverse(array)
+			printVec(array)
+			printVec(other)
 		case "unique":
 			printVec(unique(str2vet(args[1])))
 		case "repeated":

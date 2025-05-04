@@ -94,7 +94,7 @@
 <thead>
 <tr class="header">
 <th><a href="#intro">Intro</a></th>
-<th><a href="#guide">Guide</a></th>
+<th><a href="#draft">Draft</a></th>
 <th><a href="#shell">Shell</a></th>
 </tr>
 </thead>
@@ -135,14 +135,30 @@ valores</li>
 valores repetidos</li>
 </ul>
 <hr />
-<h2 id="guide">Guide</h2>
+<h2 id="draft">Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li>cpp
 <ul>
 <li><a
-href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft.cpp">solver.cpp</a></li>
+href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul></li>
+<li>go
+<ul>
 <li><a
-href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft.ts">solver.ts</a></li>
+href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft/go/shell.go">shell.go</a></li>
+</ul></li>
+<li>java
+<ul>
 <li><a
-href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft.java">solver.java</a></li>
+href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul></li>
+<li>ts
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/draft/ts/shell.ts">shell.ts</a>
+<!-- links --></li>
+</ul></li>
 </ul>
 <h2 id="shell">Shell</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE get_men</span></span>
@@ -172,11 +188,19 @@ href="https://github.com/qxcodepoo/arcade/blob/master/base/manipulacao/.cache/dr
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[-1,</span> <span class="at">-1,</span> 8, 12, <span class="at">-50,</span> <span class="at">-99,</span> <span class="at">-444]</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">$end</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE reverse</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">$reverse</span> <span class="pp">[</span><span class="ss">5,3,</span><span class="pp">-</span><span class="ss">1,</span><span class="pp">-</span><span class="ss">50,</span><span class="pp">-</span><span class="ss">1,</span><span class="pp">-</span><span class="ss">99</span><span class="pp">]</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[-99,</span> <span class="at">-1,</span> <span class="at">-50,</span> <span class="at">-1,</span> 3, 5]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">$reverse</span> []</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">[]</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="va">$end</span></span></code></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">$reverse</span> []</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[]</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">[]</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="va">$reverse</span> <span class="pp">[</span><span class="ss">1</span><span class="pp">]</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="va">$reverse</span> <span class="pp">[</span><span class="ss">1,2</span><span class="pp">]</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">[1,</span> 2]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">[2,</span> 1]</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="va">$reverse</span> <span class="pp">[</span><span class="ss">5,3,</span><span class="pp">-</span><span class="ss">1,</span><span class="pp">-</span><span class="ss">50,</span><span class="pp">-</span><span class="ss">1,</span><span class="pp">-</span><span class="ss">99</span><span class="pp">]</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ex">[5,</span> 3, <span class="at">-1,</span> <span class="at">-50,</span> <span class="at">-1,</span> <span class="at">-99]</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">[-99,</span> <span class="at">-1,</span> <span class="at">-50,</span> <span class="at">-1,</span> 3, 5]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="va">$end</span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE unique</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="va">$unique</span> <span class="pp">[</span><span class="ss">1,1,1</span><span class="pp">]</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">[1]</span></span>

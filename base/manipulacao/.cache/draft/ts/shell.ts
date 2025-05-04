@@ -1,4 +1,4 @@
-const input = () => ""; 
+const input = () => ""; // MODO_TESTE
 export {};
 
 function get_men(vet: number[]): number[] {
@@ -35,7 +35,7 @@ function main() {
 
     while (true) {
         let line = input();
-        console.log("$", line);
+        console.log("$" + line);
         let args = line.split(" ");
 
         if      (args[0] === "end")             { break;                                                       }
@@ -43,7 +43,12 @@ function main() {
         else if (args[0] === "get_calm_women")  { console.log(fmt(get_calm_women(to_vet(args[1])))); }
         else if (args[0] === "sort")            { console.log(fmt(sort(          to_vet(args[1])))); }
         else if (args[0] === "sort_stress")     { console.log(fmt(sort_stress(   to_vet(args[1])))); }
-        else if (args[0] === "reverse")         { console.log(fmt(reverse(       to_vet(args[1])))); }
+        else if (args[0] === "reverse")         {
+            let vet = to_vet(args[1]);
+            let reversed = reverse(vet);
+            console.log(fmt(vet));
+            console.log(fmt(reversed));
+        }
         else if (args[0] === "unique")          { console.log(fmt(unique(        to_vet(args[1])))); }
         else if (args[0] === "repeated")        { console.log(fmt(repeated(      to_vet(args[1])))); }
         else                                    { console.log("fail: comando invalido");                             }
