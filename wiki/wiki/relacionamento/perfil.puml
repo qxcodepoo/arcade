@@ -1,9 +1,0 @@
-@startuml
-class Perfil {
-    +nome: String
-    +adicionarSeguidor(seguidor: Perfil): void
-    +adicionarSeguido(seguido: Perfil): void
-}
-
-Perfil "0..*" -- "0..*" Perfil : segue >
-@enduml

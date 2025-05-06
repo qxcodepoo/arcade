@@ -115,21 +115,21 @@ Significado das tags nas questões:
 
 ### TS FUP<!-- l:ts -->
 
-- [ ] `@ts_fup_1      :task`[Revisão de FUP](typescript/fup_leitura.md)
-- [ ] `@ts_fup_2      :task`[Revisão](typescript/fup_revisao.md)
-- [ ] `@ts_fup_3      :task`[Prática](typescript/fup_pratica.md)
+- [ ] `@ts_fup_1      :task`[Revisão de FUP](wiki/typescript/fup_leitura.md)
+- [ ] `@ts_fup_2      :task`[Revisão](wiki/typescript/fup_revisao.md)
+- [ ] `@ts_fup_3      :task`[Prática](wiki/typescript/fup_pratica.md)
 
 ### TS Classes<!-- l:ts -->
 
-- [ ] `@ts_poo_1      :task`[Classes Leitura](typescript/classes_leitura.md)
-- [ ] `@ts_poo_2      :task`[Classes Revisão](typescript/classes_revisao.md)
-- [ ] `@ts_poo_3      :task`[Classes prática](typescript/classes_pratica.md)
+- [ ] `@ts_poo_1      :task`[Classes Leitura](wiki/typescript/classes_leitura.md)
+- [ ] `@ts_poo_2      :task`[Classes Revisão](wiki/typescript/classes_revisao.md)
+- [ ] `@ts_poo_3      :task`[Classes prática](wiki/typescript/classes_pratica.md)
 
 ### TS Arrays<!-- l:ts -->
 
-- [ ] `@ts_arr_1      :task`[Leitura arrays](typescript/arrays_leitura.md)
-- [ ] `@ts_arr_2      :task`[Revisão Arrays](typescript/arrays_revisao.md)
-- [ ] `@ts_arr_3      :task`[Arrays - Prática](typescript/arrays_pratica.md)
+- [ ] `@ts_arr_1      :task`[Leitura arrays](wiki/typescript/arrays_leitura.md)
+- [ ] `@ts_arr_2      :task`[Revisão Arrays](wiki/typescript/arrays_revisao.md)
+- [ ] `@ts_arr_3      :task`[Arrays - Prática](wiki/typescript/arrays_pratica.md)
 
 ## Futuro
 
