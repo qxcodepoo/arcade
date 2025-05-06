@@ -1,0 +1,11 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+AssociacaoEsportiva "*" o-- "*" Equipe : < Afiliada
+Equipe "*" o-- "*" Jogador : membro
+
+@enduml

@@ -1,0 +1,54 @@
+@startuml
+
+class User {
+    - username: string
+    - chats: map<int, Chat*>
+    __cadastro__
+    - addChat(chat: Chat*): void
+    __
+    + User(username: string)
+    + toString(): string
+    __
+    + getChats(): map<int, Chat*>
+    + getUsername(): string
+    __
+    friend class Service;
+}
+
+class Chat {
+    - chatId: int
+    - chatName: string 
+    - users: map<string, User*>
+    __cadastro__
+    - addUser(user: User*)
+    __
+    + Chat(chatId: int, chatName: string)
+    + getUsers(): const map<string, User*>&
+    + toString(): string
+    __
+    + getChatId(): int
+    + getChatName(): string
+    __
+    friend class Service;
+}
+
+class Service {
+    + map<string, shared_ptr<User>> users;
+    + map<int, shared_ptr<Chat>> chats;
+    - int nextChatId {0};
+    __addUser__
+    + Service()
+    + addUser(username: string)
+    + toString(): string
+    __create__
+    + createChat(username: string , chatName: string): void 
+    + inviteToChat(owner: string, invitee: string, chatId: int): void
+    + getUsers(): const map<string, shared_ptr<User>>&
+    + getChats(): const map<int, shared_ptr<Chat>>&
+}
+
+
+Inbox -->  "-user" User
+Inbox -->  "-msgs" Msg
+User -->  "-notify" Notify
+@enduml

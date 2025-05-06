@@ -1,0 +1,34 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+class Car {
+  + pass    : number
+  + passMax : number
+  + gas     : number
+  + gasMax  : number
+  + km      : number
+
+  __
+  
+  + constructor()
+  + enter(): void
+  + leave(): void
+  + drive(distance : number): void  
+  + fuel (increment : number): void
+  + toString() : string
+}
+
+class Legend {
+  + publicAttribute
+  - privateAttribute
+  # protectedAttribute
+  __
+  + publicMethod()
+  - privateMethod()
+  # protectedMethod()
+}
+
+
+@enduml

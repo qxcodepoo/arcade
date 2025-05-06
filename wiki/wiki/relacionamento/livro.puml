@@ -1,0 +1,11 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+Livro "1" *-- "*" Capitulo : contém
+Capitulo "1" *-- "*" Secao : contém
+
+@enduml

@@ -1,0 +1,76 @@
+>>>>>>>> INSERT in
+in [1,2,3,4] 4
+in [1,2,3,5] 1
+in [1,2,5,9] 7
+end
+======== EXPECT
+$in [1,2,3,4] 4
+true
+$in [1,2,3,5] 1
+true
+$in [1,2,5,9] 7
+false
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT index_of
+index_of [-1,-50,-1,-99] -50
+index_of [-1,-50,-1,-99] -99
+index_of [-1,-50,-1,-99] 10
+end
+======== EXPECT
+$index_of [-1,-50,-1,-99] -50
+1
+$index_of [-1,-50,-1,-99] -99
+3
+$index_of [-1,-50,-1,-99] 10
+-1
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT find_if
+find_if [5,3,-1,-50,-1,-99]
+find_if [-1,-50,-1,-99,-444]
+end
+======== EXPECT
+$find_if [5,3,-1,-50,-1,-99]
+0
+$find_if [-1,-50,-1,-99,-444]
+-1
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT min_element
+min_element [5,3,-1,-50,-1,-99]
+min_element [-1,-50,-1,-99,-444]
+min_element [-2,5,3,-1,50,-1]
+min_element []
+end
+======== EXPECT
+$min_element [5,3,-1,-50,-1,-99]
+5
+$min_element [-1,-50,-1,-99,-444]
+4
+$min_element [-2,5,3,-1,50,-1]
+0
+$min_element []
+-1
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT find_min_if
+find_min_if [5,3,-1,-50,-1,-99]
+find_min_if [-1,-50,-1,-99,-444]
+end
+======== EXPECT
+$find_min_if [5,3,-1,-50,-1,-99]
+1
+$find_min_if [-1,-50,-1,-99,-444]
+-1
+$end
+<<<<<<<< FINISH
+

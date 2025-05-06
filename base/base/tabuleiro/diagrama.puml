@@ -1,0 +1,36 @@
+
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+left to right direction
+class Player {
+  - label: number  
+  - pos  : number
+  - free : boolean
+  __
+  + Player(label: number)
+  + isFree()   : boolean
+  + toString() : string
+  __
+  + getLabel(): number
+  + getPos()  : number
+  + setPos(pos: number)
+  + setFree(free : boolean): void
+}
+
+class Board {
+  - trapList : Array<number>
+  - players  : Array<Player>
+  - running  : boolean
+  - boardSize: number
+  __
+  + Board(nPlayers: number, boardSize: number)
+  + toString(): string
+  __
+  + addTrap (pos  : number): void
+  + rollDice(value: number): void
+}
+
+Board "1" *--  "2..*" Player : > has
+@enduml

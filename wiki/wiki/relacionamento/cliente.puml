@@ -1,0 +1,35 @@
+@startuml
+
+left to right direction
+
+class Cliente {
+    +nome: String
+    +endereco: String
+    +telefone: String
+    +fazerPedido(): void
+}
+
+class Pedido {
+    +data: Date
+    +status: String
+    +total: double
+    +adicionarItem(item: Item): void
+    +removerItem(item: Item): void
+}
+
+class Item {
+    +quantidade: int
+    +subtotal: double
+    +calcularSubtotal(): double
+}
+
+class Produto {
+    +nome: String
+    +preco: double
+    +descricao: String
+}
+
+Cliente "1" -- "0..*" Pedido
+Pedido "1" -- "1..*" Item
+Item "1" -- "1" Produto
+@enduml

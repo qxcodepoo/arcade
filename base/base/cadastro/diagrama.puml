@@ -1,0 +1,150 @@
+
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+
+
+class Account {
+    # balance: double
+    # accId: int
+    # clientId: str
+
+    ' typeId {CC, CP}
+    # typeId: str
+    --
+    ' inicializa os atributos
+    ' saldo inicial é 0
+    + Account(accId: int, clientId: str, typeId: str)
+
+    ' realiza o depósito
+    + deposit(value: double)
+
+    ' realiza o saque
+    ' verifique se há saldo suficiente
+    + withdraw(value: double)
+
+    ' realiza a transferência da conta this para conta other
+    ' verifique se há saldo suficiente na conta this
+    + transfer(other: Account, value: double)
+
+    ' retorna as informações na conta no formato
+    ' "accId:clientId:balance:typeId"
+    + toString(): str
+    --
+
+    ' retorna o saldo
+    + getBalance(): double
+
+    ' retorna o id
+    + getId(): int
+
+    ' retorna o id do cliente
+    + getClientId(): str
+
+    ' retorna o tipo da conta
+    + getTypeId(): str
+    --
+    
+    ' método abstrato que realiza a atualização mensal da conta
+    ' o método deve ser implementado nas subclasses
+    + {static} updateMonthly(): void
+}
+
+class CheckingAccount {
+    ' taxa de manutenção da conta
+    # monthlyFee: double
+    --
+    ' chama o construtor da superclasse
+    ' repassando os valores accId, clientId e typeId = CC
+    + CheckingAccount(accId: int, clientId: str)
+
+    ' decrementa o saldo da conta em monthlyFee
+    + updateMonthly(): void
+}
+
+class SavingsAccount {
+    ' taxa de rendimento mensal
+    # monthlyInterest: double
+
+    --
+    ' chama o construtor da superclasse
+    ' repassando os valores accId, clientId e typeId = CP
+    + SavingsAccount(accId: int, clientId: str)
+
+    ' incrementa o saldo da conta em monthlyInterest %
+    + updateMonthly(): void  
+}
+
+class Client {
+    # clientId: str
+    # accounts: list[Account]
+    --
+    + Client(name: str, clientId: str)
+
+    ' adiciona uma conta à lista de contas do cliente
+    + addAccount(acc: Account)
+
+    ' retorna a lista de contas do cliente
+    + getAccounts(): list[Account]
+
+    ' retorna o id do cliente
+    + getClientId(): str
+
+    ' retorna o nome do cliente e a lista com os ids das contas no formato
+    ' nome [id1, id2, ...]
+    + toString(): str
+}
+
+class Agency {
+    - accounts: Map<int, Account>
+    - clients : Map<str, Client>
+    - nextAccountId: int
+    --
+
+    ' busca pela conta e dispara excessão se não encontrar
+    - getAccount(int accountId): Account
+    --
+    ' inicializa os atributos
+    + BankAgency()
+
+    ' cria uma conta para o cliente
+    ' cria um objeto cliente e insere no mapa de clientes
+    ' cria uma conta corrente e uma conta polpança e insere no mapa de contas
+    ' faz o vínculo cruzado colocando as contas dentro do objeto do cliente
+    + addClient(clientId: str): void
+
+    ' procura pela conta usando o getAccount e realiza a operação de depósito
+    ' utiliza o método deposit da classe Account
+    + deposit(accId: int, value: double): void
+
+    ' procura pela conta e realiza a operação de saque
+    ' utiliza o método withdraw da classe Account
+    + withdraw(accId: int, value: double): void
+
+    ' procura pela conta e realiza a operação de transferência
+    ' utiliza o método transfer da classe Account
+    + transfer(fromAccId: int, toAccId: int, value: double): void
+
+    ' realiza a operação de atualização mensal em todas as contas
+    + updateMonthly(): void
+}
+
+
+CheckingAccount --|> Account
+SavingsAccount --|> Account
+
+Client "1" o-- "1" CheckingAccount
+Client "1" o-- "1" SavingsAccount
+
+Agency "1" *-- "0..*" Account
+
+Agency "1" *--l- "0..*" Client
+
+
+' Circle --|> Shape
+' Rectangle --|> Shape
+' V2D  --  Circle
+' V2D  --  Rectangle
+@enduml

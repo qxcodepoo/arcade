@@ -1,0 +1,194 @@
+>>>>>>>> INSERT first clients
+addCli Almir
+addCli Julia
+addCli Maria
+show
+end
+======== EXPECT
+$addCli Almir
+$addCli Julia
+$addCli Maria
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:0.00:CC
+1:Almir:0.00:CP
+2:Julia:0.00:CC
+3:Julia:0.00:CP
+4:Maria:0.00:CC
+5:Maria:0.00:CP
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT operações básicas
+addCli Almir
+addCli Julia
+addCli Maria
+show
+deposito 0 100
+deposito 1 200
+deposito 2 50
+deposito 3 300
+saque 3 50
+saque 0 70
+saque 1 300
+show
+transf 3 5 200
+transf 0 4 25
+transf 9 1 30
+transf 2 8 10
+show
+end
+======== EXPECT
+$addCli Almir
+$addCli Julia
+$addCli Maria
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:0.00:CC
+1:Almir:0.00:CP
+2:Julia:0.00:CC
+3:Julia:0.00:CP
+4:Maria:0.00:CC
+5:Maria:0.00:CP
+$deposito 0 100
+$deposito 1 200
+$deposito 2 50
+$deposito 3 300
+$saque 3 50
+$saque 0 70
+$saque 1 300
+fail: saldo insuficiente
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:30.00:CC
+1:Almir:200.00:CP
+2:Julia:50.00:CC
+3:Julia:250.00:CP
+4:Maria:0.00:CC
+5:Maria:0.00:CP
+$transf 3 5 200
+$transf 0 4 25
+$transf 9 1 30
+fail: conta nao encontrada
+$transf 2 8 10
+fail: conta nao encontrada
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:5.00:CC
+1:Almir:200.00:CP
+2:Julia:50.00:CC
+3:Julia:50.00:CP
+4:Maria:25.00:CC
+5:Maria:200.00:CP
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT update mensal
+addCli Almir
+addCli Julia
+addCli Maria
+show
+deposito 0 100
+deposito 1 200
+deposito 2 50
+deposito 3 300
+saque 3 50
+saque 0 70
+saque 1 300
+show
+transf 3 5 200
+transf 0 4 25
+transf 9 1 30
+transf 2 8 10
+show
+update
+show
+end
+======== EXPECT
+$addCli Almir
+$addCli Julia
+$addCli Maria
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:0.00:CC
+1:Almir:0.00:CP
+2:Julia:0.00:CC
+3:Julia:0.00:CP
+4:Maria:0.00:CC
+5:Maria:0.00:CP
+$deposito 0 100
+$deposito 1 200
+$deposito 2 50
+$deposito 3 300
+$saque 3 50
+$saque 0 70
+$saque 1 300
+fail: saldo insuficiente
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:30.00:CC
+1:Almir:200.00:CP
+2:Julia:50.00:CC
+3:Julia:250.00:CP
+4:Maria:0.00:CC
+5:Maria:0.00:CP
+$transf 3 5 200
+$transf 0 4 25
+$transf 9 1 30
+fail: conta nao encontrada
+$transf 2 8 10
+fail: conta nao encontrada
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:5.00:CC
+1:Almir:200.00:CP
+2:Julia:50.00:CC
+3:Julia:50.00:CP
+4:Maria:25.00:CC
+5:Maria:200.00:CP
+$update
+$show
+- Clients
+Almir [0, 1]
+Julia [2, 3]
+Maria [4, 5]
+- Accounts
+0:Almir:-15.00:CC
+1:Almir:202.00:CP
+2:Julia:30.00:CC
+3:Julia:50.50:CP
+4:Maria:5.00:CC
+5:Maria:202.00:CP
+$end
+<<<<<<<< FINISH
+

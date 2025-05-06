@@ -1,0 +1,161 @@
+>>>>>>>> INSERT init 1
+show
+end
+======== EXPECT
+$show
+[]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT init 2
+show
+init 5
+show
+end
+======== EXPECT
+$show
+[]
+$init 5
+$show
+[- - - - -]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT init 3
+show
+init 5
+show
+init 4
+show
+end
+======== EXPECT
+$show
+[]
+$init 5
+$show
+[- - - - -]
+$init 4
+$show
+[- - - -]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT reservas
+init 4
+reserve davi 3232 0
+reserve joao 3131 3
+show
+end
+======== EXPECT
+$init 4
+$reserve davi 3232 0
+$reserve joao 3131 3
+$show
+[davi:3232 - - joao:3131]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT ocupado
+init 4
+reserve davi 3232 0
+reserve joao 3131 3
+show
+reserve rute 3030 0
+end
+======== EXPECT
+$init 4
+$reserve davi 3232 0
+$reserve joao 3131 3
+$show
+[davi:3232 - - joao:3131]
+$reserve rute 3030 0
+fail: cadeira ja esta ocupada
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT duplicado
+init 4
+reserve davi 3232 0
+reserve joao 3131 3
+show
+reserve rute 3030 0
+reserve davi 3234 2
+end
+======== EXPECT
+$init 4
+$reserve davi 3232 0
+$reserve joao 3131 3
+$show
+[davi:3232 - - joao:3131]
+$reserve rute 3030 0
+fail: cadeira ja esta ocupada
+$reserve davi 3234 2
+fail: cliente ja esta no cinema
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT cadeira invalida
+init 4
+reserve davi 3232 5
+end
+======== EXPECT
+$init 4
+$reserve davi 3232 5
+fail: cadeira nao existe
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT cancelamentos
+init 4
+reserve davi 3232 5
+reserve davi 3232 0
+reserve joao 3131 3
+cancel davi
+show
+end
+======== EXPECT
+$init 4
+$reserve davi 3232 5
+fail: cadeira nao existe
+$reserve davi 3232 0
+$reserve joao 3131 3
+$cancel davi
+$show
+[- - - joao:3131]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT cancelamentos errado
+init 4
+reserve davi 3232 5
+reserve davi 3232 0
+reserve joao 3131 3
+cancel davi
+show
+cancel rita
+show
+end
+======== EXPECT
+$init 4
+$reserve davi 3232 5
+fail: cadeira nao existe
+$reserve davi 3232 0
+$reserve joao 3131 3
+$cancel davi
+$show
+[- - - joao:3131]
+$cancel rita
+fail: cliente nao esta no cinema
+$show
+[- - - joao:3131]
+$end
+<<<<<<<< FINISH
+

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>@porquinho: Guardando moedas e itens em um cofrinho</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="guardando-moedas-e-itens-em-um-cofrinho">Guardando moedas e
+itens em um cofrinho</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr class="header">
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#draft">Draft</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+<!-- toch -->
+<figure>
+<img
+src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/cover.jpg"
+alt="cover" />
+<figcaption aria-hidden="true">cover</figcaption>
+</figure>
+<h2 id="intro">Intro</h2>
+<p>A classe Pig (Porquinho) representa um cofre que permite aos usuários
+adicionar moedas e itens, que são armazenados com base no volume
+disponível. O cofre tem uma capacidade máxima de volume e pode ser
+quebrado para extrair o conteúdo.</p>
+<h3 id="responsabilidades">Responsabilidades</h3>
+<ul>
+<li><strong>Adicionar Moedas e Itens:</strong>
+<ul>
+<li>Os usuários podem adicionar moedas e itens ao cofrinho.</li>
+<li>A adição é limitada pela capacidade máxima de volume do
+porquinho.</li>
+</ul></li>
+<li><strong>Quebrar o Cofrinho:</strong>
+<ul>
+<li>Os usuários podem quebrar o cofrinho para extrair seu conteúdo.</li>
+<li>Uma vez quebrado, o cofrinho não pode mais receber adições.</li>
+</ul></li>
+<li><strong>Extrair Moedas e Itens:</strong>
+<ul>
+<li>Após quebrar o cofrinho, os usuários podem extrair as moedas e itens
+armazenados.</li>
+<li>As moedas e itens são removidos do cofrinho e retornados ao
+usuário.</li>
+</ul></li>
+<li><strong>Obter Valor e Volume Total:</strong>
+<ul>
+<li>Os usuários podem verificar o valor total das moedas armazenadas no
+cofrinho.</li>
+<li>Também podem verificar o volume total ocupado pelos itens e
+moedas.</li>
+</ul></li>
+</ul>
+<h2 id="guide">Guide</h2>
+<figure>
+<img
+src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/diagrama.png"
+alt="diagrama" />
+<figcaption aria-hidden="true">diagrama</figcaption>
+</figure>
+<h3 id="classe-coin">Classe Coin</h3>
+<ul>
+<li>A classe <code>Coin</code> possui os seguintes atributos:
+<ul>
+<li><code>value</code>: Valor da moeda.</li>
+<li><code>volume</code>: Volume da moeda.</li>
+<li><code>label</code>: Rótulo da moeda.</li>
+</ul></li>
+<li>Além disso, a classe possui os seguintes métodos:
+<ul>
+<li><code>toString(): string</code>: Retorna uma representação em string
+da moeda no formato <code>f"{this.value.2f}, {this.volume}"</code></li>
+<li><code>getValue(): number</code>: Retorna o valor da moeda.</li>
+<li><code>getVolume(): number</code>: Retorna o volume da moeda.</li>
+<li><code>getLabel(): string</code>: Retorna o rótulo da moeda.</li>
+</ul></li>
+</ul>
+<h4 id="método-estático">Método Estático</h4>
+<p>A classe <code>Coin</code> possui métodos estáticos para criar
+instâncias de moedas com valores pré-definidos:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode typescript"><code class="sourceCode typescript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> C10 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Coin</span>(<span class="fl">0.10</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="st">&quot;C10&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> C25 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Coin</span>(<span class="fl">0.25</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="st">&quot;C25&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> C50 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Coin</span>(<span class="fl">0.50</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="st">&quot;C50&quot;</span>)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> C100 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Coin</span>(<span class="fl">1.0</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="st">&quot;C100&quot;</span>)<span class="op">;</span></span></code></pre></div>
+<h3 id="classe-item">Classe Item</h3>
+<p>A classe <code>Item</code> possui os seguintes atributos:</p>
+<ul>
+<li><code>label</code>: Rótulo do item.</li>
+<li><code>volume</code>: Volume do item.</li>
+</ul>
+<p>Além disso, a classe possui os seguintes métodos:</p>
+<ul>
+<li><code>getLabel(): string</code>: Retorna o rótulo do item.</li>
+<li><code>getVolume(): number</code>: Retorna o volume do item.</li>
+<li><code>setVolume(volume: number): void</code>: Define o volume do
+item.</li>
+<li><code>setLabel(label: string): void</code>: Define o rótulo do
+item.</li>
+<li><code>toString(): string</code>: Retorna uma representação em string
+do item.
+<ul>
+<li>Formato de retorno: <code>label:volume</code></li>
+</ul></li>
+</ul>
+<h3 id="classe-pig">Classe Pig</h3>
+<p>A classe <code>Pig</code> possui os seguintes atributos:</p>
+<ul>
+<li><code>items</code>: Array de itens.</li>
+<li><code>coins</code>: Array de moedas.</li>
+<li><code>volumeMax</code>: Volume máximo suportado pela
+“cochonilha”.</li>
+<li><code>broken</code>: Indica se a “cochonilha” está quebrada ou
+não.</li>
+</ul>
+<ol type="1">
+<li><p><strong>Definição da Classe Pig:</strong></p>
+<ul>
+<li>Definir a classe <code>Pig</code> com os atributos
+<code>items</code>, <code>coins</code>, <code>volumeMax</code> e
+<code>broken</code>.</li>
+<li>Implementar o construtor que recebe <code>volumeMax</code> como
+parâmetro e o atribui à propriedade <code>volumeMax</code>.</li>
+<li>Inicializar os arrays <code>items</code> e <code>coins</code> como
+vazios.</li>
+<li>Inicializar a propriedade <code>broken</code> como
+<code>false</code>.</li>
+</ul></li>
+<li><p><strong>Implementação dos Métodos:</strong></p>
+<ul>
+<li><strong>Método <code>addCoin(coin: Coin): boolean</code></strong>
+<ul>
+<li>Aiciona uma moeda ao vetor de moedas.</li>
+<li>Parâmetros:
+<ul>
+<li><code>coin</code>: Moeda a ser adicionada.</li>
+</ul></li>
+<li>Retorna <code>true</code> se a adição for bem-sucedida, caso
+contrário, retorna <code>false</code>.</li>
+<li>Erro: <code>fail: the pig is broken</code> se o porquinho estiver
+quebrado.</li>
+<li>Erro: <code>fail: the pig is full</code> se o porquinho estiver
+cheio.</li>
+</ul></li>
+<li><strong>Método <code>addItem(item: Item): boolean</code></strong>
+<ul>
+<li>Adiciona um item ao vetor de itens.</li>
+<li>Parâmetros:
+<ul>
+<li><code>item</code>: Item a ser adicionado.</li>
+</ul></li>
+<li>Retorna <code>true</code> se a adição for bem-sucedida, caso
+contrário, retorna <code>false</code>.</li>
+<li>Erro: <code>fail: the pig is broken</code> se o porquinho estiver
+quebrado.</li>
+<li>Erro: <code>fail: the pig is full</code> se o porquinho estiver
+cheio.</li>
+</ul></li>
+<li><strong>Método <code>getVolume(): number</code></strong>
+<ul>
+<li>Retorna o volume total ocupado pelo conteúdo do porquinho.
+<strong>Passos:</strong></li>
+</ul></li>
+</ul>
+<ol type="1">
+<li><strong>Verificação de Estado:</strong>
+<ul>
+<li>Verifica se o porquinho está quebrada.
+<ul>
+<li>Se estiver quebrado, retorna volume 0.</li>
+</ul></li>
+</ul></li>
+<li><strong>Cálculo do Volume:</strong>
+<ul>
+<li>Inicializa a variável <code>volume</code> com valor 0.</li>
+<li>Percorre o array de itens e adiciona o volume de cada item à
+variável <code>volume</code>.</li>
+<li>Percorre o array de moedas e adiciona o volume de cada moeda à
+variável <code>volume</code>.</li>
+<li>Retorna o valor total de <code>volume</code>.</li>
+</ul></li>
+</ol>
+<ul>
+<li><strong>Método <code>getValue(): number</code></strong>
+<ul>
+<li>Retorna o valor total das moedas no porquinho.
+<strong>Passos:</strong></li>
+</ul></li>
+</ul>
+<ol type="1">
+<li><strong>Cálculo do Valor:</strong>
+<ul>
+<li>Inicializa a variável <code>value</code> com valor 0.</li>
+<li>Percorre o array de moedas e adiciona o valor de cada moeda à
+variável <code>value</code>.</li>
+<li>Retorna o valor total de <code>value</code>.</li>
+</ul></li>
+</ol>
+<ul>
+<li><strong>Método <code>breakPig(): boolean</code></strong>
+<ul>
+<li>Quebra o porquinho, tornando-o inutilizável.</li>
+<li>Define a propriedade <code>broken</code> como
+<code>true</code>.</li>
+<li>Retorna <code>true</code> se a quebra for bem-sucedida, caso
+contrário, retorna <code>false</code>.</li>
+<li>Erro: <code>fail: the pig is already broken</code> se o porquinho já
+estiver quebrado.</li>
+</ul></li>
+<li><strong>Método <code>extractCoins(): Coin[]</code></strong>
+<ul>
+<li>Remove e retorna todas as moedas do porquinho.</li>
+<li>Retorna um array com todas as moedas removidas.</li>
+<li>Erro: <code>fail: you must break the pig first</code> se o porquinho
+não estiver quebrado.</li>
+</ul></li>
+<li><strong>Método <code>extractItems(): Item[]</code></strong>
+<ul>
+<li>Remove e retorna todos os itens do porquinho.</li>
+<li>Retorna um array com todos os itens removidos.</li>
+<li>Erro: <code>fail: you must break the pig first</code> se o porquinho
+não estiver quebrado.</li>
+</ul></li>
+<li><strong>Método <code>toString(): string</code></strong>
+<ul>
+<li>Retorna uma representação em string do estado atual do porquinho,
+incluindo se está intacto ou quebrado, a lista de moedas e itens
+armazenados, o valor total e o volume ocupado.</li>
+<li>Formato de retorno:
+<code>state=estado : coins=[moedas] : items=[itens] : value=valor : volume=volumeAtual/volumeMaximo</code>.</li>
+</ul></li>
+</ul></li>
+</ol>
+<h2 id="draft">Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/Solver.java">Solver.java</a></li>
+<li>cpp
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul></li>
+<li>java
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul></li>
+<li>ts
+<ul>
+<li><a
+href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/ts/shell.ts">shell.ts</a>
+<!-- links --></li>
+</ul></li>
+</ul>
+<h2 id="shell">Shell</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode py"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE init</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>$init <span class="dv">20</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>intact : coins<span class="op">=</span>[] : items<span class="op">=</span>[] : value<span class="op">=</span><span class="fl">0.00</span> : volume<span class="op">=</span><span class="dv">0</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE insert</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>$addCoin <span class="dv">10</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>$addCoin <span class="dv">50</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>intact : coins<span class="op">=</span>[<span class="fl">0.10</span>:<span class="dv">1</span>, <span class="fl">0.50</span>:<span class="dv">3</span>] : items<span class="op">=</span>[] : value<span class="op">=</span><span class="fl">0.60</span> : volume<span class="op">=</span><span class="dv">4</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE itens</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>$addItem ouro <span class="dv">3</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>intact : coins<span class="op">=</span>[<span class="fl">0.10</span>:<span class="dv">1</span>, <span class="fl">0.50</span>:<span class="dv">3</span>] : items<span class="op">=</span>[ouro:<span class="dv">3</span>] : value<span class="op">=</span><span class="fl">0.60</span> : volume<span class="op">=</span><span class="dv">7</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>$addItem passaporte <span class="dv">2</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>intact : coins<span class="op">=</span>[<span class="fl">0.10</span>:<span class="dv">1</span>, <span class="fl">0.50</span>:<span class="dv">3</span>] : items<span class="op">=</span>[ouro:<span class="dv">3</span>, passaporte:<span class="dv">2</span>] : value<span class="op">=</span><span class="fl">0.60</span> : volume<span class="op">=</span><span class="dv">9</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE failed break</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>$extractItems</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>fail: you must <span class="cf">break</span> the pig first</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>[]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>$extractCoins</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>fail: you must <span class="cf">break</span> the pig first</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>[]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>intact : coins<span class="op">=</span>[<span class="fl">0.10</span>:<span class="dv">1</span>, <span class="fl">0.50</span>:<span class="dv">3</span>] : items<span class="op">=</span>[ouro:<span class="dv">3</span>, passaporte:<span class="dv">2</span>] : value<span class="op">=</span><span class="fl">0.60</span> : volume<span class="op">=</span><span class="dv">9</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE breaking</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>$break</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>broken : coins<span class="op">=</span>[<span class="fl">0.10</span>:<span class="dv">1</span>, <span class="fl">0.50</span>:<span class="dv">3</span>] : items<span class="op">=</span>[ouro:<span class="dv">3</span>, passaporte:<span class="dv">2</span>] : value<span class="op">=</span><span class="fl">0.60</span> : volume<span class="op">=</span><span class="dv">0</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE getItems</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>$extractItems</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>[ouro:<span class="dv">3</span>, passaporte:<span class="dv">2</span>]</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>broken : coins<span class="op">=</span>[<span class="fl">0.10</span>:<span class="dv">1</span>, <span class="fl">0.50</span>:<span class="dv">3</span>] : items<span class="op">=</span>[] : value<span class="op">=</span><span class="fl">0.60</span> : volume<span class="op">=</span><span class="dv">0</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE getCoins</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>$extractCoins</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>[<span class="fl">0.10</span>:<span class="dv">1</span>, <span class="fl">0.50</span>:<span class="dv">3</span>]</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>$show</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>state<span class="op">=</span>broken : coins<span class="op">=</span>[] : items<span class="op">=</span>[] : value<span class="op">=</span><span class="fl">0.00</span> : volume<span class="op">=</span><span class="dv">0</span><span class="op">/</span><span class="dv">20</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>$end</span></code></pre></div>
+<hr />
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="va">$init</span> 10</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="va">$break</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="va">$addCoin</span> 10</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">fail:</span> the pig is broken</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="va">state</span><span class="op">=</span>broken <span class="bu">:</span> coins=[] : items=[] : value=0.00 : volume=0/10</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="va">$addItem</span> bilhete 2</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="ex">fail:</span> the pig is broken</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="va">state</span><span class="op">=</span>broken <span class="bu">:</span> coins=[] : items=[] : value=0.00 : volume=0/10</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="va">$end</span></span></code></pre></div>
+<hr />
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE full coin</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">$init</span> 5</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="va">$addCoin</span> 10</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="va">$addCoin</span> 25</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="va">state</span><span class="op">=</span>intact <span class="bu">:</span> coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="va">$addCoin</span> 50</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">fail:</span> the pig is full</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="va">state</span><span class="op">=</span>intact <span class="bu">:</span> coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#TEST_CASE full item</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="va">$addItem</span> ouro 1</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="va">state</span><span class="op">=</span>intact <span class="bu">:</span> coins=[0.10:1, 0.25:2] : items=<span class="pp">[</span><span class="ss">ouro:1</span><span class="pp">]</span> : value=0.35 : volume=4/5</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="va">$addItem</span> pirulito 2</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">fail:</span> the pig is full</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="va">$show</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="va">state</span><span class="op">=</span>intact <span class="bu">:</span> coins=[0.10:1, 0.25:2] : items=<span class="pp">[</span><span class="ss">ouro:1</span><span class="pp">]</span> : value=0.35 : volume=4/5</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="va">$end</span></span></code></pre></div>
+</body>
+</html>

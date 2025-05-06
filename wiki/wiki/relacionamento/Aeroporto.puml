@@ -1,0 +1,9 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+Aeroporto "1" -- "0..*" Voo : é origem
+Voo "0..*" -- "1" Aeroporto : é destino
+
+@enduml

@@ -1,0 +1,156 @@
+>>>>>>>> INSERT entrada bike
+show
+tempo 30
+estacionar bike elias
+show
+end
+======== EXPECT
+$show
+Hora atual: 0
+$tempo 30
+$estacionar bike elias
+$show
+______Bike : _____elias : 30
+Hora atual: 30
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT entrada moto
+show
+tempo 30
+estacionar bike elias
+show
+tempo 20
+estacionar moto abc1234
+show
+end
+======== EXPECT
+$show
+Hora atual: 0
+$tempo 30
+$estacionar bike elias
+$show
+______Bike : _____elias : 30
+Hora atual: 30
+$tempo 20
+$estacionar moto abc1234
+$show
+______Bike : _____elias : 30
+______Moto : ___abc1234 : 50
+Hora atual: 50
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT entrada carro
+show
+tempo 30
+estacionar bike elias
+show
+tempo 20
+estacionar moto abc1234
+show
+tempo 50
+estacionar carro pog1000
+show
+tempo 100
+estacionar carro uva9999
+tempo 30
+show
+end
+======== EXPECT
+$show
+Hora atual: 0
+$tempo 30
+$estacionar bike elias
+$show
+______Bike : _____elias : 30
+Hora atual: 30
+$tempo 20
+$estacionar moto abc1234
+$show
+______Bike : _____elias : 30
+______Moto : ___abc1234 : 50
+Hora atual: 50
+$tempo 50
+$estacionar carro pog1000
+$show
+______Bike : _____elias : 30
+______Moto : ___abc1234 : 50
+_____Carro : ___pog1000 : 100
+Hora atual: 100
+$tempo 100
+$estacionar carro uva9999
+$tempo 30
+$show
+______Bike : _____elias : 30
+______Moto : ___abc1234 : 50
+_____Carro : ___pog1000 : 100
+_____Carro : ___uva9999 : 200
+Hora atual: 230
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT saida
+show
+tempo 30
+estacionar bike elias
+show
+tempo 20
+estacionar moto abc1234
+show
+tempo 50
+estacionar carro pog1000
+show
+tempo 100
+estacionar carro uva9999
+tempo 30
+show
+pagar elias
+pagar abc1234
+pagar pog1000
+pagar uva9999
+end
+======== EXPECT
+$show
+Hora atual: 0
+$tempo 30
+$estacionar bike elias
+$show
+______Bike : _____elias : 30
+Hora atual: 30
+$tempo 20
+$estacionar moto abc1234
+$show
+______Bike : _____elias : 30
+______Moto : ___abc1234 : 50
+Hora atual: 50
+$tempo 50
+$estacionar carro pog1000
+$show
+______Bike : _____elias : 30
+______Moto : ___abc1234 : 50
+_____Carro : ___pog1000 : 100
+Hora atual: 100
+$tempo 100
+$estacionar carro uva9999
+$tempo 30
+$show
+______Bike : _____elias : 30
+______Moto : ___abc1234 : 50
+_____Carro : ___pog1000 : 100
+_____Carro : ___uva9999 : 200
+Hora atual: 230
+$pagar elias
+Bike chegou 30 saiu 230. Pagar R$ 3.00
+$pagar abc1234
+Moto chegou 50 saiu 230. Pagar R$ 9.00
+$pagar pog1000
+Carro chegou 100 saiu 230. Pagar R$ 13.00
+$pagar uva9999
+Carro chegou 200 saiu 230. Pagar R$ 5.00
+$end
+<<<<<<<< FINISH
+

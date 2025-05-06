@@ -1,0 +1,35 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+Pedido "1" *-- "1..*" ItemPedido
+ItemPedido "*" *--> "1" Produto
+
+class Pedido {
+  - id : int
+  - status : int
+  - itens : ItemPedido[1..*]
+  - data : Date
+  - hora : Time
+}
+
+class ItemPedido {
+  - quantidade : int
+  - valor : float
+  - produto : Produto
+}
+
+class Produto {
+  - id
+  - nome
+  - descricao
+  - precoUnitario
+  - desconto
+  - dataFabricacao
+  - dataValidade
+}
+
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+class Pet {
+    - energyMax: number
+    - cleanMax : number
+    - energy   : number
+    - clean    : number
+    - age      : number
+    - alive    : boolean
+    __
+    + Pet(energy: number, clean: number)
+    + isAlive(): boolean
+    + toString(): string
+    __
+    + setEnergy(value: number): void
+    + setClean(value: number) : void
+    + setAge(value: number)   : void
+    __
+    + getClean()    : number
+    + getCleanMax() : number
+    + getEnergy()   : number
+    + getEnergyMax(): number
+    + getAge()      : number
+}
+
+class Game {
+    - pet: Pet
+    __
+    + Game(pet: Pet)
+    + toString() : string
+    __
+    + play()  : void
+    + shower(): void
+    + sleep() : void
+}
+
+Game "1" *-- "1" Pet
+
+@enduml

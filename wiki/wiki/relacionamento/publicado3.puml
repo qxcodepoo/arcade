@@ -1,0 +1,10 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+Livro "1..*" -- "1..*" Editora : é publicado por
+
+@enduml

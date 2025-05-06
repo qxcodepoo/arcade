@@ -1,0 +1,68 @@
+
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+
+
+class Point2D {
+    + x: double
+    + y: double
+    
+    + Point2D(x: double, y: double)
+    + toString(): string
+}
+
+class Calc {
+    + {static} distance(a: Point2D, b: Point2D): double
+}
+
+interface Shape {
+    ' getName(): string
+    + getName(): string
+
+    ' os métodos abaixo não são implementadas
+    ' na classe Shape, apenas nas classes filhas
+
+    ' retorna se o ponto está dentro da forma
+    + inside(Point2D: point): boolean
+
+    ' retorna a área da forma
+    + getArea(): double
+
+    ' retorna o perímetro da forma
+    + getPerimeter(): double
+}
+
+class Circle {
+    + center: Point2D
+    + radius: double
+
+    __
+    + Circle(center: Point2D, radius: double)
+    + inside(point: Point2D): boolean
+    + getArea(): double
+    + getPerimeter(): double
+    + toString(): string
+}
+
+class Rectangle {
+    + P1: Point2D
+    + P2: Point2D
+
+    __
+    + Rectangle(P1: Point2D, P2: Point2D)
+
+    + inside(point: Point2D): boolean
+    + getArea(): double
+    + getPerimeter(): double
+    + toString(): string
+}
+
+
+Circle --|> Shape
+Rectangle --|> Shape
+Point2D  --*  Circle
+Point2D  --*  Rectangle
+@enduml

@@ -1,0 +1,118 @@
+>>>>>>>> INSERT init 
+init 2
+nwvag 2
+la
+nwvag 3
+la
+nwvag 1
+end
+======== EXPECT
+$init 2
+$nwvag 2
+$la
+Trem [ - - ]
+$nwvag 3
+$la
+Trem [ - - ][ - - - ]
+$nwvag 1
+fail: limite de vagões atingido
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT embarque e desembarque
+init 2
+nwvag 2
+la
+nwvag 3
+la
+nwvag 1
+entrar goku
+la
+entrar kate
+entrar sara
+entrar goku
+la
+entrar tina
+entrar james
+entrar rufus
+show
+sair kate
+sair sara
+sair rufus
+la
+entrar alex
+la
+end
+======== EXPECT
+$init 2
+$nwvag 2
+$la
+Trem [ - - ]
+$nwvag 3
+$la
+Trem [ - - ][ - - - ]
+$nwvag 1
+fail: limite de vagões atingido
+$entrar goku
+$la
+Trem [ goku - ][ - - - ]
+$entrar kate
+$entrar sara
+$entrar goku
+fail: goku já está no trem
+$la
+Trem [ goku kate ][ sara - - ]
+$entrar tina
+$entrar james
+$entrar rufus
+fail: trem lotado
+$show
+Trem [ goku kate ][ sara tina james ]
+$sair kate
+$sair sara
+$sair rufus
+fail: rufus nao esta no trem
+$la
+Trem [ goku - ][ - tina james ]
+$entrar alex
+$la
+Trem [ goku alex ][ - tina james ]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT cadastro de passageiros e movimentacao
+entrar sara
+sair goku
+la
+cadastro
+movimentacao
+end
+======== EXPECT
+$entrar sara
+$sair goku
+$la
+trem [ - alex ][ sara tina james ]
+$cadastro
+alex
+goku
+james
+kate
+rufus
+sara
+tina
+$movimentacao
+goku in
+kate in
+sara in
+tina in
+james in
+kate out
+sara out
+alex in
+sara in
+goku out
+$end
+<<<<<<<< FINISH
+

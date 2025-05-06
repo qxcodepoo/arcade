@@ -1,0 +1,159 @@
+>>>>>>>> INSERT definindo nome
+init david
+show
+end
+======== EXPECT
+$init david
+$show
+- david []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT inserindo telefones
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+end
+======== EXPECT
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT removendo telefone por indice
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+rm 2
+show
+rm 0
+show
+end
+======== EXPECT
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$rm 2
+$show
+- david [oi:88, tim:99, vivo:83]
+$rm 0
+$show
+- david [tim:99, vivo:83]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT validando numero de fone
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+rm 2
+show
+rm 0
+show
+add tim 9a9
+add tim (85)99.99
+show
+end
+======== EXPECT
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$rm 2
+$show
+- david [oi:88, tim:99, vivo:83]
+$rm 0
+$show
+- david [tim:99, vivo:83]
+$add tim 9a9
+fail: invalid number
+$add tim (85)99.99
+$show
+- david [tim:99, vivo:83, tim:(85)99.99]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT favoritos
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+rm 2
+show
+rm 0
+show
+add tim 9a9
+add tim (85)99.99
+show
+tfav
+show
+tfav
+show
+end
+======== EXPECT
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$rm 2
+$show
+- david [oi:88, tim:99, vivo:83]
+$rm 0
+$show
+- david [tim:99, vivo:83]
+$add tim 9a9
+fail: invalid number
+$add tim (85)99.99
+$show
+- david [tim:99, vivo:83, tim:(85)99.99]
+$tfav
+$show
+@ david [tim:99, vivo:83, tim:(85)99.99]
+$tfav
+$show
+- david [tim:99, vivo:83, tim:(85)99.99]
+$end
+<<<<<<<< FINISH
+

@@ -1,0 +1,340 @@
+>>>>>>>> INSERT init
+init 20
+show
+end
+======== EXPECT
+$init 20
+$show
+[] : 0.00$ : 0/20 : intact
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT insert
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+end
+======== EXPECT
+$init 20
+$show
+[] : 0.00$ : 0/20 : intact
+$addCoin 10
+$show
+[M10:0.10:1] : 0.10$ : 1/20 : intact
+$addCoin 50
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT itens
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 50.0 3
+show
+addItem passaporte 0.0 2
+show
+end
+======== EXPECT
+$init 20
+$show
+[] : 0.00$ : 0/20 : intact
+$addCoin 10
+$show
+[M10:0.10:1] : 0.10$ : 1/20 : intact
+$addCoin 50
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
+$addItem ouro 50.0 3
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
+$addItem passaporte 0.0 2
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT failed break
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 50.0 3
+show
+addItem passaporte 0.0 2
+show
+extractItems
+extractCoins
+show
+end
+======== EXPECT
+$init 20
+$show
+[] : 0.00$ : 0/20 : intact
+$addCoin 10
+$show
+[M10:0.10:1] : 0.10$ : 1/20 : intact
+$addCoin 50
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
+$addItem ouro 50.0 3
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
+$addItem passaporte 0.0 2
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$extractItems
+fail: you must break the pig first
+$extractCoins
+fail: you must break the pig first
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT breaking
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 50.0 3
+show
+addItem passaporte 0.0 2
+show
+extractItems
+extractCoins
+show
+break
+show
+end
+======== EXPECT
+$init 20
+$show
+[] : 0.00$ : 0/20 : intact
+$addCoin 10
+$show
+[M10:0.10:1] : 0.10$ : 1/20 : intact
+$addCoin 50
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
+$addItem ouro 50.0 3
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
+$addItem passaporte 0.0 2
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$extractItems
+fail: you must break the pig first
+$extractCoins
+fail: you must break the pig first
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$break
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 0/20 : broken
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT extractItems
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 50.0 3
+show
+addItem passaporte 0.0 2
+show
+extractItems
+extractCoins
+show
+break
+show
+extractItems
+show
+end
+======== EXPECT
+$init 20
+$show
+[] : 0.00$ : 0/20 : intact
+$addCoin 10
+$show
+[M10:0.10:1] : 0.10$ : 1/20 : intact
+$addCoin 50
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
+$addItem ouro 50.0 3
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
+$addItem passaporte 0.0 2
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$extractItems
+fail: you must break the pig first
+$extractCoins
+fail: you must break the pig first
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$break
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 0/20 : broken
+$extractItems
+[ouro:50.00:3, passaporte:0.00:2]
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 0/20 : broken
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT extractCoins
+init 20
+show
+addCoin 10
+show
+addCoin 50
+show
+addItem ouro 50.0 3
+show
+addItem passaporte 0.0 2
+show
+extractItems
+extractCoins
+show
+break
+show
+extractItems
+show
+extractCoins
+show
+end
+======== EXPECT
+$init 20
+$show
+[] : 0.00$ : 0/20 : intact
+$addCoin 10
+$show
+[M10:0.10:1] : 0.10$ : 1/20 : intact
+$addCoin 50
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
+$addItem ouro 50.0 3
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
+$addItem passaporte 0.0 2
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$extractItems
+fail: you must break the pig first
+$extractCoins
+fail: you must break the pig first
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
+$break
+$show
+[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 0/20 : broken
+$extractItems
+[ouro:50.00:3, passaporte:0.00:2]
+$show
+[M10:0.10:1, M50:0.50:3] : 0.60$ : 0/20 : broken
+$extractCoins
+[M10:0.10:1, M50:0.50:3]
+$show
+[] : 0.00$ : 0/20 : broken
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT
+init 10
+break
+addCoin 10
+show
+addItem bilhete 0.00 2
+show
+end
+======== EXPECT
+$init 10
+$break
+$addCoin 10
+fail: the pig is broken
+$show
+[] : 0.00$ : 0/10 : broken
+$addItem bilhete 0.00 2
+fail: the pig is broken
+$show
+[] : 0.00$ : 0/10 : broken
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT full coin
+init 5
+addCoin 10
+addCoin 25
+show
+addCoin 50
+show
+end
+======== EXPECT
+$init 5
+$addCoin 10
+$addCoin 25
+$show
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
+$addCoin 50
+fail: the pig is full
+$show
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT full item
+init 5
+addCoin 10
+addCoin 25
+show
+addCoin 50
+show
+addItem ouro 100.0 1
+show
+addItem pirulito 5.50 2
+show
+end
+======== EXPECT
+$init 5
+$addCoin 10
+$addCoin 25
+$show
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
+$addCoin 50
+fail: the pig is full
+$show
+[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
+$addItem ouro 100.0 1
+$show
+[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : intact
+$addItem pirulito 5.50 2
+fail: the pig is full
+$show
+[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : intact
+$end
+<<<<<<<< FINISH
+

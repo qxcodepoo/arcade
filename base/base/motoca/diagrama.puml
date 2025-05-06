@@ -1,0 +1,40 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+left to right direction
+
+class Motorcycle {
+  - person: Person | null
+  - power : numberg
+  - time  : number
+  __
+  + Motorcycle(power: number)
+  + insertPerson(person: Person): boolean
+  + remove(): Person | null
+  __
+  + buyTime(time : number): void
+  + drive  (time : number): void
+  + honk()                : void
+  __
+  + getPerson(): Person
+  + getPower() : number
+  + getTime()  : number
+  __
+  + toString(): string
+}
+  
+class Person {
+  - age : number
+  - name: string
+  __
+  + Person(name: string, age: number)
+  __
+  + getAge() : number
+  + getName(): string
+  __
+  + toString(): string
+}
+
+Person "0..1" --o "1" Motorcycle : < Carry
+@enduml

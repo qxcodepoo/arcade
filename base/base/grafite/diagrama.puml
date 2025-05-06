@@ -1,0 +1,39 @@
+@startuml
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+left to right direction
+
+class Lead {
+    - thickness: number
+    - hardness : string
+    - size     : number
+    __
+    + Lead(thickness: number, hardness: string, size: number)
+    + usagePerSheet(): number
+    __
+    + getHardness() : string
+    + getSize()     : number
+    + getThickness(): number
+    __
+    + setSize(size: number): void
+    __
+    + toString(): string
+}
+
+class Pencil {
+    
+    - thickness: number
+    - tip      : Lead | null
+    __
+
+    + Pencil(thickness : number)    
+    + hasGrafite()       : boolean    
+    + insert(lead : Lead): boolean
+    + remove()           : Lead | null
+    + writePage()        : void
+    __
+    + toString()         : string
+}
+
+Pencil "1" --> "0..1" Lead
+@enduml

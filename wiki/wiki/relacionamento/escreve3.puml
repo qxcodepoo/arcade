@@ -1,0 +1,10 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction 
+
+Pessoa "1..*" -- "0..*" Livro : escreve
+
+@enduml

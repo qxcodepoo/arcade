@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text>// Uncomment the following line to change the fontsize and font:
+// fontsize=14
+fontfamily=Monospaced //possible: SansSerif,Serif,Monospaced
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Welcome to UMLet!
+//
+// Double-click on elements to add them to the diagram, or to copy them
+// Edit elements by modifying the text in this panel
+// Hold Ctrl to select multiple elements
+// Use Ctrl+mouse to select via lasso
+//
+// Use +/- or Ctrl+mouse wheel to zoom
+// Drag a whole relation at its central square icon
+//
+// Press Ctrl+C to copy the whole diagram to the system clipboard (then just paste it to, eg, Word)
+// Edit the files in the "palettes" directory to create your own element palettes
+//
+// Select "Custom Elements &gt; New..." to create new element types
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// This text will be stored with each diagram;  use it for notes.</help_text>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>30</y>
+      <w>250</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>*Msg*
+bg=yellow
+--
+- sender: string
+- text: string
+--
++ toString(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>190</y>
+      <w>500</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>*User*
+bg=yellow
+--
+- username: string
+- inbox: Msg[]
+- unreadCount: int
+--
++ sendMsg(dest: User, text: string)
++ getUnread(): string
++ getAllMsgs(): string
++ toString(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>120</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>300</x>
+      <y>370</y>
+      <w>500</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>bg=pink
+def sendMsg(dest, text):
+    incrementa o unreadCount do destinatario
+    cria o objeto Msg e coloca no inbox do destinatario
+
+def getUnread():
+    saida = ""
+    concatena as ultima mensagens do inbox na saina
+    unreadCount = 0
+    retorna a string saida
+
+def getAllMsgs():
+    retorna todas as mensagens recebidas e não apenas
+    as últimas
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

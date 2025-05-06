@@ -1,0 +1,24 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+Ator "1..*" -- "1..*" Filme
+(Ator, Filme) .. Atua
+
+class Ator {
+  - nomeAtor : String
+}
+
+class Filme {
+  - tituloFilme : String
+  - genero : Time
+}
+
+class Atua {
+  - papelAtor : String
+}
+
+@enduml

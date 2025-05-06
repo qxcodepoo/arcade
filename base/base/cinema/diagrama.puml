@@ -1,0 +1,39 @@
+
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+
+class Client {
+  - id   : string
+  - phone: number
+  __
+  + constructor(id : string, phone : number)
+  __
+  + getPhone(): number
+  + setPhone(fone : number)
+  + getId(): string
+  + setId(id : string)
+  __
+  + toString(): string
+}
+
+class Theater {
+  
+  - seats : Array<Client | null>
+  - search(name: string): number  
+  - verifyIndex(index: number): boolean
+  __
+  + constructor(capacity : number)  
+  __
+  + reserve(id : string, phone : number, index : number) : boolean
+  + cancel(id : string)
+  + getSeats() : Array<Client | null>
+  __
+  + toString() : string
+}
+
+
+Theater "1" o-- "0..*" Client
+@enduml

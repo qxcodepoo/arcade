@@ -1,0 +1,14 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+Organização "0..*" --> "0..*" Indivíduo : contrata
+
+class Organização {
+    - contratados : Indivíduo[0..*]
+}
+
+@enduml

@@ -1,0 +1,37 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+left to right direction
+
+class Kid {
+  - age : number
+  - name: string
+  __
+  + Kid(name: string, age: number)
+  + toString(): string
+  __
+  + getAge()    : number
+  + getName()   : string
+  + setAge (age : number): void
+  + setName(name: string): void
+}
+
+class Trampoline {
+  - playing: List<Kid>
+  - waiting: List<Kid>
+  __
+  - {static} removeFromList(name: string, list: List<Kid>): Kid | null
+  __
+  + Trampoline()
+  + toString(): string
+  __
+  + arrive(kid: Kid): void
+  + enter()         : void
+  + leave()         : void
+  + removeKid(name: string): Kid | null
+}
+
+
+Trampoline "1" o--  "0..*" Kid : > stores
+@enduml

@@ -1,0 +1,248 @@
+>>>>>>>> INSERT adicionar e mostrar usuários 
+add goku
+add sara
+add tina
+users
+end
+======== EXPECT
+$add goku
+$add sara
+$add tina
+$users
+goku []
+sara []
+tina []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT novo Chat, mostrar chats do usuário
+add goku
+add sara
+add tina
+users
+create goku familia
+create sara familia
+create goku guerreiros
+create kuririm casa
+users
+end
+======== EXPECT
+$add goku
+$add sara
+$add tina
+$users
+goku []
+sara []
+tina []
+$create goku familia
+$create sara familia
+$create goku guerreiros
+$create kuririm casa
+fail: key kuririm not found
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia]
+tina []
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT invite
+add goku
+add sara
+add tina
+users
+create goku familia
+create sara familia
+create goku guerreiros
+create kuririm casa
+users
+invite goku sara 2
+invite sara tina 2
+invite tina goku 1
+users
+chats
+end
+======== EXPECT
+$add goku
+$add sara
+$add tina
+$users
+goku []
+sara []
+tina []
+$create goku familia
+$create sara familia
+$create goku guerreiros
+$create kuririm casa
+fail: key kuririm not found
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia]
+tina []
+$invite goku sara 2
+$invite sara tina 2
+$invite tina goku 1
+fail: key 1 not found
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia, 2:guerreiros]
+tina [2:guerreiros]
+$chats
+0:familia [goku]
+1:familia [sara]
+2:guerreiros [goku, sara, tina]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT leaving
+add goku
+add sara
+add tina
+users
+create goku familia
+create sara familia
+create goku guerreiros
+create kuririm casa
+users
+invite goku sara 2
+invite sara tina 2
+invite tina goku 1
+users
+chats
+leave sara 2
+users
+end
+======== EXPECT
+$add goku
+$add sara
+$add tina
+$users
+goku []
+sara []
+tina []
+$create goku familia
+$create sara familia
+$create goku guerreiros
+$create kuririm casa
+fail: key kuririm not found
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia]
+tina []
+$invite goku sara 2
+$invite sara tina 2
+$invite tina goku 1
+fail: key 1 not found
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia, 2:guerreiros]
+tina [2:guerreiros]
+$chats
+0:familia [goku]
+1:familia [sara]
+2:guerreiros [goku, sara, tina]
+$leave sara 2
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia]
+tina [2:guerreiros]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT mensagens
+add goku
+add sara
+add tina
+users
+create goku familia
+create sara familia
+create goku guerreiros
+create kuririm casa
+users
+invite goku sara 2
+invite sara tina 2
+invite tina goku 1
+users
+chats
+leave sara 2
+users
+zap goku 2 oi, eu sou o goku
+zap tina 2 oi goku
+notify goku
+notify tina
+ler goku guerreiros
+ler tina guerreiros
+ler sara guerreiros
+zap goku guerreiros vamos sair tina?
+zap tina guerreiros voce ta com fome goku?
+zap goku guerreiros to com saudade de voce.
+notify tina
+notify goku
+ler goku guerreiros
+ler tina guerreiros
+end
+======== EXPECT
+$add goku
+$add sara
+$add tina
+$users
+goku []
+sara []
+tina []
+$create goku familia
+$create sara familia
+$create goku guerreiros
+$create kuririm casa
+fail: key kuririm not found
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia]
+tina []
+$invite goku sara 2
+$invite sara tina 2
+$invite tina goku 1
+fail: key 1 not found
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia, 2:guerreiros]
+tina [2:guerreiros]
+$chats
+0:familia [goku]
+1:familia [sara]
+2:guerreiros [goku, sara, tina]
+$leave sara 2
+$users
+goku [0:familia, 2:guerreiros]
+sara [1:familia]
+tina [2:guerreiros]
+$zap goku 2 oi, eu sou o goku
+$zap tina 2 oi goku
+$notify goku
+[guerreiros(1) homens]
+$notify tina
+[guerreiros(1)]
+$ler goku guerreiros
+[tina: oi goku]
+$ler tina guerreiros
+[goku: oi, eu sou o goku]
+$ler sara guerreiros
+fail: user sara nao esta no chat guerreiros
+$zap goku guerreiros vamos sair tina?
+$zap tina guerreiros voce ta com fome goku?
+$zap goku guerreiros to com saudade de voce.
+$notify tina
+[guerreiros(2)]
+$notify goku
+[guerreiros(1) homens]
+$ler goku guerreiros
+[tina: voce ta com fome goku?]
+$ler tina guerreiros
+[goku: vamos sair tina?]
+[goku: to com saudade de voce.]
+$end
+<<<<<<<< FINISH
+

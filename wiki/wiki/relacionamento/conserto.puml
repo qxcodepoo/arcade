@@ -1,0 +1,33 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+Funcionario "*" -right- "*" Automovel : conserta
+Funcionario "*" -down- "*" Especialidade : é especialista
+
+(Funcionario, Automovel) .. Conserto
+(Funcionario, Especialidade) .. Conserto
+
+class Conserto {
+  - conserto : String
+  - totalHoras : double
+}
+
+class Funcionario {
+  - matricula : int
+  - nome : String
+  - Especialidade : Especialidade[0..*]
+}
+
+class Automovel {
+  - placa : String
+  - ano : int
+}
+
+class Especialidade {
+  nome : String
+  remuneracaoPorHora : double
+}
+
+@enduml

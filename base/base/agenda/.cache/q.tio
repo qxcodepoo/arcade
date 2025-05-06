@@ -1,0 +1,366 @@
+>>>>>>>> INSERT adicionando em lote
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT adicionando a um contato existente
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+add ana cas:4567 oio:8754
+show
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$add ana cas:4567 oio:8754
+$show
+- ana [tim:3434, cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT removendo telefone
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+add ana cas:4567 oio:8754
+show
+rmFone ana 0
+show
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$add ana cas:4567 oio:8754
+$show
+- ana [tim:3434, cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rmFone ana 0
+$show
+- ana [cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT removendo contato
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+add ana cas:4567 oio:8754
+show
+rmFone ana 0
+show
+rm bia
+show
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$add ana cas:4567 oio:8754
+$show
+- ana [tim:3434, cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rmFone ana 0
+$show
+- ana [cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rm bia
+$show
+- ana [cas:4567, oio:8754]
+- eva [oio:8585, cla:9999]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT adicionando mais contatos
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+add ana cas:4567 oio:8754
+show
+rmFone ana 0
+show
+rm bia
+show
+add ava tim:5454
+add rui viv:2222 oio:9991
+add zac rec:3131
+show
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$add ana cas:4567 oio:8754
+$show
+- ana [tim:3434, cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rmFone ana 0
+$show
+- ana [cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rm bia
+$show
+- ana [cas:4567, oio:8754]
+- eva [oio:8585, cla:9999]
+$add ava tim:5454
+$add rui viv:2222 oio:9991
+$add zac rec:3131
+$show
+- ana [cas:4567, oio:8754]
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+- rui [viv:2222, oio:9991]
+- zac [rec:3131]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT busca por padrao
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+add ana cas:4567 oio:8754
+show
+rmFone ana 0
+show
+rm bia
+show
+add ava tim:5454
+add rui viv:2222 oio:9991
+add zac rec:3131
+show
+search va
+search 999
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$add ana cas:4567 oio:8754
+$show
+- ana [tim:3434, cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rmFone ana 0
+$show
+- ana [cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rm bia
+$show
+- ana [cas:4567, oio:8754]
+- eva [oio:8585, cla:9999]
+$add ava tim:5454
+$add rui viv:2222 oio:9991
+$add zac rec:3131
+$show
+- ana [cas:4567, oio:8754]
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+- rui [viv:2222, oio:9991]
+- zac [rec:3131]
+$search va
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+$search 999
+- eva [oio:8585, cla:9999]
+- rui [viv:2222, oio:9991]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT toggle favoritos
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+add ana cas:4567 oio:8754
+show
+rmFone ana 0
+show
+rm bia
+show
+add ava tim:5454
+add rui viv:2222 oio:9991
+add zac rec:3131
+show
+search va
+search 999
+tfav ana
+tfav rui
+show
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$add ana cas:4567 oio:8754
+$show
+- ana [tim:3434, cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rmFone ana 0
+$show
+- ana [cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rm bia
+$show
+- ana [cas:4567, oio:8754]
+- eva [oio:8585, cla:9999]
+$add ava tim:5454
+$add rui viv:2222 oio:9991
+$add zac rec:3131
+$show
+- ana [cas:4567, oio:8754]
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+- rui [viv:2222, oio:9991]
+- zac [rec:3131]
+$search va
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+$search 999
+- eva [oio:8585, cla:9999]
+- rui [viv:2222, oio:9991]
+$tfav ana
+$tfav rui
+$show
+@ ana [cas:4567, oio:8754]
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+@ rui [viv:2222, oio:9991]
+- zac [rec:3131]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT favoritos
+add eva oio:8585 cla:9999
+add ana tim:3434
+add bia viv:5454
+show
+add ana cas:4567 oio:8754
+show
+rmFone ana 0
+show
+rm bia
+show
+add ava tim:5454
+add rui viv:2222 oio:9991
+add zac rec:3131
+show
+search va
+search 999
+tfav ana
+tfav rui
+show
+favs
+end
+======== EXPECT
+$add eva oio:8585 cla:9999
+$add ana tim:3434
+$add bia viv:5454
+$show
+- ana [tim:3434]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$add ana cas:4567 oio:8754
+$show
+- ana [tim:3434, cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rmFone ana 0
+$show
+- ana [cas:4567, oio:8754]
+- bia [viv:5454]
+- eva [oio:8585, cla:9999]
+$rm bia
+$show
+- ana [cas:4567, oio:8754]
+- eva [oio:8585, cla:9999]
+$add ava tim:5454
+$add rui viv:2222 oio:9991
+$add zac rec:3131
+$show
+- ana [cas:4567, oio:8754]
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+- rui [viv:2222, oio:9991]
+- zac [rec:3131]
+$search va
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+$search 999
+- eva [oio:8585, cla:9999]
+- rui [viv:2222, oio:9991]
+$tfav ana
+$tfav rui
+$show
+@ ana [cas:4567, oio:8754]
+- ava [tim:5454]
+- eva [oio:8585, cla:9999]
+@ rui [viv:2222, oio:9991]
+- zac [rec:3131]
+$favs
+@ ana [cas:4567, oio:8754]
+@ rui [viv:2222, oio:9991]
+$end
+<<<<<<<< FINISH
+

@@ -1,0 +1,10 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction 
+
+Departamento "0-1" o-- "0..*" Professores : tem
+
+@enduml

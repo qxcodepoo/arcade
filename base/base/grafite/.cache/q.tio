@@ -1,0 +1,192 @@
+>>>>>>>> INSERT inserindo grafites
+init 0.5
+show
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, grafite: null
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT incompativel
+init 0.5
+show
+insert 0.7 2B 50
+insert 0.5 2B 50
+show
+end
+======== EXPECT
+$init 0.5
+$show
+calibre: 0.5, grafite: null
+$insert 0.7 2B 50
+fail: calibre incompativel
+$insert 0.5 2B 50
+$show
+calibre: 0.5, grafite: [0.5:2B:50]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT inserindo
+init 0.3
+insert 0.3 2B 50
+show
+end
+======== EXPECT
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT ja existe
+init 0.3
+insert 0.3 2B 50
+show
+insert 0.3 4B 70
+show
+end
+======== EXPECT
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$insert 0.3 4B 70
+fail: ja existe grafite
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT removendo
+init 0.3
+insert 0.3 2B 50
+show
+insert 0.3 4B 70
+show
+remove
+show
+end
+======== EXPECT
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$insert 0.3 4B 70
+fail: ja existe grafite
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$remove
+$show
+calibre: 0.3, grafite: null
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT reinserindo
+init 0.3
+insert 0.3 2B 50
+show
+insert 0.3 4B 70
+show
+remove
+show
+insert 0.3 4B 70
+show
+end
+======== EXPECT
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$insert 0.3 4B 70
+fail: ja existe grafite
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$remove
+$show
+calibre: 0.3, grafite: null
+$insert 0.3 4B 70
+$show
+calibre: 0.3, grafite: [0.3:4B:70]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT sem grafite
+init 0.9
+write
+end
+======== EXPECT
+$init 0.9
+$write
+fail: nao existe grafite
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT escrevendo 1
+init 0.9
+write
+insert 0.9 4B 14
+write
+write
+show
+end
+======== EXPECT
+$init 0.9
+$write
+fail: nao existe grafite
+$insert 0.9 4B 14
+$write
+$write
+fail: tamanho insuficiente
+$show
+calibre: 0.9, grafite: [0.9:4B:10]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT escrevendo 2
+init 0.9
+insert 0.9 4B 16
+write
+show
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 16
+$write
+$show
+calibre: 0.9, grafite: [0.9:4B:12]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT escrevendo 3
+init 0.9
+insert 0.9 4B 16
+write
+show
+write
+show
+end
+======== EXPECT
+$init 0.9
+$insert 0.9 4B 16
+$write
+$show
+calibre: 0.9, grafite: [0.9:4B:12]
+$write
+fail: folha incompleta
+$show
+calibre: 0.9, grafite: [0.9:4B:10]
+$end
+<<<<<<<< FINISH
+

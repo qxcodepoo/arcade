@@ -1,0 +1,134 @@
+>>>>>>>> INSERT add
+addUser david 123
+addUser luana 541
+users
+end
+======== EXPECT
+$addUser david 123
+$addUser luana 541
+$users
+[ david luana ]
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT login
+addUser david 123
+addUser luana 541
+users
+login david 144
+login davi 123
+login david 123
+show
+end
+======== EXPECT
+$addUser david 123
+$addUser luana 541
+$users
+[ david luana ]
+$login david 144
+fail: senha invalida
+$login davi 123
+fail: usuario nao encontrado
+$login david 123
+$show
+user: david
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT logout
+addUser david 123
+addUser luana 541
+users
+login david 144
+login davi 123
+login david 123
+show
+logout
+logout
+end
+======== EXPECT
+$addUser david 123
+$addUser luana 541
+$users
+[ david luana ]
+$login david 144
+fail: senha invalida
+$login davi 123
+fail: usuario nao encontrado
+$login david 123
+$show
+user: david
+$logout
+$logout
+fail: ninguem logado
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT notes
+addUser david 123
+addUser luana 541
+users
+login david 144
+login davi 123
+login david 123
+show
+logout
+logout
+login david 123
+addNote compras comprar banana ovo xilito mexirica e melancia
+addNote farmacia comprar tilenol, omeprazol, doril e soro
+show
+logout
+login luana 541
+addNote beleza fazer as unhas, limpeza de pele, massagem linfatica
+addNote filmes_favoritos moana, ariel, bela adormecida
+addNote cores azul, vermelho, verde, anil
+show
+logout
+login david 123
+show
+end
+======== EXPECT
+$addUser david 123
+$addUser luana 541
+$users
+[ david luana ]
+$login david 144
+fail: senha invalida
+$login davi 123
+fail: usuario nao encontrado
+$login david 123
+$show
+user: david
+$logout
+$logout
+fail: ninguem logado
+$login david 123
+$addNote compras comprar banana ovo xilito mexirica e melancia
+$addNote farmacia comprar tilenol, omeprazol, doril e soro
+$show
+user: david
+[0:compras:comprar banana ovo xilito mexirica e melancia]
+[1:farmacia:comprar tilenol, omeprazol, doril e soro]
+$logout
+$login luana 541
+$addNote beleza fazer as unhas, limpeza de pele, massagem linfatica
+$addNote filmes_favoritos moana, ariel, bela adormecida
+$addNote cores azul, vermelho, verde, anil
+$show
+user: luana
+[0:beleza:fazer as unhas, limpeza de pele, massagem linfatica]
+[1:filmes_favoritos:moana, ariel, bela adormecida]
+[2:cores:azul, vermelho, verde, anil]
+$logout
+$login david 123
+$show
+user: david
+[0:compras:comprar banana ovo xilito mexirica e melancia]
+[1:farmacia:comprar tilenol, omeprazol, doril e soro]
+$end
+<<<<<<<< FINISH
+

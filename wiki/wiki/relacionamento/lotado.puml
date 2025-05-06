@@ -1,0 +1,10 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+left to right direction
+
+Empregado "0..*" -- "1" Departamento : está lotado
+
+@enduml

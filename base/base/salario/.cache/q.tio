@@ -1,0 +1,135 @@
+>>>>>>>> INSERT begin
+addProf david C
+addProf elvis D
+addSta gilmario 3
+addTer helder 40 sim
+showAll
+rm elvis
+showAll
+end
+======== EXPECT
+$addProf david C
+$addProf elvis D
+$addSta gilmario 3
+$addTer helder 40 sim
+$showAll
+prof:david:C:7000
+prof:elvis:D:9000
+sta:gilmario:3:3900
+ter:helder:40:sim:660
+$rm elvis
+$showAll
+prof:david:C:7000
+sta:gilmario:3:3900
+ter:helder:40:sim:660
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT diaria
+addProf david C
+addProf elvis D
+addSta gilmario 3
+addTer helder 40 sim
+showAll
+rm elvis
+showAll
+addDiaria david
+addDiaria david
+addDiaria david
+show david
+addDiaria gilmario
+addDiaria gilmario
+show gilmario
+addDiaria helder
+end
+======== EXPECT
+$addProf david C
+$addProf elvis D
+$addSta gilmario 3
+$addTer helder 40 sim
+$showAll
+prof:david:C:7000
+prof:elvis:D:9000
+sta:gilmario:3:3900
+ter:helder:40:sim:660
+$rm elvis
+$showAll
+prof:david:C:7000
+sta:gilmario:3:3900
+ter:helder:40:sim:660
+$addDiaria david
+$addDiaria david
+$addDiaria david
+fail: limite de diarias atingido
+$show david
+prof:david:C:7200
+$addDiaria gilmario
+$addDiaria gilmario
+fail: limite de diarias atingido
+$show gilmario
+sta:gilmario:3:4000
+$addDiaria helder
+fail: terc nao pode receber diaria
+$end
+<<<<<<<< FINISH
+
+
+>>>>>>>> INSERT bonus
+addProf david C
+addProf elvis D
+addSta gilmario 3
+addTer helder 40 sim
+showAll
+rm elvis
+showAll
+addDiaria david
+addDiaria david
+addDiaria david
+show david
+addDiaria gilmario
+addDiaria gilmario
+show gilmario
+addDiaria helder
+setBonus 600
+show gilmario 
+setBonus 300
+show gilmario
+end
+======== EXPECT
+$addProf david C
+$addProf elvis D
+$addSta gilmario 3
+$addTer helder 40 sim
+$showAll
+prof:david:C:7000
+prof:elvis:D:9000
+sta:gilmario:3:3900
+ter:helder:40:sim:660
+$rm elvis
+$showAll
+prof:david:C:7000
+sta:gilmario:3:3900
+ter:helder:40:sim:660
+$addDiaria david
+$addDiaria david
+$addDiaria david
+fail: limite de diarias atingido
+$show david
+prof:david:C:7200
+$addDiaria gilmario
+$addDiaria gilmario
+fail: limite de diarias atingido
+$show gilmario
+sta:gilmario:3:4000
+$addDiaria helder
+fail: terc nao pode receber diaria
+$setBonus 600
+$show gilmario 
+sta:gilmario:3:4200
+$setBonus 300
+$show gilmario
+sta:gilmario:3:4100
+$end
+<<<<<<<< FINISH
+
