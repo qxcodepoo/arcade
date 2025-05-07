@@ -5,7 +5,7 @@
 -- | -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.png)
 
 Ptolomeu é o agiota mais carismático de MoneyVille. Sem "nenhuma razão" foi denunciado e acabou indo pra cadeira. O problema foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 
@@ -52,7 +52,14 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Draft
 
-- [draft.cpp](.cache/draft.cpp)
+<!-- links .cache/draft -->
+- cpp
+  - [shell.cpp](.cache/draft/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/draft/java/Shell.java)
+- ts
+  - [shell.ts](.cache/draft/ts/shell.ts)
+<!-- links -->
 
 ## Guide
 
