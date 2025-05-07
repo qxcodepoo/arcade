@@ -84,9 +84,9 @@ Significado das tags nas questões:
 
 ### CRUD com mapas e vetores
 
-- [ ] `@contato     :test`[Gerenciando telefones de um contato](base/contato/Readme.md)
+- [ ] `@contato     :test`[Gerenciando telefones de um único contato](base/contato/Readme.md)
 - [ ] `@agenda      :test`[Gerencie os vários contatos de uma agenda](base/agenda/Readme.md)
-- [ ] `@agiota      :test`[Gerencie os empŕestimos do agiota](base/agiota/Readme.md)
+- [ ] `@agiota      :test`[Gerencie os empréstimos do agiota](base/agiota/Readme.md)
 
 ### Herança I
 

@@ -38,7 +38,7 @@ function main() {
         console.log("$" + line);
         let args = line.split(" ");
 
-        if      (args[0] === "end")             { break;                                                       }
+        if      (args[0] === "end")             { break;                                             }
         else if (args[0] === "get_men")         { console.log(fmt(get_men(       to_vet(args[1])))); }
         else if (args[0] === "get_calm_women")  { console.log(fmt(get_calm_women(to_vet(args[1])))); }
         else if (args[0] === "sort")            { console.log(fmt(sort(          to_vet(args[1])))); }
@@ -51,7 +51,7 @@ function main() {
         }
         else if (args[0] === "unique")          { console.log(fmt(unique(        to_vet(args[1])))); }
         else if (args[0] === "repeated")        { console.log(fmt(repeated(      to_vet(args[1])))); }
-        else                                    { console.log("fail: comando invalido");                             }
+        else                                    { console.log("fail: comando invalido");             }
     }
 }
 

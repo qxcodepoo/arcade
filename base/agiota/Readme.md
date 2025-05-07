@@ -1,4 +1,4 @@
-# Gerencie os empŕestimos do agiota
+# Gerencie os empréstimos do agiota
 
 <!-- toch -->
 [Video](#video) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)

@@ -1,4 +1,4 @@
-# Gerenciando telefones de um contato
+# Gerenciando telefones de um único contato
 
 <!-- toch -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell)
