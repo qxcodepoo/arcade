@@ -5,12 +5,8 @@ checklist.md
 .vscode
 *.class
 *.out
-.html
 .vpl
 build*
-*.pro
-*.pro.user
-.links
 crude
 drafts
 scripts
@@ -23,3 +19,4 @@ __*
 local.sh
 config.json
 .track
+.mypy_cache
