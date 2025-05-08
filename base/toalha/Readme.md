@@ -25,6 +25,8 @@
 
 ## Guide
 
+[![youtube icon](../youguide.png)](https://youtu.be/fEvJns4NpTM?si=G-FDqGnt_5SPSZpg)
+
 - Abaixo você tem um exemplo de código em python que implementa a classe `Towel` e testa seu comportamento.
 - Adapte a ideia para a linguagem que você está estudando e crie seus próprios testes.
 

@@ -16,7 +16,7 @@ Significado das tags nas questões:
 
 ## Configuração e Aquecimento
 
-### Configuração de ambiente<!-- +xp:0 -->
+### Configuração de ambiente
 
 - [ ] `#git        :info`[Introdução ao git](wiki/git/README.md)
 - [ ] `#github_edu :info`[Habilitando a conta Educational no Github](wiki/git/github.md)
@@ -97,12 +97,12 @@ Significado das tags nas questões:
 
 ## Linguagem C++
 
-### CPP - Configuração<!-- l:c -->
+### CPP - Configuração<!-- l:c l:cpp -->
 
 - [ ] `#cpp_install    :info`[Instalação C++ e TS](wiki/instalacao/cpp.md)
 - [ ] `#cpp_aux        :info`[Biblioteca auxiliar de Entrada e Saída para C++](https://github.com/senapk/cppaux#requisitos)
 
-### CPP - Introdução<!-- l:c -->
+### CPP - Introdução<!-- l:c l:cpp -->
 
 - [ ] `@cpp_intro      :task`[Pesquisa sobre C++](wiki/cpp/intro_cpp.md)
 - [ ] `@cpp_memory     :task`[Pesquisa sobre alocação de memória](wiki/memoria/README.md)

@@ -43,7 +43,7 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 
 - Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/youtube.png)](https://youtu.be/QZfjLVrk7p8)
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../yousolver.png)](https://youtu.be/QZfjLVrk7p8)
 
 ## Shell
 
