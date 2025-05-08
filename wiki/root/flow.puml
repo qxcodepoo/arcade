@@ -1,0 +1,63 @@
+@startuml flow
+
+skinparam defaulttextalignment center
+left to right direction
+
+"LEGENDA" #skyblue --> "Resolvido" #pink
+                   --> "Obrigatório" #lime
+                   --> "Opcional" #yellow
+
+"LEGENDA" -> "Intro"
+          -> "Basic"         #skyblue
+          -> "Acesso"       #skyblue
+          -> "Agregação"    #skyblue
+          -> "Listas"       #skyblue
+          -> "Enum"         #skyblue
+          -> "Interface"    #skyblue
+          -> "Herança"      #skyblue
+          -> "Sort&Mapas"   #skyblue
+          -> "Excessões"    #skyblue
+          -> "Cross"        #skyblue
+          -> "Final"        #skyblue
+          -> (*)            #skyblue
+
+
+"Intro" #skyblue  --> "@busca"          #pink
+                  --> "@contagem"       #lime
+                  --> "@tranformacao"   #yellow
+"@contagem"       --> "@controle"       #yellow
+"Basic"           --> "@animal"         #pink
+                  --> "@carro"          #lime
+                  --> "@calculadora"    #yellow
+"Acesso"          --> "@relogio"        #lime
+                  --> "@tamagotchi"     #lime
+"Agregação"       --> "@grafite"        #pink
+                  --> "@motoca"         #lime
+"Listas"          --> "@budega"         #pink
+                  --> "@cinema"         #lime
+                  --> "@pula_pula"       #lime
+"@cinema"         --> "@tabuleiro"      #yellow
+"@grafite"        --> "@lapiseira"      #lime
+"@budega"         --> "@lapiseira"      #lime
+"@cinema"         --> "@topic"          #yellow
+"@cinema"         --> "@junkfood"       #lime
+"Enum"            --> "@porquinho"      #pink
+                  --> "@tarifa"        #yellow
+"@porquinho"      --> "@cofre"          #lime
+"Sort&Mapas"      --> "@contato"        #lime
+                  --> "@agenda"         #lime
+                  --> "@agiota"         #lime
+"Herança"         --> "@estacionamento" #pink
+                  --> "@cadastro"       #lime
+"Interface"       --> "@forma"         #pink
+                  --> "@cofre"          #lime
+"@forma"          --> "@produto"        #lime
+"Excessões"       --> "@evento"    #lime
+                  --> "@setor"    #yellow
+"Cross"           --> "@matricula"      #yellow
+                  --> "@hospital"       #lime
+"Final"           --> "@twitter"        #lime
+                  --> "@whatsapp"       #yellow
+
+
+@enduml
