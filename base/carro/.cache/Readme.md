@@ -45,6 +45,9 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ## Guide
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/carro/../youguide.png)](https://youtu.be/LM6KM4eLi3U)
+
+
 - Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
 - Começe analisando os testes e entendendo tudo que seu código precisa fazer.
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
