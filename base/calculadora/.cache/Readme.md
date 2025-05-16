@@ -43,6 +43,8 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/calculadora/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/calculadora/../youguide.png)](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
+
 - Como formatar com duas casas decimais em diferentes linguagens.
 
 ```java
@@ -51,7 +53,7 @@ public String toString() {
     // Dependendo da configuração do sistema, o java usa vírgula nos decimais. 
     // Para contornar isso e gerar sempre com ponto, usamos a classe Decimal Format
     DecimalFormat df = new DecimalFormat("0.00");
-    return String.format("display = %s, battery = %d", df.format(this.display), this.battery);
+    return String.format("display = %s, battery = %d", df.format(this.display).replace(',','.'), this.battery);
 }
 
 //ts
