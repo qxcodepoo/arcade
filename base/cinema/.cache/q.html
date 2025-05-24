@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@cinema: Gerenciando reservas e cancelamentos de uma sala de cinema</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Gerenciando reservas e cancelamentos de uma sala de cinema</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#draft">Draft</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/cover.jpg" /></p>
+<h2>Intro</h2>
+<p>O objetivo desta atividade é implementar métodos para manipular uma sala de cinema, permitindo a reserva, cancelamento e consulta de cadeiras.</p>
+<ul>
+<li>
+<p><strong>Descrição</strong></p>
+<ul>
+<li>A sala de cinema é representada pela classe Sala <code>Theater</code>, que possui um conjunto de cadeiras, cada uma associada a um cliente ou vazia.</li>
+<li>Os métodos a serem implementados permitirão reservar uma cadeira para um cliente, cancelar a reserva de uma cadeira e consultar o estado das cadeiras na sala.</li>
+<li>Cada cadeira pode estar associada a um objeto Cliente <code>Client</code>, representando um cliente que reservou a cadeira, ou ser nula, indicando que a cadeira está vazia.</li>
+<li>Os métodos fornecidos devem lidar com validações, como verificar se a cadeira existe, se está ocupada e se o cliente já está presente na sala.</li>
+</ul>
+</li>
+<li>
+<p><strong>Responsabilidades</strong></p>
+<ul>
+<li>A classe Sala <code>Theater</code> é responsável por gerenciar as operações relacionadas às cadeiras na sala de cinema.<ul>
+<li>Métodos a serem implementados:<ul>
+<li>públicos: são métodos acessados por outras classes.<ul>
+<li><code>reserve(id: string, phone: number, index: number)</code>: Reserva uma cadeira para um cliente com o ID e telefone especificados.</li>
+<li><code>cancel(id: string)</code>: Cancela a reserva de uma cadeira para o cliente com o ID especificado.</li>
+<li><code>getSeats(): Array&lt;Client | null&gt;</code>: Retorna um array contendo o estado atual de todas as cadeiras na sala.</li>
+<li><code>toString(): string</code>: Retorna uma representação em string do estado atual das cadeiras na sala.</li>
+</ul>
+</li>
+<li>privados: são métodos apenas de uso interno, utilizados para auxiliar as operações da classe.<ul>
+<li><code>search(name: string): int</code>: Procura o índice da cadeira reservada pelo cliente com o nome especificado.</li>
+<li><code>verifyIndix(index: number)</code>: Verifica se um índice de cadeira é válido na sala.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A classe <code>Client</code> é responsável por representar os clientes que reservam cadeiras na sala de cinema.<ul>
+<li>A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/diagrama.png" /></p>
+<h2>Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li>cpp<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul>
+</li>
+<li>java<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul>
+</li>
+<li>ts<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/cinema/.cache/draft/ts/shell.ts">shell.ts</a></li>
+</ul>
+</li>
+</ul>
+<!-- links -->
+
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE init 1</span>
+<span class="nv">$show</span>
+<span class="o">[]</span>
+<span class="c1">#TEST_CASE init 2</span>
+<span class="nv">$init</span><span class="w"> </span><span class="m">5</span>
+<span class="nv">$show</span>
+<span class="o">[</span>-<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span>-<span class="o">]</span>
+<span class="c1">#TEST_CASE init 3</span>
+<span class="nv">$init</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$show</span>
+<span class="o">[</span>-<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span>-<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE reservas</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$reserve</span><span class="w"> </span>davi<span class="w"> </span><span class="m">3232</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$reserve</span><span class="w"> </span>joao<span class="w"> </span><span class="m">3131</span><span class="w"> </span><span class="m">3</span>
+<span class="nv">$show</span>
+<span class="o">[</span>davi:3232<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span>joao:3131<span class="o">]</span>
+
+<span class="c1">#TEST_CASE ocupado</span>
+
+<span class="nv">$reserve</span><span class="w"> </span>rute<span class="w"> </span><span class="m">3030</span><span class="w"> </span><span class="m">0</span>
+fail:<span class="w"> </span>cadeira<span class="w"> </span>ja<span class="w"> </span>esta<span class="w"> </span>ocupada
+
+<span class="c1">#TEST_CASE duplicado</span>
+
+<span class="nv">$reserve</span><span class="w"> </span>davi<span class="w"> </span><span class="m">3234</span><span class="w"> </span><span class="m">2</span>
+fail:<span class="w"> </span>cliente<span class="w"> </span>ja<span class="w"> </span>esta<span class="w"> </span>no<span class="w"> </span>cinema
+<span class="nv">$end</span>
+</code></pre></div>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE cadeira invalida</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$reserve</span><span class="w"> </span>davi<span class="w"> </span><span class="m">3232</span><span class="w"> </span><span class="m">5</span>
+fail:<span class="w"> </span>cadeira<span class="w"> </span>nao<span class="w"> </span>existe
+
+<span class="c1">#TEST_CASE cancelamentos</span>
+
+<span class="nv">$reserve</span><span class="w"> </span>davi<span class="w"> </span><span class="m">3232</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$reserve</span><span class="w"> </span>joao<span class="w"> </span><span class="m">3131</span><span class="w"> </span><span class="m">3</span>
+<span class="nv">$cancel</span><span class="w"> </span>davi
+<span class="nv">$show</span>
+<span class="o">[</span>-<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span>joao:3131<span class="o">]</span>
+
+<span class="c1">#TEST_CASE cancelamentos errado</span>
+
+<span class="nv">$cancel</span><span class="w"> </span>rita
+fail:<span class="w"> </span>cliente<span class="w"> </span>nao<span class="w"> </span>esta<span class="w"> </span>no<span class="w"> </span>cinema
+<span class="nv">$show</span>
+<span class="o">[</span>-<span class="w"> </span>-<span class="w"> </span>-<span class="w"> </span>joao:3131<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+</body>
+</html>

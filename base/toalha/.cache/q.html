@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@toalha: Toalha, o item mais útil do universo</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Toalha, o item mais útil do universo</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="_" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/toalha/cover.jpg" /></p>
+<h2>Intro</h2>
+<ul>
+<li>Crie uma classe Toalha <code>Towel</code> com os atributos cor <code>color</code>, tamanho <code>size</code> e umidade <code>wetness</code>.</li>
+<li>Crie um construtor que inicialize todos os atributos cor e tamanho com valores recebidos como parâmetro e umidade com 0.</li>
+<li>Crie um método enxugar <code>dry</code> que recebe um valor inteiro quantidade <code>amout</code> e AUMENTA o atributo umidade da toalha.</li>
+<li>Crie um método torcer <code>wringOut</code> que zera o atributo umidade da towel.</li>
+<li>Crie um método para pegar máximo de umidade <code>getMaxWetness</code> que retorna o valor máximo de umidade que essa toalha pode ter.</li>
+<li>O máximo de umidade que uma toalha pode ter é de acordo com o tamanho dela:<ul>
+<li><code>P</code> -&gt; 10</li>
+<li><code>M</code> -&gt; 20</li>
+<li><code>G</code> -&gt; 30</li>
+</ul>
+</li>
+<li>Crie um método que retorna se a toalha esta seca <code>isDry</code>, que retorna <code>true</code> se a umidade da toalha for 0 e <code>false</code> caso contrário.</li>
+<li>Faça um código de teste para validar o comportamento da classe Toalha.</li>
+</ul>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/toalha/diagrama.png" /></p>
+<h2>Guide</h2>
+<p><a href="https://youtu.be/fEvJns4NpTM?si=G-FDqGnt_5SPSZpg"><img alt="youtube icon" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/toalha/../youguide.png" /></a></p>
+<ul>
+<li>Abaixo você tem um exemplo de código em python que implementa a classe <code>Towel</code> e testa seu comportamento.</li>
+<li>Adapte a ideia para a linguagem que você está estudando e crie seus próprios testes.</li>
+</ul>
+<!-- load solver.py fenced:filter:py -->
+
+<div class="language-py highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Towel</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">color</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">color</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wetness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">getMaxWetness</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="s2">&quot;P&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">10</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="s2">&quot;M&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">20</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="s2">&quot;G&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">30</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">dry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amount</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wetness</span> <span class="o">+=</span> <span class="n">amount</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">wetness</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMaxWetness</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;toalha encharcada&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wetness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMaxWetness</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">wringOut</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wetness</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">isDry</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">wetness</span> <span class="o">==</span> <span class="mi">0</span>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">wetness</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Testes</span>
+<span class="n">towel</span> <span class="o">=</span> <span class="n">Towel</span><span class="p">(</span><span class="s2">&quot;Azul&quot;</span><span class="p">,</span> <span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Azul P 0</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">dry</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Azul P 5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">towel</span><span class="o">.</span><span class="n">isDry</span><span class="p">())</span> <span class="c1"># False</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">dry</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Azul P 10</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">dry</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># msg: toalha encharcada</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Azul P 10</span>
+
+<span class="n">towel</span><span class="o">.</span><span class="n">wringOut</span><span class="p">()</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Azul P 0</span>
+
+<span class="n">towel</span> <span class="o">=</span> <span class="n">Towel</span><span class="p">(</span><span class="s2">&quot;Verde&quot;</span><span class="p">,</span> <span class="s2">&quot;G&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">towel</span><span class="o">.</span><span class="n">isDry</span><span class="p">())</span> <span class="c1"># True</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">dry</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Verde G 30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">towel</span><span class="o">.</span><span class="n">isDry</span><span class="p">())</span> <span class="c1"># False</span>
+<span class="n">towel</span><span class="o">.</span><span class="n">dry</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># msg: toalha encharcada</span>
+</code></pre></div>
+<!-- load -->
+</body>
+</html>

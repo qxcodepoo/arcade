@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@cadastro: Crie as contas poupança e corrente</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Crie as contas poupança e corrente</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#vídeo">Vídeo</a></th>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#draft">Draft</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cadastro/cover.jpg" /></p>
+<p>O objetivo dessa atividade é implementar uma agência bancária simplificada. Deve ser capaz de cadastrar cliente. Cada cliente inicia com uma conta poupança e uma conta corrente. Contas correntes tem taxa de administração e contas poupanças rendem juros.</p>
+<h2>Vídeo</h2>
+<p><a href="https://youtu.be/AfJ--C8ZqPY"><img alt="_" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cadastro/video.png" /></a></p>
+<h2>Intro</h2>
+<ul>
+<li>Cadastrar um cliente com idCliente único<ul>
+<li>Quando o cliente é cadastrado no sistema, automaticamente é aberta uma conta corrente e uma conta poupança para ele.</li>
+</ul>
+</li>
+<li>Mensalmente:<ul>
+<li>Contas corrente vão receber uma tarifa de <strong>20 reais</strong> podendo inclusive ficar negativas.</li>
+<li>Contas poupança vão aumentar de 1 porcento.</li>
+</ul>
+</li>
+<li>Sua agência deve ter um mapa de clientes e um mapa de contas.</li>
+<li>O cliente só tem duas contas, mas imagine que no futuro ele poderá ter várias.</li>
+<li>As contas devem ser tratadas utilizando polimorfismo.</li>
+</ul>
+<h2>Draft</h2>
+<p><a href="https://github.com/qxcodepoo/arcade/blob/master/base/cadastro/.cache/draft.ts">draft.ts</a></p>
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cadastro/diagrama.png" /></p>
+<!-- load diagrama.puml fenced=ts:filter -->
+
+<div class="language-ts highlight"><pre><span></span><code><span class="kd">@startuml</span>
+
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">defaultFontName</span><span class="w"> </span><span class="s2">&quot;Source Code Pro&quot;</span>
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">dpi</span><span class="w"> </span><span class="mf">150</span>
+
+
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Account</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">balance</span><span class="o">:</span><span class="w"> </span><span class="kt">double</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">accId</span><span class="o">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">clientId</span><span class="o">:</span><span class="w"> </span><span class="kt">str</span>
+
+<span class="w">    </span><span class="s1">&#39; typeId {CC, CP}</span>
+<span class="s1">    # typeId: str</span>
+<span class="s1">    --</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">inicializa</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">atributos</span>
+<span class="w">    </span><span class="s1">&#39; saldo inicial é 0</span>
+<span class="s1">    + Account(accId: int, clientId: str, typeId: str)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">realiza</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">depósito</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">deposit</span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span>
+
+<span class="w">    </span><span class="s1">&#39; realiza o saque</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">verifique</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">há</span><span class="w"> </span><span class="nx">saldo</span><span class="w"> </span><span class="nx">suficiente</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">withdraw</span><span class="p">(</span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span>
+
+<span class="w">    </span><span class="s1">&#39; realiza a transferência da conta this para conta other</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">verifique</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">há</span><span class="w"> </span><span class="nx">saldo</span><span class="w"> </span><span class="nx">suficiente</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="k">this</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">transfer</span><span class="p">(</span><span class="nx">other</span><span class="o">:</span><span class="w"> </span><span class="kt">Account</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">double</span><span class="p">)</span>
+
+<span class="w">    </span><span class="s1">&#39; retorna as informações na conta no formato</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="s2">&quot;accId:clientId:balance:typeId&quot;</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">str</span>
+<span class="w">    </span><span class="o">--</span>
+
+<span class="w">    </span><span class="s1">&#39; retorna o saldo</span>
+<span class="s1">    + getBalance(): double</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">id</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">getId</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kr">int</span>
+
+<span class="w">    </span><span class="s1">&#39; retorna o id do cliente</span>
+<span class="s1">    + getClientId(): str</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tipo</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">conta</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">getTypeId</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">str</span>
+<span class="w">    </span><span class="o">--</span>
+
+<span class="w">    </span><span class="s1">&#39; método abstrato que realiza a atualização mensal da conta</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">método</span><span class="w"> </span><span class="nx">deve</span><span class="w"> </span><span class="nx">ser</span><span class="w"> </span><span class="nx">implementado</span><span class="w"> </span><span class="nx">nas</span><span class="w"> </span><span class="nx">subclasses</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="p">{</span><span class="k">static</span><span class="p">}</span><span class="w"> </span><span class="nx">updateMonthly</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">CheckingAccount</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39; taxa de manutenção da conta</span>
+<span class="s1">    # monthlyFee: double</span>
+<span class="s1">    --</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">chama</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">construtor</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">superclasse</span>
+<span class="w">    </span><span class="s1">&#39; repassando os valores accId, clientId e typeId = CC</span>
+<span class="s1">    + CheckingAccount(accId: int, clientId: str)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">decrementa</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">saldo</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">monthlyFee</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">updateMonthly</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">SavingsAccount</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39; taxa de rendimento mensal</span>
+<span class="s1">    # monthlyInterest: double</span>
+
+<span class="s1">    --</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">chama</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">construtor</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">superclasse</span>
+<span class="w">    </span><span class="s1">&#39; repassando os valores accId, clientId e typeId = CP</span>
+<span class="s1">    + SavingsAccount(accId: int, clientId: str)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">incrementa</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">saldo</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">monthlyInterest</span><span class="w"> </span><span class="o">%</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">updateMonthly</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w">  </span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Client</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">clientId</span><span class="o">:</span><span class="w"> </span><span class="kt">str</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">accounts</span><span class="o">:</span><span class="w"> </span><span class="kt">list</span><span class="p">[</span><span class="nx">Account</span><span class="p">]</span>
+<span class="w">    </span><span class="o">--</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">Client</span><span class="p">(</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="nx">clientId</span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span>
+
+<span class="w">    </span><span class="s1">&#39; adiciona uma conta à lista de contas do cliente</span>
+<span class="s1">    + addAccount(acc: Account)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">contas</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">cliente</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">getAccounts</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">list</span><span class="p">[</span><span class="nx">Account</span><span class="p">]</span>
+
+<span class="w">    </span><span class="s1">&#39; retorna o id do cliente</span>
+<span class="s1">    + getClientId(): str</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">nome</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">cliente</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">ids</span><span class="w"> </span><span class="nx">das</span><span class="w"> </span><span class="nx">contas</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">formato</span>
+<span class="w">    </span><span class="s1">&#39; nome [id1, id2, ...]</span>
+<span class="s1">    + toString(): str</span>
+<span class="s1">}</span>
+
+<span class="s1">class Agency {</span>
+<span class="s1">        - accounts: Map&lt;int, Account&gt;</span>
+<span class="s1">        - clients : Map&lt;str, Client&gt;</span>
+<span class="s1">        - nextAccountId: int</span>
+<span class="s1">    --</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">busca</span><span class="w"> </span><span class="nx">pela</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">dispara</span><span class="w"> </span><span class="nx">excessão</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">não</span><span class="w"> </span><span class="nx">encontrar</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nx">getAccount</span><span class="p">(</span><span class="kr">int</span><span class="w"> </span><span class="nx">accountId</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Account</span>
+<span class="w">    </span><span class="o">--</span>
+<span class="w">    </span><span class="s1">&#39; inicializa os atributos</span>
+<span class="s1">    + BankAgency()</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">cria</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">cliente</span>
+<span class="w">    </span><span class="s1">&#39; cria um objeto cliente e insere no mapa de clientes</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">cria</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">corrente</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">polpança</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">insere</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">mapa</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">contas</span>
+<span class="w">    </span><span class="s1">&#39; faz o vínculo cruzado colocando as contas dentro do objeto do cliente</span>
+<span class="s1">    + addClient(clientId: str): void</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">procura</span><span class="w"> </span><span class="nx">pela</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">usando</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">getAccount</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">realiza</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">operação</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">depósito</span>
+<span class="w">    </span><span class="s1">&#39; utiliza o método deposit da classe Account</span>
+<span class="s1">    + deposit(accId: int, value: double): void</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">procura</span><span class="w"> </span><span class="nx">pela</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">realiza</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">operação</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">saque</span>
+<span class="w">    </span><span class="s1">&#39; utiliza o método withdraw da classe Account</span>
+<span class="s1">    + withdraw(accId: int, value: double): void</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">procura</span><span class="w"> </span><span class="nx">pela</span><span class="w"> </span><span class="nx">conta</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">realiza</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">operação</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">transferência</span>
+<span class="w">    </span><span class="s1">&#39; utiliza o método transfer da classe Account</span>
+<span class="s1">    + transfer(fromAccId: int, toAccId: int, value: double): void</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">realiza</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">operação</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">atualização</span><span class="w"> </span><span class="nx">mensal</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">todas</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">contas</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">updateMonthly</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+<span class="p">}</span>
+
+
+<span class="nx">CheckingAccount</span><span class="w"> </span><span class="o">--|&gt;</span><span class="w"> </span><span class="nx">Account</span>
+<span class="nx">SavingsAccount</span><span class="w"> </span><span class="o">--|&gt;</span><span class="w"> </span><span class="nx">Account</span>
+
+<span class="nx">Client</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">o</span><span class="o">--</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">CheckingAccount</span>
+<span class="nx">Client</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">o</span><span class="o">--</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">SavingsAccount</span>
+
+<span class="nx">Agency</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">*--</span><span class="w"> </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">Account</span>
+
+<span class="nx">Agency</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">*--</span><span class="nx">l</span><span class="o">-</span><span class="w"> </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">Client</span>
+
+
+<span class="s1">&#39; Circle --|&gt; Shape</span>
+<span class="s1">&#39;</span><span class="w"> </span><span class="nx">Rectangle</span><span class="w"> </span><span class="o">--|&gt;</span><span class="w"> </span><span class="nx">Shape</span>
+<span class="s1">&#39; V2D  --  Circle</span>
+<span class="s1">&#39;</span><span class="w"> </span><span class="nx">V2D</span><span class="w">  </span><span class="o">--</span><span class="w">  </span><span class="nx">Rectangle</span>
+<span class="kd">@enduml</span>
+</code></pre></div>
+<!-- load -->
+
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE first clients</span>
+<span class="c1"># addCli _idCliente</span>
+<span class="c1"># adiciona um cliente na lista de clientes.</span>
+<span class="c1"># cria uma conta poupança e uma conta corrente para cada cliente usando numeração de forma sequencial.</span>
+<span class="nv">$addCli</span><span class="w"> </span>Almir
+<span class="nv">$addCli</span><span class="w"> </span>Julia
+<span class="nv">$addCli</span><span class="w"> </span>Maria
+
+<span class="c1"># show mostra as contas do banco, com id:usuario:saldo:tipo</span>
+<span class="c1"># em tipo use CC para conta corrente e CP para conta poupança.</span>
+<span class="nv">$show</span>
+-<span class="w"> </span>Clients
+Almir<span class="w"> </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">1</span><span class="o">]</span>
+Julia<span class="w"> </span><span class="o">[</span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>
+Maria<span class="w"> </span><span class="o">[</span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+-<span class="w"> </span>Accounts
+<span class="m">0</span>:Almir:0.00:CC
+<span class="m">1</span>:Almir:0.00:CP
+<span class="m">2</span>:Julia:0.00:CC
+<span class="m">3</span>:Julia:0.00:CP
+<span class="m">4</span>:Maria:0.00:CC
+<span class="m">5</span>:Maria:0.00:CP
+
+<span class="c1">######################################</span>
+<span class="c1">#TEST_CASE operações básicas</span>
+<span class="c1">#faça as operações básicas de saque, depósito e transferência entre contas</span>
+<span class="c1">#verifique se as contas existem antes de efetuar as operações</span>
+<span class="c1"># $saque _conta _value</span>
+<span class="c1"># para sacar verifique o saldo</span>
+<span class="c1">#</span>
+<span class="c1"># $deposito _conta _value</span>
+<span class="c1">#</span>
+<span class="c1"># $transf _contaDe _contaPara _value</span>
+
+<span class="nv">$deposito</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">100</span>
+<span class="nv">$deposito</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">200</span>
+<span class="nv">$deposito</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">50</span>
+<span class="nv">$deposito</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">300</span>
+<span class="nv">$saque</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">50</span>
+<span class="nv">$saque</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">70</span>
+<span class="nv">$saque</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">300</span>
+fail:<span class="w"> </span>saldo<span class="w"> </span>insuficiente
+
+<span class="nv">$show</span>
+-<span class="w"> </span>Clients
+Almir<span class="w"> </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">1</span><span class="o">]</span>
+Julia<span class="w"> </span><span class="o">[</span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>
+Maria<span class="w"> </span><span class="o">[</span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+-<span class="w"> </span>Accounts
+<span class="m">0</span>:Almir:30.00:CC
+<span class="m">1</span>:Almir:200.00:CP
+<span class="m">2</span>:Julia:50.00:CC
+<span class="m">3</span>:Julia:250.00:CP
+<span class="m">4</span>:Maria:0.00:CC
+<span class="m">5</span>:Maria:0.00:CP
+
+<span class="nv">$transf</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">200</span>
+<span class="nv">$transf</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">25</span>
+<span class="nv">$transf</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">30</span>
+fail:<span class="w"> </span>conta<span class="w"> </span>nao<span class="w"> </span>encontrada
+<span class="nv">$transf</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">10</span>
+fail:<span class="w"> </span>conta<span class="w"> </span>nao<span class="w"> </span>encontrada
+
+<span class="nv">$show</span>
+-<span class="w"> </span>Clients
+Almir<span class="w"> </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">1</span><span class="o">]</span>
+Julia<span class="w"> </span><span class="o">[</span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>
+Maria<span class="w"> </span><span class="o">[</span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+-<span class="w"> </span>Accounts
+<span class="m">0</span>:Almir:5.00:CC
+<span class="m">1</span>:Almir:200.00:CP
+<span class="m">2</span>:Julia:50.00:CC
+<span class="m">3</span>:Julia:50.00:CP
+<span class="m">4</span>:Maria:25.00:CC
+<span class="m">5</span>:Maria:200.00:CP
+
+<span class="c1">#TEST_CASE update mensal</span>
+<span class="c1"># No comando update todas as contas serão atualizadas.</span>
+<span class="c1"># Contas corrente vão receber uma tarifa de 20 reais podendo inclusive ficar negativas.</span>
+<span class="c1"># Contas poupança vão aumentar de 1 porcento.</span>
+<span class="nv">$update</span>
+
+<span class="nv">$show</span>
+-<span class="w"> </span>Clients
+Almir<span class="w"> </span><span class="o">[</span><span class="m">0</span>,<span class="w"> </span><span class="m">1</span><span class="o">]</span>
+Julia<span class="w"> </span><span class="o">[</span><span class="m">2</span>,<span class="w"> </span><span class="m">3</span><span class="o">]</span>
+Maria<span class="w"> </span><span class="o">[</span><span class="m">4</span>,<span class="w"> </span><span class="m">5</span><span class="o">]</span>
+-<span class="w"> </span>Accounts
+<span class="m">0</span>:Almir:-15.00:CC
+<span class="m">1</span>:Almir:202.00:CP
+<span class="m">2</span>:Julia:30.00:CC
+<span class="m">3</span>:Julia:50.50:CP
+<span class="m">4</span>:Maria:5.00:CC
+<span class="m">5</span>:Maria:202.00:CP
+
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+</body>
+</html>

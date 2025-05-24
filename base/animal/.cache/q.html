@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@animal: Animal que nasce, cresce, morre</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Animal que nasce, cresce, morre</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+<th><a href="#draft">Draft</a></th>
+<th><a href="#cheat">Cheat</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/cover.jpg" /></p>
+<h2>Intro</h2>
+<p>O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.</p>
+<ul>
+<li>Descrição<ul>
+<li>O animal tem uma espécie <code>species</code>, um estágio <code>age</code> de vida e um barulho <code>sound</code> que ele faz.</li>
+<li>O construtor do animal<ul>
+<li>Recebe a espécie e o barulho e inicia o estágio com 0.</li>
+</ul>
+</li>
+<li>O toString do animal deve retornar a representação do animal no formato<ul>
+<li><code>{species}:{age}:{sound}</code>.</li>
+</ul>
+</li>
+<li>Os estágios pelos quais o animal passa são:<ul>
+<li>0: Filhote</li>
+<li>1: Criança</li>
+<li>2: Adulto</li>
+<li>3: Idoso</li>
+<li>4: Morto</li>
+</ul>
+</li>
+<li>Ao envelhecer no método <code>ageBy</code>, o animal avança estágios na sua vida de acordo com o parâmetro <code>increment</code>.<ul>
+<li>Ao morrer ou tentar envelhecer após a morte do aninal, deve ser exibida a mensagem de aviso:<ul>
+<li><code>warning: {species} morreu</code>.</li>
+<li>Como essa é uma mensagem de erro, você pode imprimir diretamente no método <code>ageBy</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:<ul>
+<li>Se for filhote, emite um "---".</li>
+<li>Se estiver morto, emite um "RIP".</li>
+<li>Como não são mensagens de erro, o barulho do animal deve ser retornado no método <code>makeSound</code> e impresso na <code>main</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Guide</h2>
+<ul>
+<li>Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.</li>
+<li>Começe analisando os testes e entendendo tudo que seu código precisa fazer.</li>
+<li>Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.</li>
+<li>Passe para o próximo teste até implementar tudo que é pedido.</li>
+</ul>
+<p><img alt="_" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/diagrama.png" /></p>
+<ul>
+<li>Na seção de <a href="#cheat">Cheat</a> ou no vídeo abaixo, você pode conferir as respostas dessa atividade.</li>
+</ul>
+<p><a href="https://youtu.be/QZfjLVrk7p8"><img alt="youtube icon" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../yousolver.png" /></a></p>
+<h2>Shell</h2>
+<h3>Primeira simulação</h3>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE iniciando</span>
+
+<span class="nv">$init</span><span class="w"> </span>gato<span class="w"> </span>miau
+<span class="nv">$show</span>
+gato:0:miau
+
+<span class="nv">$init</span><span class="w"> </span>cachorro<span class="w"> </span>auau
+<span class="nv">$show</span>
+cachorro:0:auau
+
+<span class="nv">$init</span><span class="w"> </span>galinha<span class="w"> </span>cocorico
+<span class="nv">$show</span>
+galinha:0:cocorico
+
+<span class="nv">$end</span>
+</code></pre></div>
+<h3>Segunda simulação</h3>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE grow</span>
+
+<span class="nv">$init</span><span class="w"> </span>vaca<span class="w"> </span>muu
+<span class="nv">$show</span>
+vaca:0:muu
+
+<span class="nv">$grow</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+vaca:2:muu
+<span class="nv">$grow</span><span class="w"> </span><span class="m">2</span>
+warning:<span class="w"> </span>vaca<span class="w"> </span>morreu
+<span class="nv">$show</span>
+vaca:4:muu
+<span class="nv">$grow</span><span class="w"> </span><span class="m">3</span>
+warning:<span class="w"> </span>vaca<span class="w"> </span>morreu
+<span class="nv">$show</span>
+vaca:4:muu
+
+<span class="nv">$end</span>
+</code></pre></div>
+<h3>Terceira simulação</h3>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE noise</span>
+
+<span class="nv">$init</span><span class="w"> </span>cabra<span class="w"> </span>beeh
+
+<span class="nv">$noise</span>
+---
+
+<span class="nv">$grow</span><span class="w"> </span><span class="m">1</span>
+<span class="nv">$noise</span>
+beeh
+<span class="nv">$grow</span><span class="w"> </span><span class="m">3</span>
+warning:<span class="w"> </span>cabra<span class="w"> </span>morreu
+
+<span class="nv">$noise</span>
+RIP
+
+<span class="nv">$end</span>
+</code></pre></div>
+<h3>Quarta simulação</h3>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE extra</span>
+
+<span class="nv">$init</span><span class="w"> </span>passaro<span class="w"> </span>piupiu
+
+<span class="nv">$show</span>
+passaro:0:piupiu
+
+<span class="nv">$noise</span>
+---
+
+<span class="nv">$grow</span><span class="w"> </span><span class="m">1</span>
+<span class="nv">$noise</span>
+piupiu
+
+<span class="nv">$grow</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$noise</span>
+piupiu
+
+<span class="nv">$grow</span><span class="w"> </span><span class="m">1</span>
+warning:<span class="w"> </span>passaro<span class="w"> </span>morreu
+
+<span class="nv">$noise</span>
+RIP
+
+<span class="nv">$end</span>
+</code></pre></div>
+<h2>Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li>cpp<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul>
+</li>
+<li>java<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul>
+</li>
+<li>ts<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/draft/ts/shell.ts">shell.ts</a></li>
+</ul>
+</li>
+</ul>
+<!-- links -->
+
+<h2>Cheat</h2>
+<!-- links .cache/cheat -->
+<ul>
+<li>cpp<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/cpp/shell.cpp">shell.cpp</a></li>
+</ul>
+</li>
+<li>java<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/java/Shell.java">Shell.java</a></li>
+</ul>
+</li>
+<li>ts<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/animal/.cache/cheat/ts/shell.ts">shell.ts</a></li>
+</ul>
+</li>
+</ul>
+<!-- links -->
+</body>
+</html>

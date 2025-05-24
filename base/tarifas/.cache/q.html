@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@tarifas: Operações de saque, depósito, extrato</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Operações de saque, depósito, extrato</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#draft">Draft</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/cover.jpg" /></p>
+<p>O objetivo dessa atividade é implementar uma classe responsável por gerenciar a account bancária de um único cliente. Faremos operações de withdraw, depósito e extrato.</p>
+<h2>Intro</h2>
+<ul>
+<li><strong>Iniciar</strong><ul>
+<li>Iniciar a account passando número da account.</li>
+<li>Se a account já existir, resete todos os valores para uma nova account.</li>
+<li>Inicia a account com a operação de "abertura".</li>
+<li>Para facilitar a visualização dos dados, utilize inteiros para registrar as operações financeiras.</li>
+</ul>
+</li>
+<li><strong>Saque, Depósito e Tarifas</strong><ul>
+<li>Verifique se o valor é válido.</li>
+<li>No caso da tarifa, o valor final de saldo poderá ser negativo.</li>
+<li>No caso do saque, verifique se há saldo suficiente efetuar a operação.</li>
+</ul>
+</li>
+<li><strong>Retornar o extrato</strong>.<ul>
+<li>Retornar todas as movimentações da conta.</li>
+<li>A descrição pode ser "opening", "withdraw", "deposit", "fee", "reverse", "error".</li>
+<li>Os saques devem ter valor negativo e os depósitos positivos.</li>
+<li>Se a quantidade for fornecida, retorne apenas as últimas movimentações.</li>
+</ul>
+</li>
+<li><strong>Extornar tarifas</strong>.<ul>
+<li>Deve ser possível extornar, pagando de volta, tarifas passando uma lista de índices.</li>
+<li>Apenas efetue a operação de extorno dos índices válidos que forem tarifas.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Draft</h2>
+<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.cpp">draft.cpp</a></li>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.java">draft.java</a></li>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/tarifas/.cache/draft.ts">draft.ts</a></li>
+</ul>
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/diagrama.png" /></p>
+<!-- load diagrama.puml fenced=ts:filter -->
+
+<div class="language-ts highlight"><pre><span></span><code><span class="kd">@startuml</span>
+
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">defaultFontName</span><span class="w"> </span><span class="s2">&quot;Source Code Pro&quot;</span>
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">dpi</span><span class="w"> </span><span class="mf">150</span>
+
+
+
+<span class="kd">enum</span><span class="w"> </span><span class="nx">Label</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">DEPOSIT</span><span class="w"> </span><span class="p">{</span><span class="k">static</span><span class="p">}</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">FEE</span><span class="w"> </span><span class="p">{</span><span class="k">static</span><span class="p">}</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">OPENING</span><span class="w"> </span><span class="p">{</span><span class="k">static</span><span class="p">}</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">REVERSE</span><span class="w"> </span><span class="p">{</span><span class="k">static</span><span class="p">}</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">WITHDRAW</span><span class="w"> </span><span class="p">{</span><span class="k">static</span><span class="p">}</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">ERROR</span><span class="w"> </span><span class="p">{</span><span class="k">static</span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="kt">String</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">Label</span><span class="p">(</span><span class="nx">label</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">getLabel</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">String</span>
+<span class="p">}</span>
+
+<span class="s1">&#39; operação guarda os dados de uma única operação</span>
+<span class="s1">class Operation {</span>
+<span class="s1">    - index : int</span>
+<span class="s1">    - label : Label</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">valor</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">negativo</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">estiver</span><span class="w"> </span><span class="nx">diminuindo</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">saldo</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">  </span><span class="s1">&#39; saldo residual apos operação</span>
+<span class="s1">    - balance : int</span>
+<span class="s1">  __</span>
+<span class="s1">  + Operation(index : int, label : Label, value : int, balance : int)</span>
+
+<span class="s1">  + toString() : String</span>
+<span class="s1">  __</span>
+<span class="s1">  + getBalance() : int</span>
+<span class="s1">  + getIndex() : int</span>
+<span class="s1">  + getLabel() : Label</span>
+<span class="s1">  + getValue() : int</span>
+<span class="s1">}</span>
+
+<span class="s1">&#39;</span><span class="w"> </span><span class="nx">nessa</span><span class="w"> </span><span class="nx">classe</span><span class="w"> </span><span class="nx">são</span><span class="w"> </span><span class="nx">efetivadas</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">registradas</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">alterações</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">saldo</span>
+<span class="kd">class</span><span class="w"> </span><span class="nx">BalanceManager</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="s1">&#39; saldo do cliente</span>
+<span class="s1">    - balance : int </span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">extrato</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">extract</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">List</span><span class="o">&lt;</span><span class="nx">Operation</span><span class="o">&gt;</span>
+
+<span class="w">  </span><span class="s1">&#39; id da próxima operação</span>
+<span class="s1">    - nextId : int</span>
+<span class="s1">  __</span>
+<span class="s1">  + BalanceManager()</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">adiciona</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="nx">ao</span><span class="w"> </span><span class="nx">balance</span>
+<span class="w">  </span><span class="s1">&#39; crie operação e adicione ao vetor de operações</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">incrementa</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">nextId</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">addOperation</span><span class="p">(</span><span class="nx">label</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Label</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+<span class="w">  </span><span class="s1">&#39;</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">operação</span><span class="w"> </span><span class="nx">caso</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">índice</span><span class="w"> </span><span class="nx">seja</span><span class="w"> </span><span class="nx">válido</span>
+<span class="w">  </span><span class="s1">&#39; retorna uma operação com label ERROR caso contrário</span>
+<span class="s1">  + getOperation(index : int) : Operation</span>
+<span class="s1">  &#39;</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">String</span>
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="s1">&#39;</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">saldo</span><span class="w"> </span><span class="nx">atual</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">getBalance</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kr">int</span>
+
+<span class="w">  </span><span class="s1">&#39; se qtdOp for 0, retorne todas as operações</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">qtdOp</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">positivo</span><span class="p">,</span><span class="w"> </span><span class="nx">retorne</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">últimas</span><span class="w"> </span><span class="nx">qtdOp</span><span class="w"> </span><span class="nx">operações</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">getExtract</span><span class="p">(</span><span class="nx">qtdOp</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">List</span><span class="o">&lt;</span><span class="nx">Operation</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Account</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">balanceManager</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">BalanceManager</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">Account</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span>
+
+<span class="w">  </span><span class="s1">&#39; adiciona valor à conta</span>
+<span class="s1">  + deposit(value : int) : void</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">retira</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">dinheiro</span><span class="p">,</span><span class="w"> </span><span class="nx">mesmo</span><span class="w"> </span><span class="nx">que</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">balance</span><span class="w"> </span><span class="nx">fique</span><span class="w"> </span><span class="nx">negativo</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">fee</span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+
+<span class="w">  </span><span class="s1">&#39; se o índice for válido e representar uma operação de tarifa</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">adicione</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">mesmo</span><span class="w"> </span><span class="nx">valor</span><span class="w"> </span><span class="nx">tarifado</span><span class="p">,</span><span class="w"> </span><span class="nx">mas</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="nx">label</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">reverse</span><span class="p">(</span><span class="nx">extorno</span><span class="p">)</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">reverse</span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+
+<span class="w">  </span><span class="s1">&#39; só realiza a operação se houver dinheiro suficiente na conta</span>
+<span class="s1">  + withdraw(value : int) : void</span>
+<span class="s1">  + toString() : String</span>
+<span class="s1">  __</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">c</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="nx">retorne</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">referencia</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">getBalanceManager</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">BalanceManager</span>
+<span class="p">}</span>
+
+
+
+
+<span class="nx">Operation</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">*--&gt;</span><span class="w">  </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">Label</span>
+<span class="nx">BalanceManager</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">*--&gt;</span><span class="w">  </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">Operation</span>
+<span class="nx">Account</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">*--&gt;</span><span class="w">  </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">BalanceManager</span>
+<span class="kd">@enduml</span>
+</code></pre></div>
+<!-- load -->
+
+<hr />
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE iniciar</span>
+<span class="nv">$init</span><span class="w"> </span><span class="m">100</span>
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:0
+
+<span class="c1">#TEST_CASE depositar</span>
+<span class="nv">$deposit</span><span class="w"> </span><span class="m">100</span>
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:100
+
+<span class="c1">#TEST_CASE deposito invalido</span>
+<span class="nv">$deposit</span><span class="w"> </span>-10
+fail:<span class="w"> </span>invalid<span class="w"> </span>value
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:100
+
+<span class="c1">#TEST_CASE saque</span>
+<span class="nv">$withdraw</span><span class="w"> </span><span class="m">20</span>
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:80
+
+<span class="c1">#TEST_CASE taxa</span>
+<span class="nv">$fee</span><span class="w"> </span><span class="m">10</span>
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:70
+
+<span class="c1">#TEST_CASE saque muito alto</span>
+<span class="nv">$withdraw</span><span class="w"> </span><span class="m">150</span>
+fail:<span class="w"> </span>insufficient<span class="w"> </span>balance
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:70
+
+<span class="nv">$withdraw</span><span class="w"> </span><span class="m">30</span>
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:40
+
+<span class="c1">#TEST_CASE taxa</span>
+<span class="nv">$fee</span><span class="w"> </span><span class="m">5</span>
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:35
+
+<span class="c1">#__deposito</span>
+<span class="nv">$deposit</span><span class="w"> </span><span class="m">5</span>
+<span class="nv">$fee</span><span class="w"> </span><span class="m">1</span>
+<span class="nv">$show</span>
+account:100<span class="w"> </span>balance:39
+
+<span class="c1">#TEST_CASE extrato</span>
+<span class="c1">#extrato mostra todas as operações desde a abertura da account</span>
+<span class="nv">$extract</span><span class="w"> </span><span class="m">0</span>
+<span class="w"> </span><span class="m">0</span>:<span class="w">  </span>opening:<span class="w">    </span><span class="m">0</span>:<span class="w">    </span><span class="m">0</span>
+<span class="w"> </span><span class="m">1</span>:<span class="w">  </span>deposit:<span class="w">  </span><span class="m">100</span>:<span class="w">  </span><span class="m">100</span>
+<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>withdraw:<span class="w">  </span>-20:<span class="w">   </span><span class="m">80</span>
+<span class="w"> </span><span class="m">3</span>:<span class="w">      </span>fee:<span class="w">  </span>-10:<span class="w">   </span><span class="m">70</span>
+<span class="w"> </span><span class="m">4</span>:<span class="w"> </span>withdraw:<span class="w">  </span>-30:<span class="w">   </span><span class="m">40</span>
+<span class="w"> </span><span class="m">5</span>:<span class="w">      </span>fee:<span class="w">   </span>-5:<span class="w">   </span><span class="m">35</span>
+<span class="w"> </span><span class="m">6</span>:<span class="w">  </span>deposit:<span class="w">    </span><span class="m">5</span>:<span class="w">   </span><span class="m">40</span>
+<span class="w"> </span><span class="m">7</span>:<span class="w">      </span>fee:<span class="w">   </span>-1:<span class="w">   </span><span class="m">39</span>
+
+<span class="c1">#TEST_CASE extrato n</span>
+<span class="c1">#extrato mostra as ultimas N operacoes</span>
+<span class="nv">$extract</span><span class="w"> </span><span class="m">2</span>
+<span class="w"> </span><span class="m">6</span>:<span class="w">  </span>deposit:<span class="w">    </span><span class="m">5</span>:<span class="w">   </span><span class="m">40</span>
+<span class="w"> </span><span class="m">7</span>:<span class="w">      </span>fee:<span class="w">   </span>-1:<span class="w">   </span><span class="m">39</span>
+
+<span class="c1">#TEST_CASE extornar</span>
+<span class="nv">$reverse</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">50</span>
+fail:<span class="w"> </span>index<span class="w"> </span><span class="m">1</span><span class="w"> </span>is<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>fee
+fail:<span class="w"> </span>index<span class="w"> </span><span class="m">50</span><span class="w"> </span>invalid
+
+<span class="c1">#TEST_CASE novo extrato</span>
+<span class="nv">$extract</span><span class="w"> </span><span class="m">0</span>
+<span class="w"> </span><span class="m">0</span>:<span class="w">  </span>opening:<span class="w">    </span><span class="m">0</span>:<span class="w">    </span><span class="m">0</span>
+<span class="w"> </span><span class="m">1</span>:<span class="w">  </span>deposit:<span class="w">  </span><span class="m">100</span>:<span class="w">  </span><span class="m">100</span>
+<span class="w"> </span><span class="m">2</span>:<span class="w"> </span>withdraw:<span class="w">  </span>-20:<span class="w">   </span><span class="m">80</span>
+<span class="w"> </span><span class="m">3</span>:<span class="w">      </span>fee:<span class="w">  </span>-10:<span class="w">   </span><span class="m">70</span>
+<span class="w"> </span><span class="m">4</span>:<span class="w"> </span>withdraw:<span class="w">  </span>-30:<span class="w">   </span><span class="m">40</span>
+<span class="w"> </span><span class="m">5</span>:<span class="w">      </span>fee:<span class="w">   </span>-5:<span class="w">   </span><span class="m">35</span>
+<span class="w"> </span><span class="m">6</span>:<span class="w">  </span>deposit:<span class="w">    </span><span class="m">5</span>:<span class="w">   </span><span class="m">40</span>
+<span class="w"> </span><span class="m">7</span>:<span class="w">      </span>fee:<span class="w">   </span>-1:<span class="w">   </span><span class="m">39</span>
+<span class="w"> </span><span class="m">8</span>:<span class="w">  </span>reverse:<span class="w">    </span><span class="m">5</span>:<span class="w">   </span><span class="m">44</span>
+<span class="w"> </span><span class="m">9</span>:<span class="w">  </span>reverse:<span class="w">    </span><span class="m">1</span>:<span class="w">   </span><span class="m">45</span>
+
+<span class="c1">#TEST_CASE extrato tarifa</span>
+<span class="nv">$fee</span><span class="w"> </span><span class="m">50</span>
+<span class="nv">$extract</span><span class="w"> </span><span class="m">2</span>
+<span class="w"> </span><span class="m">9</span>:<span class="w">  </span>reverse:<span class="w">    </span><span class="m">1</span>:<span class="w">   </span><span class="m">45</span>
+<span class="m">10</span>:<span class="w">      </span>fee:<span class="w">  </span>-50:<span class="w">   </span>-5
+
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE fee</span>
+<span class="nv">$init</span><span class="w"> </span><span class="m">107</span>
+<span class="nv">$fee</span><span class="w"> </span><span class="m">10</span>
+<span class="nv">$show</span>
+account:107<span class="w"> </span>balance:-10
+<span class="nv">$extract</span><span class="w"> </span><span class="m">0</span>
+<span class="w"> </span><span class="m">0</span>:<span class="w">  </span>opening:<span class="w">    </span><span class="m">0</span>:<span class="w">    </span><span class="m">0</span>
+<span class="w"> </span><span class="m">1</span>:<span class="w">      </span>fee:<span class="w">  </span>-10:<span class="w">  </span>-10
+<span class="nv">$end</span>
+</code></pre></div>
+</body>
+</html>

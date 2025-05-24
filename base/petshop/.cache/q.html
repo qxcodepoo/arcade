@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@petshop: @petshop</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>@petshop</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#draft">Draft</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/petshop/cover.jpg" /></p>
+<p>Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, serviços e vendas.</p>
+<p>Você deve desenvolver o sistema de uma clínica veterinária que deve ser capaz de:</p>
+<hr />
+<h2>Intro</h2>
+<ul>
+<li>Cadastrar clientes pelo idCliente
+        - Id de cliente deve ser único entre os clientes
+        - Cliente tem um id e um nome de múltiplas palavras</li>
+<li>Mostrar todos os clientes</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code># nwcli _idCli _nome_completo
+nwcli luke luke skywallker
+  done
+nwcli lea princesa lea
+  done
+nwcli vader darth vader
+  done
+nwcli lea fracileia moreira
+  fail: cliente lea ja cadastrado.
+lacli
+  cli luke: luke skywallker
+  cli lea: princesa lea
+  cli vader: darth vader
+</code></pre></div>
+<ul>
+<li>Cadastrar animais.
+        - Animal tem um id, um nome e uma especie e está vinculado a um único cliente.
+        - Cada animal cadastrado deve receber um id único inteiro crescente do sistema.
+        - Um cliente não pode ter dois animais com o mesmo nome.</li>
+<li>Mostrar todos os animais cadastrados.</li>
+<li>Mostre os clientes com seus animais.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code># addAni _idCli _idAni _especie
+nwani vader rex gato
+  done
+nwani vader chaninha urubu
+  done
+nwani vader rex dino
+  fail: animal rex ja existe
+lscli vader
+  cli vader: darth vader [1:rex:gato][2:chaninha:urubu]
+nwani luke rosinha chinchila
+  done
+laani
+  [1:rex:gato]
+  [2:chaninha:urubu]
+  [3:rosinha:chinchila]
+</code></pre></div>
+<ul>
+<li>Adicionar serviços na clínica.
+        - Cada serviço tem um id único e um preço.</li>
+<li>Mostrar os serviços cadastrados</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code># addSer _idSer _preco
+nwser tosa 30.0
+  done
+nwser banho 15.0
+  done
+nwser tingimento 150.0
+  done
+laser
+  [tosa 30.0]
+  [banho 15.0]
+  [tingimento 150.0]
+</code></pre></div>
+<ul>
+<li>Vender serviços para um animal passando id do cliente e nome do animal.</li>
+<li>Dê para cada venda um id inteiro único crescente.</li>
+<li>Mostrar vendas.</li>
+<li>Mostrar dinheiro total recebido.</li>
+<li>Trate os possíveis erros.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code>nwven luke rosinha tosa
+  done
+nwven vader rex banho
+  done
+nwven luke rosinha tingimento  
+  done
+nwven r2d2 rex banho
+  fail: cliente r2d2 nao existe
+nwven luke xuxu banho
+  fail: animal xuxu nao existe
+nwven luke rosinha castracao
+  fail: servico castracao nao existe
+laven
+  [0 luke rosinha tosa]
+  [1 vader rex banho]
+  [2 luke rosinha tingimento]
+saldo
+  Saldo 195 reais
+</code></pre></div>
+<hr />
+<h2>Draft</h2>
+<div class="language-java highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Animal</span>
+<span class="o">+</span><span class="w"> </span><span class="n">idAnimal</span><span class="p">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="o">+</span><span class="w"> </span><span class="n">nome</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">+</span><span class="w"> </span><span class="n">especie</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">+</span><span class="w"> </span><span class="n">dono</span><span class="p">:</span><span class="w"> </span><span class="n">Cliente</span>
+<span class="o">--</span>
+<span class="o">+</span><span class="w"> </span><span class="n">constructor</span><span class="p">(</span><span class="n">idAnimal</span><span class="p">,</span><span class="w"> </span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">especie</span><span class="p">,</span><span class="w"> </span><span class="n">dono</span><span class="p">)</span>
+<span class="o">+</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span>
+
+<span class="kd">class</span> <span class="nc">Cliente</span>
+<span class="o">+</span><span class="w"> </span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">+</span><span class="w"> </span><span class="n">nome</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">-</span><span class="w"> </span><span class="n">animais</span><span class="p">:</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Animal</span><span class="o">&gt;</span>
+<span class="o">--</span>
+<span class="o">+</span><span class="w"> </span><span class="n">addAnimal</span><span class="p">(</span><span class="n">animal</span><span class="p">:</span><span class="w"> </span><span class="n">Animal</span><span class="p">):</span><span class="w"> </span><span class="kt">void</span>
+<span class="o">--</span>
+<span class="o">+</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">nome</span><span class="p">)</span>
+<span class="o">+</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getIdCliente</span><span class="p">()</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getNome</span><span class="p">()</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getAnimais</span><span class="p">()</span>
+
+<span class="kd">class</span> <span class="nc">Servico</span>
+<span class="o">+</span><span class="w"> </span><span class="n">idServico</span><span class="p">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="o">+</span><span class="w"> </span><span class="n">nome</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">+</span><span class="w"> </span><span class="n">valor</span><span class="p">:</span><span class="w"> </span><span class="kt">float</span>
+<span class="o">--</span>
+<span class="o">+</span><span class="w"> </span><span class="n">constructor</span><span class="p">(</span><span class="n">idServico</span><span class="p">,</span><span class="w"> </span><span class="n">nome</span><span class="p">,</span><span class="w"> </span><span class="n">especie</span><span class="p">)</span>
+<span class="o">+</span><span class="w"> </span><span class="n">toString</span><span class="p">()</span>
+
+<span class="kd">class</span> <span class="nc">Venda</span>
+<span class="o">+</span><span class="w"> </span><span class="n">idAnimal</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">+</span><span class="w"> </span><span class="n">idCliente</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">+</span><span class="w"> </span><span class="n">idServico</span><span class="p">:</span><span class="w"> </span><span class="n">String</span>
+<span class="o">--</span>
+<span class="o">+</span><span class="w"> </span><span class="n">constructor</span><span class="p">(</span><span class="n">idCliente</span><span class="p">,</span><span class="w"> </span><span class="n">idAnimal</span><span class="p">,</span><span class="w"> </span><span class="n">idServico</span><span class="p">)</span>
+
+<span class="kd">class</span> <span class="nc">ServicoClinica</span>
+<span class="o">-</span><span class="w"> </span><span class="n">nextSerId</span><span class="p">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="o">-</span><span class="w"> </span><span class="n">nextAniId</span><span class="p">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="o">-</span><span class="w"> </span><span class="n">nextVenId</span><span class="p">:</span><span class="w"> </span><span class="kt">int</span>
+<span class="o">-</span><span class="w"> </span><span class="n">rSer</span><span class="p">:</span><span class="w"> </span><span class="n">Repository</span><span class="o">&lt;</span><span class="n">Servico</span><span class="o">&gt;</span>
+<span class="o">-</span><span class="w"> </span><span class="n">rAni</span><span class="p">:</span><span class="w"> </span><span class="n">Repository</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span>
+<span class="o">-</span><span class="w"> </span><span class="n">rPes</span><span class="p">:</span><span class="w"> </span><span class="n">Repository</span><span class="o">&lt;</span><span class="n">Pessoa</span><span class="o">&gt;</span>
+<span class="o">-</span><span class="w"> </span><span class="n">rVen</span><span class="p">:</span><span class="w"> </span><span class="n">Repository</span><span class="o">&lt;</span><span class="n">Venda</span><span class="o">&gt;</span>
+<span class="o">--</span>
+<span class="o">+</span><span class="w"> </span><span class="n">addCliente</span><span class="p">(</span><span class="n">cliente</span><span class="p">:</span><span class="w"> </span><span class="n">Cliente</span><span class="p">):</span><span class="w"> </span><span class="kt">void</span>
+<span class="o">+</span><span class="w"> </span><span class="n">addServico</span><span class="p">(</span><span class="n">nome</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">valor</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">):</span><span class="w"> </span><span class="kt">void</span>
+<span class="o">+</span><span class="w"> </span><span class="n">addAnimal</span><span class="p">(</span><span class="n">idCliente</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">nomeAnimal</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">especie</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">):</span><span class="w"> </span><span class="kt">void</span>
+<span class="o">+</span><span class="w"> </span><span class="n">vender</span><span class="p">(</span><span class="n">idCliente</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">nomeAnimal</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">IdServico</span><span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="p">):</span><span class="w"> </span><span class="kt">void</span>
+<span class="o">+</span><span class="w"> </span><span class="n">saldo</span><span class="p">():</span><span class="w"> </span><span class="kt">float</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getAllCliente</span><span class="p">():</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Cliente</span><span class="o">&gt;</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getAllServico</span><span class="p">():</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Servico</span><span class="o">&gt;</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getAllAnimal</span><span class="p">():</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Animal</span><span class="o">&gt;</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getCliente</span><span class="p">(</span><span class="n">idCliente</span><span class="p">)</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getServico</span><span class="p">(</span><span class="n">idServico</span><span class="p">)</span>
+<span class="o">+</span><span class="w"> </span><span class="n">getAnimal</span><span class="p">(</span><span class="n">idAnimal</span><span class="p">)</span>
+</code></pre></div>
+</body>
+</html>

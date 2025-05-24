@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@agenda: Gerencie os vários contatos de uma agenda</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Gerencie os vários contatos de uma agenda</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/cover.jpg" /></p>
+<p>Sua agenda possui vários contatos e cada contato possui vários telefones.</p>
+<p>Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais detalhes como criar a classe <code>Contact</code> e a classe <code>Fone</code>.</p>
+<hr />
+<h2>Intro</h2>
+<ul>
+<li>Adicionar contato<ul>
+<li>O contato possui o nome como chave.</li>
+<li>Se tentar adicionar outro contato com o mesmo nome, adicione os telefones ao contato existente.</li>
+<li>Adicionar os novos números de telefone no contato já existente.</li>
+</ul>
+</li>
+<li>Mostrar<ul>
+<li>Mostrar os contatos da agenda pela ordem alfabética.</li>
+</ul>
+</li>
+<li>Remoção<ul>
+<li>Remover contato pela chave.</li>
+<li>Remover telefone do contato.</li>
+</ul>
+</li>
+<li>Busca<ul>
+<li>Fazer uma busca por padrão em todos os atributos do contato, nome e telefones.</li>
+<li>Se o contato tiver qualquer campo que combine com a string pattern de busca, ele deve ser retornado. Se o pattern é maria, devem ser retornados os contatos como "maria julia", "mariana", "ana maria", etc. Também inclua na busca o id do telefone ou o número do telefone.</li>
+</ul>
+</li>
+<li>Favoritos<ul>
+<li>Favoritar e Desfavoritar um contato.</li>
+<li>Mostrar os favoritos.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Guide</h2>
+<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/agenda/.cache/draft.cpp">solver.cpp</a></li>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/agenda/.cache/draft.ts">solver.ts</a></li>
+</ul>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/diagrama.png" /></p>
+<!-- load diagrama.puml fenced=ts:filter -->
+
+<div class="language-ts highlight"><pre><span></span><code><span class="kd">@startuml</span>
+
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">defaultFontName</span><span class="w"> </span><span class="s2">&quot;Source Code Pro&quot;</span>
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">dpi</span><span class="w"> </span><span class="mf">150</span>
+
+
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Fone</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">str</span>
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="s1">&#39; inicializa as variaveis</span>
+<span class="s1">  + Fone(id : str, number : str)</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">verifica</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">número</span><span class="w"> </span><span class="nx">é</span><span class="w"> </span><span class="nx">um</span><span class="w"> </span><span class="nx">número</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">telefone</span><span class="w"> </span><span class="nx">válido</span>
+<span class="w">  </span><span class="s1">&#39; crie uma str &quot;validos&quot; com todos os caracteres válidos</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">cada</span><span class="w"> </span><span class="nx">caractere</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">número</span><span class="o">:</span>
+<span class="w">  </span><span class="s1">&#39;   se c não estiver em validos:</span>
+<span class="s1">  &#39;</span><span class="w">     </span><span class="nx">retorne</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="s1">&#39; retorne true</span>
+<span class="s1">  + isValid() : bool</span>
+<span class="s1">  __</span>
+<span class="s1">  + getId() : str</span>
+<span class="s1">  + getNumber() : str</span>
+<span class="s1">  __</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">Gera</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">impressão</span>
+<span class="w">  </span><span class="s1">&#39; ex: oi:1234</span>
+<span class="s1">  + toString() : str</span>
+<span class="s1">}</span>
+
+<span class="s1">class Contact {</span>
+<span class="s1">    - favorited : bool</span>
+<span class="s1">    - fones : List&lt;Fone&gt;</span>
+<span class="s1">    - name : str</span>
+<span class="s1">  __</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">inicialize</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">fone</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">nome</span><span class="p">,</span><span class="w"> </span><span class="nx">favorited</span><span class="w"> </span><span class="nx">como</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">fones</span><span class="w"> </span><span class="nx">vazia</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">Contact</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span>
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="s1">&#39; se fone for válido:</span>
+<span class="s1">  &#39;</span><span class="w">   </span><span class="nx">insira</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">fim</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">fones</span>
+<span class="w">  </span><span class="s1">&#39; se não:</span>
+<span class="s1">  &#39;</span><span class="w">   </span><span class="nx">informe</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">erro</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">addFone</span><span class="p">(</span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">str</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+
+<span class="w">  </span><span class="s1">&#39; se o índice existir:</span>
+<span class="s1">  &#39;</span><span class="w">   </span><span class="nx">remove</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">fone</span><span class="w"> </span><span class="nx">pelo</span><span class="w"> </span><span class="nx">indice</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">rmFone</span><span class="p">(</span><span class="nx">index</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="s1">&#39; favorita ou desfavorita o contato</span>
+<span class="s1">  + toogleFavorited(): void</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">contato</span><span class="w"> </span><span class="nx">está</span><span class="w"> </span><span class="nx">favoritado</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">isFavorited</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">bool</span>
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">getFones</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">List</span><span class="o">&lt;</span><span class="nx">Fone</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">getName</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">str</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">setName</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span>
+
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="s1">&#39; use um contador para mostrar o índice do telefone</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">toString</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">fone</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">adicioná</span><span class="o">-</span><span class="nx">lo</span><span class="w"> </span><span class="nx">à</span><span class="w"> </span><span class="nx">saída</span>
+<span class="w">  </span><span class="s1">&#39; se o contato estiver favoritado, adicione um @ antes do nome</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">resultado</span><span class="w"> </span><span class="nx">dever</span><span class="w"> </span><span class="nx">ficar</span><span class="w"> </span><span class="nx">assim</span><span class="o">:</span>
+<span class="w">  </span><span class="s1">&#39; ex: - david [oi:123, tim:9081, claro:5431]</span>
+<span class="s1">  + toString() : str</span>
+<span class="s1">}</span>
+
+<span class="s1">class Agenda {</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">um</span><span class="w"> </span><span class="nx">vector</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">c</span><span class="o">++</span>
+<span class="w">  </span><span class="s1">&#39; um ArrayList em Java</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">um</span><span class="w"> </span><span class="nb">Array</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">Typescript</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">contacts</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">List</span><span class="o">&lt;</span><span class="nx">Contact</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">__</span>
+
+<span class="w">  </span><span class="s1">&#39; procura o contato pelo nome</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">nome</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">contato</span><span class="w"> </span><span class="nx">é</span><span class="w"> </span><span class="nx">único</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">agenda</span>
+<span class="w">  </span><span class="s1">&#39; se encontrar, retorne o índice do contato no array</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">não</span><span class="w"> </span><span class="nx">encontrar</span><span class="p">,</span><span class="w"> </span><span class="nx">retorne</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">findPosByName</span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kr">int</span>
+<span class="w">  </span><span class="nx">__</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">Agenda</span><span class="p">()</span>
+<span class="w">  </span><span class="nx">__</span>
+
+<span class="w">  </span><span class="s1">&#39; use a função findPosByName para encontrar o índice do contato</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">contato</span><span class="w"> </span><span class="nx">existir</span><span class="o">:</span>
+<span class="w">  </span><span class="s1">&#39;   adicione todos os telefones válidos ao contato</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">não</span><span class="o">:</span>
+<span class="w">  </span><span class="s1">&#39;   crie um novo contato</span>
+<span class="s1">  &#39;</span><span class="w">   </span><span class="nx">adicione</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">telefones</span><span class="w"> </span><span class="nx">válidos</span>
+<span class="w">  </span><span class="s1">&#39;   reordene a lista de contatos</span>
+<span class="s1">  + addContact (name : String, fones : List&lt;Fone&gt;)</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">função</span><span class="w"> </span><span class="nx">findPosByName</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">encontrar</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">índice</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">contato</span>
+<span class="w">  </span><span class="s1">&#39; retorna uma referência para o contato</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">em</span><span class="w"> </span><span class="nx">C</span><span class="o">++</span><span class="p">,</span><span class="w"> </span><span class="nx">retorne</span><span class="w"> </span><span class="nx">um</span><span class="w"> </span><span class="s1">&#39;Contact*&#39;</span>
+<span class="w">  </span><span class="s1">&#39; se não existir, retorne null</span>
+<span class="s1">  + getContact(name : String) : Contact | null</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">use</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">função</span><span class="w"> </span><span class="nx">findPosByName</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">encontrar</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">índice</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">contato</span>
+<span class="w">  </span><span class="s1">&#39; se o contato existir:</span>
+<span class="s1">  &#39;</span><span class="w">   </span><span class="nx">remova</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">contato</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">rmContact</span><span class="w">  </span><span class="p">(</span><span class="nx">name</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">String</span><span class="p">)</span>
+
+<span class="w">  </span><span class="s1">&#39; crie uma lista de contatos para armaenar os resultados</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">cada</span><span class="w"> </span><span class="nx">contato</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">contatos</span><span class="o">:</span>
+<span class="w">  </span><span class="s1">&#39;   gere a string do contato usando contato.toString()</span>
+<span class="s1">  &#39;</span><span class="w">   </span><span class="nx">use</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="nx">função</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">busca</span><span class="w"> </span><span class="nx">por</span><span class="w"> </span><span class="nx">substring</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">verificar</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">padrão</span><span class="w"> </span><span class="nx">está</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">contato</span>
+<span class="w">  </span><span class="s1">&#39;   se estiver:</span>
+<span class="s1">  &#39;</span><span class="w">     </span><span class="nx">adicione</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">contato</span><span class="w"> </span><span class="nx">à</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">resultados</span>
+<span class="w">  </span><span class="s1">&#39; retorne a lista de resultados</span>
+<span class="s1">  + search     (pattern : String) : List&lt;Contact&gt;</span>
+
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">cria</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">contatos</span><span class="w"> </span><span class="nx">vazia</span>
+<span class="w">  </span><span class="s1">&#39; para cada contato na lista de contatos:</span>
+<span class="s1">  &#39;</span><span class="w">   </span><span class="nx">se</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">contato</span><span class="w"> </span><span class="nx">estiver</span><span class="w"> </span><span class="nx">favoritado</span><span class="o">:</span>
+<span class="w">  </span><span class="s1">&#39;     adicione o contato à lista de favoritos</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">retorne</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">favoritos</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">getFavorited</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">List</span><span class="o">&lt;</span><span class="nx">Contact</span><span class="o">&gt;</span>
+<span class="w">  </span><span class="nx">__</span>
+
+<span class="w">  </span><span class="s1">&#39; retorne a lista de contatos</span>
+<span class="s1">  + getContacts() : List&lt;Contact&gt;</span>
+<span class="s1">  __</span>
+
+<span class="s1">  &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">contatos</span><span class="w"> </span><span class="nx">separados</span><span class="w"> </span><span class="nx">por</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="nx">quebra</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">linha</span>
+<span class="w">  </span><span class="o">+</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nb">String</span>
+<span class="p">}</span>
+
+
+<span class="nx">Contact</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">*--</span><span class="w">  </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">Fone</span>
+<span class="nx">Agenda</span><span class="w">  </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">*--</span><span class="w">  </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">Contact</span>
+
+<span class="kd">@enduml</span>
+</code></pre></div>
+<!-- load -->
+
+<h2>Shell</h2>
+<div class="language-py highlight"><pre><span></span><code><span class="c1">#TEST_CASE adicionando em lote</span>
+<span class="err">$</span><span class="n">add</span> <span class="n">eva</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8585</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span>
+<span class="err">$</span><span class="n">add</span> <span class="n">ana</span> <span class="n">tim</span><span class="p">:</span><span class="mi">3434</span>
+<span class="err">$</span><span class="n">add</span> <span class="n">bia</span> <span class="n">viv</span><span class="p">:</span><span class="mi">5454</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">ana</span> <span class="p">[</span><span class="n">tim</span><span class="p">:</span><span class="mi">3434</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">bia</span> <span class="p">[</span><span class="n">viv</span><span class="p">:</span><span class="mi">5454</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+
+
+<span class="c1">#TEST_CASE adicionando a um contato existente</span>
+
+<span class="c1"># como ana já existe, não crie um novo contato</span>
+<span class="c1"># adicione os telefones ao contato existente</span>
+<span class="err">$</span><span class="n">add</span> <span class="n">ana</span> <span class="n">cas</span><span class="p">:</span><span class="mi">4567</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8754</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">ana</span> <span class="p">[</span><span class="n">tim</span><span class="p">:</span><span class="mi">3434</span><span class="p">,</span> <span class="n">cas</span><span class="p">:</span><span class="mi">4567</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8754</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">bia</span> <span class="p">[</span><span class="n">viv</span><span class="p">:</span><span class="mi">5454</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+
+
+<span class="c1">#TEST_CASE removendo telefone</span>
+<span class="c1"># remove o elemento indice 0 da ana</span>
+<span class="err">$</span><span class="n">rmFone</span> <span class="n">ana</span> <span class="mi">0</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">ana</span> <span class="p">[</span><span class="n">cas</span><span class="p">:</span><span class="mi">4567</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8754</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">bia</span> <span class="p">[</span><span class="n">viv</span><span class="p">:</span><span class="mi">5454</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+
+<span class="c1">#TEST_CASE removendo contato</span>
+<span class="err">$</span><span class="n">rm</span> <span class="n">bia</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">ana</span> <span class="p">[</span><span class="n">cas</span><span class="p">:</span><span class="mi">4567</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8754</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+
+<span class="c1">#TEST_CASE adicionando mais contatos</span>
+
+<span class="err">$</span><span class="n">add</span> <span class="n">ava</span> <span class="n">tim</span><span class="p">:</span><span class="mi">5454</span>
+<span class="err">$</span><span class="n">add</span> <span class="n">rui</span> <span class="n">viv</span><span class="p">:</span><span class="mi">2222</span> <span class="n">oio</span><span class="p">:</span><span class="mi">9991</span>
+<span class="err">$</span><span class="n">add</span> <span class="n">zac</span> <span class="n">rec</span><span class="p">:</span><span class="mi">3131</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="o">-</span> <span class="n">ana</span> <span class="p">[</span><span class="n">cas</span><span class="p">:</span><span class="mi">4567</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8754</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">ava</span> <span class="p">[</span><span class="n">tim</span><span class="p">:</span><span class="mi">5454</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">rui</span> <span class="p">[</span><span class="n">viv</span><span class="p">:</span><span class="mi">2222</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">9991</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">zac</span> <span class="p">[</span><span class="n">rec</span><span class="p">:</span><span class="mi">3131</span><span class="p">]</span>
+
+<span class="c1">#TEST_CASE busca por padrao</span>
+<span class="err">$</span><span class="n">search</span> <span class="n">va</span>
+<span class="o">-</span> <span class="n">ava</span> <span class="p">[</span><span class="n">tim</span><span class="p">:</span><span class="mi">5454</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+
+<span class="err">$</span><span class="n">search</span> <span class="mi">999</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">rui</span> <span class="p">[</span><span class="n">viv</span><span class="p">:</span><span class="mi">2222</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">9991</span><span class="p">]</span>
+
+<span class="c1">#TEST_CASE toggle favoritos</span>
+<span class="err">$</span><span class="n">tfav</span> <span class="n">ana</span>
+<span class="err">$</span><span class="n">tfav</span> <span class="n">rui</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="o">@</span> <span class="n">ana</span> <span class="p">[</span><span class="n">cas</span><span class="p">:</span><span class="mi">4567</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8754</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">ava</span> <span class="p">[</span><span class="n">tim</span><span class="p">:</span><span class="mi">5454</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">eva</span> <span class="p">[</span><span class="n">oio</span><span class="p">:</span><span class="mi">8585</span><span class="p">,</span> <span class="n">cla</span><span class="p">:</span><span class="mi">9999</span><span class="p">]</span>
+<span class="o">@</span> <span class="n">rui</span> <span class="p">[</span><span class="n">viv</span><span class="p">:</span><span class="mi">2222</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">9991</span><span class="p">]</span>
+<span class="o">-</span> <span class="n">zac</span> <span class="p">[</span><span class="n">rec</span><span class="p">:</span><span class="mi">3131</span><span class="p">]</span>
+
+<span class="c1">#TEST_CASE favoritos</span>
+<span class="err">$</span><span class="n">favs</span>
+<span class="o">@</span> <span class="n">ana</span> <span class="p">[</span><span class="n">cas</span><span class="p">:</span><span class="mi">4567</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">8754</span><span class="p">]</span>
+<span class="o">@</span> <span class="n">rui</span> <span class="p">[</span><span class="n">viv</span><span class="p">:</span><span class="mi">2222</span><span class="p">,</span> <span class="n">oio</span><span class="p">:</span><span class="mi">9991</span><span class="p">]</span>
+
+<span class="err">$</span><span class="n">end</span>
+
+<span class="c1">#__end__</span>
+</code></pre></div>
+</body>
+</html>

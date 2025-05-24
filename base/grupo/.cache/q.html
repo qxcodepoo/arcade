@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@grupo: @grupo</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>@grupo</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#guia-de-atividade">Guia de Atividade</a></th>
+<th><a href="#créditos">Créditos</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grupo/cover.jpg" /></p>
+<ul>
+<li>Usuários podem ser adicionados ao sistema e devem ter id único.</li>
+<li>Os usuários podem criar grupos e convidar outros usuários do sistema.
+        - O id de um grupo deve ser único entre grupos e usuários.</li>
+<li>Usuários podem abrir talks, que são chats entre dois usuário.
+        - O id de um talk é formado pelo id dos dois usuários que participam, separados por -.
+        - Se maria e abel abrem o chat, o id do chat é abel-maria, ordenando os nomes.</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE init</span>
+<span class="nv">$addUser</span><span class="w"> </span>goku
+<span class="nv">$addUser</span><span class="w"> </span>sara
+<span class="nv">$addUser</span><span class="w"> </span>tina
+<span class="nv">$newGroup</span><span class="w"> </span>goku<span class="w"> </span>familia
+<span class="nv">$invite</span><span class="w"> </span>goku<span class="w"> </span>sara<span class="w"> </span>familia
+<span class="nv">$newTalk</span><span class="w"> </span>goku<span class="w"> </span>tina
+<span class="nv">$notify</span><span class="w"> </span>goku
+<span class="o">[</span>familia<span class="w"> </span>goku-tina<span class="o">]</span>
+<span class="nv">$notify</span><span class="w"> </span>sara
+<span class="o">[</span>familia<span class="o">]</span>
+<span class="nv">$notify</span><span class="w"> </span>tina
+<span class="o">[</span>goku-tina<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>Todos os comandos para enviar zap e receber, ver notificações e etc devem funcionar para Talks e Grupos.</li>
+<li>Se o usuário tentar sair de um Talk ou Convidar alguém, exiba uma mensagem de erro.</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE zap</span>
+<span class="nv">$zap</span><span class="w"> </span>goku<span class="w"> </span>familia<span class="w"> </span>to<span class="w"> </span>levando<span class="w"> </span>pizza
+<span class="nv">$notify</span><span class="w"> </span>sara
+<span class="o">[</span>familia<span class="o">(</span><span class="m">1</span><span class="o">)]</span>
+<span class="nv">$ler</span><span class="w"> </span>sara<span class="w"> </span>familia
+<span class="o">[</span>goku:<span class="w"> </span>to<span class="w"> </span>levando<span class="w"> </span>pizza<span class="o">]</span>
+<span class="nv">$zap</span><span class="w"> </span>sara<span class="w"> </span>familia<span class="w"> </span>a<span class="w"> </span>tina<span class="w"> </span>ta<span class="w"> </span>aqui<span class="w"> </span>te<span class="w"> </span>esperando
+<span class="nv">$zap</span><span class="w"> </span>goku<span class="w"> </span>goku-tina<span class="w"> </span>passa<span class="w"> </span>la<span class="w"> </span>em<span class="w"> </span>casa
+<span class="nv">$notify</span><span class="w"> </span>tina
+<span class="o">[</span>goku-tina<span class="o">(</span><span class="m">1</span><span class="o">)]</span>
+<span class="nv">$ler</span><span class="w"> </span>tina<span class="w"> </span>goku-tina
+<span class="o">[</span>goku:<span class="w"> </span>passa<span class="w"> </span>la<span class="w"> </span>em<span class="w"> </span>casa<span class="o">]</span>
+<span class="nv">$zap</span><span class="w"> </span>tina<span class="w"> </span>goku-tina<span class="w"> </span>ja<span class="w"> </span>to<span class="w"> </span>aqui<span class="w"> </span>com<span class="w"> </span>a<span class="w"> </span>sara<span class="w"> </span>esperando
+<span class="nv">$ler</span><span class="w"> </span>goku<span class="w"> </span>goku-tina
+<span class="o">[</span>tina:<span class="w"> </span>ja<span class="w"> </span>to<span class="w"> </span>aqui<span class="w"> </span>com<span class="w"> </span>a<span class="w"> </span>sara<span class="w"> </span>esperando<span class="o">]</span>
+<span class="nv">$ler</span><span class="w"> </span>goku<span class="w"> </span>familia
+<span class="o">[</span>sara:<span class="w"> </span>a<span class="w"> </span>tina<span class="w"> </span>ta<span class="w"> </span>aqui<span class="w"> </span>te<span class="w"> </span>esperando<span class="o">]</span>
+<span class="nv">$invite</span><span class="w"> </span>goku<span class="w"> </span>sara<span class="w"> </span>goku-tina
+fail:<span class="w"> </span>operacao<span class="w"> </span>de<span class="w"> </span>acionar<span class="w"> </span>usuarios<span class="w"> </span>nao<span class="w"> </span>suportada
+<span class="nv">$leave</span><span class="w"> </span>goku<span class="w"> </span>goku-tina
+fail:<span class="w"> </span>operacao<span class="w"> </span>de<span class="w"> </span>sair<span class="w"> </span><span class="k">do</span><span class="w"> </span>chat<span class="w"> </span>nao<span class="w"> </span>suportada
+<span class="nv">$end</span>
+</code></pre></div>
+<h2>Guia de Atividade</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grupo/diagrama.png" /></p>
+<h2>Créditos</h2>
+<p>Fica o agradecimento para turma de POO DD 2017.2 que fez nascer essa atividade comigo.</p>
+</body>
+</html>

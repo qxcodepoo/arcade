@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@porquinho: Guardando moedas e itens em um cofrinho</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Guardando moedas e itens em um cofrinho</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#draft">Draft</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/cover.jpg" /></p>
+<h2>Intro</h2>
+<p>A classe Pig (Porquinho) representa um cofre que permite aos usuários adicionar moedas e itens, que são armazenados com base no volume disponível. O cofre tem uma capacidade máxima de volume e pode ser quebrado para extrair o conteúdo.</p>
+<h3>Responsabilidades</h3>
+<ul>
+<li>
+<p><strong>Adicionar Moedas e Itens:</strong></p>
+<ul>
+<li>Os usuários podem adicionar moedas e itens ao cofrinho.</li>
+<li>A adição é limitada pela capacidade máxima de volume do porquinho.</li>
+</ul>
+</li>
+<li>
+<p><strong>Quebrar o Cofrinho:</strong></p>
+<ul>
+<li>Os usuários podem quebrar o cofrinho para extrair seu conteúdo.</li>
+<li>Uma vez quebrado, o cofrinho não pode mais receber adições.</li>
+</ul>
+</li>
+<li>
+<p><strong>Extrair Moedas e Itens:</strong></p>
+<ul>
+<li>Após quebrar o cofrinho, os usuários podem extrair as moedas e itens armazenados.</li>
+<li>As moedas e itens são removidos do cofrinho e retornados ao usuário.</li>
+</ul>
+</li>
+<li>
+<p><strong>Obter Valor e Volume Total:</strong></p>
+<ul>
+<li>Os usuários podem verificar o valor total das moedas armazenadas no cofrinho.</li>
+<li>Também podem verificar o volume total ocupado pelos itens e moedas.</li>
+</ul>
+</li>
+</ul>
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/diagrama.png" /></p>
+<h3>Classe Coin</h3>
+<ul>
+<li>A classe <code>Coin</code> possui os seguintes atributos:<ul>
+<li><code>value</code>: Valor da moeda.</li>
+<li><code>volume</code>: Volume da moeda.</li>
+<li><code>label</code>: Rótulo da moeda.</li>
+</ul>
+</li>
+<li>Além disso, a classe possui os seguintes métodos:<ul>
+<li><code>toString(): string</code>: Retorna uma representação em string da moeda no formato <code>f"{this.value.2f}, {this.volume}"</code></li>
+<li><code>getValue(): number</code>: Retorna o valor da moeda.</li>
+<li><code>getVolume(): number</code>: Retorna o volume da moeda.</li>
+<li><code>getLabel(): string</code>: Retorna o rótulo da moeda.</li>
+</ul>
+</li>
+</ul>
+<h4>Método Estático</h4>
+<p>A classe <code>Coin</code> possui métodos estáticos para criar instâncias de moedas com valores pré-definidos:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">C10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Coin</span><span class="p">(</span><span class="mf">0.10</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C10&quot;</span><span class="p">);</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">C25</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Coin</span><span class="p">(</span><span class="mf">0.25</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C25&quot;</span><span class="p">);</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">C50</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Coin</span><span class="p">(</span><span class="mf">0.50</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C50&quot;</span><span class="p">);</span>
+<span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="nx">C100</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Coin</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;C100&quot;</span><span class="p">);</span>
+</code></pre></div>
+<h3>Classe Item</h3>
+<p>A classe <code>Item</code> possui os seguintes atributos:</p>
+<ul>
+<li><code>label</code>: Rótulo do item.</li>
+<li><code>volume</code>: Volume do item.</li>
+</ul>
+<p>Além disso, a classe possui os seguintes métodos:</p>
+<ul>
+<li><code>getLabel(): string</code>: Retorna o rótulo do item.</li>
+<li><code>getVolume(): number</code>: Retorna o volume do item.</li>
+<li><code>setVolume(volume: number): void</code>: Define o volume do item.</li>
+<li><code>setLabel(label: string): void</code>: Define o rótulo do item.</li>
+<li><code>toString(): string</code>: Retorna uma representação em string do item.<ul>
+<li>Formato de retorno: <code>label:volume</code></li>
+</ul>
+</li>
+</ul>
+<h3>Classe Pig</h3>
+<p>A classe <code>Pig</code> possui os seguintes atributos:</p>
+<ul>
+<li><code>items</code>: Array de itens.</li>
+<li><code>coins</code>: Array de moedas.</li>
+<li><code>volumeMax</code>: Volume máximo suportado pela "cochonilha".</li>
+<li>
+<p><code>broken</code>: Indica se a "cochonilha" está quebrada ou não.</p>
+</li>
+<li>
+<p><strong>Definição da Classe Pig:</strong></p>
+<ul>
+<li>Definir a classe <code>Pig</code> com os atributos <code>items</code>, <code>coins</code>, <code>volumeMax</code> e <code>broken</code>.</li>
+<li>Implementar o construtor que recebe <code>volumeMax</code> como parâmetro e o atribui à propriedade <code>volumeMax</code>.</li>
+<li>Inicializar os arrays <code>items</code> e <code>coins</code> como vazios.</li>
+<li>Inicializar a propriedade <code>broken</code> como <code>false</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Implementação dos Métodos:</strong></p>
+<ul>
+<li>
+<p><strong>Método <code>addCoin(coin: Coin): boolean</code></strong></p>
+<ul>
+<li>Aiciona uma moeda ao vetor de moedas.</li>
+<li>Parâmetros:<ul>
+<li><code>coin</code>: Moeda a ser adicionada.</li>
+</ul>
+</li>
+<li>Retorna <code>true</code> se a adição for bem-sucedida, caso contrário, retorna <code>false</code>.</li>
+<li>Erro: <code>fail: the pig is broken</code> se o porquinho estiver quebrado.</li>
+<li>Erro: <code>fail: the pig is full</code> se o porquinho estiver cheio.</li>
+</ul>
+</li>
+<li>
+<p><strong>Método <code>addItem(item: Item): boolean</code></strong></p>
+<ul>
+<li>Adiciona um item ao vetor de itens.</li>
+<li>Parâmetros:<ul>
+<li><code>item</code>: Item a ser adicionado.</li>
+</ul>
+</li>
+<li>Retorna <code>true</code> se a adição for bem-sucedida, caso contrário, retorna <code>false</code>.</li>
+<li>Erro: <code>fail: the pig is broken</code> se o porquinho estiver quebrado.</li>
+<li>Erro: <code>fail: the pig is full</code> se o porquinho estiver cheio.</li>
+</ul>
+</li>
+<li>
+<p><strong>Método <code>getVolume(): number</code></strong></p>
+<ul>
+<li>Retorna o volume total ocupado pelo conteúdo do porquinho.
+ <strong>Passos:</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Verificação de Estado:</strong>
+          - Verifica se o porquinho está quebrada.
+              - Se estiver quebrado, retorna volume 0.</p>
+</li>
+<li>
+<p><strong>Cálculo do Volume:</strong>
+          - Inicializa a variável <code>volume</code> com valor 0.
+          - Percorre o array de itens e adiciona o volume de cada item à variável <code>volume</code>.
+          - Percorre o array de moedas e adiciona o volume de cada moeda à variável <code>volume</code>.
+          - Retorna o valor total de <code>volume</code>.</p>
+</li>
+<li>
+<p><strong>Método <code>getValue(): number</code></strong></p>
+<ul>
+<li>Retorna o valor total das moedas no porquinho.
+ <strong>Passos:</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Cálculo do Valor:</strong>
+          - Inicializa a variável <code>value</code> com valor 0.
+          - Percorre o array de moedas e adiciona o valor de cada moeda à variável <code>value</code>.
+          - Retorna o valor total de <code>value</code>.</p>
+</li>
+<li>
+<p><strong>Método <code>breakPig(): boolean</code></strong></p>
+<ul>
+<li>Quebra o porquinho, tornando-o inutilizável.</li>
+<li>Define a propriedade <code>broken</code> como <code>true</code>.</li>
+<li>Retorna <code>true</code> se a quebra for bem-sucedida, caso contrário, retorna <code>false</code>.</li>
+<li>Erro: <code>fail: the pig is already broken</code> se o porquinho já estiver quebrado.</li>
+</ul>
+</li>
+<li>
+<p><strong>Método <code>extractCoins(): Coin[]</code></strong></p>
+<ul>
+<li>Remove e retorna todas as moedas do porquinho.</li>
+<li>Retorna um array com todas as moedas removidas.</li>
+<li>Erro: <code>fail: you must break the pig first</code> se o porquinho não estiver quebrado.</li>
+</ul>
+</li>
+<li>
+<p><strong>Método <code>extractItems(): Item[]</code></strong></p>
+<ul>
+<li>Remove e retorna todos os itens do porquinho.</li>
+<li>Retorna um array com todos os itens removidos.</li>
+<li>Erro: <code>fail: you must break the pig first</code> se o porquinho não estiver quebrado.</li>
+</ul>
+</li>
+<li>
+<p><strong>Método <code>toString(): string</code></strong></p>
+<ul>
+<li>Retorna uma representação em string do estado atual do porquinho, incluindo se está intacto ou quebrado, a lista de moedas e itens armazenados, o valor total e o volume ocupado.</li>
+<li>Formato de retorno: <code>state=estado : coins=[moedas] : items=[itens] : value=valor : volume=volumeAtual/volumeMaximo</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/Solver.java">Solver.java</a></li>
+<li>cpp<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul>
+</li>
+<li>java<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul>
+</li>
+<li>ts<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/porquinho/.cache/draft/ts/shell.ts">shell.ts</a></li>
+</ul>
+</li>
+</ul>
+<!-- links -->
+
+<h2>Shell</h2>
+<div class="language-py highlight"><pre><span></span><code><span class="c1">#TEST_CASE init</span>
+<span class="err">$</span><span class="n">init</span> <span class="mi">20</span>
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">intact</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.00</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">20</span>
+
+<span class="c1">#TEST_CASE insert</span>
+<span class="err">$</span><span class="n">addCoin</span> <span class="mi">10</span>
+<span class="err">$</span><span class="n">addCoin</span> <span class="mi">50</span>
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">intact</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.60</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">4</span><span class="o">/</span><span class="mi">20</span>
+
+<span class="c1">#TEST_CASE itens</span>
+<span class="err">$</span><span class="n">addItem</span> <span class="n">ouro</span> <span class="mi">3</span>
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">intact</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">ouro</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.60</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">7</span><span class="o">/</span><span class="mi">20</span>
+
+<span class="err">$</span><span class="n">addItem</span> <span class="n">passaporte</span> <span class="mi">2</span>
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">intact</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">ouro</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">passaporte</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.60</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">9</span><span class="o">/</span><span class="mi">20</span>
+
+<span class="c1">#TEST_CASE failed break</span>
+<span class="err">$</span><span class="n">extractItems</span>
+<span class="n">fail</span><span class="p">:</span> <span class="n">you</span> <span class="n">must</span> <span class="k">break</span> <span class="n">the</span> <span class="n">pig</span> <span class="n">first</span>
+<span class="p">[]</span>
+
+<span class="err">$</span><span class="n">extractCoins</span>
+<span class="n">fail</span><span class="p">:</span> <span class="n">you</span> <span class="n">must</span> <span class="k">break</span> <span class="n">the</span> <span class="n">pig</span> <span class="n">first</span>
+<span class="p">[]</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">intact</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">ouro</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">passaporte</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.60</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">9</span><span class="o">/</span><span class="mi">20</span>
+
+<span class="c1">#TEST_CASE breaking</span>
+<span class="err">$</span><span class="k">break</span>
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">broken</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="n">ouro</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">passaporte</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.60</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">20</span>
+
+<span class="c1">#TEST_CASE getItems</span>
+
+<span class="err">$</span><span class="n">extractItems</span>
+<span class="p">[</span><span class="n">ouro</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">passaporte</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">broken</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.60</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">20</span>
+
+<span class="c1">#TEST_CASE getCoins</span>
+
+<span class="err">$</span><span class="n">extractCoins</span>
+<span class="p">[</span><span class="mf">0.10</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="err">$</span><span class="n">show</span>
+<span class="n">state</span><span class="o">=</span><span class="n">broken</span> <span class="p">:</span> <span class="n">coins</span><span class="o">=</span><span class="p">[]</span> <span class="p">:</span> <span class="n">items</span><span class="o">=</span><span class="p">[]</span> <span class="p">:</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.00</span> <span class="p">:</span> <span class="n">volume</span><span class="o">=</span><span class="mi">0</span><span class="o">/</span><span class="mi">20</span>
+<span class="err">$</span><span class="n">end</span>
+</code></pre></div>
+<hr />
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE</span>
+<span class="nv">$init</span><span class="w"> </span><span class="m">10</span>
+
+<span class="nv">$break</span>
+
+<span class="nv">$addCoin</span><span class="w"> </span><span class="m">10</span>
+fail:<span class="w"> </span>the<span class="w"> </span>pig<span class="w"> </span>is<span class="w"> </span>broken
+
+
+<span class="nv">$show</span>
+<span class="nv">state</span><span class="o">=</span>broken<span class="w"> </span>:<span class="w"> </span><span class="nv">coins</span><span class="o">=[]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">items</span><span class="o">=[]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="m">0</span>.00<span class="w"> </span>:<span class="w"> </span><span class="nv">volume</span><span class="o">=</span><span class="m">0</span>/10
+
+<span class="nv">$addItem</span><span class="w"> </span>bilhete<span class="w"> </span><span class="m">2</span>
+fail:<span class="w"> </span>the<span class="w"> </span>pig<span class="w"> </span>is<span class="w"> </span>broken
+
+<span class="nv">$show</span>
+<span class="nv">state</span><span class="o">=</span>broken<span class="w"> </span>:<span class="w"> </span><span class="nv">coins</span><span class="o">=[]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">items</span><span class="o">=[]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="m">0</span>.00<span class="w"> </span>:<span class="w"> </span><span class="nv">volume</span><span class="o">=</span><span class="m">0</span>/10
+
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE full coin</span>
+<span class="nv">$init</span><span class="w"> </span><span class="m">5</span>
+
+<span class="nv">$addCoin</span><span class="w"> </span><span class="m">10</span>
+<span class="nv">$addCoin</span><span class="w"> </span><span class="m">25</span>
+<span class="nv">$show</span>
+<span class="nv">state</span><span class="o">=</span>intact<span class="w"> </span>:<span class="w"> </span><span class="nv">coins</span><span class="o">=[</span><span class="m">0</span>.10:1,<span class="w"> </span><span class="m">0</span>.25:2<span class="o">]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">items</span><span class="o">=[]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="m">0</span>.35<span class="w"> </span>:<span class="w"> </span><span class="nv">volume</span><span class="o">=</span><span class="m">3</span>/5
+
+<span class="nv">$addCoin</span><span class="w"> </span><span class="m">50</span>
+fail:<span class="w"> </span>the<span class="w"> </span>pig<span class="w"> </span>is<span class="w"> </span>full
+
+<span class="nv">$show</span>
+<span class="nv">state</span><span class="o">=</span>intact<span class="w"> </span>:<span class="w"> </span><span class="nv">coins</span><span class="o">=[</span><span class="m">0</span>.10:1,<span class="w"> </span><span class="m">0</span>.25:2<span class="o">]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">items</span><span class="o">=[]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="m">0</span>.35<span class="w"> </span>:<span class="w"> </span><span class="nv">volume</span><span class="o">=</span><span class="m">3</span>/5
+
+<span class="c1">#TEST_CASE full item</span>
+<span class="nv">$addItem</span><span class="w"> </span>ouro<span class="w"> </span><span class="m">1</span>
+
+<span class="nv">$show</span>
+<span class="nv">state</span><span class="o">=</span>intact<span class="w"> </span>:<span class="w"> </span><span class="nv">coins</span><span class="o">=[</span><span class="m">0</span>.10:1,<span class="w"> </span><span class="m">0</span>.25:2<span class="o">]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">items</span><span class="o">=[</span>ouro:1<span class="o">]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="m">0</span>.35<span class="w"> </span>:<span class="w"> </span><span class="nv">volume</span><span class="o">=</span><span class="m">4</span>/5
+
+<span class="nv">$addItem</span><span class="w"> </span>pirulito<span class="w"> </span><span class="m">2</span>
+fail:<span class="w"> </span>the<span class="w"> </span>pig<span class="w"> </span>is<span class="w"> </span>full
+
+<span class="nv">$show</span>
+<span class="nv">state</span><span class="o">=</span>intact<span class="w"> </span>:<span class="w"> </span><span class="nv">coins</span><span class="o">=[</span><span class="m">0</span>.10:1,<span class="w"> </span><span class="m">0</span>.25:2<span class="o">]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">items</span><span class="o">=[</span>ouro:1<span class="o">]</span><span class="w"> </span>:<span class="w"> </span><span class="nv">value</span><span class="o">=</span><span class="m">0</span>.35<span class="w"> </span>:<span class="w"> </span><span class="nv">volume</span><span class="o">=</span><span class="m">4</span>/5
+
+<span class="nv">$end</span>
+</code></pre></div>
+</body>
+</html>

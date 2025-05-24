@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@grafite: Porta minas de um grafite só</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Porta minas de um grafite só</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+<th><a href="#draft">Draft</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/cover.jpg" /></p>
+<p>Faça o modelo de uma lapiseira que pode conter um único grafite.</p>
+<p><a href="https://youtu.be/LvZODN2rL6s"><img alt="explicação" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/../../wiki/images/explicacao.png" /></a></p>
+<h2>Intro</h2>
+<p>O objetivo dessa atividade é implementar uma lapiseira que permite inserir, remover grafite e escrever em uma folha, considerando a dureza e tamanho do grafite.</p>
+<ul>
+<li>
+<p>Descrição</p>
+<ul>
+<li>A lapiseira é capaz de iniciar, inserir e remover grafite, além de escrever em uma folha.</li>
+<li>Para inserir um grafite, é necessário especificar o calibre (float), a dureza (string) e o tamanho em mm (int).</li>
+<li>A remoção do grafite só é possível se houver algum na lapiseira.</li>
+<li>A escrita na folha só é possível se houver grafite suficiente e se o tamanho do grafite for superior a 10mm.</li>
+<li>A quantidade de grafite gasto varia de acordo com a dureza do grafite. Quanto mais macio, mais ele se desgasta.</li>
+<li>Quando o tamanho do grafite atinge 10mm, não é mais possível escrever.</li>
+<li>Se não houver grafite suficiente para terminar a escrita na folha, é emitido um aviso de texto incompleto.</li>
+</ul>
+</li>
+<li>
+<p>Responsabilidades</p>
+<ul>
+<li>A classe Grafite <code>Lead</code> é responsável por armazenar as informações do grafite.<ul>
+<li><code>thickness</code> é a espessura e terá valores como 0.3, 0.5, 0.7.</li>
+<li><code>hardness</code> é a dureza e poderá ter os seguintes valores: <code>HB, 2B, 4B, 6B</code>.</li>
+<li>O método <code>usagePerSheet</code> retorna a quantidade de grafite gasto por folha.<ul>
+<li>Um grafite <code>HB</code> gasta <code>1mm</code> por folha.</li>
+<li>Um grafite <code>2B</code> gasta <code>2mm</code> por folha.</li>
+<li>Um grafite <code>4B</code> gasta <code>4mm</code> por folha.</li>
+<li>Um grafite <code>6B</code> gasta <code>6mm</code> por folha.</li>
+</ul>
+</li>
+<li><code>size</code> representa o tamanho do grafite em <code>milímetros</code>.</li>
+</ul>
+</li>
+<li>A classe <code>Pencil</code> é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.<ul>
+<li>Ela referencia um único objeto lapiseira como atributo.</li>
+<li>E também possui um indicador de espessura <code>thickness</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Comandos<ul>
+<li>Todos os comandos seguem o modelo <code>$comando arg1 arg2 ...</code>.</li>
+<li><code>$iniciar calibre</code> - Inicializa a lapiseira com um determinado calibre.</li>
+<li><code>$inserir calibre dureza tamanho</code> - Insere um grafite com o calibre, dureza e tamanho especificados.<ul>
+<li>erros:<ul>
+<li><code>fail: calibre incompativel</code> - Se o calibre do grafite for diferente do calibre da lapiseira.</li>
+<li><code>fail: ja existe grafite</code> - Se já houver um grafite na lapiseira.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>$remover</code> - Remove o grafite da lapiseira, se houver.<ul>
+<li>erros:<ul>
+<li><code>fail: nao existe grafite</code> - Se não houver grafite na lapiseira.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>$escrever</code> - Escreve na folha, considerando o grafite presente na lapiseira.<ul>
+<li>O grafite é gasto de acordo com a dureza.</li>
+<li>erros:<ul>
+<li><code>fail: nao existe grafite</code> - Se não houver grafite na lapiseira.</li>
+<li><code>fail: tamanho insuficiente</code> - Se o tamanho do grafite for insuficiente para começar a escrita.</li>
+<li><code>fail: folha incompleta</code> - Se o grafite não for suficiente para terminar a escrita.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/grafite/diagrama.png" /></p>
+<ul>
+<li>
+<p>Parte 1: Inserir</p>
+<ul>
+<li>Crie a classe Grafite <code>Lead</code> com o atributo tamanho <code>size</code>.</li>
+<li>Crie a classe Lapiseira <code>Pencil</code> com o atributo ponta <code>tip</code> inicializado como <code>null</code>.</li>
+<li>Implemente o método tem grafite <code>hasGrafite</code> que retorna <code>true</code> se houver grafite na lapiseira.</li>
+<li>Implemente o método inserir <code>insert</code> que insere um grafite na lapiseira, se não houver grafite.</li>
+<li>Implemente o método <code>toString</code> que mostra a lapiseira e o grafite presente.</li>
+</ul>
+</li>
+<li>
+<p>Parte 2: Remover Grafite</p>
+<ul>
+<li>Implemente o método <code>remove</code> que retira o grafite da lapiseira, se houver.</li>
+<li>Verifique se o método <code>remove</code> retorna o grafite removido ou <code>null</code> se não havia grafite.</li>
+</ul>
+</li>
+<li>
+<p>Parte 3: Escrever na Folha</p>
+<ul>
+<li>Implemente o método <code>writePage</code> que escreve na folha.</li>
+<li>Implemente o método <code>usagePerSheet</code> que retorna a quantidade de grafite gasto por folha.</li>
+<li>Verifique se a lapiseira consegue escrever na folha.</li>
+<li>Faça as verificações antes de escrever na folha.</li>
+<li>Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa.<ul>
+<li>Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE inserindo grafites</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">0</span>.5
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.5,<span class="w"> </span>grafite:<span class="w"> </span>null
+
+<span class="c1">#TEST_CASE incompativel</span>
+
+<span class="nv">$insert</span><span class="w"> </span><span class="m">0</span>.7<span class="w"> </span>2B<span class="w"> </span><span class="m">50</span>
+fail:<span class="w"> </span>calibre<span class="w"> </span>incompativel
+<span class="nv">$insert</span><span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>2B<span class="w"> </span><span class="m">50</span>
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.5,<span class="w"> </span>grafite:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.5:2B:50<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE inserindo</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">0</span>.3
+<span class="nv">$insert</span><span class="w"> </span><span class="m">0</span>.3<span class="w"> </span>2B<span class="w"> </span><span class="m">50</span>
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.3,<span class="w"> </span>grafite:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.3:2B:50<span class="o">]</span>
+
+<span class="c1">#TEST_CASE ja existe</span>
+
+<span class="nv">$insert</span><span class="w"> </span><span class="m">0</span>.3<span class="w"> </span>4B<span class="w"> </span><span class="m">70</span>
+fail:<span class="w"> </span>ja<span class="w"> </span>existe<span class="w"> </span>grafite
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.3,<span class="w"> </span>grafite:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.3:2B:50<span class="o">]</span>
+
+<span class="c1">#TEST_CASE removendo</span>
+
+<span class="nv">$remove</span>
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.3,<span class="w"> </span>grafite:<span class="w"> </span>null
+
+<span class="c1">#TEST_CASE reinserindo</span>
+
+<span class="nv">$insert</span><span class="w"> </span><span class="m">0</span>.3<span class="w"> </span>4B<span class="w"> </span><span class="m">70</span>
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.3,<span class="w"> </span>grafite:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.3:4B:70<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE sem grafite</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">0</span>.9
+<span class="nv">$write</span>
+fail:<span class="w"> </span>nao<span class="w"> </span>existe<span class="w"> </span>grafite
+
+<span class="c1">#TEST_CASE escrevendo 1</span>
+
+<span class="nv">$insert</span><span class="w"> </span><span class="m">0</span>.9<span class="w"> </span>4B<span class="w"> </span><span class="m">14</span>
+<span class="nv">$write</span>
+<span class="nv">$write</span>
+fail:<span class="w"> </span>tamanho<span class="w"> </span>insuficiente
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.9,<span class="w"> </span>grafite:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.9:4B:10<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE escrevendo 2</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">0</span>.9
+<span class="nv">$insert</span><span class="w"> </span><span class="m">0</span>.9<span class="w"> </span>4B<span class="w"> </span><span class="m">16</span>
+<span class="nv">$write</span>
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.9,<span class="w"> </span>grafite:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.9:4B:12<span class="o">]</span>
+
+<span class="c1">#TEST_CASE escrevendo 3</span>
+
+<span class="nv">$write</span>
+fail:<span class="w"> </span>folha<span class="w"> </span>incompleta
+<span class="nv">$show</span>
+calibre:<span class="w"> </span><span class="m">0</span>.9,<span class="w"> </span>grafite:<span class="w"> </span><span class="o">[</span><span class="m">0</span>.9:4B:10<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<h2>Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li>cpp<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul>
+</li>
+<li>java<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul>
+</li>
+<li>ts<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/grafite/.cache/draft/ts/shell.ts">shell.ts</a></li>
+</ul>
+</li>
+</ul>
+<!-- links -->
+</body>
+</html>

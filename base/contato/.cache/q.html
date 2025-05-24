@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@contato: Gerenciando telefones de um único contato</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Gerenciando telefones de um único contato</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contato/cover.jpg" /></p>
+<p>O objetivo dessa atividade é implementar uma classe responsável por guardar um <strong>único</strong> contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.</p>
+<p>Essa classe Contact será reutilizada nas atividades @agenda.</p>
+<h2>Intro</h2>
+<p>Seu programa deve:</p>
+<ul>
+<li><strong>Definir nome</strong><ul>
+<li>Poder inicializar o contato passando o nome.<ul>
+<li>Se já houver contato, inicie um novo contato.</li>
+<li>Se não houver nome, o nome default é "".</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Inserir telefones no contato</strong><ul>
+<li>Um telefone tem um label e um fone.</li>
+<li>Labels serão nomes como: casa, fixo, oi.</li>
+<li>Labels podem ser duplicados.</li>
+</ul>
+</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1"># Exemplo de saída</span>
+-<span class="w"> </span>ana<span class="w"> </span><span class="o">[</span>tim:3434,<span class="w"> </span>casa:4567,<span class="w"> </span>oi:8754,<span class="w"> </span>casa:4567,<span class="w"> </span>oi:8754<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li><strong>Remover telefones do contato.</strong><ul>
+<li>Remove os telefones pelo índice.</li>
+</ul>
+</li>
+<li><strong>Validando os números de telefone.</strong><ul>
+<li>Processe os telefones para apenas permitir nos telefones os seguintes caracteres "0123456789()."</li>
+<li>Se o usuário tentar inserir individualmente um telefone invalido, avise e não insira o telefone.</li>
+</ul>
+</li>
+<li><strong>Favoritar e desfavoritar contato</strong></li>
+<li><strong>Mostrar contato</strong><ul>
+<li>Mostrar o contato com todos os telefones.</li>
+<li>Se ele for favoritado, mostre um @ no começo do nome.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contato/diagrama.png" /></p>
+<!-- links .cache/draft -->
+<ul>
+<li>cpp<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/contato/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul>
+</li>
+<li>java<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/contato/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul>
+</li>
+<li>ts<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/contato/.cache/draft/ts/shell.ts">shell.ts</a></li>
+</ul>
+</li>
+</ul>
+<!-- links -->
+
+<hr />
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE definindo nome</span>
+<span class="nv">$init</span><span class="w"> </span>david
+<span class="nv">$show</span>
+-<span class="w"> </span>david<span class="w"> </span><span class="o">[]</span>
+
+<span class="c1">#TEST_CASE inserindo telefones</span>
+<span class="nv">$add</span><span class="w"> </span>oi<span class="w"> </span><span class="m">88</span>
+<span class="nv">$add</span><span class="w"> </span>tim<span class="w"> </span><span class="m">99</span>
+<span class="nv">$add</span><span class="w"> </span>tim<span class="w"> </span><span class="m">98</span>
+<span class="nv">$add</span><span class="w"> </span>vivo<span class="w"> </span><span class="m">83</span>
+<span class="nv">$show</span>
+-<span class="w"> </span>david<span class="w"> </span><span class="o">[</span>oi:88,<span class="w"> </span>tim:99,<span class="w"> </span>tim:98,<span class="w"> </span>vivo:83<span class="o">]</span>
+
+<span class="c1">#TEST_CASE removendo telefone por indice</span>
+<span class="nv">$rm</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+-<span class="w"> </span>david<span class="w"> </span><span class="o">[</span>oi:88,<span class="w"> </span>tim:99,<span class="w"> </span>vivo:83<span class="o">]</span>
+<span class="nv">$rm</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$show</span>
+-<span class="w"> </span>david<span class="w"> </span><span class="o">[</span>tim:99,<span class="w"> </span>vivo:83<span class="o">]</span>
+
+<span class="c1">#TEST_CASE validando numero de fone</span>
+<span class="nv">$add</span><span class="w"> </span>tim<span class="w"> </span>9a9
+fail:<span class="w"> </span>invalid<span class="w"> </span>number
+<span class="nv">$add</span><span class="w"> </span>tim<span class="w"> </span><span class="o">(</span><span class="m">85</span><span class="o">)</span><span class="m">99</span>.99
+<span class="nv">$show</span>
+-<span class="w"> </span>david<span class="w"> </span><span class="o">[</span>tim:99,<span class="w"> </span>vivo:83,<span class="w"> </span>tim:<span class="o">(</span><span class="m">85</span><span class="o">)</span><span class="m">99</span>.99<span class="o">]</span>
+
+<span class="c1">#TEST_CASE favoritos</span>
+<span class="nv">$tfav</span>
+<span class="nv">$show</span>
+@<span class="w"> </span>david<span class="w"> </span><span class="o">[</span>tim:99,<span class="w"> </span>vivo:83,<span class="w"> </span>tim:<span class="o">(</span><span class="m">85</span><span class="o">)</span><span class="m">99</span>.99<span class="o">]</span>
+
+<span class="nv">$tfav</span>
+<span class="nv">$show</span>
+-<span class="w"> </span>david<span class="w"> </span><span class="o">[</span>tim:99,<span class="w"> </span>vivo:83,<span class="w"> </span>tim:<span class="o">(</span><span class="m">85</span><span class="o">)</span><span class="m">99</span>.99<span class="o">]</span>
+
+
+<span class="nv">$end</span>
+<span class="c1">#__end__</span>
+</code></pre></div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@notebook: Notebook com carregador e bateria</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Notebook com carregador e bateria</h1>
+<!-- toch -->
+<h2><a href="#guide">Guide</a></h2>
+<!-- toch -->
+
+<p><img alt="_" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/notebook/cover.jpg" /></p>
+<h2>Guide</h2>
+<h3>Parte 1 - Apenas o notebook</h3>
+<ul>
+<li>Vamos modelar um notebook que pode ser ligado e desligado.</li>
+<li>Crie a classe Notebook com os métodos <code>ligar</code> e <code>desligar</code>.</li>
+<li>Crie o método <code>mostrar</code> que exibe o status do notebook.</li>
+<li>Crie um atributo <code>ligado</code> que indica se o notebook está ligado ou desligado.</li>
+<li>Coloque os atributos como privados e crie métodos para acessá-los e modificá-los.</li>
+<li>Crie o método <code>usar(tempo)</code> que exibe uma mensagem de uso do notebook por um tempo.</li>
+<li>Crie um código de teste como o teste abaixo.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Notebook</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># isso é o construtor em python</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ligado</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="c1"># ligado é atributo privado e inicializa com false</span>
+    <span class="c1"># preencha com os métodos necessários</span>
+
+<span class="n">notebook</span> <span class="o">=</span> <span class="n">Notebook</span><span class="p">()</span> <span class="c1"># criando notebook</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Desligado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>     <span class="c1"># msg: erro: ligue o notebook primeiro</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">ligar</span><span class="p">()</span>      <span class="c1"># msg: notebook ligado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Ligado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>     <span class="c1"># msg: Usando por 10 minutos</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">desligar</span><span class="p">()</span>   <span class="c1"># msg: notebook desligado</span>
+</code></pre></div>
+<h3>Parte 2 - Notebook com bateria</h3>
+<ul>
+<li>Nosso notebook vai ser modificado para ter um atributo <code>bateria</code>.</li>
+<li>Esse atributo pode conter uma instância de uma bateria ou <code>null</code> se não houver bateria.</li>
+<li>A classe Bateria deve ter um atributo <code>carga</code> que indica a quantidade de carga.</li>
+<li>A classe Bateria deve ter um atributo <code>capacidade</code> que indica a quantidade máxima de carga.</li>
+<li>Coloque os atributos como privados e crie métodos para acessá-los e modificá-los.</li>
+<li>Ao criar uma bateria, passe a capacidade como parâmetro e inicialize a carga com a capacidade.</li>
+<li>Para ligar o notebook, ele deve ter uma bateria e a carga da bateria deve ser maior que 0.</li>
+<li>Ao usar o notebook, a carga da bateria deve diminuir.</li>
+<li>Se a carga da bateria for 0, o notebook deve desligar.</li>
+<li>Crie um código de teste como o teste abaixo.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Bateria</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacidade</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__capacidade</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">capacidade</span> <span class="c1"># capacidade é privado</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__carga</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">capacidade</span>      <span class="c1"># carga é privado e inicia com capacidade</span>
+    <span class="c1"># preencha com os métodos necessários</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Notebook</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ligado</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>           <span class="c1"># inicializa desligado</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__bateria</span><span class="p">:</span> <span class="n">Bateria</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># inicializa sem bateria</span>
+    <span class="c1"># preencha com os métodos necessários</span>
+
+<span class="n">notebook</span> <span class="o">=</span> <span class="n">Notebook</span><span class="p">()</span> <span class="c1"># criando notebook</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Desligado, Bateria: Nenhuma</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>     <span class="c1"># msg: erro: ligue o notebook primeiro</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">ligar</span><span class="p">()</span>      <span class="c1"># msg: não foi possível ligar</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Desligado, Bateria: Nenhuma</span>
+<span class="n">bateira</span> <span class="o">=</span> <span class="n">Bateria</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># criando bateria que suporta 50 minutos e começa carregada</span>
+<span class="n">bateira</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>     <span class="c1"># (50/50)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">setBateria</span><span class="p">(</span><span class="n">bateria</span><span class="p">)</span> <span class="c1"># coloca a bateria no notebook</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Desligado, Bateria: (50/50)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>     <span class="c1"># msg: notebook desligado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">ligar</span><span class="p">()</span>      <span class="c1"># msg: notebook ligado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Ligado, Bateria: (50/50)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>     <span class="c1"># msb: Usando por 30 minutos</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Ligado, Bateria: (20/50)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>     <span class="c1"># msb: Usando por 20 minutos, notebook descarregou</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Desligado, Bateria: (0/50)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">ligar</span><span class="p">()</span>      <span class="c1"># msg: não foi possível ligar</span>
+<span class="n">bateira</span> <span class="o">=</span> <span class="n">notebook</span><span class="o">.</span><span class="n">rmBateria</span><span class="p">()</span> <span class="c1"># msg: bateria removida</span>
+<span class="n">bateira</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>     <span class="c1"># (0/50)</span>
+</code></pre></div>
+<h3>Parte 3 - Notebook com carregador e bateria</h3>
+<ul>
+<li>Vamos modelar um notebook que pode ter ou não tanto carregador quanto bateria.</li>
+<li>Terá que reescrever os métodos <code>usar &lt;tempo&gt;</code>, <code>ligar</code>.</li>
+<li>Só poderá <code>ligar</code> se tiver carga na bateria ou carregador.</li>
+<li>Enquanto em uso<ul>
+<li>se tiver apenas na bateria, a carga da bateria deve diminuir.</li>
+<li>se estiver na bateria e no carregador, a carga deve aumentar.</li>
+</ul>
+</li>
+<li>O carregador possui uma potência que implica na quantidade de carga carregada por unidade de tempo.</li>
+<li>A bateria possui uma carga e uma capacidade que representam a carga atual e o máximo possível de carga.</li>
+<li>Para simplificar, vamos utilizar minutos como a unidade de tempo e de carga.</li>
+<li>Uma bateria <code>15/50</code> significa que possui ainda 15 minutos de carga e suporta no máximo 50.</li>
+<li>Um carregador com 3 de potência consegue em um minuto de uso, adicionar 3 minutos de carga na bateria.</li>
+<li>Para facilitar, você pode imaginar o notebook sendo utilizado da seguinte forma.</li>
+<li>Adapte a implementação para sua linguagem. Complete com os métodos necessários.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Bateria</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">capacidade</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__capacidade</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">capacidade</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__carga</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">capacidade</span>
+    <span class="c1"># preencha com os métodos necessários</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Carregador</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">potencia</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__potencia</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">potencia</span>
+    <span class="c1"># preencha com os métodos necessários</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Notebook</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__ligado</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>           <span class="c1"># inicializa desligado</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__bateria</span><span class="p">:</span> <span class="n">Bateria</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># inicializa sem bateria</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__carregador</span><span class="p">:</span> <span class="n">Carregador</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># inicializa sem carregador</span>
+    <span class="c1"># preencha com os métodos necessários</span>
+
+
+<span class="n">notebook</span> <span class="o">=</span> <span class="n">Notebook</span><span class="p">()</span> <span class="c1"># criando notebook</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>    <span class="c1"># msg: Status: Desligado, Bateria: Nenhuma, Carregador: Desconectado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">ligar</span><span class="p">()</span>      <span class="c1"># msg: não foi possível ligar</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>     <span class="c1"># msg: notebook desligado</span>
+
+<span class="n">bateria</span> <span class="o">=</span> <span class="n">Bateria</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="c1"># criando bateria que suporta 50 minutos e começa carregada</span>
+<span class="n">battery</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>     <span class="c1"># (50/50)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">setBateria</span><span class="p">(</span><span class="n">bateria</span><span class="p">)</span> <span class="c1"># coloca a bateria no notebook</span>
+
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Desligado, Bateria: (50/50), Carregador: Desconectado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">ligar</span><span class="p">()</span>   <span class="c1"># msg: notebook ligado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Ligado, Bateria: (50/50), Carregador: Desconectado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>  <span class="c1"># msb: Usando por 30 minutos</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Ligado, Bateria: (20/50), Carregador: Desconectado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>  <span class="c1"># msb: Usando por 20 minutos, notebook descarregou</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Desligado, Bateria: (0/50), Carregador: Desconectado</span>
+
+<span class="n">bateria</span> <span class="o">=</span> <span class="n">notebook</span><span class="o">.</span><span class="n">rmBateria</span><span class="p">()</span> <span class="c1"># msg: bateria removida</span>
+<span class="n">bateria</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span>  <span class="c1"># (0/50)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Desligado, Bateria: Nenhuma, Carregador: Desconectado</span>
+
+<span class="n">carregador</span> <span class="o">=</span> <span class="n">Carregador</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># criando carregador com 2 de potencia</span>
+<span class="n">carregador</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># (Potência 2)</span>
+
+<span class="n">notebook</span><span class="o">.</span><span class="n">setCarregador</span><span class="p">(</span><span class="n">carregador</span><span class="p">)</span> <span class="c1"># adicionando carregador no notebook</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Desligado, Bateria: Nenhuma, Carregador: (Potência 2)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">ligar</span><span class="p">()</span>   <span class="c1"># msg: notebook ligado</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Ligado, Bateria: Nenhuma, Carregador: (Potência 2)</span>
+
+<span class="n">notebook</span><span class="o">.</span><span class="n">setBateria</span><span class="p">(</span><span class="n">bateria</span><span class="p">)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Ligado, Bateria: (0/50), Carregador: (Potência 2)</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">usar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># msg: Notebook utilizado com sucesso</span>
+<span class="n">notebook</span><span class="o">.</span><span class="n">mostrar</span><span class="p">()</span> <span class="c1"># msg: Status: Ligado, Bateria: (20/50), Carregador: (Potência 2)</span>
+</code></pre></div>
+</body>
+</html>

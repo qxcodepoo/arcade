@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@whatsapp: @whatsapp</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>@whatsapp</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#shell">Shell</a></th>
+<th><a href="#guia-de-resolução">Guia de Resolução</a></th>
+<th><a href="#main-não-interativa">Main não interativa</a></th>
+<th><a href="#créditos">Créditos</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/whatsapp/cover.jpg" /></p>
+<h2>Intro</h2>
+<ul>
+<li><strong>$add</strong>: adicionanar usuários.<ul>
+<li><code>$add _username_</code><ul>
+<li>Cria um usuário com esse username.</li>
+<li>Adiciona o objeto usuário à lista de usuários do sistema.</li>
+</ul>
+</li>
+<li><code>$users</code><ul>
+<li>Mostra os usuários cadastrados.</li>
+</ul>
+</li>
+<li>Restrições:<ul>
+<li>O username deve ser único no sistema.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>$create</strong>: criar grupos de conversação.<ul>
+<li><code>$create _username_ _groupName_</code><ul>
+<li>Cria um grupo com um id inteiro único no sistema.</li>
+<li>O grupo criado deve ser armazenado na lista de grupos do sistema.</li>
+<li>O grupo criado deve ser adicionado na lista de grupos do usuário.</li>
+<li>O usuário deve ser adicionado na lista de usuários do grupo.</li>
+<li>O username deve corresponder a um usuário cadastrado.</li>
+</ul>
+</li>
+<li><code>$users</code>:<ul>
+<li>Atualize para mostrar:</li>
+<li>Todos os usernames e o id e nome dos grupos que ele participa.</li>
+<li>Todos os grupos do sistema e os usernames dos usuários que participam dele.</li>
+</ul>
+</li>
+<li>Restrições:<ul>
+<li>O usuário deve ser um usuário cadastrado.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>$invite</strong>: convidando outros usuários para um grupo que você participa.<ul>
+<li><code>$invite _owner_ _invitee_ _groupId_</code><ul>
+<li>Adicione o grupo na lista de grupos de <code>_invitee_</code></li>
+<li>Adicione esse usuário no grupo com esse <code>_groupId_</code></li>
+</ul>
+</li>
+<li>Restrições:<ul>
+<li>Ambos os usernames devem ser de distintos usuários cadastrados.</li>
+<li>O grupo com esse <code>_groupId_</code> deve ser um dos grupos do <code>_owner_</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>$send</strong> : envio de mensagens para o grupo.<ul>
+<li><code>$send _username_ _groupId_ _message_</code><ul>
+<li>A pessoa que manda as mensagens, tem que estar no grupo.</li>
+<li>Apenas quem está no grupo, poderá ler as mensagens.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Sair de um chat.</li>
+<li>Ler as mensagens de um grupo.<ul>
+<li>Um usuário pode ser as mensagens do grupo se ele está no grupo.</li>
+<li>Ao pedir as mensagens, o usuário receberá as mensagens não lidas que ele tem no grupo.</li>
+<li>Ao pedir as mensagens, o usuário não recebe as mensagens que ele mesmo enviou.</li>
+</ul>
+</li>
+<li>Ao pedir a lista de notificações, o usuário vê ao lado de cada grupo se ele possui mensagens não lidas.</li>
+</ul>
+<hr />
+<h2>Shell</h2>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE adicionar e mostrar usuários </span>
+<span class="c1"># O comando &quot;$add nomeUsuario&quot; cria um novo usuário.</span>
+<span class="c1"># O comando &quot;$allUsers&quot; mostra todos usuários.</span>
+<span class="nv">$add</span><span class="w"> </span>goku
+<span class="nv">$add</span><span class="w"> </span>sara
+<span class="nv">$add</span><span class="w"> </span>tina
+
+<span class="nv">$users</span>
+goku<span class="w"> </span><span class="o">[]</span>
+sara<span class="w"> </span><span class="o">[]</span>
+tina<span class="w"> </span><span class="o">[]</span>
+
+<span class="c1">#TEST_CASE novo Chat, mostrar chats do usuário</span>
+<span class="c1"># O comando &quot;$create nomeUser nomeChat&quot; cria um novo chat.</span>
+<span class="c1"># O comando &quot;$chats nomeUser&quot; mostra os chats usuário.</span>
+
+<span class="nv">$create</span><span class="w"> </span>goku<span class="w"> </span>familia
+<span class="nv">$create</span><span class="w"> </span>sara<span class="w"> </span>familia
+<span class="nv">$create</span><span class="w"> </span>goku<span class="w"> </span>guerreiros
+
+<span class="nv">$create</span><span class="w"> </span>kuririm<span class="w"> </span>casa
+fail:<span class="w"> </span>key<span class="w"> </span>kuririm<span class="w"> </span>not<span class="w"> </span>found
+
+<span class="nv">$users</span>
+goku<span class="w"> </span><span class="o">[</span><span class="m">0</span>:familia,<span class="w"> </span><span class="m">2</span>:guerreiros<span class="o">]</span>
+sara<span class="w"> </span><span class="o">[</span><span class="m">1</span>:familia<span class="o">]</span>
+tina<span class="w"> </span><span class="o">[]</span>
+
+<span class="c1">#TEST_CASE invite</span>
+<span class="c1">#- Adicionar pessoas a um grupo.</span>
+<span class="c1">#    - A pessoa que adiciona deve já estar no grupo.</span>
+<span class="c1">#- Ver quem está em um grupo.</span>
+<span class="c1">#- Sair de um grupo.</span>
+
+<span class="nv">$invite</span><span class="w"> </span>goku<span class="w"> </span>sara<span class="w"> </span><span class="m">2</span>
+<span class="nv">$invite</span><span class="w"> </span>sara<span class="w"> </span>tina<span class="w"> </span><span class="m">2</span>
+<span class="nv">$invite</span><span class="w"> </span>tina<span class="w"> </span>goku<span class="w"> </span><span class="m">1</span>
+fail:<span class="w"> </span>key<span class="w"> </span><span class="m">1</span><span class="w"> </span>not<span class="w"> </span>found
+
+<span class="nv">$users</span>
+goku<span class="w"> </span><span class="o">[</span><span class="m">0</span>:familia,<span class="w"> </span><span class="m">2</span>:guerreiros<span class="o">]</span>
+sara<span class="w"> </span><span class="o">[</span><span class="m">1</span>:familia,<span class="w"> </span><span class="m">2</span>:guerreiros<span class="o">]</span>
+tina<span class="w"> </span><span class="o">[</span><span class="m">2</span>:guerreiros<span class="o">]</span>
+
+<span class="nv">$chats</span>
+<span class="m">0</span>:familia<span class="w"> </span><span class="o">[</span>goku<span class="o">]</span>
+<span class="m">1</span>:familia<span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="m">2</span>:guerreiros<span class="w"> </span><span class="o">[</span>goku,<span class="w"> </span>sara,<span class="w"> </span>tina<span class="o">]</span>
+
+<span class="c1">#TEST_CASE leaving</span>
+<span class="nv">$leave</span><span class="w"> </span>sara<span class="w"> </span><span class="m">2</span>
+
+<span class="nv">$users</span>
+goku<span class="w"> </span><span class="o">[</span><span class="m">0</span>:familia,<span class="w"> </span><span class="m">2</span>:guerreiros<span class="o">]</span>
+sara<span class="w"> </span><span class="o">[</span><span class="m">1</span>:familia<span class="o">]</span>
+tina<span class="w"> </span><span class="o">[</span><span class="m">2</span>:guerreiros<span class="o">]</span>
+
+
+
+<span class="c1">#- Mandar mensagens para um grupo.</span>
+<span class="c1">#    - A pessoa que manda as mensagens, tem que estar no grupo.</span>
+<span class="c1">#    - Apenas quem está no grupo, poderá ler as mensagens.</span>
+<span class="c1">#- Ler as mensagens de um grupo.    </span>
+<span class="c1">#    - Um usuário pode ser as mensagens do grupo se ele está no grupo.</span>
+<span class="c1">#    - Ao pedir as mensagens, o usuário receberá as mensagens não lidas que ele tem no grupo.</span>
+<span class="c1">#    - Ao pedir as mensagens, o usuário não recebe as mensagens que ele mesmo enviou.</span>
+<span class="c1">#- Ao pedir a lista de notificações, o usuário vê ao lado de cada grupo se ele possui mensagens não lidas.</span>
+
+<span class="c1">#TEST_CASE mensagens</span>
+<span class="nv">$zap</span><span class="w"> </span>goku<span class="w"> </span><span class="m">2</span><span class="w"> </span>oi,<span class="w"> </span>eu<span class="w"> </span>sou<span class="w"> </span>o<span class="w"> </span>goku
+<span class="nv">$zap</span><span class="w"> </span>tina<span class="w"> </span><span class="m">2</span><span class="w"> </span>oi<span class="w"> </span>goku
+
+<span class="nv">$notify</span><span class="w"> </span>goku
+<span class="o">[</span>guerreiros<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span>homens<span class="o">]</span>
+<span class="nv">$notify</span><span class="w"> </span>tina
+<span class="o">[</span>guerreiros<span class="o">(</span><span class="m">1</span><span class="o">)]</span>
+
+<span class="nv">$ler</span><span class="w"> </span>goku<span class="w"> </span>guerreiros
+<span class="o">[</span>tina:<span class="w"> </span>oi<span class="w"> </span>goku<span class="o">]</span>
+<span class="nv">$ler</span><span class="w"> </span>tina<span class="w"> </span>guerreiros
+<span class="o">[</span>goku:<span class="w"> </span>oi,<span class="w"> </span>eu<span class="w"> </span>sou<span class="w"> </span>o<span class="w"> </span>goku<span class="o">]</span>
+
+<span class="nv">$ler</span><span class="w"> </span>sara<span class="w"> </span>guerreiros
+fail:<span class="w"> </span>user<span class="w"> </span>sara<span class="w"> </span>nao<span class="w"> </span>esta<span class="w"> </span>no<span class="w"> </span>chat<span class="w"> </span>guerreiros
+
+<span class="nv">$zap</span><span class="w"> </span>goku<span class="w"> </span>guerreiros<span class="w"> </span>vamos<span class="w"> </span>sair<span class="w"> </span>tina?
+<span class="nv">$zap</span><span class="w"> </span>tina<span class="w"> </span>guerreiros<span class="w"> </span>voce<span class="w"> </span>ta<span class="w"> </span>com<span class="w"> </span>fome<span class="w"> </span>goku?
+<span class="nv">$zap</span><span class="w"> </span>goku<span class="w"> </span>guerreiros<span class="w"> </span>to<span class="w"> </span>com<span class="w"> </span>saudade<span class="w"> </span>de<span class="w"> </span>voce.
+
+<span class="nv">$notify</span><span class="w"> </span>tina
+<span class="o">[</span>guerreiros<span class="o">(</span><span class="m">2</span><span class="o">)]</span>
+<span class="nv">$notify</span><span class="w"> </span>goku
+<span class="o">[</span>guerreiros<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="w"> </span>homens<span class="o">]</span>
+
+<span class="nv">$ler</span><span class="w"> </span>goku<span class="w"> </span>guerreiros
+<span class="o">[</span>tina:<span class="w"> </span>voce<span class="w"> </span>ta<span class="w"> </span>com<span class="w"> </span>fome<span class="w"> </span>goku?<span class="o">]</span>
+<span class="nv">$ler</span><span class="w"> </span>tina<span class="w"> </span>guerreiros
+<span class="o">[</span>goku:<span class="w"> </span>vamos<span class="w"> </span>sair<span class="w"> </span>tina?<span class="o">]</span>
+<span class="o">[</span>goku:<span class="w"> </span>to<span class="w"> </span>com<span class="w"> </span>saudade<span class="w"> </span>de<span class="w"> </span>voce.<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<ul>
+<li>Opcionais:<ul>
+<li>Enviar uma mensagem do sistema avisando quando um usuário entra ou sai de um Chat.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Guia de Resolução</h2>
+<p><a href="https://github.com/qxcodepoo/arcade/blob/master/base/whatsapp/_guide.md">GUIA</a></p>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/whatsapp/diagrama.png" /></p>
+<hr />
+<h2>Main não interativa</h2>
+<div class="language-java highlight"><pre><span></span><code><span class="c1">//case init</span>
+<span class="n">WhatsappService</span><span class="w"> </span><span class="n">whatsapp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">WhatsappService</span><span class="p">();</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">createUser</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">createUser</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">createUser</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">allUsers</span><span class="p">());</span>
+<span class="c1">//[goku sara tina]</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">createChat</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">createChat</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;homens&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">createChat</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;familia&quot;</span><span class="p">);</span>
+
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">createChat</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">);</span>
+<span class="c1">//fail: chat guerreiros ja existe</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getChatsUser</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros homens]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getChatsUser</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">));</span>
+<span class="c1">//[familia]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getChatsUser</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">));</span>
+<span class="c1">//[]</span>
+
+<span class="c1">//case invite</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">addByInvite</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;sara&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">addByInvite</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;tina&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">addByInvite</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;familia&quot;</span><span class="p">);</span>
+<span class="c1">//fail: user tina nao esta em chat familia</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getChatsUser</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros familia]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getChatsUser</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getChatsUser</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros homens]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getUsersChat</span><span class="p">(</span><span class="s">&quot;guerreiros&quot;</span><span class="p">));</span>
+<span class="c1">//[goku sara tina]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getUsersChat</span><span class="p">(</span><span class="s">&quot;familia&quot;</span><span class="p">));</span>
+<span class="c1">//[sara]</span>
+
+<span class="c1">//case leaving</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">removerUserChat</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">);</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getUsersChat</span><span class="p">(</span><span class="s">&quot;guerreiros&quot;</span><span class="p">));</span>
+<span class="c1">//[goku tina]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getChatsUser</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">));</span>
+<span class="c1">//[familia]</span>
+
+<span class="c1">//case mensagens</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;oi, eu sou o goku&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;oi goku&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getNotifyUser</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros(1) homens]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getNotifyUser</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros(1)]</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">readMessageUserChat</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">));</span>
+<span class="c1">//[tina: oi goku]</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">readMessageUserChat</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">));</span>
+<span class="c1">//[goku: oi, eu sou o goku]</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">readMessageUserChat</span><span class="p">(</span><span class="s">&quot;sara&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">));</span>
+<span class="c1">//fail: user sara nao esta no chat guerreiros</span>
+
+
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;vamos sair tina?&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;voce ta com fome goku?&quot;</span><span class="p">);</span>
+<span class="n">whatsapp</span><span class="p">.</span><span class="na">sendMessage</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;to com saudade de voce.&quot;</span><span class="p">);</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getNotifyUser</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros(2)]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">getNotifyUser</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">));</span>
+<span class="c1">//[guerreiros(1) homens]</span>
+
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">readMessageUserChat</span><span class="p">(</span><span class="s">&quot;goku&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">));</span>
+<span class="c1">//[tina: voce ta com fome goku?]</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">whatsapp</span><span class="p">.</span><span class="na">readMessageUserChat</span><span class="p">(</span><span class="s">&quot;tina&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;guerreiros&quot;</span><span class="p">));</span>
+<span class="c1">//[goku: vamos sair tina?]</span>
+<span class="c1">//[goku: to com saudade de voce.]</span>
+</code></pre></div>
+<hr />
+<h2>Créditos</h2>
+<p>Fica o agradecimento para turma de POO DD 2017.2 que fez nascer essa atividade comigo.</p>
+</body>
+</html>

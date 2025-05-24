@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@twitter: Twitter antes de ser bloqueado</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Twitter antes de ser bloqueado</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#vídeo">Vídeo</a></th>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#draft">Draft</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#shell">Shell</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/twitter/cover.jpg" /></p>
+<p>Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow outros usuários do sistema. Ao twittar, a mensagem vai para timeline de todas as pessoas que a seguem. Ao dar like, todos os usuários em suas timelines vêem os likes.</p>
+<hr />
+<h2>Vídeo</h2>
+<p><a href="https://www.youtube.com/watch?v=75-YyuNrOsc"><img alt="_" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/twitter/player.png" /></a></p>
+<hr />
+<h2>Intro</h2>
+<ul>
+<li>cadastrar<ul>
+<li>Adicionar usuário passando username.</li>
+<li>Mostrar os usuários cadastrados.</li>
+</ul>
+</li>
+<li>follow<ul>
+<li>Seguir um outro usuário cadastrado.</li>
+<li>Mostrar a lista de seguidores.</li>
+<li>Mostrar a lista de seguidos.</li>
+</ul>
+</li>
+<li>twittar<ul>
+<li>Twittar um tweet com várias palavras.<ul>
+<li>O id de um tweet é único globalmente.</li>
+<li>O tweet de um usuário vai para o início da timeline de seus seguidores.</li>
+<li>O mesmo tweet vai também para sua própria timeline.</li>
+</ul>
+</li>
+<li>Mostrar a timeline de um usuário.</li>
+</ul>
+</li>
+<li>like<ul>
+<li>Dar like num tweet da sua timeline.</li>
+</ul>
+</li>
+<li>unfollow<ul>
+<li>Deixar de seguir um usuário.</li>
+<li>Remover todos os tweets desse usuario da sua timeline.</li>
+</ul>
+</li>
+<li>retweet<ul>
+<li>Retweetar um tweet da sua timeline.</li>
+<li>Um novo tweet é criado e ele contém uma referência ao tweet original.</li>
+</ul>
+</li>
+<li>remover<ul>
+<li>Remover um usuário do sistema.</li>
+<li>Desfazer todos os vínculos de seguidores e seguidos dele.</li>
+<li>Marcar todos os tweets dele no sistema como deletados.</li>
+<li>Tweets deletados não aparecem nas timelines</li>
+<li>Se um tweet é deletado, nos rt deve aparecer "esse tweet foi removido".</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2>Draft</h2>
+<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/twitter/.cache/draft.cpp">draft.cpp</a></li>
+</ul>
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/twitter/diagrama.png" /></p>
+<!-- load diagrama.puml fenced=ts:filter -->
+
+<div class="language-ts highlight"><pre><span></span><code><span class="kd">@startuml</span>
+
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">defaultFontName</span><span class="w"> </span><span class="s2">&quot;Source Code Pro&quot;</span>
+<span class="nx">skinparam</span><span class="w"> </span><span class="nx">dpi</span><span class="w"> </span><span class="mf">150</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">TweetException</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s1">&#39;</span>
+<span class="s1">}</span>
+
+
+
+<span class="s1">class Tweet {</span>
+
+<span class="s1">        - id: int</span>
+
+<span class="s1">        - username: str</span>
+
+<span class="s1">        - msg: str</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">guarda</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">username</span><span class="w"> </span><span class="nx">dos</span><span class="w"> </span><span class="nx">usuarios</span><span class="w"> </span><span class="nx">que</span><span class="w"> </span><span class="nx">deram</span><span class="w"> </span><span class="nx">like</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nx">likes</span><span class="o">:</span><span class="w"> </span><span class="kt">set</span><span class="o">&lt;</span><span class="nx">str</span><span class="o">&gt;</span>
+
+<span class="w">    </span><span class="s1">&#39; guarda o tweet original que foi retweetado</span>
+<span class="s1">        - rt: Tweet</span>
+
+<span class="s1">    __</span>
+
+<span class="s1">    + Tweet(id: int, username: str, msg: str)</span>
+
+<span class="s1">    + getId(): int</span>
+
+<span class="s1">    + getSender(): str</span>
+
+<span class="s1">    + getMsg(): str</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">informacoes</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">tweet</span>
+<span class="w">    </span><span class="s1">&#39; no modulo de likes e retweet</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">esse</span><span class="w"> </span><span class="nx">método</span><span class="w"> </span><span class="nx">deve</span><span class="w"> </span><span class="nx">ser</span><span class="w"> </span><span class="nx">alterado</span><span class="w"> </span><span class="nx">conforme</span><span class="w"> </span><span class="nx">requisitos</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">str</span>
+
+<span class="w">    </span><span class="nx">__like__</span>
+
+<span class="w">    </span><span class="s1">&#39; adiciona o nome do usuario na lista de likes</span>
+<span class="s1">    + like(username : str)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">nome</span><span class="w"> </span><span class="nx">dos</span><span class="w"> </span><span class="nx">usuarios</span><span class="w"> </span><span class="nx">que</span><span class="w"> </span><span class="nx">deram</span><span class="w"> </span><span class="nx">like</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">getLikes</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">set</span><span class="o">&lt;</span><span class="nx">str</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="s1">&#39;</span>
+<span class="s1">    __retweet__</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">define</span><span class="w"> </span><span class="nx">que</span><span class="w"> </span><span class="nx">tw</span><span class="w"> </span><span class="nx">é</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tweet</span><span class="w"> </span><span class="nx">original</span><span class="w"> </span><span class="nx">que</span><span class="w"> </span><span class="nx">está</span><span class="w"> </span><span class="nx">sendo</span><span class="w"> </span><span class="nx">retuitado</span>
+<span class="w">    </span><span class="s1">&#39; o metodo toString deve mostrar o tweet original</span>
+<span class="s1">    + setRt(tw : Tweet)</span>
+
+<span class="s1">    __remover__</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">marca</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tweet</span><span class="w"> </span><span class="nx">foi</span><span class="w"> </span><span class="nx">deletado</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nx">deleted</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span>
+
+<span class="w">    </span><span class="s1">&#39; marca o tweet como deletado</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">substitui</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">texto</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">mensagem</span><span class="w"> </span><span class="nx">por</span><span class="w"> </span><span class="s2">&quot;esse tweet foi deletado&quot;</span>
+<span class="w">    </span><span class="s1">&#39; apaga o username</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">limpa</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">likes</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">setDeleted</span><span class="p">()</span>
+
+<span class="w">    </span><span class="s1">&#39; retorna true se o tweet foi deletado</span>
+<span class="s1">    + isDeleted() : boolean</span>
+<span class="s1">    &#39;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Inbox</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nx">timeline</span><span class="o">:</span><span class="w"> </span><span class="kt">map</span><span class="o">&lt;</span><span class="kr">int</span><span class="p">,</span><span class="w"> </span><span class="nx">Tweet</span><span class="o">&gt;</span>
+
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nx">myTweets</span><span class="o">:</span><span class="w"> </span><span class="kt">map</span><span class="o">&lt;</span><span class="kr">int</span><span class="p">,</span><span class="w"> </span><span class="nx">Tweet</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="s1">&#39;</span>
+<span class="s1">    __</span>
+
+<span class="s1">    + Inbox()</span>
+
+<span class="s1">    __twittar__</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">adiciona</span><span class="w"> </span><span class="nx">um</span><span class="w"> </span><span class="nx">tweet</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">timeline</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">storeInTimeline</span><span class="p">(</span><span class="nx">tweet</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Tweet</span><span class="p">)</span>
+
+<span class="w">    </span><span class="s1">&#39; retornam todos os tweets da timeline que não estiverem deletados</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">tweets</span><span class="w"> </span><span class="nx">mais</span><span class="w"> </span><span class="nx">recentes</span><span class="w"> </span><span class="nx">devem</span><span class="w"> </span><span class="nx">ficar</span><span class="w"> </span><span class="nx">primeiro</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">lista</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">getTimeline</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">List</span><span class="o">&lt;</span><span class="nx">Tweet</span><span class="o">&gt;</span>
+
+<span class="w">    </span><span class="s1">&#39; retorna a timeline do usuario</span>
+<span class="s1">    + toString(): str</span>
+
+<span class="s1">    __like__</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">obtem</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tweet</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="nx">passado</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">timeline</span>
+<span class="w">    </span><span class="s1">&#39; ou dispara uma exceção se ele não existir</span>
+<span class="s1">    + getTweet(id : int) : Tweet</span>
+
+<span class="s1">    __unfollow__</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">remove</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">tweets</span><span class="w"> </span><span class="nx">emitidos</span><span class="w"> </span><span class="nx">por</span><span class="w"> </span><span class="nx">esse</span><span class="w"> </span><span class="nx">usuario</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">sua</span><span class="w"> </span><span class="nx">timeline</span>
+<span class="w">    </span><span class="s1">&#39; quando alguem deixa de seguir um usario, apaga todos os tweets </span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">dele</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">sua</span><span class="w"> </span><span class="nx">timeline</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">rmMsgsFrom</span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">__remover__</span>
+
+<span class="w">    </span><span class="s1">&#39; adiciona um tweet no myTweets do usuario</span>
+<span class="s1">    + storeInMyTweets(tweet : Tweet)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">tweets</span><span class="w"> </span><span class="nx">emitidos</span><span class="w"> </span><span class="nx">pelo</span><span class="w"> </span><span class="nx">usuario</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">getMyTweets</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">List</span><span class="o">&lt;</span><span class="nx">Tweet</span><span class="o">&gt;</span>
+<span class="w">    </span><span class="s1">&#39;</span>
+<span class="s1">}</span>
+
+<span class="s1">class User {</span>
+
+<span class="s1">        - username: str</span>
+
+<span class="s1">        - inbox: Inbox</span>
+
+<span class="s1">        - followers: map&lt;str, User&gt;</span>
+
+<span class="s1">        - following: map&lt;str, User&gt;</span>
+
+<span class="s1">    __</span>
+
+<span class="s1">    + User(username : str)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">mostra</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">nome</span><span class="w"> </span><span class="nx">dos</span><span class="w"> </span><span class="nx">seguidos</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">nome</span><span class="w"> </span><span class="nx">dos</span><span class="w"> </span><span class="nx">seguires</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">str</span>
+
+<span class="w">    </span><span class="nx">__follow__</span>
+
+<span class="w">    </span><span class="s1">&#39; voce não pode seguir a voce mesmo</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">ainda</span><span class="w"> </span><span class="nx">nao</span><span class="w"> </span><span class="nx">estiver</span><span class="w"> </span><span class="nx">seguindo</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">usuario</span><span class="w"> </span><span class="nx">other</span>
+<span class="w">    </span><span class="s1">&#39;   adiciona other na lista de seguidos</span>
+<span class="s1">    &#39;</span><span class="w">   </span><span class="nx">adiciona</span><span class="w"> </span><span class="nx">voce</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">seguidores</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">other</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">follow</span><span class="p">(</span><span class="nx">other</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">User</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">__twittar__</span>
+
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">getInbox</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">Inbox</span>
+<span class="w">    </span><span class="s1">&#39;</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">coloca</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tw</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">myTweets</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">usuario</span>
+<span class="w">    </span><span class="s1">&#39; coloca o tw na timeline do usuario</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">coloca</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tw</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">timeline</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">seguidores</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">usuario</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">sendTweet</span><span class="p">(</span><span class="nx">tw</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">Tweet</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">__unfollow__</span>
+
+<span class="w">    </span><span class="s1">&#39; se estiver seguindo esse username</span>
+<span class="s1">    &#39;</span><span class="w">   </span><span class="nx">obtenha</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">objeto</span><span class="w"> </span><span class="nx">User</span><span class="w"> </span><span class="nx">correspondente</span><span class="w"> </span><span class="nx">na</span><span class="w"> </span><span class="nx">sua</span><span class="w"> </span><span class="nx">lista</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">seguidos</span>
+<span class="w">    </span><span class="s1">&#39;   remova ele da sua lista de seguidos</span>
+<span class="s1">    &#39;</span><span class="w">   </span><span class="nx">remova</span><span class="w"> </span><span class="nx">todas</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">mensagens</span><span class="w"> </span><span class="nx">dele</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">sua</span><span class="w"> </span><span class="nx">timeline</span><span class="w"> </span><span class="nx">utilizando</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">metodo</span><span class="w"> </span><span class="nx">inbox</span><span class="p">.</span><span class="nx">rmMsgsFrom</span><span class="p">(</span><span class="nx">username</span><span class="p">)</span>
+<span class="w">    </span><span class="s1">&#39;   se remova da lista de seguidores dele</span>
+<span class="s1">    + unfollow(other : str)</span>
+
+<span class="s1">    __like__</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">recupera</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tweet</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="nx">esse</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="nx">da</span><span class="w"> </span><span class="nx">timeline</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">usuario</span>
+<span class="w">    </span><span class="s1">&#39; invoca o método like do tweet</span>
+<span class="s1">    + like(idTw : int)</span>
+
+<span class="s1">    __remover__</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">remove</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">seus</span><span class="w"> </span><span class="nx">seguidos</span>
+<span class="w">    </span><span class="s1">&#39; se removendo também da lista de seguidores deles</span>
+<span class="s1">    + unfollowAll()</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">remove</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">seus</span><span class="w"> </span><span class="nx">seguidores</span>
+<span class="w">    </span><span class="s1">&#39; se removendo também da lista de seguidos deles</span>
+<span class="s1">    + rejectAll()</span>
+<span class="s1">    &#39;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">Controller</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="s1">&#39; armazena o id para o proximo tweet a ser criado</span>
+<span class="s1">        - nextTweetId: int</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">armazena</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">usuarios</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">sistema</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="nx">users</span><span class="o">:</span><span class="w"> </span><span class="kt">map</span><span class="o">&lt;</span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="nx">User</span><span class="o">&gt;</span>
+
+<span class="w">    </span><span class="s1">&#39; armazena todos os tweets do sistema</span>
+<span class="s1">        - tweets: map&lt;int, Tweet&gt;</span>
+
+<span class="s1">    __</span>
+
+<span class="s1">    + Controller()</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">se</span><span class="w"> </span><span class="nx">nao</span><span class="w"> </span><span class="nx">existe</span><span class="w"> </span><span class="nx">um</span><span class="w"> </span><span class="nx">usuario</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="nx">esse</span><span class="w"> </span><span class="nx">username</span>
+<span class="w">    </span><span class="s1">&#39; cria o usuario e armazena no mapa de usuarios</span>
+<span class="s1">    + addUser(username : str)</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">imprime</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">objetos</span><span class="w"> </span><span class="nx">usuarios</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">sistema</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">toString</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nx">str</span>
+
+<span class="w">    </span><span class="nx">__twittar__</span>
+
+<span class="w">    </span><span class="s1">&#39; cria um novo objeto tweet com os dados passado</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">utiliza</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">atributo</span><span class="w"> </span><span class="nx">nextTwId</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">gerar</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">tweet</span>
+<span class="w">    </span><span class="s1">&#39; incrementa o atributo nextTwId</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">armazena</span><span class="w"> </span><span class="nx">esse</span><span class="w"> </span><span class="nx">tweet</span><span class="w"> </span><span class="nx">no</span><span class="w"> </span><span class="nx">mapa</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">tweets</span>
+<span class="w">    </span><span class="s1">&#39; retorna a referencia para o tweet criado</span>
+<span class="s1">        - createTweet(sender: str, msg: str): Tweet</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">retorna</span><span class="w"> </span><span class="nx">uma</span><span class="w"> </span><span class="nx">referencia</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">objeto</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">usuario</span><span class="w"> </span><span class="nx">com</span><span class="w"> </span><span class="nx">esse</span><span class="w"> </span><span class="nx">username</span>
+<span class="w">    </span><span class="s1">&#39; dispara uma excecao se o usuario nao existir</span>
+<span class="s1">    + getUser(username : str) : User</span>
+
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">utiliza</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">getUser</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">recuperar</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">objeto</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">usuario</span>
+<span class="w">    </span><span class="s1">&#39; cria o tweet utilizando o this.createTweet e chama</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">sendTweet</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">entrega</span><span class="w"> </span><span class="nx">dos</span><span class="w"> </span><span class="nx">tweets</span><span class="w"> </span><span class="nx">nas</span><span class="w"> </span><span class="nx">timelines</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">sendTweet</span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="nx">msg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">__retweet__</span>
+
+<span class="w">    </span><span class="s1">&#39; recupera o user utilizando o this.getUser</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">recupera</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">tweet</span><span class="w"> </span><span class="nx">original</span><span class="w"> </span><span class="nx">utilizando</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">getTweet</span>
+<span class="w">    </span><span class="s1">&#39; cria um novo tweet com o tweet original e os outros parametros</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">invoca</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">sendTweet</span><span class="p">(</span><span class="nx">tweet</span><span class="p">)</span><span class="w"> </span><span class="nx">para</span><span class="w"> </span><span class="nx">entrega</span><span class="w"> </span><span class="nx">dos</span><span class="w"> </span><span class="nx">tweets</span><span class="w"> </span><span class="nx">nas</span><span class="w"> </span><span class="nx">timelines</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">sendRt</span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">,</span><span class="w"> </span><span class="nx">twId</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">rtMsg</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">__remover__</span>
+
+<span class="w">    </span><span class="s1">&#39; recupera o user utilizando o this.getUser</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">remove</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">vínculos</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">seguidos</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="nx">seguidores</span>
+<span class="w">    </span><span class="s1">&#39; utilizando o user.unfollowAll() e user.rejectAll()</span>
+<span class="s1">    &#39;</span><span class="w"> </span><span class="nx">marca</span><span class="w"> </span><span class="nx">todos</span><span class="w"> </span><span class="nx">os</span><span class="w"> </span><span class="nx">tweets</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">myTweets</span><span class="w"> </span><span class="nx">como</span><span class="w"> </span><span class="nx">deletados</span>
+<span class="w">    </span><span class="err">&#39;</span><span class="w"> </span><span class="nx">remove</span><span class="w"> </span><span class="nx">o</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="nx">mapa</span><span class="w"> </span><span class="nx">de</span><span class="w"> </span><span class="nx">usuarios</span>
+<span class="w">    </span><span class="o">+</span><span class="w"> </span><span class="nx">rmUser</span><span class="p">(</span><span class="nx">username</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">str</span><span class="p">)</span>
+
+<span class="p">}</span>
+
+<span class="nx">Controller</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">-*</span><span class="w"> </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">Tweet</span>
+<span class="nx">User</span><span class="w"> </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="o">*-</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">Controller</span>
+<span class="nx">User</span><span class="w"> </span><span class="s2">&quot;1..*&quot;</span><span class="w"> </span><span class="nx">o</span><span class="o">--</span><span class="w"> </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">User</span>
+<span class="nx">User</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">--*</span><span class="w">  </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="nx">Inbox</span>
+<span class="nx">Inbox</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">--</span><span class="nx">o</span><span class="w"> </span><span class="s2">&quot;0..*&quot;</span><span class="w"> </span><span class="nx">Tweet</span>
+<span class="kd">@enduml</span>
+</code></pre></div>
+<!-- load -->
+
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">##################################</span>
+<span class="c1">#TEST_CASE cadastrar</span>
+<span class="c1">##################################</span>
+<span class="nv">$add</span><span class="w"> </span>goku
+<span class="nv">$add</span><span class="w"> </span>sara
+<span class="nv">$add</span><span class="w"> </span>tina
+<span class="nv">$show</span>
+goku
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[]</span>
+sara
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[]</span>
+tina
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[]</span>
+
+<span class="c1">##################################</span>
+<span class="c1">#TEST_CASE follow</span>
+<span class="c1">##################################</span>
+
+<span class="nv">$follow</span><span class="w"> </span>goku<span class="w"> </span>sara
+<span class="nv">$follow</span><span class="w"> </span>goku<span class="w"> </span>tina
+<span class="nv">$follow</span><span class="w"> </span>sara<span class="w"> </span>tina
+<span class="nv">$show</span>
+goku
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>sara,<span class="w"> </span>tina<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[]</span>
+sara
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>tina<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[</span>goku<span class="o">]</span>
+tina
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[</span>goku,<span class="w"> </span>sara<span class="o">]</span>
+
+<span class="c1">##################################</span>
+<span class="c1">#TEST_CASE twittar</span>
+<span class="c1">##################################</span>
+<span class="c1">#twittar _userId _msg</span>
+
+<span class="nv">$twittar</span><span class="w"> </span>sara<span class="w"> </span>hoje<span class="w"> </span>estou<span class="w"> </span>triste
+<span class="nv">$twittar</span><span class="w"> </span>tina<span class="w"> </span>ganhei<span class="w"> </span>chocolate
+<span class="nv">$twittar</span><span class="w"> </span>sara<span class="w"> </span>partiu<span class="w"> </span>ru
+<span class="nv">$twittar</span><span class="w"> </span>tina<span class="w"> </span>chocolate<span class="w"> </span>ruim
+<span class="nv">$twittar</span><span class="w"> </span>goku<span class="w"> </span>internet<span class="w"> </span>maldita
+
+<span class="nv">$timeline</span><span class="w"> </span>goku
+<span class="m">4</span>:goku<span class="w"> </span><span class="o">(</span>internet<span class="w"> </span>maldita<span class="o">)</span>
+<span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">1</span>:tina<span class="w"> </span><span class="o">(</span>ganhei<span class="w"> </span>chocolate<span class="o">)</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>tina<span class="w"> </span>
+<span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span>
+<span class="m">1</span>:tina<span class="w"> </span><span class="o">(</span>ganhei<span class="w"> </span>chocolate<span class="o">)</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>sara
+<span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">1</span>:tina<span class="w"> </span><span class="o">(</span>ganhei<span class="w"> </span>chocolate<span class="o">)</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="c1">##################################</span>
+<span class="c1">#TEST_CASE like</span>
+<span class="c1">##################################</span>
+<span class="c1">#like _username _idTw</span>
+
+<span class="nv">$like</span><span class="w"> </span>sara<span class="w"> </span><span class="m">1</span>
+<span class="nv">$like</span><span class="w"> </span>goku<span class="w"> </span><span class="m">1</span>
+<span class="nv">$like</span><span class="w"> </span>sara<span class="w"> </span><span class="m">3</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>sara
+<span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span><span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">1</span>:tina<span class="w"> </span><span class="o">(</span>ganhei<span class="w"> </span>chocolate<span class="o">)</span><span class="w"> </span><span class="o">[</span>goku,<span class="w"> </span>sara<span class="o">]</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>goku
+<span class="m">4</span>:goku<span class="w"> </span><span class="o">(</span>internet<span class="w"> </span>maldita<span class="o">)</span>
+<span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span><span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">1</span>:tina<span class="w"> </span><span class="o">(</span>ganhei<span class="w"> </span>chocolate<span class="o">)</span><span class="w"> </span><span class="o">[</span>goku,<span class="w"> </span>sara<span class="o">]</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+
+<span class="c1">##################################</span>
+<span class="c1">#TEST_CASE unfollow</span>
+<span class="c1">##################################</span>
+
+<span class="nv">$unfollow</span><span class="w"> </span>goku<span class="w"> </span>tina
+<span class="nv">$show</span>
+goku
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[]</span>
+sara
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>tina<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[</span>goku<span class="o">]</span>
+tina
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>goku
+<span class="m">4</span>:goku<span class="w"> </span><span class="o">(</span>internet<span class="w"> </span>maldita<span class="o">)</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="c1">##################################</span>
+<span class="c1">#TEST_CASE retweet</span>
+<span class="c1">##################################</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>sara
+<span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span><span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">1</span>:tina<span class="w"> </span><span class="o">(</span>ganhei<span class="w"> </span>chocolate<span class="o">)</span><span class="w"> </span><span class="o">[</span>goku,<span class="w"> </span>sara<span class="o">]</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="nv">$rt</span><span class="w"> </span>sara<span class="w"> </span><span class="m">3</span><span class="w"> </span>olha<span class="w"> </span>goku,<span class="w"> </span>ela<span class="w"> </span>nao<span class="w"> </span>gostou<span class="w"> </span><span class="k">do</span><span class="w"> </span>seu<span class="w"> </span>chocolate
+<span class="nv">$timeline</span><span class="w"> </span>sara
+<span class="m">5</span>:sara<span class="w"> </span><span class="o">(</span>olha<span class="w"> </span>goku,<span class="w"> </span>ela<span class="w"> </span>nao<span class="w"> </span>gostou<span class="w"> </span><span class="k">do</span><span class="w"> </span>seu<span class="w"> </span>chocolate<span class="o">)</span>
+<span class="w">    </span><span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span><span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span><span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">1</span>:tina<span class="w"> </span><span class="o">(</span>ganhei<span class="w"> </span>chocolate<span class="o">)</span><span class="w"> </span><span class="o">[</span>goku,<span class="w"> </span>sara<span class="o">]</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>goku
+<span class="m">5</span>:sara<span class="w"> </span><span class="o">(</span>olha<span class="w"> </span>goku,<span class="w"> </span>ela<span class="w"> </span>nao<span class="w"> </span>gostou<span class="w"> </span><span class="k">do</span><span class="w"> </span>seu<span class="w"> </span>chocolate<span class="o">)</span>
+<span class="w">    </span><span class="m">3</span>:tina<span class="w"> </span><span class="o">(</span>chocolate<span class="w"> </span>ruim<span class="o">)</span><span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="m">4</span>:goku<span class="w"> </span><span class="o">(</span>internet<span class="w"> </span>maldita<span class="o">)</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="c1">##################################</span>
+<span class="c1">#TEST_CASE erros</span>
+<span class="c1">##################################</span>
+
+<span class="c1"># lembre de tratar erros como</span>
+<span class="nv">$timeline</span><span class="w"> </span>bruno
+fail:<span class="w"> </span>usuario<span class="w"> </span>nao<span class="w"> </span>encontrado
+<span class="nv">$follow</span><span class="w"> </span>goku<span class="w"> </span>kuririm
+fail:<span class="w"> </span>usuario<span class="w"> </span>nao<span class="w"> </span>encontrado
+<span class="nv">$like</span><span class="w"> </span>sara<span class="w"> </span><span class="m">4</span>
+fail:<span class="w"> </span>tweet<span class="w"> </span>nao<span class="w"> </span>existe
+
+<span class="c1">##################################</span>
+<span class="c1">#TEST_CASE remover</span>
+<span class="c1">##################################</span>
+<span class="nv">$follow</span><span class="w"> </span>tina<span class="w"> </span>sara
+<span class="nv">$show</span>
+goku
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[]</span>
+sara
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>tina<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[</span>goku,<span class="w"> </span>tina<span class="o">]</span>
+tina
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[</span>sara<span class="o">]</span>
+
+<span class="nv">$rm</span><span class="w"> </span>tina
+<span class="nv">$show</span>
+goku
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[</span>sara<span class="o">]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[]</span>
+sara
+<span class="w">  </span>seguidos<span class="w">   </span><span class="o">[]</span>
+<span class="w">  </span>seguidores<span class="w"> </span><span class="o">[</span>goku<span class="o">]</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>goku
+<span class="m">5</span>:sara<span class="w"> </span><span class="o">(</span>olha<span class="w"> </span>goku,<span class="w"> </span>ela<span class="w"> </span>nao<span class="w"> </span>gostou<span class="w"> </span><span class="k">do</span><span class="w"> </span>seu<span class="w"> </span>chocolate<span class="o">)</span>
+<span class="w">    </span><span class="m">3</span>:<span class="w"> </span><span class="o">(</span>esse<span class="w"> </span>tweet<span class="w"> </span>foi<span class="w"> </span>deletado<span class="o">)</span>
+<span class="m">4</span>:goku<span class="w"> </span><span class="o">(</span>internet<span class="w"> </span>maldita<span class="o">)</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="nv">$timeline</span><span class="w"> </span>sara
+<span class="m">5</span>:sara<span class="w"> </span><span class="o">(</span>olha<span class="w"> </span>goku,<span class="w"> </span>ela<span class="w"> </span>nao<span class="w"> </span>gostou<span class="w"> </span><span class="k">do</span><span class="w"> </span>seu<span class="w"> </span>chocolate<span class="o">)</span>
+<span class="w">    </span><span class="m">3</span>:<span class="w"> </span><span class="o">(</span>esse<span class="w"> </span>tweet<span class="w"> </span>foi<span class="w"> </span>deletado<span class="o">)</span>
+<span class="m">2</span>:sara<span class="w"> </span><span class="o">(</span>partiu<span class="w"> </span>ru<span class="o">)</span>
+<span class="m">0</span>:sara<span class="w"> </span><span class="o">(</span>hoje<span class="w"> </span>estou<span class="w"> </span>triste<span class="o">)</span>
+
+<span class="nv">$end</span>
+
+<span class="c1">##################################</span>
+<span class="c1"># FIM FIM FIM FIM FIM FIM FIM FIM#</span>
+<span class="c1">##################################</span>
+</code></pre></div>
+</body>
+</html>

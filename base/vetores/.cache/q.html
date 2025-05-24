@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@vetores: @vetores</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>@vetores</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#requisitos">Requisitos</a></th>
+<th><a href="#shell">Shell</a></th>
+<th><a href="#dica">Dica</a></th>
+<th><a href="#esqueleto">Esqueleto</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/vetores/cover.jpg" /></p>
+<p>O objetivo da atividade é treinar estrutura de dados.</p>
+<hr />
+<h2>Requisitos</h2>
+<p>Requisito:
+- Utilize uma estrutura de armazenamento linear que permita elementos duplicados e mantenha a ordem de inserção.
+- Sugestão:
+        - C: array
+        - C++: vector
+        - Java: ArrayList</p>
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE inicio</span>
+<span class="c1"># O comando &quot;$show&quot; mostra os valores do vetor.</span>
+<span class="c1"># O comando &quot;$add V [V ...]&quot; adiciona os valores no final da estrutura.</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE inicio</span>
+<span class="c1"># O comando &quot;$get ind&quot; mostra o valor do vetor na posicao `ind`</span>
+<span class="c1"># O comando &quot;$set ind value&quot; muda o valor da posicao `ind` para o valor `value`.</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$get</span><span class="w"> </span><span class="m">0</span>
+<span class="m">1</span>
+<span class="nv">$get</span><span class="w"> </span><span class="m">3</span>
+<span class="m">4</span>
+<span class="nv">$set</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">9</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE rshow</span>
+<span class="c1"># O comando &quot;$rshow&quot; mostra os valores da estrutura do último para o primeiro.</span>
+<span class="nv">$rshow</span>
+<span class="o">[</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">1</span>
+<span class="nv">$rshow</span>
+<span class="o">[</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span>
+<span class="nv">$rshow</span>
+<span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<p><div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE add_mais_elementos</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">9</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">1</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
+
+<span class="c1">#TEST_CASE find_elemento</span>
+<span class="c1"># O comando &quot;$find V [V ...]&quot; retorna o índice da primeira ocorrência dos valores procurado ou -1 se ele não existir.</span>
+<span class="nv">$find</span><span class="w"> </span><span class="m">7</span>
+<span class="o">[</span><span class="w"> </span>-1<span class="w"> </span><span class="o">]</span>
+<span class="nv">$find</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span>
+<span class="o">[</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$find</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">10</span>
+<span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">4</span><span class="w"> </span>-1<span class="w"> </span>-1<span class="w"> </span><span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE insert_indice</span>
+<span class="c1"># O comando &quot;$ins ind V&quot; insere esse valor V na posição ind da estrutura.</span>
+<span class="c1"># Se o ind for menor que 0, não faça a inserção.</span>
+<span class="c1"># Se ind for maior que último índice válido, insira na última posição.</span>
+<span class="c1"># Se ind for um índice válido, desloque todos os elementos a partir dessa posição, uma posição à frente.</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">7</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$ins</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$ins</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">1</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$ins</span><span class="w"> </span>-2<span class="w"> </span><span class="m">5</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$ins</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="m">5</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$ins</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">6</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div></p>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE remover_por_indice</span>
+<span class="c1"># o comando &quot;$rmi ind&quot; remove o elemento dado o índice. </span>
+<span class="c1"># Se o índice não existir, informe a falha.</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">9</span>
+<span class="nv">$rmi</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$rmi</span><span class="w"> </span><span class="m">5</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$rmi</span><span class="w"> </span><span class="m">5</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$rmi</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$rmi</span><span class="w"> </span>-1
+fail
+<span class="nv">$rmi</span><span class="w"> </span><span class="m">4</span>
+fail
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE remove_all</span>
+<span class="c1"># o comando &quot;$rma V&quot; remove todos os elemento que contém esse valor. </span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$rma</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$add</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$rma</span><span class="w"> </span><span class="m">7</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$rma</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$rma</span><span class="w"> </span><span class="m">4</span>
+<span class="nv">$show</span>
+<span class="o">[</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<h2>Dica</h2>
+<ul>
+<li><strong>boolean add(Object element)</strong>: Adiciona o elemento especificado no final da lista.</li>
+<li><strong>void add(int index, Object element)</strong>: Insere o elemento especificado na posição indicada da lista.</li>
+<li><strong>void clear()</strong>: Remove todos os elementos da lista.</li>
+<li><strong>boolean contains(Object element)</strong>: Retorna verdadeiro se a lista contém o elemento especificado e falso caso contrário.</li>
+<li><strong>Object get(int index)</strong>: Retorna o i-ésimo elemento da lista.</li>
+<li><strong>int indexOf(Object element)</strong>: Retorna a posição da primeira ocorrência do elemento especificado na lista.</li>
+<li><strong>boolean isEmpty()</strong>: Retorna verdadeiro se a lista estiver vazia e falso caso contrário.</li>
+<li><strong>int lastIndexOf(Object element)</strong>: Retorna a posição da última ocorrência do elemento especificado na lista.</li>
+<li><strong>Object remove(int index)</strong>: Remove o i-ésimo elemento da lista.</li>
+<li><strong>Object set(int index, Object element)</strong>: Substitui o i-ésimo elemento da lista pelo elemento especificado.</li>
+<li>int size(): Retorna o número de elementos da lista.</li>
+</ul>
+<hr />
+<h2>Esqueleto</h2>
+<!--FILTER Solver.java java-->
+<div class="language-java highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Solver</span><span class="p">{</span><span class="w">    </span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;$&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">ui</span><span class="o">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;end&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;show&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;[ &quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="n">Integer</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">vet</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">);</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;]\n&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;rshow&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ui</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">                    </span><span class="n">vet</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;find&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;get&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;set&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;ins&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;rmi&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">cmd</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;rma&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;fail: command not found\n&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">scan</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<!--FILTER_END-->
+</body>
+</html>

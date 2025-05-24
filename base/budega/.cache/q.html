@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@budega: Gerencie a fila de espera e atendimento</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Gerencie a fila de espera e atendimento</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#answers">Answers</a></th>
+<th><a href="#shell">Shell</a></th>
+<th><a href="#draft">Draft</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/cover.jpg" /></p>
+<h2>Intro</h2>
+<p>Este é um projeto de modelagem e implementação de um mercantil, que simula o funcionamento de caixas de atendimento e uma fila de espera. Para isso, serão implementadas duas classes principais: Pessoa <code>Person</code> e Mercado <code>Market</code>.</p>
+<ul>
+<li>A classe <code>Market</code> representa o estabelecimento, com atributos como caixas de atendimento <code>counters</code> e uma fila de espera de clientes <code>wainting</code>.</li>
+<li>Os caixas <code>counters</code> são modelados como um vetor de clientes de tamanho fixo. Uma posição do caixa terá o valor <code>null</code> para indicar que o caixa está vazio ou terá um objeto cliente.<ul>
+<li>typescript: <code>counters: (Person | null)[]</code></li>
+<li>java: <code>ArrayList&lt;Person&gt; counters</code></li>
+<li>cpp: <code>vector&lt;Person*&gt; counters</code></li>
+</ul>
+</li>
+<li>A fila de espera <code>queue</code> é uma lista de clientes de tamanho variável. Todo cliente que chega é inserido no final da fila. Todo cliente que é chamado para um caixa é removido do início da fila.<ul>
+<li>typescript: <code>waiting: Person[]</code></li>
+<li>java: <code>LinkedList&lt;Person&gt; waiting</code></li>
+<li>cpp: <code>list&lt;Person*&gt; waiting</code></li>
+</ul>
+</li>
+<li>As operações principais incluem chegar cliente <code>arrive</code>, chamar no caixa <code>call</code> e finalizar atendimento <code>finish</code>.</li>
+<li>As operações "bônus" são furar fila <code>cutInLine</code> e abandonar fila de espera <code>giveup</code>.</li>
+</ul>
+<h3>Comandos</h3>
+<p>Todos os comandos seguem o modelo <code>$comando arg1 arg2 ...</code>. Em caso de erro, uma mensagem adequada deve ser impressa.</p>
+<ul>
+<li><code>$show</code> - Mostra o estado atual do mercantil, incluindo os clientes nos caixas e na fila de espera.</li>
+<li><code>$init</code> - Reinicia o estado do mercantil, definindo a quantidade de caixas e limpando a fila de espera.</li>
+<li><code>$enter</code> - Adiciona um cliente à fila de espera. Deve ser seguido pelo nome do cliente.</li>
+<li><code>$call</code> - Chama o próximo cliente na fila de espera para um caixa disponível. Deve ser seguido pelo número do caixa.</li>
+<li><code>$finish</code> - Finaliza o atendimento de um cliente em um caixa. Deve ser seguido pelo número do caixa.</li>
+</ul>
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/diagrama.png" /></p>
+<h3>Parte 1: Classe Cliente</h3>
+<ul>
+<li>Crie a classe <code>Cliente</code> com os atributos <code>nome</code>.</li>
+<li>Defina os atributos como privados.</li>
+<li>Crie o construtor da classe que recebe o <code>nome</code> como uma string.</li>
+<li>Crie o método <code>getNome()</code> para retornar o nome do cliente.</li>
+<li>Crie o método <code>toString()</code> para retornar uma string no formato "nome".</li>
+</ul>
+<h3>Parte 2: Classe Mercantil</h3>
+<h4>Construtor</h4>
+<ul>
+<li>Implemente o construtor da classe <code>Market</code>, que recebe a quantidade de caixas como parâmetro.</li>
+<li>Inicialize os atributos da classe, incluindo o vetor de caixas e a fila de espera.</li>
+<li>Preencha o vetor de caixas com <code>null</code> para indicar que todos os caixas estão vazios.</li>
+</ul>
+<h4>Método <code>toString()</code></h4>
+<ul>
+<li>Implemente o método <code>toString()</code> para retornar uma representação em string do estado atual do mercantil. Exemplo</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code>Caixas: [-----, -----]
+Espera: [carla, maria, rubia]
+</code></pre></div>
+<ul>
+<li>Pesquise na sua linguagem e aprenda a utilizar os métodos map, join se existirem.</li>
+<li>Use a função <code>map()</code> para percorrer o vetor de caixas e a fila de espera e criar uma string que represente cada caixa e cada cliente na fila.</li>
+<li>Utilize if e else ou operador ternário para verificar se cada caixa está vazio ou ocupado e ajustar a representação de acordo.</li>
+<li>Junte as strings individuais de cada caixa e da fila de espera usando o método <code>join()</code> para criar uma representação coerente do estado do mercantil.</li>
+<li>Retorne a string resultante.</li>
+</ul>
+<h3>Parte 3: Chegar</h3>
+<ul>
+<li>Na classe <code>Market</code>, crie o método <code>arrive(person: Person): void</code> que permite que uma pessoa chegue na fila de espera.</li>
+<li>Adicione a pessoa ao final da fila de espera.</li>
+</ul>
+<h3>Parte 4: Chamar Cliente</h3>
+<ul>
+<li>Na classe <code>Market</code>, crie o método <code>call(index: number): void</code> que permite chamar o primeiro cliente da lista de espera para ser atendido em um caixa específico.</li>
+<li>Se não houver ninguém na fila de espera, emita a mensagem de erro "fail: sem clientes".</li>
+<li>Se o caixa estiver ocupado, imprima a mensagem de erro "fail: caixa ocupado".</li>
+</ul>
+<h3>Parte 5: Finalizar Atendimento</h3>
+<ul>
+<li>Na classe <code>Market</code>, crie o método <code>finish(index: number): Pessoa | null</code> que permite finalizar o atendimento de um cliente em um caixa específico.</li>
+<li>Verifique se o índice do caixa é válido e, se não for, emita a mensagem de erro <code>fail: caixa inexistente</code>.</li>
+<li>Verifique se há alguém sendo atendido no caixa. Se não houver, emita a mensagem de erro <code>fail: caixa vazio</code>.</li>
+<li>Retorne o cliente que foi atendido e libere o caixa, definindo-o como null.</li>
+</ul>
+<h2>Answers</h2>
+<p><a href="https://youtu.be/Z7karsbg1ok"><img alt="_" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/budega/../../wiki/images/resolucao.png" /></a></p>
+<h2>Shell</h2>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE iniciar</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>-----,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[]</span>
+
+<span class="c1">#TEST_CASE arrive</span>
+
+<span class="nv">$arrive</span><span class="w"> </span>carla
+<span class="nv">$arrive</span><span class="w"> </span>maria
+<span class="nv">$arrive</span><span class="w"> </span>rubia
+
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>-----,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[</span>carla,<span class="w"> </span>maria,<span class="w"> </span>rubia<span class="o">]</span>
+
+<span class="c1">#TEST_CASE call</span>
+
+<span class="nv">$call</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>carla,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[</span>maria,<span class="w"> </span>rubia<span class="o">]</span>
+
+<span class="c1">#TEST_CASE finish</span>
+
+<span class="nv">$finish</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>-----,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[</span>maria,<span class="w"> </span>rubia<span class="o">]</span>
+
+<span class="nv">$end</span>
+</code></pre></div>
+<div class="language-sh highlight"><pre><span></span><code><span class="c1">#TEST_CASE iniciar2</span>
+
+<span class="nv">$init</span><span class="w"> </span><span class="m">3</span>
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>-----,<span class="w"> </span>-----,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[]</span>
+
+<span class="nv">$arrive</span><span class="w"> </span>carla
+<span class="nv">$arrive</span><span class="w"> </span>maria
+
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>-----,<span class="w"> </span>-----,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[</span>carla,<span class="w"> </span>maria<span class="o">]</span>
+
+<span class="c1">#TEST_CASE call</span>
+
+<span class="nv">$call</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$call</span><span class="w"> </span><span class="m">0</span>
+fail:<span class="w"> </span>caixa<span class="w"> </span>ocupado
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>carla,<span class="w"> </span>-----,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[</span>maria<span class="o">]</span>
+
+<span class="c1">#TEST_CASE empty waiting</span>
+
+<span class="nv">$call</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>carla,<span class="w"> </span>-----,<span class="w"> </span>maria<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[]</span>
+
+<span class="c1">#TEST_CASE empty waiting</span>
+
+<span class="nv">$call</span><span class="w"> </span><span class="m">1</span>
+fail:<span class="w"> </span>sem<span class="w"> </span>clientes
+
+<span class="c1">#TEST_CASE finish</span>
+
+<span class="nv">$finish</span><span class="w"> </span><span class="m">0</span>
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>-----,<span class="w"> </span>-----,<span class="w"> </span>maria<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[]</span>
+
+<span class="nv">$finish</span><span class="w"> </span><span class="m">2</span>
+<span class="nv">$show</span>
+Caixas:<span class="w"> </span><span class="o">[</span>-----,<span class="w"> </span>-----,<span class="w"> </span>-----<span class="o">]</span>
+Espera:<span class="w"> </span><span class="o">[]</span>
+
+<span class="c1">#TEST_CASE error</span>
+
+<span class="nv">$finish</span><span class="w"> </span><span class="m">3</span>
+fail:<span class="w"> </span>caixa<span class="w"> </span>inexistente
+<span class="nv">$finish</span><span class="w"> </span><span class="m">1</span>
+fail:<span class="w"> </span>caixa<span class="w"> </span>vazio
+
+<span class="nv">$end</span>
+</code></pre></div>
+<h2>Draft</h2>
+<!-- links .cache/draft -->
+<ul>
+<li>cpp<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/cpp/shell.cpp">shell.cpp</a></li>
+</ul>
+</li>
+<li>go<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/go/shell.go">shell.go</a></li>
+</ul>
+</li>
+<li>java<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/java/Shell.java">Shell.java</a></li>
+</ul>
+</li>
+<li>ts<ul>
+<li><a href="https://github.com/qxcodepoo/arcade/blob/master/base/budega/.cache/draft/ts/shell.ts">shell.ts</a></li>
+</ul>
+</li>
+</ul>
+<!-- links -->
+</body>
+</html>

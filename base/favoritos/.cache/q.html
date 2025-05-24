@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@favoritos: Cache e redundância em @favoritos</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Cache e redundância em @favoritos</h1>
+<!-- toch -->
+<table>
+<thead>
+<tr>
+<th><a href="#intro">Intro</a></th>
+<th><a href="#shell">Shell</a></th>
+<th><a href="#guide">Guide</a></th>
+<th><a href="#esqueleto">Esqueleto</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- toch -->
+
+<p><img alt="cover" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favoritos/cover.jpg" /></p>
+<p>Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.</p>
+<h2>Intro</h2>
+<p>O sistema deverá:</p>
+<ul>
+<li>Partida<ul>
+<li>Você deve utilizar o código construído na atividade busca.</li>
+<li>Você deverá modificar o contato e a classe agenda para permitir a operação de favoritar contatos.</li>
+<li>Para isso, o contato ganhará um atributo "star" que marca se ele está favoritado.</li>
+<li>A agenda ganhará os métodos star e getStarred para favoritar e pegar os favoritos.</li>
+</ul>
+</li>
+<li>Mostrando<ul>
+<li>Ordenar os contatos pelo idContato.</li>
+<li>Se o contato não for favorito (starred) use - antes do idContato.</li>
+<li>Marque os contatos que são favoritados com um @ antes do idContato.</li>
+</ul>
+</li>
+<li>Favoritando<ul>
+<li>Favoritar contatos. (star)</li>
+<li>Desfavoritar contatos. (unstar)</li>
+<li>Mostrar apenas os favoritos. (starred)</li>
+</ul>
+</li>
+</ul>
+<h2>Shell</h2>
+<div class="language-bash highlight"><pre><span></span><code><span class="c1">#TEST_CASE iniciando agenda</span>
+<span class="nv">$add</span><span class="w"> </span>eva<span class="w"> </span>oi:8585<span class="w"> </span>claro:9999
+<span class="nv">$add</span><span class="w"> </span>ana<span class="w"> </span>tim:3434<span class="w"> </span>
+<span class="nv">$add</span><span class="w"> </span>ana<span class="w"> </span>casa:4567<span class="w"> </span>oi:8754
+<span class="nv">$add</span><span class="w"> </span>bia<span class="w"> </span>vivo:5454
+<span class="nv">$add</span><span class="w"> </span>rui<span class="w"> </span>casa:3233
+<span class="nv">$add</span><span class="w"> </span>zac<span class="w"> </span>fixo:3131
+
+<span class="nv">$show</span>
+-<span class="w"> </span>ana<span class="w"> </span><span class="o">[</span><span class="m">0</span>:tim:3434<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:casa:4567<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">2</span>:oi:8754<span class="o">]</span>
+-<span class="w"> </span>bia<span class="w"> </span><span class="o">[</span><span class="m">0</span>:vivo:5454<span class="o">]</span>
+-<span class="w"> </span>eva<span class="w"> </span><span class="o">[</span><span class="m">0</span>:oi:8585<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:claro:9999<span class="o">]</span>
+-<span class="w"> </span>rui<span class="w"> </span><span class="o">[</span><span class="m">0</span>:casa:3233<span class="o">]</span>
+-<span class="w"> </span>zac<span class="w"> </span><span class="o">[</span><span class="m">0</span>:fixo:3131<span class="o">]</span>
+
+<span class="c1">#TEST_CASE favoritando</span>
+<span class="nv">$star</span><span class="w"> </span>eva
+<span class="nv">$star</span><span class="w"> </span>ana
+<span class="nv">$star</span><span class="w"> </span>ana
+<span class="nv">$star</span><span class="w"> </span>zac
+
+<span class="nv">$show</span>
+@<span class="w"> </span>ana<span class="w"> </span><span class="o">[</span><span class="m">0</span>:tim:3434<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:casa:4567<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">2</span>:oi:8754<span class="o">]</span>
+-<span class="w"> </span>bia<span class="w"> </span><span class="o">[</span><span class="m">0</span>:vivo:5454<span class="o">]</span>
+@<span class="w"> </span>eva<span class="w"> </span><span class="o">[</span><span class="m">0</span>:oi:8585<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:claro:9999<span class="o">]</span>
+-<span class="w"> </span>rui<span class="w"> </span><span class="o">[</span><span class="m">0</span>:casa:3233<span class="o">]</span>
+@<span class="w"> </span>zac<span class="w"> </span><span class="o">[</span><span class="m">0</span>:fixo:3131<span class="o">]</span>
+
+<span class="c1">#TEST_CASE lista de favoritos</span>
+<span class="nv">$starred</span>
+@<span class="w"> </span>ana<span class="w"> </span><span class="o">[</span><span class="m">0</span>:tim:3434<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:casa:4567<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">2</span>:oi:8754<span class="o">]</span>
+@<span class="w"> </span>eva<span class="w"> </span><span class="o">[</span><span class="m">0</span>:oi:8585<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:claro:9999<span class="o">]</span>
+@<span class="w"> </span>zac<span class="w"> </span><span class="o">[</span><span class="m">0</span>:fixo:3131<span class="o">]</span>
+
+<span class="c1">#TEST_CASE removendo contato</span>
+<span class="nv">$rm</span><span class="w"> </span>zac
+
+<span class="nv">$show</span>
+@<span class="w"> </span>ana<span class="w"> </span><span class="o">[</span><span class="m">0</span>:tim:3434<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:casa:4567<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">2</span>:oi:8754<span class="o">]</span>
+-<span class="w"> </span>bia<span class="w"> </span><span class="o">[</span><span class="m">0</span>:vivo:5454<span class="o">]</span>
+@<span class="w"> </span>eva<span class="w"> </span><span class="o">[</span><span class="m">0</span>:oi:8585<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:claro:9999<span class="o">]</span>
+-<span class="w"> </span>rui<span class="w"> </span><span class="o">[</span><span class="m">0</span>:casa:3233<span class="o">]</span>
+
+<span class="nv">$starred</span>
+@<span class="w"> </span>ana<span class="w"> </span><span class="o">[</span><span class="m">0</span>:tim:3434<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:casa:4567<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">2</span>:oi:8754<span class="o">]</span>
+@<span class="w"> </span>eva<span class="w"> </span><span class="o">[</span><span class="m">0</span>:oi:8585<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:claro:9999<span class="o">]</span>
+
+<span class="c1">#TEST_CASE desfavoritando</span>
+<span class="nv">$unstar</span><span class="w"> </span>ana
+
+<span class="nv">$starred</span>
+@<span class="w"> </span>eva<span class="w"> </span><span class="o">[</span><span class="m">0</span>:oi:8585<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:claro:9999<span class="o">]</span>
+
+<span class="nv">$show</span>
+-<span class="w"> </span>ana<span class="w"> </span><span class="o">[</span><span class="m">0</span>:tim:3434<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:casa:4567<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">2</span>:oi:8754<span class="o">]</span>
+-<span class="w"> </span>bia<span class="w"> </span><span class="o">[</span><span class="m">0</span>:vivo:5454<span class="o">]</span>
+@<span class="w"> </span>eva<span class="w"> </span><span class="o">[</span><span class="m">0</span>:oi:8585<span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="m">1</span>:claro:9999<span class="o">]</span>
+-<span class="w"> </span>rui<span class="w"> </span><span class="o">[</span><span class="m">0</span>:casa:3233<span class="o">]</span>
+<span class="nv">$end</span>
+</code></pre></div>
+<hr />
+<h2>Guide</h2>
+<p><img alt="diagrama" src="https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/favoritos/diagrama.png" /></p>
+<h2>Esqueleto</h2>
+<!--FILTER Solver.java java-->
+<div class="language-java highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">Fone</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">number</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Fone</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">number</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//verifica se o número é um número de telefone válido</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">validate</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">number</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//O resultado deve ficar assim</span>
+<span class="w">    </span><span class="c1">//oi:1234</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//GETS e SETS</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getId</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setId</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getNumber</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setNumber</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">number</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">Contact</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Fone</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fones</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">protected</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//utilizado no toString</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">star</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">//Crie um ArrayList para o ATRIBUTO fones</span>
+<span class="w">    </span><span class="c1">//Se a variável fones não for null, adicione todos os fones usando o método addFone</span>
+<span class="w">    </span><span class="c1">//Inicie star como false</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Contact</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Fone</span><span class="o">&gt;</span><span class="w"> </span><span class="n">fones</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//Se fone for válido, insira no atributo fones</span>
+<span class="w">    </span><span class="c1">//Se não, informe o erro</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addFone</span><span class="p">(</span><span class="n">Fone</span><span class="w"> </span><span class="n">fone</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//Se o índice existir no ArrayList, remova o telefone com esse índice</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rmFone</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">index</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//Use um contador para mostrar o índice do telefone</span>
+<span class="w">    </span><span class="c1">//Use o toString do fone para adicioná-lo à saída</span>
+<span class="w">    </span><span class="c1">//O resultado dever ficar assim:</span>
+<span class="w">    </span><span class="c1">//- david [0:oi:123] [1:tim:9081] [2:claro:5431]</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//GETS e SETS</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">getName</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setName</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Fone</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getFones</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//muda o prefixo e o valor de star</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setStar</span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">value</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">getStar</span><span class="p">();</span><span class="w"> </span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">Agenda</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="n">contacts</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">Agenda</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//retorna a posição do contato com esse nome no vetor ou -1 se não existir.</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">findPos</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//retorna o objeto contato com esse nome ou null se não existir</span>
+<span class="w">    </span><span class="c1">//utilize o método findPos</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="nf">getContact</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//se nenhum contato existir com esse nome, adicione</span>
+<span class="w">    </span><span class="c1">//se ja existir, faça o merge adicionando os telefones</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addContact</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">contact</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//Utilize o método findPos</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">rmContact</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">//Monte uma lista auxiliar procurando no .toString() de cada contato</span>
+<span class="w">    </span><span class="c1">//se ele possui a substring procurada.</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">pattern</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">();</span>
+<span class="w">    </span><span class="c1">//se o contato existir, altere o atributo star dele</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">star</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">//filtre em uma nova lista apenas os contatos que estão favoritados</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getStarred</span><span class="p">();</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Contact</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getContacts</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">Solver</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">//cria um contato a partir do vetor de entrada tal como</span>
+<span class="w">    </span><span class="c1">//add joao oi:123 tim:432 claro:09123</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">Contact</span><span class="w"> </span><span class="nf">parseContact</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">ui</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="n">ui</span><span class="p">).</span><span class="na">stream</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="na">skip</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="na">map</span><span class="p">(</span><span class="n">token</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Fone</span><span class="p">(</span><span class="n">token</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">)</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">token</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot;:&quot;</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">))</span>
+<span class="w">            </span><span class="p">.</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">toList</span><span class="p">()));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Agenda</span><span class="w"> </span><span class="n">agenda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Agenda</span><span class="p">();</span>
+<span class="w">        </span><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">nextLine</span><span class="p">();</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;$&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">line</span><span class="p">);</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">ui</span><span class="o">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">line</span><span class="p">.</span><span class="na">split</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;end&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;init&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">agenda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Agenda</span><span class="p">();</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//name label:fone label:fone label:fone</span>
+<span class="w">                </span><span class="n">agenda</span><span class="p">.</span><span class="na">addContact</span><span class="p">(</span><span class="n">Solver</span><span class="p">.</span><span class="na">parseContact</span><span class="p">(</span><span class="n">ui</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;rm&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//name</span>
+<span class="w">                </span><span class="n">agenda</span><span class="p">.</span><span class="na">rmContact</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">);;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;rmFone&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">//name index</span>
+<span class="w">                </span><span class="n">agenda</span><span class="p">.</span><span class="na">getContact</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">).</span><span class="na">rmFone</span><span class="p">(</span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">));</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;show&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">agenda</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;star&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;unstar&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;starred&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">agenda</span><span class="p">.</span><span class="na">getStarred</span><span class="p">().</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">)));</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="s">&quot;search&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">agenda</span><span class="p">.</span><span class="na">search</span><span class="p">(</span><span class="n">ui</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">).</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="p">).</span><span class="na">collect</span><span class="p">(</span><span class="n">Collectors</span><span class="p">.</span><span class="na">joining</span><span class="p">(</span><span class="s">&quot;\n&quot;</span><span class="p">)));</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;fail: invalid command&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">scanner</span><span class="p">.</span><span class="na">close</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Manual</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Agenda</span><span class="w"> </span><span class="n">agenda</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Agenda</span><span class="p">();</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">addContact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">(</span><span class="s">&quot;eva&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Fone</span><span class="p">(</span><span class="s">&quot;oio&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;8585&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Fone</span><span class="p">(</span><span class="s">&quot;cla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;9999&quot;</span><span class="p">))));</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">addContact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">(</span><span class="s">&quot;ana&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Fone</span><span class="p">(</span><span class="s">&quot;Tim&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;3434&quot;</span><span class="p">))));</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">addContact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">(</span><span class="s">&quot;bia&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Fone</span><span class="p">(</span><span class="s">&quot;viv&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;5454&quot;</span><span class="p">))));</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">addContact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">(</span><span class="s">&quot;ana&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Arrays</span><span class="p">.</span><span class="na">asList</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Fone</span><span class="p">(</span><span class="s">&quot;cas&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;4567&quot;</span><span class="p">),</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Fone</span><span class="p">(</span><span class="s">&quot;oio&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;8754&quot;</span><span class="p">))));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">agenda</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">                - ana [0:casa:4567][1:oi:8754]</span>
+<span class="cm">                - bia [0:vivo:5454]</span>
+<span class="cm">                - eva [0:oi:8585][1:claro:9999]</span>
+<span class="cm">                - rui [0:casa:3233]</span>
+<span class="cm">                - zac [0:fixo:3131]</span>
+<span class="cm">        */</span>
+
+<span class="w">        </span><span class="c1">//case favoritando</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="s">&quot;eva&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="s">&quot;ana&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="s">&quot;ana&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="s">&quot;zac&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="s">&quot;rex&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">//fail: contato rex nao existe</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">agenda</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">        @ ana [0:casa:4567][1:oi:8754]</span>
+<span class="cm">                - bia [0:vivo:5454]</span>
+<span class="cm">        @ eva [0:oi:8585][1:claro:9999]</span>
+<span class="cm">                - rui [0:casa:3233]</span>
+<span class="cm">        @ zac [0:fixo:3131]</span>
+<span class="cm">        */</span>
+
+<span class="w">        </span><span class="c1">//case lista de favoritos</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">fav</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">agenda</span><span class="p">.</span><span class="na">getStarred</span><span class="p">())</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fav</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">        @ ana [0:casa:4567][1:oi:8754]</span>
+<span class="cm">        @ eva [0:oi:8585][1:claro:9999]</span>
+<span class="cm">        @ zac [0:fixo:3131]</span>
+<span class="cm">        */</span>
+
+<span class="w">        </span><span class="c1">//case removendo contato</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">rmContact</span><span class="p">(</span><span class="s">&quot;zac&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">agenda</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">        @ ana [0:casa:4567][1:oi:8754]</span>
+<span class="cm">                - bia [0:vivo:5454]</span>
+<span class="cm">        @ eva [0:oi:8585][1:claro:9999]</span>
+<span class="cm">                - rui [0:casa:3233]</span>
+<span class="cm">        */</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">fav</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">agenda</span><span class="p">.</span><span class="na">getStarred</span><span class="p">())</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fav</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">        @ ana [0:casa:4567][1:oi:8754]</span>
+<span class="cm">        @ eva [0:oi:8585][1:claro:9999]</span>
+<span class="cm">        */</span>
+
+<span class="w">        </span><span class="c1">//case desfavoritando</span>
+<span class="w">        </span><span class="n">agenda</span><span class="p">.</span><span class="na">star</span><span class="p">(</span><span class="s">&quot;ana&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">false</span><span class="p">);</span>
+<span class="w">        </span><span class="k">for</span><span class="p">(</span><span class="n">Contact</span><span class="w"> </span><span class="n">fav</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">agenda</span><span class="p">.</span><span class="na">getStarred</span><span class="p">())</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">fav</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">//@ eva [0:oi:8585][1:claro:9999]</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">agenda</span><span class="p">);</span>
+<span class="w">        </span><span class="cm">/*</span>
+<span class="cm">                - ana [0:casa:4567][1:oi:8754]</span>
+<span class="cm">                - bia [0:vivo:5454]</span>
+<span class="cm">        @ eva [0:oi:8585][1:claro:9999]</span>
+<span class="cm">                - rui [0:casa:3233]</span>
+<span class="cm">        */</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<!--FILTER_END-->
+</body>
+</html>
