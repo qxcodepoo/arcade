@@ -29,3 +29,5 @@ src
 solver*
 Solver*
 __*
+.hide
+.exec
