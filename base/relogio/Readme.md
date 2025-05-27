@@ -32,6 +32,8 @@ Seu objetivo é construtir uma Classe Relógio `Watch` que garanta que a hora, m
 
 ## Guide
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../yousolver.png)](https://youtu.be/7vD5le9DeZE?si=uA_wG0fD8HBN_At5)
+
 Para formatar com 2 dígitos utilize a seguinte estratégia:
 
 ```java
