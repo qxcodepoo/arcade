@@ -21,8 +21,7 @@ __pycache__
 .config.ini
 # tko local
 .tko
-.build
-# public filter
+.build# public filter
 local.sh
 config.json
 src
