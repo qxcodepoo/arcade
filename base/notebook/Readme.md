@@ -9,6 +9,8 @@
 
 ## Guide
 
+[![youtube icon](../youguide.png)](https://youtu.be/EI0Qa8OgucQ?si=oKj11d9DYFFH0kle)
+
 ### Parte 1 - Apenas o notebook
 
 - Vamos modelar um notebook que pode ser ligado e desligado.

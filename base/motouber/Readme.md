@@ -23,6 +23,8 @@
 
 ## Guide
 
+[![youtube icon](../youguide.png)](https://youtu.be/SR5B0QkEFpc?si=wHrdAy-3_aZ5Pv3j)
+
 - Crie a classe Pessoa com os atributos nome e dinheiro.
 - Crie a classe Moto com os atributos custo, motorista e passageiro.
 - Ambas as classes devem ter atributos privados.

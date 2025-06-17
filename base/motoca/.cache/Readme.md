@@ -33,6 +33,8 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/motoca/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/motoca/../yousolver.png)](https://youtu.be/6tYINNbLQeM?si=GkcP6dgnBcnzWhCw)
+
 - Classe Pessoa
   - Crie a classe `Pessoa` com os atributos `age` e `name`.
   - Defina os atributos como privados.

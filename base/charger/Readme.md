@@ -23,6 +23,9 @@
 
 ## GUIDE
 
+[![youtube icon](../youguide.png)](https://youtu.be/2oyQq-h0kqY?si=8DQZV6mLYKNtd2jZ)
+
+
 - Crie sempre atributos privados e os utilize através de métodos públicos.
 - Vá implementando orientado aos testes, implementando apenas o necessário para passar em cada teste.
 - Seu código será pontuado pela quantidade de testes que passarem, não pela quantidade de código escrito.

@@ -58,6 +58,8 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
 
 ![diagrama](diagrama.png)
 
+[![youtube icon](../youguide.png)](https://youtu.be/DyhXHlM7Bv4?si=G05IiBLI15FrP6Bm)
+
 - Parte 1: Inserir
   - Crie a classe Grafite `Lead` com o atributo tamanho `size`.
   - Crie a classe Lapiseira `Pencil` com o atributo ponta `tip` inicializado como `null`.

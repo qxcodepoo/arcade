@@ -33,6 +33,8 @@ Seu sistema deverá:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tamagotchi/../youguide.png)](https://youtu.be/VRW3_JuNwkA?si=827by8nZURcc2AuM)
+
 ***
 
 ## Shell
