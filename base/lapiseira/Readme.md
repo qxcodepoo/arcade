@@ -42,6 +42,9 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 ![diagrama](diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/yousolver.png)](https://youtu.be/82aFfjuITm8?si=dbFx8fWPH4CBL15d)
+
+
 ## Shell
 
 ```bash

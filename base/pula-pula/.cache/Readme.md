@@ -32,6 +32,7 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/pula-pula/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/pula-pula/../youguide.png)](https://youtu.be/Uu94DgZYa_M?si=AzLR2so6o5CLiZTz)
 
 ## Shell
 
