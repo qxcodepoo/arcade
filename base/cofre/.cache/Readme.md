@@ -35,6 +35,9 @@ O sistema deverá:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cofre/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cofre/..//yousolver.png)](https://youtu.be/vzGO1V1nGpY?si=mZZ9da229M9KTf3b)
+
+
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts

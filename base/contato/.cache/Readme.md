@@ -45,6 +45,9 @@ Seu programa deve:
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contato/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/contato/../youguide.png)](https://youtu.be/jqNToRuOQhg?si=xn0CV6dPfEp11KG0)
+
+
 <!-- links .cache/draft -->
 - cpp
   - [shell.cpp](https://github.com/qxcodepoo/arcade/blob/master/base/contato/.cache/draft/cpp/shell.cpp)

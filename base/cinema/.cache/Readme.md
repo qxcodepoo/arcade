@@ -31,7 +31,11 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
   - A classe `Client` é responsável por representar os clientes que reservam cadeiras na sala de cinema.
     - A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.
 
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/diagrama.png)
+
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/cinema/../yousolver.png)](https://youtu.be/T1eNw8HtDwY?si=LMVy6W6GHj6iOYda)
+
 
 ## Draft
 

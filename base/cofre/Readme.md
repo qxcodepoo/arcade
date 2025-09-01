@@ -35,6 +35,9 @@ O sistema deverá:
 
 ![diagrama](diagrama.png)
 
+[![youtube icon](..//yousolver.png)](https://youtu.be/vzGO1V1nGpY?si=mZZ9da229M9KTf3b)
+
+
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts

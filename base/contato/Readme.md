@@ -45,6 +45,9 @@ Seu programa deve:
 
 ![diagrama](diagrama.png)
 
+[![youtube icon](../youguide.png)](https://youtu.be/jqNToRuOQhg?si=xn0CV6dPfEp11KG0)
+
+
 <!-- links .cache/draft -->
 - cpp
   - [shell.cpp](.cache/draft/cpp/shell.cpp)

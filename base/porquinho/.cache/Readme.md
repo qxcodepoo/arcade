@@ -33,6 +33,8 @@ A classe Pig (Porquinho) representa um cofre que permite aos usuários adicionar
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/porquinho/../yousolver.png)](https://youtu.be/rR2bIGsJjaw?si=VMEWLD5vWozDPX02)
+
 ### Classe Coin
 
 - A classe `Coin` possui os seguintes atributos:

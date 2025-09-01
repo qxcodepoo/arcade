@@ -41,6 +41,9 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tarifas/../youguide.png)](https://youtu.be/KrjZsvprPq8?si=Jkc_90NZ6DrKElMH)
+
+
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts

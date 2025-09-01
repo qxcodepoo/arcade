@@ -76,6 +76,9 @@ A classe `Rectangle` tamb√©m implementa a interface `Shape` e representa um ret√
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/shapes/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/shapes/..//yousolver.png)](https://youtu.be/VMHI9mjIwZQ?si=jUgIc0AT9YY3Dc7K)
+
+
 ## Shell
 
 ```sh

@@ -35,7 +35,10 @@ ___
   
 ## Guide
 
+[![youtube icon](../youguide.png)](https://youtu.be/x3_hlVYdCdU?si=g0fR-AAgvzkMxU9G)
+
 ![diagrama](diagrama.png)
+
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

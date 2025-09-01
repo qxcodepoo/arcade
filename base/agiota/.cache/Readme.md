@@ -1,8 +1,8 @@
 # Gerencie os empréstimos do agiota
 
 <!-- toch -->
-[Video](#video) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
--- | -- | -- | -- | -- | --
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
+-- | -- | -- | -- | --
 <!-- toch -->
 
 ![cover](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/cover.png)
@@ -14,10 +14,6 @@ Seu Plutolomeu é um agiota que empresta dinheiro a juros de 10%. Ele é uma pes
 Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empréstimos que ele tinha instalado em seu computador.
 
 ***
-
-## Video
-
-[![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/play.png)](https://youtu.be/5pnagWZvjBE)
 
 ## Intro
 
@@ -64,6 +60,9 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 ## Guide
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/diagrama.png)
+
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agiota/..//yousolver.png)](https://youtu.be/XBJrKDd5fYY?si=HkQInss4B1x3HEYF)
+
 
 ## Shell
 

@@ -49,6 +49,9 @@ O objetivo dessa atividade é implementar uma classe responsável por uma máqui
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/junkfood/../yousolver.png)](https://youtu.be/BPVmEHlR5Ww?si=q4WIfz4_6EMC1CcY)
+
+
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts

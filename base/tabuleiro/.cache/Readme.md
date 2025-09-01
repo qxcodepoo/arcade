@@ -35,7 +35,10 @@ ___
   
 ## Guide
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/../youguide.png)](https://youtu.be/x3_hlVYdCdU?si=g0fR-AAgvzkMxU9G)
+
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/tabuleiro/diagrama.png)
+
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

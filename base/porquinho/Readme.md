@@ -33,6 +33,8 @@ A classe Pig (Porquinho) representa um cofre que permite aos usuários adicionar
 
 ![diagrama](diagrama.png)
 
+[![youtube icon](../yousolver.png)](https://youtu.be/rR2bIGsJjaw?si=VMEWLD5vWozDPX02)
+
 ### Classe Coin
 
 - A classe `Coin` possui os seguintes atributos:
