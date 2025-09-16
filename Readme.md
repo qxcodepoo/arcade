@@ -22,13 +22,14 @@ Significado das tags nas questões:
 - [ ] `#github_edu :info`[Habilitando a conta Educational no Github](wiki/git/github.md)
 - [ ] `#tko        :task`[Instalando e configurando o tko](https://github.com/senapk/tko?tab=readme-ov-file#instala%C3%A7%C3%A3o)
 - [ ] `#chaves_ssh :task`[Criando repositórios local em máquina física](wiki/git/chaves.md)
-
-### BLOCO_A: Conteúdo Referência
-
 - [ ] `#uml_full   :info`[Relacionamentos](wiki/relacionamento/README.md)
 - [ ] `#uml_mini   :info`[Relacionamentos Resumo](wiki/uml/README.md)
 - [ ] `#relatorios :info`[Como fazer os códigos e relatórios](wiki/relatorio/README.md)
 - [ ] `#cmd_in_out :info`[Criando a Main](wiki/main/README.md)
+
+### BLOCO_A: Práticas com o git
+
+- [ ] `@git_pratica  :task`[Prática git](base/git_pratica/Readme.md)
 
 ### BLOCO_A: Treino de Algoritmos
 

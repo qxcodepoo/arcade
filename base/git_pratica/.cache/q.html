@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@git_pratica: Prática git</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        code { font-family: monospace; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        /* Estilos básicos para o destaque de sintaxe (gerado pelo pygments via pymdownx.highlight) */
+        .highlight .hll { background-color: #ffffcc }
+        .highlight .c { color: #999988; font-style: italic } /* Comment */
+        .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+        .highlight .k { color: #000000; font-weight: bold } /* Keyword */
+        .highlight .o { color: #000000; font-weight: bold } /* Operator */
+        .highlight .ch { color: #999988; font-style: italic } /* Comment.Hashbang */
+        .highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+        .highlight .cp { color: #999999; font-weight: bold; font-style: italic } /* Comment.Preproc */
+        .highlight .cpf { color: #999988; font-style: italic } /* Comment.PreprocFile */
+        .highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+        .highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+        .highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+        .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
+        .highlight .gr { color: #aa0000 } /* Generic.Error */
+        .highlight .gh { color: #999999 } /* Generic.Heading */
+        .highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+        .highlight .go { color: #888888 } /* Generic.Output */
+        .highlight .gp { color: #555555 } /* Generic.Prompt */
+        .highlight .gs { font-weight: bold } /* Generic.Strong */
+        .highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+        .highlight .gt { color: #aa0000 } /* Generic.Traceback */
+        .highlight .kc { color: #000000; font-weight: bold } /* Keyword.Constant */
+        .highlight .kd { color: #000000; font-weight: bold } /* Keyword.Declaration */
+        .highlight .kn { color: #000000; font-weight: bold } /* Keyword.Namespace */
+        .highlight .kp { color: #000000; font-weight: bold } /* Keyword.Pseudo */
+        .highlight .kr { color: #000000; font-weight: bold } /* Keyword.Reserved */
+        .highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+        .highlight .m { color: #009999 } /* Literal.Number */
+        .highlight .s { color: #dd1144 } /* Literal.String */
+        .highlight .na { color: #008080 } /* Name.Attribute */
+        .highlight .nb { color: #0086B3 } /* Name.Builtin */
+        .highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+        .highlight .no { color: #008080 } /* Name.Constant */
+        .highlight .nd { color: #3c5d5d; font-weight: bold } /* Name.Decorator */
+        .highlight .ni { color: #800080 } /* Name.Entity */
+        .highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+        .highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+        .highlight .nl { color: #990000; font-weight: bold } /* Name.Label */
+        .highlight .nn { color: #555555; font-weight: bold } /* Name.Namespace */
+        .highlight .nx { color: #990000; font-weight: bold } /* Name.Other */
+        .highlight .py { color: #009999 } /* Name.Property */
+        .highlight .p { color: #000000 } /* Name.Punctuation */
+        .highlight .nv { color: #008080 } /* Name.Variable */
+        .highlight .ow { color: #000000; font-weight: bold } /* Operator.Word */
+        .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+        .highlight .mf { color: #009999 } /* Literal.Number.Float */
+        .highlight .mh { color: #009999 } /* Literal.Number.Hex */
+        .highlight .mi { color: #009999 } /* Literal.Number.Integer */
+        .highlight .mo { color: #009999 } /* Literal.Number.Oct */
+        .highlight .sb { color: #dd1144 } /* Literal.String.Backtick */
+        .highlight .sc { color: #dd1144 } /* Literal.String.Char */
+        .highlight .sd { color: #dd1144 } /* Literal.String.Doc */
+        .highlight .s2 { color: #dd1144 } /* Literal.String.Double */
+        .highlight .se { color: #dd1144 } /* Literal.String.Escape */
+        .highlight .sh { color: #dd1144 } /* Literal.String.Heredoc */
+        .highlight .si { color: #dd1144 } /* Literal.String.Interpol */
+        .highlight .sx { color: #dd1144 } /* Literal.String.Other */
+        .highlight .sr { color: #009926 } /* Literal.String.Regex */
+        .highlight .s1 { color: #dd1144 } /* Literal.String.Single */
+        .highlight .ss { color: #dd1144 } /* Literal.String.Symbol */
+        .highlight .bp { color: #0086B3 } /* Name.Builtin.Pseudo */
+        .highlight .vc { color: #008080 } /* Name.Variable.Class */
+        .highlight .vg { color: #008080 } /* Name.Variable.Global */
+        .highlight .vi { color: #008080 } /* Name.Variable.Instance */
+        .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+    </style>
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+</head>
+<body>
+<h1>Prática git</h1>
+<p>Essa prática tem 10 pontos. Pontue a atividade ao final de acordo com o que foi realizado.</p>
+<p>Faça um relatório de um parágrafo explicando o que foi feito, o que foi aprendido e as dificuldades encontradas.</p>
+<h2>Manipulando localmente (1 ponto)</h2>
+<ul>
+<li>Criar um nova pasta: <code>mkdir nome-da-pasta</code></li>
+<li>Entrar na pasta criada: <code>cd nome-da-pasta</code></li>
+<li>Criar um repositório vazio: <code>git init</code></li>
+<li>Abrir o vscode na pasta criada: <code>code .</code></li>
+<li>Saber o estado do repositório: <code>git status</code></li>
+<li>Criar um arquivo <code>code nome-do-arquivo.extensão</code></li>
+<li>Adicione conteúdo ao arquivo e salvar<ul>
+<li>Coloque o vscode para salvar automaticamente na opção auto save</li>
+<li>Control , e escolher auto save (after delay)</li>
+</ul>
+</li>
+</ul>
+<h2>Primeiro fluxo de trabalho (1 ponto)</h2>
+<ul>
+<li>Adicionar o arquivo ao stage: <code>git add nome-do-arquivo.extensão</code></li>
+<li>Fazer um commit: <code>git commit -m "Mensagem do commit"</code></li>
+<li>Se o commit der erro, ele pode pedir pra identificar o usuário:<ul>
+<li><code>git config --global user.name "Seu Nome"</code></li>
+<li><code>git config --global user.email "email"</code></li>
+</ul>
+</li>
+<li>Faça também o add e o commit pela interface do vscode</li>
+</ul>
+<h2>Desfazendo mudanças (1 ponto)</h2>
+<ul>
+<li>Fazer uma mudança no arquivo e voltar para versão do commit<ul>
+<li><code>git restore nome-do-arquivo.extensão</code></li>
+</ul>
+</li>
+<li>Faça o restore também pela interface do vscode<ul>
+<li>Clicando no botão <code>Discard Changes</code> no vscode</li>
+</ul>
+</li>
+</ul>
+<h2>Olhando o histórico (1 ponto)</h2>
+<ul>
+<li>Fazer uma alteração e salvar via vscode</li>
+<li>Ver histórico de commits: <code>git log</code></li>
+<li>Saber onde ficam as versões dos arquivos alterados pelo vscode</li>
+<li>Conseguir pular o repositório para uma versão anterior<ul>
+<li><code>git checkout id-do-commit</code></li>
+</ul>
+</li>
+<li>Voltar para a versão mais recente<ul>
+<li><code>git checkout main</code></li>
+</ul>
+</li>
+</ul>
+<h2>Trabalhando remotamente (1 ponto)</h2>
+<ul>
+<li>Criar um repositório novo no github, inicializando ele com um readme.md</li>
+<li>Clicar em criar codespace</li>
+<li>No codespace, alterar algo, e fazer o add, commit, push</li>
+<li>Verificar mudanças no github</li>
+<li>Alterar algo no repositório via interface web do github</li>
+<li>Puxar as modificações para o codespace utilizando <code>git pull</code></li>
+</ul>
+<h2>Criando um conflito (2 pontos)</h2>
+<ul>
+<li>Alterar um arquivo pela interface web do github e fazer commit</li>
+<li>Alterar o mesmo arquivo no codespace</li>
+<li>Tentar fazer o push no codespace</li>
+<li>Tentar fazer o pull no codespace</li>
+<li>Definir que a estratégia padrão para conflitos é fazer o merge<ul>
+<li><code>git config --global pull.rebase false</code></li>
+</ul>
+</li>
+<li>Fazer o pull novamente</li>
+<li>Usar o git status para ver os arquivos em conflito</li>
+<li>Abrir cada um dos arquivos marcados como conflito (!)</li>
+<li>Resolver o conflito, removendo as marcações do git</li>
+<li>Fazer o add, commit e push</li>
+<li>Verificar o resultado no github</li>
+</ul>
+<h2>Usando máquina local (3 pontos)</h2>
+<ul>
+<li>Instalar o git, o vscode e as ferramentas de compilação na sua máquina local.</li>
+<li>Configurar acesso ao git via chaves ssh ou token de acesso pessoal.</li>
+<li>Conseguir clonar na máquina local o repositório do github.</li>
+<li>Fazer algum commit, push e pull na máquina local e enviar para o github.</li>
+</ul>
+<div class="language-sh highlight"><pre><span></span><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+<span class="nv">1</span>
+<span class="o">========</span>
+<span class="m">1</span>
+<span class="o">&lt;&lt;&lt;&lt;&lt;&lt;</span>&lt;&lt;
+</code></pre></div>
+</body>
+</html>
