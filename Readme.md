@@ -16,21 +16,21 @@ Significado das tags nas questões:
 
 ## Configuração e Aquecimento
 
-### Configuração de ambiente
+### BLOCO_A: Configuração de ambiente
 
 - [ ] `#git        :info`[Introdução ao git](wiki/git/README.md)
 - [ ] `#github_edu :info`[Habilitando a conta Educational no Github](wiki/git/github.md)
 - [ ] `#tko        :task`[Instalando e configurando o tko](https://github.com/senapk/tko?tab=readme-ov-file#instala%C3%A7%C3%A3o)
 - [ ] `#chaves_ssh :task`[Criando repositórios local em máquina pessoal ou pública](wiki/git/chaves.md)
 
-### Conteúdo extra
+### BLOCO_A:Conteúdo extra
 
 - [ ] `#uml_full   :info`[Relacionamentos](wiki/relacionamento/README.md)
 - [ ] `#uml_mini   :info`[Relacionamentos Resumo](wiki/uml/README.md)
 - [ ] `#relatorios :info`[Como fazer os códigos e relatórios](wiki/relatorio/README.md)
 - [ ] `#cmd_in_out :info`[Criando a Main](wiki/main/README.md)
 
-### Estressados Básicos
+### BLOCO_A: Estressados Básicos
 
 - [ ] `@busca       :test`[Estressados Operações I](base/busca/Readme.md)
 - [ ] `@contagem    :test`[Estressados Operações II](base/contagem/Readme.md)
@@ -39,7 +39,7 @@ Significado das tags nas questões:
 
 ## Campanha Principal
 
-### Primeiras Classes
+### BLOCO_B: Primeiras Classes
 
 - [ ] `@toalha      :open`[Toalha, o item mais útil do universo](base/toalha/Readme.md)
 - [ ] `@animal      :test`[Animal que nasce, cresce, morre](base/animal/Readme.md)
@@ -47,14 +47,14 @@ Significado das tags nas questões:
 - [ ] `@calculadora :test`[Uma calculadora com bateria](base/calculadora/Readme.md)
 - [ ] `@enxugar     :test`[Toalha com testes](base/enxugar/Readme.md)
 
-### Modificadores de Acesso
+### BLOCO_B: Modificadores de Acesso
 
 - [ ] `@chinela     :open`[Comprando uma chinela 40/41](base/chinela/Readme.md)
 - [ ] `@camisa      :open`[Comprando uma camisa XG](base/camisa/Readme.md)
 - [ ] `@roupa       :test`[Roupa com testes](base/roupa/Readme.md)
 - [ ] `@relogio     :test`[Garante uma hora válida no relógio](base/relogio/Readme.md)
 
-### Agregação Simples
+### BLOCO_B: Agregação Simples
 
 - [ ] `@notebook    :open`[Notebook com carregador e bateria](base/notebook/Readme.md)
 - [ ] `@motoca      :test`[Crianças andando de motoca](base/motoca/Readme.md)
@@ -63,7 +63,7 @@ Significado das tags nas questões:
 - [ ] `@tamagotchi  :test`[Alimente, brinque e mate](base/tamagotchi/Readme.md)
 - [ ] `@charger     :test`[Notebook com TESTES](base/charger/Readme.md)
 
-### ArrayList I - Listas
+### BLOCO_C: ArrayList I - Listas
 
 - [ ] `@array       :open`[Manipulações em Arrays](base/array/Readme.md)
 - [ ] `@budega      :test`[Gerencie a fila de espera e atendimento](base/budega/Readme.md)
@@ -71,24 +71,24 @@ Significado das tags nas questões:
 - [ ] `@tabuleiro   :test`[Jogo de tabuleiro e armadilhas](base/tabuleiro/Readme.md)
 - [ ] `@pula-pula   :test`[Gerenciando entradas e saídas do pula pula](base/pula-pula/Readme.md)
 
-### ArrayList II - Arrays de Null
+### BLOCO_C: ArrayList II - Arrays de Null
 
 - [ ] `@cinema      :test`[Gerenciando reservas e cancelamentos de uma sala de cinema](base/cinema/Readme.md)
 - [ ] `@junkfood    :test`[Comprando comida cara e duvidosa](base/junkfood/Readme.md)
 
-### ArrayList III - CRUD, Composição e Enum
+### BLOCO_C: ArrayList III - CRUD, Composição e Enum
 
 - [ ] `@enumeracao  :test`[Exemplo de uso de uma classe que funciona como Enumeração](base/enumeracao/Readme.md)
 - [ ] `@porquinho   :test`[Guardando moedas e itens em um cofrinho](base/porquinho/Readme.md)
 - [ ] `@tarifas     :test`[Operações de saque, depósito, extrato](base/tarifas/Readme.md)
 
-### CRUD com mapas e vetores
+### BLOCO_D: CRUD com mapas e vetores
 
 - [ ] `@contato     :test`[Gerenciando telefones de um único contato](base/contato/Readme.md)
 - [ ] `@agenda      :test`[Gerencie os vários contatos de uma agenda](base/agenda/Readme.md)
 - [ ] `@agiota      :test`[Gerencie os empréstimos do agiota](base/agiota/Readme.md)
 
-### Herança I
+### BLOCO_D: Herança I
 
 - [ ] `@shapes         :test`[Utilizando interface em círculos e retângulos](base/shapes/Readme.md)
 - [ ] `@estacionamento :test`[Cobrando o valor de carros e motos](base/estacionamento/Readme.md)

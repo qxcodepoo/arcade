@@ -9,6 +9,13 @@
         }
     ],
     "draft": {
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    \n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        let args = line.split(\" \");\n        \n        try {\n            if (args[0] == \"end\") {\n                break;\n            }\n            else if (args[0] == \"show\") {\n            }\n            else if (args[0] == \"init\") {\n                // const volumeMax = parseInt(args[1]);\n            }\n            else if (args[0] == \"addCoin\") {\n                // let value = parseInt(args[1]);\n            }\n            else if (args[0] == \"addItem\") {\n                // const label = args[1];\n                // const value = parseInt(args[2]);\n                // const volume = parseInt(args[3]);\n            }\n            else if (args[0] == \"break\") {\n            }\n            else if (args[0] == \"extractCoins\") {\n            }\n            else if (args[0] == \"extractItems\") {\n            }\n            else {\n                console.log(\"fail: invalid command\");\n            }\n        } catch (e) {\n            console.log(e.message);\n        }\n    }\n}\n\nmain();\n",
+                "type": "show"
+            }
+        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -20,13 +27,6 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <memory>\n#include <vector>\n#include <sstream>\n#include <iomanip>\nusing namespace std;\n\ntemplate <typename CONTAINER, typename FUNC>\nstring map_join(const CONTAINER& container, FUNC func, const string& separator) {\n    stringstream ss;\n    for (auto it = container.begin(); it != container.end(); ++it) {\n        ss << (it == container.begin() ? \"\" : separator);\n        ss << func(*it);\n    }\n    return ss.str();\n}\n\n\nint main() {\n    while (true) {\n        try {\n            string line, cmd;\n            getline(cin, line);\n            cout << '$' << line << endl;\n\n            stringstream ss(line);\n            ss >> cmd;\n\n            if (cmd == \"end\" ) {\n                break;\n            }\n            else if (cmd == \"init\") {\n                // int volumeMax;\n                // ss >> volumeMax;\n            }\n            else if (cmd == \"addCoin\") {\n                // int value;\n                // ss >> value;\n            }\n            else if (cmd == \"addItem\") {\n                // string label;\n                // double value;\n                // int volume;\n                // ss >> label >> value >> volume;\n            }\n            else if (cmd == \"break\") {\n            }\n            else if (cmd == \"extractCoins\") {\n            }\n            else if (cmd == \"extractItems\") { \n            }\n            else if (cmd == \"show\") { \n            }\n            else { \n                cout << \"fail: invalid command\" << endl;\n            }\n        } catch (string s) {\n            cout << s << endl;\n        }\n    }\n\n}\n",
-                "type": "show"
-            }
-        ],
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    \n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        let args = line.split(\" \");\n        \n        try {\n            if (args[0] == \"end\") {\n                break;\n            }\n            else if (args[0] == \"show\") {\n            }\n            else if (args[0] == \"init\") {\n                // const volumeMax = parseInt(args[1]);\n            }\n            else if (args[0] == \"addCoin\") {\n                // let value = parseInt(args[1]);\n            }\n            else if (args[0] == \"addItem\") {\n                // const label = args[1];\n                // const value = parseInt(args[2]);\n                // const volume = parseInt(args[3]);\n            }\n            else if (args[0] == \"break\") {\n            }\n            else if (args[0] == \"extractCoins\") {\n            }\n            else if (args[0] == \"extractItems\") {\n            }\n            else {\n                console.log(\"fail: invalid command\");\n            }\n        } catch (e) {\n            console.log(e.message);\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]
