@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main(): void {\n    // CRIE SEU OBJETO AQUI\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n            // const size = args[1];\n        } else if (cmd == \"show\") { // MOSTRE A ROUPA\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"fail: Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\nusing namespace std;\n\nint main() {\n    // CRIE SEU OBJETO AQUI\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO\n            // string size;\n            // ss >> size;\n        } else if (cmd == \"show\") { // MOSTRE AS INFORMA\u00c7\u00d5ES DO OBJETO\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            cout << \"fail: Comando inv\u00e1lido\" << endl;\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main(): void {\n    // CRIE SEU OBJETO AQUI\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"size\") { // TENTE ATRIBUIR UM TAMANHO A ROUPA\n            // const size = args[1];\n        } else if (cmd == \"show\") { // MOSTRE A ROUPA\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"fail: Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

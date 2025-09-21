@@ -39,6 +39,8 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 
 ![diagrama](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/diagrama.png)
 
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/agenda/../youguide.png)](https://youtu.be/jK5lhWprt3U?si=y-qGvrvG6DoqpXQ4)
+
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts

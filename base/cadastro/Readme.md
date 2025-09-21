@@ -32,6 +32,9 @@ O objetivo dessa atividade é implementar uma agência bancária simplificada. D
 
 ![diagrama](diagrama.png)
 
+[![youtube icon](../youguide.png)](https://youtu.be/2Mk5c6p-d20?si=M2XqjolrOL7Hw-C3)
+
+
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts

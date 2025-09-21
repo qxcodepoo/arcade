@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main() {\n\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        let args = line.split(\" \");\n        let cmd = args[0];\n        \n        if (cmd == \"end\") {\n            break;\n        }\n        else if (cmd == \"init\") {\n            // let nPlayers = parseInt(args[1]);\n            // let size = parseInt(args[2]);\n        }\n        else if (cmd == \"addTrap\") {\n            // let pos = parseInt(args[1]);\n        }\n        else if (cmd == \"roll\") {\n            // let value = parseInt(args[1]);\n        }\n        else if (cmd == \"show\") {\n        }  \n        else {\n            console.log(\"Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain()\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\nusing namespace std;\n\nint main() {\n\n    while(true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } else if (cmd == \"init\") {\n            // int nPlayers, size;\n            // ss >> nPlayers >> size;\n            // board = Board(nPlayers, size);\n        } else if (cmd == \"addTrap\") {\n            // int pos;\n            // ss >> pos;\n            // board.addTrap(pos);\n        } else if (cmd == \"roll\") {\n            // int value;\n            // ss >> value;\n        } else if (cmd == \"show\") {\n        } else {\n            cout << \"fail: command not found\" << endl;\n        }\n\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main() {\n\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        let args = line.split(\" \");\n        let cmd = args[0];\n        \n        if (cmd == \"end\") {\n            break;\n        }\n        else if (cmd == \"init\") {\n            // let nPlayers = parseInt(args[1]);\n            // let size = parseInt(args[2]);\n        }\n        else if (cmd == \"addTrap\") {\n            // let pos = parseInt(args[1]);\n        }\n        else if (cmd == \"roll\") {\n            // let value = parseInt(args[1]);\n        }\n        else if (cmd == \"show\") {\n        }  \n        else {\n            console.log(\"Comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain()\n",
                 "type": "show"
             }
         ]

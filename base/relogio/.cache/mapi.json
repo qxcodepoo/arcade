@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\nfunction main() {\n    // CRIE SEU REL\u00d3GIO AQUI\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"end\") {\n            break;\n        } else if (cmd == \"show\") {\n            // MOSTRE SEU REL\u00d3GIO AQUI\n        } else if (cmd == \"init\") {\n            // INICIE SEU REL\u00d3GIO AQUI UTILIZANDO O CONSTRUTOR\n            // const hour = parseInt(args[1]);\n            // const minute = parseInt(args[2]);\n            // const second = parseInt(args[3]);\n        } else if (cmd == \"set\") {\n            // AJUSTE SEU REL\u00d3GIO AQUI CHAMANDO OS M\u00c9TODOS setHour, setMinute e setSecond\n            // const hour = parseInt(args[1]);\n            // const minute = parseInt(args[2]);\n            // const second = parseInt(args[3]);\n        } else if (cmd == \"next\") {\n            // AVANCE SEU REL\u00d3GIO AQUI CHAMANDO O M\u00c9TODO nextSecond\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain()\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <sstream>\n#include <iomanip> // std::setfill, std::setw\nusing namespace std;\n\nint main() {\n    // CRIE SEU REL\u00d3GIO AQUI\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } else if (cmd == \"set\") {\n            \n            // Chame os m\u00e9todos setHour, setMinute e setSecond\n            // int hour {}, minute {}, second {};\n            // ss >> hour >> minute >> second;\n        } else if (cmd == \"init\") {\n            \n            // Chame o construtor para inicializar o rel\u00f3gio\n            // int hour {}, minute {}, second {};\n            // ss >> hour >> minute >> second;\n        } else if (cmd == \"show\") {\n            \n            // Chame o m\u00e9todo str e imprima o hor\u00e1rio\n            // cout << time.str() << endl;\n        } else if (cmd == \"next\") {\n            \n            // Chame o m\u00e9todo nextSecond\n            // time.nextSecond();\n        } else {\n            cout << \"fail: comando invalido\" << endl;\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\nfunction main() {\n    // CRIE SEU REL\u00d3GIO AQUI\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        const args = line.split(\" \");\n        const cmd = args[0];\n\n        if (cmd == \"end\") {\n            break;\n        } else if (cmd == \"show\") {\n            // MOSTRE SEU REL\u00d3GIO AQUI\n        } else if (cmd == \"init\") {\n            // INICIE SEU REL\u00d3GIO AQUI UTILIZANDO O CONSTRUTOR\n            // const hour = parseInt(args[1]);\n            // const minute = parseInt(args[2]);\n            // const second = parseInt(args[3]);\n        } else if (cmd == \"set\") {\n            // AJUSTE SEU REL\u00d3GIO AQUI CHAMANDO OS M\u00c9TODOS setHour, setMinute e setSecond\n            // const hour = parseInt(args[1]);\n            // const minute = parseInt(args[2]);\n            // const second = parseInt(args[3]);\n        } else if (cmd == \"next\") {\n            // AVANCE SEU REL\u00d3GIO AQUI CHAMANDO O M\u00c9TODO nextSecond\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain()\n",
                 "type": "show"
             }
         ]

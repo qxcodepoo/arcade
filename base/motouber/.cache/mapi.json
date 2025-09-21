@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "function input() { return \"\"; }\nexport {};\n\nfunction main(): void {\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        }\n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"setDriver\") { \n        //     const name = par[1];\n        //     const money = parseInt(par[2]);\n        // }\n        // else if (cmd == \"setPass\") { \n        //     const name = par[1];\n        //     const money = parseInt(par[2]);\n        // }\n        // else if (cmd == \"drive\") { \n        //     const distance = parseInt(par[1]);\n        // }\n        // else if (cmd == \"leavePass\") { \n        // }\n        else {\n            console.log(\"fail: command not found\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <sstream>\n#include <memory>\nusing namespace std;\n\n\nint main() {\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"setDriver\") { \n        //     string name;\n        //     int money;\n        //     ss >> name >> money;\n        // }\n        // else if (cmd == \"setPass\") { \n        //     string name;\n        //     int money;\n        //     ss >> name >> money;\n        // }\n        // else if (cmd == \"drive\") { \n        //     int distance;\n        //     ss >> distance;\n        // }\n        // else if (cmd == \"leavePass\") { \n        // }\n        else {\n            cout << \"fail: command not found\\n\";\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "function input() { return \"\"; }\nexport {};\n\nfunction main(): void {\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        }\n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"setDriver\") { \n        //     const name = par[1];\n        //     const money = parseInt(par[2]);\n        // }\n        // else if (cmd == \"setPass\") { \n        //     const name = par[1];\n        //     const money = parseInt(par[2]);\n        // }\n        // else if (cmd == \"drive\") { \n        //     const distance = parseInt(par[1]);\n        // }\n        // else if (cmd == \"leavePass\") { \n        // }\n        else {\n            console.log(\"fail: command not found\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

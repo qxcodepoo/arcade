@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        }\n        else if (cmd == \"init\") {\n            // const volume = parseInt(par[1]);\n        }\n        else if (cmd == \"show\") {\n        }\n        else if (cmd == \"addCoin\") {\n            // const value = parseInt(par[1]);\n        }\n        else if (cmd == \"addItem\") {\n            // const label = par[1];\n            // const volume = parseInt(par[2]);\n        }\n        else if (cmd == \"break\") {\n        }\n        else if (cmd == \"extractCoins\") {\n        }\n        else if (cmd == \"extractItems\") {\n        }\n        else {\n            console.log(\"fail: invalid command\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <utility>\n#include <iomanip>\n#include <memory>\nusing namespace std;\n\ntemplate <typename CONTAINER, typename FN>\nstring map_join(const CONTAINER& container, FN fn, string sep = \", \", string prefix = \"[\", string suffix = \"]\") {\n    stringstream ss;\n    for (auto it = container.begin(); it != container.end(); ++it) {\n        ss << (it != container.begin() ? sep : \"\") << fn(*it);\n    }\n    return prefix + ss.str() + suffix;\n}\n\nint main() {\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } else if (cmd == \"init\") {\n            // int volumeMax;\n            // ss >> volumeMax;\n        } else if (cmd == \"show\") {\n        } else if (cmd == \"break\") {\n        } else if (cmd == \"addCoin\") {\n            // string label;\n            // ss >> label;\n        } else if (cmd == \"addItem\") {\n            // string label;\n            // int volume;\n            // ss >> label >> volume;\n        } else if (cmd == \"extractItems\") {\n            // Obtenha os itens com o m\u00e9todo extractItems\n            // e imprima os itens obtidos\n        } else if (cmd == \"extractCoins\") {\n            // Obtenha as moedas com o m\u00e9todo extractCoins\n            // e imprima as moedas obtidas\n        } else {\n            cout << \"fail: invalid command\\n\";\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        }\n        else if (cmd == \"init\") {\n            // const volume = parseInt(par[1]);\n        }\n        else if (cmd == \"show\") {\n        }\n        else if (cmd == \"addCoin\") {\n            // const value = parseInt(par[1]);\n        }\n        else if (cmd == \"addItem\") {\n            // const label = par[1];\n            // const volume = parseInt(par[2]);\n        }\n        else if (cmd == \"break\") {\n        }\n        else if (cmd == \"extractCoins\") {\n        }\n        else if (cmd == \"extractItems\") {\n        }\n        else {\n            console.log(\"fail: invalid command\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

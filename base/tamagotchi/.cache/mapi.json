@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    // CRIE SEU JOGO AQUI COM UM PET ZERADO\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"init\") {\n        //     // CRIE UM NOVO JOGO COM UM NOVO PET\n        //     const energy = parseInt(par[1]);\n        //     const clean = parseInt(par[2]);\n        // } \n        // else if (cmd == \"play\") { \n        // } \n        // else if (cmd == \"shower\") { \n        // } \n        // else if (cmd == \"sleep\") { \n        // } \n        // else if (cmd == \"show\") { \n        // } \n        else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <sstream>\n#include <string>\nusing namespace std;\n\nint main() {\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"init\") {\n        //     // CRIE UM NOVO JOGO COM UM NOVO PET\n        //     int energy, clean;\n        //     ss >> energy >> clean;\n        // }\n        // else if (cmd == \"show\") { \n        // } \n        // else if (cmd == \"play\") { \n        // } \n        // else if (cmd == \"shower\") { \n        // } \n        // else if (cmd == \"eat\") { \n        // } \n        // else if (cmd == \"sleep\") { \n        // } \n        else {\n            cout << \"fail: comando invalido\" << endl;\n        }\n    }\n    return 0;\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    // CRIE SEU JOGO AQUI COM UM PET ZERADO\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"init\") {\n        //     // CRIE UM NOVO JOGO COM UM NOVO PET\n        //     const energy = parseInt(par[1]);\n        //     const clean = parseInt(par[2]);\n        // } \n        // else if (cmd == \"play\") { \n        // } \n        // else if (cmd == \"shower\") { \n        // } \n        // else if (cmd == \"sleep\") { \n        // } \n        // else if (cmd == \"show\") { \n        // } \n        else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

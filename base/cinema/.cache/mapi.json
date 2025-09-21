@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\n\nfunction main() {\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd === \"end\") {\n            break;\n        } else if (cmd === \"show\") { \n        } else if (cmd === \"init\") {\n            // const seats = parseInt(par[1], 10);\n        } else if (cmd === \"reserve\") {\n            // const id = par[1];\n            // const phone = parseInt(par[2]);\n            // const index = parseInt(par[3], 10);\n        } else if (cmd === \"cancel\") {\n            // const id = par[1];\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <memory>\nusing namespace std;\n\ntemplate<class CONTAINER, class FUNC>\nstring map_join(const CONTAINER& c, FUNC f, string sep) {\n    stringstream ss;\n    for (auto it = c.begin(); it != c.end(); it++) {\n        ss << (it == c.begin() ? \"\" : sep);\n        ss << f(*it);\n    }\n    return ss.str();\n}\n\nint main() {\n\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;    \n        } else if (cmd == \"show\") {\n        } else if (cmd == \"init\") {\n            // int qtd;\n            // ss >> qtd;\n        } else if (cmd == \"reserve\") {\n            // string id, phone;\n            // int index;\n            // ss >> id >> phone >> index;\n        } else if (cmd == \"cancel\") {\n            // string id;\n            // ss >> id;\n        } else {\n            cout << \"fail: comando invalido\" << endl;\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\n\nfunction main() {\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd === \"end\") {\n            break;\n        } else if (cmd === \"show\") { \n        } else if (cmd === \"init\") {\n            // const seats = parseInt(par[1], 10);\n        } else if (cmd === \"reserve\") {\n            // const id = par[1];\n            // const phone = parseInt(par[2]);\n            // const index = parseInt(par[3], 10);\n        } else if (cmd === \"cancel\") {\n            // const id = par[1];\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

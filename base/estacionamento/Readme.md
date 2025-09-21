@@ -40,6 +40,9 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
 
 ![_](diagrama.png)
 
+[![youtube icon](../yousolver.png)](https://youtu.be/PBabGC5nlPE?si=NgkxkLArCDVx52fJ)
+
+
 Você pode controlar o alinhamento e preenchimento com "_" que o método `toString()` deve retornar assim.
 
 ```cpp

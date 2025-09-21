@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main() {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        const args = line.split(\" \");\n        const cmd = args[0];\n        \n        if (cmd === \"end\") {\n            break;\n        } else if (cmd === \"init\") {\n            const name = args[1];\n        } else if (cmd === \"add\") {\n            const id = args[1];\n            const number = args[2];\n        } else if (cmd === \"rm\") {\n            const index = +args[1];\n        } else if (cmd === \"tfav\") {\n        } else if (cmd === \"show\") {\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <sstream>\n#include <vector>\n#include <iomanip>\n#include <sstream>\n\nusing namespace std;\n\ntemplate <class CONTAINER, class FUNC>\nstring map_join(const CONTAINER &cont, FUNC func, string sep = \" \")\n{\n    stringstream ss;\n    for (auto it = cont.begin(); it != cont.end(); it++)\n    {\n        ss << (it == cont.begin() ? \"\" : sep) << func(*it);\n    }\n    return ss.str();\n}\nint main()\n{\n    while (true)\n    {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\")\n        {\n            break;\n        }\n        else if (cmd == \"init\")\n        {\n            // string name;\n            // ss >> name;\n        }\n        else if (cmd == \"add\")\n        {\n            // string id, number;\n            // ss >> id >> number;\n        }\n        else if (cmd == \"rm\")\n        {\n            // int index{};\n            // ss >> index;\n        }\n        else if (cmd == \"tfav\")\n        {\n        }\n        else if (cmd == \"show\")\n        {\n        }\n        else\n        {\n            cout << \"fail: comando invalido\" << endl;\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main() {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        const args = line.split(\" \");\n        const cmd = args[0];\n        \n        if (cmd === \"end\") {\n            break;\n        } else if (cmd === \"init\") {\n            const name = args[1];\n        } else if (cmd === \"add\") {\n            const id = args[1];\n            const number = args[2];\n        } else if (cmd === \"rm\") {\n            const index = +args[1];\n        } else if (cmd === \"tfav\") {\n        } else if (cmd === \"show\") {\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

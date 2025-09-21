@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport { };\n\n\nfunction main() {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        let args = line.split(\" \");\n        let cmd = args[0];\n\n        if (cmd == \"show\") {\n        } else if (cmd == \"init\") {\n            // let qtd_espirais = parseInt(args[1]);\n        } else if (cmd == \"limpar\") {\n            // let indice = parseInt(args[1]);\n        } else if (cmd == \"dinheiro\") {\n            // let value = parseFloat(args[1]);\n        } else if (cmd == \"comprar\") {\n            // let ind = parseInt(args[1]);\n        } else if (cmd == \"set\") {\n            // let indice = parseInt(args[1]);\n            // let nome = args[2];\n            // let qtd = parseInt(args[3]);\n            // let preco = parseFloat(args[4]);\n        } else if (cmd == \"troco\") {\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"comando invalido\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <iomanip>\nusing namespace std;\n\ntemplate<typename CONTAINER, typename FUNC>\nstring map_join(const CONTAINER& cont, FUNC func, string delim) {\n    stringstream ss;\n    for (auto it = cont.begin(); it != cont.end(); it++) {\n        ss << (it == cont.begin() ? \"\" : delim);\n        ss << func(*it);\n    }\n    return ss.str();\n}\n\n\nint main() {\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        try {\n            if (cmd == \"show\") {\n                // IMPRIMIR\n            } else if (cmd == \"init\") {\n                // int n_espirais {};\n                // ss >> n_espirais;\n            } else if (cmd == \"limpar\") {\n                // int indice {};\n                // ss >> indice;\n            } else if (cmd == \"dinheiro\") {\n                // int value {};\n                // ss >> value;\n            } else if (cmd == \"comprar\") {\n                // int index {};\n                // ss >> index;\n            } else if (cmd == \"set\") {\n                // int index {};\n                // string name;\n                // int qtd {};\n                // double price {};\n                // ss >> index >> name >> qtd >> price;\n            } else if (cmd == \"troco\") {\n            } else if (cmd == \"end\") {\n                break;\n            } else {\n                cout << \"comando invalido\" << endl;\n            }\n        } catch (const char* e) {\n            cout << e << endl;\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport { };\n\n\nfunction main() {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        let args = line.split(\" \");\n        let cmd = args[0];\n\n        if (cmd == \"show\") {\n        } else if (cmd == \"init\") {\n            // let qtd_espirais = parseInt(args[1]);\n        } else if (cmd == \"limpar\") {\n            // let indice = parseInt(args[1]);\n        } else if (cmd == \"dinheiro\") {\n            // let value = parseFloat(args[1]);\n        } else if (cmd == \"comprar\") {\n            // let ind = parseInt(args[1]);\n        } else if (cmd == \"set\") {\n            // let indice = parseInt(args[1]);\n            // let nome = args[2];\n            // let qtd = parseInt(args[3]);\n            // let preco = parseFloat(args[4]);\n        } else if (cmd == \"troco\") {\n        } else if (cmd == \"end\") {\n            break;\n        } else {\n            console.log(\"comando invalido\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

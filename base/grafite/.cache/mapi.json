@@ -9,13 +9,6 @@
         }
     ],
     "draft": {
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "function input() { return \"\"; }\nexport {};\n\nfunction main() {\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        }\n        // else if (cmd == \"init\") { \n        //     const thickness = parseFloat(par[1]);\n        // }\n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"insert\") { \n        //     const thickness = parseFloat(par[1]);\n        //     const hardness = par[2];\n        //     const size = parseInt(par[3]);\n        // }\n        // else if (cmd == \"remove\") { \n        // }\n        // else if (cmd == \"write\") { \n        // }\n        else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
-                "type": "show"
-            }
-        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,6 +20,13 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <memory>\n#include <utility> //exchange\n#include <sstream>\nusing namespace std;\n\nint main() {\n    \n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"init\") { \n        //     float thickness;\n        //     ss >> thickness;\n        // }\n        // else if (cmd == \"insert\") { \n        //     float thickness;\n        //     string hardness;\n        //     int size;\n        //     ss >> thickness >> hardness >> size;\n        // }\n        // else if (cmd == \"remove\") { \n        // }\n        // else if (cmd == \"write\") { \n        // }\n        else {\n            cout << \"fail: comando invalido\" << endl;\n        }\n    }\n}\n",
+                "type": "show"
+            }
+        ],
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "function input() { return \"\"; }\nexport {};\n\nfunction main() {\n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        }\n        // else if (cmd == \"init\") { \n        //     const thickness = parseFloat(par[1]);\n        // }\n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"insert\") { \n        //     const thickness = parseFloat(par[1]);\n        //     const hardness = par[2];\n        //     const size = parseInt(par[3]);\n        // }\n        // else if (cmd == \"remove\") { \n        // }\n        // else if (cmd == \"write\") { \n        // }\n        else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]
