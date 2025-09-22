@@ -9,6 +9,13 @@
         }
     ],
     "draft": {
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    //CRIE SUA MOTO AQUI    \n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"init\") {\n        //     // INICIE SUA MOTO USANDO O CONSTRUTOR\n        //     const power = parseInt(par[1]);\n        // }\n        // else if (cmd == \"show\") {\n        //     // MOSTRE O ESTADO DA MOTO\n        // }\n        // else if (cmd == \"enter\") {\n        //     // CRIE UM OBJETO PESSOA E INSIRA NA MOTO\n        //     const name = par[1];\n        //     const age = parseInt(par[2]);\n        // }\n        // else if (cmd == \"leave\") {\n        //     // REMOVA A PESSOA DA MOTO\n        //     // SE O OBJETO RETORNADO N\u00c3O FOR NULO, MOSTRE SEUS DADOS\n        // }\n        // else if (cmd == \"honk\") {\n        //     // TOQUE A BUZINA\n        // }\n        // else if (cmd == \"buy\") {\n        //     // COMPRE TEMPO DE USO DA MOTO\n        //     const time = parseInt(par[1]);\n        // }\n        // else if (cmd == \"drive\") {\n        //     // DIRIJA A MOTO\n        //     const time = parseInt(par[1]);\n        // } \n        else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain()\n",
+                "type": "show"
+            }
+        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -20,13 +27,6 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <memory> //shared_ptr\n#include <sstream> //stringstream\n#include <utility> //exchange\nusing namespace std;\n\nint main() {\n    // CRIE SUA MOTO AQUI COM POTENCIA 1\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"init\") {\n        //     // INICIE A MOTO AQUI USANDO O CONSTRUTOR\n        //     int power {};\n        //     ss >> power;\n        // } \n        // else if (cmd == \"show\") {\n        //     // MOSTRE A MOTO AQUI\n        // }\n        // else if (cmd == \"leave\") {\n        //     // RETIRE A PESSOA DA MOTO\n        //     // SE EXISTIR, MOSTRE A PESSOA\n        // }\n        // else if (cmd == \"honk\") {\n        //     // BUZINE A MOTO\n        // }\n        // else if (cmd == \"enter\") {\n        //     // CRIE UM PONTEIRO PARA PESSOA E INICIE-O AQUI\n        //     // DEPOIS INSIRA A PERSON NA MOTO\n        //     string name {};\n        //     int age {};\n        //     ss >> name >> age;\n        // }\n        // else if (cmd == \"buy\") {\n        //     // COMPRE TEMPO PARA DIRIGIR\n        //     int time {};\n        //     ss >> time;\n        // }\n        // else if (cmd == \"drive\") {\n        //     // DIRIJA A MOTO POR UM TEMPO\n        //     int time {};\n        //     ss >> time;\n        // }\n        else {\n            cout << \"fail: invalid command\\n\";\n        }\n    }\n}\n",
-                "type": "show"
-            }
-        ],
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    //CRIE SUA MOTO AQUI    \n\n    while (true) {\n        const line = input();\n        console.log(\"$\" + line);\n\n        const par = line.split(\" \");\n        const cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"init\") {\n        //     // INICIE SUA MOTO USANDO O CONSTRUTOR\n        //     const power = parseInt(par[1]);\n        // }\n        // else if (cmd == \"show\") {\n        //     // MOSTRE O ESTADO DA MOTO\n        // }\n        // else if (cmd == \"enter\") {\n        //     // CRIE UM OBJETO PESSOA E INSIRA NA MOTO\n        //     const name = par[1];\n        //     const age = parseInt(par[2]);\n        // }\n        // else if (cmd == \"leave\") {\n        //     // REMOVA A PESSOA DA MOTO\n        //     // SE O OBJETO RETORNADO N\u00c3O FOR NULO, MOSTRE SEUS DADOS\n        // }\n        // else if (cmd == \"honk\") {\n        //     // TOQUE A BUZINA\n        // }\n        // else if (cmd == \"buy\") {\n        //     // COMPRE TEMPO DE USO DA MOTO\n        //     const time = parseInt(par[1]);\n        // }\n        // else if (cmd == \"drive\") {\n        //     // DIRIJA A MOTO\n        //     const time = parseInt(par[1]);\n        // } \n        else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\nmain()\n",
                 "type": "show"
             }
         ]

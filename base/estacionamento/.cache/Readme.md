@@ -37,11 +37,9 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
   - O sistema deve ser capaz de fornecer uma lista de todos os veículos atualmente estacionados, incluindo o tipo de veículo, identificador e tempo de entrada.
 
 ## Guide
-
-![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/diagrama.png)
-
 [![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/../yousolver.png)](https://youtu.be/PBabGC5nlPE?si=NgkxkLArCDVx52fJ)
 
+![_](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/estacionamento/diagrama.png)
 
 Você pode controlar o alinhamento e preenchimento com "_" que o método `toString()` deve retornar assim.
 

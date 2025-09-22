@@ -9,6 +9,13 @@
         }
     ],
     "draft": {
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main(): void {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        \n        let args = line.split(\" \");\n        \n        if (args[0] === \"end\") {\n            break;\n        } else if (args[0] === \"add\") {//name id:fone id:fone ...\n            // const name = args[1];\n            // const fones: Fone[] = [];\n            // for (let i = 2; i < args.length; i++) {\n            //     const [label, number] = args[i].split(':');\n            //     fones.push(new Fone(label, number));\n            // }\n        } else if (args[0] === \"show\") {\n        } else if (args[0] === \"rmFone\") {//id index\n            // const id = args[1];\n            // const index = parseInt(args[2]);\n        } else if (args[0] === \"rm\") {\n            const name = args[1];\n        } else if (args[0] === \"tfav\") {\n            // const id = args[1];\n        } else if (args[0] === \"search\") {//pattern\n            // const pattern = args[1];\n        } else if (args[0] === \"favs\") {\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\n\nmain();\n",
+                "type": "show"
+            }
+        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -27,13 +34,6 @@
             {
                 "name": "shell.go",
                 "contents": "package main\n\nimport (\n\t\"bufio\"\n\t\"fmt\"\n\t\"os\"\n\t\"slices\"\n\t\"sort\"\n\t\"strconv\"\n\t\"strings\"\n)\n\nfunc Join[T any](slice []T, sep string) string {\n\tresult := strings.Builder{}\n\tfor i, item := range slice {\n\t\tif i != 0 {\n\t\t\tresult.WriteString(sep)\n\t\t}\n\t\tresult.WriteString(fmt.Sprint(item))\n\t}\n\treturn result.String()\n}\n\nfunc main() {\n\tscanner := bufio.NewScanner(os.Stdin)\n\tfor {\n\t\tfmt.Print(\"$\")\n\t\tif !scanner.Scan() {\n\t\t\tbreak\n\t\t}\n\t\tline := scanner.Text()\n\t\targs := strings.Fields(line)\n\t\tfmt.Println(line)\n\n\t\tswitch args[0] {\n\t\tcase \"end\":\n\t\t\treturn\n\t\tcase \"add\":\n\t\t\tname := args[1]\n\t\t\t_ = name\n\t\tcase \"show\":\n\t\tcase \"rmFone\":\n\t\t\tname := args[1]\n\t\t\tindex, _ := strconv.Atoi(args[2])\n\t\t\t_, _ = name, index\n\t\tcase \"rm\":\n\t\t\tname := args[1]\n\t\t\t_ = name\n\t\tcase \"search\":\n\t\t\tpattern := args[1]\n\t\t\t_ = pattern\n\t\tcase \"tfav\":\n\t\t\tname := args[1]\n\t\t\t_ = name\n\t\tcase \"favs\":\n\t\tdefault:\n\t\t\tfmt.Println(\"fail: command not found\")\n\t\t}\n\t}\n}\n",
-                "type": "show"
-            }
-        ],
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main(): void {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        \n        let args = line.split(\" \");\n        \n        if (args[0] === \"end\") {\n            break;\n        } else if (args[0] === \"add\") {//name id:fone id:fone ...\n            // const name = args[1];\n            // const fones: Fone[] = [];\n            // for (let i = 2; i < args.length; i++) {\n            //     const [label, number] = args[i].split(':');\n            //     fones.push(new Fone(label, number));\n            // }\n        } else if (args[0] === \"show\") {\n        } else if (args[0] === \"rmFone\") {//id index\n            // const id = args[1];\n            // const index = parseInt(args[2]);\n        } else if (args[0] === \"rm\") {\n            const name = args[1];\n        } else if (args[0] === \"tfav\") {\n            // const id = args[1];\n        } else if (args[0] === \"search\") {//pattern\n            // const pattern = args[1];\n        } else if (args[0] === \"favs\") {\n        } else {\n            console.log(\"fail: comando invalido\");\n        }\n    }\n}\n\n\nmain();\n",
                 "type": "show"
             }
         ]

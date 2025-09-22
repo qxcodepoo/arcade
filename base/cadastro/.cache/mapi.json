@@ -9,6 +9,13 @@
         }
     ],
     "draft": {
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main(): void {\n    while (true) {\n        try {\n            const line = input();\n            const args = line.split(\" \");\n            console.log(\"$\" + line);\n\n            if (line === \"end\") {\n                break;\n            } else if (args[0] === \"show\") {\n            } else if (args[0] === \"addCli\") {\n                // const clientId = args[1];\n            } else if (args[0] === \"saque\") {\n                // const idConta = +args[1];\n                // const value = +args[2];\n            } else if (args[0] === \"deposito\") {\n                // const idConta = +args[1];\n                // const value = +args[2];\n            } else if (args[0] === \"transf\") {\n                // const idContaDe = +args[1];\n                // const idContaPara = +args[2];\n                // const value = +args[3];\n            } else if (args[0] === \"update\") {\n            } else {\n                console.log(\"fail: comando invalido\");\n            }\n        } catch (e) {\n            console.log(e.message);\n        }\n    }\n}\n\nmain();\n",
+                "type": "show"
+            }
+        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -20,13 +27,6 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <string>\n#include <vector>\n#include <map>\n#include <memory>\n#include <iomanip>\n#include <sstream>\n\nusing namespace std;\n\n\nint main() {\n    string line;\n\n    while (getline(cin, line)) {\n        try {\n            istringstream iss(line);\n            string cmd;\n            iss >> cmd;\n            cout << \"$\" << line << endl;\n\n            if (cmd == \"end\") {\n                break;\n            } else if (cmd == \"show\") {\n            } else if (cmd == \"addCli\") {\n                // string clientId;\n                // iss >> clientId;\n            } else if (cmd == \"saque\") {\n                // int accountId;\n                // double value;\n                // iss >> accountId >> value;\n            } else if (cmd == \"deposito\") {\n                // int accountId;\n                // double value;\n                // iss >> accountId >> value;\n            } else if (cmd == \"transf\") {\n                // int accountIdFrom, accountIdTo;\n                // double value;\n                // iss >> accountIdFrom >> accountIdTo >> value;\n            } else if (cmd == \"update\") {\n            } else {\n                cout << \"fail: comando invalido\" << endl;\n            }\n        } catch (const exception& e) {\n            cout << e.what() << endl;\n        }\n    }\n\n    return 0;\n}\n",
-                "type": "show"
-            }
-        ],
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\n\nfunction main(): void {\n    while (true) {\n        try {\n            const line = input();\n            const args = line.split(\" \");\n            console.log(\"$\" + line);\n\n            if (line === \"end\") {\n                break;\n            } else if (args[0] === \"show\") {\n            } else if (args[0] === \"addCli\") {\n                // const clientId = args[1];\n            } else if (args[0] === \"saque\") {\n                // const idConta = +args[1];\n                // const value = +args[2];\n            } else if (args[0] === \"deposito\") {\n                // const idConta = +args[1];\n                // const value = +args[2];\n            } else if (args[0] === \"transf\") {\n                // const idContaDe = +args[1];\n                // const idContaPara = +args[2];\n                // const value = +args[3];\n            } else if (args[0] === \"update\") {\n            } else {\n                console.log(\"fail: comando invalido\");\n            }\n        } catch (e) {\n            console.log(e.message);\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

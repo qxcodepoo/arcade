@@ -9,6 +9,13 @@
         }
     ],
     "draft": {
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        var par = line.split(\" \");\n        var cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"turn_on\") { \n        // }\n        // else if (cmd == \"turn_off\") { \n        // }\n        // else if (cmd == \"use\") { \n        //     const minutes = parseInt(par[1]);\n        // }else if (cmd == \"set_charger\") {\n        //     // CRIE UM CARREGADOR COM A POT\u00caNCIA INFORMADA E CONECTE AO NOTEBOOK\n        //     const power = parseInt(par[1]);\n        // }\n        // else if (cmd == \"rm_charger\") {\n        //     // REMOVA O CARREGADOR DO NOTEBOOK E O IMPRIMA\n        // } \n        // else if (cmd == \"set_battery\") {\n        //     // CRIE UMA BATERIA COM A CAPACIDADE INFORMADA E CONECTE AO NOTEBOOK\n        //     const capacity = parseInt(par[1]);\n        // } \n        // else if (cmd == \"rm_battery\") {\n        //     // REMOVA A BATERIA DO NOTEBOOK E A IMPRIMA\n        // } \n        else {\n            console.log(\"fail: comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();\n",
+                "type": "show"
+            }
+        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -20,13 +27,6 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <sstream>\n#include <memory>\n#include <utility>\nusing namespace std;\n\nint main() {\n    while (true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"show\") { \n        // } \n        // else if (cmd == \"turn_on\") { \n        // }\n        // else if (cmd == \"turn_off\") { \n        // } \n        // else if (cmd == \"use\") { \n        //     int minutes;\n        //     ss >> minutes;\n        // } \n        // else if (cmd == \"set_charger\") {\n        //     // CRIE UM OBJETO Charger E ATRIBUA AO NOTEBOOK\n        //     int power;\n        //     ss >> power;\n        // } \n        // else if (cmd == \"rm_charger\") {\n        //     // REMOVA O CARREGADOR DO NOTEBOOK E IMPRIMA SE ELE EXISTIR\n        // } \n        // else if (cmd == \"set_battery\") {\n        //     // CRIE UM OBJETO Bateria E ATRIBUA AO NOTEBOOK\n        //     int capacity;\n        //     ss >> capacity;\n        // } \n        // else if (cmd == \"rm_battery\") {\n        //     // REMOVA A BATERIA DO NOTEBOOK E IMPRIMA SE ELA EXISTIR\n        // } \n        else {\n            cout << \"fail: comando inv\u00e1lido\\n\";\n        }\n    }    \n}\n",
-                "type": "show"
-            }
-        ],
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport {};\n\nfunction main() {\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n\n        var par = line.split(\" \");\n        var cmd = par[0];\n\n        if (cmd == \"end\") {\n            break;\n        } \n        // else if (cmd == \"show\") { \n        // }\n        // else if (cmd == \"turn_on\") { \n        // }\n        // else if (cmd == \"turn_off\") { \n        // }\n        // else if (cmd == \"use\") { \n        //     const minutes = parseInt(par[1]);\n        // }else if (cmd == \"set_charger\") {\n        //     // CRIE UM CARREGADOR COM A POT\u00caNCIA INFORMADA E CONECTE AO NOTEBOOK\n        //     const power = parseInt(par[1]);\n        // }\n        // else if (cmd == \"rm_charger\") {\n        //     // REMOVA O CARREGADOR DO NOTEBOOK E O IMPRIMA\n        // } \n        // else if (cmd == \"set_battery\") {\n        //     // CRIE UMA BATERIA COM A CAPACIDADE INFORMADA E CONECTE AO NOTEBOOK\n        //     const capacity = parseInt(par[1]);\n        // } \n        // else if (cmd == \"rm_battery\") {\n        //     // REMOVA A BATERIA DO NOTEBOOK E A IMPRIMA\n        // } \n        else {\n            console.log(\"fail: comando inv\u00e1lido\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]

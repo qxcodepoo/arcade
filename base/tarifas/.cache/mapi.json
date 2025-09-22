@@ -9,6 +9,13 @@
         }
     ],
     "draft": {
+        "ts": [
+            {
+                "name": "shell.ts",
+                "contents": "const input = () => \"\"; // MODO_TESTE\nexport { };\n\nfunction main() {\n\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        let args = line.split(\" \");\n\n        if (args[0] == \"end\") {\n            break;\n        } else if (args[0] == \"init\") {\n            const id = parseInt(args[1]);\n        } else if (args[0] == \"show\") {\n        } else if (args[0] == \"withdraw\") {\n            const value = parseInt(args[1]);\n        } else if (args[0] == \"fee\") {\n            const value = parseInt(args[1]);\n        } else if (args[0] == \"reverse\") {\n            for (let i = 1; i < args.length; i++) {\n            }\n        } else if (args[0] == \"deposit\") {\n            const value = parseInt(args[1]);\n        } else if (args[0] == \"extract\") {\n            const qtdOp = parseInt(args[1]);\n        } else {\n            console.log(\"fail: invalid command\");\n        }\n    }\n}\n\nmain();\n",
+                "type": "show"
+            }
+        ],
         "java": [
             {
                 "name": "Shell.java",
@@ -20,13 +27,6 @@
             {
                 "name": "shell.cpp",
                 "contents": "#include <iostream>\n#include <vector>\n#include <sstream>\n#include <iomanip>\nusing namespace std;\n\ntemplate<typename CONTAINER, typename FUNC>\nstring join(const CONTAINER& cont, FUNC func, const string& delim) {\n    stringstream ss;\n    for (auto it = cont.begin(); it != cont.end(); it++) {\n        ss << (it == cont.begin() ? \"\" : delim) << func(*it);\n    }\n    return ss.str();\n}\n\nint main() {\n    \n    while(true) {\n        string line, cmd;\n        getline(cin, line);\n        cout << \"$\" << line << endl;\n\n        stringstream ss(line);\n        ss >> cmd;\n\n        \n        if (cmd == \"end\") {\n            break;\n        }\n        else if (cmd == \"init\") {\n            // int number{};\n            // ss >> number;\n        }\n        else if (cmd == \"show\") {\n            // TODO\n        }\n        else if (cmd == \"deposit\") {\n            // float value{};\n            // ss >> value;\n        }\n        else if (cmd == \"withdraw\") {\n            // float value{};\n            // ss >> value;\n        }\n        else if (cmd == \"fee\") {\n            // float value{};\n            // ss >> value;\n        }\n        else if (cmd == \"extract\") {\n            // int qtd{};\n            // ss >> qtd;\n        }\n        else if (cmd == \"reverse\") {\n            // int index{};\n            // while(ss >> index) {\n            // }\n        }\n        else {\n            cout << \"fail: invalid command\\n\";\n        }\n    }\n    return 0;\n}\n",
-                "type": "show"
-            }
-        ],
-        "ts": [
-            {
-                "name": "shell.ts",
-                "contents": "const input = () => \"\"; // MODO_TESTE\nexport { };\n\nfunction main() {\n\n    while (true) {\n        let line = input();\n        console.log(\"$\" + line);\n        let args = line.split(\" \");\n\n        if (args[0] == \"end\") {\n            break;\n        } else if (args[0] == \"init\") {\n            const id = parseInt(args[1]);\n        } else if (args[0] == \"show\") {\n        } else if (args[0] == \"withdraw\") {\n            const value = parseInt(args[1]);\n        } else if (args[0] == \"fee\") {\n            const value = parseInt(args[1]);\n        } else if (args[0] == \"reverse\") {\n            for (let i = 1; i < args.length; i++) {\n            }\n        } else if (args[0] == \"deposit\") {\n            const value = parseInt(args[1]);\n        } else if (args[0] == \"extract\") {\n            const qtdOp = parseInt(args[1]);\n        } else {\n            console.log(\"fail: invalid command\");\n        }\n    }\n}\n\nmain();\n",
                 "type": "show"
             }
         ]
