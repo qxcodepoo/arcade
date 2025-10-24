@@ -12,19 +12,25 @@
 Você pode testar utilizando um array de inteiros ou um array de objetos.
 
 - Criar um array vazio
+  - tanto para um tipo primitivo (int, number) quanto para um tipo objeto (classe Foo)
 - Criar um array preenchido
+  - preenchendo já com valores durante a criação
+- Obter o tamanho do array
 - Adicionar e remover elementos ao final
-- Fazer impressão formatada
+- Adicionar e remover elementos no início
+- Adicionar e remover elementos em uma posição específica
+- Fazer impressão formatada utilizando o método join
 - Criar um array com elementos em sequência de zero a n
 - Criar um array com valores aleatórios
 - Acessar elementos por índice
 - Percorrer os elementos utilizando for-range
 - Percorrer os elementos utilizando for indexado
 - Procurar um elemento X usando laço
+- Procurar um elemento X usando função nativa
 - Criar um novo array com elementos filtrados, por exemplo, pares
 - Criar um novo array com elementos transformados, por exemplo, ao quadrado
 - Buscar e remover um elemento X
-- Remover todos os elementos X
+- Remover todos os elementos com valor X da lista
 - Verificar quais funções existem nativamente na linguagem
   - busca
   - remoção
