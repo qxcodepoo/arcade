@@ -1,5 +1,5 @@
 all:
-	tk run Readme.md main.cpp
-	tk run Readme.md main.ts
-	tk run Readme.md Main.java
+	tk run README.md main.cpp
+	tk run README.md main.ts
+	tk run README.md Main.java
 	
