@@ -5,7 +5,7 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -164,7 +164,7 @@ $end
 
 [GUIA](_guide.md)
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 ---
 

@@ -5,7 +5,7 @@
 -- | --
 <!-- toch -->
 
-![_](cover.jpg)
+![_](cover.webp)
 
 ## Intro
 
@@ -19,7 +19,7 @@
 
 ## Guide
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.png)](https://youtu.be/tvQgaO2j7I8?si=IOcNHNKJio03sep_)
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.webp)](https://youtu.be/tvQgaO2j7I8?si=IOcNHNKJio03sep_)
 
 Aqui um exemplo de código python incompleto que implementa a classe Camisa e um loop para pedir o tamanho da camisa ao usuário.
 

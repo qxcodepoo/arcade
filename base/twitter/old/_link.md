@@ -4,7 +4,7 @@ title:  "Twitter"
 category: 'Adept'
 introduction: Twitte para seus seguidores e dê like quando gostar daquilo que alguém disse.
 description: 
-image: '/assets/twitter/cover.jpg'
+image: '/assets/twitter/cover.webp'
 tags:
 - agregação
 - excessões

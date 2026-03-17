@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 A UFC está precisando de um novo sistema de geração de folhas de pagamento, você aceita o desafio?'
 
@@ -97,7 +97,7 @@ $end
 - Utilize apenas um repositório (tire proveito do polimorfismo).
 - As classes filhas devem sobrescrever os métodos herdados da classe pai sempre que você achar necessário.
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 ***
 

@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 Faça o modelo de uma lapiseira que pode conter vários.
 
@@ -40,9 +40,9 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/yousolver.png)](https://youtu.be/82aFfjuITm8?si=dbFx8fWPH4CBL15d)
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/yousolver.webp)](https://youtu.be/82aFfjuITm8?si=dbFx8fWPH4CBL15d)
 
 
 ## Shell

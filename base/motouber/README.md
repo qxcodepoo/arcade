@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![_](cover.jpg)
+![_](cover.webp)
 
 ## Intro
 
@@ -23,7 +23,7 @@
 
 ## Guide
 
-[![youtube icon](../youguide.png)](https://youtu.be/SR5B0QkEFpc?si=wHrdAy-3_aZ5Pv3j)
+[![youtube icon](../youguide.webp)](https://youtu.be/SR5B0QkEFpc?si=wHrdAy-3_aZ5Pv3j)
 
 - Crie a classe Pessoa com os atributos nome e dinheiro.
 - Crie a classe Moto com os atributos custo, motorista e passageiro.

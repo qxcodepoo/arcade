@@ -5,11 +5,11 @@
 -- | -- | --
 <!-- toch -->
 
-![_](cover.jpg)
+![_](cover.webp)
 
 ## Intro
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.png)](https://youtu.be/27-PmhwFHYY?si=gAScW7a_CyxVNnTv)
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.webp)](https://youtu.be/27-PmhwFHYY?si=gAScW7a_CyxVNnTv)
 
 
 - Vamos implementar uma classe que controla os possíveis valores de tamanho para uma roupa.

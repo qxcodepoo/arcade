@@ -1,6 +1,6 @@
 # Relacionamentos Resumo
 
-![_](diagrama.png)
+![_](diagrama.webp)
 
 ## Relações de Agregação (tem um/has a)
 

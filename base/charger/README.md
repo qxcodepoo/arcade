@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![imagem de notebook](cover.jpg)
+![imagem de notebook](cover.webp)
 
 ## INTRO
 
@@ -23,7 +23,7 @@
 
 ## GUIDE
 
-[![youtube icon](../youguide.png)](https://youtu.be/2oyQq-h0kqY?si=8DQZV6mLYKNtd2jZ)
+[![youtube icon](../youguide.webp)](https://youtu.be/2oyQq-h0kqY?si=8DQZV6mLYKNtd2jZ)
 
 
 - Crie sempre atributos privados e os utilize através de métodos públicos.

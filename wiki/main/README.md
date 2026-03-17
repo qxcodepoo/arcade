@@ -1,6 +1,6 @@
 # Criando a Main
 
-![_](cover.jpg)
+![_](cover.webp)
 
 - Em c++:
   - Código: [main.cpp](main.cpp)

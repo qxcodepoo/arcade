@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ***
 
@@ -107,4 +107,4 @@ $end
 
 ## Alien
 
-[![_](../../wiki/images/alien4.jpg)](https://www.youtube.com/watch?v=yEks2RnwgeA)
+[![_](../../wiki/images/alien4.webp)](https://www.youtube.com/watch?v=yEks2RnwgeA)

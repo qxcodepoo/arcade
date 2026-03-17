@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 O objetivo dessa atividade é implementar uma classe responsável por gerenciar a account bancária de um único cliente. Faremos operações de withdraw, depósito e extrato.
 
@@ -39,9 +39,9 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../youguide.png)](https://youtu.be/KrjZsvprPq8?si=Jkc_90NZ6DrKElMH)
+[![youtube icon](../youguide.webp)](https://youtu.be/KrjZsvprPq8?si=Jkc_90NZ6DrKElMH)
 
 
 <!-- load diagrama.puml fenced=ts:filter -->

@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -31,9 +31,9 @@ A classe Pig (Porquinho) representa um cofre que permite aos usuários adicionar
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../yousolver.png)](https://youtu.be/rR2bIGsJjaw?si=VMEWLD5vWozDPX02)
+[![youtube icon](../yousolver.webp)](https://youtu.be/rR2bIGsJjaw?si=VMEWLD5vWozDPX02)
 
 ### Classe Coin
 

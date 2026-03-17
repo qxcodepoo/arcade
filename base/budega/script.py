@@ -12,12 +12,12 @@ def encode_image(image_path: str, json_path: str):
     file_extension = os.path.splitext(image_path)[1].lower()
     
     # Mapeamento de extensões para tipos MIME
-    if file_extension in ('.jpg', '.jpeg'):
+    if file_extension in ('.webp', '.jpeg'):
         mime_type = 'image/jpeg'
-    elif file_extension == '.png':
+    elif file_extension == '.webp':
         mime_type = 'image/png'
     else:
-        print(f"ERRO: Formato de imagem '{file_extension}' não suportado (apenas .jpg ou .png).")
+        print(f"ERRO: Formato de imagem '{file_extension}' não suportado (apenas .webp ou .webp).")
         sys.exit(1)
 
     try:
@@ -102,7 +102,7 @@ def main():
 
     # --- Subcomando ENCODE ---
     parser_encode = subparsers.add_parser("encode", help="Codifica uma imagem para Base64 e salva em um JSON.")
-    parser_encode.add_argument("image_file", type=str, help="Caminho para o arquivo de imagem (ex: foto.png).")
+    parser_encode.add_argument("image_file", type=str, help="Caminho para o arquivo de imagem (ex: foto.webp).")
     parser_encode.add_argument("json_output", type=str, help="Caminho para o arquivo JSON de saída (ex: dados.json).")
     parser_encode.set_defaults(func=lambda args: encode_image(args.image_file, args.json_output))
 

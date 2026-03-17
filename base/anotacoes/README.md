@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 O objetivo dessa atividade é criar um pequeno serviço de anotações. O sistema terá vários usuários que vão logar utilizando login e senha. Cada usuário pode armazenar notas de texto contendo título e texto.
 
@@ -91,7 +91,7 @@ $end
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 - O objetivo é dividir as responsabilidades entre o Sistema e o Gerenciador de Login.
 - Ambos compartilham a mesma estrutura de dados que contém os usuários `users: map<string, User>`.

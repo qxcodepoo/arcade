@@ -5,7 +5,7 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -41,9 +41,9 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../youguide.png)](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
+[![youtube icon](../youguide.webp)](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
 
 - Como formatar com duas casas decimais em diferentes linguagens.
 

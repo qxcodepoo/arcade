@@ -76,7 +76,7 @@ Serve para gerenciar a criação e manipulação dos produtos.
 
 ## Guide
 
-![Diagrama de Classes](diagrama.png)
+![Diagrama de Classes](diagrama.webp)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

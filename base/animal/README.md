@@ -5,7 +5,7 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -39,11 +39,11 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
 
-![_](diagrama.png)
+![_](diagrama.webp)
 
 - Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
 
-[![youtube icon](../yousolver.png)](https://youtu.be/QZfjLVrk7p8)
+[![youtube icon](../yousolver.webp)](https://youtu.be/QZfjLVrk7p8)
 
 ## Shell
 

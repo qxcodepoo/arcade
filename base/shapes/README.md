@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -74,9 +74,9 @@ A classe `Rectangle` tamb√©m implementa a interface `Shape` e representa um ret√
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](..//yousolver.png)](https://youtu.be/VMHI9mjIwZQ?si=jUgIc0AT9YY3Dc7K)
+[![youtube icon](..//yousolver.webp)](https://youtu.be/VMHI9mjIwZQ?si=jUgIc0AT9YY3Dc7K)
 
 
 ## Shell

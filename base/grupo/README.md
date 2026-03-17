@@ -5,7 +5,7 @@
 -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 - Usuários podem ser adicionados ao sistema e devem ter id único.
 - Os usuários podem criar grupos e convidar outros usuários do sistema.
@@ -60,7 +60,7 @@ $end
 
 ## Guia de Atividade
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 
 ## Créditos

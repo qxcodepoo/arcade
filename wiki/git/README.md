@@ -52,9 +52,9 @@ Seus repositórios **locais** consistem em três "árvores" mantidas pelo git.
 - A segunda `Index` (stage) que funciona como uma área temporária onde você define quem será salvo na próxima versão.
 - A terceira a `HEAD` (repositório local) que aponta para o último `commit` (confirmação) que você fez.
 
-![_](arvores.png)
+![_](arvores.webp)
 
-![https://www.cureffi.org/2014/08/27/git-tutorial](diagrama.png)
+![https://www.cureffi.org/2014/08/27/git-tutorial](diagrama.webp)
 
 ## Trabalhando com o repositório git do professor
 
@@ -73,7 +73,7 @@ No repositório da disciplina, você não tem direito de `escrita`, você pode a
 - Crie seu repositório no github.
   - Marque a opção Iniciar com Readme.
   - Após criado, vá em Code, Local, SSH e copie o link
-![_](local_ssh.png)
+![_](local_ssh.webp)
 
 - No seu computador
   - Entre na pasta que você quer que fique o seu repositório.

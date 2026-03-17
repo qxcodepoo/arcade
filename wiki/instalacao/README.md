@@ -1,6 +1,6 @@
 # Instalação C++ e TS
 
-![_](cover.jpg)
+![_](cover.webp)
 
 - [cpp](cpp.md)
 - [ts](ts.md)

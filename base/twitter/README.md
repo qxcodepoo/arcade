@@ -5,7 +5,7 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow outros usuários do sistema. Ao twittar, a mensagem vai para timeline de todas as pessoas que a seguem. Ao dar like, todos os usuários em suas timelines vêem os likes.
 
@@ -13,7 +13,7 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ## Vídeo
 
-[![_](player.png)](https://www.youtube.com/watch?v=75-YyuNrOsc)
+[![_](player.webp)](https://www.youtube.com/watch?v=75-YyuNrOsc)
 
 ***
 
@@ -55,7 +55,7 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

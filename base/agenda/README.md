@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 Sua agenda possui vários contatos e cada contato possui vários telefones.
 
@@ -37,9 +37,9 @@ Essa atividade é uma continuação da @014 Contato. Lá é explicado com mais d
 - [solver.cpp](.drafts.cpp)
 - [solver.ts](.drafts.ts)
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../youguide.png)](https://youtu.be/jK5lhWprt3U?si=y-qGvrvG6DoqpXQ4)
+[![youtube icon](../youguide.webp)](https://youtu.be/jK5lhWprt3U?si=y-qGvrvG6DoqpXQ4)
 
 <!-- load diagrama.puml fenced=ts:filter -->
 

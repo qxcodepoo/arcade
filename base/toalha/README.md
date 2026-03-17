@@ -5,7 +5,7 @@
 -- | --
 <!-- toch -->
 
-![_](cover.jpg)
+![_](cover.webp)
 
 ## Intro
 
@@ -21,11 +21,11 @@
 - Crie um método que retorna se a toalha esta seca `isDry`, que retorna `true` se a umidade da toalha for 0 e `false` caso contrário.
 - Faça um código de teste para validar o comportamento da classe Toalha.
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 ## Guide
 
-[![youtube icon](../youguide.png)](https://youtu.be/fEvJns4NpTM?si=G-FDqGnt_5SPSZpg)
+[![youtube icon](../youguide.webp)](https://youtu.be/fEvJns4NpTM?si=G-FDqGnt_5SPSZpg)
 
 - Abaixo você tem um exemplo de código em python que implementa a classe `Towel` e testa seu comportamento.
 - Adapte a ideia para a linguagem que você está estudando e crie seus próprios testes.

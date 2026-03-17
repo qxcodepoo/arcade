@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 O objetivo dessa atividade é implementar uma classe responsável por guardar um **único** contato da agenda telefônica do seu celular. Cada contato pode ter vários telefones.
 
@@ -43,9 +43,9 @@ Seu programa deve:
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../youguide.png)](https://youtu.be/jqNToRuOQhg?si=xn0CV6dPfEp11KG0)
+[![youtube icon](../youguide.webp)](https://youtu.be/jqNToRuOQhg?si=xn0CV6dPfEp11KG0)
 
 
 <!-- links .cache/drafts -->

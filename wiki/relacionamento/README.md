@@ -21,9 +21,9 @@ Um **objeto** de uma classe pode ter um **relacionamentos** com os **objetos** d
 
 Um relacionamento entre duas ou mais classes é chamada de **associação**
 
-![É publicado](publicado.png)
+![É publicado](publicado.webp)
 
-![Escreve](escreve.png)
+![Escreve](escreve.webp)
 
 Representamos as associações por meio de linhas retas que ligam as
 classes envolvidas.
@@ -31,11 +31,11 @@ classes envolvidas.
 A forma mais comum de implementar associação é ter um objeto como
 atributo de outro.
 
-![_](publicado2.png)
+![_](publicado2.webp)
 
 Neste caso, o livro possui um atributo editora que pertence a classe Editora.
 
-![_](escreve2.png)
+![_](escreve2.webp)
 
 Neste caso, o livro possui um atributo autor da classe Pessoa.
 
@@ -55,57 +55,57 @@ relacionadas a uma instância da classe B.
 Cada associação em um diagrama de classes possui duas multiplicidades,
 uma em cada extremo da linha que a representa.
 
-![_](multiplicidade.png)
+![_](multiplicidade.webp)
 
-![_](publicado3.png)
+![_](publicado3.webp)
 
 Um livro pode ser publicado por 1 ou mais editoras.
 
 Uma editora pode publicar um ou mais livros.
 
-![_](escreve3.png)
+![_](escreve3.webp)
 
 Uma pessoa escreve 0 ou mais livros.
 
 Um livro pode ser escrito por 1 ou mais pessoas.
 
-![_](dependente.png)
+![_](dependente.webp)
 
 Um sócio pode ter 0 ou mais dependentes.
 
 Um dependente é dependente de um sócio.
 
-![_](Aeroporto.png)
+![_](Aeroporto.webp)
 
 Um aeroporto pode ser origem ou destino de 0 ou mais vôos. Cada vôo parte ou chega em 1 aeroporto.
 
 ## Conectividade
 
-![_](conectividade.png)
+![_](conectividade.webp)
 
 ### Um para Um
 
-![_](gerencia.png)
+![_](gerencia.webp)
 
 Um empregado pode gerenciar no máximo um departamento, e um departamento possui um gerente.
 
 ### Um para Muitos
 
-![_](dependente.png)
+![_](dependente.webp)
 
 Um sócio pode ter 0 ou mais dependentes e cada dependente depende de um sócio.
 
-![_](lotado.png)
+![_](lotado.webp)
 
 Um empregado está lotado em um único departamento, mas um departamento pode ter diversos empregados.
 
 ## Muitos para Muitos
 
-![_](publicado3.png)
+![_](publicado3.webp)
 
 Um livro pode ser publicado por várias editoras e uma editora pode editar vários livros.
 
-![_](escreve3.png)
+![_](escreve3.webp)
 
 ## Navegabilidade
 
@@ -119,19 +119,19 @@ gerar dúvidas.
 - A navegabilidade descreve como as implementações do modelo podem ser
 navegadas e é simbolizada por setas no diagrama.
 
-![_](endereco2.png)
+![_](endereco2.webp)
 
 Neste caso, a pessoa sabe seu endereço, mas o endereço não sabe quem vive lá.
 
-![_](dependente2.png)
+![_](dependente2.webp)
 
 Neste caso, o sócio conhece seus dependentes, mas o dependente não sabe de quem ele depende.
 
-![_](dependente3.png)
+![_](dependente3.webp)
 
 Neste caso, o sócio conhece seus dependentese  o dependente sabe de quem ele depende.
 
-![_](cliente.png)
+![_](cliente.webp)
 
 O cliente conhece seus pedidos. O pedido conhece seus itens. Cada item do pedido conhece o produto comprado.
 
@@ -140,11 +140,11 @@ O cliente conhece seus pedidos. O pedido conhece seus itens. Cada item do pedido
 Quando um objeto participa de uma associação, ele tem um papel
 especı́fico nela.
 
-![_](escreve4.png)
+![_](escreve4.webp)
 
 O objeto Pessoa assume o papel de autor e o livro de obra.
 
-![_](contrata.png)
+![_](contrata.webp)
 
 O empregado desempenha o papel de contratado e a Organizacao desempenha o papel de contratante.
 
@@ -154,13 +154,13 @@ Uma associação reflexiva associa objetos da mesma classe.
 
 Cada objeto tem um papel distinto nessa associação.
 
-![_](supervisor.png)
+![_](supervisor.webp)
 
 Cada supervisionado conhece seu supervisor.
 
 Cada perfil pode ter múltiplos seguidores e seguir múltiplos perfis.
 
-![_](perfil.png)
+![_](perfil.webp)
 
 ## Agregação e Composição
 
@@ -168,7 +168,7 @@ Uma relação todo-parte entre dois objetos indica que um dos objetos está cont
 
 **Agregação** e **Composição** são dois tipos especiais de associação que relacionam um objeto (o todo) com suas partes.
 
-![_](todo_parte.png)
+![_](todo_parte.webp)
 
 ## Agregação reflexiva
 
@@ -176,11 +176,11 @@ A agregação é um caso especial de associação que relaciona um objeto (o tod
 
 A agregação é representada como uma linha de associação com um diamante junto à Classe agregadora.
 
-![_](departamento.png)
+![_](departamento.webp)
 
 Na agregação, a destruição de um objeto todo não implica necessariamente a destruição do objeto parte. Por exemplo, na relação acima, a exclusão de um departamento não necessariamente implica a exclusão de todos os professores do departamento.
 
-![_](equipes.png)
+![_](equipes.webp)
 
 Uma associação esportiva é formada por várias equipes.
 
@@ -190,7 +190,7 @@ Por outro lado, um jogador pode fazer parte de diversas equipes.
 
 Se uma das equipes das quais o jogador é membro for extinta, este jogador ainda poderá continuar membro de outras equipes.
 
-![_](socio.png)
+![_](socio.webp)
 
 ```Java
 public class Socio {
@@ -244,7 +244,7 @@ public class Clube {
 
 A composição é um caso especial de associação que relaciona um objeto (o todo) com suas partes. Porém, em uma composição, a destruição do objeto todo implica a destruição do objeto parte.
 
-![_](livro.png)
+![_](livro.webp)
 
 A composição é representada como uma linha de associação com um diamante preenchido junto à Classe agregadora.
 
@@ -252,11 +252,11 @@ Read more: [LINK](http://www.linhadecodigo.com.br/artigo/943/uml-unified-modelin
 
 Na composição, os objetos parte pertencem a um único todo. Por essa razão, a composição é também denominada agregação não compartilhada.
 
-![_](frame.png)
+![_](frame.webp)
 
 Os objetos das classes Button, TextField, Label, List não tem existência fora do Frame que eles estão conectados. Um Button não pode estar ao mesmo tempo em dois frames.
 
-![_](pedido.png)
+![_](pedido.webp)
 
 Os itens não têm existência independente do pedido ao qual estão conectados. Quando o pedido deixa de existir, o mesmo acontece com os seus itens.
 
@@ -266,7 +266,7 @@ Por outro lado, em uma agregação, pode ser que um objeto participe como compon
 
 Ou também que o objeto possa existir fora do todo ao qual está agregado. A lapiseira tem grafites, mas esses não são criados por ela e podem existir fora dela.
 
-![_](lapiseira.png)
+![_](lapiseira.webp)
 
 ## Classes Associativas
 
@@ -276,13 +276,13 @@ não podem ser armazenados por nenhuma das classes envolvidas.
 São produzidas quando ocorrem associações com multiplicidade muitos
 (*) em todas as extremidades.
 
-![_](atua.png)
+![_](atua.webp)
 
 Um ator pode atuar em muitos filmes e um filme pode ter vários atores
 atuando nele. Existe a necessidade de saber qual o papel interpretado por
 um ator em um determinado filme, mas onde armazenar essa informação?
 
-![_](conserto.png)
+![_](conserto.webp)
 
 Há funcionários com várias especialidades. Consertos em automóveis são realizados por funcionários, mas é necessário saber que especialidade foi utilizada pelo funcionário em certo conserto. Para isso, uma classe associativa é criada entre as classes Funcionário e
 Automóvel. Além disso, essa mesma classe associativa está associada à classe Especialidade para permitir conhecer qual a especialidade utilizada em um conserto.

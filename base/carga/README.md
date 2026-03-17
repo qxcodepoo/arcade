@@ -5,7 +5,7 @@
 -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 Vamos ampliar a atividade do trem colocando vagões de carga para carregar bagagens.
 

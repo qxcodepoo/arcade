@@ -37,7 +37,7 @@ class V2d {
   - desenhe todos os pontos do vetor `pontos` com cor `branca`.
 - Esse deve ser o resultado
 
-![image](https://user-images.githubusercontent.com/4747652/268647667-ee7086df-4d79-4536-ad0f-1c4708982c69.png)
+![image](https://user-images.githubusercontent.com/4747652/268647667-ee7086df-4d79-4536-ad0f-1c4708982c69.webp)
 
 ## Parte 2 - Movendo o personagem
 

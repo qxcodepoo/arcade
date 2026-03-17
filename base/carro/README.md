@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -45,7 +45,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ## Guide
 
-[![youtube icon](../youguide.png)](https://youtu.be/LM6KM4eLi3U)
+[![youtube icon](../youguide.webp)](https://youtu.be/LM6KM4eLi3U)
 
 
 - Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
@@ -53,7 +53,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 ## Shell
 

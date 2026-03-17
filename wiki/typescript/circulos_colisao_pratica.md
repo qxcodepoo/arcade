@@ -29,7 +29,7 @@ Depois, utilize esse sketch para testar o método:
 
 ## Parte 2 - Está colidindo com outro retângulo
 
-![Alt text](image.png)
+![Alt text](image.webp)
 
 [link](https://user-images.githubusercontent.com/4747652/273901159-d80ee59e-9860-425a-8aaf-a7532e87d59b.mp4)
 

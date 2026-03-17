@@ -5,11 +5,11 @@
 --
 <!-- toch -->
 
-![_](cover.jpg)
+![_](cover.webp)
 
 ## Guide
 
-[![youtube icon](../youguide.png)](https://youtu.be/EI0Qa8OgucQ?si=oKj11d9DYFFH0kle)
+[![youtube icon](../youguide.webp)](https://youtu.be/EI0Qa8OgucQ?si=oKj11d9DYFFH0kle)
 
 ### Parte 1 - Apenas o notebook
 

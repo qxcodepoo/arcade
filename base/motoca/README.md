@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -31,9 +31,9 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../yousolver.png)](https://youtu.be/6tYINNbLQeM?si=GkcP6dgnBcnzWhCw)
+[![youtube icon](../yousolver.webp)](https://youtu.be/6tYINNbLQeM?si=GkcP6dgnBcnzWhCw)
 
 - Classe Pessoa
   - Crie a classe `Pessoa` com os atributos `age` e `name`.

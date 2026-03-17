@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -77,7 +77,7 @@ $end
 ***
 
 ## Diagrama de Classes
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
 ***
 

@@ -1,6 +1,6 @@
 # Instalação C++ e TS
 
-![cover](cpp.jpg)
+![cover](cpp.webp)
 
 ## Caminho mais fácil
 

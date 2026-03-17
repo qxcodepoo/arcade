@@ -8,7 +8,7 @@
   - [Exemplo 3](#exemplo-3)
 <!-- toc -->
 
-![_](cover.jpg)
+![_](cover.webp)
 
 ## Como fazer seu código orientado a testes
 
@@ -20,7 +20,7 @@
 
 ## Relatório de Código
 
-![_](relatorio.jpg)
+![_](relatorio.webp)
 
 O relatório para ser colocado no início do arquivo principal do código de cada projeto e  deve responder às seguintes perguntas:
 

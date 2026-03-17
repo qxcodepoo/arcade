@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -33,9 +33,9 @@ O sistema deverá:
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](..//yousolver.png)](https://youtu.be/vzGO1V1nGpY?si=mZZ9da229M9KTf3b)
+[![youtube icon](..//yousolver.webp)](https://youtu.be/vzGO1V1nGpY?si=mZZ9da229M9KTf3b)
 
 
 <!-- load diagrama.puml fenced=ts:filter -->

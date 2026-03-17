@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 ## Intro
 
@@ -32,9 +32,9 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
     - A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.
 
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../yousolver.png)](https://youtu.be/T1eNw8HtDwY?si=LMVy6W6GHj6iOYda)
+[![youtube icon](../yousolver.webp)](https://youtu.be/T1eNw8HtDwY?si=LMVy6W6GHj6iOYda)
 
 
 ## Draft

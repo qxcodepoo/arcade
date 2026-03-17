@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.jpg)
+![cover](cover.webp)
 
 Você deve implementar um simulador de bichinho virtual. Ele poderá brincar, dormir e tomar banho. E eventualmente morrerá, se você não cuidar bem dele.
 
@@ -31,9 +31,9 @@ Seu sistema deverá:
 
 ## Guide
 
-![diagrama](diagrama.png)
+![diagrama](diagrama.webp)
 
-[![youtube icon](../youguide.png)](https://youtu.be/VRW3_JuNwkA?si=827by8nZURcc2AuM)
+[![youtube icon](../youguide.webp)](https://youtu.be/VRW3_JuNwkA?si=827by8nZURcc2AuM)
 
 ***
 
