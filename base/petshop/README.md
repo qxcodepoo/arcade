@@ -1,4 +1,4 @@
-# @petshop
+# Meu Petshop
 
 <!-- toch -->
 [Intro](#intro) | [Draft](#draft)
