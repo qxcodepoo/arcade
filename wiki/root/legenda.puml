@@ -1,7 +1,0 @@
-@startuml flow
-"**Intro**"#skyblue -down-> [ ]"**Tópico**" #skyblue
-"**Tópico**"--> "Resolvido" #pink
-"Resolvido"--> "Obrigatório" #green
-"Obrigatório"--> "Opcional" #yellow
-"Obrigatório"--> "Desafio" #red
-@enduml

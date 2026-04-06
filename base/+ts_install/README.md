@@ -1,6 +1,4 @@
-# Instalação C++ e TS
-
-![cover](ts.webp)
+# Instalação TS
 
 ## 01. Instalação do Node no Windows
 
