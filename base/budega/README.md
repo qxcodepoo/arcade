@@ -5,7 +5,7 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -35,9 +35,9 @@ Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.webp)](https://youtu.be/5-GqCN0VPpQ?si=SkROsibr5OC4tdnZ)
+[![youtube icon](../youguide.webp)](https://youtu.be/5-GqCN0VPpQ?si=SkROsibr5OC4tdnZ)
 
 ### Parte 1: Classe Cliente
 
@@ -90,7 +90,7 @@ Espera: [carla, maria, rubia]
 
 ## Answers
 
-[![_](../../wiki/images/resolucao.webp)](https://youtu.be/Z7karsbg1ok)
+[Resolução](https://youtu.be/Z7karsbg1ok)
 
 ## Shell
 

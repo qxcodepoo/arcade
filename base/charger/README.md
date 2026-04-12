@@ -1,11 +1,11 @@
 # Notebook com TESTES
 
 <!-- toch -->
-[INTRO](#intro) | [GUIDE](#guide) | [SHELL](#shell)
--- | -- | --
+[INTRO](#intro) | [GUIDE](#guide) | [SHELL](#shell) | [Drafts](#drafts)
+-- | -- | -- | --
 <!-- toch -->
 
-![imagem de notebook](cover.webp)
+![imagem de notebook](assets/cover.webp)
 
 ## INTRO
 
@@ -245,6 +245,8 @@ Notebook: ligado por 46 min, Carregador 5W
 
 $end
 ```
+
+## Drafts
 
 <!-- links .cache/drafts -->
 - cpp

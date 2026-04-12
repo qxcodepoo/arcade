@@ -150,13 +150,13 @@ Pagamento de R$ 800.0: Notebook
 Erro: Limite insuficiente no cartão 9999 8888 7777 6666
 ```
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 ___
 
 ## Implementação sem herança - Strategy Pattern
 
-![diagrama_strategy](diagrama_strategy.webp)
+![diagrama_strategy](assets/diagrama_strategy.webp)
 
 Principais Mudanças Conceituais no Diagrama
 

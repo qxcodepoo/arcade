@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 O objetivo dessa atividade é implementar uma classe responsável por gerenciar a account bancária de um único cliente. Faremos operações de withdraw, depósito e extrato.
 
@@ -33,131 +33,21 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ## Draft
 
-- [draft.cpp](.drafts.cpp)
-- [draft.java](.drafts.java)
-- [draft.ts](.drafts.ts)
+<!-- links .cache/drafts -->
+- cpp
+  - [shell.cpp](.cache/drafts/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/drafts/java/Shell.java)
+- ts
+  - [shell.ts](.cache/drafts/ts/shell.ts)
+<!-- links -->
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 [![youtube icon](../youguide.webp)](https://youtu.be/KrjZsvprPq8?si=Jkc_90NZ6DrKElMH)
 
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-```ts
-
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-
-
-
-enum Label {
-  + DEPOSIT {static}
-  + FEE {static}
-  + OPENING {static}
-  + REVERSE {static}
-  + WITHDRAW {static}
-  + ERROR {static}
-
-  __
-  - label: String
-  - Label(label : String)
-  __
-  + getLabel() : String
-}
-
-' operação guarda os dados de uma única operação
-class Operation {
-  - index : int
-  - label : Label
-  ' valor em negativo se estiver diminuindo o saldo
-  - value : int
-  ' saldo residual apos operação
-  - balance : int
-  __
-  + Operation(index : int, label : Label, value : int, balance : int)
-
-  + toString() : String
-  __
-  + getBalance() : int
-  + getIndex() : int
-  + getLabel() : Label
-  + getValue() : int
-}
-
-' nessa classe são efetivadas e registradas as alterações no saldo
-class BalanceManager {
-
-  ' saldo do cliente
-  - balance : int 
-
-  ' extrato
-  - extract : List<Operation>
-  
-  ' id da próxima operação
-  - nextId : int
-  __
-  + BalanceManager()
-
-  ' adiciona value ao balance
-  ' crie operação e adicione ao vetor de operações
-  ' incrementa o nextId
-  + addOperation(label : Label, value : int)
-  '
-  ' retorna a operação caso o índice seja válido
-  ' retorna uma operação com label ERROR caso contrário
-  + getOperation(index : int) : Operation
-  '
-  + toString() : String
-  __
-  '
-  ' retorna o saldo atual
-  + getBalance() : int
-
-  ' se qtdOp for 0, retorne todas as operações
-  ' se qtdOp for positivo, retorne as últimas qtdOp operações
-  + getExtract(qtdOp : int) : List<Operation>
-}
-
-class Account {
-  - balanceManager : BalanceManager
-  - id : int
-  __
-  + Account(id : int)
-
-  ' adiciona valor à conta
-  + deposit(value : int) : void
-
-  ' retira o dinheiro, mesmo que o balance fique negativo
-  + fee(value : int) : void
-
-  ' se o índice for válido e representar uma operação de tarifa
-  ' adicione o mesmo valor tarifado, mas com label de reverse(extorno)
-  + reverse(index : int) : void
-
-  ' só realiza a operação se houver dinheiro suficiente na conta
-  + withdraw(value : int) : void
-  + toString() : String
-  __
-  ' em c++, retorne a referencia
-  + getBalanceManager() : BalanceManager
-}
-
-
-
-
-Operation "1" *-->  "1" Label
-BalanceManager "1" *-->  "0..*" Operation
-Account "1" *-->  "1" BalanceManager
-@enduml
-
-```
-
-<!-- load -->
 
 ***
 

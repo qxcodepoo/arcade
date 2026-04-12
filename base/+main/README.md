@@ -1,6 +1,6 @@
 # Criando a Main
 
-![_](cover.webp)
+![_](assets/cover.webp)
 
 - Em c++:
   - Código: [main.cpp](main.cpp)

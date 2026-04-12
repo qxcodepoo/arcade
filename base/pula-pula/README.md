@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, controlando as pessoas que entram e saem do pula pula, além de coordenar as pessoas que estão na fila de espera.
 
@@ -30,7 +30,7 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 [![youtube icon](../youguide.webp)](https://youtu.be/Uu94DgZYa_M?si=AzLR2so6o5CLiZTz)
 

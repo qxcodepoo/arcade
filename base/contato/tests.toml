@@ -1,0 +1,164 @@
+[[tests]]
+input = '''
+init david
+show
+end
+'''
+output = '''
+$init david
+$show
+- david []
+$end
+'''
+
+[[tests]]
+input = '''
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+end
+'''
+output = '''
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$end
+'''
+
+[[tests]]
+input = '''
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+rm 2
+show
+rm 0
+show
+end
+'''
+output = '''
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$rm 2
+$show
+- david [oi:88, tim:99, vivo:83]
+$rm 0
+$show
+- david [tim:99, vivo:83]
+$end
+'''
+
+[[tests]]
+input = '''
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+rm 2
+show
+rm 0
+show
+add tim 9a9
+add tim (85)99.99
+show
+end
+'''
+output = '''
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$rm 2
+$show
+- david [oi:88, tim:99, vivo:83]
+$rm 0
+$show
+- david [tim:99, vivo:83]
+$add tim 9a9
+fail: invalid number
+$add tim (85)99.99
+$show
+- david [tim:99, vivo:83, tim:(85)99.99]
+$end
+'''
+
+[[tests]]
+input = '''
+init david
+show
+add oi 88
+add tim 99
+add tim 98
+add vivo 83
+show
+rm 2
+show
+rm 0
+show
+add tim 9a9
+add tim (85)99.99
+show
+tfav
+show
+tfav
+show
+end
+'''
+output = '''
+$init david
+$show
+- david []
+$add oi 88
+$add tim 99
+$add tim 98
+$add vivo 83
+$show
+- david [oi:88, tim:99, tim:98, vivo:83]
+$rm 2
+$show
+- david [oi:88, tim:99, vivo:83]
+$rm 0
+$show
+- david [tim:99, vivo:83]
+$add tim 9a9
+fail: invalid number
+$add tim (85)99.99
+$show
+- david [tim:99, vivo:83, tim:(85)99.99]
+$tfav
+$show
+@ david [tim:99, vivo:83, tim:(85)99.99]
+$tfav
+$show
+- david [tim:99, vivo:83, tim:(85)99.99]
+$end
+'''

@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![_](cover.webp)
+![_](assets/cover.webp)
 
 ## Intro
 

@@ -1,0 +1,202 @@
+[[tests]]
+input = '''
+init 0.5
+show
+end
+'''
+output = '''
+$init 0.5
+$show
+calibre: 0.5, grafite: null
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.5
+show
+insert 0.7 2B 50
+insert 0.5 2B 50
+show
+end
+'''
+output = '''
+$init 0.5
+$show
+calibre: 0.5, grafite: null
+$insert 0.7 2B 50
+fail: calibre incompativel
+$insert 0.5 2B 50
+$show
+calibre: 0.5, grafite: [0.5:2B:50]
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.3
+insert 0.3 2B 50
+show
+end
+'''
+output = '''
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.3
+insert 0.3 2B 50
+show
+insert 0.3 4B 70
+show
+end
+'''
+output = '''
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$insert 0.3 4B 70
+fail: ja existe grafite
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.3
+insert 0.3 2B 50
+show
+insert 0.3 4B 70
+show
+remove
+show
+end
+'''
+output = '''
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$insert 0.3 4B 70
+fail: ja existe grafite
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$remove
+$show
+calibre: 0.3, grafite: null
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.3
+insert 0.3 2B 50
+show
+insert 0.3 4B 70
+show
+remove
+show
+insert 0.3 4B 70
+show
+end
+'''
+output = '''
+$init 0.3
+$insert 0.3 2B 50
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$insert 0.3 4B 70
+fail: ja existe grafite
+$show
+calibre: 0.3, grafite: [0.3:2B:50]
+$remove
+$show
+calibre: 0.3, grafite: null
+$insert 0.3 4B 70
+$show
+calibre: 0.3, grafite: [0.3:4B:70]
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.9
+write
+end
+'''
+output = '''
+$init 0.9
+$write
+fail: nao existe grafite
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.9
+write
+insert 0.9 4B 14
+write
+write
+show
+end
+'''
+output = '''
+$init 0.9
+$write
+fail: nao existe grafite
+$insert 0.9 4B 14
+$write
+$write
+fail: tamanho insuficiente
+$show
+calibre: 0.9, grafite: [0.9:4B:10]
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.9
+insert 0.9 4B 16
+write
+show
+end
+'''
+output = '''
+$init 0.9
+$insert 0.9 4B 16
+$write
+$show
+calibre: 0.9, grafite: [0.9:4B:12]
+$end
+'''
+
+[[tests]]
+input = '''
+init 0.9
+insert 0.9 4B 16
+write
+show
+write
+show
+end
+'''
+output = '''
+$init 0.9
+$insert 0.9 4B 16
+$write
+$show
+calibre: 0.9, grafite: [0.9:4B:12]
+$write
+fail: folha incompleta
+$show
+calibre: 0.9, grafite: [0.9:4B:10]
+$end
+'''

@@ -1,0 +1,239 @@
+[[tests]]
+input = '''
+show
+end
+'''
+output = '''
+$show
+pass: 0, gas: 0, km: 0
+$end
+'''
+
+[[tests]]
+input = '''
+show
+enter
+enter
+show
+end
+'''
+output = '''
+$show
+pass: 0, gas: 0, km: 0
+$enter
+$enter
+$show
+pass: 2, gas: 0, km: 0
+$end
+'''
+
+[[tests]]
+input = '''
+show
+enter
+enter
+show
+enter
+show
+end
+'''
+output = '''
+$show
+pass: 0, gas: 0, km: 0
+$enter
+$enter
+$show
+pass: 2, gas: 0, km: 0
+$enter
+fail: limite de pessoas atingido
+$show
+pass: 2, gas: 0, km: 0
+$end
+'''
+
+[[tests]]
+input = '''
+show
+enter
+enter
+show
+enter
+show
+leave
+show
+end
+'''
+output = '''
+$show
+pass: 0, gas: 0, km: 0
+$enter
+$enter
+$show
+pass: 2, gas: 0, km: 0
+$enter
+fail: limite de pessoas atingido
+$show
+pass: 2, gas: 0, km: 0
+$leave
+$show
+pass: 1, gas: 0, km: 0
+$end
+'''
+
+[[tests]]
+input = '''
+show
+enter
+enter
+show
+enter
+show
+leave
+show
+leave
+leave
+show
+end
+'''
+output = '''
+$show
+pass: 0, gas: 0, km: 0
+$enter
+$enter
+$show
+pass: 2, gas: 0, km: 0
+$enter
+fail: limite de pessoas atingido
+$show
+pass: 2, gas: 0, km: 0
+$leave
+$show
+pass: 1, gas: 0, km: 0
+$leave
+$leave
+fail: nao ha ninguem no carro
+$show
+pass: 0, gas: 0, km: 0
+$end
+'''
+
+[[tests]]
+input = '''
+fuel 60
+show
+end
+'''
+output = '''
+$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$end
+'''
+
+[[tests]]
+input = '''
+fuel 60
+show
+drive 10
+end
+'''
+output = '''
+$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$end
+'''
+
+[[tests]]
+input = '''
+fuel 60
+show
+drive 10
+enter
+drive 10
+show
+end
+'''
+output = '''
+$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$enter
+$drive 10
+$show
+pass: 1, gas: 50, km: 10
+$end
+'''
+
+[[tests]]
+input = '''
+fuel 60
+show
+drive 10
+enter
+drive 10
+show
+drive 70
+drive 10
+show
+end
+'''
+output = '''
+$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$enter
+$drive 10
+$show
+pass: 1, gas: 50, km: 10
+$drive 70
+fail: tanque vazio apos andar 50 km
+$drive 10
+fail: tanque vazio
+$show
+pass: 1, gas: 0, km: 60
+$end
+'''
+
+[[tests]]
+input = '''
+fuel 60
+show
+drive 10
+enter
+drive 10
+show
+drive 70
+drive 10
+show
+fuel 200
+show
+end
+'''
+output = '''
+$fuel 60
+$show
+pass: 0, gas: 60, km: 0
+$drive 10
+fail: nao ha ninguem no carro
+$enter
+$drive 10
+$show
+pass: 1, gas: 50, km: 10
+$drive 70
+fail: tanque vazio apos andar 50 km
+$drive 10
+fail: tanque vazio
+$show
+pass: 1, gas: 0, km: 60
+$fuel 200
+$show
+pass: 1, gas: 100, km: 60
+$end
+'''

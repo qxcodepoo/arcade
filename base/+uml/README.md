@@ -1,6 +1,6 @@
 # Relacionamentos Resumo
 
-![_](diagrama.webp)
+![_](assets/diagrama.webp)
 
 ## Relações de Agregação (tem um/has a)
 

@@ -1,11 +1,11 @@
 # Jogo de tabuleiro e armadilhas
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+[Intro](#intro) | [Drafts](#drafts) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -15,7 +15,7 @@ O jogo prossegue em rodadas. Em cada rodada, os jogadores rolam um D20 (dado de 
 
 A maioria dos quadrados no tabuleiro são quadrados simples, mas alguns são “armadilhas”. Se a peça de um jogador cair em um quadrado da armadilha no final do movimento do jogador. O jogador ficará preso na armadilha até que na sua rodada jogue um número par se libertando da armadilha. Ao rolar um número par e se libertar da armadilha, sua peça não se move nessa rodada, mas na próxima poderá se mover normalmente.
 
-![_](tabuleiro.webp)
+![_](assets/tabuleiro.webp)
 
 Haverá exatamente três armadilhas na trilha.
 
@@ -28,58 +28,27 @@ Questão adaptada da maratona ACM 2003 por @WladimirTavares
 
 ___
 
-## Draft
+## Drafts
 
-- [solver.ts](.drafts.ts)
-- [solver.cpp](.drafts.cpp)
-  
+<!-- links .cache/drafts -->
+- cpp
+  - [shell.cpp](.cache/drafts/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/drafts/java/Shell.java)
+- ts
+  - [shell.ts](.cache/drafts/ts/shell.ts)
+<!-- links -->
+
 ## Guide
 
 [![youtube icon](../youguide.webp)](https://youtu.be/x3_hlVYdCdU?si=g0fR-AAgvzkMxU9G)
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
 ```ts
-
-@startuml
-
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-left to right direction
-class Player {
-  - label: number  
-  - pos  : number
-  - free : boolean
-  __
-  + Player(label: number)
-  + isFree()   : boolean
-  + toString() : string
-  __
-  + getLabel(): number
-  + getPos()  : number
-  + setPos(pos: number)
-  + setFree(free : boolean): void
-}
-
-class Board {
-  - trapList : Array<number>
-  - players  : Array<Player>
-  - running  : boolean
-  - boardSize: number
-  __
-  + Board(nPlayers: number, boardSize: number)
-  + toString(): string
-  __
-  + addTrap (pos  : number): void
-  + rollDice(value: number): void
-}
-
-Board "1" *--  "2..*" Player : > has
-@enduml
-
 ```
 
 <!-- load -->

@@ -1,0 +1,234 @@
+[[tests]]
+input = '''
+criar azul P
+mostrar
+end
+'''
+output = '''
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$end
+'''
+
+[[tests]]
+input = '''
+criar azul P
+mostrar
+seca
+end
+'''
+output = '''
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$end
+'''
+
+[[tests]]
+input = '''
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+end
+'''
+output = '''
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$end
+'''
+
+[[tests]]
+input = '''
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+end
+'''
+output = '''
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$end
+'''
+
+[[tests]]
+input = '''
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+enxugar 5
+end
+'''
+output = '''
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$enxugar 5
+toalha encharcada
+$end
+'''
+
+[[tests]]
+input = '''
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+enxugar 5
+mostrar
+enxugar 5
+mostrar
+end
+'''
+output = '''
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$end
+'''
+
+[[tests]]
+input = '''
+criar azul P
+mostrar
+seca
+enxugar 5
+mostrar
+seca
+enxugar 5
+mostrar
+enxugar 5
+mostrar
+torcer
+mostrar
+end
+'''
+output = '''
+$criar azul P
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$seca
+sim
+$enxugar 5
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 5
+$seca
+nao
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$enxugar 5
+toalha encharcada
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 10
+$torcer
+$mostrar
+Cor: azul, Tamanho: P, Umidade: 0
+$end
+'''
+
+[[tests]]
+input = '''
+criar verde G
+mostrar
+end
+'''
+output = '''
+$criar verde G
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 0
+$end
+'''
+
+[[tests]]
+input = '''
+criar verde G
+mostrar
+enxugar 30
+mostrar
+end
+'''
+output = '''
+$criar verde G
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 0
+$enxugar 30
+toalha encharcada
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 30
+$end
+'''
+
+[[tests]]
+input = '''
+criar verde G
+mostrar
+enxugar 30
+mostrar
+enxugar 1
+mostrar
+end
+'''
+output = '''
+$criar verde G
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 0
+$enxugar 30
+toalha encharcada
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 30
+$enxugar 1
+toalha encharcada
+$mostrar
+Cor: verde, Tamanho: G, Umidade: 30
+$end
+'''

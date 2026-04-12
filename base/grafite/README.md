@@ -5,11 +5,11 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 Faça o modelo de uma lapiseira que pode conter um único grafite.
 
-[![explicação](../../wiki/images/explicacao.webp)](https://youtu.be/LvZODN2rL6s)
+[![youtube icon](../youguide.webp)](https://youtu.be/DyhXHlM7Bv4?si=G05IiBLI15FrP6Bm)
 
 ## Intro
 
@@ -56,9 +56,8 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
-[![youtube icon](../youguide.webp)](https://youtu.be/DyhXHlM7Bv4?si=G05IiBLI15FrP6Bm)
 
 - Parte 1: Inserir
   - Crie a classe Grafite `Lead` com o atributo tamanho `size`.

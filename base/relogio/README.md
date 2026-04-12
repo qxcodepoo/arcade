@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -28,7 +28,7 @@ Seu objetivo é construtir uma Classe Relógio `Watch` que garanta que a hora, m
   - Se o minuto for 59, ele deve ser zerado e a hora incrementada.
   - Se a hora for 23, ela deve ser zerada.
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 ## Guide
 

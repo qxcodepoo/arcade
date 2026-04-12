@@ -5,7 +5,7 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 Ptolomeu é o agiota mais carismático de MoneyVille. Sem "nenhuma razão" foi denunciado e acabou indo pra cadeira. O problema foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
 
@@ -59,9 +59,9 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
-[![youtube icon](..//yousolver.webp)](https://youtu.be/XBJrKDd5fYY?si=HkQInss4B1x3HEYF)
+[![youtube icon](assets/..//yousolver.webp)](https://youtu.be/XBJrKDd5fYY?si=HkQInss4B1x3HEYF)
 
 
 ## Shell
@@ -206,4 +206,4 @@ $end
 - Então assim ficou Ptolomeu, depois de ir para a prisão e ver sua fortuna confiscada.
 - Se foi presídio, zoológico ou hospital psiquiátrico, ninguém comenta, só sabemos que ele nunca mais foi visto. Pelo menos não em Moneyville.
 
-![_](ptolomeu.webp)
+![_](assets/ptolomeu.webp)

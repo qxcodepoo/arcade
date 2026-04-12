@@ -2,16 +2,18 @@
 
 <!-- toc -->
 - [Instalação](#instalação)
-- [Configuração Inicial](#configuração-inicial)
+- [Configuração Inicial se estiver na sua máquina local ao invés do Codespace](#configuração-inicial-se-estiver-na-sua-máquina-local-ao-invés-do-codespace)
 - [Fluxo de trabalho](#fluxo-de-trabalho)
 - [Trabalhando com o repositório git do professor](#trabalhando-com-o-repositório-git-do-professor)
 - [Trabalhando com seu repositório Git](#trabalhando-com-seu-repositório-git)
+  - [Modo manual](#modo-manual)
+    - [Via Git Desktop](#via-git-desktop)
 - [Adicionar & Confirmar & Enviar pra nuvem](#adicionar--confirmar--enviar-pra-nuvem)
 - [Conflitos](#conflitos)
 - [Ignorando arquivos](#ignorando-arquivos)
 - [Desfazendo alterações e vendo diferenças](#desfazendo-alterações-e-vendo-diferenças)
 - [Desafio](#desafio)
-- [Guia rápida](#guia-rápida)
+- [Guia rápido](#guia-rápido)
 <!-- toc -->
 
 - [Link para instalação e orientações iniciais](https://www.webdevdrops.com/git-no-windows-github/)
@@ -52,9 +54,9 @@ Seus repositórios **locais** consistem em três "árvores" mantidas pelo git.
 - A segunda `Index` (stage) que funciona como uma área temporária onde você define quem será salvo na próxima versão.
 - A terceira a `HEAD` (repositório local) que aponta para o último `commit` (confirmação) que você fez.
 
-![_](arvores.webp)
+![_](assets/arvores.webp)
 
-![https://www.cureffi.org/2014/08/27/git-tutorial](diagrama.webp)
+![https://www.cureffi.org/2014/08/27/git-tutorial](assets/diagrama.webp)
 
 ## Trabalhando com o repositório git do professor
 
@@ -73,7 +75,7 @@ No repositório da disciplina, você não tem direito de `escrita`, você pode a
 - Crie seu repositório no github.
   - Marque a opção Iniciar com Readme.
   - Após criado, vá em Code, Local, SSH e copie o link
-![_](local_ssh.webp)
+![_](assets/local_ssh.webp)
 
 - No seu computador
   - Entre na pasta que você quer que fique o seu repositório.

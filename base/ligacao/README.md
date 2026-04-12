@@ -5,7 +5,7 @@
 -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 - TODO
 - solver

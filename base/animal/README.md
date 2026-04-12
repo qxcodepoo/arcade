@@ -1,11 +1,11 @@
 # Animal que nasce, cresce, morre
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell) | [Cheat](#cheat)
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -39,11 +39,23 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
 
-![_](diagrama.webp)
+![_](assets/diagrama.webp)
 
 - Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
 
 [![youtube icon](../yousolver.webp)](https://youtu.be/QZfjLVrk7p8)
+
+## Draft
+
+<!-- links .cache/drafts -->
+- cpp
+  - [shell.cpp](.cache/drafts/cpp/shell.cpp)
+- java
+  - [Shell.java](.cache/drafts/java/Shell.java)
+- ts
+  - [shell.ts](.cache/drafts/ts/shell.ts)
+<!-- links -->
+
 
 ## Shell
 
@@ -142,17 +154,6 @@ RIP
 
 $end
 ```
-
-## Draft
-
-<!-- links .cache/drafts -->
-- cpp
-  - [shell.cpp](.cache/drafts/cpp/shell.cpp)
-- java
-  - [Shell.java](.cache/drafts/java/Shell.java)
-- ts
-  - [shell.ts](.cache/drafts/ts/shell.ts)
-<!-- links -->
 
 ## Cheat
 

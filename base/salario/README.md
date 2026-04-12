@@ -1,11 +1,11 @@
 # @salario
 
 <!-- toch -->
-[Intro](#intro) | [Shell](#shell) | [Guide](#guide) | [Draft](#draft)
--- | -- | -- | --
+[Intro](#intro) | [Shell](#shell) | [Guide](#guide)
+-- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 A UFC está precisando de um novo sistema de geração de folhas de pagamento, você aceita o desafio?'
 
@@ -97,103 +97,4 @@ $end
 - Utilize apenas um repositório (tire proveito do polimorfismo).
 - As classes filhas devem sobrescrever os métodos herdados da classe pai sempre que você achar necessário.
 
-![diagrama](diagrama.webp)
-
-***
-
-## Draft
-
-<!--FILTER Solver.java java-->
-```java
-class MsgException extends RuntimeException {
-    public MsgException(String message);
-}
-abstract class Funcionario {
-    protected String nome;
-    protected int bonus;
-    protected int diarias;
-    protected int maxDiarias;
-    public Funcionario(String nome);
-    public String getNome();
-    public void setBonus(int bonus);
-      this.bonus = bonus;
-    //se não atingiu o máximo, adicione mais uma diária
-    //se atingiu o máximo, lance uma MsgException
-    public void addDiaria();
-    //retorna bonus + diarias * 100
-    public int getSalario();
-}
-class Professor extends Funcionario {
-    protected String classe;
-    //inicializa classe e muda maxDiarias para 2
-    public Professor(String nome, String classe);
-    public String getClasse();
-    //lógica do salário do professor
-    //usa o super.getSalario para pegar bonus e diarias
-    public int getSalario();
-    public String toString();
-}
-class STA extends Funcionario {
-    protected int nivel;
-    public STA(String nome, int nivel);
-    public int getNivel();
-    public int getSalario();
-    public String toString();
-}
-class Tercerizado extends Funcionario {
-    protected int horas;
-    protected boolean isSalubre = false;
-    public Tercerizado(String nome, int horas, String isSalubre);
-    public int getHoras();
-    public String getIsSalubre();
-    public int getSalario();
-    public void addDiaria();
-    public String toString();
-}
-class UFC {
-    private Map<String, Funcionario> funcionarios = new TreeMap<>();
-    public String toString();
-    public Funcionario getFuncionario(String nome);
-    public void addFuncionario(Funcionario funcionario);
-    public void rmFuncionario(String nome);
-    //reparte o bonus para todos os funcionarios
-    public void setBonus(int bonus);
-}
-class Solver {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        UFC ufc = new UFC();
-        while (true) {
-            try {
-                String line = scanner.nextLine();
-                System.out.println("$" + line);
-                String ui[] = line.split(" ");
-                if (ui[0].equals("end")) {
-                    break;
-                } else if (ui[0].equals("addProf")) {
-                    ufc.addFuncionario(new Professor(ui[1], ui[2]));
-                } else if (ui[0].equals("addSta")) {
-                    ufc.addFuncionario(new STA(ui[1], Integer.parseInt(ui[2])));
-                } else if (ui[0].equals("addTer")) {
-                    ufc.addFuncionario(new Tercerizado(ui[1], Integer.parseInt(ui[2]), ui[3]));
-                } else if (ui[0].equals("rm")) {
-                    ufc.rmFuncionario(ui[1]);
-                } else if (ui[0].equals("showAll")) {
-                    System.out.println(ufc);
-                } else if (ui[0].equals("show")) {
-                    System.out.println(ufc.getFuncionario(ui[1]));
-                } else if (ui[0].equals("addDiaria")) {
-                    ufc.getFuncionario(ui[1]).addDiaria();
-                } else if (ui[0].equals("setBonus")) {
-                    ufc.setBonus(Integer.parseInt(ui[1]));
-                } else {
-                    System.out.print("fail: comando invalido");
-                }
-            } catch (MsgException me) {
-                System.out.println(me.getMessage());
-            }
-        }
-    }
-}
-```
-<!--FILTER_END-->
+![diagrama](assets/diagrama.webp)

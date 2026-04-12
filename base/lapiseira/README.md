@@ -1,11 +1,11 @@
 # Lapiseira com múltiplos grafites
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 Faça o modelo de uma lapiseira que pode conter vários.
 
@@ -40,9 +40,9 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/yousolver.webp)](https://youtu.be/82aFfjuITm8?si=dbFx8fWPH4CBL15d)
+[![youtube icon](../yousolver.webp)](https://youtu.be/82aFfjuITm8?si=dbFx8fWPH4CBL15d)
 
 
 ## Shell
@@ -120,7 +120,7 @@ fail: tamanho insuficiente
 $end
 ```
 
-## Draft
+## Drafts
 
 <!-- links .cache/drafts -->
 - cpp

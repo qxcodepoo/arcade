@@ -1,11 +1,11 @@
 # @paciente
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Esqueleto](#esqueleto)
--- | -- | --
+[Intro](#intro) | [Guide](#guide)
+-- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -60,88 +60,4 @@ $end
 ***
 
 ## Guide
-![diagrama](diagrama.webp)
-
-***
-
-## Esqueleto
-<!--FILTER Solver.java java-->
-```java
-interface IPaciente {
-    public String getId();
-    public void addMedico(IMedico medico);
-    public void removerMedico(String idMedico);
-    public Collection<IMedico> getMedicos();
-    public String getDiagnostico();
-}
-interface IMedico {
-    public String getId();
-    public void addPaciente(IPaciente paciente);
-    public void removerPaciente(String idPaciente);
-    public Collection<IPaciente> getPacientes();
-    public String getClasse();
-}
-class Medico implements IMedico{
-    String sender;
-    String classe;
-    TreeMap<String, IPaciente> pacientes = new TreeMap<>();
-    public Medico(String sender, String classe);
-    public String getId();
-    public void addPaciente(IPaciente paciente);
-    public void removerPaciente(String idPaciente);
-    public Collection<IPaciente> getPacientes();
-    public String getClasse();
-    public String toString();
-}
-class Paciente implements IPaciente {
-    protected String sender;
-    protected String diagnostico;
-    protected TreeMap<String, IMedico> medicos = new TreeMap<>();
-    public Paciente(String sender, String diagnostico);
-    public String getId();
-    public void addMedico(IMedico medico);
-    public void removerMedico(String idMedico);
-    public Collection<IMedico> getMedicos();
-    public String getDiagnostico();
-    public String toString();
-}
-class Hospital {
-    private TreeMap<String, IPaciente> pacientes = new TreeMap<>();
-    private TreeMap<String, IMedico> medicos = new TreeMap<>();
-    public Hospital();
-    public void removerPaciente(String sender);
-    public void removerMedico(String sender);
-    public void addPaciente(IPaciente paciente);
-    public void addMedico(IMedico medico);
-    public void vincular(String nomeMedico, String nomePaciente);
-    public String toString();
-}
-public class Solver {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        Hospital hospital = new Hospital();
-
-        while (true) {
-            String line = scanner.nextLine();
-            System.out.println("$" + line);
-            List<String> ui = Arrays.asList(line.split(" "));
-            if (ui.get(0).equals("end")) {
-                break;
-            } else if (ui.get(0).equals("addPacs")) {
-                ui.stream().skip(1)
-                        .forEach(tk -> hospital.addPaciente(new Paciente(tk.split("-")[0], tk.split("-")[1])));
-            } else if (ui.get(0).equals("addMeds")) {
-                ui.stream().skip(1).forEach(tk -> hospital.addMedico(new Medico(tk.split("-")[0], tk.split("-")[1])));
-            } else if (ui.get(0).equals("show")) {
-                System.out.print(hospital.toString());
-            } else if (ui.get(0).equals("tie")) {
-                ui.stream().skip(2).forEach(name -> hospital.vincular(ui.get(1), name));
-            }
-            else {
-                System.out.println("fail: comando invalido");
-            }
-        }
-    }
-}
-```
-<!--FILTER_END-->
+![diagrama](assets/diagrama.webp)

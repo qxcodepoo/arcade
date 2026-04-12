@@ -1,11 +1,11 @@
 # Meu Petshop
 
 <!-- toch -->
-[Intro](#intro) | [Draft](#draft)
--- | --
+[Intro](#intro)
+--
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 Totó tá com a perna dodói. Faça o sistema da clínica veterinária para cadastrar clientes, animais, serviços e vendas.
 
@@ -109,67 +109,3 @@ $end
 ```
 
 ***
-
-## Draft
-
-```java
-class Pet {
-+ idPet: String
-+ especie: String
---
-+ Pet(idPet: String, especie: String)
-+ toString(): String
-}
-
-class Client {
-+ idClient: String
-+ pets: Map<String, Pet>
---
-+ Client (idClient: String)
-+ toString(): String
---
-+ addPet(pet: Pet): void
-+ getPet(idPet: String): Pet
-+ delPet(idPet: String): void
-+ listPets(): List<Pet>
-}
-
-class Service {
-+ idService: String
-+ price: float
---
-+ Service(idService: String, price: float)
-+ toString(): String
-}
-
-class Sale {
-+ idSale: int
-+ idClient: String
-+ idPet: String
-+ idService: String
---
-+ Sale(idClient: String, idPet: String, idService: String)
-+ toString(): String
-}
-
-class Clinic {
-+ nextSaleId: int
-+ repServices: Map<String, Service>
-+ repClients: Map<String, Client>
-+ repSales: Map<Integer, Sale>
---
-+ addClient(cliente: Cliente): void
-+ getClient(idClient: String): Client
-+ delClient(idClient: String): void
-+ listClients(): List<Client>
---
-+ addService(nome: String, valor: String): void
-+ getService(idService: String): Service
-+ delService(idService: String): void
-+ listServices(): List<Service>
---
-+ sell(idCliente: String, nomeAnimal: String, IdServico: String): void
-+ listSales(): List<Sale>
-+ balance(): float
-}
-````

@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -31,7 +31,7 @@ A classe Pig (Porquinho) representa um cofre que permite aos usuários adicionar
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 [![youtube icon](../yousolver.webp)](https://youtu.be/rR2bIGsJjaw?si=VMEWLD5vWozDPX02)
 
@@ -154,7 +154,6 @@ A classe `Pig` possui os seguintes atributos:
 ## Draft
 
 <!-- links .cache/drafts -->
-- [Solver.java](.cache/drafts/Solver.java)
 - cpp
   - [shell.cpp](.cache/drafts/cpp/shell.cpp)
 - java

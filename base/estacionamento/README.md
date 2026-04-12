@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![_](cover.webp)
+![_](assets/cover.webp)
 
 ## Intro
 
@@ -39,7 +39,7 @@ O sistema de estacionamento é responsável por gerenciar veículos em um estaci
 ## Guide
 [![youtube icon](../yousolver.webp)](https://youtu.be/PBabGC5nlPE?si=NgkxkLArCDVx52fJ)
 
-![_](diagrama.webp)
+![_](assets/diagrama.webp)
 
 Você pode controlar o alinhamento e preenchimento com "_" que o método `toString()` deve retornar assim.
 

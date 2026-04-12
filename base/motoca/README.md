@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -31,7 +31,7 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 [![youtube icon](../yousolver.webp)](https://youtu.be/6tYINNbLQeM?si=GkcP6dgnBcnzWhCw)
 

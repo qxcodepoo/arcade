@@ -1,0 +1,502 @@
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+show
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$show
+player1: .1.........
+player2: ..2........
+traps__: ..x.x...x..
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+show
+roll 4
+roll 3
+show
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$show
+player1: .1.........
+player2: ..2........
+traps__: ..x.x...x..
+$roll 4
+player1 andou para 5
+$roll 3
+player2 continua preso
+$show
+player1: .....1.....
+player2: ..2........
+traps__: ..x.x...x..
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+show
+roll 4
+roll 3
+show
+roll 3
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$show
+player1: .1.........
+player2: ..2........
+traps__: ..x.x...x..
+$roll 4
+player1 andou para 5
+$roll 3
+player2 continua preso
+$show
+player1: .....1.....
+player2: ..2........
+traps__: ..x.x...x..
+$roll 3
+player1 andou para 8
+player1 caiu em uma armadilha
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+show
+roll 4
+roll 3
+show
+roll 3
+roll 6
+show
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$show
+player1: .1.........
+player2: ..2........
+traps__: ..x.x...x..
+$roll 4
+player1 andou para 5
+$roll 3
+player2 continua preso
+$show
+player1: .....1.....
+player2: ..2........
+traps__: ..x.x...x..
+$roll 3
+player1 andou para 8
+player1 caiu em uma armadilha
+$roll 6
+player2 se libertou
+$show
+player1: ........1..
+player2: ..2........
+traps__: ..x.x...x..
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+show
+roll 4
+roll 3
+show
+roll 3
+roll 6
+show
+roll 2
+roll 10
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$show
+player1: .1.........
+player2: ..2........
+traps__: ..x.x...x..
+$roll 4
+player1 andou para 5
+$roll 3
+player2 continua preso
+$show
+player1: .....1.....
+player2: ..2........
+traps__: ..x.x...x..
+$roll 3
+player1 andou para 8
+player1 caiu em uma armadilha
+$roll 6
+player2 se libertou
+$show
+player1: ........1..
+player2: ..2........
+traps__: ..x.x...x..
+$roll 2
+player1 se libertou
+$roll 10
+player2 ganhou
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+show
+roll 4
+roll 3
+show
+roll 3
+roll 6
+show
+roll 2
+roll 10
+show
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$show
+player1: .1.........
+player2: ..2........
+traps__: ..x.x...x..
+$roll 4
+player1 andou para 5
+$roll 3
+player2 continua preso
+$show
+player1: .....1.....
+player2: ..2........
+traps__: ..x.x...x..
+$roll 3
+player1 andou para 8
+player1 caiu em uma armadilha
+$roll 6
+player2 se libertou
+$show
+player1: ........1..
+player2: ..2........
+traps__: ..x.x...x..
+$roll 2
+player1 se libertou
+$roll 10
+player2 ganhou
+$show
+player1: ........1..
+player2: ..........2
+traps__: ..x.x...x..
+$end
+'''
+
+[[tests]]
+input = '''
+init 2 10
+show
+addTrap 2
+addTrap 4
+addTrap 8
+show
+roll 1
+roll 2
+show
+roll 4
+roll 3
+show
+roll 3
+roll 6
+show
+roll 2
+roll 10
+show
+roll 1
+end
+'''
+output = '''
+$init 2 10
+$show
+player1: 1..........
+player2: 2..........
+traps__: ...........
+$addTrap 2
+$addTrap 4
+$addTrap 8
+$show
+player1: 1..........
+player2: 2..........
+traps__: ..x.x...x..
+$roll 1
+player1 andou para 1
+$roll 2
+player2 andou para 2
+player2 caiu em uma armadilha
+$show
+player1: .1.........
+player2: ..2........
+traps__: ..x.x...x..
+$roll 4
+player1 andou para 5
+$roll 3
+player2 continua preso
+$show
+player1: .....1.....
+player2: ..2........
+traps__: ..x.x...x..
+$roll 3
+player1 andou para 8
+player1 caiu em uma armadilha
+$roll 6
+player2 se libertou
+$show
+player1: ........1..
+player2: ..2........
+traps__: ..x.x...x..
+$roll 2
+player1 se libertou
+$roll 10
+player2 ganhou
+$show
+player1: ........1..
+player2: ..........2
+traps__: ..x.x...x..
+$roll 1
+game is over
+$end
+'''

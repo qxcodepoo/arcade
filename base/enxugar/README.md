@@ -5,7 +5,7 @@
 -- | -- | -- | --
 <!-- toch -->
 
-![_](cover.webp)
+![_](assets/cover.webp)
 
 ## Intro
 
@@ -24,7 +24,7 @@
 
 [![youtube icon](../youguide.webp)](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 ## Testes
 

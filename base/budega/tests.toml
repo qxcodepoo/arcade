@@ -1,0 +1,343 @@
+[[tests]]
+input = '''
+init 2
+show
+end
+'''
+output = '''
+$init 2
+$show
+Caixas: [-----, -----]
+Espera: []
+$end
+'''
+
+[[tests]]
+input = '''
+init 2
+show
+arrive carla
+arrive maria
+arrive rubia
+show
+end
+'''
+output = '''
+$init 2
+$show
+Caixas: [-----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$arrive rubia
+$show
+Caixas: [-----, -----]
+Espera: [carla, maria, rubia]
+$end
+'''
+
+[[tests]]
+input = '''
+init 2
+show
+arrive carla
+arrive maria
+arrive rubia
+show
+call 0
+show
+end
+'''
+output = '''
+$init 2
+$show
+Caixas: [-----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$arrive rubia
+$show
+Caixas: [-----, -----]
+Espera: [carla, maria, rubia]
+$call 0
+$show
+Caixas: [carla, -----]
+Espera: [maria, rubia]
+$end
+'''
+
+[[tests]]
+input = '''
+init 2
+show
+arrive carla
+arrive maria
+arrive rubia
+show
+call 0
+show
+finish 0
+show
+end
+'''
+output = '''
+$init 2
+$show
+Caixas: [-----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$arrive rubia
+$show
+Caixas: [-----, -----]
+Espera: [carla, maria, rubia]
+$call 0
+$show
+Caixas: [carla, -----]
+Espera: [maria, rubia]
+$finish 0
+$show
+Caixas: [-----, -----]
+Espera: [maria, rubia]
+$end
+'''
+
+[[tests]]
+input = '''
+init 3
+show
+arrive carla
+arrive maria
+show
+end
+'''
+output = '''
+$init 3
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$show
+Caixas: [-----, -----, -----]
+Espera: [carla, maria]
+$end
+'''
+
+[[tests]]
+input = '''
+init 3
+show
+arrive carla
+arrive maria
+show
+call 0
+call 0
+show
+end
+'''
+output = '''
+$init 3
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$show
+Caixas: [-----, -----, -----]
+Espera: [carla, maria]
+$call 0
+$call 0
+fail: caixa ocupado
+$show
+Caixas: [carla, -----, -----]
+Espera: [maria]
+$end
+'''
+
+[[tests]]
+input = '''
+init 3
+show
+arrive carla
+arrive maria
+show
+call 0
+call 0
+show
+call 2
+show
+end
+'''
+output = '''
+$init 3
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$show
+Caixas: [-----, -----, -----]
+Espera: [carla, maria]
+$call 0
+$call 0
+fail: caixa ocupado
+$show
+Caixas: [carla, -----, -----]
+Espera: [maria]
+$call 2
+$show
+Caixas: [carla, -----, maria]
+Espera: []
+$end
+'''
+
+[[tests]]
+input = '''
+init 3
+show
+arrive carla
+arrive maria
+show
+call 0
+call 0
+show
+call 2
+show
+call 1
+end
+'''
+output = '''
+$init 3
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$show
+Caixas: [-----, -----, -----]
+Espera: [carla, maria]
+$call 0
+$call 0
+fail: caixa ocupado
+$show
+Caixas: [carla, -----, -----]
+Espera: [maria]
+$call 2
+$show
+Caixas: [carla, -----, maria]
+Espera: []
+$call 1
+fail: sem clientes
+$end
+'''
+
+[[tests]]
+input = '''
+init 3
+show
+arrive carla
+arrive maria
+show
+call 0
+call 0
+show
+call 2
+show
+call 1
+finish 0
+show
+finish 2
+show
+end
+'''
+output = '''
+$init 3
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$show
+Caixas: [-----, -----, -----]
+Espera: [carla, maria]
+$call 0
+$call 0
+fail: caixa ocupado
+$show
+Caixas: [carla, -----, -----]
+Espera: [maria]
+$call 2
+$show
+Caixas: [carla, -----, maria]
+Espera: []
+$call 1
+fail: sem clientes
+$finish 0
+$show
+Caixas: [-----, -----, maria]
+Espera: []
+$finish 2
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$end
+'''
+
+[[tests]]
+input = '''
+init 3
+show
+arrive carla
+arrive maria
+show
+call 0
+call 0
+show
+call 2
+show
+call 1
+finish 0
+show
+finish 2
+show
+finish 3
+finish 1
+end
+'''
+output = '''
+$init 3
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$arrive carla
+$arrive maria
+$show
+Caixas: [-----, -----, -----]
+Espera: [carla, maria]
+$call 0
+$call 0
+fail: caixa ocupado
+$show
+Caixas: [carla, -----, -----]
+Espera: [maria]
+$call 2
+$show
+Caixas: [carla, -----, maria]
+Espera: []
+$call 1
+fail: sem clientes
+$finish 0
+$show
+Caixas: [-----, -----, maria]
+Espera: []
+$finish 2
+$show
+Caixas: [-----, -----, -----]
+Espera: []
+$finish 3
+fail: caixa inexistente
+$finish 1
+fail: caixa vazio
+$end
+'''

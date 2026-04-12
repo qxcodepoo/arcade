@@ -5,7 +5,7 @@
 -- | --
 <!-- toch -->
 
-![_](cover.webp)
+![_](assets/cover.webp)
 
 ## Intro
 
@@ -19,7 +19,7 @@
 
 ## Guide
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.webp)](https://youtu.be/pC3DMuHVFHE?si=XIylk3z3zABCD0hj)
+[![youtube icon](../youguide.webp)](https://youtu.be/pC3DMuHVFHE?si=XIylk3z3zABCD0hj)
 
 
 ```py

@@ -5,7 +5,7 @@
 -- | -- | -- | -- | --
 <!-- toch -->
 
-![cover](cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 
@@ -41,7 +41,7 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
 
 ## Guide
 
-![diagrama](diagrama.webp)
+![diagrama](assets/diagrama.webp)
 
 [![youtube icon](../youguide.webp)](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
 

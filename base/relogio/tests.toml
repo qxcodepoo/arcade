@@ -1,0 +1,329 @@
+[[tests]]
+input = '''
+show
+end
+'''
+output = '''
+$show
+00:00:00
+$end
+'''
+
+[[tests]]
+input = '''
+show
+set 10 02 30
+show 
+end
+'''
+output = '''
+$show
+00:00:00
+$set 10 02 30
+$show 
+10:02:30
+$end
+'''
+
+[[tests]]
+input = '''
+show
+set 10 02 30
+show 
+set 15 50 59
+show
+end
+'''
+output = '''
+$show
+00:00:00
+$set 10 02 30
+$show 
+10:02:30
+$set 15 50 59
+$show
+15:50:59
+$end
+'''
+
+[[tests]]
+input = '''
+show
+set 10 02 30
+show 
+set 15 50 59
+show
+set 25 10 30
+show
+end
+'''
+output = '''
+$show
+00:00:00
+$set 10 02 30
+$show 
+10:02:30
+$set 15 50 59
+$show
+15:50:59
+$set 25 10 30
+fail: hora invalida
+$show
+15:10:30
+$end
+'''
+
+[[tests]]
+input = '''
+show
+set 10 02 30
+show 
+set 15 50 59
+show
+set 25 10 30
+show
+set 1 70 50
+show
+end
+'''
+output = '''
+$show
+00:00:00
+$set 10 02 30
+$show 
+10:02:30
+$set 15 50 59
+$show
+15:50:59
+$set 25 10 30
+fail: hora invalida
+$show
+15:10:30
+$set 1 70 50
+fail: minuto invalido
+$show
+01:10:50
+$end
+'''
+
+[[tests]]
+input = '''
+show
+set 10 02 30
+show 
+set 15 50 59
+show
+set 25 10 30
+show
+set 1 70 50
+show
+set 23 59 70
+show
+end
+'''
+output = '''
+$show
+00:00:00
+$set 10 02 30
+$show 
+10:02:30
+$set 15 50 59
+$show
+15:50:59
+$set 25 10 30
+fail: hora invalida
+$show
+15:10:30
+$set 1 70 50
+fail: minuto invalido
+$show
+01:10:50
+$set 23 59 70
+fail: segundo invalido
+$show
+23:59:50
+$end
+'''
+
+[[tests]]
+input = '''
+show
+set 10 02 30
+show 
+set 15 50 59
+show
+set 25 10 30
+show
+set 1 70 50
+show
+set 23 59 70
+show
+set 15 59 59
+show
+end
+'''
+output = '''
+$show
+00:00:00
+$set 10 02 30
+$show 
+10:02:30
+$set 15 50 59
+$show
+15:50:59
+$set 25 10 30
+fail: hora invalida
+$show
+15:10:30
+$set 1 70 50
+fail: minuto invalido
+$show
+01:10:50
+$set 23 59 70
+fail: segundo invalido
+$show
+23:59:50
+$set 15 59 59
+$show
+15:59:59
+$end
+'''
+
+[[tests]]
+input = '''
+show
+set 10 02 30
+show 
+set 15 50 59
+show
+set 25 10 30
+show
+set 1 70 50
+show
+set 23 59 70
+show
+set 15 59 59
+show
+next
+show
+end
+'''
+output = '''
+$show
+00:00:00
+$set 10 02 30
+$show 
+10:02:30
+$set 15 50 59
+$show
+15:50:59
+$set 25 10 30
+fail: hora invalida
+$show
+15:10:30
+$set 1 70 50
+fail: minuto invalido
+$show
+01:10:50
+$set 23 59 70
+fail: segundo invalido
+$show
+23:59:50
+$set 15 59 59
+$show
+15:59:59
+$next
+$show
+16:00:00
+$end
+'''
+
+[[tests]]
+input = '''
+set 23 59 59
+show
+end
+'''
+output = '''
+$set 23 59 59
+$show
+23:59:59
+$end
+'''
+
+[[tests]]
+input = '''
+set 23 59 59
+show
+next
+show
+end
+'''
+output = '''
+$set 23 59 59
+$show
+23:59:59
+$next
+$show
+00:00:00
+$end
+'''
+
+[[tests]]
+input = '''
+init 10 20 30
+show
+end
+'''
+output = '''
+$init 10 20 30
+$show
+10:20:30
+$end
+'''
+
+[[tests]]
+input = '''
+init 10 20 30
+show
+init 90 20 30
+show
+end
+'''
+output = '''
+$init 10 20 30
+$show
+10:20:30
+$init 90 20 30
+fail: hora invalida
+$show
+00:20:30
+$end
+'''
+
+[[tests]]
+input = '''
+init 10 20 30
+show
+init 90 20 30
+show
+init 90 100 60
+show
+end
+'''
+output = '''
+$init 10 20 30
+$show
+10:20:30
+$init 90 20 30
+fail: hora invalida
+$show
+00:20:30
+$init 90 100 60
+fail: hora invalida
+fail: minuto invalido
+fail: segundo invalido
+$show
+00:00:00
+$end
+'''
