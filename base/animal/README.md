@@ -158,10 +158,4 @@ $end
 ## Cheat
 
 <!-- links .cache/cheat -->
-- cpp
-  - [shell.cpp](.cache/cheat/cpp/shell.cpp)
-- java
-  - [Shell.java](.cache/cheat/java/Shell.java)
-- ts
-  - [shell.ts](.cache/cheat/ts/shell.ts)
 <!-- links -->

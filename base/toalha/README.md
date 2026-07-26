@@ -32,7 +32,4 @@
 
 <!-- load solver.py fenced:filter:py -->
 
-```py
-```
-
 <!-- load -->
