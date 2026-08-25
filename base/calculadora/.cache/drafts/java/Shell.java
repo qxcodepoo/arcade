@@ -4,6 +4,19 @@ import java.text.DecimalFormat;
 
 public class Shell {
 
+    public static void printResult(Result result) {
+        switch (result) {
+            case NO_BATTERY:
+                System.out.println("fail: bateria insuficiente");
+                break;
+            case DIVISION_BY_ZERO:
+                System.out.println("fail: divisao por zero");
+                break;
+            case OK:
+                break;  
+            }
+    }
+
     public static void main(String[] args) {
         // Calculator calculator = new Calculator(0);
         

@@ -3,28 +3,30 @@
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-class Calculator {
+enum Result {
+  OK
+  NO_BATTERY
+  DIVISION_BY_ZERO
+}
 
+class Calculator {
   + battery    : number
   + batteryMax : number
   + display    : number
   __
-
   + constructor(batteryMax : number)
-  + charge(increment : number): void
-  + sum(a : number, b : number): void
-  + division(num : number, den : number): void
-  + toString(): string
+  + charge(increment : number) : void
+  + sum(a : number, b : number) : Result
+  + division(num : number, den : number) : Result
+  + toString() : string
 }
 
-class Legenda {
-  + atributePublic
-  - atributePrivate
-  # atributeProtected
+class Shell {
   __
-  + methodPublic()
-  - methodPrivate()
-  # methodProtected()
+  + printResult(result : Result) : void
 }
+
+Shell ..> Calculator : usa
+Shell ..> Result : interpreta
 
 @enduml

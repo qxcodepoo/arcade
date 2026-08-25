@@ -3,32 +3,36 @@
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
+enum Result {
+  OK
+  CAR_FULL
+  CAR_EMPTY
+  INCOMPLETE
+  NO_GAS
+}
+
 class Car {
   + pass    : number
   + passMax : number
   + gas     : number
   + gasMax  : number
   + km      : number
-
   __
-  
   + constructor()
-  + enter(): void
-  + leave(): void
-  + drive(distance : number): void  
-  + fuel (increment : number): void
+  + enter() : Result
+  + leave() : Result
+  + drive(distance : number) : Result
+  + fuel(increment : number) : void
   + toString() : string
 }
 
-class Legend {
-  + publicAttribute
-  - privateAttribute
-  # protectedAttribute
+class Shell {
   __
-  + publicMethod()
-  - privateMethod()
-  # protectedMethod()
+  + printResult(result : Result) : void
+  + main(args : string[]) : void
 }
 
+Shell ..> Car : usa
+Shell ..> Result : interpreta
 
 @enduml

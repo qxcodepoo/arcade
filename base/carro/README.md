@@ -1,7 +1,7 @@
 # Um carro simples
 
 <!-- toch -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)
+[Intro](#intro) | [Regras ](#regras-) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
 <!-- toch -->
 
@@ -9,7 +9,15 @@
 
 ## Intro
 
-Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de embarcar e desembarcar pessoas, abastecer e andar.
+Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de embarcar e desembarcar pessoas, abastecer e andar. A atividade também introduz uma primeira separação de responsabilidades entre lógica de negócio e interação com o usuário.
+
+- A classe Car representa o carro e deve conter seu estado e suas regras de negócio.
+- A classe Shell representa a interface de linha de comando e deve cuidar da leitura dos comandos e da apresentação dos resultados.
+- A classe Car não deve utilizar System.out.
+- Quando uma operação não puder ser realizada normalmente, Car deve retornar um valor do tipo Result.
+- O Shell deve interpretar esse resultado e decidir qual mensagem apresentar ao usuário.
+
+## Regras 
 
 - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Suporta até 2 pessoas e até 100 litros de combustível.
 - Construtor do Carro
@@ -37,16 +45,15 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
   - Para dirigir, o carro consome combustível e aumenta a quilometragem.
   - Só pode dirigir se houver combustível e se houver alguém no carro.
   - Caso não haja ninguém no carro, emite a mensagem de erro.
-    - `fail: não há ninguém no carro`
+    - `fail: não ha ninguém no carro`
   - Caso não haja combustível, emite a mensagem de erro.
     - `fail: tanque vazio`
   - Caso não exista combustível suficiente para completar a viagem inteira, dirija o máximo possível e emite uma mensagem indicando quanto foi percorrido
-    - `fail: tanque vazio após andar {distancia} km`.
+    - `fail: viagem incompleta`.
 
 ## Guide
 
-[![youtube icon](../youguide.webp)](https://youtu.be/LM6KM4eLi3U)
-
+[![youtube icon](assets/youguide.webp)](https://youtu.be/LM6KM4eLi3U)
 
 - Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
 - Começe analisando os testes e entendendo tudo que seu código precisa fazer.
@@ -108,7 +115,7 @@ pass: 1, gas: 50, km: 10
 
 #TEST_CASE para longe
 $drive 70
-fail: tanque vazio apos andar 50 km
+fail: viagem incompleta
 $drive 10
 fail: tanque vazio
 $show
@@ -121,14 +128,3 @@ pass: 1, gas: 100, km: 60
 $end
 #
 ```
-
-## Drafts
-
-<!-- links .cache/drafts -->
-- cpp
-  - [shell.cpp](.cache/drafts/cpp/shell.cpp)
-- java
-  - [Shell.java](.cache/drafts/java/Shell.java)
-- ts
-  - [shell.ts](.cache/drafts/ts/shell.ts)
-<!-- links -->

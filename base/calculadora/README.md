@@ -38,6 +38,9 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
   - Divide dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
   - Se houver divisão por zero, emita a mensagem `fail: divisao por zero`.
+- Separe as responsabilidades:
+  - A classe Calculadora não teve conter nenhuma operação de print. 
+  - A class Shell não deve ter lógica de negócios.
 
 ## Guide
 
@@ -54,19 +57,6 @@ public String toString() {
     // Para contornar isso e gerar sempre com ponto, usamos a classe Decimal Format
     DecimalFormat df = new DecimalFormat("0.00");
     return String.format("display = %s, battery = %d", df.format(this.display).replace(',','.'), this.battery);
-}
-
-//ts
-toString(): string {
-    // o typescript usa o modelo crase ${} para string de substituição
-    return `display = ${this.display.toFixed(2)}, battery = ${this.battery}`;
-}
-
-//cpp
-std::string str() const {
-    std::stringstream ss;
-    ss << std::fixed << std::setprecision(2) << "display = " << this->display << ", battery = " << this->battery;
-    return ss.str();
 }
 
 ```
@@ -200,21 +190,13 @@ $end
 ## Draft
 
 <!-- links .cache/drafts -->
-- cpp
-  - [shell.cpp](.cache/drafts/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/drafts/java/Shell.java)
-- ts
-  - [shell.ts](.cache/drafts/ts/shell.ts)
 <!-- links -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
-- cpp
-  - [shell.cpp](.cache/cheat/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/cheat/java/Shell.java)
-- ts
-  - [shell.ts](.cache/cheat/ts/shell.ts)
 <!-- links -->

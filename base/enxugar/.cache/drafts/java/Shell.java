@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
-
 public class Shell {
     
     public static void main(String[] a) {
         // CRIE SUA TOALHA AQUI
-        // Toalha toalha = new Toalha();
+        // var towel = new Towel();
         
         while (true) {
             var line = scanner.nextLine();

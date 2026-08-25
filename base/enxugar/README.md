@@ -9,16 +9,29 @@
 
 ## Intro
 
-- Crie uma classe Toalha `Towel` com os atributos cor `color`, tamanho `size` e umidade `wetness`.
-- Crie um construtor que inicialize todos os atributos cor e tamanho com valores recebidos como parâmetro e umidade com 0.
-- Crie um método enxugar `dry` que recebe um valor inteiro quantidade `amout` e AUMENTA o atributo umidade da toalha.
-- Crie um método torcer `wringOut` que zera o atributo umidade da towel.
-- Crie um método para pegar máximo de umidade `getMaxWetness` que retorna o valor máximo de umidade que essa toalha pode ter.
-- O máximo de umidade que uma toalha pode ter é de acordo com o tamanho dela:
-  - `P` -> 10
-  - `M` -> 20
-  - `G` -> 30
-- Crie um método que retorna se a toalha esta seca `isDry`, que retorna `true` se a umidade da toalha for 0 e `false` caso contrário.
+* Crie uma classe Toalha `Towel` com os atributos cor `color`, tamanho `size` e umidade `wetness`.
+* Crie um construtor que inicialize `color` e `size` com os valores recebidos como parâmetros e `wetness` com `0`.
+* Crie um método torcer `wringOut` que zera o atributo `wetness` da toalha.
+* Crie um método `getMaxWetness` que retorna o valor máximo de umidade que a toalha pode atingir.
+* O máximo de umidade depende do tamanho da toalha:
+
+  * `P` → `10`
+  * `M` → `20`
+  * `G` → `30`
+* Crie um método enxugar `dry` que recebe uma quantidade inteira `amount` e tenta usar a toalha para enxugar essa quantidade de água.
+
+  * Enxugar aumenta a umidade (`wetness`) da toalha.
+  * A umidade nunca pode ultrapassar o limite máximo da toalha.
+  * Se a toalha conseguir absorver toda a quantidade solicitada, retorne `true`.
+  * Se a toalha não tiver capacidade para absorver toda a quantidade, absorva apenas o que for possível até atingir o limite máximo e retorne `false`.
+* Crie um método `isDry` que retorna `true` se a umidade (`wetness`) for `0` e `false` caso contrário.
+
+deve existir uma separação entre lógica de negócio e interação com o usuário.
+
+- A classe Towel deve conter seu estado e suas regras de negócio.
+- A classe Shell representa a interface de linha de comando e deve cuidar da leitura dos comandos e da apresentação dos resultados.
+- A classe Towel não deve utilizar nenhum comando de impressão como `print` ou `System.out`, deve apenas retornar valores.
+- O Shell deve interpretar esse resultado e decidir qual mensagem apresentar ao usuário.
 
 ## Guide
 
@@ -48,15 +61,15 @@ $seca
 nao
 
 #TEST_CASE toalha encharcada
-$enxugar 5
-toalha encharcada
+$enxugar 6
+fail: toalha nao conseguiu enxugar tudo
 
 #TEST_CASE umidade maxima alcançada
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 10
 
 $enxugar 5
-toalha encharcada
+fail: toalha nao conseguiu enxugar tudo
 
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 10
@@ -83,13 +96,12 @@ Cor: verde, Tamanho: G, Umidade: 0
 #TEST_CASE limite de 30 e encharcada
 
 $enxugar 30
-toalha encharcada
 $mostrar
 Cor: verde, Tamanho: G, Umidade: 30
 
 #TEST_CASE não passa do limite
 $enxugar 1
-toalha encharcada
+fail: toalha nao conseguiu enxugar tudo
 $mostrar
 Cor: verde, Tamanho: G, Umidade: 30
 $end
@@ -98,10 +110,6 @@ $end
 ## Draft
 
 <!-- links .cache/drafts -->
-- cpp
-  - [shell.cpp](.cache/drafts/cpp/shell.cpp)
 - java
   - [Shell.java](.cache/drafts/java/Shell.java)
-- ts
-  - [shell.ts](.cache/drafts/ts/shell.ts)
 <!-- links -->
