@@ -11,7 +11,7 @@
 
 O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
 
-- Descrição
+- Regras
   - O animal tem uma espécie `species`, um estágio `age` de vida e um barulho `sound` que ele faz.
   - O construtor do animal
     - Recebe a espécie e o barulho e inicia o estágio com 0.
@@ -24,13 +24,16 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
     - 3: Idoso
     - 4: Morto
   - Ao envelhecer no método `ageBy`, o animal avança estágios na sua vida de acordo com o parâmetro `increment`.
-    - Ao morrer ou tentar envelhecer após a morte do aninal, deve ser exibida a mensagem de aviso:
-      - `warning: {species} morreu`.
-      - Como essa é uma mensagem de erro, você pode imprimir diretamente no método `ageBy`.
+    - Se o animal conseguir envelhecer sem chegar na morte, retorne true.
+    - Retorne false se ele já estiver morto ou acabar morrendo.
+    - A camada de interação deverá mostrar a mensagem "warning: {nome} morreu"
   - Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:
     - Se for filhote, emite um "---".
     - Se estiver morto, emite um "RIP".
     - Como não são mensagens de erro, o barulho do animal deve ser retornado no método `makeSound` e impresso na `main`.
+- Separe as responsabilidades
+  - A classe Animal não deve fazer nenhuma ação de leitura ou impressão de dados.
+  - A camada de interação (main) é quem deve fazer a leitura dos dados e impressão das saídas.
 
 ## Guide
 
@@ -39,7 +42,7 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
 
-![_](assets/diagrama.webp)
+![_](assets/diagrama.png)
 
 - Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
 
@@ -146,4 +149,6 @@ $end
 ## Cheat
 
 <!-- links .cache/cheat -->
+- java
+  - [Shell.java](.cache/cheat/java/Shell.java)
 <!-- links -->

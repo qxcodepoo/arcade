@@ -21,7 +21,7 @@
 - Crie um método que retorna se a toalha esta seca `isDry`, que retorna `true` se a umidade da toalha for 0 e `false` caso contrário.
 - Faça um código de teste para validar o comportamento da classe Toalha.
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 ## Guide
 

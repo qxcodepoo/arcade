@@ -60,7 +60,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 ## Shell
 

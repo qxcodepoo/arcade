@@ -35,9 +35,10 @@ deve existir uma separação entre lógica de negócio e interação com o usuá
 
 ## Guide
 
+![diagrama](assets/diagrama.png)
+
 [![youtube icon](../youguide.webp)](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
-![diagrama](assets/diagrama.webp)
 
 ## Testes
 

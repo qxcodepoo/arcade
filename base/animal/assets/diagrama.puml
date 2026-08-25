@@ -10,7 +10,7 @@ class Animal {
     __
     + constructor(species: string, sound: string)
     + makeSound(): string
-    + ageBy(increment: number): void
+    + ageBy(increment: number): boolean
     + toString(): string
 }
 

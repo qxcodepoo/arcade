@@ -9,11 +9,10 @@ class Towel {
     - wetness: number
     __
     + constructor(color: string, size: string)
-    + dry(amount: number): void
+    + dry(amount: number): boolean
     + wringOut(): void
     + getMaxWetness(): number
     + isDry(): boolean
     + toString(): string
-    + show(): void
 }
 @enduml

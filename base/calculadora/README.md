@@ -44,7 +44,7 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 [![youtube icon](../youguide.webp)](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
 
