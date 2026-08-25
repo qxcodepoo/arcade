@@ -1,6 +1,11 @@
 import java.util.*;
 import java.text.DecimalFormat;
 
+
+enum Result {
+    OK, NO_BATTERY, DIVISION_BY_ZERO
+}
+
 class Calculator {
     public int batteryMax;
     public int battery;
@@ -22,27 +27,25 @@ class Calculator {
         }
     }
 
-    public void sum(int a, int b) {
+    public Result sum(int a, int b) {
         if (this.battery == 0) {
-            System.out.println("fail: bateria insuficiente");
-            return;
+            return Result.NO_BATTERY;
         }
         this.battery -= 1;
         this.display = (a + b);
+        return Result.OK;
     }
 
-    public void division(int num, int den) {
+    public Result division(int num, int den) {
         if (this.battery == 0) {
-            System.out.println("fail: bateria insuficiente");
-            return;
+            return Result.NO_BATTERY;
         }
         this.battery -= 1;
         if (den == 0) {
-            System.out.println("fail: divisao por zero");
-            return;
+            return Result.DIVISION_BY_ZERO;
         }
         this.display = (float) num / den;
-        
+        return Result.OK;
     }
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
@@ -52,6 +55,19 @@ class Calculator {
 
 
 public class Shell {
+
+    public static void printResult(Result result) {
+        switch (result) {
+            case NO_BATTERY:
+                System.out.println("fail: bateria insuficiente");
+                break;
+            case DIVISION_BY_ZERO:
+                System.out.println("fail: divisao por zero");
+                break;
+            case OK:
+                break;  
+            }
+    }
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator(0);
@@ -80,12 +96,12 @@ public class Shell {
             else if (cmd.equals("sum")) {
                 int a = Integer.parseInt(par[1]);
                 int b = Integer.parseInt(par[2]);
-                calculator.sum(a, b);
+                printResult(calculator.sum(a, b));
             } 
             else if (cmd.equals("div")) {
                 int num = Integer.parseInt(par[1]);
                 int den = Integer.parseInt(par[2]);
-                calculator.division(num, den);
+                printResult(calculator.division(num, den));
             } 
             else {
                 System.out.println("fail: comando invalido");

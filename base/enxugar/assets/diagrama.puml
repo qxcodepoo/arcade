@@ -4,16 +4,15 @@ skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 class Towel {
-    - color: String
-    - size: String
+    - color: string
+    - size: string
     - wetness: number
     __
     + constructor(color: string, size: string)
-    + dry(amount: number): void
     + wringOut(): void
     + getMaxWetness(): number
+    + dry(amount: number): boolean
     + isDry(): boolean
     + toString(): string
-    + show(): void
 }
 @enduml

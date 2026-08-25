@@ -48,9 +48,6 @@ ___
 
 <!-- load diagrama.puml fenced=ts:filter -->
 
-```ts
-```
-
 <!-- load -->
 
 ___
