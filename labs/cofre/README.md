@@ -27,7 +27,7 @@ O sistema deverá:
 
 ## Draft
 
-<!-- links .cache/drafts -->
+<!-- links .cache/starter -->
 <!-- links -->
 
 

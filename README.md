@@ -8,6 +8,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@+relacionamento gain=0 type=read eval=self              ` [Relacionamentos](wiki/relacionamento/README.md)
 - [ ] `@+uml            gain=0 type=read eval=self              ` [Relacionamentos Resumo](wiki/uml/README.md)
 - [ ] `@+relatorio      gain=0 type=read eval=self              ` [Como fazer os códigos e relatórios](wiki/relatorio/README.md)
+- [ ] `@+atividade      gain=0 type=read eval=self              ` [Padrão para atividades de código](wiki/atividade_codigo/README.md)
 - [ ] `@+main           gain=0 type=read eval=self              ` [Criando a Main](wiki/main/README.md)
 
 ## Primeiras Classes <!-- @intro -->

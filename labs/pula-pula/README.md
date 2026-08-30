@@ -19,7 +19,7 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Draft
 
-<!-- links .cache/drafts -->
+<!-- links .cache/starter -->
 <!-- links -->
 
 ## Guide

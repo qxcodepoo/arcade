@@ -33,7 +33,7 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ## Draft
 
-<!-- links .cache/drafts -->
+<!-- links .cache/starter -->
 <!-- links -->
 
 ## Guide

@@ -30,7 +30,7 @@ ___
 
 ## Drafts
 
-<!-- links .cache/drafts -->
+<!-- links .cache/starter -->
 <!-- links -->
 
 ## Guide

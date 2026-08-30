@@ -39,7 +39,7 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
 
 ## Draft
 
-<!-- links .cache/drafts -->
+<!-- links .cache/starter -->
 <!-- links -->
 
 ## Shell

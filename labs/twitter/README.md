@@ -51,7 +51,7 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 
 ## Draft
 
-<!-- links .cache/drafts -->
+<!-- links .cache/starter -->
 <!-- links -->
 
 ## Guide
