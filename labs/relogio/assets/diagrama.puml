@@ -16,12 +16,18 @@ class Time {
   + getMinute(): number
   + getSecond(): number
   __
-  + setHour  (value: number): void
-  + setMinute(value: number): void
-  + setSecond(value: number): void
+  + setHour  (value: number): boolean
+  + setMinute(value: number): boolean
+  + setSecond(value: number): boolean
   __
   + nextSecond()             : void
 }
+
+class Shell {
+  + main(args: String[]): void
+}
+
+Shell ..> Time : uses
 
 class Legenda {
   + atributoPublic
