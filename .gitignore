@@ -21,12 +21,4 @@ __pycache__
 .config.ini
 # tko local
 .tko
-.build# public filter
-local.sh
-config.json
-src
-solver*
-Solver*
-__*
-.hide
-.exec
+.build
