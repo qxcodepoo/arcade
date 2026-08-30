@@ -1,25 +1,29 @@
-# Toalha, o item mais útil do universo
+# [GUIA] Toalha, o item mais útil do universo
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide)
--- | --
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide)
+-- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
 
 ## Intro
 
-- Crie uma classe Toalha `Towel` com os atributos cor `color`, tamanho `size` e umidade `wetness`.
-- Crie um construtor que inicialize todos os atributos cor e tamanho com valores recebidos como parâmetro e umidade com 0.
-- Crie um método enxugar `dry` que recebe um valor inteiro quantidade `amout` e AUMENTA o atributo umidade da toalha.
-- Crie um método torcer `wringOut` que zera o atributo umidade da towel.
-- Crie um método para pegar máximo de umidade `getMaxWetness` que retorna o valor máximo de umidade que essa toalha pode ter.
-- O máximo de umidade que uma toalha pode ter é de acordo com o tamanho dela:
-  - `P` -> 10
-  - `M` -> 20
-  - `G` -> 30
-- Crie um método que retorna se a toalha esta seca `isDry`, que retorna `true` se a umidade da toalha for 0 e `false` caso contrário.
-- Faça um código de teste para validar o comportamento da classe Toalha.
+O objetivo dessa atividade é implementar uma toalha que possa absorver água, ser torcida e informar seu estado.
+
+## Regras
+
+- A classe Toalha `Towel` possui os atributos cor `color`, tamanho `size` e umidade `wetness`.
+- O construtor recebe a cor e o tamanho e inicia `wetness` com `0`.
+- O método enxugar `dry` recebe uma quantidade inteira `amount` e aumenta `wetness` sem ultrapassar o limite.
+- O método torcer `wringOut` zera `wetness`.
+- O método `getMaxWetness` retorna o limite de umidade conforme o tamanho:
+  - `P` -> `10`
+  - `M` -> `20`
+  - `G` -> `30`
+- O método `isDry` retorna `true` quando `wetness` é `0` e `false` caso contrário.
+- A classe `Towel` não deve ler entrada nem imprimir dados.
+- Crie um código de teste para validar o comportamento da classe.
 
 ![diagrama](assets/diagrama.png)
 
@@ -88,3 +92,5 @@ if not towel.dry(1):  # msg: toalha encharcada
     print("toalha encharcada")
 ```
 <!-- load -->
+
+Implemente e teste a classe em partes: estado inicial, absorção, limite de umidade, torção e consulta de estado.

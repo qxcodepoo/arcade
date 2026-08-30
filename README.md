@@ -13,8 +13,8 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Primeiras Classes <!-- @intro -->
 
-- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [Toalha, o item mais útil do universo](labs/toalha/README.md)
-- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [Animal que nasce, cresce, morre](labs/animal/README.md)
+- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Toalha, o item mais útil do universo](labs/toalha/README.md)
+- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [[GUIA] Animal que nasce, cresce, morre](labs/animal/README.md)
 - [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Um carro simples](labs/carro/README.md)
 - [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Toalha com testes](labs/enxugar/README.md)
 - [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Uma calculadora com bateria](labs/calculadora/README.md)

@@ -1,7 +1,7 @@
 # Toalha com testes
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Testes](#testes) | [Draft](#draft)
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | --
 <!-- toc-table -->
 
@@ -40,7 +40,7 @@ deve existir uma separação entre lógica de negócio e interação com o usuá
 [![youtube icon](../youguide.webp)](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
 
-## Testes
+## Shell
 
 ```bash
 #TEST_CASE criação
@@ -111,4 +111,6 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
+- java
+  - [Shell.java](.cache/starter/java/Shell.java)
 <!-- links -->

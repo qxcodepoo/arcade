@@ -1,8 +1,8 @@
 # Um carro simples
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras ](#regras-) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -17,7 +17,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Quando uma operação não puder ser realizada normalmente, Car deve retornar um valor do tipo Result.
 - O Shell deve interpretar esse resultado e decidir qual mensagem apresentar ao usuário.
 
-## Regras 
+## Regras
 
 - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Suporta até 2 pessoas e até 100 litros de combustível.
 - Construtor do Carro
@@ -128,3 +128,8 @@ pass: 1, gas: 100, km: 60
 $end
 #
 ```
+
+## Draft
+
+<!-- links .cache/starter -->
+<!-- links -->

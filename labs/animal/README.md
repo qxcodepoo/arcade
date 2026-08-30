@@ -1,8 +1,8 @@
-# Animal que nasce, cresce, morre
+# [GUIA] Animal que nasce, cresce, morre
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Cheat](#cheat)
--- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -11,29 +11,20 @@
 
 O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
 
-- Regras
-  - O animal tem uma espécie `species`, um estágio `age` de vida e um barulho `sound` que ele faz.
-  - O construtor do animal
-    - Recebe a espécie e o barulho e inicia o estágio com 0.
-  - O toString do animal deve retornar a representação do animal no formato
-    - `{species}:{age}:{sound}`.
-  - Os estágios pelos quais o animal passa são:
-    - 0: Filhote
-    - 1: Criança
-    - 2: Adulto
-    - 3: Idoso
-    - 4: Morto
-  - Ao envelhecer no método `ageBy`, o animal avança estágios na sua vida de acordo com o parâmetro `increment`.
-    - Se o animal conseguir envelhecer sem chegar na morte, retorne true.
-    - Retorne false se ele já estiver morto ou acabar morrendo.
-    - A camada de interação deverá mostrar a mensagem "warning: {nome} morreu"
-  - Ao fazer barulho, o animal emite o som característico da sua espécie, com as seguintes restrições:
-    - Se for filhote, emite um "---".
-    - Se estiver morto, emite um "RIP".
-    - Como não são mensagens de erro, o barulho do animal deve ser retornado no método `makeSound` e impresso na `main`.
-- Separe as responsabilidades
-  - A classe Animal não deve fazer nenhuma ação de leitura ou impressão de dados.
-  - A camada de interação (main) é quem deve fazer a leitura dos dados e impressão das saídas.
+## Regras
+
+- O animal tem uma espécie `species`, um estágio `age` de vida e um barulho `sound` que ele faz.
+- O construtor recebe a espécie e o barulho e inicia o estágio com `0`.
+- O `toString` do animal deve retornar `{species}:{age}:{sound}`.
+- Os estágios são: `0` Filhote, `1` Criança, `2` Adulto, `3` Idoso e `4` Morto.
+- O método `ageBy` avança o estágio conforme o parâmetro `increment`.
+  - Retorna `true` se o animal não morrer.
+  - Retorna `false` se já estiver morto ou acabar morrendo.
+  - A camada de interação mostra `warning: {nome} morreu` quando o método retornar `false`.
+- O método `makeSound` retorna o som do animal.
+  - Filhote emite `---`.
+  - Animal morto emite `RIP`.
+- A classe `Animal` não lê nem imprime dados. A camada de interação é responsável pela entrada e saída.
 
 ## Guide
 
@@ -145,6 +136,13 @@ RIP
 
 $end
 ```
+
+## Draft
+
+<!-- links .cache/starter -->
+- java
+  - [Shell.java](.cache/starter/java/Shell.java)
+<!-- links -->
 
 ## Cheat
 
