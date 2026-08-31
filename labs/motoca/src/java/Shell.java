@@ -43,12 +43,12 @@ class Motorcycle {
 
     
     //Se estiver vazio, coloca a pessoa na moto e retorna true
-    public void enter(Person person) {
+    public boolean enter(Person person) {
         if(this.person == null){
             this.person = person;
-            return;
+            return true;
         }
-        System.out.println("fail: busy motorcycle");
+        return false;
     }
 
     public Person leave() {
@@ -57,7 +57,6 @@ class Motorcycle {
             this.person = null;
             return person; 
         }else{
-            System.out.println("fail: empty motorcycle");
             return null;
         }
     }
@@ -66,25 +65,23 @@ class Motorcycle {
         this.time += time;
     }
 
-    public void drive(int time){
+    public String drive(int time){
         if(this.time == 0) {
-            System.out.println("fail: buy time first");
-            return;
+            return "fail: buy time first";
         }
         if(this.person == null) {
-            System.out.println("fail: empty motorcycle");
-            return;
+            return "fail: empty motorcycle";
         }
         if(this.person.getAge() > 10) {
-            System.out.println("fail: too old to drive");
-            return;
+            return "fail: too old to drive";
         }
         if(this.time < time) {
-            System.out.println("fail: time finished after " + this.time + " minutes");
+            String error = "fail: time finished after " + this.time + " minutes";
             this.time = 0;
-            return;
+            return error;
         }
         this.time -= time;
+        return null;
     }
 
     public String honk(){
@@ -100,9 +97,6 @@ class Motorcycle {
         return "power:" + this.power + ", time:" + this.time + ", person:(" + value + ")";
     }
 
-    public static void main(String args[]) {
-        System.out.println("Rodando a main do arquivo da motoca");
-    }
 }
 
 // @KEEP
@@ -140,7 +134,9 @@ public class Shell{
                 var name = par[1];
                 var age = Integer.parseInt(par[2]);
                 // @DROP
-                adp.enter(new Person(name, age));
+                if (!adp.enter(new Person(name, age))) {
+                    System.out.println("fail: busy motorcycle");
+                }
             }
             else if (cmd.equals("leave")) {
                 // RETIRE A PESSOA DA MOTO
@@ -149,6 +145,8 @@ public class Shell{
                 var person = adp.leave();
                 if(person != null) {
                     System.out.println(person);
+                } else {
+                    System.out.println("fail: empty motorcycle");
                 }
             }
             else if (cmd.equals("buy")) {
@@ -161,7 +159,10 @@ public class Shell{
                 // DIRIJA A MOTO
                 var time = Integer.parseInt(par[1]);
                 // @DROP
-                adp.drive(time);
+                var error = adp.drive(time);
+                if (error != null) {
+                    System.out.println(error);
+                }
             }
             else if (cmd.equals("honk")) {
                 // BUZINE

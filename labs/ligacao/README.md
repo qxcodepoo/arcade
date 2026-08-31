@@ -1,8 +1,6 @@
 # @ligacao
 
 <!-- toc-table -->
-[Intro](#intro) | [Shell](#shell) | [Diagrama de Classes](#diagrama-de-classes)
--- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

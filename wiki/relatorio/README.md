@@ -1,11 +1,6 @@
 # Como fazer os códigos e relatórios
 
 <!-- toc -->
-- [Como fazer seu código orientado a testes](#como-fazer-seu-código-orientado-a-testes)
-- [Relatório de Código](#relatório-de-código)
-  - [Exemplo 1](#exemplo-1)
-  - [Exemplo 2](#exemplo-2)
-  - [Exemplo 3](#exemplo-3)
 <!-- toc -->
 
 ![_](assets/cover.webp)

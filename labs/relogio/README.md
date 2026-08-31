@@ -1,23 +1,26 @@
 # Garante uma hora válida no relógio
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
 ## Intro
 
-Seu objetivo é construtir uma Classe Relógio `Watch` que garanta que a hora, minuto e segundo sejam válidos.
+Seu objetivo é construir uma classe Relógio `Watch` que garanta que a hora, minuto e segundo sejam válidos.
+
+Nesta atividade você vai consolidar **encapsulamento**, **modificadores de acesso**, **getters**, **setters validadores**, **invariantes de estado** e **separação entre domínio e interface**. O relógio protege seus atributos; o `Shell` interpreta comandos e imprime mensagens.
+
+## Regras
 
 - Construtor
   - O construtor deve receber 3 parâmetros, hora, minuto e segundo.
   - Para fazer a inicialização dos 3 parâmetros, utilize os métodos set.
 - Crie os métodos getters e setters para cada atributo.
-  - Os métodos set devem garantir que os valor atribuído sempre seja válido, ou não realize nenhuma mudança.
+  - Os métodos set devem garantir que o valor atribuído sempre seja válido, ou não realizar nenhuma mudança.
+  - Os setters devem retornar sucesso ou falha sem imprimir mensagens.
 - `toString`
-  - Crie um método que imprime a hora no formato HH:MM:SS.
+  - Crie um método que retorne a hora no formato HH:MM:SS.
   - Você precisará pesquisar como formatar números menores que 10 com 2 dígitos (ex: 01, 02, 03).
 - Nos métodos set, realize a validação dos valores.
   - Hora deve ser entre 0 e 23.
@@ -27,8 +30,9 @@ Seu objetivo é construtir uma Classe Relógio `Watch` que garanta que a hora, m
   - Se o segundo for 59, ele deve ser zerado e o minuto incrementado.
   - Se o minuto for 59, ele deve ser zerado e a hora incrementada.
   - Se a hora for 23, ela deve ser zerada.
+- A classe `Time` não deve ler entrada nem imprimir mensagens. O `Shell` deve interpretar os retornos dos setters e imprimir as falhas.
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 ## Guide
 
@@ -40,29 +44,6 @@ Para formatar com 2 dígitos utilize a seguinte estratégia:
 //java
 public String toString() {
   return String.format("%02d:%02d:%02d", hora, minuto, segundo);
-}
-```
-
-```cpp
-//cpp
-//strinstream é uma classe da biblioteca sstream
-//setfill e setw são funções da biblioteca iomanip
-std::string str() const {
-    stringstream ss;
-    ss << setfill('0') << setw(2) << hour << ":";
-    ss << setfill('0') << setw(2) << minute << ":";
-    ss << setfill('0') << setw(2) << second;
-    return ss.str();
-}
-```
-
-```ts
-//typescript
-public toString(): string {
-  let hora = String(this.hora).padStart(2, '0');
-  let minuto = String(this.minuto).padStart(2, '0');
-  let segundo = String(this.segundo).padStart(2, '0');
-  return `${hora}:${minuto}:${segundo}`;
 }
 ```
 

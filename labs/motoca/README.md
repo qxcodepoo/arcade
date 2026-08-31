@@ -1,8 +1,8 @@
 # Crianças andando de motoca
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -10,6 +10,8 @@
 ## Intro
 
 Este é um projeto de modelagem e implementação de uma motoca motorizada em um parque. A ideia é simular o funcionamento dessa motoca através de classes em um programa. Para isso, serão implementadas duas classes principais: `Pessoa` e `Moto`.
+
+## Regras
 
 - Descrição
   - A classe `Moto` representa a motoca em si. Ela possui atributos como potência, tempo e a pessoa que está atualmente utilizando-a.
@@ -29,9 +31,12 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
   - `$drive` - Permite dirigir a motoca por um tempo determinado.
   - `$honk` - Permite buzinar a motoca.
 
+- A `Motorcycle` agrega uma `Person`: a pessoa é criada fora da moto, pode ser removida e continua existindo depois de sair.
+- A classe de domínio não deve ler entrada nem imprimir mensagens. O `Shell` deve interpretar retornos e cuidar da interface.
+
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 [![youtube icon](../yousolver.webp)](https://youtu.be/6tYINNbLQeM?si=GkcP6dgnBcnzWhCw)
 
@@ -45,22 +50,22 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
   - Crie a classe `Motoca` com os atributos `potencia`, `time` e `pessoa`.
   - Inicialize os atributos no construtor, onde `potencia` inicia com 1, `time` inicia com 0 e `pessoa` inicia como nulo.
   - Crie o método `inserir(pessoa: Pessoa): bool` que permite inserir uma pessoa na motoca.
-  - Verifique se há uma pessoa na motoca. Se houver, imprima "fail: busy motorcycle" e retorne falso.
+  - Verifique se há uma pessoa na motoca. Se houver, retorne falha e deixe o `Shell` imprimir "fail: busy motorcycle".
   - Caso contrário, insira a pessoa na motoca e retorne verdadeiro.
   - Crie o método `toString()` para mostrar o estado da motoca.
 - Parte 2: Remover
   - Crie o método `remover(): Pessoa | null` que permite remover a pessoa da motoca.
-  - Verifique se há uma pessoa na motoca. Se não houver, imprima "fail: empty motorcycle" e retorne nulo.
+  - Verifique se há uma pessoa na motoca. Se não houver, retorne nulo e deixe o `Shell` imprimir "fail: empty motorcycle".
   - Caso contrário, remova a pessoa da motoca e retorne a pessoa removida.
 - Parte 3: Comprar Tempo
   - Crie o método `buyTime(time: number)` que permite comprar tempo em minutos para utilizar a motoca.
   - Incremente o tempo da motoca com o tempo passado como parâmetro.
 - Parte 4: Dirigir
   - Crie o método `drive(time: number)` que permite dirigir a motoca por um tempo determinado.
-  - Verifique se há tempo disponível na motoca. Se não houver, imprima "fail: buy time first".
-  - Verifique se há uma pessoa na motoca. Se não houver, imprima "fail: empty motorcycle".
-  - Verifique se a idade da pessoa na motoca é maior que 10 anos. Se for, imprima "fail: too old to drive".
-  - Calcule o novo tempo após dirigir. Se o novo tempo for menor ou igual a 0, imprima "fail: time finished after X minutes".
+  - Verifique se há tempo disponível na motoca. Se não houver, retorne "fail: buy time first".
+  - Verifique se há uma pessoa na motoca. Se não houver, retorne "fail: empty motorcycle".
+  - Verifique se a idade da pessoa na motoca é maior que 10 anos. Se for, retorne "fail: too old to drive".
+  - Calcule o novo tempo após dirigir. Se o novo tempo for menor ou igual a 0, retorne "fail: time finished after X minutes".
   - Atualize o tempo da motoca.
 - Parte 5: Buzinar
   - Crie o método `honk()` que permite buzinar a motoca.

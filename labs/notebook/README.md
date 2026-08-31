@@ -1,13 +1,26 @@
 # Notebook com carregador e bateria
 
 <!-- toc-table -->
-[Guide](#guide)
---
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide)
+-- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
 
+## Intro
+
+Esta atividade apresenta a **agregação** de componentes: o `Notebook` usa uma `Bateria` e um `Carregador`, mas esses objetos são criados fora dele e podem continuar existindo quando forem removidos.
+
+## Regras
+
+- `Notebook` agrega no máximo uma `Bateria` e um `Carregador`.
+- A bateria e o carregador têm ciclos de vida independentes do notebook.
+- O notebook deve acessar os componentes por métodos públicos, mantendo seus atributos privados.
+- A lógica de cada componente deve permanecer na própria classe; o notebook apenas coordena o uso.
+
 ## Guide
+
+[![diagrama](assets/diagrama.png)](assets/diagrama.png)
 
 [![youtube icon](../youguide.webp)](https://youtu.be/EI0Qa8OgucQ?si=oKj11d9DYFFH0kle)
 
@@ -68,8 +81,8 @@ notebook.mostrar()    # msg: Status: Desligado, Bateria: Nenhuma
 notebook.usar(10)     # msg: erro: ligue o notebook primeiro
 notebook.ligar()      # msg: não foi possível ligar
 notebook.mostrar()    # msg: Status: Desligado, Bateria: Nenhuma
-bateira = Bateria(50) # criando bateria que suporta 50 minutos e começa carregada
-bateira.mostrar()     # (50/50)
+bateria = Bateria(50) # criando bateria que suporta 50 minutos e começa carregada
+bateria.mostrar()     # (50/50)
 notebook.setBateria(bateria) # coloca a bateria no notebook
 notebook.mostrar()    # msg: Status: Desligado, Bateria: (50/50)
 notebook.usar(10)     # msg: notebook desligado

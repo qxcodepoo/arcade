@@ -1,0 +1,55 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+left to right direction
+
+class Uber {
+  - driver: Person
+  - passenger: Person
+  - runCost: number
+  __
+  + setDriver(driver: Person): string
+  + setPassenger(passenger: Person): string
+  + drive(distance: number): string
+  + leave(): LeaveResult
+  __
+  + toString(): string
+}
+
+class Person {
+  - name: string
+  - money: number
+  __
+  + Person(name: string, money: number)
+  + getName(): string
+  + getMoney(): number
+  + setMoney(money: number): void
+  + toString(): string
+}
+
+class LeaveResult {
+  - passenger: Person
+  - error: string
+  __
+  + getPassenger(): Person
+  + getError(): string
+}
+
+Uber "1" o-- "0..1" Person : driver
+Uber "1" o-- "0..1" Person : passenger
+Uber ..> LeaveResult : returns
+
+note right of Uber
+  Driver e passenger são referências opcionais.
+  A multiplicidade 0..1 representa essa ausência.
+  Métodos que retornam String podem não retornar erro.
+end note
+
+note right of LeaveResult
+  passenger e error são opcionais:
+  o resultado contém o passageiro removido
+  ou uma mensagem de erro.
+end note
+
+@enduml

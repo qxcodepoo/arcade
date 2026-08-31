@@ -78,11 +78,12 @@ class Notebook {
         return status.toString();
     }
 
-    public void turnOn() {
+    public String turnOn() {
         if (charger != null || (battery != null && battery.getCharge() > 0)) {
             inUse = true;
+            return null;
         } else {
-            System.out.println("fail: não foi possível ligar");
+            return "fail: não foi possível ligar";
         }
     }
 
@@ -91,15 +92,14 @@ class Notebook {
         usage = 0;
     }
 
-    public void use(int minutes) {
+    public String use(int minutes) {
         if (!inUse) {
-            System.out.println("fail: desligado");
-            return;
+            return "fail: desligado";
         }
 
         if (charger != null && battery == null) {
             usage += minutes;
-            return;
+            return null;
         }
 
         if (charger == null && battery != null) {
@@ -109,15 +109,16 @@ class Notebook {
             } else {
                 battery.setCharge(0);
                 inUse = false;
-                System.out.println("fail: descarregou");
+                return "fail: descarregou";
             }
-            return;
+            return null;
         }
 
         if (charger != null && battery != null) {
             usage += minutes;
             battery.setCharge(battery.getCharge() + charger.getPower() * minutes);
         }
+        return null;
     }
 
     public void setBattery(Bateria newBattery) {
@@ -137,11 +138,12 @@ class Notebook {
         return null;
     }
 
-    public void setCharger(Charger newCharger) {
+    public String setCharger(Charger newCharger) {
         if (charger != null) {
-            System.out.println("fail: carregador já conectado");
+            return "fail: carregador já conectado";
         } else {
             charger = newCharger;
+            return null;
         }
     }
 
@@ -182,7 +184,8 @@ public class Shell {
             }
             else if(cmd.equals("turn_on")) { 
                 // @DROP
-                notebook.turnOn();
+                var error = notebook.turnOn();
+                if (error != null) System.out.println(error);
             }
             else if(cmd.equals("turn_off")) { 
                 // @DROP
@@ -191,7 +194,8 @@ public class Shell {
             else if(cmd.equals("use")) { 
                 var minutes = Integer.parseInt(par[1]);
                 // @DROP
-                notebook.use(minutes);
+                var error = notebook.use(minutes);
+                if (error != null) System.out.println(error);
             }
             else if(cmd.equals("set_battery")) {
                 // CRIE UM OBJETO BATERIA E ATRIBUA AO NOTEBOOK
@@ -213,7 +217,8 @@ public class Shell {
                 // CRIE UM OBJETO CHARGER E ATRIBUA AO NOTEBOOK
                 var power = Integer.parseInt(par[1]);
                 // @DROP
-                notebook.setCharger(new Charger(power));
+                var error = notebook.setCharger(new Charger(power));
+                if (error != null) System.out.println(error);
             }
             else if(cmd.equals("rm_charger")) {
                 // REMOVA O CARREGADOR DO NOTEBOOK E IMPRIMA SE EXISTIR

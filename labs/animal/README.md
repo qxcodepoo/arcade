@@ -1,8 +1,6 @@
 # [GUIA] Animal que nasce, cresce, morre
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
--- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -140,13 +138,9 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-- java
-  - [Shell.java](.cache/starter/java/Shell.java)
 <!-- links -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
-- java
-  - [Shell.java](.cache/cheat/java/Shell.java)
 <!-- links -->

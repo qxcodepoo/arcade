@@ -1,16 +1,18 @@
-# Comprando uma chinela 40/41
+# [GUIA] Comprando uma chinela 40/41
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide)
--- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
 
 ## Intro
 
-- Vamos implementar uma classe que controla os possíveis valores de calçados para uma chinela.
-- As regras de validação de valores são as seguintes.
+O objetivo dessa atividade é implementar uma classe que controle o tamanho válido de uma chinela.
+
+Nesta atividade você vai praticar **encapsulamento**: o tamanho fica em um atributo privado e só pode ser consultado pelo getter `getTamanho` ou alterado pelo setter `setTamanho`. O setter deve preservar a **invariante** de que o tamanho seja par e esteja entre 20 e 50.
+
+## Regras
+
 - Uma chinela tem um valor tamanho que é um número par entre 20 e 50, incluindo 20 e 50.
 - Faça o objeto chinela iniciar com tamanho 0 e controle através do método setTamanho que apenas valores válidos de tamanho sejam atribuídos.
 - Por fim, crie um loop no qual um objeto chinela é criado e é perguntado ao usuário qual seu tamanho de chinela.

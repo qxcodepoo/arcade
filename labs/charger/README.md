@@ -1,13 +1,17 @@
 # Notebook com TESTES
 
 <!-- toc-table -->
-[INTRO](#intro) | [GUIDE](#guide) | [SHELL](#shell) | [Drafts](#drafts)
--- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![imagem de notebook](assets/cover.webp)
 
-## INTRO
+## Intro
+
+Esta atividade consolida a agregação de `Bateria` e `Charger` em um `Notebook`, agora com validação por testes de comandos.
+
+## Regras
 
 - Vamos modelar um notebook que pode ter ou não tanto carregador quanto bateria.
 - Terá que reescrever os métodos `usar <tempo>`, `ligar`.
@@ -20,8 +24,13 @@
 - Para simplificar, vamos utilizar minutos como a unidade de tempo e de carga.
 - Uma bateria `15/50` significa que possui ainda 15 minutos de carga e suporta no máximo 50.
 - Um carregador com 3 de potência consegue em um minuto de uso, adicionar 3 minutos de carga na bateria.
+- `Notebook` agrega no máximo uma `Bateria` e um `Charger`; esses componentes são criados fora dele e podem ser removidos sem destruir o notebook.
+- A `Bateria` e o `Charger` mantêm suas próprias regras. O `Notebook` coordena seu uso sem acessar atributos diretamente.
+- As classes de domínio não devem ler entrada nem imprimir mensagens. Devem retornar sucesso, falha ou o componente removido; o `Shell` é responsável pela interface.
 
-## GUIDE
+## Guide
+
+[![diagrama](assets/diagrama.png)](assets/diagrama.png)
 
 [![youtube icon](../youguide.webp)](https://youtu.be/2oyQq-h0kqY?si=8DQZV6mLYKNtd2jZ)
 
@@ -30,7 +39,7 @@
 - Vá implementando orientado aos testes, implementando apenas o necessário para passar em cada teste.
 - Seu código será pontuado pela quantidade de testes que passarem, não pela quantidade de código escrito.
 
-## SHELL
+## Shell
 
 ```bash
 #TEST_CASE iniciar
@@ -246,7 +255,7 @@ Notebook: ligado por 46 min, Carregador 5W
 $end
 ```
 
-## Drafts
+## Draft
 
 <!-- links .cache/starter -->
 <!-- links -->

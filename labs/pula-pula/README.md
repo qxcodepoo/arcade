@@ -1,8 +1,6 @@
 # Gerenciando entradas e saídas do pula pula
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

@@ -1,8 +1,6 @@
 # Seu porquinho cresceu
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

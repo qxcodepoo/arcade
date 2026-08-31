@@ -1,8 +1,6 @@
 # @comunicador
 
 <!-- toc-table -->
-[Intro](#intro) | [Guia](#guia) | [Diagrama de Classes](#diagrama-de-classes)
--- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

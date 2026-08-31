@@ -1,16 +1,17 @@
 # Roupa com testes
 
 <!-- toc-table -->
-[Intro](#intro) | [Shell](#shell) | [Draft](#draft)
--- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
 
 ## Intro
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.webp)](https://youtu.be/27-PmhwFHYY?si=gAScW7a_CyxVNnTv)
+O objetivo dessa atividade é implementar uma classe que controle os tamanhos válidos de uma roupa.
 
+Nesta atividade você vai consolidar **encapsulamento**, **modificador de acesso privado**, **getter**, **setter validador** e **invariante de estado**. A classe `Roupa` protege seu tamanho; o `Shell` cuida da interação com o usuário.
+
+## Regras
 
 - Vamos implementar uma classe que controla os possíveis valores de tamanho para uma roupa.
 - Os tamanhos serão identificados como uma variável tipo texto, e os valores válidos são "PP", "P", "M" e "G", "GG" e "XG".
@@ -19,11 +20,21 @@
 - Crie o método setTamanho que apenas aceita os valores válidos de tamanho.
   - Caso o valor seja inválido, avise e dê uma mensagem de erro informando quais os valores permitidos.
 - Coloque o atributo tamanho como privado e crie um método getTamanho para acessá-lo e setTamanho para alterá-lo.
+- O setter deve retornar sucesso ou falha sem imprimir mensagens. A impressão da falha pertence ao `Shell`, aplicando a **separação entre domínio e interface**.
+
+## Guide
+
+[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.webp)](https://youtu.be/27-PmhwFHYY?si=gAScW7a_CyxVNnTv)
+
+- Implemente a classe `Roupa` e mantenha seu atributo de tamanho privado.
+- Comece pelo estado vazio e implemente `getTamanho` e `setTamanho`.
+- Faça `setTamanho` retornar `true` quando alterar o estado e `false` quando rejeitar o valor.
+- Depois confira os casos de tamanho inválido, válido e estado preservado após uma falha.
 
 ## Shell
 
 ```bash
-#TEST_CASE
+#TEST_CASE inicial
 $show
 size: ()
 

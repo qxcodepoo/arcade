@@ -1,8 +1,6 @@
 # Um carro simples
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

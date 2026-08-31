@@ -23,17 +23,23 @@ class Lead {
 class Pencil {
     
     - thickness: number
-    - tip      : Lead | null
+    - tip      : Lead
     __
 
     + Pencil(thickness : number)    
     + hasGrafite()       : boolean    
     + insert(lead : Lead): boolean
-    + remove()           : Lead | null
+    + remove()           : Lead
     + writePage()        : void
     __
     + toString()         : string
 }
 
-Pencil "1" --> "0..1" Lead
+Pencil "1" o-- "0..1" Lead : aggregates
+
+note right of Pencil
+  Uma lapiseira pode não ter grafite agregado.
+  A multiplicidade 0..1 representa essa ausência.
+  remove() pode não retornar um grafite.
+end note
 @enduml

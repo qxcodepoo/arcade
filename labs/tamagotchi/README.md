@@ -1,8 +1,8 @@
 # Alimente, brinque e mate
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -13,9 +13,13 @@ Você deve implementar um simulador de bichinho virtual. Ele poderá brincar, do
 
 ## Intro
 
-Seu sistema deverá:
+Seu sistema deverá modelar um pet e um jogo que coordena suas ações.
 
-- Classe `Tamagochi`
+## Regras
+
+O sistema deverá:
+
+- Classe `Tamagotchi`
   - É responsável por armazenar os dados relativos ao bichinho, controlar os limites permitidos para os atributos e registrar a morte.
   - Construtor
     - Recebe energia máxima`energyMax` e limpeza máxima `cleanMax` do pet que representam os valores máximo de energia e limpeza.
@@ -28,10 +32,12 @@ Seu sistema deverá:
   - É onde estão localizadas as lógicas sobre as ações de brincar `play`, dar banho `shower` e dormir `sleep`.
   - Cada operação causa aumento e reduções nos atributos utilizando-se os métodos `set` e `get` do `Tamagotchi`.
   - Antes de qualquer ação, é necessário verificar se o bicho está vivo. Pois brincar com bichos mortos não é recomendado.
+- `Game` agrega um `Pet` recebido no construtor. O pet é criado fora do jogo e pode continuar existindo sem o jogo.
+- As classes de domínio não devem ler entrada nem imprimir mensagens. O `Shell` deve interpretar os retornos e cuidar da interface.
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 [![youtube icon](../youguide.webp)](https://youtu.be/VRW3_JuNwkA?si=827by8nZURcc2AuM)
 

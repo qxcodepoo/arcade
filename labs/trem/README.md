@@ -1,8 +1,6 @@
 # @trem
 
 <!-- toc-table -->
-[Intro](#intro) | [Exemplos](#exemplos)
--- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

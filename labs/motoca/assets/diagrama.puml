@@ -5,17 +5,17 @@ skinparam dpi 150
 left to right direction
 
 class Motorcycle {
-  - person: Person | null
-  - power : numberg
+  - person: Person
+  - power : number
   - time  : number
   __
   + Motorcycle(power: number)
   + insertPerson(person: Person): boolean
-  + remove(): Person | null
+  + remove(): Person
   __
   + buyTime(time : number): void
   + drive  (time : number): void
-  + honk()                : void
+  + honk()                : string
   __
   + getPerson(): Person
   + getPower() : number
@@ -36,5 +36,11 @@ class Person {
   + toString(): string
 }
 
-Person "0..1" --o "1" Motorcycle : < Carry
+Motorcycle "1" o-- "0..1" Person : aggregates
+
+note right of Motorcycle
+  A moto pode não ter uma pessoa agregada.
+  A multiplicidade 0..1 representa essa ausência.
+  remove() e getPerson() podem não retornar uma pessoa.
+end note
 @enduml

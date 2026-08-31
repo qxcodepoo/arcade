@@ -1,8 +1,6 @@
 # Jogo de tabuleiro e armadilhas
 
 <!-- toc-table -->
-[Intro](#intro) | [Drafts](#drafts) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -41,7 +39,6 @@ ___
 
 
 <!-- load diagrama.puml fenced=ts:filter -->
-
 <!-- load -->
 
 ___

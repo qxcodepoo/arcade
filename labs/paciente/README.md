@@ -1,8 +1,6 @@
 # @paciente
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide)
--- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

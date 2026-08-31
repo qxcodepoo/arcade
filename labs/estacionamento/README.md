@@ -1,8 +1,6 @@
 # Cobrando o valor de carros e motos
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)

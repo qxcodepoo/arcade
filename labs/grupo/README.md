@@ -1,8 +1,6 @@
 # @grupo
 
 <!-- toc-table -->
-[Guia de Atividade](#guia-de-atividade) | [Créditos](#créditos)
--- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

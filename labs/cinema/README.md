@@ -1,8 +1,6 @@
 # Gerenciando reservas e cancelamentos de uma sala de cinema
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
--- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

@@ -1,8 +1,6 @@
 # Padrão para atividades de código
 
 <!-- toc-table -->
-[Intro](#intro) | [Tipos](#tipos) | [Elementos](#elementos) | [Shell](#shell) | [Template](#template)
--- | -- | -- | -- | --
 <!-- toc-table -->
 
 ## Intro
@@ -127,5 +125,30 @@ Checklist antes de publicar uma atividade:
 - Atividades com Shell cobrem sucesso, erro e estado depois do erro.
 - Atividades sem Shell têm exemplos de uso ou um roteiro mínimo de verificação.
 - A regra de separação entre domínio e interação está explícita quando houver interface de entrada e saída.
+- O diagrama de classes usa os tipos da convenção TypeScript e explicita nulidade com `| null`.
+- O arquivo `assets/diagrama.puml` existe e a imagem foi gerada a partir dele com `plantuml diagrama.puml`.
 - O `Draft` existe com os marcadores de links quando houver esqueleto.
 - `tko util mdpp README.md` roda sem quebrar o Markdown.
+
+## Diagramas
+
+Os diagramas de classes devem usar uma convenção de tipos baseada em TypeScript. Ela é um meio-termo didático entre as linguagens usadas nas turmas e não representa código que precise ser compilado diretamente.
+
+- Use `number`, `string` e `boolean` para tipos primitivos.
+- Use `Tipo | null` quando um atributo ou retorno puder representar ausência de valor.
+- Use `Tipo[]` para coleções simples.
+- Use a multiplicidade UML nas associações, por exemplo `0..1` para uma referência opcional e `0..*` para uma coleção.
+- Use `null` como representação comum de ausência; não use `None`, `Optional`, `undefined`, ponteiros ou tipos genéricos específicos de uma linguagem.
+- Preserve os modificadores UML (`+`, `-`, `#`) para indicar a visibilidade.
+- O arquivo fonte deve ser `assets/diagrama.puml`; gere a imagem a partir da pasta `assets` com `plantuml diagrama.puml`.
+
+Exemplo:
+
+```plantuml
+class Notebook {
+  - battery: Battery | null
+  + removeBattery(): Battery | null
+}
+
+Notebook "1" o-- "0..1" Battery : aggregates
+```

@@ -1,8 +1,6 @@
 # Utilizando interface em círculos e retângulos
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

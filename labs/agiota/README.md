@@ -1,8 +1,6 @@
 # Gerencie os empréstimos do agiota
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
--- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

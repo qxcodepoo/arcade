@@ -1,8 +1,6 @@
 # Gerencie os vários contatos de uma agenda
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Drafts](#drafts) | [Shell](#shell)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

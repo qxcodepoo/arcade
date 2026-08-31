@@ -1,8 +1,6 @@
 # Meu Petshop
 
 <!-- toc-table -->
-[Intro](#intro)
---
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

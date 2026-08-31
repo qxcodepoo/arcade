@@ -1,20 +1,6 @@
 # Relacionamentos
 
 <!-- toc -->
-- [Características das Associações](#características-das-associações)
-- [Multiplicidades](#multiplicidades)
-- [Conectividade](#conectividade)
-  - [Um para Um](#um-para-um)
-  - [Um para Muitos](#um-para-muitos)
-- [Muitos para Muitos](#muitos-para-muitos)
-- [Navegabilidade](#navegabilidade)
-- [Papéis](#papéis)
-- [Associações Reflexivas](#associações-reflexivas)
-- [Agregação e Composição](#agregação-e-composição)
-- [Agregação reflexiva](#agregação-reflexiva)
-- [Composição](#composição)
-- [Agregação](#agregação)
-- [Classes Associativas](#classes-associativas)
 <!-- toc -->
 
 Todos os diagramas desse tutorial foram criados com o plantuml. Você pode ver mais em [LINK](https://plantuml.com/class-diagram).

@@ -1,8 +1,6 @@
 # @vetores
 
 <!-- toc-table -->
-[Requisitos](#requisitos) | [Shell](#shell) | [Dica](#dica) | [Esqueleto](#esqueleto)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

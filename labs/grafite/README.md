@@ -1,8 +1,8 @@
 # Porta minas de um grafite só
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -14,6 +14,8 @@ Faça o modelo de uma lapiseira que pode conter um único grafite.
 ## Intro
 
 O objetivo dessa atividade é implementar uma lapiseira que permite inserir, remover grafite e escrever em uma folha, considerando a dureza e tamanho do grafite.
+
+## Regras
 
 - Descrição
   - A lapiseira é capaz de iniciar, inserir e remover grafite, além de escrever em uma folha.
@@ -35,7 +37,7 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
       - Um grafite `6B` gasta `6mm` por folha.
     - `size` representa o tamanho do grafite em `milímetros`.
   - A classe `Pencil` é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.
-    - Ela referencia um único objeto lapiseira como atributo.
+    - Ela agrega no máximo um objeto `Lead`, criado fora da lapiseira.
     - E também possui um indicador de espessura `thickness`.
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
@@ -54,9 +56,11 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
       - `fail: tamanho insuficiente` - Se o tamanho do grafite for insuficiente para começar a escrita.
       - `fail: folha incompleta` - Se o grafite não for suficiente para terminar a escrita.
 
+- A classe de domínio não deve ler entrada nem imprimir mensagens. Os métodos devem retornar sucesso, falha ou o grafite removido; o `Shell` deve interpretar esses retornos e cuidar da interface.
+
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 
 - Parte 1: Inserir

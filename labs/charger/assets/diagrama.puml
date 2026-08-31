@@ -1,0 +1,47 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+left to right direction
+
+class Notebook {
+  - inUse: boolean
+  - usage: number
+  - battery: Bateria
+  - charger: Charger
+  __
+  + turnOn(): string
+  + turnOff(): void
+  + use(minutes: number): string
+  + setBattery(battery: Bateria): void
+  + removeBattery(): Bateria
+  + setCharger(charger: Charger): string
+  + removeCharger(): Charger
+}
+
+class Bateria {
+  - capacity: number
+  - charge: number
+  __
+  + Bateria(capacity: number)
+  + getCharge(): number
+  + setCharge(value: number): void
+}
+
+class Charger {
+  - power: number
+  __
+  + Charger(power: number)
+  + getPower(): number
+}
+
+Notebook "1" o-- "0..1" Bateria : aggregates
+Notebook "1" o-- "0..1" Charger : aggregates
+
+note right of Notebook
+  Bateria e Charger são referências opcionais.
+  As multiplicidades 0..1 representam essa ausência.
+  Operações de remoção podem não retornar um componente.
+end note
+
+@enduml

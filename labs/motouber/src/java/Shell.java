@@ -32,51 +32,72 @@ class Person {
     }
 }
 
+class LeaveResult {
+    private Person passenger;
+    private String error;
+
+    public LeaveResult(Person passenger, String error) {
+        this.passenger = passenger;
+        this.error = error;
+    }
+
+    public Person getPassenger() {
+        return passenger;
+    }
+
+    public String getError() {
+        return error;
+    }
+}
+
 class Uber {
     private Person driver = null;
     private Person passenger = null;
     private int runCost = 0;
 
-    public void setDriver(Person driver) {
+    public String setDriver(Person driver) {
         if (this.driver != null) {
-            System.out.println("fail: Driver is already set");
-            return;
+            return "fail: Driver is already set";
         }
         this.driver = driver;
+        return null;
     }
 
-    public void setPassenger(Person passenger) {
+    public String setPassenger(Person passenger) {
         if (this.driver == null) {
-            System.out.println("fail: Driver is not set");
-            return;
+            return "fail: Driver is not set";
         }
         this.passenger = passenger;
         this.runCost = 0;
+        return null;
     }
 
-    public void drive(int distance) {
+    public String drive(int distance) {
         if (this.driver == null) {
-            System.out.println("fail: Driver is not set");
-            return;
+            return "fail: Driver is not set";
         }
         if (this.passenger != null) {
             this.runCost += distance;
         }
+        return null;
     }
 
-    public Person leave() {
+    public LeaveResult leave() {
         if (this.driver == null) {
-            System.out.println("fail: Driver is not set");
-            return null;
+            return new LeaveResult(null, "fail: Driver is not set");
         }
         if (this.passenger == null) {
-            System.out.println("fail: Passenger is not set");
-            return null;
+            return new LeaveResult(null, "fail: Passenger is not set");
         }
 
         if (this.passenger.getMoney() < this.runCost) {
             this.passenger.setMoney(0);
-            System.out.println("fail: Passenger does not have enough money");
+            var error = "fail: Passenger does not have enough money";
+            this.driver.setMoney(this.driver.getMoney() + this.runCost);
+            this.runCost = 0;
+            Person leavingPassenger = this.passenger;
+            this.passenger = null;
+            return new LeaveResult(leavingPassenger, error);
         } else {
             this.passenger.setMoney(this.passenger.getMoney() - this.runCost);
         }
@@ -86,7 +107,7 @@ class Uber {
 
         Person leavingPassenger = this.passenger;
         this.passenger = null;
-        return leavingPassenger;
+        return new LeaveResult(leavingPassenger, null);
     }
 
     @Override
@@ -124,25 +145,31 @@ public class Shell {
                 int money = Integer.parseInt(par[2]);
                 // @DROP
                 Person driver = new Person(name, money);
-                uber.setDriver(driver);
+                var error = uber.setDriver(driver);
+                if (error != null) System.out.println(error);
             }
             else if (cmd.equals("setPass")) { 
                 String name = par[1];
                 int money = Integer.parseInt(par[2]);
                 // @DROP
                 Person passenger = new Person(name, money);
-                uber.setPassenger(passenger);
+                var error = uber.setPassenger(passenger);
+                if (error != null) System.out.println(error);
             }
             else if (cmd.equals("drive")) { 
                 int distance = Integer.parseInt(par[1]);
                 // @DROP
-                uber.drive(distance);
+                var error = uber.drive(distance);
+                if (error != null) System.out.println(error);
             }
             else if (cmd.equals("leavePass")) { 
                 // @DROP
-                Person passenger = uber.leave();
-                if (passenger != null) {
-                    System.out.println(passenger + " left");
+                var result = uber.leave();
+                if (result.getError() != null) {
+                    System.out.println(result.getError());
+                }
+                if (result.getPassenger() != null) {
+                    System.out.println(result.getPassenger() + " left");
                 }
             }
             // @KEEP

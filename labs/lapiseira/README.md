@@ -1,8 +1,6 @@
 # Lapiseira com múltiplos grafites
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

@@ -1,8 +1,8 @@
 # Título da atividade
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide)
--- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide)
+-- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -60,6 +60,23 @@ O aluno deve criar um código de teste ou demonstração cobrindo:
 - Operação principal em caso normal.
 - Operação no limite.
 - Método de consulta ou representação textual.
+
+## Diagrama
+
+Use uma convenção de tipos baseada em TypeScript dentro da notação UML. A convenção é didática e deve ser traduzida para a linguagem da turma durante a implementação.
+
+- `number`: números inteiros ou decimais.
+- `boolean`: valores verdadeiro ou falso.
+- `string`: textos e caracteres.
+- `void`: método sem valor de retorno.
+- `Array<T>`: coleção indexada de tamanho variável.
+- `Map<K, V>`: estrutura de dados chave-valor.
+- `T | null`: valor que pode estar ausente.
+- Use multiplicidades UML nas associações, como `0..1` para uma referência opcional e `0..*` para uma coleção.
+- Não use `None`, `Optional`, `undefined`, ponteiros ou tipos de coleções específicos de uma linguagem.
+- Não use tuplas como padrão. Quando os valores tiverem significado próprio, modele uma classe de resultado com atributos nomeados.
+
+O arquivo fonte deve ser `assets/diagrama.puml`. Gere a imagem na pasta `assets` com `plantuml diagrama.puml`.
 
 ## Guide
 

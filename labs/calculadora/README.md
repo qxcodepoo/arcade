@@ -1,8 +1,6 @@
 # Uma calculadora com bateria
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
--- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -190,13 +188,9 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-- java
-  - [Shell.java](.cache/starter/java/Shell.java)
 <!-- links -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
-- java
-  - [Shell.java](.cache/cheat/java/Shell.java)
 <!-- links -->

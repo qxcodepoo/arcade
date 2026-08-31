@@ -13,6 +13,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Primeiras Classes <!-- @intro -->
 
+- Vamos aprender a criar classes individuais.
+- Aprender a montar o loop de requisições e testes
+- Aprender a separar domínio e interface desde cedo retornando erros por valores.
+- Aprender a criar enumerações.
+
 - [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Toalha, o item mais útil do universo](labs/toalha/README.md)
 - [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [[GUIA] Animal que nasce, cresce, morre](labs/animal/README.md)
 - [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Um carro simples](labs/carro/README.md)
@@ -21,7 +26,9 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Modificadores de Acesso <!-- @access deps=@intro -->
 
-- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [Comprando uma chinela 40/41](labs/chinela/README.md)
+- Vamos aprender a criar classes com modificadores de acesso, encapsulamento e métodos de acesso (getters e setters).
+
+- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
 - [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [Comprando uma camisa XG](labs/camisa/README.md)
 - [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa com testes](labs/roupa/README.md)
 - [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Garante uma hora válida no relógio](labs/relogio/README.md)
@@ -62,7 +69,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@cofre           gain=3 hard=1 size=1 type=make eval=test` [Seu porquinho cresceu](labs/cofre/README.md)
 - [ ] `@cadastro        gain=3 hard=1 size=1 type=make eval=test` [Crie as contas poupança e corrente](labs/cadastro/README.md)
 
-## CPP <!-- @cpp_intro lang=cpp lang=c -->
+## CPP <!-- @cpp_intro lang=c lang=cpp -->
 
 - [ ] `@cpp             gain=1 type=read eval=self              ` [Pesquisa sobre C++](wiki/cpp/README.md)
 - [ ] `@memoria         gain=1 hard=1 size=1 type=make eval=self` [Pesquisa sobre alocação de memória](labs/memoria/README.md)

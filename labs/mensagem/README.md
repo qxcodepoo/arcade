@@ -1,8 +1,6 @@
 # @mensagem
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell)
--- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

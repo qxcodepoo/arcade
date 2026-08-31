@@ -23,32 +23,32 @@ class Pet {
         this.alive = true;
     }
 
-    public void setEnergy(int value) {
+    public String setEnergy(int value) {
         if (value <= 0) {
             this.alive = false;
             this.energy = 0;
-            System.out.println("fail: pet morreu de fraqueza");
-            return;
+            return "fail: pet morreu de fraqueza";
         }
         if (value > this.energyMax) {
             this.energy = this.energyMax;
-            return;
+            return null;
         }
         this.energy = value;
+        return null;
     }
 
-    public void setClean(int value) {
+    public String setClean(int value) {
         if (value <= 0) {
             this.alive = false;
             this.clean = 0;
-            System.out.println("fail: pet morreu de sujeira");
-            return;
+            return "fail: pet morreu de sujeira";
         }
         if (value > this.cleanMax) {
             this.clean = this.cleanMax;
-            return;
+            return null;
         }
         this.clean = value;
+        return null;
     }
 
     public void setAge(int value) {
@@ -93,39 +93,40 @@ class Game {
         this.pet = pet;
     }
 
-    private boolean testAlive() {
+    private String testAlive() {
         if (!this.pet.isAlive()) {
-            System.out.println("fail: pet esta morto");
-            return false;
+            return "fail: pet esta morto";
         }
-        return true;
+        return null;
     }
 
-    public void play() {
-        if (!this.testAlive())
-            return;
-        this.pet.setEnergy(this.pet.getEnergy() - 2);
-        this.pet.setClean(this.pet.getClean() - 3);
+    public String play() {
+        var error = this.testAlive();
+        if (error != null) return error;
+        error = this.pet.setEnergy(this.pet.getEnergy() - 2);
+        var cleanError = this.pet.setClean(this.pet.getClean() - 3);
         this.pet.setAge(this.pet.getAge() + 1);
+        return error != null ? error : cleanError;
     }
 
-    public void shower() {
-        if (!this.testAlive())
-            return;
-        this.pet.setEnergy(this.pet.getEnergy() - 3);
+    public String shower() {
+        var error = this.testAlive();
+        if (error != null) return error;
+        error = this.pet.setEnergy(this.pet.getEnergy() - 3);
         this.pet.setClean(this.pet.getCleanMax());
         this.pet.setAge(this.pet.getAge() + 2);
+        return error;
     }
 
-    public void sleep() {
-        if (!this.testAlive())
-            return;
+    public String sleep() {
+        var error = this.testAlive();
+        if (error != null) return error;
         if (this.pet.getEnergyMax() - this.pet.getEnergy() < 5) {
-            System.out.println("fail: nao esta com sono");
-            return;
+            return "fail: nao esta com sono";
         }
         this.pet.setAge(this.pet.getAge() + (this.pet.getEnergyMax() - this.pet.getEnergy()));
         this.pet.setEnergy(this.pet.getEnergyMax());
+        return null;
     }
 
     public String toString() {
@@ -164,15 +165,18 @@ public class Shell {
             }
             else if (cmd.equals("play")) { 
                 // @DROP
-                game.play();
+                var error = game.play();
+                if (error != null) System.out.println(error);
             }
             else if (cmd.equals("shower")) { 
                 // @DROP
-                game.shower();
+                var error = game.shower();
+                if (error != null) System.out.println(error);
             }
             else if (cmd.equals("sleep")) { 
                 // @DROP
-                game.sleep();
+                var error = game.sleep();
+                if (error != null) System.out.println(error);
             }
             // @KEEP
             else {

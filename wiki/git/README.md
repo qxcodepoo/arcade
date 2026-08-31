@@ -1,19 +1,6 @@
 # Introdução ao git
 
 <!-- toc -->
-- [Instalação](#instalação)
-- [Configuração Inicial se estiver na sua máquina local ao invés do Codespace](#configuração-inicial-se-estiver-na-sua-máquina-local-ao-invés-do-codespace)
-- [Fluxo de trabalho](#fluxo-de-trabalho)
-- [Trabalhando com o repositório git do professor](#trabalhando-com-o-repositório-git-do-professor)
-- [Trabalhando com seu repositório Git](#trabalhando-com-seu-repositório-git)
-  - [Modo manual](#modo-manual)
-    - [Via Git Desktop](#via-git-desktop)
-- [Adicionar & Confirmar & Enviar pra nuvem](#adicionar--confirmar--enviar-pra-nuvem)
-- [Conflitos](#conflitos)
-- [Ignorando arquivos](#ignorando-arquivos)
-- [Desfazendo alterações e vendo diferenças](#desfazendo-alterações-e-vendo-diferenças)
-- [Desafio](#desafio)
-- [Guia rápido](#guia-rápido)
 <!-- toc -->
 
 - [Link para instalação e orientações iniciais](https://www.webdevdrops.com/git-no-windows-github/)

@@ -1,8 +1,6 @@
 # Toalha com testes
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
@@ -111,6 +109,4 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-- java
-  - [Shell.java](.cache/starter/java/Shell.java)
 <!-- links -->

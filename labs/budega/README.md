@@ -1,8 +1,6 @@
 # Gerencie a fila de espera e atendimento
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

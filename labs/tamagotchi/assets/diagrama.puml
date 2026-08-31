@@ -39,6 +39,6 @@ class Game {
     + sleep() : void
 }
 
-Game "1" *-- "1" Pet
+Game "1" o-- "1" Pet : aggregates
 
 @enduml

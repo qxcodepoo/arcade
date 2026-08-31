@@ -4,13 +4,13 @@ import java.util.*;
 class Roupa {
     private String size = "";
 
-    public void setSize(String size) {
-        List<String> validSizes = Arrays.asList("PP", "P", "M", "G", "GG");
+    public boolean setSize(String size) {
+        List<String> validSizes = Arrays.asList("PP", "P", "M", "G", "GG", "XG");
         if (!validSizes.contains(size)) {
-            System.out.println("fail: Valor inválido, tente PP, P, M, G, GG ou XG");
-            return;
+            return false;
         }
         this.size = size;
+        return true;
     }
 
     public String getSize() {
@@ -45,7 +45,9 @@ public class Shell {
                 // @COM
                 String size = par[1];
                 // @DROP
-                roupa.setSize(size);
+                if (!roupa.setSize(size)) {
+                    System.out.println("fail: Valor inválido, tente PP, P, M, G, GG ou XG");
+                }
             }
             else if (cmd.equals("show")) { // MOSTRE A ROUPA
                 // @DROP

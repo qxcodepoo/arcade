@@ -1,8 +1,6 @@
 # @whatsapp
 
 <!-- toc-table -->
-[Intro](#intro) | [Shell](#shell) | [Guia de Resolução](#guia-de-resolução) | [Créditos](#créditos)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

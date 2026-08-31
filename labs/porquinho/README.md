@@ -1,8 +1,6 @@
 # Guardando moedas e itens em um cofrinho
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Draft](#draft) | [Shell](#shell)
--- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

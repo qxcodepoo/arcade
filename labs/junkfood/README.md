@@ -1,8 +1,6 @@
 # Comprando comida cara e duvidosa
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
--- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

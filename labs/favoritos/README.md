@@ -1,8 +1,6 @@
 # Cache e redundância em @favoritos
 
 <!-- toc-table -->
-[Intro](#intro) | [Shell](#shell) | [Guide](#guide)
--- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

@@ -69,23 +69,20 @@ class Pencil {
         return tip != null;
     }
 
-    public boolean insert(Lead grafite) {
+    public String insert(Lead grafite) {
         if(this.hasLead()) {
-            System.out.println("fail: ja existe grafite");
-            return false;
+            return "fail: ja existe grafite";
         }
         if(this.thickness != grafite.getThickness()) {
-            System.out.println("fail: calibre incompativel");
-            return false;
+            return "fail: calibre incompativel";
         }
         
         this.tip = grafite;
-        return true;
+        return null;
     }
 
     public Lead remove() {
         if(this.tip == null) {
-            System.out.println("fail: nao existe grafite");
             return null;
         }
         Lead backup = this.tip;
@@ -93,22 +90,20 @@ class Pencil {
         return backup;
     }
 
-    public void writePage() {
+    public String writePage() {
         if(this.tip == null) {
-            System.out.println("fail: nao existe grafite");
-            return;
+            return "fail: nao existe grafite";
         }
         if (this.tip.getSize() == 10) {
-            System.out.println("fail: tamanho insuficiente");
-            return;
+            return "fail: tamanho insuficiente";
         }
         int finalSize = this.tip.getSize() - this.tip.usagePerSheet();
         if(finalSize < 10) {
             this.tip.setSize(10);
-            System.out.println("fail: folha incompleta");
-            return;
+            return "fail: folha incompleta";
         }
         this.tip.setSize(finalSize);
+        return null;
     }
     
     public String toString() {
@@ -155,15 +150,19 @@ public class Shell {
                 var size = Integer.parseInt(par[3]);
                 // @DROP
                 var lead = new Lead(thickness, hardness, size);
-                pencil.insert(lead);
+                var error = pencil.insert(lead);
+                if (error != null) System.out.println(error);
             }
             else if (cmd.equals("remove")) { 
                 // @DROP
-                pencil.remove();
+                if (pencil.remove() == null) {
+                    System.out.println("fail: nao existe grafite");
+                }
             }
             else if (cmd.equals("write")) { 
                 // @DROP
-                pencil.writePage();
+                var error = pencil.writePage();
+                if (error != null) System.out.println(error);
             }
             // @KEEP
             else {

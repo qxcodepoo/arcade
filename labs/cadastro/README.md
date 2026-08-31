@@ -1,8 +1,6 @@
 # Crie as contas poupança e corrente
 
 <!-- toc-table -->
-[Vídeo](#vídeo) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

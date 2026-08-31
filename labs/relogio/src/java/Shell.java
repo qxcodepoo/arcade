@@ -12,26 +12,26 @@ class Time {
         this.setSecond(second);
     }
 
-    public void setHour(int hour) {
+    public boolean setHour(int hour) {
         if (hour < 0 || hour > 23) {
-            System.out.println("fail: hora invalida");
-            return;
+            return false;
         }
         this.hour = hour;
+        return true;
     }
-    public void setMinute(int minute) {
+    public boolean setMinute(int minute) {
         if (minute < 0 || minute > 59) {
-            System.out.println("fail: minuto invalido");
-            return;
+            return false;
         }
         this.minute = minute;
+        return true;
     }
-    public void setSecond(int second) {
+    public boolean setSecond(int second) {
         if (second < 0 || second > 59) {
-            System.out.println("fail: segundo invalido");
-            return;
+            return false;
         }
         this.second = second;
+        return true;
     }
     public int getHour() {
         return hour;
@@ -93,7 +93,17 @@ public class Shell {
                 int minute = Integer.parseInt(par[2]);
                 int second = Integer.parseInt(par[3]);
                 // @DROP
-                time = new Time(hour, minute, second);
+                Time newTime = new Time(hour, minute, second);
+                if (newTime.getHour() != hour) {
+                    System.out.println("fail: hora invalida");
+                }
+                if (newTime.getMinute() != minute) {
+                    System.out.println("fail: minuto invalido");
+                }
+                if (newTime.getSecond() != second) {
+                    System.out.println("fail: segundo invalido");
+                }
+                time = newTime;
                 // @KEEP
             }
             else if (cmd.equals("set")) {
@@ -103,9 +113,15 @@ public class Shell {
                 int minute = Integer.parseInt(par[2]);
                 int second = Integer.parseInt(par[3]);
                 // @DROP
-                time.setHour(hour);
-                time.setMinute(minute);
-                time.setSecond(second);
+                if (!time.setHour(hour)) {
+                    System.out.println("fail: hora invalida");
+                }
+                if (!time.setMinute(minute)) {
+                    System.out.println("fail: minuto invalido");
+                }
+                if (!time.setSecond(second)) {
+                    System.out.println("fail: segundo invalido");
+                }
             }
             else if (cmd.equals("next")) {
                 // CHAME O MÉTODO nextSecond AQUI
