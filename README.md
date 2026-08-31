@@ -1,6 +1,6 @@
 # Repositório de POO
 
-Este repositório é uma coleção de exercícios e projetos relacionados à Programação Orientada a Objetos (POO). Ele é organizado em diferentes seções, cada uma focada em um aspecto específico da POO, como classes, objetos, herança, polimorfismo, entre outros. Descrição do marcadores[LINK](https://github.com/senapk/tko/blob/master/wiki/Marcadores-e-Tipos.md)
+Este repositório é uma coleção de exercícios e projetos relacionados à Programação Orientada a Objetos (POO). Ele é organizado em diferentes seções, cada uma focada em um aspecto específico da POO, como classes, objetos, herança, polimorfismo, entre outros.
 
 ## Configuração de ambiente <!-- @env -->
 
@@ -11,12 +11,16 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@+atividade      gain=0 type=read eval=self              ` [Padrão para atividades de código](wiki/atividade_codigo/README.md)
 - [ ] `@+main           gain=0 type=read eval=self              ` [Criando a Main](wiki/main/README.md)
 
-## Primeiras Classes <!-- @intro -->
+## Classes e Objetos <!-- @intro -->
 
-- Vamos aprender a criar classes individuais.
-- Aprender a montar o loop de requisições e testes
-- Aprender a separar domínio e interface desde cedo retornando erros por valores.
-- Aprender a criar enumerações.
+- Conceitos abordados:
+  - classe, objeto, atributo e método;
+  - estado e comportamento;
+  - construtor;
+  - identidade entre objetos;
+  - testes do comportamento observável;
+  - separação inicial entre domínio e Shell.
+- Princípio citado somente quando útil: responsabilidade.
 
 - [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Toalha, o item mais útil do universo](labs/toalha/README.md)
 - [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [[GUIA] Animal que nasce, cresce, morre](labs/animal/README.md)
@@ -24,16 +28,33 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Toalha com testes](labs/enxugar/README.md)
 - [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Uma calculadora com bateria](labs/calculadora/README.md)
 
-## Modificadores de Acesso <!-- @access deps=@intro -->
+## Encapsulamento e Invariantes <!-- @access deps=@intro -->
 
-- Vamos aprender a criar classes com modificadores de acesso, encapsulamento e métodos de acesso (getters e setters).
+- Trabalhar:
+  - atributos privados;
+  - estado válido;
+  - validação dentro da classe responsável;
+  - operações que preservam invariantes;
+  - falhas e estado após falhas;
+  - diferença entre encapsular e criar getters/setters para tudo.
+- Conceitos principais: encapsulamento, invariante e contrato.
 
 - [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
 - [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [Comprando uma camisa XG](labs/camisa/README.md)
 - [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa com testes](labs/roupa/README.md)
 - [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Garante uma hora válida no relógio](labs/relogio/README.md)
 
-## Agregação Simples <!-- @agreg deps=@access -->
+## Relações entre objetos <!-- @agreg deps=@access -->
+
+- Trabalhar:
+ - associação;
+ - composição;
+ - agregação;
+ - posse e colaboração;
+ - delegação;
+ - multiplicidade;
+ - ciclos de vida dependentes ou independentes.
+- Conceitos principais: composição, delegação e coesão.
 
 - [ ] `@motoca          gain=1 hard=1 size=1 type=make eval=test` [Crianças andando de motoca](labs/motoca/README.md)
 - [ ] `@grafite         gain=1 hard=1 size=1 type=make eval=test` [Porta minas de um grafite só](labs/grafite/README.md)
@@ -42,7 +63,17 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Notebook com TESTES](labs/charger/README.md)
 - [ ] `@tamagotchi      gain=1 hard=1 size=1 type=make eval=test` [Alimente, brinque e mate](labs/tamagotchi/README.md)
 
-## Listas e Arrays <!-- @arrays deps=@agreg -->
+## Coleções de objetos <!-- @arrays deps=@agreg -->
+
+- Trabalhar:
+  - Array<T> ou lista de objetos;
+  - multiplicidade 0..*;
+  - adicionar, remover, buscar e percorrer;
+  - ordem e posição;
+  - encapsular a coleção;
+  - evitar devolver uma coleção interna mutável;
+  - separar operações sobre um item de operações sobre o conjunto.
+- Conceitos principais: coleção, multiplicidade e coordenação.
 
 - [ ] `@array           gain=3 hard=1 size=1 type=make eval=self` [Manipulações em Arrays](labs/array/README.md)
 - [ ] `@budega          gain=2 hard=1 size=1 type=make eval=test` [Gerencie a fila de espera e atendimento](labs/budega/README.md)
@@ -52,7 +83,21 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@tabuleiro       gain=1 hard=1 size=1 type=make eval=test` [Jogo de tabuleiro e armadilhas](labs/tabuleiro/README.md)
 - [ ] `@junkfood        gain=1 hard=1 size=1 type=make eval=test` [Comprando comida cara e duvidosa](labs/junkfood/README.md)
 
-## CRUD com mapas e enumerações <!-- @crud deps=@arrays -->
+
+## Mapas e Identidade <!-- @crud deps=@arrays -->
+
+- Trabalhar:
+  - Map<K, V>;
+  - chave única;
+  - identidade versus posição;
+  - acesso eficiente por identificador;
+  - inserção duplicada;
+  - remoção e busca por chave;
+  - escolha entre lista e mapa;
+  - manutenção de uma única fonte de verdade.
+- Não é ensinar mapa apenas como nova estrutura, mas discutir:
+  - O elemento é localizado por posição, por busca ou por identidade única?
+- Conceitos principais: identidade, chave e, quando houver duplicação real, DRY.
 
 - [ ] `@contato         gain=1 hard=1 size=1 type=make eval=test` [Gerenciando telefones de um único contato](labs/contato/README.md)
 - [ ] `@agenda          gain=1 hard=1 size=1 type=make eval=test` [Gerencie os vários contatos de uma agenda](labs/agenda/README.md)
@@ -60,7 +105,21 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@petshop         gain=1 hard=1 size=1 type=make eval=test` [Meu Petshop](labs/petshop/README.md)
 - [ ] `@porquinho       gain=1 hard=1 size=1 type=make eval=test` [Guardando moedas e itens em um cofrinho](labs/porquinho/README.md)
 
-## Herança I <!-- @polimorfismo deps=@crud -->
+## Polimorfismo <!-- @polimorfismo deps=@crud -->
+
+- Trabalhar somente depois que os alunos já perceberem uma variação concreta:
+  - contrato comum;
+  - implementações diferentes;
+  - substituição de condicionais por delegação;
+  - composição versus herança;
+  - tipos abstratos ou interfaces;
+  - extensibilidade;
+  - substituição segura.
+- Possíveis princípios, apresentados gradualmente:
+  - OCP, quando um novo comportamento puder ser adicionado sem alterar a coordenação;
+  - LSP, quando houver substituição por subtipos;
+  - ISP, apenas quando uma interface estiver grande demais;
+  - DIP, quando o domínio precisar deixar de depender de uma implementação concreta.
 
 - [ ] `@zoo             gain=1 hard=1 size=1 type=make eval=self` [Sistema de Animais no Zoológico](labs/zoo/README.md)
 - [ ] `@pagamento       gain=1 hard=1 size=1 type=make eval=self` [Sistema de Pagamentos de um Marketplace](labs/pagamento/README.md)
@@ -69,10 +128,6 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@cofre           gain=3 hard=1 size=1 type=make eval=test` [Seu porquinho cresceu](labs/cofre/README.md)
 - [ ] `@cadastro        gain=3 hard=1 size=1 type=make eval=test` [Crie as contas poupança e corrente](labs/cadastro/README.md)
 
-## CPP <!-- @cpp_intro lang=c lang=cpp -->
-
-- [ ] `@cpp             gain=1 type=read eval=self              ` [Pesquisa sobre C++](wiki/cpp/README.md)
-- [ ] `@memoria         gain=1 hard=1 size=1 type=make eval=self` [Pesquisa sobre alocação de memória](labs/memoria/README.md)
 
 ## TODO <!-- @todo lang=X -->
 

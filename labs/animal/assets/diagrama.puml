@@ -5,23 +5,13 @@ skinparam dpi 150
 
 class Animal {
     + species: string
-    + sound  : string
+    + noise  : string
     + age    : number
     __
-    + constructor(species: string, sound: string)
+    + constructor(species: string, noise: string)
     + makeSound(): string
     + ageBy(increment: number): boolean
     + toString(): string
-}
-
-class Legend {
-  + publicAttribute
-  - privateAttribute
-  # protectedAttribute
-  __
-  + publicMethod()
-  - privateMethod()
-  # protectedMethod()
 }
 
 @enduml

@@ -1,0 +1,14 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+class Camisa {
+    - tamanho: string
+    __
+    + constructor()
+    + getTamanho(): string
+    + setTamanho(valor: string): boolean
+}
+
+@enduml

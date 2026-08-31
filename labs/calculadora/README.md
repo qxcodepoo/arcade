@@ -9,6 +9,8 @@
 
 O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
+## Regras
+
 - Descrição
   - A calculadora possui um display `display` e uma bateria `battery`. Ela guarda o valor atual da bateria e o valor máximo `batteryMax`.
   - O display é onde o resultado das operações é armazenado.
@@ -32,17 +34,21 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
   - Soma dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
 - Divisão
-  - Requisição: `$div den num`
+  - Requisição: `$div num den`
   - Divide dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
   - Se houver divisão por zero, emita a mensagem `fail: divisao por zero`.
 - Separe as responsabilidades:
-  - A classe Calculadora não teve conter nenhuma operação de print. 
-  - A class Shell não deve ter lógica de negócios.
+  - A classe Calculadora não deve conter nenhuma operação de impressão.
+  - A classe Shell não deve ter lógica de negócios.
 
-## Guide
+## Diagrama
+
+`Calculator` permanece como uma classe coesa nesta etapa: bateria, display e operações fazem parte da simulação de uma calculadora. Extrair `Battery` será uma evolução possível no bloco de agregação, quando o ciclo de vida do componente for um objetivo explícito. A atividade trabalha KISS, responsabilidade única, separação entre domínio e interface, enumeração de resultados e testabilidade.
 
 ![diagrama](assets/diagrama.png)
+
+## Guide
 
 [![youtube icon](../youguide.webp)](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
 

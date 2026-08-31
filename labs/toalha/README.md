@@ -23,6 +23,10 @@ O objetivo dessa atividade é implementar uma toalha que possa absorver água, s
 - A classe `Towel` não deve ler entrada nem imprimir dados.
 - Crie um código de teste para validar o comportamento da classe.
 
+## Diagrama
+
+O diagrama apresenta uma única classe porque cor, tamanho e umidade formam um comportamento coeso. Criar classes separadas para cada atributo aumentaria a complexidade sem melhorar a manutenção ou os testes nesta etapa.
+
 ![diagrama](assets/diagrama.png)
 
 ## Guide
@@ -33,3 +37,5 @@ O objetivo dessa atividade é implementar uma toalha que possa absorver água, s
 <!-- load -->
 
 Implemente e teste a classe em partes: estado inicial, absorção, limite de umidade, torção e consulta de estado.
+
+Esta atividade trabalha KISS, responsabilidade única, separação entre domínio e interface e testabilidade. A classe `Towel` mantém as regras da toalha; o código de demonstração deve apenas chamar seus métodos e apresentar os resultados.

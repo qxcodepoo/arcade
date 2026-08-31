@@ -1,4 +1,4 @@
-# Comprando uma camisa XG
+# [GUIA] Comprando uma camisa XG
 
 <!-- toc-table -->
 <!-- toc-table -->
@@ -14,13 +14,20 @@ Nesta atividade você vai praticar **encapsulamento** com um atributo privado, u
 ## Regras
 
 - Os tamanhos serão identificados como uma variável tipo texto, e os valores válidos são "PP", "P", "M" e "G", "GG" e "XG".
-- Faça o objeto roupa iniciar o tamanho como uma string vazia, para expressar que nenhum tamanho foi atribuído.
+- Faça o objeto camisa iniciar o tamanho como uma string vazia, para expressar que nenhum tamanho foi atribuído.
 - Crie o método setTamanho que apenas aceita os valores válidos de tamanho.
 - O método `getTamanho` deve consultar o estado sem alterá-lo.
 - O método `setTamanho` deve validar o valor antes de alterar o atributo.
-- Caso o valor seja inválido, retorne false e informe quais os valores permitidos.
-- Faça um código de teste iniciando uma roupa com tamanho vazio e pedindo para o usuário informar o tamanho da roupa.
+- Caso o valor seja válido, retorne `true` e atualize o tamanho. Caso seja inválido, retorne `false` sem alterar o estado.
+- O setter não deve imprimir mensagens; o loop da interface deve informar quais são os valores permitidos quando receber `false`.
+- Faça um código de teste iniciando uma camisa com tamanho vazio e pedindo para o usuário informar o tamanho da camisa.
 - Mantenha o usuário preso no loop até que ele insira um valor válido.
+
+## Diagrama
+
+A classe `Camisa` protege seu tamanho privado e garante que apenas os tamanhos permitidos façam parte de seu estado. O getter, o setter e o loop têm responsabilidades distintas: consulta, validação/alteração e interação. O exemplo trabalha encapsulamento, responsabilidade única, KISS, DRY e testabilidade.
+
+![diagrama](assets/diagrama.png)
 
 ## Guide
 
@@ -36,7 +43,7 @@ class Camisa:
         return self.__tamanho
 
     def setTamanho(self, valor: str) -> bool:
-        # implementar os testes de valor e disparar os avisos caso necessário
+        # validar o valor; retorne false sem alterar o estado se ele for inválido
 
 # loop principal
 camisa = Camisa() # criando camisa com valor tamanho padrão

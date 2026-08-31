@@ -27,31 +27,14 @@ class Towel:
         return self.wetness == 0
 
 
-    def show(self) -> None:
-        print(self)
-
     def __str__(self) -> str:
         return f"{self.color} {self.size} {self.wetness}"
 
-# Testes
-towel = Towel("Azul", "P")
-towel.show()  # Azul P 0
-towel.dry(5)
-towel.show()  # Azul P 5
-print(towel.isDry()) # False
-towel.dry(5)
-towel.show()  # Azul P 10
-if not towel.dry(5): # msg: toalha encharcada
-    print("toalha encharcada")
-towel.show()  # Azul P 10
-
-towel.wringOut()
-towel.show()  # Azul P 0
-
-towel = Towel("Verde", "G")
-print(towel.isDry()) # True
-towel.dry(30)
-towel.show()  # Verde G 30
-print(towel.isDry()) # False
-if not towel.dry(1):  # msg: toalha encharcada
-    print("toalha encharcada")
+if __name__ == "__main__":
+    towel = Towel("Azul", "P")
+    print(towel)
+    towel.dry(5)
+    print(towel)
+    print(towel.isDry())
+    towel.wringOut()
+    print(towel)

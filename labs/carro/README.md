@@ -43,11 +43,17 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
   - Para dirigir, o carro consome combustível e aumenta a quilometragem.
   - Só pode dirigir se houver combustível e se houver alguém no carro.
   - Caso não haja ninguém no carro, emite a mensagem de erro.
-    - `fail: não ha ninguém no carro`
+    - `fail: nao ha ninguem no carro`
   - Caso não haja combustível, emite a mensagem de erro.
     - `fail: tanque vazio`
   - Caso não exista combustível suficiente para completar a viagem inteira, dirija o máximo possível e emite uma mensagem indicando quanto foi percorrido
     - `fail: viagem incompleta`.
+
+## Diagrama
+
+O diagrama separa o domínio (`Car` e `Result`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos e interpreta os resultados. A solução permanece simples nesta etapa, trabalhando KISS, responsabilidade única, baixo acoplamento e testabilidade.
+
+![diagrama](assets/diagrama.png)
 
 ## Guide
 
@@ -57,8 +63,6 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Começe analisando os testes e entendendo tudo que seu código precisa fazer.
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
-
-![diagrama](assets/diagrama.png)
 
 ## Shell
 

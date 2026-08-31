@@ -1,9 +1,9 @@
 import java.util.Scanner;
 // @DROP
 class Towel {
-    private String color;
-    private String size;
-    private int wetness;
+    public String color;
+    public String size;
+    public int wetness;
 
     public Towel(String color, String size) {
         this.color = color;

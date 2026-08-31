@@ -1,0 +1,14 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+class Chinela {
+    - tamanho: number
+    __
+    + constructor()
+    + getTamanho(): number
+    + setTamanho(valor: number): boolean
+}
+
+@enduml

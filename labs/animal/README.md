@@ -11,9 +11,9 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 
 ## Regras
 
-- O animal tem uma espécie `species`, um estágio `age` de vida e um barulho `sound` que ele faz.
+- O animal tem uma espécie `species`, um estágio `age` de vida e um barulho `noise` que ele faz.
 - O construtor recebe a espécie e o barulho e inicia o estágio com `0`.
-- O `toString` do animal deve retornar `{species}:{age}:{sound}`.
+- O `toString` do animal deve retornar `{species}:{age}:{noise}`.
 - Os estágios são: `0` Filhote, `1` Criança, `2` Adulto, `3` Idoso e `4` Morto.
 - O método `ageBy` avança o estágio conforme o parâmetro `increment`.
   - Retorna `true` se o animal não morrer.
@@ -24,6 +24,12 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
   - Animal morto emite `RIP`.
 - A classe `Animal` não lê nem imprime dados. A camada de interação é responsável pela entrada e saída.
 
+## Diagrama
+
+O diagrama mostra apenas a classe `Animal`, que concentra o estado e as regras do ciclo de vida. A classe não foi dividida porque o objetivo desta atividade é praticar uma classe de domínio simples, mantendo a solução KISS.
+
+![_](assets/diagrama.png)
+
 ## Guide
 
 - Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
@@ -31,7 +37,7 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 - Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
 - Passe para o próximo teste até implementar tudo que é pedido.
 
-![_](assets/diagrama.png)
+Esta atividade trabalha responsabilidade única, separação entre domínio e interface, retorno de valores e testabilidade. O `Shell` controla o loop e as mensagens; `Animal` apenas aplica as regras de idade e som.
 
 - Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
 

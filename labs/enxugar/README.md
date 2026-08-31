@@ -7,33 +7,28 @@
 
 ## Intro
 
-* Crie uma classe Toalha `Towel` com os atributos cor `color`, tamanho `size` e umidade `wetness`.
-* Crie um construtor que inicialize `color` e `size` com os valores recebidos como parâmetros e `wetness` com `0`.
-* Crie um método torcer `wringOut` que zera o atributo `wetness` da toalha.
-* Crie um método `getMaxWetness` que retorna o valor máximo de umidade que a toalha pode atingir.
-* O máximo de umidade depende do tamanho da toalha:
+O objetivo dessa atividade é praticar uma classe de domínio que controla a umidade de uma toalha e retorna o resultado de cada operação.
 
-  * `P` → `10`
-  * `M` → `20`
-  * `G` → `30`
-* Crie um método enxugar `dry` que recebe uma quantidade inteira `amount` e tenta usar a toalha para enxugar essa quantidade de água.
+## Regras
 
-  * Enxugar aumenta a umidade (`wetness`) da toalha.
-  * A umidade nunca pode ultrapassar o limite máximo da toalha.
-  * Se a toalha conseguir absorver toda a quantidade solicitada, retorne `true`.
-  * Se a toalha não tiver capacidade para absorver toda a quantidade, absorva apenas o que for possível até atingir o limite máximo e retorne `false`.
-* Crie um método `isDry` que retorna `true` se a umidade (`wetness`) for `0` e `false` caso contrário.
+- A classe `Towel` possui cor `color`, tamanho `size` e umidade `wetness`.
+- O construtor recebe cor e tamanho e inicia `wetness` com `0`.
+- `wringOut()` zera a umidade.
+- `getMaxWetness()` retorna `10` para `P`, `20` para `M` e `30` para `G`.
+- `dry(amount)` aumenta a umidade sem ultrapassar o limite; retorna `true` quando absorve tudo e `false` quando absorve apenas o possível.
+- `isDry()` retorna `true` quando a umidade é `0`.
+- `Towel` não deve ler entrada nem imprimir dados; o `Shell` interpreta os retornos e apresenta as mensagens.
+- A classe permanece única porque suas regras formam um comportamento coeso. Não crie classes separadas para cor, tamanho ou umidade nesta etapa.
 
-deve existir uma separação entre lógica de negócio e interação com o usuário.
+## Diagrama
 
-- A classe Towel deve conter seu estado e suas regras de negócio.
-- A classe Shell representa a interface de linha de comando e deve cuidar da leitura dos comandos e da apresentação dos resultados.
-- A classe Towel não deve utilizar nenhum comando de impressão como `print` ou `System.out`, deve apenas retornar valores.
-- O Shell deve interpretar esse resultado e decidir qual mensagem apresentar ao usuário.
+O diagrama representa uma classe simples e coesa. A atividade trabalha KISS, responsabilidade única, separação entre domínio e interface e testabilidade, sem antecipar modificadores de acesso do próximo bloco.
+
+![diagrama](assets/diagrama.png)
 
 ## Guide
 
-![diagrama](assets/diagrama.png)
+`Towel` concentra apenas o estado e as regras de umidade. O `Shell` lê comandos e decide o que apresentar. Nesta etapa, a solução trabalha KISS, responsabilidade única, separação entre domínio e interface e testabilidade; o controle de acesso será estudado no próximo bloco.
 
 [![youtube icon](../youguide.webp)](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
@@ -41,7 +36,7 @@ deve existir uma separação entre lógica de negócio e interação com o usuá
 ## Shell
 
 ```bash
-#TEST_CASE criação
+#TEST_CASE criação pequena
 $criar azul P
 $mostrar
 Cor: azul, Tamanho: P, Umidade: 0
@@ -86,7 +81,7 @@ $end
 
 ```bash
 
-#TEST_CASE criação
+#TEST_CASE criação grande
 $criar verde G
 
 $mostrar

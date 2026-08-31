@@ -1,136 +1,365 @@
-# Orientações para atividades
+# Orientações para criação de atividades
 
-Estas regras orientam a criação, revisão e manutenção das atividades de código deste repositório. Para o modelo detalhado, consulte:
+Este arquivo orienta agentes que criem, revisem ou mantenham atividades de programação neste repositório. O objetivo não é apenas produzir soluções corretas, mas criar uma progressão didática que ensine o aluno a transformar programas funcionais em código legível, coeso, testável e fácil de modificar.
+
+Para os formatos detalhados, consulte:
 
 - [Padrão para atividades de código](wiki/atividade_codigo/README.md)
 - [Modelo com Shell](wiki/atividade_codigo/modelo.md)
 - [Modelo de implementação orientada](wiki/atividade_codigo/modelo_orientada.md)
 
+## Público e ponto de partida
+
+Considere que os alunos já dominam variáveis, condicionais, laços, funções e coleções básicas. Eles ainda estão desenvolvendo a capacidade de:
+
+- decompor um problema em responsabilidades;
+- distinguir interface, coordenação e regra de negócio;
+- modelar estado, comportamento e invariantes;
+- reconhecer duplicação, alto acoplamento e baixa coesão;
+- escrever código que outra pessoa consiga compreender, testar e alterar;
+- justificar decisões de projeto em vez de apenas reproduzir estruturas.
+
+Não trate padrões arquiteturais ou princípios como pré-requisitos. Cada atividade deve introduzir poucas ideias novas, aplicá-las a um problema concreto e tornar visível o benefício obtido. Os nomes formais apresentados neste documento são referências para o planejamento do agente; eles não precisam aparecer em toda atividade.
+
+## Objetivo pedagógico central
+
+As atividades devem desenvolver, de maneira progressiva, estas capacidades:
+
+1. **Correção:** implementar o comportamento solicitado e preservar o estado válido.
+2. **Legibilidade:** revelar intenção por meio de nomes, organização e fluxo simples.
+3. **Decomposição:** dividir operações e componentes por responsabilidade real.
+4. **Encapsulamento:** manter invariantes sob controle do objeto que possui o estado.
+5. **Testabilidade:** isolar regras da entrada, saída e de dependências externas.
+6. **Evolução:** modificar requisitos sem espalhar mudanças por todo o programa.
+7. **Justificativa:** explicar os custos e benefícios das escolhas de modelagem.
+
+Código curto não é necessariamente código simples. Avalie principalmente clareza, quantidade de conceitos simultâneos, dependências e facilidade de mudança.
+
+## Progressão recomendada
+
+Organize as atividades em blocos. Uma atividade pode revisar competências anteriores, mas deve declarar um objetivo principal e, no máximo, dois objetivos secundários.
+
+### 1. Legibilidade local
+
+Trabalhe:
+
+- nomes que revelem intenção;
+- constantes no lugar de valores mágicos;
+- fluxo de controle simples e retornos antecipados quando reduzirem aninhamento;
+- métodos pequenos, com uma operação conceitual;
+- remoção de duplicação evidente;
+- comentários que expliquem decisões, não instruções já expressas pelo código.
+
+Ainda não exija múltiplas classes, interfaces ou padrões de projeto quando funções e estruturas simples forem suficientes.
+
+### 2. Estado e invariantes
+
+Trabalhe:
+
+- diferença entre estado válido e inválido;
+- validação na classe que conhece a regra;
+- operações que preservam invariantes;
+- efeitos de uma falha sobre o estado;
+- encapsulamento e exposição controlada de dados;
+- comandos, consultas e retornos explícitos.
+
+Os testes devem verificar não apenas a mensagem de erro, mas também o estado após a operação recusada.
+
+### 3. Separação entre domínio e interface
+
+Trabalhe:
+
+- domínio independente de terminal, arquivos ou interface gráfica;
+- `Shell` responsável apenas por interpretar comandos, converter dados, invocar o domínio e apresentar resultados;
+- regras de negócio testáveis sem simular entrada e saída;
+- contratos explícitos para sucesso e falha.
+
+Não mova regras para o `Shell` para simplificar a interação ou satisfazer um teste.
+
+### 4. Colaboração entre objetos
+
+Trabalhe:
+
+- classes pequenas e coesas;
+- composição e relações de posse;
+- multiplicidades e ciclos de vida;
+- delegação de comportamento ao objeto que possui os dados;
+- classes coordenadoras que orquestram sem absorver as regras dos componentes;
+- coleções de objetos e busca por identidade.
+
+Toda divisão deve nascer de responsabilidades ou ciclos de vida distintos. Não crie classes apenas para aumentar o número de arquivos.
+
+### 5. Evolução e dependências
+
+Quando a turma estiver preparada, trabalhe:
+
+- substituição de comportamentos;
+- interfaces definidas pela necessidade do cliente;
+- inversão de dependência em pontos de variação reais;
+- injeção de relógio, aleatoriedade, armazenamento ou serviços quando necessária aos testes;
+- tratamento de erros sem dependência de mensagens dispersas;
+- refatoração orientada por testes.
+
+Introduza padrões de projeto somente depois de o aluno encontrar o problema que o padrão resolve.
+
+## Como elaborar cada atividade
+
+Cada atividade deve deixar explícitos:
+
+- o comportamento observável esperado;
+- o conhecimento prévio necessário;
+- o objetivo pedagógico principal;
+- as restrições do domínio e suas invariantes;
+- os critérios de conclusão e verificação;
+- uma mudança futura plausível que permita discutir a qualidade da modelagem.
+
+Não inclua seções enumerando princípios, práticas ou conteúdos fora do escopo por padrão. Cite uma nomenclatura técnica somente quando ela for necessária para compreender, executar ou discutir a atividade.
+
+Prefira problemas pequenos com regras suficientemente ricas para exigir decisões. Não aumente a dificuldade com entrada excessiva, cálculos periféricos ou texto ambíguo.
+
+Quando possível, estruture a aprendizagem neste ciclo:
+
+1. apresentar uma versão simples ou um problema concreto;
+2. tornar visível um custo, erro ou dificuldade de mudança;
+3. introduzir uma prática que resolva esse problema;
+4. aplicar a mudança em passos verificáveis;
+5. comparar antes e depois;
+6. propor uma pequena extensão para validar a nova estrutura.
+
+Não entregue automaticamente a arquitetura completa quando a descoberta fizer parte do objetivo. O `Guide` pode usar perguntas orientadoras antes de apresentar a solução.
+
 ## Estrutura da atividade
 
 - Use título, `toc-table`, capa, `Intro`, `Regras`, `Diagrama` e `Guide`.
-- Atividades `eval=test` devem ter `Shell` com casos `#TEST_CASE`, comandos iniciados por `$` e encerramento `$end`.
-- Atividades `eval=self` devem descrever métodos, retornos, limites e um roteiro de verificação; não exigem `Shell`.
-- Use `Draft` quando houver starter ou esqueleto mantido pelo `tko`.
 - Escreva primeiro o comportamento observável e depois os detalhes de implementação.
-- Mantenha mensagens, formatos de saída, pontuação e acentuação exatamente iguais entre regras, exemplos, testes e código.
+- Use `Draft` quando houver starter ou esqueleto mantido pelo `tko`.
+- Mantenha mensagens, formatos de saída, pontuação e acentuação idênticos entre regras, exemplos, testes e código.
+- Evite requisitos implícitos. Se algo será avaliado, descreva-o no contrato ou no objetivo pedagógico.
+
+Atividades `eval=test` devem possuir `Shell` com casos `#TEST_CASE`, comandos iniciados por `$` e encerramento `$end`.
+
+Atividades `eval=self` não exigem `Shell`, mas devem descrever métodos, retornos, limites, exemplos e um roteiro objetivo de verificação.
 
 ## Domínio e interface
 
-- Classes de domínio devem guardar estado e regras do problema.
-- Classes de domínio não devem ler entrada nem imprimir saída.
-- O `Shell` deve ler comandos, converter argumentos, chamar o domínio e imprimir os resultados.
-- Falhas devem ser representadas por valores, objetos de resultado, booleanos ou enums conforme o contrato da atividade.
-- Não mova regra de negócio para o `Shell` apenas para simplificar a interação.
-- Avalie se uma classe concentra regras de componentes diferentes. Separe responsabilidades quando isso melhorar a coesão e tornar explícitos os ciclos de vida dos objetos.
+- Classes de domínio guardam estado e regras do problema.
+- Classes de domínio não leem entrada nem imprimem saída.
+- O `Shell` lê comandos, converte argumentos, chama o domínio e imprime resultados.
+- Falhas são representadas por valores, objetos de resultado, booleanos, exceções ou enums conforme o contrato e o objetivo da atividade.
+- A classe que conhece uma restrição deve ser responsável por garanti-la.
+- Consultas não devem alterar estado, salvo quando isso fizer parte explícita do modelo.
+- Estado global e dependências ocultas devem ser evitados.
+
+Escolha uma estratégia de erro coerente dentro de cada atividade. Não misture indiscriminadamente exceções, códigos, booleanos e mensagens.
 
 ## Modelagem e boas práticas
 
-- Evite God Objects: não concentre em uma única classe estado, validações, cálculos, persistência, interface e coordenação de vários componentes.
-- Prefira classes pequenas, coesas e com uma razão clara para existir.
-- Mantenha as regras de um componente dentro do próprio componente.
-- Use classes coordenadoras para orquestrar objetos, sem absorver as responsabilidades deles.
-- Não crie classes artificiais apenas para aumentar a quantidade de arquivos; a divisão deve melhorar coesão, manutenção ou testabilidade.
-- Ao propor uma divisão, identifique explicitamente o estado, as regras e o ciclo de vida de cada componente.
+Use Clean Code, KISS, DRY e SOLID como vocabulário de planejamento e análise, não como uma lista rígida de mandamentos nem como etiquetas obrigatórias no README.
 
-Toda atividade que introduzir uma divisão de classes deve explicar ao aluno:
+- **KISS:** prefira a solução mais simples que represente corretamente o problema atual.
+- **DRY:** evite duplicar conhecimento e regras; não elimine toda semelhança superficial por meio de abstrações artificiais.
+- **SRP:** dê a cada componente uma responsabilidade coesa e uma razão principal para mudar.
+- **Encapsulamento:** proteja invariantes e evite que clientes manipulem livremente o estado interno.
+- **Baixo acoplamento:** limite o conhecimento de cada componente às dependências necessárias.
+- **Alta coesão:** mantenha juntos dados e comportamentos que pertencem ao mesmo conceito.
+- **YAGNI:** não crie extensibilidade para requisitos apenas imaginados.
 
-- por que a classe original foi dividida;
+Evite:
+
+- God Objects;
+- métodos que misturem leitura, validação, cálculo, mutação e impressão;
+- dados públicos que permitam quebrar invariantes;
+- getters e setters automáticos sem necessidade de domínio;
+- booleanos que tornem chamadas ambíguas;
+- valores mágicos e mensagens espalhadas;
+- herança usada apenas para reutilizar código;
+- abstrações com uma única implementação sem ponto de variação real;
+- comentários que apenas traduzam o código;
+- otimizações prematuras;
+- refatorações alheias ao objetivo da atividade.
+
+Não considere quantidade de classes, quantidade de métodos ou tamanho máximo de método como métricas isoladas de qualidade.
+
+## Uso dos princípios e da nomenclatura
+
+Apresente apenas os conceitos diretamente necessários à atividade. O objetivo é dar nome a uma decisão que o aluno esteja praticando, e não antecipar todo o vocabulário de projeto de software.
+
+- Prefira primeiro explicar o problema e a decisão em linguagem concreta.
+- Introduza o termo técnico quando ele ajudar o aluno a reconhecer e reutilizar a ideia em outros contextos.
+- Destaque, em geral, um conceito principal por atividade; mencione um segundo apenas quando houver relação direta entre eles.
+- Não liste KISS, DRY, SOLID, Clean Code ou outros princípios apenas porque a solução é compatível com eles.
+- Não cite um princípio que não seja demonstrado por uma decisão, comparação, teste ou refatoração observável na atividade.
+- Não exija que o aluno memorize siglas antes de compreender o problema que elas ajudam a resolver.
+- Reforce termos já apresentados quando forem novamente relevantes, sem repetir definições completas.
+- Reserve discussões de alternativas, custos e exceções para o `Guide`; mantenha as `Regras` centradas no contrato do problema.
+
+Use a nomenclatura conforme a necessidade:
+
+- **legibilidade:** nomes expressivos, fluxo simples e ausência de valores mágicos;
+- **responsabilidade e coesão:** quando houver decomposição de métodos ou classes;
+- **encapsulamento e invariantes:** quando a atividade possuir estado que precisa permanecer válido;
+- **separação de interesses:** quando domínio, `Shell`, persistência ou apresentação precisarem ser distinguidos;
+- **acoplamento, composição e delegação:** quando objetos começarem a colaborar;
+- **KISS, DRY e YAGNI:** quando houver alternativas concretas de simplificação, duplicação de conhecimento ou abstração prematura;
+- **SRP, OCP, LSP, ISP e DIP:** somente em atividades avançadas nas quais o problema correspondente seja observável.
+
+Ao citar um princípio, explique brevemente:
+
+1. qual problema concreto aparece na atividade;
+2. qual decisão aplica o princípio;
+3. qual benefício ela produz naquele contexto.
+
+Não é necessário apresentar o nome do princípio se a nomenclatura aumentar a carga cognitiva sem ajudar na implementação ou na reflexão.
+
+## Explicação das decisões de projeto
+
+Toda atividade que introduzir uma divisão de classes deve explicar:
+
+- qual problema existia antes da divisão;
 - qual é o objetivo de cada componente;
-- quais estados e regras pertencem a cada classe;
-- como a divisão melhora manutenção, reutilização e testes;
+- quais estados, invariantes e comportamentos pertencem a cada classe;
 - qual relação existe entre os componentes;
-- quais objetos possuem ciclos de vida independentes.
+- quais objetos possuem ciclos de vida independentes;
+- como a divisão melhora manutenção, extensão ou testes;
+- qual custo adicional a divisão introduz.
 
-No `Guide`, apresente essa justificativa junto da sequência de implementação e do diagrama, para que a divisão seja entendida como uma decisão de projeto e não apenas como uma exigência estrutural.
+Apresente essa justificativa no `Guide`, junto da sequência de implementação e do diagrama. A estrutura deve ser compreendida como decisão de projeto, não como exigência burocrática.
 
-## Princípios trabalhados
+## Guide e implementação orientada
 
-O README deve indicar quais princípios estão sendo praticados na atividade e quais ainda não fazem parte do objetivo do bloco.
+O `Guide` deve:
 
-- **KISS**: mantenha a solução simples e evite abstrações que não sejam necessárias ao problema.
-- **DRY**: evite duplicar regras e validações; mantenha uma única fonte de verdade para cada comportamento.
-- **SOLID**: introduza primeiro responsabilidade única e, conforme a progressão da disciplina justificar, separação de dependências e interfaces.
-- Não exija a aplicação integral de todos os princípios em atividades introdutórias; a complexidade deve ser proporcional ao objetivo pedagógico.
+- decompor a implementação em incrementos pequenos e executáveis;
+- começar pelo modelo mínimo capaz de representar o domínio;
+- indicar o que deve funcionar ao fim de cada etapa;
+- relacionar cada passo a uma responsabilidade ou invariante;
+- mostrar exemplos essenciais sem entregar mecanicamente toda a solução, salvo quando esse for o formato da atividade;
+- incluir perguntas de reflexão sobre alternativas e consequências;
+- encerrar com uma verificação e, quando adequado, uma pequena extensão.
 
-## Boas práticas essenciais
+Evite passos baseados apenas em edição mecânica, como “crie três classes” sem explicar o motivo. Prefira instruções como “extraia o componente porque ele possui estado e ciclo de vida próprios”.
 
-Use Clean Code como referência para legibilidade e manutenção, não como uma lista rígida de regras. Toda prática deve servir ao domínio e reduzir complexidade ou risco real.
+## Testes como instrumento pedagógico
 
-- Use nomes expressivos para classes, métodos e variáveis; evite abreviações e nomes genéricos quando não revelarem a intenção.
-- Mantenha métodos pequenos e com uma responsabilidade clara; não misture leitura, validação, cálculo, alteração de estado e impressão na mesma operação.
-- Busque alta coesão e baixo acoplamento: cada classe deve reunir comportamentos relacionados e conhecer apenas as dependências necessárias.
-- Proteja o estado interno e faça a classe responsável garantir suas próprias invariantes.
-- Evite complexidade prematura; não introduza abstrações, padrões ou camadas sem uma necessidade concreta.
-- Defina falhas e retornos explicitamente no contrato da atividade; evite valores mágicos e mensagens espalhadas pelo código.
-- Favoreça métodos determinísticos e componentes que possam ser testados sem depender da interface, de estado global ou de dependências desnecessárias.
-- Use comentários para explicar decisões, regras não óbvias e motivos de uma divisão; não repita no comentário o que o código já expressa.
+Os testes devem reforçar o contrato e a modelagem, não premiar detalhes internos acidentais.
 
-O `Guide` deve indicar brevemente quais boas práticas estão sendo introduzidas na atividade, quais decisões as demonstram e quais práticas ainda não fazem parte do objetivo do bloco. Explique como elas melhoram manutenção, extensão ou testes.
+Inclua, conforme o objetivo:
 
-## Revisão da modelagem
+- caminho principal;
+- valores de fronteira;
+- operação inválida;
+- estado preservado após falha;
+- sequência de operações;
+- interação entre componentes;
+- independência do domínio em relação ao `Shell`.
 
-Ao criar ou revisar uma atividade, verifique:
+Evite testes dependentes da ordem interna de execução, de atributos privados ou de uma decomposição não exigida. Quando a estrutura fizer parte do aprendizado, declare explicitamente o que será inspecionado e por quê.
 
-1. Se alguma classe conhece ou executa regras de componentes diferentes.
-2. Se o `Shell` contém lógica que deveria estar no domínio.
-3. Se a divisão reduz responsabilidades ou apenas aumenta o número de arquivos.
-4. Se o diagrama representa as responsabilidades e relações do código.
-5. Se o README explica as decisões de modelagem em linguagem acessível e apresenta o vocabulário técnico.
-6. Se os componentes podem ser testados isoladamente quando possuem regras ou ciclo de vida próprios.
-7. Se os casos de erro pertencem à classe que conhece a regra de validação.
-8. Se os nomes revelam a intenção do domínio.
-9. Se cada método possui uma responsabilidade clara.
-10. Se as invariantes são protegidas pela classe correta.
-11. Se a solução está simples para o nível da atividade.
-12. Se comentários explicam decisões em vez de repetir o código.
-13. Se a atividade explica quais boas práticas estão sendo trabalhadas.
+## Refatoração e comparação
+
+Quando o objetivo for código limpo ou modelagem, prefira atividades que permitam comparar versões. Solicite que o aluno identifique:
+
+- o problema ou code smell observado;
+- o risco causado por ele;
+- a alteração realizada;
+- quais comportamentos permaneceram iguais;
+- qual nova mudança ficou mais fácil;
+- quais custos ou limitações continuam existindo.
+
+Não apresente todo código antigo como “errado”. Diferencie solução funcional, solução adequada ao contexto e solução preparada para novos requisitos.
 
 ## Convenção dos diagramas
 
-Os diagramas usam uma convenção de tipos baseada em TypeScript para servir como notação comum entre Python, TypeScript, Java, Kotlin, C++ e Go. Isso é uma convenção didática, não código para compilação direta.
+Os diagramas usam tipos baseados em TypeScript como notação comum entre Python, TypeScript, Java, Kotlin, C++ e Go. Trata-se de convenção didática, não de código diretamente compilável.
 
 - Use `number`, `boolean`, `string` e `void`.
 - Use `Array<T>` para coleções indexadas de tamanho variável.
 - Use `Map<K, V>` para estruturas chave-valor.
-- Use `T | null` para atributos ou retornos que possam representar ausência.
-- Use multiplicidades UML nas associações, como `0..1` e `0..*`.
-- Não use `None`, `Optional`, `undefined`, ponteiros ou coleções específicas de uma linguagem.
-- Não use tuplas como padrão. Quando os valores tiverem significado próprio, modele uma classe com atributos nomeados.
-- Use `Array<T>` para coleção variável. Reserve uma notação específica para tamanho fixo somente quando esse for um requisito do problema.
+- Use `T | null` para ausência.
+- Use multiplicidades UML, como `0..1` e `0..*`.
 - Preserve os modificadores UML `+`, `-` e `#`.
+- Não use `None`, `Optional`, `undefined`, ponteiros ou coleções específicas de uma linguagem.
+- Não use tuplas como padrão. Quando os valores tiverem significado próprio, modele atributos nomeados.
+
+O diagrama deve comunicar responsabilidades e relações relevantes; não precisa expor detalhes internos sem valor didático.
 
 Cada atividade com diagrama deve manter:
 
 - `assets/diagrama.puml` como fonte;
-- a imagem gerada a partir dessa fonte;
+- a imagem gerada a partir da fonte;
 - classes, atributos, métodos, relações e multiplicidades coerentes com o enunciado e o código.
 
-Gere o diagrama dentro da pasta `assets` com:
+Gere o diagrama dentro de `assets` com:
 
 ```bash
 plantuml diagrama.puml
 ```
 
-Se o ambiente não tiver suporte gráfico, use a mesma execução em modo headless sem alterar o arquivo fonte.
+Se necessário, execute o PlantUML em modo headless sem alterar a fonte.
 
-## Implementação
+## Implementações de referência
 
-- Respeite os padrões já usados na atividade e evite refatorações não relacionadas.
-- As soluções padrão mantidas no repositório são Java e Python; não reintroduza `src/cpp` ou `src/ts` sem solicitação explícita.
-- Ao alterar uma atividade avaliada por testes, preserve o contrato do `Shell` e atualize os testes somente quando a regra do problema realmente mudar.
-- Ao alterar uma atividade tutorial, mantenha exemplos e orientações alinhados ao modelo conceitual, sem transformar o tutorial em contrato de testes.
-- Preserve alterações preexistentes no worktree e revise cuidadosamente arquivos gerados pelo `tko` antes de incluí-los.
+- As soluções padrão são Java e Python; não reintroduza `src/cpp` ou `src/ts` sem solicitação explícita.
+- Preserve o mesmo modelo conceitual entre as linguagens, mas use construções idiomáticas de cada uma.
+- Não force uma tradução linha a linha.
+- Não use recursos avançados da linguagem que ocultem o conceito sendo ensinado.
+- Diferencie exigências do domínio de escolhas específicas da linguagem.
+- Respeite os padrões existentes e evite refatorações não relacionadas.
+- Ao alterar uma atividade `eval=test`, preserve o contrato do `Shell`; altere os testes somente quando a regra do problema mudar.
+- Ao alterar uma atividade `eval=self`, mantenha exemplos e roteiro alinhados ao modelo conceitual sem transformar o tutorial em contrato rígido de saída.
+- Preserve alterações preexistentes no worktree e revise arquivos gerados pelo `tko` antes de incluí-los.
 
-## Verificação
+## Revisão pedagógica e técnica
 
-Antes de concluir uma alteração:
+Ao criar ou revisar uma atividade, verifique:
+
+1. O objetivo pedagógico principal está explícito e compatível com os pré-requisitos?
+2. A atividade introduz uma quantidade administrável de conceitos novos?
+3. O problema torna perceptível a utilidade da prática ensinada?
+4. O comportamento observável está separado dos detalhes de implementação?
+5. Alguma classe conhece ou executa regras de componentes diferentes?
+6. O `Shell` contém lógica que pertence ao domínio?
+7. A divisão melhora coesão e testabilidade ou apenas aumenta arquivos?
+8. Estado, invariantes e ciclos de vida pertencem às classes corretas?
+9. Os casos de erro são tratados por quem conhece a regra?
+10. Nomes revelam a intenção do domínio?
+11. Cada método realiza uma operação conceitual clara?
+12. Dependências são explícitas e realmente necessárias?
+13. Testes verificam comportamento, fronteiras e estado após falhas?
+14. O diagrama representa o modelo efetivamente ensinado?
+15. O `Guide` explica decisões e consequências em linguagem acessível?
+16. Os termos técnicos citados são necessários e aparecem em decisões concretas da atividade?
+17. A atividade evita listas decorativas de princípios e siglas?
+18. A solução permanece simples para o nível da atividade?
+19. Existe oportunidade de aplicar ou avaliar a estrutura por meio de uma pequena mudança?
+
+## Verificação antes de concluir
 
 1. Confira a estrutura do README e os links locais.
-2. Gere ou valide `assets/diagrama.puml` e sua imagem.
-3. Compile e execute o código da linguagem disponível, quando houver.
-4. Para `eval=test`, execute os cenários de sucesso, falha e estado após falha.
-5. Para `eval=self`, valide os exemplos e o roteiro de verificação documentados.
-6. Execute `tko util mdpp README.md` quando o README for alterado.
-7. Execute `git diff --check`.
-8. Use `make all` somente quando for necessário atualizar o índice ou artefatos gerados, e revise o diff completo depois.
+2. Verifique a coerência entre regras, exemplos, diagrama, testes e implementações.
+3. Gere ou valide `assets/diagrama.puml` e sua imagem.
+4. Compile e execute o código das linguagens disponíveis.
+5. Para `eval=test`, execute cenários de sucesso, falha, fronteira e estado após falha.
+6. Para `eval=self`, valide exemplos e roteiro de verificação.
+7. Execute `tko util mdpp README.md` quando o README for alterado.
+8. Execute `git diff --check`.
+9. Use `make all` apenas quando for necessário atualizar índices ou artefatos gerados e revise o diff completo.
+
+## Conduta esperada do agente
+
+Antes de alterar uma atividade:
+
+1. leia o README, o código, os testes e o diagrama existentes;
+2. identifique o objetivo pedagógico atual;
+3. aponte inconsistências entre contrato, modelagem e avaliação;
+4. proponha a menor alteração capaz de resolver o problema;
+5. preserve decisões válidas e mudanças do usuário.
+
+Ao concluir, informe sucintamente:
+
+- o que foi alterado;
+- qual objetivo pedagógico foi reforçado;
+- quais verificações foram executadas;
+- quais limitações ou decisões permanecem abertas.
+
+Se uma mudança exigir redefinir o contrato, a progressão pedagógica ou o nível esperado dos alunos, não presuma a decisão: apresente as alternativas e solicite orientação.
