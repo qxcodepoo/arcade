@@ -5,10 +5,6 @@
 
 ![cover](assets/cover.webp)
 
-- TODO
-- solver
-- raiox
-- diagrama
 
 _Você digita o número de Maria no celular e aparece que você está ligando pra João. Hum, alguma coisa errada não está certa._
 

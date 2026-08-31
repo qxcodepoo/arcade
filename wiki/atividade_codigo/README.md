@@ -41,8 +41,8 @@ Toda nova atividade de código deve usar estas seções base, nesta ordem.
   - Exemplo: `# Um carro simples`.
 - `toc-table`
   - Deve ficar logo abaixo do título.
-  - Em atividades com Shell, deve listar: `Intro`, `Regras`, `Guide`, `Shell`, `Draft`.
-  - Em atividades orientadas, deve listar: `Intro`, `Regras`, `Guide`.
+  - Em atividades com Shell, deve listar: `Intro`, `Regras`, `Diagrama`, `Guide`, `Shell`, `Draft`.
+  - Em atividades orientadas, deve listar: `Intro`, `Regras`, `Diagrama`, `Guide`.
 - Capa
   - Deve usar `![cover](assets/cover.webp)` quando houver imagem.
   - A imagem ajuda a reconhecer a atividade, mas não deve carregar requisito técnico.
@@ -53,6 +53,9 @@ Toda nova atividade de código deve usar estas seções base, nesta ordem.
 - `Regras`
   - Deve ser o contrato do problema.
   - Deve listar atributos, estado inicial, construtor ou comando de inicialização, formato de exibição, operações, limites e mensagens de falha.
+- `Diagrama`
+  - Deve apresentar o modelo de classes e as relações relevantes para a atividade.
+  - Deve seguir a convenção definida em [Diagramas](#diagramas).
 - `Guide`
   - Deve orientar a implementação em partes.
   - Pode conter diagrama, vídeo, dicas de linguagem e sequência sugerida.
@@ -136,9 +139,11 @@ Os diagramas de classes devem usar uma convenção de tipos baseada em TypeScrip
 
 - Use `number`, `string` e `boolean` para tipos primitivos.
 - Use `Tipo | null` quando um atributo ou retorno puder representar ausência de valor.
-- Use `Tipo[]` para coleções simples.
+- Use `Array<Tipo>` para coleções indexadas de tamanho variável.
+- Use `Map<K, V>` para estruturas chave-valor.
 - Use a multiplicidade UML nas associações, por exemplo `0..1` para uma referência opcional e `0..*` para uma coleção.
-- Use `null` como representação comum de ausência; não use `None`, `Optional`, `undefined`, ponteiros ou tipos genéricos específicos de uma linguagem.
+- Use `null` como representação comum de ausência; não use `None`, `Optional`, `undefined`, ponteiros ou coleções específicas de uma linguagem.
+- Não use tuplas como padrão. Quando os valores tiverem significado próprio, modele atributos nomeados.
 - Preserve os modificadores UML (`+`, `-`, `#`) para indicar a visibilidade.
 - O arquivo fonte deve ser `assets/diagrama.puml`; gere a imagem a partir da pasta `assets` com `plantuml diagrama.puml`.
 

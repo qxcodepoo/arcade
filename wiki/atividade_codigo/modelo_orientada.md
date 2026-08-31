@@ -11,6 +11,9 @@
 
 Descreva em poucas linhas o projeto que o aluno vai implementar.
 
+- Contexto:
+- Objetivo pedagógico principal:
+- Invariante ou decisão de modelagem que a atividade deve tornar visível:
 - O objetivo dessa atividade é implementar `...`.
 - A classe `NomeEmIngles` representa `conceito em português`.
 - Essa atividade não possui Shell obrigatório.
@@ -23,6 +26,8 @@ Descreva em poucas linhas o projeto que o aluno vai implementar.
 - Classe `NomeEmIngles`
   - Atributo `attribute`: descreva o valor guardado.
   - Atributo `limit`: descreva o limite, se existir.
+  - Invariantes:
+    - `...`
   - Construtor
     - Recebe `...`.
     - Inicializa `...`.
@@ -30,14 +35,16 @@ Descreva em poucas linhas o projeto que o aluno vai implementar.
 ### Métodos
 
 - Método `methodName(arg)`
-  - Recebe `...`.
-  - Deve executar `...`.
-  - Deve retornar `...`, se houver retorno.
-  - Deve alterar `...`, se houver alteração de estado.
+  - Entrada:
+  - Pré-condições:
+  - Efeito em sucesso:
+  - Retorno:
+  - Falhas:
+  - Estado após falha:
 
 - Método `anotherMethod()`
-  - Deve executar `...`.
-  - Deve retornar `...`.
+  - Efeito:
+  - Retorno:
 
 ### Limites
 
@@ -63,18 +70,7 @@ O aluno deve criar um código de teste ou demonstração cobrindo:
 
 ## Diagrama
 
-Use uma convenção de tipos baseada em TypeScript dentro da notação UML. A convenção é didática e deve ser traduzida para a linguagem da turma durante a implementação.
-
-- `number`: números inteiros ou decimais.
-- `boolean`: valores verdadeiro ou falso.
-- `string`: textos e caracteres.
-- `void`: método sem valor de retorno.
-- `Array<T>`: coleção indexada de tamanho variável.
-- `Map<K, V>`: estrutura de dados chave-valor.
-- `T | null`: valor que pode estar ausente.
-- Use multiplicidades UML nas associações, como `0..1` para uma referência opcional e `0..*` para uma coleção.
-- Não use `None`, `Optional`, `undefined`, ponteiros ou tipos de coleções específicos de uma linguagem.
-- Não use tuplas como padrão. Quando os valores tiverem significado próprio, modele uma classe de resultado com atributos nomeados.
+Use a convenção definida em [Padrão para atividades de código](README.md#diagramas).
 
 O arquivo fonte deve ser `assets/diagrama.puml`. Gere a imagem na pasta `assets` com `plantuml diagrama.puml`.
 
@@ -84,17 +80,23 @@ O arquivo fonte deve ser `assets/diagrama.puml`. Gere a imagem na pasta `assets`
 
 Implemente a atividade em partes.
 
-- Parte 1: estado e construtor
-  - Crie a classe principal.
-  - Inicialize todos os atributos.
+- Parte 1: modelo mínimo
+  - Represente o estado necessário para cumprir o primeiro caso de uso.
+  - Inicialize os atributos de modo que as invariantes comecem válidas.
   - Confira o estado inicial.
 - Parte 2: métodos de consulta
   - Implemente métodos que retornam informações sem alterar o estado.
   - Implemente a representação textual, se existir.
 - Parte 3: métodos de alteração
   - Implemente operações que modificam o objeto.
-  - Confira os limites definidos em `Regras`.
+  - Faça cada validação no componente que conhece a regra.
+  - Confira os limites e o estado após falhas definidos em `Regras`.
 - Parte 4: código de teste
   - Crie objetos com valores diferentes.
   - Chame os métodos principais.
   - Confira visualmente ou por asserts se o comportamento bate com o enunciado.
+
+Perguntas de reflexão:
+
+- Qual regra pertence ao objeto que guarda o estado?
+- Que pequena mudança futura esta modelagem deve facilitar?

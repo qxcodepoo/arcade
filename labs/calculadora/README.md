@@ -9,6 +9,8 @@
 
 O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
+O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora altera `display` e `battery`, enquanto o `Shell` mostra as falhas.
+
 ## Regras
 
 - Descrição
@@ -24,7 +26,7 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
 - `toString`
   - Deve ser invocado na requisição `$show`.
   - Retorna a representação da calculadora no formato:
-    - `display = {display:.2f}, battery = {battery}"`
+    - `display = {display:.2f}, battery = {battery}`
     - Exemplo: `display = 0.00, battery = 0`
 - Recarregar
   - Requisição: `$charge increment`
@@ -37,20 +39,27 @@ O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. S
   - Requisição: `$div num den`
   - Divide dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
-  - Se houver divisão por zero, emita a mensagem `fail: divisao por zero`.
+  - Se houver divisão por zero, consome um ponto de bateria, mantém o display anterior e emite a mensagem `fail: divisao por zero`.
 - Separe as responsabilidades:
   - A classe Calculadora não deve conter nenhuma operação de impressão.
   - A classe Shell não deve ter lógica de negócios.
 
 ## Diagrama
 
-`Calculator` permanece como uma classe coesa nesta etapa: bateria, display e operações fazem parte da simulação de uma calculadora. Extrair `Battery` será uma evolução possível no bloco de agregação, quando o ciclo de vida do componente for um objetivo explícito. A atividade trabalha KISS, responsabilidade única, separação entre domínio e interface, enumeração de resultados e testabilidade.
+`Calculator` permanece como uma classe coesa nesta etapa: bateria, display e operações fazem parte da simulação de uma calculadora. Extrair `Battery` será uma evolução possível em outro bloco, quando o ciclo de vida do componente for um objetivo explícito.
 
 ![diagrama](assets/diagrama.png)
 
 ## Guide
 
-[![youtube icon](../youguide.webp)](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
+[Vídeo de apoio](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
+
+- Comece pelo construtor, garantindo que `display` e `battery` iniciem em `0`.
+- Implemente `chargeBattery` limitando a bateria a `batteryMax`.
+- Implemente `sum` e `division` retornando um resultado de sucesso ou falha.
+- No `Shell`, traduza cada falha para a mensagem literal definida nas regras.
+
+Pergunta de reflexão: por que a divisão por zero mantém o `display`, mas ainda consome bateria?
 
 - Como formatar com duas casas decimais em diferentes linguagens.
 

@@ -9,6 +9,8 @@
 
 O objetivo dessa atividade é implementar uma toalha que possa absorver água, ser torcida e informar seu estado.
 
+O foco é observar como uma classe junta estado e comportamento: a própria `Towel` controla sua umidade, enquanto o código de teste apenas cria objetos e chama métodos.
+
 ## Regras
 
 - A classe Toalha `Towel` possui os atributos cor `color`, tamanho `size` e umidade `wetness`.
@@ -33,9 +35,12 @@ O diagrama apresenta uma única classe porque cor, tamanho e umidade formam um c
 
 [![youtube icon](assets/youguide.webp)](https://youtu.be/fEvJns4NpTM?si=G-FDqGnt_5SPSZpg)
 
-<!-- load src/py/solver.py --fenced -->
-<!-- load -->
-
 Implemente e teste a classe em partes: estado inicial, absorção, limite de umidade, torção e consulta de estado.
 
-Esta atividade trabalha KISS, responsabilidade única, separação entre domínio e interface e testabilidade. A classe `Towel` mantém as regras da toalha; o código de demonstração deve apenas chamar seus métodos e apresentar os resultados.
+- Comece pelo construtor e confira se uma toalha nova sempre inicia com `wetness` igual a `0`.
+- Implemente `getMaxWetness` antes de `dry`, porque o limite depende do tamanho.
+- Em `dry`, aumente a umidade apenas até o limite retornado por `getMaxWetness`.
+- Em `wringOut`, volte a umidade para `0`.
+- Em `isDry`, apenas consulte o estado, sem alterar a toalha.
+
+Pergunta de reflexão: se o cálculo do limite ficasse espalhado pelo código de teste, que mudança seria mais difícil quando surgisse um novo tamanho?

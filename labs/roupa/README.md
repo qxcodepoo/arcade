@@ -17,19 +17,28 @@ Nesta atividade você vai consolidar **encapsulamento**, **modificador de acesso
 - Os tamanhos serão identificados como uma variável tipo texto, e os valores válidos são "PP", "P", "M" e "G", "GG" e "XG".
 - Faça o objeto roupa iniciar o tamanho como uma string vazia, para expressar que nenhum tamanho foi atribuído.
 - Crie um construtor que não recebe parâmetros e inicializa o tamanho como uma string vazia.
-- Crie o método setTamanho que apenas aceita os valores válidos de tamanho.
-  - Caso o valor seja inválido, avise e dê uma mensagem de erro informando quais os valores permitidos.
-- Coloque o atributo tamanho como privado e crie um método getTamanho para acessá-lo e setTamanho para alterá-lo.
-- O setter deve retornar sucesso ou falha sem imprimir mensagens. A impressão da falha pertence ao `Shell`, aplicando a **separação entre domínio e interface**.
+- Crie o método `setSize` que apenas aceita os valores válidos de tamanho.
+- Coloque o atributo `size` como privado e crie um método `getSize` para acessá-lo e `setSize` para alterá-lo.
+- Caso o valor seja válido, `setSize` deve alterar o tamanho e retornar `true`.
+- Caso o valor seja inválido, `setSize` deve retornar `false` sem alterar o tamanho anterior.
+- O setter não deve imprimir mensagens. A impressão da falha pertence ao `Shell`, aplicando a separação entre domínio e interface.
+
+## Diagrama
+
+O diagrama mostra `Roupa` com o tamanho privado. O `Shell` conhece apenas os métodos públicos e transforma o retorno `false` em mensagem de erro.
+
+![diagrama](assets/diagrama.png)
 
 ## Guide
 
-[![youtube icon](https://raw.githubusercontent.com/qxcodepoo/arcade/master/base/animal/../youguide.webp)](https://youtu.be/27-PmhwFHYY?si=gAScW7a_CyxVNnTv)
+[Vídeo de apoio](https://youtu.be/27-PmhwFHYY?si=gAScW7a_CyxVNnTv)
 
 - Implemente a classe `Roupa` e mantenha seu atributo de tamanho privado.
-- Comece pelo estado vazio e implemente `getTamanho` e `setTamanho`.
-- Faça `setTamanho` retornar `true` quando alterar o estado e `false` quando rejeitar o valor.
+- Comece pelo estado vazio e implemente `getSize` e `setSize`.
+- Faça `setSize` retornar `true` quando alterar o estado e `false` quando rejeitar o valor.
 - Depois confira os casos de tamanho inválido, válido e estado preservado após uma falha.
+
+Pergunta de reflexão: qual invariante seria quebrada se `size` fosse público?
 
 ## Shell
 

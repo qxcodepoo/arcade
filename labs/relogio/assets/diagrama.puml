@@ -10,7 +10,7 @@ class Time {
   - second: number
   __
   
-  + Time(hour: number, minute: number, second: number)
+  + constructor(hour: number, minute: number, second: number)
   __
   + getHour()  : number
   + getMinute(): number
@@ -21,22 +21,13 @@ class Time {
   + setSecond(value: number): boolean
   __
   + nextSecond()             : void
+  + toString()               : string
 }
 
 class Shell {
-  + main(args: String[]): void
+  + main(args: Array<string>): void
 }
 
-Shell ..> Time : uses
-
-class Legenda {
-  + atributoPublic
-  - atributoPrivate
-  # atributoProtected
-  __
-  + métodoPublic()
-  - métodoPrivate()
-  # métodoProtected()
-}
+Shell ..> Time : usa
 
 @enduml

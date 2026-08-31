@@ -13,7 +13,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Classes e Objetos <!-- @intro -->
 
-- Conceitos abordados:
+- Conceitos abordados neste módulo:
   - classe, objeto, atributo e método;
   - estado e comportamento;
   - construtor;
@@ -30,7 +30,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Encapsulamento e Invariantes <!-- @access deps=@intro -->
 
-- Trabalhar:
+- Conceitos abordados neste módulo:
   - atributos privados;
   - estado válido;
   - validação dentro da classe responsável;
@@ -46,7 +46,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Relações entre objetos <!-- @agreg deps=@access -->
 
-- Trabalhar:
+- Conceitos abordados neste módulo:
  - associação;
  - composição;
  - agregação;
@@ -65,7 +65,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Coleções de objetos <!-- @arrays deps=@agreg -->
 
-- Trabalhar:
+- Conceitos abordados neste módulo:
   - Array<T> ou lista de objetos;
   - multiplicidade 0..*;
   - adicionar, remover, buscar e percorrer;
@@ -84,9 +84,9 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@junkfood        gain=1 hard=1 size=1 type=make eval=test` [Comprando comida cara e duvidosa](labs/junkfood/README.md)
 
 
-## Mapas e Identidade <!-- @crud deps=@arrays -->
+## Mapas e Excessões <!-- @crud deps=@arrays -->
 
-- Trabalhar:
+- Conceitos abordados neste módulo:
   - Map<K, V>;
   - chave única;
   - identidade versus posição;
@@ -105,9 +105,16 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@petshop         gain=1 hard=1 size=1 type=make eval=test` [Meu Petshop](labs/petshop/README.md)
 - [ ] `@porquinho       gain=1 hard=1 size=1 type=make eval=test` [Guardando moedas e itens em um cofrinho](labs/porquinho/README.md)
 
+## Índices e Redundância <!-- @cache deps=@crud -->
+
+Neste bloco, você aprenderá a manter diferentes formas de acesso aos mesmos objetos, preservando uma única fonte de verdade e a consistência entre as estruturas.
+
+- [ ] `@favoritos       gain=1 hard=1 size=1 type=make eval=test` [Cache e redundância em @favoritos](labs/favoritos/README.md)
+- [ ] `@ligacao         gain=1 hard=1 size=1 type=make eval=test` [@ligacao](labs/ligacao/README.md)
+
 ## Polimorfismo <!-- @polimorfismo deps=@crud -->
 
-- Trabalhar somente depois que os alunos já perceberem uma variação concreta:
+- Conceitos abordados neste módulo:
   - contrato comum;
   - implementações diferentes;
   - substituição de condicionais por delegação;
@@ -139,9 +146,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@grupo           gain=1 hard=1 size=1 type=make eval=test` [@grupo](labs/grupo/README.md)
 - [ ] `@mensagem        gain=1 hard=1 size=1 type=make eval=test` [@mensagem](labs/mensagem/README.md)
 - [ ] `@vetores         gain=1 hard=1 size=1 type=make eval=test` [@vetores](labs/vetores/README.md)
-- [ ] `@ligacao         gain=1 hard=1 size=1 type=make eval=test` [@ligacao](labs/ligacao/README.md)
 - [ ] `@anotacoes       gain=1 hard=1 size=1 type=make eval=test` [Adicione título e texto em @anotacoes](labs/anotacoes/README.md)
-- [ ] `@favoritos       gain=1 hard=1 size=1 type=make eval=test` [Cache e redundância em @favoritos](labs/favoritos/README.md)
 - [ ] `@trem            gain=1 hard=1 size=1 type=make eval=test` [@trem](labs/trem/README.md)
 - [ ] `@produto         gain=1 hard=1 size=1 type=make eval=test` [@produto - Padrão Composite e Decorator](labs/produto/README.md)
 - [ ] `@git_pratica     gain=1 hard=1 size=1 type=make eval=test` [Prática git](labs/git_pratica/README.md)

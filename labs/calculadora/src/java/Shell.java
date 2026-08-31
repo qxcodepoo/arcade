@@ -50,7 +50,7 @@ class Calculator {
     }
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
-        return String.format("display = %s, battery = %d", df.format(this.display), this.battery);
+        return String.format("display = %s, battery = %d", df.format(this.display).replace(',', '.'), this.battery);
     }
 }
 

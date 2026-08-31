@@ -25,13 +25,17 @@ Nesta atividade você vai praticar **encapsulamento** com um atributo privado, u
 
 ## Diagrama
 
-A classe `Camisa` protege seu tamanho privado e garante que apenas os tamanhos permitidos façam parte de seu estado. O getter, o setter e o loop têm responsabilidades distintas: consulta, validação/alteração e interação. O exemplo trabalha encapsulamento, responsabilidade única, KISS, DRY e testabilidade.
+A classe `Camisa` protege seu tamanho privado e garante que apenas os tamanhos permitidos façam parte de seu estado. O getter, o setter e o loop têm responsabilidades distintas: consulta, validação/alteração e interação.
 
 ![diagrama](assets/diagrama.png)
 
 ## Guide
 
 Aqui um exemplo de código python incompleto que implementa a classe Camisa e um loop para pedir o tamanho da camisa ao usuário.
+
+O ponto principal é preservar a invariante dentro de `setTamanho`: se o valor não pertence ao conjunto permitido, o método retorna `false` e mantém o estado anterior.
+
+Pergunta de reflexão: por que a lista de tamanhos válidos não deve ficar apenas no loop de entrada?
 
 ```py
 

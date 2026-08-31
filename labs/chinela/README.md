@@ -23,14 +23,17 @@ Nesta atividade você vai praticar **encapsulamento**: o tamanho fica em um atri
 
 ## Diagrama
 
-O tamanho é um detalhe interno da classe `Chinela`. O getter permite a consulta e o setter concentra a validação da invariante, mantendo a interface responsável apenas pela leitura e pelas mensagens. Essa divisão aplica encapsulamento, responsabilidade única, KISS e torna a regra fácil de testar sem entrada do usuário.
+O tamanho é um detalhe interno da classe `Chinela`. O getter permite a consulta e o setter concentra a validação da invariante, mantendo a interface responsável apenas pela leitura e pelas mensagens.
 
 ![diagrama](assets/diagrama.png)
 
 ## Guide
 
-[![youtube icon](../youguide.webp)](https://youtu.be/pC3DMuHVFHE?si=XIylk3z3zABCD0hj)
+[Vídeo de apoio](https://youtu.be/pC3DMuHVFHE?si=XIylk3z3zABCD0hj)
 
+Implemente a classe antes do loop. O ponto principal é garantir que apenas `setTamanho` consiga alterar o atributo privado.
+
+Pergunta de reflexão: o que poderia acontecer se o código do loop alterasse o tamanho diretamente?
 
 ```py
 

@@ -27,7 +27,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Mostrar `$show`
   - Imprime a chamada do método `toString` do carro.
   - `toString` - Retorna uma string com o estado atual do carro no formato:
-  - `"pass:{pass}, gas:{gas}, km:{km}"`.
+    - `pass: {pass}, gas: {gas}, km: {km}`.
 - Entrar `$enter`
   - Embarca uma pessoa por vez, mas não além do máximo.
   - Se o carro estiver lotado, emite a mensagem de erro.
@@ -46,12 +46,12 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
     - `fail: nao ha ninguem no carro`
   - Caso não haja combustível, emite a mensagem de erro.
     - `fail: tanque vazio`
-  - Caso não exista combustível suficiente para completar a viagem inteira, dirija o máximo possível e emite uma mensagem indicando quanto foi percorrido
+  - Caso não exista combustível suficiente para completar a viagem inteira, dirija o máximo possível e emite uma mensagem de falha.
     - `fail: viagem incompleta`.
 
 ## Diagrama
 
-O diagrama separa o domínio (`Car` e `Result`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos e interpreta os resultados. A solução permanece simples nesta etapa, trabalhando KISS, responsabilidade única, baixo acoplamento e testabilidade.
+O diagrama separa o domínio (`Car` e `Result`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos e interpreta os resultados.
 
 ![diagrama](assets/diagrama.png)
 
@@ -59,10 +59,13 @@ O diagrama separa o domínio (`Car` e `Result`) da interface (`Shell`). `Car` ma
 
 [![youtube icon](assets/youguide.webp)](https://youtu.be/LM6KM4eLi3U)
 
-- Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
-- Começe analisando os testes e entendendo tudo que seu código precisa fazer.
-- Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
-- Passe para o próximo teste até implementar tudo que é pedido.
+- Comece pelo construtor e pelo `toString`, conferindo o estado inicial com `$show`.
+- Implemente `enter` e `leave`, retornando `false` quando a operação não puder ser feita.
+- Implemente `fuel`, garantindo que o tanque não ultrapasse `gasMax`.
+- Implemente `drive`, preservando a ordem das validações: primeiro passageiro, depois combustível.
+- No `Shell`, para os métodos que retornam booleanos, imprima os erros para quando a operação não puder ser feita e para o comando `drive`, traduza cada `Result` para a mensagem literal definida nas regras.
+
+Pergunta de reflexão: que problema surgiria se `drive` imprimisse as mensagens diretamente dentro de `Car`?
 
 ## Shell
 

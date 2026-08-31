@@ -7,6 +7,23 @@
 
 Ampliando a atividade de agenda 2, vamos criar uma agenda que gerencia os nossos contatos.
 
+Map simples: contatos por identificador.
+Chave única: impedir contatos duplicados.
+Relacionamento: telefones pertencentes a contatos.
+Índice secundário: conjunto de favoritos.
+Consistência: remoção e alteração refletidas nos índices.
+Cache: armazenar um resultado derivado e discutir invalidação.
+
+Os principais termos a apresentar nesse ponto seriam:
+
+fonte de verdade;
+estado derivado;
+redundância intencional;
+índice secundário;
+integridade referencial;
+consistência;
+invalidação de cache.
+
 ## Intro
 
 O sistema deverá:

@@ -1,0 +1,22 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+class Roupa {
+  - size: string
+  __
+  + constructor()
+  + setSize(size: string): boolean
+  + getSize(): string
+  + toString(): string
+}
+
+class Shell {
+  __
+  + main(args: Array<string>): void
+}
+
+Shell ..> Roupa : usa
+
+@enduml

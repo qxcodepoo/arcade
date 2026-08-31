@@ -5,10 +5,9 @@ skinparam dpi 150
 
 enum Result {
   OK
-  CAR_FULL
   CAR_EMPTY
-  INCOMPLETE
   NO_GAS
+  INCOMPLETE
 }
 
 class Car {
@@ -19,8 +18,8 @@ class Car {
   + km      : number
   __
   + constructor()
-  + enter() : Result
-  + leave() : Result
+  + enter() : boolean
+  + leave() : boolean
   + drive(distance : number) : Result
   + fuel(increment : number) : void
   + toString() : string
@@ -28,8 +27,7 @@ class Car {
 
 class Shell {
   __
-  + printResult(result : Result) : void
-  + main(args : string[]) : void
+  + main(args : Array<string>) : void
 }
 
 Shell ..> Car : usa

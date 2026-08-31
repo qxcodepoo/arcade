@@ -15,7 +15,7 @@ class Calculator {
   + display    : number
   __
   + constructor(batteryMax : number)
-  + charge(increment : number) : void
+  + chargeBattery(increment : number) : void
   + sum(a : number, b : number) : Result
   + division(num : number, den : number) : Result
   + toString() : string

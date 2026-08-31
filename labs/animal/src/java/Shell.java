@@ -12,7 +12,7 @@ class Animal {
         this.age = 0;
     }
 
-    public String makeNoise() {
+    public String makeSound() {
         if (age == 0) {
             return "---";
         }
@@ -70,7 +70,7 @@ public class Shell {
             else if (cmd.equals("noise")) {
                 // OBTER O BARULHO DO ANIMAL E IMPRIMA
                 // @DROP
-                System.out.println(animal.makeNoise());
+                System.out.println(animal.makeSound());
             } 
             else if (cmd.equals("grow") ) {
                 // AUMENTE A IDADE DO ANIMAL
@@ -78,7 +78,7 @@ public class Shell {
                 var increment = Integer.parseInt(par[1]);
                 // @DROP
                 if (!animal.ageBy(increment)) {
-                    System.out.println("fail: " + animal.species + " morreu");
+                    System.out.println("warning: " + animal.species + " morreu");
                 }
             }  
             else {

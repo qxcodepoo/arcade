@@ -9,6 +9,8 @@
 
 O objetivo dessa atividade é praticar uma classe de domínio que controla a umidade de uma toalha e retorna o resultado de cada operação.
 
+Esta versão acrescenta um `Shell` para testar o comportamento observável sem mover as regras de umidade para a entrada e saída.
+
 ## Regras
 
 - A classe `Towel` possui cor `color`, tamanho `size` e umidade `wetness`.
@@ -22,16 +24,22 @@ O objetivo dessa atividade é praticar uma classe de domínio que controla a umi
 
 ## Diagrama
 
-O diagrama representa uma classe simples e coesa. A atividade trabalha KISS, responsabilidade única, separação entre domínio e interface e testabilidade, sem antecipar modificadores de acesso do próximo bloco.
+O diagrama representa uma classe simples e coesa. A atividade reforça a separação inicial entre domínio e `Shell`, sem antecipar modificadores de acesso do próximo bloco.
 
 ![diagrama](assets/diagrama.png)
 
 ## Guide
 
-`Towel` concentra apenas o estado e as regras de umidade. O `Shell` lê comandos e decide o que apresentar. Nesta etapa, a solução trabalha KISS, responsabilidade única, separação entre domínio e interface e testabilidade; o controle de acesso será estudado no próximo bloco.
+`Towel` concentra apenas o estado e as regras de umidade. O `Shell` lê comandos e decide o que apresentar.
 
-[![youtube icon](../youguide.webp)](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
+[Vídeo de apoio](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
+- Comece pelo construtor e pelo `toString`, usando `$criar` e `$mostrar`.
+- Implemente `getMaxWetness`, porque `dry` depende desse limite.
+- Faça `dry` retornar `false` quando a toalha não conseguir absorver toda a quantidade.
+- No `Shell`, transforme esse `false` em `fail: toalha nao conseguiu enxugar tudo`.
+
+Pergunta de reflexão: por que o limite de umidade pertence à `Towel` e não ao `Shell`?
 
 ## Shell
 

@@ -7,7 +7,9 @@
 
 ## Intro
 
-O objetivo dessa atividade é implementar um animal que passa pelas diversas fases de crescimento até a morte.
+O objetivo dessa atividade é implementar um animal que passa pelas fases de crescimento até a morte.
+
+O foco é modelar estado e comportamento em uma classe simples: `Animal` guarda espécie, idade e som, e seus métodos definem como esse estado aparece para a interface.
 
 ## Regras
 
@@ -26,18 +28,18 @@ O objetivo dessa atividade é implementar um animal que passa pelas diversas fas
 
 ## Diagrama
 
-O diagrama mostra apenas a classe `Animal`, que concentra o estado e as regras do ciclo de vida. A classe não foi dividida porque o objetivo desta atividade é praticar uma classe de domínio simples, mantendo a solução KISS.
+O diagrama mostra apenas a classe `Animal`, que concentra o estado e as regras do ciclo de vida. A classe não foi dividida porque espécie, idade e som mudam juntos neste problema.
 
 ![_](assets/diagrama.png)
 
 ## Guide
 
-- Implemente a sua classe se orientando pela descrição, pelo UML(se houver) e pelos testes cadastrados.
-- Começe analisando os testes e entendendo tudo que seu código precisa fazer.
-- Depois que tiver uma ideia do que vai implementar, se deixe guiar pelos testes, implementando apenas o que é pedido para passar em cada teste.
-- Passe para o próximo teste até implementar tudo que é pedido.
+- Comece pelo construtor e pelo `toString`, que permitem conferir o estado inicial.
+- Depois implemente `makeSound`, separando os casos de filhote, adulto e morto.
+- Implemente `ageBy` por último, garantindo que a idade nunca passe de `4`.
+- Deixe o `Shell` responsável por imprimir `warning: {nome} morreu` quando `ageBy` retornar `false`.
 
-Esta atividade trabalha responsabilidade única, separação entre domínio e interface, retorno de valores e testabilidade. O `Shell` controla o loop e as mensagens; `Animal` apenas aplica as regras de idade e som.
+Pergunta de reflexão: por que `Animal` retorna um booleano em vez de imprimir a mensagem de morte diretamente?
 
 - Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
 

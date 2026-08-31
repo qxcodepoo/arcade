@@ -11,6 +11,9 @@
 
 Descreva em poucas linhas o projeto que o aluno vai implementar.
 
+- Contexto:
+- Objetivo pedagógico principal:
+- Invariante ou decisão de modelagem que a atividade deve tornar visível:
 - O objetivo dessa atividade é implementar `...`.
 - A classe `NomeEmIngles` representa `conceito em português`.
 - A classe `Shell` representa a interface de linha de comando.
@@ -24,6 +27,8 @@ Descreva em poucas linhas o projeto que o aluno vai implementar.
 - Classe `NomeEmIngles`
   - Atributo `attribute`: descreva o valor guardado.
   - Atributo `limit`: descreva o limite, se existir.
+  - Invariantes:
+    - `...`
   - Construtor
     - Recebe `...`.
     - Inicializa `...`.
@@ -46,38 +51,28 @@ Descreva em poucas linhas o projeto que o aluno vai implementar.
 ### Operação principal
 
 - Comando: `$command arg`
-- Deve executar `...`.
-- Em caso de sucesso:
-  - Atualiza `...`.
-  - Retorna ou imprime `...`, se houver saída.
-- Em caso de falha:
-  - Não altera `...`, se a regra exigir.
+- Entrada:
+- Pré-condições:
+- Efeito em sucesso:
+- Saída em sucesso:
+- Falhas:
   - Mensagem literal: `fail: mensagem de erro`.
+- Estado após falha:
 
 ### Outra operação
 
 - Comando: `$other arg1 arg2`
-- Deve executar `...`.
+- Entrada:
+- Efeito em sucesso:
 - Limites:
-  - `...`
 - Falhas:
   - `fail: primeira falha`
   - `fail: segunda falha`
+- Estado após falha:
 
 ## Diagrama
 
-Use uma convenção de tipos baseada em TypeScript dentro da notação UML. A convenção é didática e deve ser traduzida para a linguagem da turma durante a implementação.
-
-- `number`: números inteiros ou decimais.
-- `boolean`: valores verdadeiro ou falso.
-- `string`: textos e caracteres.
-- `void`: método sem valor de retorno.
-- `Array<T>`: coleção indexada de tamanho variável.
-- `Map<K, V>`: estrutura de dados chave-valor.
-- `T | null`: valor que pode estar ausente.
-- Use multiplicidades UML nas associações, como `0..1` para uma referência opcional e `0..*` para uma coleção.
-- Não use `None`, `Optional`, `undefined`, ponteiros ou tipos de coleções específicos de uma linguagem.
-- Não use tuplas como padrão. Quando os valores tiverem significado próprio, modele uma classe de resultado com atributos nomeados.
+Use a convenção definida em [Padrão para atividades de código](README.md#diagramas).
 
 O arquivo fonte deve ser `assets/diagrama.puml`. Gere a imagem na pasta `assets` com `plantuml diagrama.puml`.
 
@@ -87,21 +82,25 @@ O arquivo fonte deve ser `assets/diagrama.puml`. Gere a imagem na pasta `assets`
 
 Implemente a atividade em partes.
 
-- Parte 1: estado e construtor
-  - Crie a classe principal.
-  - Inicialize todos os atributos.
-  - Implemente a representação textual.
-- Parte 2: operações básicas
-  - Implemente os comandos sem casos de erro.
-  - Confira os primeiros testes.
-- Parte 3: limites e falhas
-  - Implemente as validações.
-  - Garanta que mensagens e estado final batem com o Shell.
+- Parte 1: modelo mínimo
+  - Represente o estado necessário para cumprir o primeiro caso de uso.
+  - Inicialize os atributos de modo que as invariantes comecem válidas.
+- Parte 2: consultas e representação
+  - Implemente consultas sem alterar estado.
+  - Defina a representação textual usada pelo `$show`.
+- Parte 3: comandos do domínio
+  - Implemente as operações que alteram o objeto.
+  - Faça cada validação no componente que conhece a regra.
+  - Confira sucesso, limite, falha e estado após falha.
 - Parte 4: integração com Shell
-  - Leia cada linha.
-  - Separe comando e argumentos.
-  - Chame os métodos do domínio.
+  - Converta os argumentos de entrada.
+  - Chame o domínio sem mover regras para o Shell.
   - Imprima somente o que o contrato pedir.
+
+Perguntas de reflexão:
+
+- Qual regra ficaria mais difícil de testar se estivesse no Shell?
+- Que pequena mudança futura esta modelagem deve facilitar?
 
 ## Shell
 
