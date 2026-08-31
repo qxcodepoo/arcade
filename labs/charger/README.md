@@ -1,8 +1,8 @@
 # Notebook com TESTES
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![imagem de notebook](assets/cover.webp)
@@ -28,16 +28,19 @@ Esta atividade consolida a agregação de `Bateria` e `Charger` em um `Notebook`
 - A `Bateria` e o `Charger` mantêm suas próprias regras. O `Notebook` coordena seu uso sem acessar atributos diretamente.
 - As classes de domínio não devem ler entrada nem imprimir mensagens. Devem retornar sucesso, falha ou o componente removido; o `Shell` é responsável pela interface.
 
-## Guide
+## Diagrama
 
 [![diagrama](assets/diagrama.png)](assets/diagrama.png)
 
-[![youtube icon](../youguide.webp)](https://youtu.be/2oyQq-h0kqY?si=8DQZV6mLYKNtd2jZ)
+## Guide
 
+- Comece pelas classes `Bateria` e `Charger`, cada uma protegendo seus próprios atributos.
+- Em `Bateria.setCharge`, mantenha a carga sempre entre `0` e `capacity`.
+- Em `Notebook`, guarde referências opcionais para bateria e carregador.
+- Faça `Notebook` coordenar o uso: descarregar bateria, carregar bateria quando houver carregador e desligar quando a energia acabar.
+- Deixe o `Shell` responsável por criar componentes, conectar, remover e imprimir mensagens.
 
-- Crie sempre atributos privados e os utilize através de métodos públicos.
-- Vá implementando orientado aos testes, implementando apenas o necessário para passar em cada teste.
-- Seu código será pontuado pela quantidade de testes que passarem, não pela quantidade de código escrito.
+Pergunta de reflexão: por que remover a bateria deve devolver o objeto removido?
 
 ## Shell
 

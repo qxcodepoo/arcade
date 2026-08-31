@@ -67,6 +67,9 @@ class Uber {
         if (this.driver == null) {
             return "fail: Driver is not set";
         }
+        if (this.passenger != null) {
+            return "fail: Passenger is already set";
+        }
         this.passenger = passenger;
         this.runCost = 0;
         return null;

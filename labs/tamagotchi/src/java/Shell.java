@@ -2,6 +2,12 @@ import java.util.*;
 
 // @DROP
 
+enum DeathCause {
+    NONE,
+    WEAKNESS,
+    DIRT
+}
+
 class Pet {
     private int energyMax;
     private int cleanMax;
@@ -11,6 +17,7 @@ class Pet {
 
     private int age;
     private boolean alive;
+    private DeathCause deathCause;
 
     public Pet(int energy, int clean) {
         this.energyMax = energy;
@@ -21,34 +28,40 @@ class Pet {
 
         this.age = 0;
         this.alive = true;
+        this.deathCause = DeathCause.NONE;
     }
 
-    public String setEnergy(int value) {
-        if (value <= 0) {
+    private void die(DeathCause cause) {
+        if (this.alive) {
             this.alive = false;
+            this.deathCause = cause;
+        }
+    }
+
+    public void setEnergy(int value) {
+        if (value <= 0) {
             this.energy = 0;
-            return "fail: pet morreu de fraqueza";
+            this.die(DeathCause.WEAKNESS);
+            return;
         }
         if (value > this.energyMax) {
             this.energy = this.energyMax;
-            return null;
+            return;
         }
         this.energy = value;
-        return null;
     }
 
-    public String setClean(int value) {
+    public void setClean(int value) {
         if (value <= 0) {
-            this.alive = false;
             this.clean = 0;
-            return "fail: pet morreu de sujeira";
+            this.die(DeathCause.DIRT);
+            return;
         }
         if (value > this.cleanMax) {
             this.clean = this.cleanMax;
-            return null;
+            return;
         }
         this.clean = value;
-        return null;
     }
 
     public void setAge(int value) {
@@ -56,9 +69,24 @@ class Pet {
     }
 
     public String toString() {
-        return "E:" + this.energy + "/" + this.energyMax +
+        var text = "E:" + this.energy + "/" + this.energyMax +
                ", L:" + this.clean + "/" + this.cleanMax +
                ", I:" + this.age;
+        if (!this.alive) {
+            text += ", D:" + this.formatDeathCause();
+        }
+        return text;
+    }
+
+    private String formatDeathCause() {
+        switch (this.deathCause) {
+            case WEAKNESS:
+                return "fraqueza";
+            case DIRT:
+                return "sujeira";
+            default:
+                return "nenhuma";
+        }
     }
 
     public int getClean() {
@@ -93,40 +121,40 @@ class Game {
         this.pet = pet;
     }
 
-    private String testAlive() {
-        if (!this.pet.isAlive()) {
-            return "fail: pet esta morto";
-        }
-        return null;
+    private boolean canAct() {
+        return this.pet.isAlive();
     }
 
-    public String play() {
-        var error = this.testAlive();
-        if (error != null) return error;
-        error = this.pet.setEnergy(this.pet.getEnergy() - 2);
-        var cleanError = this.pet.setClean(this.pet.getClean() - 3);
+    public boolean play() {
+        if (!this.canAct()) return false;
+        this.pet.setEnergy(this.pet.getEnergy() - 2);
+        this.pet.setClean(this.pet.getClean() - 3);
         this.pet.setAge(this.pet.getAge() + 1);
-        return error != null ? error : cleanError;
+        return true;
     }
 
-    public String shower() {
-        var error = this.testAlive();
-        if (error != null) return error;
-        error = this.pet.setEnergy(this.pet.getEnergy() - 3);
+    public boolean shower() {
+        if (!this.canAct()) return false;
+        this.pet.setEnergy(this.pet.getEnergy() - 3);
         this.pet.setClean(this.pet.getCleanMax());
         this.pet.setAge(this.pet.getAge() + 2);
-        return error;
+        return true;
     }
 
-    public String sleep() {
-        var error = this.testAlive();
-        if (error != null) return error;
-        if (this.pet.getEnergyMax() - this.pet.getEnergy() < 5) {
-            return "fail: nao esta com sono";
-        }
+    public boolean isSleepy() {
+        return this.pet.getEnergyMax() - this.pet.getEnergy() >= 5;
+    }
+
+    public boolean isAlive() {
+        return this.pet.isAlive();
+    }
+
+    public boolean sleep() {
+        if (!this.canAct()) return true;
+        if (!this.isSleepy()) return true;
         this.pet.setAge(this.pet.getAge() + (this.pet.getEnergyMax() - this.pet.getEnergy()));
         this.pet.setEnergy(this.pet.getEnergyMax());
-        return null;
+        return true;
     }
 
     public String toString() {
@@ -165,18 +193,19 @@ public class Shell {
             }
             else if (cmd.equals("play")) { 
                 // @DROP
-                var error = game.play();
-                if (error != null) System.out.println(error);
+                game.play();
             }
             else if (cmd.equals("shower")) { 
                 // @DROP
-                var error = game.shower();
-                if (error != null) System.out.println(error);
+                game.shower();
             }
             else if (cmd.equals("sleep")) { 
                 // @DROP
-                var error = game.sleep();
-                if (error != null) System.out.println(error);
+                if (!game.isAlive() || game.isSleepy()) {
+                    game.sleep();
+                } else {
+                    System.out.println("fail: nao esta com sono");
+                }
             }
             // @KEEP
             else {

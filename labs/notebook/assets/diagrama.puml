@@ -7,23 +7,23 @@ left to right direction
 class Notebook {
   - inUse: boolean
   - usage: number
-  - battery: Bateria
-  - charger: Charger
+  - battery: Bateria | null
+  - charger: Charger | null
   __
   + setBattery(battery: Bateria): void
-  + removeBattery(): Bateria
+  + removeBattery(): Bateria | null
   + setCharger(charger: Charger): void
-  + removeCharger(): Charger
-  + turnOn(): string
+  + removeCharger(): Charger | null
+  + turnOn(): string | null
   + turnOff(): void
-  + use(minutes: number): string
+  + use(minutes: number): string | null
 }
 
 class Bateria {
   - capacity: number
   - charge: number
   __
-  + Bateria(capacity: number)
+  + constructor(capacity: number)
   + getCapacity(): number
   + getCharge(): number
   + setCharge(value: number): void
@@ -32,12 +32,12 @@ class Bateria {
 class Charger {
   - power: number
   __
-  + Charger(power: number)
+  + constructor(power: number)
   + getPower(): number
 }
 
-Notebook "1" o-- "0..1" Bateria : aggregates
-Notebook "1" o-- "0..1" Charger : aggregates
+Notebook "1" o-- "0..1" Bateria : agrega
+Notebook "1" o-- "0..1" Charger : agrega
 
 note right of Notebook
   Bateria e Charger são referências opcionais.

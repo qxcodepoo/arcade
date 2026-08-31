@@ -1,67 +1,69 @@
 # Crianças andando de motoca
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
 ## Intro
 
-Este é um projeto de modelagem e implementação de uma motoca motorizada em um parque. A ideia é simular o funcionamento dessa motoca através de classes em um programa. Para isso, serão implementadas duas classes principais: `Pessoa` e `Moto`.
+Este é um projeto de modelagem e implementação de uma motoca motorizada em um parque. A ideia é simular o funcionamento dessa motoca através de duas classes principais: `Person` e `Motorcycle`.
+
+O foco é praticar agregação: a pessoa existe fora da motoca, pode entrar, sair e continuar existindo depois de removida.
 
 ## Regras
 
 - Descrição
-  - A classe `Moto` representa a motoca em si. Ela possui atributos como potência, tempo e a pessoa que está atualmente utilizando-a.
-  - A motoca inicia com potência 1, sem minutos e sem ninguém.
+  - A classe `Motorcycle` representa a motoca. Ela possui potência `power`, tempo comprado `time` e a pessoa `person` que está atualmente utilizando-a.
+  - A motoca criada no início da simulação inicia com potência 1, sem minutos e sem ninguém.
   - Apenas uma pessoa pode estar na motoca por vez.
   - As funcionalidades principais da motoca incluem subir uma pessoa, descer uma pessoa, comprar tempo, dirigir por um tempo determinado e buzinar.
-  - A classe `Pessoa` representa os usuários da motoca. Ela possui os atributos nome e idade.
+  - A classe `Person` representa os usuários da motoca. Ela possui nome `name` e idade `age`.
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma mensagem adequada deve ser impressa.
   - `$show` - Mostra o estado atual da motoca, incluindo potência, tempo e pessoa atualmente na motoca.
-    - `f"power:{this.power}, time:{this.time}, person:{this.person}"`
-    - power:1, time:0, person:(marcos:4)
-  - `$init` - Reinicia a motoca para o estado inicial, com potência 1, sem minutos e sem ninguém.
+    - `power:{power}, time:{time}, person:({person})`
+    - Quando não houver pessoa: `power:1, time:0, person:(empty)`
+  - `$init power` - Reinicia a motoca com a potência informada, sem minutos e sem ninguém.
   - `$enter` - Permite uma pessoa subir na motoca. Deve ser seguido pelos argumentos `nome` e `idade` da pessoa.
   - `$leave` - Faz a pessoa atualmente na motoca descer.
   - `$buy` - Permite comprar tempo em minutos para utilizar a motoca. O tempo recebido é incrementado ao tempo atual.
   - `$drive` - Permite dirigir a motoca por um tempo determinado.
   - `$honk` - Permite buzinar a motoca.
 
-- A `Motorcycle` agrega uma `Person`: a pessoa é criada fora da moto, pode ser removida e continua existindo depois de sair.
+- A `Motorcycle` agrega uma `Person`: a pessoa é criada pelo `Shell`, pode ser removida e continua existindo depois de sair.
 - A classe de domínio não deve ler entrada nem imprimir mensagens. O `Shell` deve interpretar retornos e cuidar da interface.
 
-## Guide
+## Diagrama
 
 ![diagrama](assets/diagrama.png)
 
-[![youtube icon](../yousolver.webp)](https://youtu.be/6tYINNbLQeM?si=GkcP6dgnBcnzWhCw)
+## Guide
 
-- Classe Pessoa
-  - Crie a classe `Pessoa` com os atributos `age` e `name`.
+- Classe `Person`
+  - Crie a classe `Person` com os atributos `age` e `name`.
   - Defina os atributos como privados.
   - Crie o construtor da classe que recebe `name` como uma string e `age` como um número.
   - Crie os métodos `getAge()` e `getName()` para retornar a idade e o nome da pessoa, respectivamente.
   - Crie o método `toString()` para retornar uma string no formato "nome:idade".
 - Parte 1: Inserir
-  - Crie a classe `Motoca` com os atributos `potencia`, `time` e `pessoa`.
-  - Inicialize os atributos no construtor, onde `potencia` inicia com 1, `time` inicia com 0 e `pessoa` inicia como nulo.
-  - Crie o método `inserir(pessoa: Pessoa): bool` que permite inserir uma pessoa na motoca.
+  - Crie a classe `Motorcycle` com os atributos `power`, `time` e `person`.
+  - Inicialize os atributos no construtor, onde `power` vem do parâmetro, `time` inicia com 0 e `person` inicia como `null`.
+  - Crie o método `enter(person: Person): boolean` que permite inserir uma pessoa na motoca.
   - Verifique se há uma pessoa na motoca. Se houver, retorne falha e deixe o `Shell` imprimir "fail: busy motorcycle".
   - Caso contrário, insira a pessoa na motoca e retorne verdadeiro.
   - Crie o método `toString()` para mostrar o estado da motoca.
 - Parte 2: Remover
-  - Crie o método `remover(): Pessoa | null` que permite remover a pessoa da motoca.
+  - Crie o método `leave(): Person | null` que permite remover a pessoa da motoca.
   - Verifique se há uma pessoa na motoca. Se não houver, retorne nulo e deixe o `Shell` imprimir "fail: empty motorcycle".
   - Caso contrário, remova a pessoa da motoca e retorne a pessoa removida.
 - Parte 3: Comprar Tempo
-  - Crie o método `buyTime(time: number)` que permite comprar tempo em minutos para utilizar a motoca.
+  - Crie o método `buy(time: number)` que permite comprar tempo em minutos para utilizar a motoca.
   - Incremente o tempo da motoca com o tempo passado como parâmetro.
 - Parte 4: Dirigir
-  - Crie o método `drive(time: number)` que permite dirigir a motoca por um tempo determinado.
+  - Crie o método `drive(time: number): string | null` que permite dirigir a motoca por um tempo determinado.
   - Verifique se há tempo disponível na motoca. Se não houver, retorne "fail: buy time first".
   - Verifique se há uma pessoa na motoca. Se não houver, retorne "fail: empty motorcycle".
   - Verifique se a idade da pessoa na motoca é maior que 10 anos. Se for, retorne "fail: too old to drive".
@@ -72,46 +74,11 @@ Este é um projeto de modelagem e implementação de uma motoca motorizada em um
   - Construa a string da buzina, onde o número de "e" é igual à potência da motoca.
   - Retorne a buzina.
 
-___
-
-- Cada linguagem tem suas formas de definir ausência de valor.
-- Por exemplo, vamos criar uma variável que pode ser um inteiro ou não ter valor.
-
-- Python
-  - `null` é o valor padrão para ausência de valor.
-  - `variavel: int | null = null` - Define uma variável que pode ser `int` ou `null`.
-  - `variavel = 5` - Define a variável com um valor inteiro.
-  - Teste: `if variavel is not null:`
-- Java
-  - `null` é o valor padrão para ausência de valor.
-  - Tipos primitivos não podem ser null.
-  - Todos as referências a objetos podem ser null.
-  - Referências não inicializadas são null.
-  - `Integer variavel = null` - Define uma variável que pode ser `Integer` ou `null`.
-  - `variavel = 5` - Define a variável com um valor inteiro.
-  - Teste: `if (variavel != null) {`
-- C++
-  - `nullptr` é o valor padrão para ausência de valor.
-  - Apenas ponteiros podem ser nullptr.
-  - Valores estáticos não podem ser nullptr.
-  - Opções de abordagem com ponteiros:
-    - `int* variavel = nullptr` - Define um ponteiro que pode ser `int` ou `nullptr`.
-    - `std::shared_ptr<int> variavel = nullptr` - Define um ponteiro que pode ser `int` ou `nullptr`.
-    - `variavel = new int(5)` - Define a variável com um valor inteiro.
-    - Teste: `if (variavel != nullptr) {`
-  - Opções de abordagem estática utilizando wrapper(empacotador).
-    - `std::optional<int> variavel = std::nullopt` - Define uma variável que pode ser `int` ou `std::nullopt`.
-    - `variavel = 5` - Define a variável com um valor inteiro.
-    - Teste: `if (variavel.has_value()) {`
-- TypeScript
-  - `null` e `undefined` são os valores padrão para ausência de valor.
-  - `let variavel: number | null = null` - Define uma variável que pode ser `number` ou `null`.
-  - `variavel = 5` - Define a variável com um valor inteiro.
-  - Teste: `if (variavel !== null) {`
+Pergunta de reflexão: por que `leave` devolve a pessoa removida em vez de apenas apagar a referência?
 
 ## Shell
 
-```sh
+```bash
 #TEST_CASE subindo e buzinando
 $show
 power:1, time:0, person:(empty)
@@ -130,7 +97,7 @@ power:1, time:0, person:(marcos:4)
 $end
 ```
 
-```s
+```bash
 #TEST_CASE subindo2
 $init 5
 $show
@@ -143,7 +110,7 @@ power:5, time:0, person:(marcos:4)
 $end
 ```
 
-```s
+```bash
 #TEST_CASE subindo e trocando
 $init 7
 $enter heitor 6
@@ -163,7 +130,7 @@ power:7, time:0, person:(suzana:8)
 $end
 ```
 
-```s
+```bash
 #TEST_CASE no time
 $init 7
 $buy 30
@@ -175,7 +142,7 @@ power:7, time:40, person:(empty)
 $end
 ```
 
-```s
+```bash
 #TEST_CASE buy time 
 $init 7
 $drive 10
@@ -193,7 +160,7 @@ power:7, time:20, person:(suzana:8)
 $end
 ```
 
-```s
+```bash
 #TEST_CASE limite de idade
 $init 7
 $buy 20
@@ -205,7 +172,7 @@ power:7, time:20, person:(andreina:23)
 $end
 ```
 
-```s
+```bash
 #TEST_CASE acabou o tempo
 $init 7
 $buy 20
@@ -220,7 +187,7 @@ power:7, time:0, person:(andreina:6)
 $end
 ```
 
-```s
+```bash
 #TEST_CASE buzinando
 $init 1
 $honk

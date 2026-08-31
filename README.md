@@ -40,7 +40,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - Conceitos principais: encapsulamento, invariante e contrato.
 
 - [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
-- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [Comprando uma camisa XG](labs/camisa/README.md)
+- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma camisa XG](labs/camisa/README.md)
 - [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa com testes](labs/roupa/README.md)
 - [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Garante uma hora válida no relógio](labs/relogio/README.md)
 
@@ -154,3 +154,4 @@ Neste bloco, você aprenderá a manter diferentes formas de acesso aos mesmos ob
 - [ ] `@tarifas         gain=1 hard=1 size=1 type=make eval=test` [Operações de saque, depósito, extrato](labs/tarifas/README.md)
 
 ## labs <!-- @labs -->
+- [ ] `@memoria         gain=1 hard=1 size=1 type=make eval=test` [Pesquisa sobre alocação de memória](labs/memoria/README.md)

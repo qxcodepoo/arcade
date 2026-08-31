@@ -1,8 +1,8 @@
 # Notebook com carregador e bateria
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide)
--- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide)
+-- | -- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
@@ -18,11 +18,11 @@ Esta atividade apresenta a **agregação** de componentes: o `Notebook` usa uma 
 - O notebook deve acessar os componentes por métodos públicos, mantendo seus atributos privados.
 - A lógica de cada componente deve permanecer na própria classe; o notebook apenas coordena o uso.
 
-## Guide
+## Diagrama
 
 [![diagrama](assets/diagrama.png)](assets/diagrama.png)
 
-[![youtube icon](../youguide.webp)](https://youtu.be/EI0Qa8OgucQ?si=oKj11d9DYFFH0kle)
+## Guide
 
 ### Parte 1 - Apenas o notebook
 
@@ -42,12 +42,12 @@ class Notebook:
     # preencha com os métodos necessários
 
 notebook = Notebook() # criando notebook
-notebook.mostrar()    # msg: Status: Desligado
-notebook.usar(10)     # msg: erro: ligue o notebook primeiro
-notebook.ligar()      # msg: notebook ligado
-notebook.mostrar()    # msg: Status: Ligado
-notebook.usar(10)     # msg: Usando por 10 minutos
-notebook.desligar()   # msg: notebook desligado
+notebook.mostrar()    # Status: Desligado
+notebook.usar(10)     # erro: ligue o notebook primeiro
+notebook.ligar()      # notebook ligado
+notebook.mostrar()    # Status: Ligado
+notebook.usar(10)     # Usando por 10 minutos
+notebook.desligar()   # notebook desligado
 ```
 
 ### Parte 2 - Notebook com bateria
@@ -77,24 +77,24 @@ class Notebook:
     # preencha com os métodos necessários
 
 notebook = Notebook() # criando notebook
-notebook.mostrar()    # msg: Status: Desligado, Bateria: Nenhuma
-notebook.usar(10)     # msg: erro: ligue o notebook primeiro
-notebook.ligar()      # msg: não foi possível ligar
-notebook.mostrar()    # msg: Status: Desligado, Bateria: Nenhuma
+notebook.mostrar()    # Status: Desligado, Bateria: Nenhuma
+notebook.usar(10)     # erro: ligue o notebook primeiro
+notebook.ligar()      # não foi possível ligar
+notebook.mostrar()    # Status: Desligado, Bateria: Nenhuma
 bateria = Bateria(50) # criando bateria que suporta 50 minutos e começa carregada
 bateria.mostrar()     # (50/50)
 notebook.setBateria(bateria) # coloca a bateria no notebook
-notebook.mostrar()    # msg: Status: Desligado, Bateria: (50/50)
-notebook.usar(10)     # msg: notebook desligado
-notebook.ligar()      # msg: notebook ligado
-notebook.mostrar()    # msg: Status: Ligado, Bateria: (50/50)
-notebook.usar(30)     # msb: Usando por 30 minutos
-notebook.mostrar()    # msg: Status: Ligado, Bateria: (20/50)
-notebook.usar(30)     # msb: Usando por 20 minutos, notebook descarregou
-notebook.mostrar()    # msg: Status: Desligado, Bateria: (0/50)
-notebook.ligar()      # msg: não foi possível ligar
-bateira = notebook.rmBateria() # msg: bateria removida
-bateira.mostrar()     # (0/50)
+notebook.mostrar()    # Status: Desligado, Bateria: (50/50)
+notebook.usar(10)     # notebook desligado
+notebook.ligar()      # notebook ligado
+notebook.mostrar()    # Status: Ligado, Bateria: (50/50)
+notebook.usar(30)     # Usando por 30 minutos
+notebook.mostrar()    # Status: Ligado, Bateria: (20/50)
+notebook.usar(30)     # Usando por 20 minutos, notebook descarregou
+notebook.mostrar()    # Status: Desligado, Bateria: (0/50)
+notebook.ligar()      # não foi possível ligar
+bateria = notebook.rmBateria() # bateria removida
+bateria.mostrar()     # (0/50)
 ```
 
 ### Parte 3 - Notebook com carregador e bateria
@@ -134,36 +134,38 @@ class Notebook:
 
 
 notebook = Notebook() # criando notebook
-notebook.mostrar()    # msg: Status: Desligado, Bateria: Nenhuma, Carregador: Desconectado
-notebook.ligar()      # msg: não foi possível ligar
-notebook.usar(10)     # msg: notebook desligado
+notebook.mostrar()    # Status: Desligado, Bateria: Nenhuma, Carregador: Desconectado
+notebook.ligar()      # não foi possível ligar
+notebook.usar(10)     # notebook desligado
 
 bateria = Bateria(50) # criando bateria que suporta 50 minutos e começa carregada
-battery.mostrar()     # (50/50)
+bateria.mostrar()     # (50/50)
 notebook.setBateria(bateria) # coloca a bateria no notebook
 
-notebook.mostrar() # msg: Status: Desligado, Bateria: (50/50), Carregador: Desconectado
-notebook.ligar()   # msg: notebook ligado
-notebook.mostrar() # msg: Status: Ligado, Bateria: (50/50), Carregador: Desconectado
-notebook.usar(30)  # msb: Usando por 30 minutos
-notebook.mostrar() # msg: Status: Ligado, Bateria: (20/50), Carregador: Desconectado
-notebook.usar(30)  # msb: Usando por 20 minutos, notebook descarregou
-notebook.mostrar() # msg: Status: Desligado, Bateria: (0/50), Carregador: Desconectado
+notebook.mostrar() # Status: Desligado, Bateria: (50/50), Carregador: Desconectado
+notebook.ligar()   # notebook ligado
+notebook.mostrar() # Status: Ligado, Bateria: (50/50), Carregador: Desconectado
+notebook.usar(30)  # Usando por 30 minutos
+notebook.mostrar() # Status: Ligado, Bateria: (20/50), Carregador: Desconectado
+notebook.usar(30)  # Usando por 20 minutos, notebook descarregou
+notebook.mostrar() # Status: Desligado, Bateria: (0/50), Carregador: Desconectado
 
-bateria = notebook.rmBateria() # msg: bateria removida
+bateria = notebook.rmBateria() # bateria removida
 bateria.mostrar()  # (0/50)
-notebook.mostrar() # msg: Status: Desligado, Bateria: Nenhuma, Carregador: Desconectado
+notebook.mostrar() # Status: Desligado, Bateria: Nenhuma, Carregador: Desconectado
 
 carregador = Carregador(2) # criando carregador com 2 de potencia
 carregador.mostrar() # (Potência 2)
 
 notebook.setCarregador(carregador) # adicionando carregador no notebook
-notebook.mostrar() # msg: Status: Desligado, Bateria: Nenhuma, Carregador: (Potência 2)
-notebook.ligar()   # msg: notebook ligado
-notebook.mostrar() # msg: Status: Ligado, Bateria: Nenhuma, Carregador: (Potência 2)
+notebook.mostrar() # Status: Desligado, Bateria: Nenhuma, Carregador: (Potência 2)
+notebook.ligar()   # notebook ligado
+notebook.mostrar() # Status: Ligado, Bateria: Nenhuma, Carregador: (Potência 2)
 
 notebook.setBateria(bateria)
-notebook.mostrar() # msg: Status: Ligado, Bateria: (0/50), Carregador: (Potência 2)
-notebook.usar(10)  # msg: Notebook utilizado com sucesso
-notebook.mostrar() # msg: Status: Ligado, Bateria: (20/50), Carregador: (Potência 2)
+notebook.mostrar() # Status: Ligado, Bateria: (0/50), Carregador: (Potência 2)
+notebook.usar(10)  # Notebook utilizado com sucesso
+notebook.mostrar() # Status: Ligado, Bateria: (20/50), Carregador: (Potência 2)
 ```
+
+Pergunta de reflexão: qual regra pertence à `Bateria` e qual regra pertence ao `Notebook`?

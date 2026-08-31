@@ -8,7 +8,7 @@ class Lead {
     - hardness : string
     - size     : number
     __
-    + Lead(thickness: number, hardness: string, size: number)
+    + constructor(thickness: number, hardness: string, size: number)
     + usagePerSheet(): number
     __
     + getHardness() : string
@@ -23,19 +23,19 @@ class Lead {
 class Pencil {
     
     - thickness: number
-    - tip      : Lead
+    - tip      : Lead | null
     __
 
-    + Pencil(thickness : number)    
-    + hasGrafite()       : boolean    
-    + insert(lead : Lead): boolean
-    + remove()           : Lead
-    + writePage()        : void
+    + constructor(thickness : number)
+    + hasLead()          : boolean
+    + insert(lead : Lead): string | null
+    + remove()           : Lead | null
+    + writePage()        : string | null
     __
     + toString()         : string
 }
 
-Pencil "1" o-- "0..1" Lead : aggregates
+Pencil "1" o-- "0..1" Lead : agrega
 
 note right of Pencil
   Uma lapiseira pode não ter grafite agregado.

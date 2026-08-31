@@ -1,15 +1,17 @@
 # MotoUber com motorista e passageiro
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
 
 ## Intro
 
-Você vai gerenciar um objeto que faz corridas com passageiros.
+Você vai gerenciar um objeto que faz corridas com motorista e passageiro.
+
+O foco é praticar colaboração entre objetos: `Uber` coordena a corrida, enquanto `Person` guarda nome e dinheiro.
 
 ## Regras
 
@@ -20,24 +22,39 @@ Você vai gerenciar um objeto que faz corridas com passageiros.
 - A moto pode ter um motorista e pode ter um passageiro.
 - A moto deve registrar o custo atual da corrida.
 - O passageiro deve pagar o motorista quando descer da moto.
-- Motorista e Passageiro são pessoas que tem nome e dinheiro.
+- Motorista e Passageiro são pessoas que têm nome e dinheiro.
 - O passageiro não pode subir na moto se não tiver motorista.
 - Quando o passageiro entra na moto, começa a contagem do custo da corrida.
 - Cada km percorrido aumenta o custo da corrida em 1 real.
 - Na hora de desembarcar, o passageiro paga o motorista de acordo com o que foi percorrido.
 - Se não tiver dinheiro suficiente, o passageiro dá tudo que tem.
 - O motorista sempre recebe o valor completo da corrida, porque o Uber paga o que falta.
+- `$setDriver nome dinheiro` define o motorista.
+  - Se já houver motorista, o `Shell` deve imprimir `fail: Driver is already set`.
+- `$setPass nome dinheiro` define o passageiro.
+  - Se não houver motorista, o `Shell` deve imprimir `fail: Driver is not set`.
+  - Se já houver passageiro, o `Shell` deve imprimir `fail: Passenger is already set`.
+- `$drive distancia` aumenta o custo da corrida quando há passageiro.
+- `$leavePass` remove o passageiro e realiza o pagamento.
+  - Se não houver motorista, o `Shell` deve imprimir `fail: Driver is not set`.
+  - Se não houver passageiro, o `Shell` deve imprimir `fail: Passenger is not set`.
+  - Se o passageiro não tiver dinheiro suficiente, o `Shell` deve imprimir `fail: Passenger does not have enough money` antes de mostrar o passageiro saindo.
 
-## Guide
+## Diagrama
 
 [![diagrama](assets/diagrama.png)](assets/diagrama.png)
 
-[![youtube icon](../youguide.webp)](https://youtu.be/SR5B0QkEFpc?si=wHrdAy-3_aZ5Pv3j)
+## Guide
 
-- Crie a classe Pessoa com os atributos nome e dinheiro.
+- Crie a classe `Person` com os atributos nome e dinheiro.
 - Crie a classe `Uber` com os atributos custo, motorista e passageiro.
 - Ambas as classes devem ter atributos privados.
-- Crie os métodos que julgar necessário com os devidos modificadores de acesso.
+- Faça `setPassenger` recusar passageiro quando não houver motorista.
+- Faça `drive` aumentar o custo apenas quando houver passageiro.
+- Faça `leave` devolver um resultado com o passageiro removido e a possível falha de pagamento.
+- O `Shell` deve imprimir a falha antes da mensagem `{passageiro} left`.
+
+Pergunta de reflexão: por que o pagamento fica em `Uber.leave` e não no `Shell`?
 
 ## Shell
 
@@ -70,11 +87,6 @@ Cost: 0, Driver: Tobias:60, Passenger: None
 
 $end
 ```
-
-## Draft
-
-<!-- links .cache/starter -->
-<!-- links -->
 
 ---
 
@@ -111,3 +123,8 @@ Cost: 0, Driver: Tobias:50, Passenger: None
 
 $end
 ```
+
+## Draft
+
+<!-- links .cache/starter -->
+<!-- links -->

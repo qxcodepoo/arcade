@@ -44,7 +44,7 @@ class Lead {
 
     public String toString() {
         DecimalFormat form = new DecimalFormat("0.0");
-        return form.format(thickness) + ":" + hardness + ":" + size;
+        return form.format(thickness).replace(',', '.') + ":" + hardness + ":" + size;
     }
 }
 

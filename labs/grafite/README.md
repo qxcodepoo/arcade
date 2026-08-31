@@ -1,19 +1,17 @@
 # Porta minas de um grafite só
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
-Faça o modelo de uma lapiseira que pode conter um único grafite.
-
-[![youtube icon](../youguide.webp)](https://youtu.be/DyhXHlM7Bv4?si=G05IiBLI15FrP6Bm)
-
 ## Intro
 
 O objetivo dessa atividade é implementar uma lapiseira que permite inserir, remover grafite e escrever em uma folha, considerando a dureza e tamanho do grafite.
+
+O foco é praticar agregação e delegação: o grafite conhece seu próprio desgaste, e a lapiseira coordena inserção, remoção e escrita.
 
 ## Regras
 
@@ -30,7 +28,7 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
   - A classe Grafite `Lead` é responsável por armazenar as informações do grafite.
     - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
     - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
-    - O método `usagePerSheet` retorna a quantidade de grafite gasto por folha.
+    - O método `usagePerSheet` retorna a quantidade de grafite gasta por folha.
       - Um grafite `HB` gasta `1mm` por folha.
       - Um grafite `2B` gasta `2mm` por folha.
       - Um grafite `4B` gasta `4mm` por folha.
@@ -58,15 +56,16 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
 
 - A classe de domínio não deve ler entrada nem imprimir mensagens. Os métodos devem retornar sucesso, falha ou o grafite removido; o `Shell` deve interpretar esses retornos e cuidar da interface.
 
-## Guide
+## Diagrama
 
 ![diagrama](assets/diagrama.png)
 
+## Guide
 
 - Parte 1: Inserir
-  - Crie a classe Grafite `Lead` com o atributo tamanho `size`.
+  - Crie a classe Grafite `Lead` com espessura, dureza e tamanho.
   - Crie a classe Lapiseira `Pencil` com o atributo ponta `tip` inicializado como `null`.
-  - Implemente o método tem grafite `hasGrafite` que retorna `true` se houver grafite na lapiseira.
+  - Implemente o método `hasLead` que retorna `true` se houver grafite na lapiseira.
   - Implemente o método inserir `insert` que insere um grafite na lapiseira, se não houver grafite.
   - Implemente o método `toString` que mostra a lapiseira e o grafite presente.
 
@@ -81,6 +80,8 @@ O objetivo dessa atividade é implementar uma lapiseira que permite inserir, rem
   - Faça as verificações antes de escrever na folha.
   - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa.
     - Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.
+
+Pergunta de reflexão: por que o cálculo de desgaste pertence a `Lead`, mas a decisão de escrever ou não pertence a `Pencil`?
 
 ## Shell
 

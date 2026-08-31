@@ -5,13 +5,13 @@ skinparam dpi 150
 left to right direction
 
 class Uber {
-  - driver: Person
-  - passenger: Person
+  - driver: Person | null
+  - passenger: Person | null
   - runCost: number
   __
-  + setDriver(driver: Person): string
-  + setPassenger(passenger: Person): string
-  + drive(distance: number): string
+  + setDriver(driver: Person): string | null
+  + setPassenger(passenger: Person): string | null
+  + drive(distance: number): string | null
   + leave(): LeaveResult
   __
   + toString(): string
@@ -21,7 +21,7 @@ class Person {
   - name: string
   - money: number
   __
-  + Person(name: string, money: number)
+  + constructor(name: string, money: number)
   + getName(): string
   + getMoney(): number
   + setMoney(money: number): void
@@ -29,21 +29,22 @@ class Person {
 }
 
 class LeaveResult {
-  - passenger: Person
-  - error: string
+  - passenger: Person | null
+  - error: string | null
   __
-  + getPassenger(): Person
-  + getError(): string
+  + constructor(passenger: Person | null, error: string | null)
+  + getPassenger(): Person | null
+  + getError(): string | null
 }
 
-Uber "1" o-- "0..1" Person : driver
-Uber "1" o-- "0..1" Person : passenger
-Uber ..> LeaveResult : returns
+Uber "1" o-- "0..1" Person : motorista
+Uber "1" o-- "0..1" Person : passageiro
+Uber ..> LeaveResult : retorna
 
 note right of Uber
   Driver e passenger são referências opcionais.
   A multiplicidade 0..1 representa essa ausência.
-  Métodos que retornam String podem não retornar erro.
+  Métodos que retornam string podem não retornar erro.
 end note
 
 note right of LeaveResult

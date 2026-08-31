@@ -5,6 +5,12 @@ skinparam dpi 150
 
 left to right direction
 
+enum DeathCause {
+    NONE
+    WEAKNESS
+    DIRT
+}
+
 class Pet {
     - energyMax: number
     - cleanMax : number
@@ -12,8 +18,9 @@ class Pet {
     - clean    : number
     - age      : number
     - alive    : boolean
+    - deathCause: DeathCause
     __
-    + Pet(energy: number, clean: number)
+    + constructor(energy: number, clean: number)
     + isAlive(): boolean
     + toString(): string
     __
@@ -31,14 +38,17 @@ class Pet {
 class Game {
     - pet: Pet
     __
-    + Game(pet: Pet)
+    + constructor(pet: Pet)
     + toString() : string
+    + isAlive() : boolean
+    + isSleepy(): boolean
     __
-    + play()  : void
-    + shower(): void
-    + sleep() : void
+    + play()  : boolean
+    + shower(): boolean
+    + sleep() : boolean
 }
 
-Game "1" o-- "1" Pet : aggregates
+Game "1" o-- "1" Pet : agrega
+Pet ..> DeathCause : registra
 
 @enduml
