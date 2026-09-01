@@ -11,12 +11,15 @@
 
 Esta atividade apresenta a **agregação** de componentes: o `Notebook` usa uma `Bateria` e um `Carregador`, mas esses objetos são criados fora dele e podem continuar existindo quando forem removidos.
 
+A divisão em classes diferentes existe porque cada elemento tem uma responsabilidade própria. O `Notebook` coordena o uso, liga, desliga e conecta componentes. A `Bateria` guarda carga e capacidade, garantindo que a carga permaneça dentro de um intervalo válido. O `Carregador` guarda apenas sua potência, porque neste momento isso basta para representar seu papel na simulação.
+
 ## Regras
 
 - `Notebook` agrega no máximo uma `Bateria` e um `Carregador`.
 - A bateria e o carregador têm ciclos de vida independentes do notebook.
 - O notebook deve acessar os componentes por métodos públicos, mantendo seus atributos privados.
 - A lógica de cada componente deve permanecer na própria classe; o notebook apenas coordena o uso.
+- O `Carregador` não deve ganhar novas métricas nesta atividade, como tensão, corrente, eficiência ou desgaste. A lógica do notebook já combina vários estados, então a potência é a única informação necessária para o objetivo atual.
 
 ## Diagrama
 
@@ -110,6 +113,7 @@ bateria.mostrar()     # (0/50)
 - Para simplificar, vamos utilizar minutos como a unidade de tempo e de carga.
 - Uma bateria `15/50` significa que possui ainda 15 minutos de carga e suporta no máximo 50.
 - Um carregador com 3 de potência consegue em um minuto de uso, adicionar 3 minutos de carga na bateria.
+- O carregador fica simples de propósito. O objetivo aqui é praticar agregação e coordenação entre objetos, não simular todos os detalhes elétricos de um carregador real.
 - Para facilitar, você pode imaginar o notebook sendo utilizado da seguinte forma.
 - Adapte a implementação para sua linguagem. Complete com os métodos necessários.
 
