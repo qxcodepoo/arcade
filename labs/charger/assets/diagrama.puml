@@ -7,27 +7,28 @@ left to right direction
 class Notebook {
   - inUse: boolean
   - usage: number
-  - battery: Bateria | null
+  - battery: Battery | null
   - charger: Charger | null
   __
-  + turnOn(): string | null
+  + turnOn(): boolean
   + turnOff(): void
-  + use(minutes: number): string | null
-  + setBattery(battery: Bateria): void
-  + removeBattery(): Bateria | null
-  + setCharger(charger: Charger): string | null
+  + use(minutes: number): UseResult
+  + setBattery(battery: Battery): void
+  + removeBattery(): Battery | null
+  + setCharger(charger: Charger): boolean
   + removeCharger(): Charger | null
   + toString(): string
 }
 
-class Bateria {
+class Battery {
   - capacity: number
   - charge: number
   __
   + constructor(capacity: number)
   + getCapacity(): number
   + getCharge(): number
-  + setCharge(value: number): void
+  + consume(minutes: number): boolean
+  + recharge(amount: number): void
   + toString(): string
 }
 
@@ -39,13 +40,19 @@ class Charger {
   + toString(): string
 }
 
-Notebook "1" o-- "0..1" Bateria : agrega
-Notebook "1" o-- "0..1" Charger : agrega
+enum UseResult {
+  OK
+  NOTEBOOK_OFF
+  DISCHARGED
+}
+
+Notebook "1" o-- "0..1" Battery : aggregates
+Notebook "1" o-- "0..1" Charger : aggregates
+Notebook ..> UseResult : returns
 
 note right of Notebook
-  Bateria e Charger são referências opcionais.
-  As multiplicidades 0..1 representam essa ausência.
-  Operações de remoção podem não retornar um componente.
+  Battery and Charger are optional references.
+  Their lifecycles are independent from Notebook.
 end note
 
 @enduml

@@ -1,260 +1,182 @@
-# Charger: agregação com contrato testável
+# Charger: agregação e coordenação por etapas
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
-![imagem de notebook](assets/cover.webp)
+![notebook](assets/cover.webp)
 
 ## Intro
 
-Esta atividade consolida a agregação de `Bateria` e `Charger` em um `Notebook`, agora com validação por testes de comandos.
+Esta atividade conduz a construção incremental de um `Notebook` que coordena uma `Battery` e um `Charger`. A cada etapa, um novo comportamento torna necessária uma nova responsabilidade ou uma nova colaboração entre os objetos.
+
+O objetivo principal é praticar agregação e coordenação sem transferir para o `Notebook` as regras que pertencem aos componentes.
 
 ## Regras
 
-- Vamos modelar um notebook que pode ter ou não tanto carregador quanto bateria.
-- Terá que reescrever os métodos `usar <tempo>`, `ligar`.
-- Só poderá `ligar` se tiver carga na bateria ou carregador.
-- Enquanto em uso
-  - se tiver apenas na bateria, a carga da bateria deve diminuir.
-  - se estiver na bateria e no carregador, a carga deve aumentar.
-- O carregador possui uma potência que implica na quantidade de carga carregada por unidade de tempo.
-- A bateria possui uma carga e uma capacidade que representam a carga atual e o máximo possível de carga.
-- Para simplificar, vamos utilizar minutos como a unidade de tempo e de carga.
-- Uma bateria `15/50` significa que possui ainda 15 minutos de carga e suporta no máximo 50.
-- Um carregador com 3 de potência consegue em um minuto de uso, adicionar 3 minutos de carga na bateria.
-- `Notebook` agrega no máximo uma `Bateria` e um `Charger`; esses componentes são criados fora dele e podem ser removidos sem destruir o notebook.
-- A `Bateria` e o `Charger` mantêm suas próprias regras. O `Notebook` coordena seu uso sem acessar atributos diretamente.
-- As classes de domínio não devem ler entrada nem imprimir mensagens. Devem retornar sucesso, falha ou o componente removido; o `Shell` é responsável pela interface.
+- `Notebook` agrega no máximo uma `Battery` e um `Charger`.
+- `Battery` e `Charger` são criados fora do `Notebook` e continuam existindo quando removidos.
+- Os atributos de domínio devem ser privados.
+- As classes de domínio não leem entrada nem imprimem mensagens.
+- Métodos de domínio retornam `bool`, enums ou componentes removidos. Mensagens pertencem ao `Shell`.
+- `Battery` inicia com `charge` igual a `capacity` e mantém `0 <= charge <= capacity`.
+- `Battery.consume(minutes)` reduz a carga. Quando não há carga suficiente, zera a bateria e informa falha.
+- `Battery.recharge(amount)` aumenta a carga sem ultrapassar a capacidade.
+- O `Notebook` pode ser ligado quando possui bateria com carga ou carregador.
+- Em uso somente com bateria, o notebook consome uma unidade de carga por minuto.
+- Em uso somente com carregador, o notebook acumula minutos de uso.
+- Com bateria e carregador, o notebook acumula minutos de uso e recarrega a bateria usando `power * minutes`.
+- Se a bateria descarregar durante o uso, o notebook desliga.
+- Remover a única fonte de energia enquanto o notebook está ligado também o desliga.
+
+### Contrato observável
+
+Os comandos usam camelCase: `$show`, `$turnOn`, `$turnOff`, `$use`, `$setBattery`, `$removeBattery`, `$setCharger`, `$removeCharger` e `$end`.
+
+As mensagens observáveis são:
+
+- `fail: cannot turn on`
+- `fail: notebook is off`
+- `fail: battery discharged`
+- `fail: charger is already connected`
+- `fail: no battery`
+- `fail: no charger`
 
 ## Diagrama
 
-[![diagrama](assets/diagrama.png)](assets/diagrama.png)
+[![diagram](assets/diagrama.png)](assets/diagrama.png)
 
 ## Guide
 
-- Comece pelas classes `Bateria` e `Charger`, cada uma protegendo seus próprios atributos.
-- Em `Bateria.setCharge`, mantenha a carga sempre entre `0` e `capacity`.
-- Em `Notebook`, guarde referências opcionais para bateria e carregador.
-- Faça `Notebook` coordenar o uso: descarregar bateria, carregar bateria quando houver carregador e desligar quando a energia acabar.
-- Deixe o `Shell` responsável por criar componentes, conectar, remover e imprimir mensagens.
+Implemente e execute uma etapa por vez. Os testes do Shell estão ordenados para acompanhar essa progressão.
 
-Pergunta de reflexão: por que remover a bateria deve devolver o objeto removido?
+### 1. Estado mínimo do Notebook
+
+Crie `Notebook` com o estado privado `inUse` e o acumulador `usage`. Implemente `turnOn`, `turnOff`, `use` e `toString`. Primeiro, o notebook deve iniciar desligado e recusar o uso quando estiver desligado ou não possuir uma fonte de energia.
+
+Use `UseResult` para distinguir `OK`, `NOTEBOOK_OFF` e `DISCHARGED`. O `Shell` converte esses valores nas mensagens do contrato.
+
+### 2. Battery e consumo
+
+Crie `Battery` com `capacity` e `charge`. O construtor inicia a carga no máximo. Implemente `consume` e `recharge`, mantendo a invariante dentro da própria classe.
+
+Adicione a referência opcional à bateria no `Notebook`, com `setBattery` e `removeBattery`. O notebook coordena quando consumir, mas não altera `charge` diretamente. Se o consumo falhar, desligue o notebook e retorne `DISCHARGED`.
+
+### 3. Charger e agregação
+
+Crie `Charger` com `power`. Adicione uma referência opcional no `Notebook`. `setCharger` deve retornar `false` quando já houver carregador; `removeCharger` retorna o objeto removido ou `None`.
+
+A existência do carregador permite ligar e usar o notebook sem bateria. Quando ele for a única fonte de energia e for removido, o notebook deve desligar.
+
+### 4. Colaboração entre os componentes
+
+Quando houver bateria e carregador, `Notebook.use` deve delegar as operações de consumo e recarga aos componentes. A bateria deve permanecer limitada à capacidade, inclusive quando a recarga calculada for maior que o espaço disponível.
+
+Reflita: quais regras seriam quebradas se `Notebook` recebesse um setter genérico para `charge`? Qual é o ciclo de vida de cada objeto? Por que as remoções retornam o objeto, em vez de apenas apagarem a referência?
 
 ## Shell
 
 ```bash
-#TEST_CASE iniciar
+#TEST_CASE initial state
 $show
-Notebook: desligado
-
-#TEST_CASE não pode ligar
-
-$turn_on
-fail: não foi possível ligar
-
-#TEST_CASE tentando usar desligado
+Notebook: off
+$turnOn
+fail: cannot turn on
 $use 5
-fail: desligado
+fail: notebook is off
 $end
 ```
 
 ___
 
 ```bash
-#TEST_CASE adicionando carregador
-$set_charger 2
+#TEST_CASE charger without battery
+$setCharger 2
+$turnOn
 $show
-Notebook: desligado, Carregador 2W
-
-#TEST_CASE ligando no carregador
-$turn_on
-$show
-Notebook: ligado por 0 min, Carregador 2W
-
-#TEST_CASE usando
+Notebook: on for 0 min, Charger 2W
 $use 5
 $show
-Notebook: ligado por 5 min, Carregador 2W
-
-$use 7
+Notebook: on for 5 min, Charger 2W
+$setCharger 3
+fail: charger is already connected
+$removeCharger
+Removed 2W
+$removeCharger
+fail: no charger
 $show
-Notebook: ligado por 12 min, Carregador 2W
-
-
-#TEST_CASE desligando
-$turn_off
-$show
-Notebook: desligado, Carregador 2W
+Notebook: off
 $end
 ```
 
 ___
 
 ```bash
-#TEST_CASE adicionando carregador
-$set_charger 3
-$set_charger 4
-fail: carregador já conectado
-$turn_on
+#TEST_CASE battery without charger
+$setBattery 10
+$turnOn
 $use 4
 $show
-Notebook: ligado por 4 min, Carregador 3W
-
-#TEST_CASE removendo carregador
-$rm_charger
-Removido 3W
-
-$rm_charger
-fail: Sem carregador
-
-$show
-Notebook: desligado
-$end
-```
-
-___
-
-```bash
-#TEST_CASE adicionando bateria
-$set_battery 50
-$show
-Notebook: desligado, Bateria 50/50
-
-#TEST_CASE ligando na bateria
-$turn_on
-$show
-Notebook: ligado por 0 min, Bateria 50/50
-
-#TEST_CASE usando
-$use 5
-$show
-Notebook: ligado por 5 min, Bateria 45/50
-
-$use 10
-$show
-Notebook: ligado por 15 min, Bateria 35/50
-
-#TEST_CASE desligando
-$turn_off
-$show
-Notebook: desligado, Bateria 35/50
-$end
-```
-
-___
-
-```bash
-
-#TEST_CASE retirando bateria
-$set_battery 50
-$turn_on
-$use 5
-$show
-Notebook: ligado por 5 min, Bateria 45/50
-
-$rm_battery
-Removido 45/50
-
-$rm_battery
-fail: Sem bateria
-
-$show
-Notebook: desligado
-$end
-```
-
-___
-
-```bash
-#TEST_CASE usando bateria até descarregar
-$set_battery 50
-$turn_on
-$use 45
-$show
-Notebook: ligado por 45 min, Bateria 5/50
-
-$use 10
-fail: descarregou
-$show
-Notebook: desligado, Bateria 0/50
-
-$end
-```
-
-___
-
-```bash
-#TEST_CASE usando bateria até descarregar
-$set_battery 50
-$turn_on
-$use 40
-$show
-Notebook: ligado por 40 min, Bateria 10/50
-
-$use 10
-fail: descarregou
-$show
-Notebook: desligado, Bateria 0/50
-
-$end
-```
-
-___
-
-```bash
-#TEST_CASE bateria e carregador
-$set_battery 50
-$show
-Notebook: desligado, Bateria 50/50
-$turn_on
-$use 45
-$show
-Notebook: ligado por 45 min, Bateria 5/50
-
-$set_charger 1
-$show
-Notebook: ligado por 45 min, Carregador 1W, Bateria 5/50
-
-$use 20
-$show
-Notebook: ligado por 65 min, Carregador 1W, Bateria 25/50
-
-$use 30
-$show
-Notebook: ligado por 95 min, Carregador 1W, Bateria 50/50
-
-$end
-```
-
-___
-
-```bash
-#TEST_CASE bateria e carregador
-$set_battery 50
-$turn_on
-$use 40
-$show
-Notebook: ligado por 40 min, Bateria 10/50
-
-$set_charger 5
-$show
-Notebook: ligado por 40 min, Carregador 5W, Bateria 10/50
-
-#TEST_CASE turbo carregador
-
+Notebook: on for 4 min, Battery 6/10
 $use 6
 $show
-Notebook: ligado por 46 min, Carregador 5W, Bateria 40/50
-
-#TEST_CASE remover bateria com carregador
-
-$rm_battery
-Removido 40/50
+Notebook: on for 10 min, Battery 0/10
+$use 1
+fail: battery discharged
 $show
-Notebook: ligado por 46 min, Carregador 5W
+Notebook: off, Battery 0/10
+$end
+```
 
+___
+
+```bash
+#TEST_CASE battery removal
+$setBattery 10
+$turnOn
+$use 3
+$removeBattery
+Removed 7/10
+$removeBattery
+fail: no battery
+$show
+Notebook: off
+$end
+```
+
+___
+
+```bash
+#TEST_CASE battery and charger
+$setBattery 10
+$setCharger 3
+$turnOn
+$use 2
+$show
+Notebook: on for 2 min, Charger 3W, Battery 10/10
+$use 4
+$show
+Notebook: on for 6 min, Charger 3W, Battery 10/10
+$end
+```
+
+___
+
+```bash
+#TEST_CASE battery discharge after charger removal
+$setBattery 5
+$setCharger 2
+$turnOn
+$use 5
+$show
+Notebook: on for 5 min, Charger 2W, Battery 5/5
+$removeCharger
+Removed 2W
+$use 6
+fail: battery discharged
+$show
+Notebook: off, Battery 0/5
 $end
 ```
 

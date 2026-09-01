@@ -30,15 +30,16 @@ O foco é praticar colaboração entre objetos: `Uber` coordena a corrida, enqua
 - Se não tiver dinheiro suficiente, o passageiro dá tudo que tem.
 - O motorista sempre recebe o valor completo da corrida, porque o Uber paga o que falta.
 - `$setDriver nome dinheiro` define o motorista.
-  - Se já houver motorista, o `Shell` deve imprimir `fail: Driver is already set`.
+  - Se já houver motorista, o `Shell` deve imprimir `fail: driver is already set`.
 - `$setPass nome dinheiro` define o passageiro.
-  - Se não houver motorista, o `Shell` deve imprimir `fail: Driver is not set`.
-  - Se já houver passageiro, o `Shell` deve imprimir `fail: Passenger is already set`.
+  - Se não houver motorista, o `Shell` deve imprimir `fail: driver is not set`.
+  - Se já houver passageiro, o `Shell` deve imprimir `fail: passenger is already set`.
 - `$drive distancia` aumenta o custo da corrida quando há passageiro.
 - `$leavePass` remove o passageiro e realiza o pagamento.
-  - Se não houver motorista, o `Shell` deve imprimir `fail: Driver is not set`.
-  - Se não houver passageiro, o `Shell` deve imprimir `fail: Passenger is not set`.
-  - Se o passageiro não tiver dinheiro suficiente, o `Shell` deve imprimir `fail: Passenger does not have enough money` antes de mostrar o passageiro saindo.
+  - Se não houver motorista, o resultado deve indicar `DRIVER_NOT_SET`.
+  - Se não houver passageiro, o resultado deve indicar `PASSENGER_NOT_SET`.
+  - O passageiro sai mesmo quando não consegue pagar o custo integral. O resultado deve indicar `INSUFFICIENT_MONEY`.
+  - Nesse caso, o `Shell` deve imprimir `fail: passenger does not have enough money` antes de mostrar o passageiro saindo com o dinheiro restante.
 
 ## Diagrama
 
@@ -47,38 +48,41 @@ O foco é praticar colaboração entre objetos: `Uber` coordena a corrida, enqua
 ## Guide
 
 - Crie a classe `Person` com os atributos nome e dinheiro.
+- Faça `Person` concentrar as operações sobre seu dinheiro, como pagar e receber.
 - Crie a classe `Uber` com os atributos custo, motorista e passageiro.
 - Ambas as classes devem ter atributos privados.
 - Faça `setPassenger` recusar passageiro quando não houver motorista.
 - Faça `drive` aumentar o custo apenas quando houver passageiro.
-- Faça `leave` devolver um resultado com o passageiro removido e a possível falha de pagamento.
-- O `Shell` deve imprimir a falha antes da mensagem `{passageiro} left`.
+- Crie resultados de domínio para as operações, sem retornar mensagens diretamente.
+- Use `boolean` para os métodos que possuem apenas uma falha possível e `SetPassengerResult` para `setPassenger`, que possui duas falhas possíveis.
+- Faça `leave` devolver o passageiro removido junto com um `LeaveResult`.
+- O `Shell` deve mostrar a falha antes de `{passageiro} left` quando o pagamento for parcial.
 
-Pergunta de reflexão: por que o pagamento fica em `Uber.leave` e não no `Shell`?
+Perguntas de reflexão: por que `Uber` coordena a corrida, mas `Person` mantém o próprio dinheiro? Por que o `Shell` converte o resultado de `setPassenger` em mensagem?
 
 ## Shell
 
 ```bash
-#TEST_CASE criar
+#TEST_CASE initial state
 $show
 Cost: 0, Driver: None, Passenger: None
 
-#TEST_CASE inserir motorista
+#TEST_CASE set driver
 $setDriver Tobias 50
 $show
 Cost: 0, Driver: Tobias:50, Passenger: None
 
-#TEST_CASE inserir passageiro
+#TEST_CASE set passenger
 $setPass Ana 20
 $show
 Cost: 0, Driver: Tobias:50, Passenger: Ana:20
 
-#TEST_CASE subir passageiro
+#TEST_CASE drive with passenger
 $drive 10
 $show
 Cost: 10, Driver: Tobias:50, Passenger: Ana:20
 
-#TEST_CASE descer passageiro
+#TEST_CASE leave passenger
 $leavePass
 Ana:10 left
 
@@ -88,10 +92,45 @@ Cost: 0, Driver: Tobias:60, Passenger: None
 $end
 ```
 
+```bash
+#TEST_CASE invalid driver setup
+$setDriver Tobias 50
+$setDriver Ana 20
+fail: driver is already set
+$setPass Bruno 10
+$setPass Carla 30
+fail: passenger is already set
+$show
+Cost: 0, Driver: Tobias:50, Passenger: Bruno:10
+$end
+```
+
+```bash
+#TEST_CASE passenger without driver
+$setPass Ana 20
+fail: driver is not set
+$drive 10
+fail: driver is not set
+$leavePass
+fail: driver is not set
+$end
+```
+
+```bash
+#TEST_CASE drive without passenger
+$setDriver Tobias 50
+$drive 10
+$show
+Cost: 0, Driver: Tobias:50, Passenger: None
+$leavePass
+fail: passenger is not set
+$end
+```
+
 ---
 
 ```bash
-#TEST_CASE criar
+#TEST_CASE initial state
 $show
 Cost: 0, Driver: None, Passenger: None
 $setDriver Tobias 20
@@ -102,7 +141,7 @@ $setPass Ana 10
 $show
 Cost: 0, Driver: Tobias:20, Passenger: Ana:10
 
-#TEST_CASE Dirigir e Dirigir
+#TEST_CASE drive twice
 
 $drive 20
 $show
@@ -112,10 +151,10 @@ $drive 10
 $show
 Cost: 30, Driver: Tobias:20, Passenger: Ana:10
 
-#TEST_CASE descer passageiro fiado
+#TEST_CASE passenger cannot pay full cost
 
 $leavePass
-fail: Passenger does not have enough money
+fail: passenger does not have enough money
 Ana:0 left
 
 $show

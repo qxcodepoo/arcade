@@ -9,10 +9,10 @@ class Uber {
   - passenger: Person | null
   - runCost: number
   __
-  + setDriver(driver: Person): string | null
-  + setPassenger(passenger: Person): string | null
-  + drive(distance: number): string | null
-  + leave(): LeaveResult
+  + setDriver(driver: Person): boolean
+  + setPassenger(passenger: Person): SetPassengerResult
+  + drive(distance: number): boolean
+  + leave(): LeaveResponse
   __
   + toString(): string
 }
@@ -24,33 +24,39 @@ class Person {
   + constructor(name: string, money: number)
   + getName(): string
   + getMoney(): number
-  + setMoney(money: number): void
+  + pay(amount: number): number
+  + addMoney(amount: number): void
   + toString(): string
 }
 
-class LeaveResult {
-  - passenger: Person | null
-  - error: string | null
-  __
-  + constructor(passenger: Person | null, error: string | null)
-  + getPassenger(): Person | null
-  + getError(): string | null
+enum SetPassengerResult {
+  OK
+  DRIVER_NOT_SET
+  ALREADY_SET
+}
+
+enum LeaveResult {
+  OK
+  DRIVER_NOT_SET
+  PASSENGER_NOT_SET
+  INSUFFICIENT_MONEY
+}
+
+class LeaveResponse {
+  + passenger: Person | null
+  + result: LeaveResult
 }
 
 Uber "1" o-- "0..1" Person : motorista
 Uber "1" o-- "0..1" Person : passageiro
-Uber ..> LeaveResult : retorna
+Uber ..> SetPassengerResult : returns
+Uber ..> LeaveResponse : returns
+LeaveResponse ..> LeaveResult : contains
 
 note right of Uber
   Driver e passenger são referências opcionais.
   A multiplicidade 0..1 representa essa ausência.
-  Métodos que retornam string podem não retornar erro.
-end note
-
-note right of LeaveResult
-  passenger e error são opcionais:
-  o resultado contém o passageiro removido
-  ou uma mensagem de erro.
+  Os resultados representam sucesso ou falha sem depender de mensagens.
 end note
 
 @enduml

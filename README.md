@@ -60,8 +60,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Aprofundamento <!-- @aprofundamento -->
 
-- [ ] `@notebook        gain=1 hard=1 size=1 type=make eval=self` [Notebook: agregação de componentes e coordenação](labs/notebook/README.md)
-- [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Charger: agregação com contrato testável](labs/charger/README.md)
+- [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Charger: agregação e coordenação por etapas](labs/charger/README.md)
 - [ ] `@tamagotchi      gain=1 hard=1 size=1 type=make eval=test` [Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
 
 ## Coleções lineares <!-- @arrays deps=@agreg -->
