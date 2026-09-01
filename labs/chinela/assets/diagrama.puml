@@ -4,6 +4,8 @@ skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 class Slipper {
+    {static} + MIN_SIZE: number
+    {static} + MAX_SIZE: number
     - size: number
     __
     + constructor()

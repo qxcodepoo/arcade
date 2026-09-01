@@ -115,6 +115,8 @@ Cada atividade deve deixar explícitos:
 
 O título e o nome usado no índice devem comunicar o objetivo pedagógico principal da atividade. Podem mencionar no máximo um objetivo secundário quando ele estiver diretamente relacionado ao principal. Evite listar detalhes de implementação, quantidade de classes, formatos de retorno ou consequências da atividade como se fossem objetivos independentes. Em atividades complementares, use a nomeação para deixar clara a diferença de papel entre descoberta, aprofundamento e consolidação testável.
 
+Quando um título ou item de índice já possuir o marcador `[GUIA]`, preserve esse marcador ao renomear a atividade. O marcador indica o formato pedagógico da atividade e não deve ser removido como parte de ajustes de resumo ou nomenclatura.
+
 Não inclua seções enumerando princípios, práticas ou conteúdos fora do escopo por padrão. Cite uma nomenclatura técnica somente quando ela for necessária para compreender, executar ou discutir a atividade.
 
 Prefira problemas pequenos com regras suficientemente ricas para exigir decisões. Não aumente a dificuldade com entrada excessiva, cálculos periféricos ou texto ambíguo.

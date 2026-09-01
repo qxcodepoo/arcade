@@ -1,3 +1,7 @@
+SOAKED_TOWEL_MSG: str = "fail: towel is soaked"
+INVALID_COMMAND_MSG: str = "fail: invalid command"
+
+
 class Towel:
     def __init__(self, color: str = "", size: str = "P") -> None:
         self.__color: str = color
@@ -33,9 +37,9 @@ class Towel:
 
     def __str__(self) -> str:
         return (
-            f"Cor: {self.__color}, "
-            f"Tamanho: {self.__size}, "
-            f"Umidade: {self.__wetness}"
+            f"Color: {self.__color}, "
+            f"Size: {self.__size}, "
+            f"Wetness: {self.__wetness}"
         )
 
 
@@ -49,23 +53,23 @@ def main() -> None:
         match line.split():
             case ["end"]:
                 break
-            case ["criar", color, size]:
+            case ["create", color, size]:
                 towel = Towel(color, size)
-            case ["mostrar"]:
+            case ["show"]:
                 print(towel)
-            case ["enxugar", amount]:
-                amount: int = int(amount)
+            case ["dry", amount_text]:
+                amount: int = int(amount_text)
                 if not towel.dry(amount):
-                    print("fail: toalha nao conseguiu enxugar tudo")
-            case ["seca"]:
+                    print(SOAKED_TOWEL_MSG)
+            case ["is_dry"]:
                 if towel.is_dry():
-                    print("sim")
+                    print("yes")
                 else:
-                    print("nao")
-            case ["torcer"]:
+                    print("no")
+            case ["wring_out"]:
                 towel.wring_out()
             case _:
-                print("comando invalido")
+                print(INVALID_COMMAND_MSG)
 
 
 if __name__ == "__main__":

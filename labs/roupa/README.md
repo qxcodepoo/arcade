@@ -1,4 +1,4 @@
-# Roupa com testes
+# Roupa: extensão testável de Camisa
 
 <!-- toc-table -->
 
@@ -6,53 +6,69 @@
 
 ## Intro
 
-O objetivo dessa atividade é implementar uma classe que controle os tamanhos válidos de uma roupa.
+O objetivo dessa atividade é transformar a modelagem de `Shirt`, vista em Camisa, em uma versão testável com `Shell`.
 
-Nesta atividade você vai consolidar **encapsulamento**, **modificador de acesso privado**, **getter**, **setter validador** e **invariante de estado**. A classe `Garment` protege seu `size`; o `Shell` cuida da interação com o usuário.
+Nesta atividade você vai consolidar **encapsulamento**, **getter**, **setter validador** e **invariante de estado**. A classe `Garment` protege seu `size`; o `Shell` cuida da interação com o usuário e transforma falhas em mensagens.
+
+### Mensagens do programa
+
+As explicações da atividade estão em português, mas o texto produzido pelo programa deve ficar em inglês:
+
+- `fail: invalid size`
+- `fail: invalid command`
 
 ## Regras
 
-- Vamos implementar uma classe que controla os possíveis valores de tamanho para uma roupa.
-- Os tamanhos serão identificados como uma variável tipo texto, e os valores válidos são "PP", "P", "M" e "G", "GG" e "XG".
-- Faça o objeto `Garment` iniciar `size` como uma string vazia, para expressar que nenhum tamanho foi atribuído.
-- Crie um construtor que não recebe parâmetros e inicializa `size` como uma string vazia.
-- Crie o método `setSize` que apenas aceita os valores válidos de tamanho.
-- Coloque o atributo `size` como privado e crie um método `getSize` para acessá-lo e `setSize` para alterá-lo.
-- Caso o valor seja válido, `setSize` deve alterar o tamanho e retornar `true`.
-- Caso o valor seja inválido, `setSize` deve retornar `false` sem alterar o tamanho anterior.
+- Os tamanhos válidos são `PP`, `P`, `M`, `G`, `GG` e `XG`.
+- Faça o objeto `Garment` iniciar com um tamanho padrão válido.
+- O construtor deve primeiro inicializar o atributo privado com esse tamanho padrão e depois chamar `setSize()` para tentar aplicar o tamanho recebido.
+- Crie o método estático `getAllowedSizes()` para retornar uma nova lista com os tamanhos permitidos.
+- Crie o método `setSize()` que apenas aceita os valores válidos de tamanho.
+- Coloque o atributo `size` como privado e crie `getSize()` para consultar o estado.
+- Caso o valor seja válido, `setSize()` deve alterar o tamanho e retornar `true`.
+- Caso o valor seja inválido, `setSize()` deve retornar `false` sem alterar o tamanho anterior.
 - O setter não deve imprimir mensagens. A impressão da falha pertence ao `Shell`, aplicando a separação entre domínio e interface.
 
 ## Diagrama
 
-O diagrama mostra `Garment` com o atributo privado `size`. O `Shell` conhece apenas os métodos públicos e transforma o retorno `false` em mensagem de erro.
+O diagrama mostra `Garment` com o atributo privado `size`. A constante indica o tamanho padrão e `getAllowedSizes()` concentra o conjunto permitido sem expor uma lista interna compartilhada. O `Shell` conhece apenas os métodos públicos e transforma o retorno `false` em mensagem de erro.
 
 ![diagrama](assets/diagrama.png)
 
 ## Guide
 
-[Vídeo de apoio](https://youtu.be/27-PmhwFHYY?si=gAScW7a_CyxVNnTv)
-
-- Implemente a classe `Garment` e mantenha seu atributo `size` privado.
-- Comece pelo estado vazio e implemente `getSize` e `setSize`.
-- Faça `setSize` retornar `true` quando alterar o estado e `false` quando rejeitar o valor.
-- Depois confira os casos de tamanho inválido, válido e estado preservado após uma falha.
+- Implemente `Garment` mantendo `size` privado.
+- Comece pelo construtor: inicialize `size` com `DEFAULT_SIZE` e depois chame `setSize()` com o valor recebido.
+- Implemente `getAllowedSizes()` retornando uma nova lista com os tamanhos permitidos.
+- Faça `setSize()` retornar `true` quando alterar o estado e `false` quando rejeitar o valor.
+- Implemente o `Shell` apenas para interpretar comandos, chamar o domínio e imprimir resultados.
+- Confira nos testes os casos de tamanho inválido, tamanho válido e estado preservado após uma falha.
 
 Pergunta de reflexão: qual invariante seria quebrada se `size` fosse público?
 
 ## Shell
 
 ```bash
-#TEST_CASE inicial
+#TEST_CASE initial state
 $show
-size: ()
+size: (P)
 
+#TEST_CASE invalid size preserves state
 $size F
-fail: Valor inválido, tente PP, P, M, G, GG ou XG
+fail: invalid size
 
 $show
-size: ()
+size: (P)
 
+#TEST_CASE valid size
 $size PP
+$show
+size: (PP)
+
+#TEST_CASE invalid size after valid size
+$size XGG
+fail: invalid size
+
 $show
 size: (PP)
 

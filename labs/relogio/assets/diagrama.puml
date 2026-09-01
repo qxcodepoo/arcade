@@ -5,22 +5,25 @@ skinparam dpi 150
 
 
 class Time {
+  {static} + MIN_VALUE: number
+  {static} + MAX_HOUR: number
+  {static} + MAX_MINUTE: number
   - hour  : number
   - minute: number
-  - second: number
+  - isAmPm: boolean
   __
   
-  + constructor(hour: number, minute: number, second: number)
+  + constructor(hour: number, minute: number)
   __
   + getHour()  : number
   + getMinute(): number
-  + getSecond(): number
+  + isAmPm()    : boolean
   __
   + setHour  (value: number): boolean
   + setMinute(value: number): boolean
-  + setSecond(value: number): boolean
   __
-  + nextSecond()             : void
+  + nextMinute()             : void
+  + toggleMode()             : void
   + toString()               : string
 }
 

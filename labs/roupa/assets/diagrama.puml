@@ -4,11 +4,13 @@ skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 class Garment {
+  {static} + DEFAULT_SIZE: string
   - size: string
   __
-  + constructor()
-  + setSize(size: string): boolean
+  + constructor(size: string)
   + getSize(): string
+  {static} + getAllowedSizes(): Array<string>
+  + setSize(size: string): boolean
   + toString(): string
 }
 

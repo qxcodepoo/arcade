@@ -1,4 +1,4 @@
-# Um carro simples
+# Carro: separação inicial entre domínio e Shell
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
@@ -7,7 +7,7 @@
 
 ![cover](assets/cover.webp)
 
-## Intro
+## Intro <!-- @intro -->
 
 Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de embarcar e desembarcar pessoas, abastecer e andar. A atividade também introduz uma primeira separação de responsabilidades entre lógica de negócio e interação com o usuário.
 
@@ -18,7 +18,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - `drive` deve retornar um valor do tipo `DriveResult`, pois possui falhas distintas.
 - O Shell deve interpretar cada retorno e decidir qual mensagem apresentar ao usuário.
 
-## Regras
+## Regras <!-- @regras -->
 
 - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Suporta até 2 pessoas e até 100 litros de combustível.
 - Construtor do Carro
@@ -34,11 +34,11 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - Entrar `$enter`
   - Embarca uma pessoa por vez, mas não além do máximo.
   - Se o carro estiver lotado, emite a mensagem de erro.
-    - `fail: limite de pessoas atingido`.
+    - `fail: car is full`.
 - Sair `$leave`
   - Desembarca uma pessoa por vez.
   - Se não houver ninguém no carro, emite a mensagem de erro.
-    - `fail: nao ha ninguem no carro`.
+    - `fail: car is empty`.
 - Abastecer certa quantidade `$fuel increment`
   - Abastece o tanque com a quantidade de litros de combustível passada.
   - Caso tente abastecer acima do limite, descarta o valor excedente.
@@ -46,19 +46,19 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
   - Para dirigir, o carro consome combustível e aumenta a quilometragem.
   - Só pode dirigir se houver combustível e se houver alguém no carro.
   - Caso não haja ninguém no carro, emite a mensagem de erro.
-    - `fail: nao ha ninguem no carro`
+    - `fail: car is empty`
   - Caso não haja combustível, emite a mensagem de erro.
-    - `fail: tanque vazio`
+    - `fail: empty tank`
   - Caso não exista combustível suficiente para completar a viagem inteira, dirija o máximo possível e emite uma mensagem de falha.
-    - `fail: viagem incompleta`.
+    - `fail: incomplete trip`.
 
-## Diagrama
+## Diagrama <!-- @diagrama -->
 
 O diagrama separa o domínio (`Car` e `DriveResult`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos e interpreta os resultados.
 
 ![diagrama](assets/diagrama.png)
 
-## Guide
+## Guide <!-- @guide -->
 
 [![youtube icon](assets/youguide.webp)](https://youtu.be/LM6KM4eLi3U)
 
@@ -70,34 +70,34 @@ O diagrama separa o domínio (`Car` e `DriveResult`) da interface (`Shell`). `Ca
 
 Pergunta de reflexão: que problema surgiria se `drive` imprimisse as mensagens diretamente dentro de `Car`?
 
-## Shell
+## Shell <!-- @shell -->
 
 ```bash
-#TEST_CASE inicializar
+#TEST_CASE init
 $show
 pass: 0, gas: 0, km: 0
 
-#TEST_CASE entrar
+#TEST_CASE enter
 $enter
 $enter
 $show
 pass: 2, gas: 0, km: 0
 
-#TEST_CASE limite
+#TEST_CASE full
 $enter
-fail: limite de pessoas atingido
+fail: car is full
 $show
 pass: 2, gas: 0, km: 0
 
-#TEST_CASE sair
+#TEST_CASE leave
 $leave
 $show
 pass: 1, gas: 0, km: 0
 
-#TEST_CASE limite saida
+#TEST_CASE empty
 $leave
 $leave
-fail: nao ha ninguem no carro
+fail: car is empty
 $show
 pass: 0, gas: 0, km: 0
 $end
@@ -106,30 +106,30 @@ $end
 ***
 
 ```bash
-#TEST_CASE abastecer
+#TEST_CASE fuel
 $fuel 60
 $show
 pass: 0, gas: 60, km: 0
 
-#TEST_CASE dirigir vazio
+#TEST_CASE drive empty
 $drive 10
-fail: nao ha ninguem no carro
+fail: car is empty
 
-#TEST_CASE dirigir
+#TEST_CASE drive
 $enter
 $drive 10
 $show
 pass: 1, gas: 50, km: 10
 
-#TEST_CASE para longe
+#TEST_CASE far trip
 $drive 70
-fail: viagem incompleta
+fail: incomplete trip
 $drive 10
-fail: tanque vazio
+fail: empty tank
 $show
 pass: 1, gas: 0, km: 60
 
-#TEST_CASE enchendo o tanque
+#TEST_CASE fill tank
 $fuel 200
 $show
 pass: 1, gas: 100, km: 60
@@ -137,7 +137,8 @@ $end
 #
 ```
 
-## Draft
+## Draft <!-- @draft -->
 
 <!-- links .cache/starter -->
 <!-- links -->
+## labs

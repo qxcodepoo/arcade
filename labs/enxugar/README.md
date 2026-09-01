@@ -1,6 +1,8 @@
-# Toalha com testes
+# Enxugar: comportamento observável e Shell
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![_](assets/cover.webp)
@@ -19,7 +21,9 @@ Esta versão acrescenta um `Shell` para testar o comportamento observável sem m
 - `getMaxWetness()` retorna `10` para `P`, `20` para `M` e `30` para `G`.
 - `dry(amount)` aumenta a umidade sem ultrapassar o limite; retorna `true` quando absorve tudo e `false` quando absorve apenas o possível.
 - `isDry()` retorna `true` quando a umidade é `0`.
+- O `toString` retorna `Color: {color}, Size: {size}, Wetness: {wetness}`.
 - `Towel` não deve ler entrada nem imprimir dados; o `Shell` interpreta os retornos e apresenta as mensagens.
+- Se `dry(amount)` retornar `false`, o `Shell` deve imprimir `fail: towel is soaked`.
 - A classe permanece única porque suas regras formam um comportamento coeso. Não crie classes separadas para cor, tamanho ou umidade nesta etapa.
 
 ## Diagrama
@@ -34,52 +38,52 @@ O diagrama representa uma classe simples e coesa. A atividade reforça a separa�
 
 [Vídeo de apoio](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
-- Comece pelo construtor e pelo `toString`, usando `$criar` e `$mostrar`.
+- Comece pelo construtor e pelo `toString`, usando `$create` e `$show`.
 - Implemente `getMaxWetness`, porque `dry` depende desse limite.
 - Faça `dry` retornar `false` quando a toalha não conseguir absorver toda a quantidade.
-- No `Shell`, transforme esse `false` em `fail: toalha nao conseguiu enxugar tudo`.
+- No `Shell`, transforme esse `false` em `fail: towel is soaked`.
 
 Pergunta de reflexão: por que o limite de umidade pertence à `Towel` e não ao `Shell`?
 
 ## Shell
 
 ```bash
-#TEST_CASE criação pequena
-$criar azul P
-$mostrar
-Cor: azul, Tamanho: P, Umidade: 0
+#TEST_CASE small creation
+$create azul P
+$show
+Color: azul, Size: P, Wetness: 0
 
-#TEST_CASE esta_seca
-$seca
-sim
+#TEST_CASE is dry
+$is_dry
+yes
 
-#TEST_CASE enxugar
-$enxugar 5
-$mostrar
-Cor: azul, Tamanho: P, Umidade: 5
+#TEST_CASE dry
+$dry 5
+$show
+Color: azul, Size: P, Wetness: 5
 
-#TEST_CASE nao esta seca
-$seca
-nao
+#TEST_CASE is not dry
+$is_dry
+no
 
-#TEST_CASE toalha encharcada
-$enxugar 6
-fail: toalha nao conseguiu enxugar tudo
+#TEST_CASE soaked towel
+$dry 6
+fail: towel is soaked
 
-#TEST_CASE umidade maxima alcançada
-$mostrar
-Cor: azul, Tamanho: P, Umidade: 10
+#TEST_CASE max wetness reached
+$show
+Color: azul, Size: P, Wetness: 10
 
-$enxugar 5
-fail: toalha nao conseguiu enxugar tudo
+$dry 5
+fail: towel is soaked
 
-$mostrar
-Cor: azul, Tamanho: P, Umidade: 10
+$show
+Color: azul, Size: P, Wetness: 10
 
-#TEST_CASE torcer
-$torcer
-$mostrar
-Cor: azul, Tamanho: P, Umidade: 0
+#TEST_CASE wring out
+$wring_out
+$show
+Color: azul, Size: P, Wetness: 0
 
 $end
 
@@ -89,23 +93,23 @@ $end
 
 ```bash
 
-#TEST_CASE criação grande
-$criar verde G
+#TEST_CASE large creation
+$create verde G
 
-$mostrar
-Cor: verde, Tamanho: G, Umidade: 0
+$show
+Color: verde, Size: G, Wetness: 0
 
-#TEST_CASE limite de 30 e encharcada
+#TEST_CASE limit 30 and soaked
 
-$enxugar 30
-$mostrar
-Cor: verde, Tamanho: G, Umidade: 30
+$dry 30
+$show
+Color: verde, Size: G, Wetness: 30
 
-#TEST_CASE não passa do limite
-$enxugar 1
-fail: toalha nao conseguiu enxugar tudo
-$mostrar
-Cor: verde, Tamanho: G, Umidade: 30
+#TEST_CASE does not pass limit
+$dry 1
+fail: towel is soaked
+$show
+Color: verde, Size: G, Wetness: 30
 $end
 ```
 

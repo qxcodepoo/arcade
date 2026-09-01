@@ -1,4 +1,4 @@
-# Uma calculadora com bateria
+# Calculadora: resultados de operação e mensagens no Shell
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
@@ -36,13 +36,13 @@ O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora
 - Somar
   - Requisição: `$sum a b`
   - Soma dois valores e guarda no display.
-  - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
+  - Se não houver bateria, emita a mensagem `fail: insufficient battery`.
   - O método `sum(a: number, b: number): boolean` retorna `true` quando realiza a soma e `false` quando não há bateria. Em caso de falha, mantém o display.
 - Divisão
   - Requisição: `$div num den`
   - Divide dois valores e guarda no display.
-  - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
-  - Se houver divisão por zero, consome um ponto de bateria, mantém o display anterior e emite a mensagem `fail: divisao por zero`.
+  - Se não houver bateria, emita a mensagem `fail: insufficient battery`.
+  - Se houver divisão por zero, consome um ponto de bateria, mantém o display anterior e emite a mensagem `fail: division by zero`.
   - O método `division(num: number, den: number): DivisionResult` retorna `OK`, `NO_BATTERY` ou `DIVISION_BY_ZERO`.
 - Separe as responsabilidades:
   - A classe Calculadora não deve conter nenhuma operação de impressão.
@@ -83,7 +83,7 @@ public String toString() {
 ### Primeira simulação
 
 ```bash
-#TEST_CASE iniciar mostrar e recarregar
+#TEST_CASE init show and charge
 
 $init 5
 $show
@@ -130,7 +130,7 @@ $end
 ### Segunda simulação
 
 ```bash
-#TEST_CASE somando
+#TEST_CASE sum
 
 $init 2
 $charge 2
@@ -140,7 +140,7 @@ display = 7.00, battery = 1
 ```
 
 ```bash
-#TEST_CASE gastando bateria
+#TEST_CASE drain battery
 
 $sum 2 3
 $show
@@ -148,14 +148,14 @@ display = 5.00, battery = 0
 ```
 
 ```bash
-#TEST_CASE sem bateria
+#TEST_CASE no battery
 
 $sum -4 -1
-fail: bateria insuficiente
+fail: insufficient battery
 ```
 
 ```bash
-#TEST_CASE recarregando
+#TEST_CASE recharge
 
 $charge 1
 $show
@@ -172,7 +172,7 @@ $end
 ### Terceira simulação
 
 ```bash
-#TEST_CASE dividindo
+#TEST_CASE division
 
 $init 3
 $charge 3
@@ -182,20 +182,20 @@ display = 2.00, battery = 2
 ```
 
 ```bash
-#TEST_CASE dividindo por zero gastando bateria
+#TEST_CASE division by zero drains battery
 
 $div 7 0
-fail: divisao por zero
+fail: division by zero
 $show
 display = 2.00, battery = 1
 ```
 
 ```bash
-#TEST_CASE gastando bateria
+#TEST_CASE drain battery
 
 $div 7 2
 $div 10 2
-fail: bateria insuficiente
+fail: insufficient battery
 $show
 display = 3.50, battery = 0
 ```

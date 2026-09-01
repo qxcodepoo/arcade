@@ -1,4 +1,4 @@
-# [GUIA] Toalha, o item mais útil do universo
+# Toalha: estado e comportamento em uma classe coesa
 
 <!-- toc-table -->
 <!-- toc-table -->

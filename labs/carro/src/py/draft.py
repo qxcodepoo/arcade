@@ -8,11 +8,11 @@ class DriveResult(Enum):
     NO_GAS = "no_gas"
 
 
-CAR_FULL_MSG = "fail: limite de pessoas atingido"
-CAR_EMPTY_MSG = "fail: nao ha ninguem no carro"
-NO_GAS_MSG = "fail: tanque vazio"
-INCOMPLETE_TRIP_MSG = "fail: viagem incompleta"
-INVALID_COMMAND_MSG = "fail: comando invalido"
+CAR_FULL_MSG: str = "fail: car is full"
+CAR_EMPTY_MSG: str = "fail: car is empty"
+NO_GAS_MSG: str = "fail: empty tank"
+INCOMPLETE_TRIP_MSG: str = "fail: incomplete trip"
+INVALID_COMMAND_MSG: str = "fail: invalid command"
 
 
 class Car:
