@@ -136,6 +136,9 @@ Não entregue automaticamente a arquitetura completa quando a descoberta fizer p
 - Escreva primeiro o comportamento observável e depois os detalhes de implementação.
 - Use `Draft` quando houver starter ou esqueleto mantido pelo `tko`.
 - Mantenha mensagens, formatos de saída, pontuação e acentuação idênticos entre regras, exemplos, testes e código.
+- O contrato executável deve ser escrito em inglês: identificadores, comandos do `Shell`, mensagens observáveis, enums, constantes e demais valores que apareçam no código ou nos testes.
+- As explicações pedagógicas devem permanecer em português: enunciado, regras narrativas, `Guide`, reflexões e justificativas de projeto.
+- Ajuste atividades existentes gradualmente quando forem revisadas; não faça migração em massa apenas para trocar idioma.
 - Evite requisitos implícitos. Se algo será avaliado, descreva-o no contrato ou no objetivo pedagógico.
 
 Atividades `eval=test` devem possuir `Shell` com casos `#TEST_CASE`, comandos iniciados por `$` e encerramento `$end`.

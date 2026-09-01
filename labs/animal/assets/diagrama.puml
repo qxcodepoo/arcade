@@ -4,6 +4,7 @@ skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
 class Animal {
+    {static} + DEAD_AGE: number
     + species: string
     + noise  : string
     + age    : number

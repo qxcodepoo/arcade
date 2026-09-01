@@ -1,6 +1,8 @@
 # [GUIA] Animal que nasce, cresce, morre
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -17,10 +19,11 @@ O foco é modelar estado e comportamento em uma classe simples: `Animal` guarda 
 - O construtor recebe a espécie e o barulho e inicia o estágio com `0`.
 - O `toString` do animal deve retornar `{species}:{age}:{noise}`.
 - Os estágios são: `0` Filhote, `1` Criança, `2` Adulto, `3` Idoso e `4` Morto.
+- A classe `Animal` deve declarar a constante `DEAD_AGE` com o valor `4`, evitando espalhar esse limite pelos métodos.
 - O método `ageBy` avança o estágio conforme o parâmetro `increment`.
   - Retorna `true` se o animal não morrer.
   - Retorna `false` se já estiver morto ou acabar morrendo.
-  - A camada de interação mostra `warning: {nome} morreu` quando o método retornar `false`.
+  - A camada de interação mostra `warning: animal is dead` quando o método retornar `false`.
 - O método `makeSound` retorna o som do animal.
   - Filhote emite `---`.
   - Animal morto emite `RIP`.
@@ -36,8 +39,8 @@ O diagrama mostra apenas a classe `Animal`, que concentra o estado e as regras d
 
 - Comece pelo construtor e pelo `toString`, que permitem conferir o estado inicial.
 - Depois implemente `makeSound`, separando os casos de filhote, adulto e morto.
-- Implemente `ageBy` por último, garantindo que a idade nunca passe de `4`.
-- Deixe o `Shell` responsável por imprimir `warning: {nome} morreu` quando `ageBy` retornar `false`.
+- Implemente `ageBy` por último, garantindo que a idade nunca passe de `DEAD_AGE`.
+- Deixe o `Shell` responsável por imprimir `warning: animal is dead` quando `ageBy` retornar `false`.
 
 Pergunta de reflexão: por que `Animal` retorna um booleano em vez de imprimir a mensagem de morte diretamente?
 
@@ -80,11 +83,11 @@ $grow 2
 $show
 vaca:2:muu
 $grow 2
-warning: vaca morreu
+warning: animal is dead
 $show
 vaca:4:muu
 $grow 3
-warning: vaca morreu
+warning: animal is dead
 $show
 vaca:4:muu
 
@@ -105,7 +108,7 @@ $grow 1
 $noise
 beeh
 $grow 3
-warning: cabra morreu
+warning: animal is dead
 
 $noise
 RIP
@@ -135,7 +138,7 @@ $noise
 piupiu
 
 $grow 1
-warning: passaro morreu
+warning: animal is dead
 
 $noise
 RIP

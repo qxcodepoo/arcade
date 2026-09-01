@@ -22,11 +22,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - separação inicial entre domínio e Shell.
 - Princípio citado somente quando útil: responsabilidade.
 
-- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
-- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
-- [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Carro: separação inicial entre domínio e Shell](labs/carro/README.md)
-- [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Enxugar: comportamento observável e Shell](labs/enxugar/README.md)
-- [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Calculadora: resultados de operação e mensagens no Shell](labs/calculadora/README.md)
+- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Toalha, o item mais útil do universo](labs/toalha/README.md)
+- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [[GUIA] Animal que nasce, cresce, morre](labs/animal/README.md)
+- [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Um carro simples](labs/carro/README.md)
+- [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Toalha com testes](labs/enxugar/README.md)
+- [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Uma calculadora com bateria](labs/calculadora/README.md)
 
 ## Encapsulamento e Invariantes <!-- @access deps=@intro -->
 
@@ -39,10 +39,10 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - diferença entre encapsular e criar getters/setters para tudo.
 - Conceitos principais: encapsulamento, invariante e contrato.
 
-- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [Chinela: setter validador e invariante numérica](labs/chinela/README.md)
-- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [Camisa: setter validador e conjunto permitido](labs/camisa/README.md)
-- [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa: encapsulamento com contrato testável](labs/roupa/README.md)
-- [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
+- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
+- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma camisa XG](labs/camisa/README.md)
+- [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa com testes](labs/roupa/README.md)
+- [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Garante uma hora válida no relógio](labs/relogio/README.md)
 
 ## Relações entre objetos: agregação e delegação <!-- @agreg deps=@access -->
 
