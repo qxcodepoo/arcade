@@ -44,24 +44,25 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa com testes](labs/roupa/README.md)
 - [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Garante uma hora válida no relógio](labs/relogio/README.md)
 
-## Relações entre objetos <!-- @agreg deps=@access -->
+## Relações entre objetos: agregação e delegação <!-- @agreg deps=@access -->
 
 - Conceitos abordados neste módulo:
- - associação;
- - composição;
  - agregação;
  - posse e colaboração;
  - delegação;
  - multiplicidade;
- - ciclos de vida dependentes ou independentes.
-- Conceitos principais: composição, delegação e coesão.
+ - ciclos de vida independentes.
+- Conceitos principais: agregação, delegação e multiplicidade.
 
-- [ ] `@motoca          gain=1 hard=1 size=1 type=make eval=test` [Crianças andando de motoca](labs/motoca/README.md)
-- [ ] `@grafite         gain=1 hard=1 size=1 type=make eval=test` [Porta minas de um grafite só](labs/grafite/README.md)
-- [ ] `@motouber        gain=1 hard=1 size=1 type=make eval=test` [MotoUber com motorista e passageiro](labs/motouber/README.md)
-- [ ] `@notebook        gain=1 hard=1 size=1 type=make eval=self` [Notebook com carregador e bateria](labs/notebook/README.md)
-- [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Notebook com TESTES](labs/charger/README.md)
-- [ ] `@tamagotchi      gain=1 hard=1 size=1 type=make eval=test` [Alimente, brinque e mate](labs/tamagotchi/README.md)
+- [ ] `@motoca          gain=1 hard=1 size=1 type=make eval=test` [Motoca: agregação opcional simples](labs/motoca/README.md)
+- [ ] `@grafite         gain=1 hard=1 size=1 type=make eval=test` [Grafite: agregação opcional + delegação](labs/grafite/README.md)
+- [ ] `@motouber        gain=1 hard=1 size=1 type=make eval=test` [MotoUber: coordenação entre papéis + transferência de recurso + resultado composto.](labs/motouber/README.md)
+
+## Aprofundamento <!-- @aprofundamento -->
+
+- [ ] `@notebook        gain=1 hard=1 size=1 type=make eval=self` [Notebook: múltiplos componentes agregados + coordenação](labs/notebook/README.md)
+- [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Charger: notebook com contrato testável](labs/charger/README.md)
+- [ ] `@tamagotchi      gain=1 hard=1 size=1 type=make eval=test` [Tamagotchi: coordenação sobre um objeto de domínio com invariantes fortes e estado terminal](labs/tamagotchi/README.md)
 
 ## Coleções de objetos <!-- @arrays deps=@agreg -->
 

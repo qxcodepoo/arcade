@@ -1,4 +1,4 @@
-# MotoUber com motorista e passageiro
+# MotoUber: coordenação entre papéis + transferência de recurso + resultado composto.
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

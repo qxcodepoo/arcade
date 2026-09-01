@@ -1,11 +1,13 @@
 .PHONY: all clean
 
-all:
+index:
+	@echo "Atualizando indexer"
+	tko build index README.md labs --load
+
+all: index
 	@find . -type d -name "__pycache__" -exec rm -rf {} +
 	@echo "Atualizando wiki"
 	@find wiki -type f -name "*.md" -exec tko util mdpp {} \;
-	@echo "Verificando indexer"
-	tko build index README.md labs
 	@echo "Atualizando Readmes"
 	tko build all labs/* -mc
 	@echo "Fim"

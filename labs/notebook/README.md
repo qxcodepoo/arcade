@@ -1,4 +1,4 @@
-# Notebook com carregador e bateria
+# Notebook: múltiplos componentes agregados + coordenação
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide)

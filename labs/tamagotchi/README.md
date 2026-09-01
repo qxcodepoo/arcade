@@ -1,4 +1,4 @@
-# Alimente, brinque e mate
+# Tamagotchi: coordenação sobre um objeto de domínio com invariantes fortes e estado terminal
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

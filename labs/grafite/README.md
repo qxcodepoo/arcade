@@ -1,4 +1,4 @@
-# Porta minas de um grafite só
+# Grafite: agregação opcional + delegação
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
