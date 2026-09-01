@@ -3,20 +3,31 @@ skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 left to right direction
 
+enum InsertResult {
+    OK
+    ALREADY_HAS_LEAD
+    WRONG_THICKNESS
+}
+
+enum WriteResult {
+    OK
+    NO_LEAD
+    INSUFFICIENT
+    INCOMPLETE
+}
+
 class Lead {
     - thickness: number
     - hardness : string
     - size     : number
     __
     + constructor(thickness: number, hardness: string, size: number)
-    + usagePerSheet(): number
+    + getWearPerPage(): number
+    + consume(amount: number): boolean
     __
     + getHardness() : string
     + getSize()     : number
     + getThickness(): number
-    __
-    + setSize(size: number): void
-    __
     + toString(): string
 }
 
@@ -28,9 +39,9 @@ class Pencil {
 
     + constructor(thickness : number)
     + hasLead()          : boolean
-    + insert(lead : Lead): string | null
+    + insert(lead : Lead): InsertResult
     + remove()           : Lead | null
-    + writePage()        : string | null
+    + writePage()        : WriteResult
     __
     + toString()         : string
 }

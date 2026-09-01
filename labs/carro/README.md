@@ -1,6 +1,8 @@
 # Um carro simples
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -12,8 +14,9 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - A classe Car representa o carro e deve conter seu estado e suas regras de negócio.
 - A classe Shell representa a interface de linha de comando e deve cuidar da leitura dos comandos e da apresentação dos resultados.
 - A classe Car não deve utilizar System.out.
-- Quando uma operação não puder ser realizada normalmente, Car deve retornar um valor do tipo Result.
-- O Shell deve interpretar esse resultado e decidir qual mensagem apresentar ao usuário.
+- `enter` e `leave` devem retornar `boolean`, pois cada um possui apenas uma forma de falha relevante.
+- `drive` deve retornar um valor do tipo `DriveResult`, pois possui falhas distintas.
+- O Shell deve interpretar cada retorno e decidir qual mensagem apresentar ao usuário.
 
 ## Regras
 
@@ -51,7 +54,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ## Diagrama
 
-O diagrama separa o domínio (`Car` e `Result`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos e interpreta os resultados.
+O diagrama separa o domínio (`Car` e `DriveResult`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos e interpreta os resultados.
 
 ![diagrama](assets/diagrama.png)
 
@@ -63,7 +66,7 @@ O diagrama separa o domínio (`Car` e `Result`) da interface (`Shell`). `Car` ma
 - Implemente `enter` e `leave`, retornando `false` quando a operação não puder ser feita.
 - Implemente `fuel`, garantindo que o tanque não ultrapasse `gasMax`.
 - Implemente `drive`, preservando a ordem das validações: primeiro passageiro, depois combustível.
-- No `Shell`, para os métodos que retornam booleanos, imprima os erros para quando a operação não puder ser feita e para o comando `drive`, traduza cada `Result` para a mensagem literal definida nas regras.
+- No `Shell`, declare constantes para as mensagens e traduza os retornos diretamente na `main`: cada `false` de `enter` e `leave` deve usar sua mensagem específica, e cada `DriveResult` de `drive` deve ser tratado no `switch` correspondente.
 
 Pergunta de reflexão: que problema surgiria se `drive` imprimisse as mensagens diretamente dentro de `Car`?
 

@@ -46,38 +46,26 @@ def main() -> None:
         line: str = input()
         print("$" + line)
 
-        par: list[str] = line.split()
-        cmd: str = par[0]
-
-        if cmd == "end":
-            break
-
-        elif cmd == "criar":
-            color: str = par[1]
-            size: str = par[2]
-
-            towel = Towel(color, size)
-
-        elif cmd == "mostrar":
-            print(towel)
-
-        elif cmd == "enxugar":
-            amount: int = int(par[1])
-
-            if not towel.dry(amount):
-                print("fail: toalha nao conseguiu enxugar tudo")
-
-        elif cmd == "seca":
-            if towel.is_dry():
-                print("sim")
-            else:
-                print("nao")
-
-        elif cmd == "torcer":
-            towel.wring_out()
-
-        else:
-            print("comando invalido")
+        match line.split():
+            case ["end"]:
+                break
+            case ["criar", color, size]:
+                towel = Towel(color, size)
+            case ["mostrar"]:
+                print(towel)
+            case ["enxugar", amount]:
+                amount: int = int(amount)
+                if not towel.dry(amount):
+                    print("fail: toalha nao conseguiu enxugar tudo")
+            case ["seca"]:
+                if towel.is_dry():
+                    print("sim")
+                else:
+                    print("nao")
+            case ["torcer"]:
+                towel.wring_out()
+            case _:
+                print("comando invalido")
 
 
 if __name__ == "__main__":

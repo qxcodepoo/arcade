@@ -1,6 +1,8 @@
-# Gerenciando reservas e cancelamentos de uma sala de cinema
+# Cinema: posições fixas e ausência
 
 <!-- toc-table -->
+[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
+-- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -8,6 +10,8 @@
 ## Intro
 
 O objetivo desta atividade é implementar métodos para manipular uma sala de cinema, permitindo a reserva, cancelamento e consulta de cadeiras.
+
+Esta atividade introduz vetor de tamanho fixo com posições significativas. Cada índice representa uma cadeira real da sala; por isso, reservar a cadeira `0` é diferente de reservar a cadeira `3`. Uma posição vazia será representada por `null`, e o código precisa verificar essa possibilidade antes de acessar o cliente.
 
 - **Descrição**
   - A sala de cinema é representada pela classe Sala `Theater`, que possui um conjunto de cadeiras, cada uma associada a um cliente ou vazia.
@@ -19,13 +23,13 @@ O objetivo desta atividade é implementar métodos para manipular uma sala de ci
   - A classe Sala `Theater` é responsável por gerenciar as operações relacionadas às cadeiras na sala de cinema.
     - Métodos a serem implementados:
       - públicos: são métodos acessados por outras classes.
-        - `reserve(id: string, phone: number, index: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.
+        - `reserve(id: string, phone: string, index: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.
         - `cancel(id: string)`: Cancela a reserva de uma cadeira para o cliente com o ID especificado.
         - `getSeats(): Array<Client | null>`: Retorna um array contendo o estado atual de todas as cadeiras na sala.
         - `toString(): string`: Retorna uma representação em string do estado atual das cadeiras na sala.
       - privados: são métodos apenas de uso interno, utilizados para auxiliar as operações da classe.
-        - `search(name: string): int`: Procura o índice da cadeira reservada pelo cliente com o nome especificado.
-        - `verifyIndix(index: number)`: Verifica se um índice de cadeira é válido na sala.
+        - `search(name: string): number`: Procura o índice da cadeira reservada pelo cliente com o nome especificado.
+        - `verifyIndex(index: number)`: Verifica se um índice de cadeira é válido na sala.
   - A classe `Client` é responsável por representar os clientes que reservam cadeiras na sala de cinema.
     - A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.
 

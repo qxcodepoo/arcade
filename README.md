@@ -22,11 +22,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - separação inicial entre domínio e Shell.
 - Princípio citado somente quando útil: responsabilidade.
 
-- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Toalha, o item mais útil do universo](labs/toalha/README.md)
-- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [[GUIA] Animal que nasce, cresce, morre](labs/animal/README.md)
-- [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Um carro simples](labs/carro/README.md)
-- [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Toalha com testes](labs/enxugar/README.md)
-- [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Uma calculadora com bateria](labs/calculadora/README.md)
+- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
+- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
+- [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Carro: separação inicial entre domínio e Shell](labs/carro/README.md)
+- [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Enxugar: comportamento observável e Shell](labs/enxugar/README.md)
+- [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Calculadora: resultados de operação e mensagens no Shell](labs/calculadora/README.md)
 
 ## Encapsulamento e Invariantes <!-- @access deps=@intro -->
 
@@ -39,10 +39,10 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - diferença entre encapsular e criar getters/setters para tudo.
 - Conceitos principais: encapsulamento, invariante e contrato.
 
-- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
-- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma camisa XG](labs/camisa/README.md)
-- [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa com testes](labs/roupa/README.md)
-- [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Garante uma hora válida no relógio](labs/relogio/README.md)
+- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [Chinela: setter validador e invariante numérica](labs/chinela/README.md)
+- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [Camisa: setter validador e conjunto permitido](labs/camisa/README.md)
+- [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa: encapsulamento com contrato testável](labs/roupa/README.md)
+- [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
 
 ## Relações entre objetos: agregação e delegação <!-- @agreg deps=@access -->
 
@@ -55,37 +55,54 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 - Conceitos principais: agregação, delegação e multiplicidade.
 
 - [ ] `@motoca          gain=1 hard=1 size=1 type=make eval=test` [Motoca: agregação opcional simples](labs/motoca/README.md)
-- [ ] `@grafite         gain=1 hard=1 size=1 type=make eval=test` [Grafite: agregação opcional + delegação](labs/grafite/README.md)
-- [ ] `@motouber        gain=1 hard=1 size=1 type=make eval=test` [MotoUber: coordenação entre papéis + transferência de recurso + resultado composto.](labs/motouber/README.md)
+- [ ] `@grafite         gain=1 hard=1 size=1 type=make eval=test` [Grafite: agregação opcional e delegação](labs/grafite/README.md)
+- [ ] `@motouber        gain=1 hard=1 size=1 type=make eval=test` [MotoUber: colaboração entre objetos e transferência de recurso](labs/motouber/README.md)
 
 ## Aprofundamento <!-- @aprofundamento -->
 
-- [ ] `@notebook        gain=1 hard=1 size=1 type=make eval=self` [Notebook: múltiplos componentes agregados + coordenação](labs/notebook/README.md)
-- [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Charger: notebook com contrato testável](labs/charger/README.md)
-- [ ] `@tamagotchi      gain=1 hard=1 size=1 type=make eval=test` [Tamagotchi: coordenação sobre um objeto de domínio com invariantes fortes e estado terminal](labs/tamagotchi/README.md)
+- [ ] `@notebook        gain=1 hard=1 size=1 type=make eval=self` [Notebook: agregação de componentes e coordenação](labs/notebook/README.md)
+- [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Charger: agregação com contrato testável](labs/charger/README.md)
+- [ ] `@tamagotchi      gain=1 hard=1 size=1 type=make eval=test` [Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
 
-## Coleções de objetos <!-- @arrays deps=@agreg -->
+## Coleções lineares <!-- @arrays deps=@agreg -->
 
 - Conceitos abordados neste módulo:
   - Array<T> ou lista de objetos;
   - multiplicidade 0..*;
   - adicionar, remover, buscar e percorrer;
-  - ordem e posição;
+  - ordem de chegada e ordem de remoção;
+  - fila e pilha como usos simples de uma lista;
   - encapsular a coleção;
   - evitar devolver uma coleção interna mutável;
   - separar operações sobre um item de operações sobre o conjunto.
-- Conceitos principais: coleção, multiplicidade e coordenação.
+- Conceitos principais: coleção, multiplicidade, busca e coordenação.
 
-- [ ] `@array           gain=3 hard=1 size=1 type=make eval=self` [Manipulações em Arrays](labs/array/README.md)
-- [ ] `@budega          gain=2 hard=1 size=1 type=make eval=test` [Gerencie a fila de espera e atendimento](labs/budega/README.md)
-- [ ] `@lapiseira       gain=1 hard=1 size=1 type=make eval=test` [Lapiseira com múltiplos grafites](labs/lapiseira/README.md)
-- [ ] `@pula-pula       gain=1 hard=1 size=1 type=make eval=test` [Gerenciando entradas e saídas do pula pula](labs/pula-pula/README.md)
-- [ ] `@cinema          gain=1 hard=1 size=1 type=make eval=test` [Gerenciando reservas e cancelamentos de uma sala de cinema](labs/cinema/README.md)
-- [ ] `@tabuleiro       gain=1 hard=1 size=1 type=make eval=test` [Jogo de tabuleiro e armadilhas](labs/tabuleiro/README.md)
-- [ ] `@junkfood        gain=1 hard=1 size=1 type=make eval=test` [Comprando comida cara e duvidosa](labs/junkfood/README.md)
+- [ ] `@array           gain=3 hard=1 size=1 type=make eval=self` [Operações fundamentais com coleções lineares](labs/array/README.md)
+- [ ] `@contato         gain=1 hard=1 size=1 type=make eval=test` [Contato: coleção de telefones e validação](labs/contato/README.md)
+- [ ] `@pula-pula       gain=1 hard=1 size=1 type=make eval=test` [Pula-pula: filas e movimentação de crianças](labs/pula-pula/README.md)
+- [ ] `@lapiseira       gain=1 hard=1 size=1 type=make eval=test` [Lapiseira: extensão do grafite com tambor](labs/lapiseira/README.md)
+
+## Posições fixas e ausência <!-- @slots deps=@arrays -->
+
+- Conceitos abordados neste módulo:
+  - vetor de tamanho fixo;
+  - índice como informação do domínio;
+  - posição ocupada e posição vazia;
+  - uso de `T | null` para representar ausência;
+  - busca em vetor com posições vazias;
+  - comparação entre ausência por `null` e objeto vazio.
+- Conceitos principais: posição, ausência, nulidade e busca.
+
+- [ ] `@cinema          gain=1 hard=1 size=1 type=make eval=test` [Cinema: posições fixas e ausência](labs/cinema/README.md)
+- [ ] `@budega          gain=2 hard=1 size=1 type=make eval=test` [Budega: fila e posições fixas](labs/budega/README.md)
+- [ ] `@junkfood        gain=1 hard=1 size=1 type=make eval=test` [Junkfood: posições fixas e objeto vazio](labs/junkfood/README.md)
 
 
-## Mapas e Excessões <!-- @crud deps=@arrays -->
+## Desafio coleções <!-- @desafio-coleções -->
+
+- [ ] `@tabuleiro       gain=1 hard=1 size=1 type=make eval=test` [Tabuleiro: coleções na simulação de turnos](labs/tabuleiro/README.md)
+
+## Mapas e Exceções <!-- @crud deps=@slots -->
 
 - Conceitos abordados neste módulo:
   - Map<K, V>;
@@ -100,7 +117,6 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - O elemento é localizado por posição, por busca ou por identidade única?
 - Conceitos principais: identidade, chave e, quando houver duplicação real, DRY.
 
-- [ ] `@contato         gain=1 hard=1 size=1 type=make eval=test` [Gerenciando telefones de um único contato](labs/contato/README.md)
 - [ ] `@agenda          gain=1 hard=1 size=1 type=make eval=test` [Gerencie os vários contatos de uma agenda](labs/agenda/README.md)
 - [ ] `@agiota          gain=1 hard=1 size=1 type=make eval=test` [Gerencie os empréstimos do agiota](labs/agiota/README.md)
 - [ ] `@petshop         gain=1 hard=1 size=1 type=make eval=test` [Meu Petshop](labs/petshop/README.md)

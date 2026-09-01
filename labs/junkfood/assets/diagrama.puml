@@ -6,55 +6,55 @@ skinparam dpi 150
 
 
 class Slot {
-    - name : String
-    - price : float
-    - quantity : int
+    - name : string
+    - price : number
+    - quantity : number
     __
-    + Slot(name : String, price: float, quantity: int)
+    + Slot(name : string, price: number, quantity: number)
     __
-    + getName() : String
-    + getPrice() : float
-    + getQuantity() : int
-    + setName(name: String) : void
-    + setPrice(price: float) : void
-    + setQuantity(quantity: int) : void
+    + getName() : string
+    + getPrice() : number
+    + getQuantity() : number
+    + setName(name: string) : void
+    + setPrice(price: number) : void
+    + setQuantity(quantity: number) : void
     __
-    + toString() : String
+    + toString() : string
 }
 
 class VendingMachine {
     - slots : Array<Slot>
-    - profit : float
-    - cash   : float
-    - capacity : int
+    - profit : number
+    - cash   : number
+    - capacity : number
     __
 
     ' inicialize a máquina criando todos os slots
-    + VendingMachine(capacity: int)
+    + VendingMachine(capacity: number)
     __
 
     ' se houver slot nessa posição, retorne
-    ' se não, retorne null ou lançe uma excessão
-    + getSlot(index: int) : Slot
+    ' se não, retorne null ou lance uma exceção
+    + getSlot(index: number) : Slot
 
     ' altere o valor slot nessa posição
-    + setSlot(index: int, slot: Slot) : void
+    + setSlot(index: number, slot: Slot) : void
 
     ' limpe as informações do slot nessa posição
-    + clearSlot(index: int) : void
+    + clearSlot(index: number) : void
     __
 
     ' adicione dinheiro no cash da máquina
-    + insertCash(cash: float) : void
+    + insertCash(cash: number) : void
 
     ' retorne o valor do cash da máquina e zere o cash
-    + withdrawCash() : float
+    + withdrawCash() : number
 
     ' informe o valor do cash sem zerar o cash
-    + getCash() : float
+    + getCash() : number
 
     ' informe o valor apurado com todas as vendas
-    + getProfit() : float
+    + getProfit() : number
     __
 
     ' se existir produto nessa posição
@@ -62,9 +62,9 @@ class VendingMachine {
     ' se a quantidade do produto for maior que zero
     ' deduza da quantidade 1
     ' deduza do cash o valor do produto
-    + buyItem(index: int) : void
+    + buyItem(index: number) : void
     --
-    + toString() : String
+    + toString() : string
 }
 
 VendingMachine "1" o-- "1..*" Slot

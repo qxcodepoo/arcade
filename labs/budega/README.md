@@ -1,6 +1,8 @@
-# Gerencie a fila de espera e atendimento
+# Budega: fila e posições fixas
 
 <!-- toc-table -->
+[Intro](#intro) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -9,7 +11,9 @@
 
 Este é um projeto de modelagem e implementação de um mercantil, que simula o funcionamento de caixas de atendimento e uma fila de espera. Para isso, serão implementadas duas classes principais: Pessoa `Person` e Mercado `Market`.
 
-- A classe `Market` representa o estabelecimento, com atributos como caixas de atendimento `counters` e uma fila de espera de clientes `wainting`.
+Esta atividade serve como referência para comparar dois usos de coleções no mesmo domínio. A fila de espera cresce e diminui conforme clientes chegam ou são chamados. Os caixas, por outro lado, formam um vetor de tamanho fixo: cada posição representa um caixa específico e pode estar vazia ou ocupada.
+
+- A classe `Market` representa o estabelecimento, com atributos como caixas de atendimento `counters` e uma fila de espera de clientes `waiting`.
 - Os caixas `counters` são modelados como um vetor de clientes de tamanho fixo. Uma posição do caixa terá o valor `null` para indicar que o caixa está vazio ou terá um objeto cliente.
   - typescript: `counters: (Person | null)[]`
   - java: `ArrayList<Person> counters`
@@ -27,7 +31,7 @@ Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma
 
 - `$show` - Mostra o estado atual do mercantil, incluindo os clientes nos caixas e na fila de espera.
 - `$init` - Reinicia o estado do mercantil, definindo a quantidade de caixas e limpando a fila de espera.
-- `$enter` - Adiciona um cliente à fila de espera. Deve ser seguido pelo nome do cliente.
+- `$arrive` - Adiciona um cliente à fila de espera. Deve ser seguido pelo nome do cliente.
 - `$call` - Chama o próximo cliente na fila de espera para um caixa disponível. Deve ser seguido pelo número do caixa.
 - `$finish` - Finaliza o atendimento de um cliente em um caixa. Deve ser seguido pelo número do caixa.
 

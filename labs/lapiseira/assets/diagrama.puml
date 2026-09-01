@@ -4,6 +4,24 @@ skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 left to right direction
 
+enum InsertResult {
+    OK
+    WRONG_THICKNESS
+}
+
+enum PullResult {
+    OK
+    TIP_OCCUPIED
+    BARREL_EMPTY
+}
+
+enum WriteResult {
+    OK
+    NO_LEAD
+    INSUFFICIENT
+    INCOMPLETE
+}
+
 ' Grafite
 class Lead {
     - hardness  : string
@@ -12,13 +30,11 @@ class Lead {
     __
     + Lead(thickness: number, hardness: string, size: number)
     __
-    + usagePerSheet(): number
+    + getWearPerPage(): number
     + getSize()      : number
     + getThickness() : number
     + getHardness()  : string
-    __
-    + setSize(size : number)
-    __
+    + consume(amount: number): boolean
     + toString(): string
 }
 
@@ -29,10 +45,10 @@ class Pencil {
     __
     + Pencil(thickness : number)
     __
-    + insert(lead: Lead) : boolean
+    + insert(lead: Lead) : InsertResult
     + remove()   : Lead | null
-    + pull()     : boolean
-    + writePage(): void
+    + pull()     : PullResult
+    + writePage(): WriteResult
     __
     + toString() : string
 }

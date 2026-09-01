@@ -1,4 +1,4 @@
-# Tamagotchi: coordenação sobre um objeto de domínio com invariantes fortes e estado terminal
+# Tamagotchi: coordenação, invariantes e estado terminal
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

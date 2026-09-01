@@ -3,6 +3,24 @@ import java.util.Scanner;
 import java.util.ArrayList;
 // @DROP
 
+enum InsertResult {
+    OK,
+    WRONG_THICKNESS
+}
+
+enum PullResult {
+    OK,
+    TIP_OCCUPIED,
+    BARREL_EMPTY
+}
+
+enum WriteResult {
+    OK,
+    NO_LEAD,
+    INSUFFICIENT,
+    INCOMPLETE
+}
+
 class Lead {
     private double thickness;
     private String hardness;
@@ -19,7 +37,7 @@ class Lead {
         return form.format(thickness) + ":" + hardness + ":" + size;
     }
 
-    public int usagePerSheet() {
+    public int getWearPerPage() {
         if(hardness.equals("HB"))
             return 1;
         else if(hardness.equals("2B"))
@@ -38,8 +56,14 @@ class Lead {
     public int getSize() {
         return size;
     }
-    public void setSize(int size) {
-        this.size = size;
+    public boolean consume(int amount) {
+        int finalSize = this.size - amount;
+        if (finalSize < 10) {
+            this.size = 10;
+            return false;
+        }
+        this.size = finalSize;
+        return true;
     }
 }
 
@@ -54,19 +78,17 @@ class Pencil {
     }
 
     //insere um lead no barril
-    public boolean insert(Lead lead) {
+    public InsertResult insert(Lead lead) {
         if(this.thickness != lead.getThickness()) {
-            System.out.println("fail: calibre incompatível");
-            return false;
+            return InsertResult.WRONG_THICKNESS;
         }
         this.barrel.add(lead);
-        return true;
+        return InsertResult.OK;
     }
 
     //remove e retorna o lead da ponta
     public Lead remove() {
         if(this.tip == null) {
-            System.out.println("fail: nao existe grafite no bico");
             return null;
         }
         Lead backup = this.tip;
@@ -75,37 +97,30 @@ class Pencil {
     }
 
     // se a ponta estiver vazia, puxa o próximo lead do barril
-    public boolean pull() {
+    public PullResult pull() {
         if (this.tip != null) {
-            System.out.println("fail: ja existe grafite no bico");
-            return false;
+            return PullResult.TIP_OCCUPIED;
         }
         if (this.barrel.size() == 0) {
-            System.out.println("fail: nao existe grafite no barril");
-            return false;
+            return PullResult.BARREL_EMPTY;
         }
         this.tip = this.barrel.remove(0);
-        return true;
+        return PullResult.OK;
     }
 
     //se tiver grafite suficiente no bico, gaste e retorne true
     //lembre que os últimos 10mm não podem ser utilizados
-    public void writePage() {
+    public WriteResult writePage() {
         if(this.tip == null) {
-            System.out.println("fail: nao existe grafite no bico");
-            return;
+            return WriteResult.NO_LEAD;
         }
         if (this.tip.getSize() == 10) {
-            System.out.println("fail: tamanho insuficiente");
-            return;
+            return WriteResult.INSUFFICIENT;
         }
-        int finalSize = this.tip.getSize() - this.tip.usagePerSheet();
-        if(finalSize >= 10) {
-            this.tip.setSize(finalSize);
-        } else {
-            this.tip.setSize(10);
-            System.out.println("fail: folha incompleta");
+        if (!this.tip.consume(this.tip.getWearPerPage())) {
+            return WriteResult.INCOMPLETE;
         }
+        return WriteResult.OK;
     }
 
     public String toString() {
@@ -155,28 +170,46 @@ public class Shell {
                 var hardness = par[2];
                 var size = Integer.parseInt(par[3]);
                 // @DROP
-                adp.insert(new Lead(thickness, hardness, size));
+                printInsertResult(adp.insert(new Lead(thickness, hardness, size)));
             } 
             else if (cmd.equals("remove")) { 
                 // @DROP
-                adp.remove();
-            } 
-            else if (cmd.equals("show")) { 
-                // @DROP
-                System.out.println(adp);
+                if (adp.remove() == null)
+                    System.out.println("fail: nao existe grafite no bico");
             } 
             else if (cmd.equals("write")) { 
                 // @DROP
-                adp.writePage();
+                printWriteResult(adp.writePage());
             } 
             else if (cmd.equals("pull")) { 
                 // @DROP
-                adp.pull();
+                printPullResult(adp.pull());
             } 
             else {
                 System.out.println("fail: comando invalido");
             }
         }
+    }
+
+    private static void printInsertResult(InsertResult result) {
+        if (result == InsertResult.WRONG_THICKNESS)
+            System.out.println("fail: calibre incompatível");
+    }
+
+    private static void printPullResult(PullResult result) {
+        if (result == PullResult.TIP_OCCUPIED)
+            System.out.println("fail: ja existe grafite no bico");
+        else if (result == PullResult.BARREL_EMPTY)
+            System.out.println("fail: nao existe grafite no barril");
+    }
+
+    private static void printWriteResult(WriteResult result) {
+        if (result == WriteResult.NO_LEAD)
+            System.out.println("fail: nao existe grafite no bico");
+        else if (result == WriteResult.INSUFFICIENT)
+            System.out.println("fail: tamanho insuficiente");
+        else if (result == WriteResult.INCOMPLETE)
+            System.out.println("fail: folha incompleta");
     }
 
     static Scanner scanner = new Scanner(System.in);

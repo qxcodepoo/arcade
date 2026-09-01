@@ -18,10 +18,10 @@ class Kid {
 }
 
 class Trampoline {
-  - playing: List<Kid>
-  - waiting: List<Kid>
+  - playing: Array<Kid>
+  - waiting: Array<Kid>
   __
-  - {static} removeFromList(name: string, list: List<Kid>): Kid | null
+  - {static} removeFromList(name: string, list: Array<Kid>): Kid | null
   __
   + Trampoline()
   + toString(): string

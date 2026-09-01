@@ -7,11 +7,11 @@ skinparam dpi 150
 
 
 class Fone {
-  - id : str
-  - number : str
+  - id : string
+  - number : string
   __
   ' inicializa as variaveis
-  + Fone(id : str, number : str)
+  + Fone(id : string, number : string)
   
   ' verifica se o número é um número de telefone válido
   ' crie uma str "validos" com todos os caracteres válidos
@@ -19,45 +19,45 @@ class Fone {
   '   se c não estiver em validos:
   '     retorne false
   ' retorne true
-  + isValid() : bool
+  + isValid() : boolean
   __
-  + getId() : str
-  + getNumber() : str
+  + getId() : string
+  + getNumber() : string
   __
   ' Gera uma string para impressão
   ' ex: oi:1234
-  + toString() : str
+  + toString() : string
 }
 
 class Contact {
-  - favorited : bool
-  - fones : List<Fone>
-  - name : str
+  - favorited : boolean
+  - fones : Array<Fone>
+  - name : string
   __
   
   ' inicialize o fone com o nome, favorited como false e a lista de fones vazia
-  + Contact(name : str)
+  + Contact(name : string)
   __
   ' se fone for válido:
   '   insira no fim da lista de fones
   ' se não:
   '   informe o erro
-  + addFone(id: str, number : str): void
+  + addFone(id: string, number : string): void
   
   ' se o índice existir:
   '   remove o fone pelo indice
-  + rmFone(index : int): void
+  + rmFone(index : number): void
   
   __
   ' favorita ou desfavorita o contato
   + toogleFavorited(): void
 
   ' retorna se o contato está favoritado
-  + isFavorited() : bool
+  + isFavorited() : boolean
   __
-  + getFones() : List<Fone>
-  + getName() : str
-  + setName(name : str): void
+  + getFones() : Array<Fone>
+  + getName() : string
+  + setName(name : string): void
 
   __
   ' use um contador para mostrar o índice do telefone
@@ -65,7 +65,7 @@ class Contact {
   ' se o contato estiver favoritado, adicione um @ antes do nome
   ' o resultado dever ficar assim:
   ' ex: - david [oi:123, tim:9081, claro:5431]
-  + toString() : str
+  + toString() : string
 }
 
 

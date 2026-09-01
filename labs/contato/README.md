@@ -1,6 +1,5 @@
-# Gerenciando telefones de um único contato
+# Contato: coleção de telefones e validação
 
-<!-- toc-table -->
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)

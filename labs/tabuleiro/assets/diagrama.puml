@@ -15,7 +15,7 @@ class Player {
   __
   + getLabel(): number
   + getPos()  : number
-  + setPos(pos: number)
+  + setPos(pos: number): void
   + setFree(free : boolean): void
 }
 

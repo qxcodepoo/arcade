@@ -1,4 +1,4 @@
-# Manipulações em Arrays
+# Operações fundamentais com coleções lineares
 
 ## Estruturas lineares em cada linguagem
 

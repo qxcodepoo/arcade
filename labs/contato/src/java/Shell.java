@@ -24,7 +24,7 @@ class Fone {
 
     public boolean isValid() {
         String valid = "0123456789()-.";
-        for (char c : number.toc-tablearArray()) {
+        for (char c : number.toCharArray()) {
             if (valid.indexOf(c) == -1) {
                 return false;
             }

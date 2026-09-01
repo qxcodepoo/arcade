@@ -1,6 +1,8 @@
 # Uma calculadora com bateria
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
+-- | -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -9,7 +11,7 @@
 
 O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
-O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora altera `display` e `battery`, enquanto o `Shell` mostra as falhas.
+O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora altera `display` e `battery`, enquanto o `Shell` mostra as falhas. Cada operação usa o retorno que melhor descreve suas possibilidades: `sum` retorna `boolean`, pois só pode falhar por falta de bateria, e `division` retorna `DivisionResult`, pois possui dois tipos de falha.
 
 ## Regras
 
@@ -35,11 +37,13 @@ O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora
   - Requisição: `$sum a b`
   - Soma dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
+  - O método `sum(a: number, b: number): boolean` retorna `true` quando realiza a soma e `false` quando não há bateria. Em caso de falha, mantém o display.
 - Divisão
   - Requisição: `$div num den`
   - Divide dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: bateria insuficiente`.
   - Se houver divisão por zero, consome um ponto de bateria, mantém o display anterior e emite a mensagem `fail: divisao por zero`.
+  - O método `division(num: number, den: number): DivisionResult` retorna `OK`, `NO_BATTERY` ou `DIVISION_BY_ZERO`.
 - Separe as responsabilidades:
   - A classe Calculadora não deve conter nenhuma operação de impressão.
   - A classe Shell não deve ter lógica de negócios.
@@ -56,8 +60,8 @@ O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora
 
 - Comece pelo construtor, garantindo que `display` e `battery` iniciem em `0`.
 - Implemente `chargeBattery` limitando a bateria a `batteryMax`.
-- Implemente `sum` e `division` retornando um resultado de sucesso ou falha.
-- No `Shell`, traduza cada falha para a mensagem literal definida nas regras.
+- Implemente `sum` retornando `boolean` e `division` retornando `DivisionResult`.
+- No `Shell`, traduza o `false` de `sum` e cada valor de `DivisionResult` para a mensagem literal definida nas regras.
 
 Pergunta de reflexão: por que a divisão por zero mantém o `display`, mas ainda consome bateria?
 

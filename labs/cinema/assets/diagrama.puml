@@ -7,14 +7,14 @@ skinparam dpi 150
 
 class Client {
   - id   : string
-  - phone: number
+  - phone: string
   __
-  + constructor(id : string, phone : number)
+  + constructor(id : string, phone : string)
   __
-  + getPhone(): number
-  + setPhone(fone : number)
+  + getPhone(): string
+  + setPhone(fone : string): void
   + getId(): string
-  + setId(id : string)
+  + setId(id : string): void
   __
   + toString(): string
 }
@@ -27,8 +27,8 @@ class Theater {
   __
   + constructor(capacity : number)  
   __
-  + reserve(id : string, phone : number, index : number) : boolean
-  + cancel(id : string)
+  + reserve(id : string, phone : string, index : number) : boolean
+  + cancel(id : string): void
   + getSeats() : Array<Client | null>
   __
   + toString() : string

@@ -1,6 +1,8 @@
-# Gerenciando entradas e saídas do pula pula
+# Pula-pula: filas e movimentação de crianças
 
 <!-- toc-table -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -9,9 +11,14 @@ Nosso objetivo no trabalho é modelar um gestor de pula pulas em um parquinho, c
 
 ## Intro
 
-- Inserir crianças na fila de espera do pula pula
-- Mover a primeira criança da fila de espera do pula pula para dentro do pula pula.
+Esta atividade trabalha coleções lineares de objetos. O pula pula possui duas listas: uma fila de espera e uma lista de crianças brincando. As operações movem crianças entre essas listas sem criar uma posição fixa para cada criança.
+
+- Inserir crianças na fila de espera do pula pula.
+- Mover a primeira criança da fila de espera para dentro do pula pula.
 - Mover a primeira criança que entrou no pula pula para o final da fila de espera.
+- Buscar uma criança pelo nome para removê-la, esteja ela esperando ou brincando.
+
+O foco é perceber que a posição na lista muda conforme as operações acontecem. Aqui a posição indica ordem de chegada ou de saída, não uma cadeira, caixa ou slot permanente.
 
 ***
 

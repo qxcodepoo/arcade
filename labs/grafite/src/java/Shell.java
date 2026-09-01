@@ -3,6 +3,19 @@ import java.text.DecimalFormat;
 
 // @DROP
 
+enum InsertResult {
+    OK,
+    ALREADY_HAS_LEAD,
+    WRONG_THICKNESS
+}
+
+enum WriteResult {
+    OK,
+    NO_LEAD,
+    INSUFFICIENT,
+    INCOMPLETE
+}
+
 class Lead {
     private double thickness; //calibre
     private String hardness; //dureza
@@ -26,11 +39,7 @@ class Lead {
         return size;
     }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public int usagePerSheet() {
+    public int getWearPerPage() {
         if(hardness.equals("HB")) {
             return 1;
         } else if(hardness.equals("2B")) {
@@ -40,6 +49,16 @@ class Lead {
         } else {
             return 6;
         }
+    }
+
+    public boolean consume(int amount) {
+        int finalSize = this.size - amount;
+        if (finalSize < 10) {
+            this.size = 10;
+            return false;
+        }
+        this.size = finalSize;
+        return true;
     }
 
     public String toString() {
@@ -61,24 +80,20 @@ class Pencil {
         return thickness;
     }
 
-    public void setThickness(double value) {
-        this.thickness = value;
-    }
-
     public boolean hasLead() {
         return tip != null;
     }
 
-    public String insert(Lead grafite) {
+    public InsertResult insert(Lead grafite) {
         if(this.hasLead()) {
-            return "fail: ja existe grafite";
+            return InsertResult.ALREADY_HAS_LEAD;
         }
         if(this.thickness != grafite.getThickness()) {
-            return "fail: calibre incompativel";
+            return InsertResult.WRONG_THICKNESS;
         }
         
         this.tip = grafite;
-        return null;
+        return InsertResult.OK;
     }
 
     public Lead remove() {
@@ -90,20 +105,17 @@ class Pencil {
         return backup;
     }
 
-    public String writePage() {
+    public WriteResult writePage() {
         if(this.tip == null) {
-            return "fail: nao existe grafite";
+            return WriteResult.NO_LEAD;
         }
         if (this.tip.getSize() == 10) {
-            return "fail: tamanho insuficiente";
+            return WriteResult.INSUFFICIENT;
         }
-        int finalSize = this.tip.getSize() - this.tip.usagePerSheet();
-        if(finalSize < 10) {
-            this.tip.setSize(10);
-            return "fail: folha incompleta";
+        if (!this.tip.consume(this.tip.getWearPerPage())) {
+            return WriteResult.INCOMPLETE;
         }
-        this.tip.setSize(finalSize);
-        return null;
+        return WriteResult.OK;
     }
     
     public String toString() {
@@ -150,8 +162,7 @@ public class Shell {
                 var size = Integer.parseInt(par[3]);
                 // @DROP
                 var lead = new Lead(thickness, hardness, size);
-                var error = pencil.insert(lead);
-                if (error != null) System.out.println(error);
+                printInsertResult(pencil.insert(lead));
             }
             else if (cmd.equals("remove")) { 
                 // @DROP
@@ -161,14 +172,29 @@ public class Shell {
             }
             else if (cmd.equals("write")) { 
                 // @DROP
-                var error = pencil.writePage();
-                if (error != null) System.out.println(error);
+                printWriteResult(pencil.writePage());
             }
             // @KEEP
             else {
                 System.out.println("fail: comando invalido");
             }
         }
+    }
+
+    private static void printInsertResult(InsertResult result) {
+        if (result == InsertResult.ALREADY_HAS_LEAD)
+            System.out.println("fail: ja existe grafite");
+        else if (result == InsertResult.WRONG_THICKNESS)
+            System.out.println("fail: calibre incompativel");
+    }
+
+    private static void printWriteResult(WriteResult result) {
+        if (result == WriteResult.NO_LEAD)
+            System.out.println("fail: nao existe grafite");
+        else if (result == WriteResult.INSUFFICIENT)
+            System.out.println("fail: tamanho insuficiente");
+        else if (result == WriteResult.INCOMPLETE)
+            System.out.println("fail: folha incompleta");
     }
 
     static Scanner scanner = new Scanner(System.in);

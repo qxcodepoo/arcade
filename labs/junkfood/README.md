@@ -1,6 +1,8 @@
-# Comprando comida cara e duvidosa
+# Junkfood: posições fixas e objeto vazio
 
 <!-- toc-table -->
+[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -10,6 +12,8 @@
 Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
 
 O objetivo dessa atividade é implementar uma classe responsável por uma máquina de vender JunkFood. Na máquina existem várias espirais (slots). Uma espiral contém uma certa quantidade de produtos do mesmo tipo e mesmo preço. O usuário coloca o dinheiro, compra o produto e recebe o troco.
+
+Esta atividade também usa posições fixas, mas com uma decisão diferente de `cinema` e `budega`: cada posição sempre contém um objeto `Slot`. Quando a espiral está vazia, o próprio `Slot` guarda `empty`, quantidade `0` e preço `0.00`. Assim, o aluno pode comparar duas formas de representar ausência: uma posição com `null` ou um objeto que representa o estado vazio.
 
 - **Descrição**
   - A máquina de vendas é representada pela classe `Machine`, que contém um conjunto de "espirais", cada uma associada a um produto.
@@ -27,7 +31,7 @@ O objetivo dessa atividade é implementar uma classe responsável por uma máqui
     - Crie o retorno do toString como no modelo: `[   empty : 0 U : 0.00 RS]`
   - A classe `Machine` é responsável por gerenciar as operações da máquina de vendas.
     - Métodos a serem implementados:
-      - `getSlot(index: int) : Slot`:  Se houver slot nessa posição, retorna.
+      - `getSlot(index: number) : Slot`:  Se houver slot nessa posição, retorna.
       - `setSlot(indice: number, name: string, qtd: number, price: number)`: Altera o valor slot na posição indice.
         - erro: `fail: indice nao existe`.
       - `limpar(indice: number)`: Limpa as informações do slot nessa posição.

@@ -1,4 +1,4 @@
-# Charger: notebook com contrato testável
+# Charger: agregação com contrato testável
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

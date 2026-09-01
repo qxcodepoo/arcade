@@ -3,7 +3,7 @@
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-enum Result {
+enum DivisionResult {
   OK
   NO_BATTERY
   DIVISION_BY_ZERO
@@ -16,17 +16,18 @@ class Calculator {
   __
   + constructor(batteryMax : number)
   + chargeBattery(increment : number) : void
-  + sum(a : number, b : number) : Result
-  + division(num : number, den : number) : Result
+  + sum(a : number, b : number) : boolean
+  + division(num : number, den : number) : DivisionResult
   + toString() : string
 }
 
 class Shell {
   __
-  + printResult(result : Result) : void
+  + printSumResult(success : boolean) : void
+  + printDivisionResult(result : DivisionResult) : void
 }
 
 Shell ..> Calculator : usa
-Shell ..> Result : interpreta
+Shell ..> DivisionResult : interpreta
 
 @enduml

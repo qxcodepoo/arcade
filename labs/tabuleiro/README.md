@@ -1,6 +1,5 @@
-# Jogo de tabuleiro e armadilhas
+# Tabuleiro: coleções na simulação de turnos
 
-<!-- toc-table -->
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -39,6 +38,7 @@ ___
 
 
 <!-- load diagrama.puml fenced=ts:filter -->
+
 <!-- load -->
 
 ___

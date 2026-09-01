@@ -3,7 +3,7 @@ import java.text.DecimalFormat;
 
 // @DROP
 
-enum Result {
+enum DivisionResult {
     OK, NO_BATTERY, DIVISION_BY_ZERO
 }
 
@@ -28,26 +28,27 @@ class Calculator {
         }
     }
 
-    public Result sum(int a, int b) {
+    public boolean sum(int a, int b) {
         if (this.battery == 0) {
-            return Result.NO_BATTERY;
+            return false;
         }
         this.battery -= 1;
         this.display = (a + b);
-        return Result.OK;
+        return true;
     }
 
-    public Result division(int num, int den) {
+    public DivisionResult division(int num, int den) {
         if (this.battery == 0) {
-            return Result.NO_BATTERY;
+            return DivisionResult.NO_BATTERY;
         }
         this.battery -= 1;
         if (den == 0) {
-            return Result.DIVISION_BY_ZERO;
+            return DivisionResult.DIVISION_BY_ZERO;
         }
         this.display = (float) num / den;
-        return Result.OK;
+        return DivisionResult.OK;
     }
+
     public String toString() {
         DecimalFormat df = new DecimalFormat("0.00");
         return String.format("display = %s, battery = %d", df.format(this.display).replace(',', '.'), this.battery);
@@ -57,19 +58,9 @@ class Calculator {
 // @KEEP
 
 public class Shell {
-
-    public static void printResult(Result result) {
-        switch (result) {
-            case NO_BATTERY:
-                System.out.println("fail: bateria insuficiente");
-                break;
-            case DIVISION_BY_ZERO:
-                System.out.println("fail: divisao por zero");
-                break;
-            case OK:
-                break;  
-            }
-    }
+    static String NoBatteryMsg = "fail: bateria insuficiente";
+    static String DivisionByZeroMsg = "fail: divisao por zero";
+    static String InvalidCommandMsg = "fail: comando invalido";
 
     public static void main(String[] args) {
         // @COM
@@ -111,7 +102,9 @@ public class Shell {
                 int a = Integer.parseInt(par[1]);
                 int b = Integer.parseInt(par[2]);
                 // @DROP
-                printResult(calculator.sum(a, b));
+                if (!calculator.sum(a, b)) {
+                    System.out.println(NoBatteryMsg);
+                }
             } 
             else if (cmd.equals("div")) {
                 // DIVIDIR
@@ -119,10 +112,19 @@ public class Shell {
                 int num = Integer.parseInt(par[1]);
                 int den = Integer.parseInt(par[2]);
                 // @DROP
-                printResult(calculator.division(num, den));
+                switch (calculator.division(num, den)) {
+                    case NO_BATTERY:
+                        System.out.println(NoBatteryMsg);
+                        break;
+                    case DIVISION_BY_ZERO:
+                        System.out.println(DivisionByZeroMsg);
+                        break;
+                    case OK:
+                        break;
+                }
             } 
             else {
-                System.out.println("fail: comando invalido");
+                System.out.println(InvalidCommandMsg);
             }
         }
     }

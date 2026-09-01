@@ -1,4 +1,4 @@
-# Notebook: múltiplos componentes agregados + coordenação
+# Notebook: agregação de componentes e coordenação
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide)

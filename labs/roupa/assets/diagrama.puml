@@ -3,7 +3,7 @@
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-class Roupa {
+class Garment {
   - size: string
   __
   + constructor()
@@ -14,9 +14,9 @@ class Roupa {
 
 class Shell {
   __
-  + main(args: Array<string>): void
+  + main(): void
 }
 
-Shell ..> Roupa : usa
+Shell ..> Garment : usa
 
 @enduml

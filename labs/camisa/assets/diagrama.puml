@@ -3,12 +3,12 @@
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-class Camisa {
-    - tamanho: string
+class Shirt {
+    - size: string
     __
     + constructor()
-    + getTamanho(): string
-    + setTamanho(valor: string): boolean
+    + getSize(): string
+    + setSize(size: string): boolean
 }
 
 @enduml

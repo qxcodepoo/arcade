@@ -1,4 +1,4 @@
-# Grafite: agregação opcional + delegação
+# Grafite: agregação opcional e delegação
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
@@ -11,7 +11,7 @@
 
 O objetivo dessa atividade é implementar uma lapiseira que permite inserir, remover grafite e escrever em uma folha, considerando a dureza e tamanho do grafite.
 
-O foco é praticar agregação e delegação: o grafite conhece seu próprio desgaste, e a lapiseira coordena inserção, remoção e escrita.
+O foco é praticar agregação e delegação: o grafite conhece seu próprio desgaste, e a lapiseira coordena inserção, remoção e escrita. Os resultados das operações são valores do domínio; o `Shell` é responsável por convertê-los em mensagens.
 
 ## Regras
 
@@ -28,12 +28,13 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
   - A classe Grafite `Lead` é responsável por armazenar as informações do grafite.
     - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
     - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
-    - O método `usagePerSheet` retorna a quantidade de grafite gasta por folha.
+    - O método `getWearPerPage` retorna a quantidade de grafite gasta por folha.
       - Um grafite `HB` gasta `1mm` por folha.
       - Um grafite `2B` gasta `2mm` por folha.
       - Um grafite `4B` gasta `4mm` por folha.
       - Um grafite `6B` gasta `6mm` por folha.
     - `size` representa o tamanho do grafite em `milímetros`.
+    - O método `consume(amount)` reduz o tamanho sem permitir que ele fique abaixo de `10mm` e informa se o consumo completo foi possível.
   - A classe `Pencil` é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.
     - Ela agrega no máximo um objeto `Lead`, criado fora da lapiseira.
     - E também possui um indicador de espessura `thickness`.
@@ -58,7 +59,7 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
 
 ## Diagrama
 
-![diagrama](assets/diagrama.png)
+![diagrama](assets/diagrama.webp)
 
 ## Guide
 
@@ -66,7 +67,7 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
   - Crie a classe Grafite `Lead` com espessura, dureza e tamanho.
   - Crie a classe Lapiseira `Pencil` com o atributo ponta `tip` inicializado como `null`.
   - Implemente o método `hasLead` que retorna `true` se houver grafite na lapiseira.
-  - Implemente o método inserir `insert` que insere um grafite na lapiseira, se não houver grafite.
+  - Crie o `InsertResult` e faça `insert` retornar o resultado específico da inserção, sem imprimir mensagens.
   - Implemente o método `toString` que mostra a lapiseira e o grafite presente.
 
 - Parte 2: Remover Grafite
@@ -74,14 +75,15 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
   - Verifique se o método `remove` retorna o grafite removido ou `null` se não havia grafite.
 
 - Parte 3: Escrever na Folha
-  - Implemente o método `writePage` que escreve na folha.
-  - Implemente o método `usagePerSheet` que retorna a quantidade de grafite gasto por folha.
+  - Crie o `WriteResult` e implemente `writePage`, retornando o resultado específico sem imprimir mensagens.
+  - Implemente o método `getWearPerPage` que retorna a quantidade de grafite gasto por folha.
+  - Implemente `consume(amount)` em `Lead`, mantendo o tamanho mínimo de `10mm`.
   - Verifique se a lapiseira consegue escrever na folha.
   - Faça as verificações antes de escrever na folha.
   - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa.
     - Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.
 
-Pergunta de reflexão: por que o cálculo de desgaste pertence a `Lead`, mas a decisão de escrever ou não pertence a `Pencil`?
+Perguntas de reflexão: por que o cálculo e o consumo do desgaste pertencem a `Lead`, mas a decisão de escrever ou não pertence a `Pencil`? Por que cada operação possui seu próprio tipo de resultado?
 
 ## Shell
 

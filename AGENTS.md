@@ -113,6 +113,8 @@ Cada atividade deve deixar explícitos:
 - os critérios de conclusão e verificação;
 - uma mudança futura plausível que permita discutir a qualidade da modelagem.
 
+O título e o nome usado no índice devem comunicar o objetivo pedagógico principal da atividade. Podem mencionar no máximo um objetivo secundário quando ele estiver diretamente relacionado ao principal. Evite listar detalhes de implementação, quantidade de classes, formatos de retorno ou consequências da atividade como se fossem objetivos independentes. Em atividades complementares, use a nomeação para deixar clara a diferença de papel entre descoberta, aprofundamento e consolidação testável.
+
 Não inclua seções enumerando princípios, práticas ou conteúdos fora do escopo por padrão. Cite uma nomenclatura técnica somente quando ela for necessária para compreender, executar ou discutir a atividade.
 
 Prefira problemas pequenos com regras suficientemente ricas para exigir decisões. Não aumente a dificuldade com entrada excessiva, cálculos periféricos ou texto ambíguo.
@@ -283,6 +285,10 @@ Os diagramas usam tipos baseados em TypeScript como notação comum entre Python
 
 O diagrama deve comunicar responsabilidades e relações relevantes; não precisa expor detalhes internos sem valor didático.
 
+Quando o ponto de entrada precisar aparecer no diagrama, represente-o como `main(): void`. Não inclua argumentos externos incidentais da linguagem, como `String[] args`, pois as atividades recebem comandos pelo fluxo de entrada e podem ser executadas tanto por interação manual quanto por testes em lote.
+
+A `main` representada no diagrama deve permanecer limpa: mostre apenas o ponto de entrada necessário para explicar a execução, sem parâmetros, detalhes de parsing ou métodos auxiliares de apresentação que não sejam parte do modelo ensinado.
+
 Cada atividade com diagrama deve manter:
 
 - `assets/diagrama.puml` como fonte;
@@ -299,12 +305,16 @@ Se necessário, execute o PlantUML em modo headless sem alterar a fonte.
 
 ## Implementações de referência
 
-- As soluções padrão são Java e Python; não reintroduza `src/cpp` ou `src/ts` sem solicitação explícita.
+- Cada problema deve possuir uma implementação de resposta canônica em Python.
+- A implementação Python canônica deve ser compatível com verificação de tipos em modo strict.
+- Em Python, todas as variáveis, atributos, parâmetros e retornos criados na solução devem possuir anotação de tipo explícita.
+- Java, Kotlin e outras linguagens devem ser tratadas como transposições da implementação canônica quando forem necessárias; não reintroduza `src/cpp` ou `src/ts` sem solicitação explícita.
 - Preserve o mesmo modelo conceitual entre as linguagens, mas use construções idiomáticas de cada uma.
 - Não force uma tradução linha a linha.
 - Não use recursos avançados da linguagem que ocultem o conceito sendo ensinado.
 - Diferencie exigências do domínio de escolhas específicas da linguagem.
 - Respeite os padrões existentes e evite refatorações não relacionadas.
+- Em código Python com comandos textuais, a `main` deve usar `match/case` diretamente sobre `line.split()`, desestruturando os argumentos nos padrões, como em `case ["drive", distance]`.
 - Ao alterar uma atividade `eval=test`, preserve o contrato do `Shell`; altere os testes somente quando a regra do problema mudar.
 - Ao alterar uma atividade `eval=self`, mantenha exemplos e roteiro alinhados ao modelo conceitual sem transformar o tutorial em contrato rígido de saída.
 - Preserve alterações preexistentes no worktree e revise arquivos gerados pelo `tko` antes de incluí-los.

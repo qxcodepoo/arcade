@@ -25,7 +25,7 @@ class Time {
 }
 
 class Shell {
-  + main(args: Array<string>): void
+  + main(): void
 }
 
 Shell ..> Time : usa

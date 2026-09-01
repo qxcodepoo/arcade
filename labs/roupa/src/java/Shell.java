@@ -1,7 +1,7 @@
 import java.util.*;
 
 // @DROP
-class Roupa {
+class Garment {
     private String size = "";
 
     public boolean setSize(String size) {
@@ -28,7 +28,7 @@ public class Shell {
     public static void main(String[] args) {
         // CRIE SEU OBJETO AQUI
         // @DROP
-        Roupa roupa = new Roupa();
+        Garment garment = new Garment();
         // @KEEP
         
         while (true) {
@@ -45,13 +45,13 @@ public class Shell {
                 // @COM
                 String size = par[1];
                 // @DROP
-                if (!roupa.setSize(size)) {
+                if (!garment.setSize(size)) {
                     System.out.println("fail: Valor inválido, tente PP, P, M, G, GG ou XG");
                 }
             }
             else if (cmd.equals("show")) { // MOSTRE A ROUPA
                 // @DROP
-                System.out.println(roupa.toString());
+                System.out.println(garment.toString());
             }
             else {
                 System.out.println("fail: Comando inválido");

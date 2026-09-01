@@ -1,9 +1,8 @@
 import java.util.*;
 
-enum Result {
+enum DriveResult {
     OK,
-    CAR_FULL,
-    CAR_EMPTY,
+    NO_PASSENGERS,
     INCOMPLETE,
     NO_GAS,
 }
@@ -23,20 +22,20 @@ class Car{
         this.km = 0; // quantidade de quilometragem
     }
 
-    public Result enter() {
+    public boolean enter() {
         if (pass < passMax) {
             pass += 1;
-            return Result.OK;
+            return true;
         }
-        return Result.CAR_FULL;
+        return false;
     }
 
-    public Result leave() {
+    public boolean leave() {
         if (pass > 0) {
             pass-=1;
-            return Result.OK;
+            return true;
         }
-        return Result.CAR_EMPTY;
+        return false;
     }
 
     public void fuel(int gas) {
@@ -45,21 +44,21 @@ class Car{
         this.gas = gasMax;
     }
     
-    public Result drive (int km) {
+    public DriveResult drive (int km) {
         if(this.pass == 0) {
-            return Result.CAR_EMPTY;
+            return DriveResult.NO_PASSENGERS;
         } 
         if(this.gas == 0) {
-            return Result.NO_GAS;
+            return DriveResult.NO_GAS;
         }
         if(this.gas < km) {
             this.km += this.gas;
             this.gas = 0;
-            return Result.INCOMPLETE;
+            return DriveResult.INCOMPLETE;
         } 
         this.gas -= km;
         this.km += km;
-        return Result.OK;
+        return DriveResult.OK;
     }
 
     public String toString() {
@@ -69,27 +68,11 @@ class Car{
 // @KEEP
 
 public class Shell {
-
-    public static void printResult(Result result) {
-        switch (result) {
-            case CAR_FULL:
-                System.out.println("fail: limite de pessoas atingido");
-                break;
-            case CAR_EMPTY:
-                System.out.println("fail: nao ha ninguem no carro");
-                break;
-            case NO_GAS:
-                System.out.println("fail: tanque vazio");
-                break;
-            case INCOMPLETE:
-                System.out.println("fail: viagem incompleta");
-                break;
-            case OK:
-                break;
-            default:
-                break;  
-        }
-    }
+    private static final String CAR_FULL_MSG = "fail: limite de pessoas atingido";
+    private static final String CAR_EMPTY_MSG = "fail: nao ha ninguem no carro";
+    private static final String NO_GAS_MSG = "fail: tanque vazio";
+    private static final String INCOMPLETE_TRIP_MSG = "fail: viagem incompleta";
+    private static final String INVALID_COMMAND_MSG = "fail: comando invalido";
     
     public static void main(String[] a) {
         Car car = new Car();
@@ -104,16 +87,15 @@ public class Shell {
                 break;
             }
             else if (cmd.equals("show")) {
-                // MOSTRE OS ATRIBUTOS DO CARRO
-                // @DROP
                 System.out.println(car);
             } 
             else if (cmd.equals("enter")) {
-                printResult(car.enter());
-
+                if (!car.enter())
+                    System.out.println(CAR_FULL_MSG);
             } 
             else if (cmd.equals("leave")) {
-                printResult(car.leave());
+                if (!car.leave())
+                    System.out.println(CAR_EMPTY_MSG);
             } 
             else if (cmd.equals("fuel")) {
                 int increment = Integer.parseInt(par[1]);
@@ -121,10 +103,22 @@ public class Shell {
             } 
             else if (cmd.equals("drive")) {
                 int distance = Integer.parseInt(par[1]);
-                printResult(car.drive(distance));
+                switch (car.drive(distance)) {
+                    case NO_PASSENGERS:
+                        System.out.println(CAR_EMPTY_MSG);
+                        break;
+                    case NO_GAS:
+                        System.out.println(NO_GAS_MSG);
+                        break;
+                    case INCOMPLETE:
+                        System.out.println(INCOMPLETE_TRIP_MSG);
+                        break;
+                    case OK:
+                        break;
+                }
             }  
             else {
-                System.out.println("fail: comando invalido");
+                System.out.println(INVALID_COMMAND_MSG);
             }
         }   
     }

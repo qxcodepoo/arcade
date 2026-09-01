@@ -15,8 +15,8 @@ class Person {
 }
 
 class Market {
-  - counters : Array <Person | null>
-  - waiting  : Array <Person>
+  - counters : Array<Person | null>
+  - waiting  : Array<Person>
   __
   - validateIndex(index: number): boolean
   __
@@ -30,5 +30,5 @@ class Market {
   + giveUp (quitter: string): Person | null
 }
 
-Person "0..*" --o "1" Market
+Market "1" o-- "0..*" Person
 @enduml

@@ -1,6 +1,8 @@
-# Lapiseira com múltiplos grafites
+# Lapiseira: extensão do grafite com tambor
 
 <!-- toc-table -->
+[Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)
+-- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -9,6 +11,10 @@ Faça o modelo de uma lapiseira que pode conter vários.
 
 ## Intro
 
+Esta atividade parte do modelo de `Grafite`. A lapiseira continua tendo um grafite em uso no bico, mas ganha um tambor com grafites reservas: novos grafites entram no fim e o próximo grafite é puxado do começo.
+
+O foco é acrescentar uma coleção linear ao modelo anterior, distinguindo uma lista de muitos elementos de uma referência que pode não apontar para nenhum objeto. As regras de desgaste continuam pertencendo a `Lead`; `Pencil` apenas coordena o tambor e o bico.
+
 - Iniciar lapiseira
   - Inicia uma lapiseira de determinado calibre sem grafite.
   - Lapiseiras possuem um bico e um tambor.
@@ -16,9 +22,9 @@ Faça o modelo de uma lapiseira que pode conter vários.
   - O tambor guarda os grafites reservas.
 - Inserir grafite
   - Insere um grafite passando
-    - o calibre: float.
+    - o calibre: number.
     - a dureza: string.
-    - o tamanho em mm: int.
+    - o tamanho em mm: number.
   - Não deve aceitar um grafite de calibre não compatível.
   - O grafite é colocado como o ÚLTIMO grafite do tambor.
 - Puxar grafite
@@ -36,11 +42,21 @@ Faça o modelo de uma lapiseira que pode conter vários.
   - O último centímetro de um grafite não pode ser aproveitado, quando o grafite estiver com 10mm, não é mais possível escrever e o grafite deve ser retirado.
   - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
 
+As classes de domínio devem retornar resultados das operações e não imprimir mensagens. O `Shell` traduz `InsertResult`, `PullResult` e `WriteResult` para a interface.
+
 ## Guide
 
 ![diagrama](assets/diagrama.webp)
 
 [![youtube icon](../yousolver.webp)](https://youtu.be/82aFfjuITm8?si=dbFx8fWPH4CBL15d)
+
+- Comece reutilizando `Lead` e as regras de desgaste de `Grafite`.
+- Adicione `barrel: Array<Lead>` a `Pencil`. `insert` deve colocar o grafite compatível no final do tambor.
+- Implemente `pull` para mover o primeiro grafite do tambor para `tip`. A operação deve falhar se o bico estiver ocupado ou se o tambor estiver vazio.
+- Mantenha `remove` para retirar o grafite do bico e `writePage` para delegar o consumo a `Lead`.
+- Use resultados específicos por operação e deixe o `Shell` imprimir as mensagens.
+
+Pergunta de reflexão: o que foi acrescentado à `Pencil` para representar o tambor, e quais regras continuaram pertencendo a `Lead`?
 
 
 ## Shell
