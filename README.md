@@ -22,11 +22,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - separação inicial entre domínio e Shell.
 - Princípio citado somente quando útil: responsabilidade.
 
-- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
-- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
-- [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Carro: separação inicial entre domínio e Shell](labs/carro/README.md)
-- [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Enxugar: comportamento observável e Shell](labs/enxugar/README.md)
-- [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Calculadora: resultados de operação e mensagens no Shell](labs/calculadora/README.md)
+- [ ] `@toalha          gain=2 hard=1 size=1 type=make eval=self` [Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
+- [ ] `@animal          gain=2 hard=1 size=1 type=make eval=test` [Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
+- [ ] `@carro           gain=3 hard=2 size=2 type=make eval=test` [Carro: separação inicial entre domínio e Shell](labs/carro/README.md)
+- [ ] `@enxugar         gain=2 hard=1 size=2 type=make eval=test` [Enxugar: comportamento observável e Shell](labs/enxugar/README.md)
+- [ ] `@calculadora     gain=3 hard=2 size=2 type=make eval=test` [Calculadora: resultados de operação e mensagens no Shell](labs/calculadora/README.md)
 
 ## Encapsulamento e Invariantes <!-- @access deps=@intro -->
 
@@ -41,8 +41,8 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 - [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
 - [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma camisa XG](labs/camisa/README.md)
-- [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa: extensão testável de Camisa](labs/roupa/README.md)
-- [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
+- [ ] `@roupa           gain=2 hard=1 size=1 type=make eval=test` [Roupa: extensão testável de Camisa](labs/roupa/README.md)
+- [ ] `@relogio         gain=3 hard=2 size=2 type=make eval=test` [Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
 
 ## Relações entre objetos: agregação e delegação <!-- @agreg deps=@access -->
 
@@ -54,14 +54,14 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
  - ciclos de vida independentes.
 - Conceitos principais: agregação, delegação e multiplicidade.
 
-- [ ] `@motoca          gain=1 hard=1 size=1 type=make eval=test` [Motoca: agregação opcional e delegação](labs/motoca/README.md)
-- [ ] `@grafite         gain=1 hard=1 size=1 type=make eval=test` [Grafite: agregação opcional e delegação](labs/grafite/README.md)
-- [ ] `@motouber        gain=1 hard=1 size=1 type=make eval=test` [MotoUber: colaboração entre objetos e transferência de recurso](labs/motouber/README.md)
+- [ ] `@motoca          gain=3 hard=2 size=3 type=make eval=test` [Motoca: agregação opcional e delegação](labs/motoca/README.md)
+- [ ] `@grafite         gain=3 hard=3 size=3 type=make eval=test` [Grafite: agregação opcional e delegação](labs/grafite/README.md)
+- [ ] `@motouber        gain=3 hard=3 size=3 type=make eval=test` [MotoUber: colaboração entre objetos e transferência de recurso](labs/motouber/README.md)
 
 ## Aprofundamento <!-- @aprofundamento -->
 
-- [ ] `@charger         gain=1 hard=1 size=1 type=make eval=test` [Charger: agregação e coordenação por etapas](labs/charger/README.md)
-- [ ] `@tamagotchi      gain=1 hard=1 size=1 type=make eval=test` [Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
+- [ ] `@charger         gain=3 hard=3 size=3 type=make eval=test` [Charger: agregação e coordenação por etapas](labs/charger/README.md)
+- [ ] `@tamagotchi      gain=3 hard=3 size=3 type=make eval=test` [Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
 
 ## Coleções lineares <!-- @arrays deps=@agreg -->
 
