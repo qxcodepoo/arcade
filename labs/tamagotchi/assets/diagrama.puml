@@ -2,53 +2,51 @@
 
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
-
 left to right direction
 
 enum DeathCause {
-    NONE
-    WEAKNESS
-    DIRT
+  NONE
+  WEAKNESS
+  DIRT
 }
 
 class Pet {
-    - energyMax: number
-    - cleanMax : number
-    - energy   : number
-    - clean    : number
-    - age      : number
-    - alive    : boolean
-    - deathCause: DeathCause
-    __
-    + constructor(energy: number, clean: number)
-    + isAlive(): boolean
-    + toString(): string
-    __
-    + setEnergy(value: number): void
-    + setClean(value: number) : void
-    + setAge(value: number)   : void
-    __
-    + getClean()    : number
-    + getCleanMax() : number
-    + getEnergy()   : number
-    + getEnergyMax(): number
-    + getAge()      : number
+  - energyMax: number
+  - cleanMax: number
+  - energy: number
+  - clean: number
+  - age: number
+  - alive: boolean
+  - deathCause: DeathCause
+  __
+  + constructor(energyMax: number, cleanMax: number)
+  + isAlive(): boolean
+  + getEnergy(): number
+  + getEnergyMax(): number
+  + getClean(): number
+  + getCleanMax(): number
+  + getAge(): number
+  + loseEnergy(amount: number): void
+  + loseClean(amount: number): void
+  + advanceAge(amount: number): void
+  + restoreEnergy(): void
+  + restoreClean(): void
+  + toString(): string
 }
 
 class Game {
-    - pet: Pet
-    __
-    + constructor(pet: Pet)
-    + toString() : string
-    + isAlive() : boolean
-    + isSleepy(): boolean
-    __
-    + play()  : boolean
-    + shower(): boolean
-    + sleep() : boolean
+  - pet: Pet
+  __
+  + constructor(pet: Pet)
+  + isAlive(): boolean
+  + isSleepy(): boolean
+  + play(): boolean
+  + shower(): boolean
+  + sleep(): boolean
+  + toString(): string
 }
 
-Game "1" o-- "1" Pet : agrega
-Pet ..> DeathCause : registra
+Game "1" o-- "1" Pet : aggregates
+Pet ..> DeathCause : records
 
 @enduml
