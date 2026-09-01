@@ -22,8 +22,8 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - separação inicial entre domínio e Shell.
 - Princípio citado somente quando útil: responsabilidade.
 
-- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
-- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [[GUIA] Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
+- [ ] `@toalha          gain=1 hard=1 size=1 type=make eval=self` [Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
+- [ ] `@animal          gain=1 hard=1 size=1 type=make eval=test` [Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
 - [ ] `@carro           gain=1 hard=1 size=1 type=make eval=test` [Carro: separação inicial entre domínio e Shell](labs/carro/README.md)
 - [ ] `@enxugar         gain=1 hard=1 size=1 type=make eval=test` [Enxugar: comportamento observável e Shell](labs/enxugar/README.md)
 - [ ] `@calculadora     gain=1 hard=1 size=1 type=make eval=test` [Calculadora: resultados de operação e mensagens no Shell](labs/calculadora/README.md)
@@ -39,8 +39,8 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - diferença entre encapsular e criar getters/setters para tudo.
 - Conceitos principais: encapsulamento, invariante e contrato.
 
-- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Chinela: setter validador e invariante numérica](labs/chinela/README.md)
-- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Camisa: setter validador e conjunto permitido](labs/camisa/README.md)
+- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
+- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma camisa XG](labs/camisa/README.md)
 - [ ] `@roupa           gain=1 hard=1 size=1 type=make eval=test` [Roupa: extensão testável de Camisa](labs/roupa/README.md)
 - [ ] `@relogio         gain=1 hard=1 size=1 type=make eval=test` [Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
 
@@ -54,7 +54,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
  - ciclos de vida independentes.
 - Conceitos principais: agregação, delegação e multiplicidade.
 
-- [ ] `@motoca          gain=1 hard=1 size=1 type=make eval=test` [Motoca: agregação opcional simples](labs/motoca/README.md)
+- [ ] `@motoca          gain=1 hard=1 size=1 type=make eval=test` [Motoca: agregação opcional e delegação](labs/motoca/README.md)
 - [ ] `@grafite         gain=1 hard=1 size=1 type=make eval=test` [Grafite: agregação opcional e delegação](labs/grafite/README.md)
 - [ ] `@motouber        gain=1 hard=1 size=1 type=make eval=test` [MotoUber: colaboração entre objetos e transferência de recurso](labs/motouber/README.md)
 

@@ -17,6 +17,7 @@ enum WriteResult {
 }
 
 class Lead {
+    {static} + MIN_SIZE: number
     - thickness: number
     - hardness : string
     - size     : number

@@ -1,8 +1,5 @@
-# Motoca: agregação opcional simples
+# Motoca: agregação opcional e delegação
 
-<!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -16,22 +13,22 @@ O foco é praticar agregação: a pessoa existe fora da motoca, pode entrar, sai
 ## Regras
 
 - Descrição
-  - A classe `Motorcycle` representa a motoca. Ela possui potência `power`, tempo comprado `time` e a pessoa `person` que está atualmente utilizando-a.
-  - A motoca criada no início da simulação inicia com potência 1, sem minutos e sem ninguém.
+  - A classe `Motorcycle` representa a motoca. Ela possui tamanho `size`, tempo comprado `time` e a pessoa `person` que está atualmente utilizando-a.
+  - O tamanho da motoca também representa a idade máxima da pessoa que pode dirigi-la.
+  - A motoca criada no início da simulação inicia com tamanho 10, sem minutos e sem ninguém.
   - Apenas uma pessoa pode estar na motoca por vez.
-  - As funcionalidades principais da motoca incluem subir uma pessoa, descer uma pessoa, comprar tempo, dirigir por um tempo determinado e buzinar.
+  - As funcionalidades principais da motoca incluem subir uma pessoa, descer uma pessoa, comprar tempo e dirigir por um tempo determinado.
   - A classe `Person` representa os usuários da motoca. Ela possui nome `name` e idade `age`.
 - Comandos
-  - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma mensagem adequada deve ser impressa.
-  - `$show` - Mostra o estado atual da motoca, incluindo potência, tempo e pessoa atualmente na motoca.
-    - `power:{power}, time:{time}, person:({person})`
-    - Quando não houver pessoa: `power:1, time:0, person:(empty)`
-  - `$init power` - Reinicia a motoca com a potência informada, sem minutos e sem ninguém.
-  - `$enter` - Permite uma pessoa subir na motoca. Deve ser seguido pelos argumentos `nome` e `idade` da pessoa.
+  - Todos os comandos seguem o modelo `$command arg1 arg2 ...`. Em caso de erro, uma mensagem adequada deve ser impressa.
+  - `$show` - Mostra o estado atual da motoca, incluindo tamanho, tempo e pessoa atualmente na motoca.
+    - `size:{size}, time:{time}, person:({person})`
+    - Quando não houver pessoa: `size:10, time:0, person:(empty)`
+  - `$init size` - Reinicia a motoca com o tamanho informado, sem minutos e sem ninguém.
+  - `$enter` - Permite uma pessoa subir na motoca. Deve ser seguido pelos argumentos `name` e `age` da pessoa.
   - `$leave` - Faz a pessoa atualmente na motoca descer.
   - `$buy` - Permite comprar tempo em minutos para utilizar a motoca. O tempo recebido é incrementado ao tempo atual.
   - `$drive` - Permite dirigir a motoca por um tempo determinado.
-  - `$honk` - Permite buzinar a motoca.
 
 - A `Motorcycle` agrega uma `Person`: a pessoa é criada pelo `Shell`, pode ser removida e continua existindo depois de sair.
 - A classe de domínio não deve ler entrada nem imprimir mensagens. O `Shell` deve interpretar retornos e cuidar da interface.
@@ -46,11 +43,12 @@ O foco é praticar agregação: a pessoa existe fora da motoca, pode entrar, sai
   - Crie a classe `Person` com os atributos `age` e `name`.
   - Defina os atributos como privados.
   - Crie o construtor da classe que recebe `name` como uma string e `age` como um número.
+  - Crie o método `canDrive(maxAge: number): boolean` para informar se a idade da pessoa está dentro do limite recebido.
   - Crie os métodos `getAge()` e `getName()` para retornar a idade e o nome da pessoa, respectivamente.
-  - Crie o método `toString()` para retornar uma string no formato "nome:idade".
+  - Crie o método `toString()` para retornar uma string no formato `name:age`.
 - Parte 1: Inserir
-  - Crie a classe `Motorcycle` com os atributos `power`, `time` e `person`.
-  - Inicialize os atributos no construtor, onde `power` vem do parâmetro, `time` inicia com 0 e `person` inicia como `null`.
+  - Crie a classe `Motorcycle` com os atributos `size`, `time` e `person`.
+  - Inicialize os atributos no construtor, onde `size` vem do parâmetro, `time` inicia com 0 e `person` inicia como `null`.
   - Crie o método `enter(person: Person): boolean` que permite inserir uma pessoa na motoca.
   - Verifique se há uma pessoa na motoca. Se houver, retorne falha e deixe o `Shell` imprimir "fail: busy motorcycle".
   - Caso contrário, insira a pessoa na motoca e retorne verdadeiro.
@@ -63,59 +61,56 @@ O foco é praticar agregação: a pessoa existe fora da motoca, pode entrar, sai
   - Crie o método `buy(time: number)` que permite comprar tempo em minutos para utilizar a motoca.
   - Incremente o tempo da motoca com o tempo passado como parâmetro.
 - Parte 4: Dirigir
-  - Crie o método `drive(time: number): string | null` que permite dirigir a motoca por um tempo determinado.
-  - Verifique se há tempo disponível na motoca. Se não houver, retorne "fail: buy time first".
-  - Verifique se há uma pessoa na motoca. Se não houver, retorne "fail: empty motorcycle".
-  - Verifique se a idade da pessoa na motoca é maior que 10 anos. Se for, retorne "fail: too old to drive".
-  - Calcule o novo tempo após dirigir. Se o novo tempo for menor ou igual a 0, retorne "fail: time finished after X minutes".
+  - Crie uma enum `DriveResult` para representar o resultado da tentativa de dirigir.
+  - Crie o método `drive(time: number): DriveResult` que permite dirigir a motoca por um tempo determinado.
+  - Verifique se há tempo disponível na motoca. Se não houver, retorne `BUY_TIME_FIRST`.
+  - Verifique se há uma pessoa na motoca. Se não houver, retorne `EMPTY_MOTORCYCLE`.
+  - Pergunte à pessoa na motoca se ela pode dirigir, passando o tamanho da motoca como idade máxima. Se ela não puder, retorne `TOO_OLD_TO_DRIVE`.
+  - Se o tempo disponível for menor que o tempo solicitado, zere o tempo da motoca e retorne `TIME_FINISHED`.
   - Atualize o tempo da motoca.
-- Parte 5: Buzinar
-  - Crie o método `honk()` que permite buzinar a motoca.
-  - Construa a string da buzina, onde o número de "e" é igual à potência da motoca.
-  - Retorne a buzina.
-
+  - Se a viagem for realizada normalmente, retorne `OK`.
 Pergunta de reflexão: por que `leave` devolve a pessoa removida em vez de apenas apagar a referência?
 
 ## Shell
 
 ```bash
-#TEST_CASE subindo e buzinando
+#TEST_CASE initial state
 $show
-power:1, time:0, person:(empty)
+size:10, time:0, person:(empty)
 
-#TEST_CASE subindo
+#TEST_CASE enter
 $enter marcos 4
 $show
-power:1, time:0, person:(marcos:4)
+size:10, time:0, person:(marcos:4)
 
-#TEST_CASE ocupada
+#TEST_CASE busy motorcycle
 $enter marisa 2
 fail: busy motorcycle
 
 $show
-power:1, time:0, person:(marcos:4)
+size:10, time:0, person:(marcos:4)
 $end
 ```
 
 ```bash
-#TEST_CASE subindo2
+#TEST_CASE init
 $init 5
 $show
-power:5, time:0, person:(empty)
+size:5, time:0, person:(empty)
 
-#TEST_CASE buzinando
+#TEST_CASE enter after init
 $enter marcos 4
 $show
-power:5, time:0, person:(marcos:4)
+size:5, time:0, person:(marcos:4)
 $end
 ```
 
 ```bash
-#TEST_CASE subindo e trocando
-$init 7
+#TEST_CASE leave
+$init 10
 $enter heitor 6
 $show
-power:7, time:0, person:(heitor:6)
+size:10, time:0, person:(heitor:6)
 $leave
 heitor:6
 
@@ -126,29 +121,30 @@ fail: empty motorcycle
 #TEST_CASE replace
 $enter suzana 8
 $show
-power:7, time:0, person:(suzana:8)
+size:10, time:0, person:(suzana:8)
 $end
 ```
 
 ```bash
-#TEST_CASE no time
-$init 7
+#TEST_CASE buy time
+$init 10
 $buy 30
 $show
-power:7, time:30, person:(empty)
+size:10, time:30, person:(empty)
 $buy 10
 $show
-power:7, time:40, person:(empty)
+size:10, time:40, person:(empty)
 $end
 ```
 
 ```bash
-#TEST_CASE buy time 
-$init 7
+#TEST_CASE drive without time
+$init 10
 $drive 10
 fail: buy time first
 $buy 50
-#TEST_CASE empty
+
+#TEST_CASE drive empty motorcycle
 $drive 10
 fail: empty motorcycle
 $enter suzana 8
@@ -156,45 +152,45 @@ $enter suzana 8
 #TEST_CASE driving
 $drive 30
 $show
-power:7, time:20, person:(suzana:8)
+size:10, time:20, person:(suzana:8)
 $end
 ```
 
 ```bash
-#TEST_CASE limite de idade
-$init 7
+#TEST_CASE too old to drive
+$init 10
 $buy 20
 $enter andreina 23
 $drive 15
 fail: too old to drive
 $show
-power:7, time:20, person:(andreina:23)
+size:10, time:20, person:(andreina:23)
 $end
 ```
 
 ```bash
-#TEST_CASE acabou o tempo
-$init 7
+#TEST_CASE time finishes
+$init 10
 $buy 20
 $enter andreina 6
 $drive 15
 $show
-power:7, time:5, person:(andreina:6)
+size:10, time:5, person:(andreina:6)
 $drive 10
-fail: time finished after 5 minutes
+fail: time finished
 $show
-power:7, time:0, person:(andreina:6)
+size:10, time:0, person:(andreina:6)
 $end
 ```
 
 ```bash
-#TEST_CASE buzinando
-$init 1
-$honk
-Pem
-$init 5
-$honk
-Peeeeem
+#TEST_CASE larger motorcycle
+$init 20
+$buy 15
+$enter andreina 15
+$drive 10
+$show
+size:20, time:5, person:(andreina:15)
 $end
 ```
 

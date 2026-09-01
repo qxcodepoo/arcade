@@ -4,21 +4,28 @@ skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 left to right direction
 
+enum DriveResult {
+  OK
+  BUY_TIME_FIRST
+  EMPTY_MOTORCYCLE
+  TOO_OLD_TO_DRIVE
+  TIME_FINISHED
+}
+
 class Motorcycle {
   - person: Person | null
-  - power : number
+  - size : number
   - time  : number
   __
-  + constructor(power: number)
+  + constructor(size: number)
   + enter(person: Person): boolean
   + leave(): Person | null
   __
   + buy(time : number): void
-  + drive(time : number): string | null
-  + honk()                : string
+  + drive(time : number): DriveResult
   __
   + getPerson(): Person | null
-  + getPower() : number
+  + getSize()  : number
   + getTime()  : number
   __
   + toString(): string
@@ -30,13 +37,15 @@ class Person {
   __
   + constructor(name: string, age: number)
   __
+  + canDrive(maxAge: number): boolean
   + getAge() : number
   + getName(): string
   __
   + toString(): string
 }
 
-Motorcycle "1" o-- "0..1" Person : agrega
+Motorcycle "1" o-- "0..1" Person : aggregates
+Motorcycle ..> DriveResult : returns
 
 note right of Motorcycle
   A moto pode não ter uma pessoa agregada.

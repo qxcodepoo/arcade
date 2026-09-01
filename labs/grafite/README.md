@@ -40,20 +40,19 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
     - E também possui um indicador de espessura `thickness`.
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
-  - `$iniciar calibre` - Inicializa a lapiseira com um determinado calibre.
-  - `$inserir calibre dureza tamanho` - Insere um grafite com o calibre, dureza e tamanho especificados.
+  - `$init thickness` - Inicializa a lapiseira com uma determinada espessura.
     - erros:
-      - `fail: calibre incompativel` - Se o calibre do grafite for diferente do calibre da lapiseira.
-      - `fail: ja existe grafite` - Se já houver um grafite na lapiseira.
-  - `$remover` - Remove o grafite da lapiseira, se houver.
+      - `fail: wrong thickness` - Se a espessura do grafite for diferente da espessura da lapiseira.
+      - `fail: already has lead` - Se já houver um grafite na lapiseira.
+  - `$remove` - Remove o grafite da lapiseira, se houver.
     - erros:
-      - `fail: nao existe grafite` - Se não houver grafite na lapiseira.
-  - `$escrever` - Escreve na folha, considerando o grafite presente na lapiseira.
+      - `fail: no lead` - Se não houver grafite na lapiseira.
+  - `$write` - Escreve na folha, considerando o grafite presente na lapiseira.
     - O grafite é gasto de acordo com a dureza.
     - erros:
-      - `fail: nao existe grafite` - Se não houver grafite na lapiseira.
-      - `fail: tamanho insuficiente` - Se o tamanho do grafite for insuficiente para começar a escrita.
-      - `fail: folha incompleta` - Se o grafite não for suficiente para terminar a escrita.
+      - `fail: no lead` - Se não houver grafite na lapiseira.
+      - `fail: insufficient size` - Se o tamanho do grafite for insuficiente para começar a escrita.
+      - `fail: incomplete page` - Se o grafite não for suficiente para terminar a escrita.
 
 - A classe de domínio não deve ler entrada nem imprimir mensagens. Os métodos devem retornar sucesso, falha ou o grafite removido; o `Shell` deve interpretar esses retornos e cuidar da interface.
 
@@ -82,6 +81,10 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
   - Faça as verificações antes de escrever na folha.
   - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa.
     - Se esse tamanho for menor que 10mm, ele deve gastar o que for possível e parar a folha pela metade.
+  - Defina `MIN_SIZE` em `Lead` para representar o menor tamanho que ainda pode permanecer na lapiseira.
+
+- Parte 4: Comparar Durezas
+  - Verifique que `HB` gasta menos grafite que `4B` ao escrever páginas do mesmo tipo.
 
 Perguntas de reflexão: por que o cálculo e o consumo do desgaste pertencem a `Lead`, mas a decisão de escrever ou não pertence a `Pencil`? Por que cada operação possui seu próprio tipo de resultado?
 
@@ -89,19 +92,19 @@ Perguntas de reflexão: por que o cálculo e o consumo do desgaste pertencem a `
 
 ```bash
 
-#TEST_CASE inserindo grafites
+#TEST_CASE inserting leads
 
 $init 0.5
 $show
-calibre: 0.5, grafite: null
+thickness: 0.5, lead: null
 
-#TEST_CASE incompativel
+#TEST_CASE wrong thickness
 
 $insert 0.7 2B 50
-fail: calibre incompativel
+fail: wrong thickness
 $insert 0.5 2B 50
 $show
-calibre: 0.5, grafite: [0.5:2B:50]
+thickness: 0.5, lead: [0.5:2B:50]
 $end
 ```
 
@@ -109,31 +112,31 @@ $end
 
 ```bash
 
-#TEST_CASE inserindo
+#TEST_CASE inserting
 
 $init 0.3
 $insert 0.3 2B 50
 $show
-calibre: 0.3, grafite: [0.3:2B:50]
+thickness: 0.3, lead: [0.3:2B:50]
 
-#TEST_CASE ja existe
+#TEST_CASE already has lead
 
 $insert 0.3 4B 70
-fail: ja existe grafite
+fail: already has lead
 $show
-calibre: 0.3, grafite: [0.3:2B:50]
+thickness: 0.3, lead: [0.3:2B:50]
 
-#TEST_CASE removendo
+#TEST_CASE removing
 
 $remove
 $show
-calibre: 0.3, grafite: null
+thickness: 0.3, lead: null
 
-#TEST_CASE reinserindo
+#TEST_CASE inserting after removal
 
 $insert 0.3 4B 70
 $show
-calibre: 0.3, grafite: [0.3:4B:70]
+thickness: 0.3, lead: [0.3:4B:70]
 $end
 ```
 
@@ -141,20 +144,20 @@ $end
 
 ```bash
 
-#TEST_CASE sem grafite
+#TEST_CASE no lead
 
 $init 0.9
 $write
-fail: nao existe grafite
+fail: no lead
 
-#TEST_CASE escrevendo 1
+#TEST_CASE insufficient size
 
 $insert 0.9 4B 14
 $write
 $write
-fail: tamanho insuficiente
+fail: insufficient size
 $show
-calibre: 0.9, grafite: [0.9:4B:10]
+thickness: 0.9, lead: [0.9:4B:10]
 $end
 ```
 
@@ -162,20 +165,36 @@ $end
 
 ```bash
 
-#TEST_CASE escrevendo 2
+#TEST_CASE writing page
 
 $init 0.9
 $insert 0.9 4B 16
 $write
 $show
-calibre: 0.9, grafite: [0.9:4B:12]
+thickness: 0.9, lead: [0.9:4B:12]
 
-#TEST_CASE escrevendo 3
+#TEST_CASE incomplete page
 
 $write
-fail: folha incompleta
+fail: incomplete page
 $show
-calibre: 0.9, grafite: [0.9:4B:10]
+thickness: 0.9, lead: [0.9:4B:10]
+$end
+```
+
+```bash
+#TEST_CASE hardness wear
+$init 0.5
+$insert 0.5 HB 15
+$write
+$show
+thickness: 0.5, lead: [0.5:HB:14]
+$remove
+$insert 0.5 6B 15
+$write
+fail: incomplete page
+$show
+thickness: 0.5, lead: [0.5:6B:10]
 $end
 ```
 
