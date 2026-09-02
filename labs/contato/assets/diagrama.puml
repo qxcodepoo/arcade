@@ -1,74 +1,25 @@
-
 @startuml
+skinparam classAttributeIconSize 0
 
-skinparam defaultFontName "Source Code Pro"
-skinparam dpi 150
-
-
-
-class Fone {
-  - id : string
-  - number : string
-  __
-  ' inicializa as variaveis
-  + Fone(id : string, number : string)
-  
-  ' verifica se o número é um número de telefone válido
-  ' crie uma str "validos" com todos os caracteres válidos
-  ' para cada caractere c do número:
-  '   se c não estiver em validos:
-  '     retorne false
-  ' retorne true
-  + isValid() : boolean
-  __
-  + getId() : string
-  + getNumber() : string
-  __
-  ' Gera uma string para impressão
-  ' ex: oi:1234
-  + toString() : string
+class Phone {
+  + label: string
+  + number: string
+  + is_valid(): boolean
+  + toString(): string
 }
 
 class Contact {
-  - favorited : boolean
-  - fones : Array<Fone>
-  - name : string
-  __
-  
-  ' inicialize o fone com o nome, favorited como false e a lista de fones vazia
-  + Contact(name : string)
-  __
-  ' se fone for válido:
-  '   insira no fim da lista de fones
-  ' se não:
-  '   informe o erro
-  + addFone(id: string, number : string): void
-  
-  ' se o índice existir:
-  '   remove o fone pelo indice
-  + rmFone(index : number): void
-  
-  __
-  ' favorita ou desfavorita o contato
-  + toogleFavorited(): void
-
-  ' retorna se o contato está favoritado
-  + isFavorited() : boolean
-  __
-  + getFones() : Array<Fone>
-  + getName() : string
-  + setName(name : string): void
-
-  __
-  ' use um contador para mostrar o índice do telefone
-  ' use o toString do fone para adicioná-lo à saída
-  ' se o contato estiver favoritado, adicione um @ antes do nome
-  ' o resultado dever ficar assim:
-  ' ex: - david [oi:123, tim:9081, claro:5431]
-  + toString() : string
+  - name: string
+  - favorite: boolean
+  - phones: Array<Phone>
+  + name: string {readOnly}
+  + favorite: boolean {readOnly}
+  + Contact(name: string)
+  + add_phone(label: string, number: string): boolean
+  + remove_phone(index: number): boolean
+  + toggle_favorite(): void
+  + toString(): string
 }
 
-
-
-Contact "1" *--  "0..*" Fone
+Contact "1" *-- "0..*" Phone : phones
 @enduml

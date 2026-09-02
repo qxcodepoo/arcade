@@ -1,0 +1,14 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Person {
+  + name: string
+  + age: number
+}
+
+class "main" as Main <<function>> {
+  + main(): void
+}
+
+Main "1" o-- "0..*" Person : people
+@enduml

@@ -2,7 +2,11 @@
 
 index:
 	@echo "Atualizando indexer"
-	tko build index README.md labs --load
+	tko build index README.md labs
+
+save:
+	@echo "Atualizando indexer"
+	tko build index README.md labs --save
 
 all: index
 	@find . -type d -name "__pycache__" -exec rm -rf {} +

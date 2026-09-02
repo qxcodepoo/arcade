@@ -2,31 +2,39 @@
 
 Este repositório é uma coleção de exercícios e projetos relacionados à Programação Orientada a Objetos (POO). Ele é organizado em diferentes seções, cada uma focada em um aspecto específico da POO, como classes, objetos, herança, polimorfismo, entre outros.
 
+Marcadores pedagógicos
+
+- GUIDE — leitura, referência ou exemplo guiado
+- TRAIN — prática com consulta
+- ALONE — tentativa independente
+- CHECK — verificação do domínio
+
+
 ## Configuração de ambiente <!-- @env -->
 
-- [ ] `@+git            gain=1 type=read eval=self              ` [Introdução ao git](wiki/git/README.md)
-- [ ] `@+relacionamento gain=0 type=read eval=self              ` [Relacionamentos](wiki/relacionamento/README.md)
-- [ ] `@+uml            gain=0 type=read eval=self              ` [Relacionamentos Resumo](wiki/uml/README.md)
-- [ ] `@+relatorio      gain=0 type=read eval=self              ` [Como fazer os códigos e relatórios](wiki/relatorio/README.md)
-- [ ] `@+atividade      gain=0 type=read eval=self              ` [Padrão para atividades de código](wiki/atividade_codigo/README.md)
-- [ ] `@+main           gain=0 type=read eval=self              ` [Criando a Main](wiki/main/README.md)
+- [ ] `@+git            gain=1 type=read eval=self              ` [[GUIDE] Introdução ao git](wiki/git/README.md)
+- [ ] `@+relacionamento gain=0 type=read eval=self              ` [[GUIDE] Relacionamentos](wiki/relacionamento/README.md)
+- [ ] `@+uml            gain=0 type=read eval=self              ` [[GUIDE] Relacionamentos Resumo](wiki/uml/README.md)
+- [ ] `@+relatorio      gain=0 type=read eval=self              ` [[GUIDE] Como fazer os códigos e relatórios](wiki/relatorio/README.md)
+- [ ] `@+atividade      gain=0 type=read eval=self              ` [[GUIDE] Padrão para atividades de código](wiki/atividade_codigo/README.md)
+- [ ] `@+main           gain=0 type=read eval=self              ` [[GUIDE] Criando a Main](wiki/main/README.md)
 
 ## Classes e Objetos <!-- @intro -->
 
 - Conceitos abordados neste módulo:
   - classe, objeto, atributo e método;
   - estado e comportamento;
-  - construtor;
+  - construtor e toString;
   - identidade entre objetos;
-  - testes do comportamento observável;
-  - separação inicial entre domínio e Shell.
+  - testes do comportamento observável no modelo que requisição e resposta.
+  - separação inicial entre domínio (classe implementada) e interface (função que processa requisições).
 - Princípio citado somente quando útil: responsabilidade.
 
-- [ ] `@toalha          gain=2 hard=1 size=1 type=make eval=self` [Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
-- [ ] `@animal          gain=2 hard=1 size=1 type=make eval=test` [Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
-- [ ] `@carro           gain=3 hard=2 size=2 type=make eval=test` [Carro: separação inicial entre domínio e Shell](labs/carro/README.md)
-- [ ] `@enxugar         gain=2 hard=1 size=2 type=make eval=test` [Enxugar: comportamento observável e Shell](labs/enxugar/README.md)
-- [ ] `@calculadora     gain=3 hard=2 size=2 type=make eval=test` [Calculadora: resultados de operação e mensagens no Shell](labs/calculadora/README.md)
+- [ ] `@toalha          gain=2 hard=1 size=1 type=make eval=self` [[GUIDE] Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
+- [ ] `@animal          gain=2 hard=1 size=1 type=make eval=test` [[GUIDE] Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
+- [ ] `@enxugar         gain=2 hard=1 size=2 type=make eval=test` [[TRAIN] Enxugar: comportamento observável e interface](labs/enxugar/README.md)
+- [ ] `@carro           gain=3 hard=2 size=2 type=make eval=test` [[ALONE] Carro: separação inicial entre domínio e interface](labs/carro/README.md)
+- [ ] `@calculadora     gain=3 hard=2 size=2 type=make eval=test` [[CHECK] Calculadora: resultados de operação e mensagens na interface](labs/calculadora/README.md)
 
 ## Encapsulamento e Invariantes <!-- @access deps=@intro -->
 
@@ -39,10 +47,10 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - diferença entre encapsular e criar getters/setters para tudo.
 - Conceitos principais: encapsulamento, invariante e contrato.
 
-- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma chinela 40/41](labs/chinela/README.md)
-- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[GUIA] Comprando uma camisa XG](labs/camisa/README.md)
-- [ ] `@roupa           gain=2 hard=1 size=1 type=make eval=test` [Roupa: extensão testável de Camisa](labs/roupa/README.md)
-- [ ] `@relogio         gain=3 hard=2 size=2 type=make eval=test` [Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
+- [ ] `@chinela         gain=1 hard=1 size=1 type=make eval=self` [[GUIDE] Comprando uma chinela 40/41](labs/chinela/README.md)
+- [ ] `@camisa          gain=1 hard=1 size=1 type=make eval=self` [[TRAIN] Comprando uma camisa XG](labs/camisa/README.md)
+- [ ] `@roupa           gain=2 hard=1 size=1 type=make eval=test` [[TRAIN] Roupa: extensão testável de Camisa](labs/roupa/README.md)
+- [ ] `@relogio         gain=3 hard=2 size=2 type=make eval=test` [[ALONE] Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
 
 ## Relações entre objetos: agregação e delegação <!-- @agreg deps=@access -->
 
@@ -54,14 +62,14 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
  - ciclos de vida independentes.
 - Conceitos principais: agregação, delegação e multiplicidade.
 
-- [ ] `@motoca          gain=3 hard=2 size=3 type=make eval=test` [Motoca: agregação opcional e delegação](labs/motoca/README.md)
-- [ ] `@grafite         gain=3 hard=3 size=3 type=make eval=test` [Grafite: agregação opcional e delegação](labs/grafite/README.md)
-- [ ] `@motouber        gain=3 hard=3 size=3 type=make eval=test` [MotoUber: colaboração entre objetos e transferência de recurso](labs/motouber/README.md)
+- [ ] `@motoca          gain=3 hard=2 size=3 type=make eval=test` [[GUIDE] Motoca: agregação opcional e delegação](labs/motoca/README.md)
+- [ ] `@grafite         gain=3 hard=3 size=3 type=make eval=test` [[TRAIN] Grafite: agregação opcional e delegação](labs/grafite/README.md)
+- [ ] `@motouber        gain=3 hard=3 size=3 type=make eval=test` [[ALONE] MotoUber: colaboração entre objetos e transferência de recurso](labs/motouber/README.md)
 
 ## Aprofundamento <!-- @aprofundamento -->
 
-- [ ] `@charger         gain=3 hard=3 size=3 type=make eval=test` [Charger: agregação e coordenação por etapas](labs/charger/README.md)
-- [ ] `@tamagotchi      gain=3 hard=3 size=3 type=make eval=test` [Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
+- [ ] `@charger         gain=3 hard=3 size=3 type=make eval=test` [[TRAIN] Charger: agregação e coordenação por etapas](labs/charger/README.md)
+- [ ] `@tamagotchi      gain=3 hard=3 size=3 type=make eval=test` [[CHECK] Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
 
 ## Coleções lineares <!-- @arrays deps=@agreg -->
 
@@ -76,10 +84,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - separar operações sobre um item de operações sobre o conjunto.
 - Conceitos principais: coleção, multiplicidade, busca e coordenação.
 
-- [ ] `@array           gain=3 hard=1 size=1 type=make eval=self` [Operações fundamentais com coleções lineares](labs/array/README.md)
-- [ ] `@contato         gain=1 hard=1 size=1 type=make eval=test` [Contato: coleção de telefones e validação](labs/contato/README.md)
-- [ ] `@pula-pula       gain=1 hard=1 size=1 type=make eval=test` [Pula-pula: filas e movimentação de crianças](labs/pula-pula/README.md)
-- [ ] `@lapiseira       gain=1 hard=1 size=1 type=make eval=test` [Lapiseira: extensão do grafite com tambor](labs/lapiseira/README.md)
+- [ ] `@+listas         gain=1 type=read eval=self              ` [[GUIDE] Listas em Python: ações mais comuns](wiki/listas/README.md)
+- [ ] `@array           gain=2 hard=1 size=1 type=make eval=test` [[GUIDE] Array: manipulação direta de uma coleção de pessoas](labs/array/README.md)
+- [ ] `@contato         gain=2 hard=1 size=2 type=make eval=test` [[TRAIN] Contato: encapsulamento de uma coleção de telefones](labs/contato/README.md)
+- [ ] `@pula-pula       gain=1 hard=1 size=1 type=make eval=test` [[TRAIN] Pula-pula: filas e movimentação de crianças](labs/pula-pula/README.md)
+- [ ] `@lapiseira       gain=1 hard=1 size=1 type=make eval=test` [[ALONE] Lapiseira: extensão do grafite com tambor](labs/lapiseira/README.md)
 
 ## Posições fixas e ausência <!-- @slots deps=@arrays -->
 
@@ -92,14 +101,14 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - comparação entre ausência por `null` e objeto vazio.
 - Conceitos principais: posição, ausência, nulidade e busca.
 
-- [ ] `@cinema          gain=1 hard=1 size=1 type=make eval=test` [Cinema: posições fixas e ausência](labs/cinema/README.md)
-- [ ] `@budega          gain=2 hard=1 size=1 type=make eval=test` [Budega: fila e posições fixas](labs/budega/README.md)
-- [ ] `@junkfood        gain=1 hard=1 size=1 type=make eval=test` [Junkfood: posições fixas e objeto vazio](labs/junkfood/README.md)
+- [ ] `@cinema          gain=1 hard=1 size=1 type=make eval=test` [[GUIDE] Cinema: posições fixas e ausência](labs/cinema/README.md)
+- [ ] `@budega          gain=2 hard=1 size=1 type=make eval=test` [[TRAIN] Budega: fila e posições fixas](labs/budega/README.md)
+- [ ] `@junkfood        gain=1 hard=1 size=1 type=make eval=test` [[ALONE] Junkfood: posições fixas e objeto vazio](labs/junkfood/README.md)
 
 
 ## Desafio coleções <!-- @desafio-coleções -->
 
-- [ ] `@tabuleiro       gain=1 hard=1 size=1 type=make eval=test` [Tabuleiro: coleções na simulação de turnos](labs/tabuleiro/README.md)
+- [ ] `@tabuleiro       gain=1 hard=1 size=1 type=make eval=test` [[CHECK] Tabuleiro: coleções na simulação de turnos](labs/tabuleiro/README.md)
 
 ## Mapas e Exceções <!-- @crud deps=@slots -->
 
@@ -116,7 +125,7 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - O elemento é localizado por posição, por busca ou por identidade única?
 - Conceitos principais: identidade, chave e, quando houver duplicação real, DRY.
 
-- [ ] `@agenda          gain=1 hard=1 size=1 type=make eval=test` [Gerencie os vários contatos de uma agenda](labs/agenda/README.md)
+- [ ] `@agenda          gain=3 hard=2 size=3 type=make eval=test` [Agenda: contatos por identidade em um mapa](labs/agenda/README.md)
 - [ ] `@agiota          gain=1 hard=1 size=1 type=make eval=test` [Gerencie os empréstimos do agiota](labs/agiota/README.md)
 - [ ] `@petshop         gain=1 hard=1 size=1 type=make eval=test` [Meu Petshop](labs/petshop/README.md)
 - [ ] `@porquinho       gain=1 hard=1 size=1 type=make eval=test` [Guardando moedas e itens em um cofrinho](labs/porquinho/README.md)
