@@ -24,8 +24,8 @@ class Slot {
 
 class VendingMachine {
     - slots : Array<Slot>
-    - profit : number
     - cash   : number
+    - revenue: number
     - capacity : number
     __
 
@@ -54,7 +54,7 @@ class VendingMachine {
     + getCash() : number
 
     ' informe o valor apurado com todas as vendas
-    + getProfit() : number
+    + getRevenue() : number
     __
 
     ' se existir produto nessa posição

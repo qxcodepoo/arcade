@@ -1,4 +1,4 @@
-# Junkfood: posições fixas e objeto vazio
+# [ALONE] Junkfood: posições fixas e objeto vazio
 
 <!-- toc-table -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
@@ -21,6 +21,24 @@ Esta atividade também usa posições fixas, mas com uma decisão diferente de `
   - Cada espiral pode conter um produto, representado pela classe `Slot`, que armazena o nome, quantidade e preço do produto.
   - Os métodos fornecidos incluem validações para garantir a integridade das operações, como verificar se o saldo é suficiente para a compra, se há produtos disponíveis, entre outros.
 
+### Objetivos pedagógicos
+
+O objetivo principal é comparar duas formas de representar ausência em posições fixas: uma posição `None`, como em `cinema` e `budega`, e um objeto `Slot` que representa explicitamente o estado vazio. Como objetivos secundários, a atividade trabalha invariantes de quantidade e saldo e a separação entre regras da máquina e apresentação do Shell.
+
+### Conhecimentos prévios
+
+São necessários objetos, listas, índices, condicionais, laços, métodos, valores numéricos e o uso de `None` para representar ausência. A implementação canônica desta atividade é feita em Python.
+
+### Invariantes e comportamento observável
+
+- a quantidade de espirais permanece fixa até um novo `init`;
+- cada posição sempre contém um `Slot` independente;
+- uma quantidade negativa não é aceita;
+- o saldo só aumenta com dinheiro válido e diminui após uma compra válida;
+- o troco zera somente o saldo atual;
+- uma compra recusada não altera quantidade, saldo ou arrecadação;
+- `arrecadacao` é a soma dos preços das vendas e não representa lucro econômico, pois custos não fazem parte do modelo.
+
 - **Responsabilidades**
   - Na classe Slot
     - Inicialize as variáveis do construtor
@@ -40,6 +58,7 @@ Esta atividade também usa posições fixas, mas com uma decisão diferente de `
       - `comprar(ind: number)`: Realiza a compra de um produto de um slot na máquina. A compra só pode ser realizada se existir produto nessa posição, se o saldo for suficiente e se a quantidade do produto for maior que zero. Caso positivo, quantidade é reduzida em 1 e o valor do produto é decrementado no saldo.
         - erros: `fail: indice nao existe`, `fail: saldo insuficiente`, `fail: espiral sem produtos`.
       - `getSaldo(): number`: Retorna o saldo atual na máquina.
+      - `getRevenue(): number`: Retorna a arrecadação acumulada com as vendas, sem zerá-la.
       - `toString(): string`: Retorna uma representação em string do estado atual da máquina.
 
 ## Draft
@@ -100,6 +119,13 @@ public:
     }
 }
 ```
+
+### Parte 3: saldo, compras e arrecadação
+
+- Faça o Shell traduzir os resultados das operações em mensagens, mantendo as regras dentro de `Machine`.
+- A compra válida deve reduzir uma unidade, retirar o preço do saldo e somar o mesmo valor à arrecadação.
+- O comando `$revenue` deve exibir `arrecadacao: valor`, sem alterar o saldo ou a arrecadação.
+- Diferencie saldo temporário, que pode ser devolvido como troco, de arrecadação histórica, que permanece acumulada.
 
 ## Shell
 
@@ -190,8 +216,41 @@ fail: indice nao existe
 
 $troco
 voce recebeu 1.50 RS
+$revenue
+arrecadacao: 6.50
 $end
 #__end__
+```
+
+### Testes complementares
+
+```bash
+#TEST_CASE fronteiras e arrecadacao
+$init 1
+$set 0 pao 1 2.50
+$revenue
+arrecadacao: 0.00
+$dinheiro 2.50
+$comprar 0
+voce comprou um pao
+$revenue
+arrecadacao: 2.50
+$troco
+voce recebeu 0.00 RS
+$comprar 0
+fail: saldo insuficiente
+$revenue
+arrecadacao: 2.50
+$set 0 pao 0 2.50
+$dinheiro 2.50
+$comprar 0
+fail: espiral sem produtos
+$show
+saldo: 2.50
+0 [     pao : 0 U : 2.50 RS]
+$revenue
+arrecadacao: 2.50
+$end
 ```
 
 ## Resolução
