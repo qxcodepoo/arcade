@@ -14,6 +14,19 @@ class Person {
   + setName(name : string): void
 }
 
+enum CallResult {
+  OK
+  INVALID_COUNTER
+  BUSY_COUNTER
+  EMPTY_WAITING
+}
+
+enum FinishResult {
+  OK
+  INVALID_COUNTER
+  EMPTY_COUNTER
+}
+
 class Market {
   - counters : Array<Person | null>
   - waiting  : Array<Person>
@@ -24,7 +37,7 @@ class Market {
   + toString(): string
   __
   + arrive (person: Person): void
-  + call   (index : number): boolean
+  + call   (index : number): CallResult
   + finish (index : number): Person | null
   + cutInLine(sneaky: Person, fool: string): boolean
   + giveUp (quitter: string): Person | null

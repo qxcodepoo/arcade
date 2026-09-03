@@ -1,4 +1,4 @@
-# Budega: fila e posições fixas
+# [TRAIN] Budega: fila e posições fixas
 
 <!-- toc-table -->
 [Intro](#intro) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
@@ -13,6 +13,31 @@ Este é um projeto de modelagem e implementação de um mercantil, que simula o 
 
 Esta atividade serve como referência para comparar dois usos de coleções no mesmo domínio. A fila de espera cresce e diminui conforme clientes chegam ou são chamados. Os caixas, por outro lado, formam um vetor de tamanho fixo: cada posição representa um caixa específico e pode estar vazia ou ocupada.
 
+## Objetivos pedagógicos
+
+O objetivo principal é distinguir uma fila de tamanho variável de um vetor de posições fixas e escolher a operação adequada para cada coleção. Como objetivos secundários, a atividade trabalha a coordenação entre coleções e a preservação do estado válido após operações recusadas.
+
+### Conhecimentos prévios
+
+É necessário conhecer variáveis, condicionais, laços, funções, listas, índices, objetos e o uso de `nil`/`None` para representar ausência. A implementação canônica desta atividade é feita em Python.
+
+### Elementos observáveis
+
+- cada caixa mantém sua identidade e sua posição, mesmo quando está vazio;
+- clientes chegam ao final da fila e são chamados pelo início;
+- `cutInLine` altera somente a ordem da fila;
+- `giveUp` remove somente um cliente que ainda espera;
+- falhas não removem clientes nem ocupam caixas;
+- a representação de `show` permite conferir simultaneamente os caixas e a fila.
+
+### Invariantes
+
+- a quantidade de caixas permanece fixa até um novo `init`;
+- uma posição de caixa contém no máximo um cliente;
+- um cliente chamado deixa a fila antes de ocupar um caixa;
+- `giveUp` não remove clientes que já estão sendo atendidos;
+- operações inválidas preservam o estado anterior.
+
 - A classe `Market` representa o estabelecimento, com atributos como caixas de atendimento `counters` e uma fila de espera de clientes `waiting`.
 - Os caixas `counters` são modelados como um vetor de clientes de tamanho fixo. Uma posição do caixa terá o valor `null` para indicar que o caixa está vazio ou terá um objeto cliente.
   - typescript: `counters: (Person | null)[]`
@@ -23,7 +48,7 @@ Esta atividade serve como referência para comparar dois usos de coleções no m
   - java: `LinkedList<Person> waiting`
   - cpp: `list<Person*> waiting`
 - As operações principais incluem chegar cliente `arrive`, chamar no caixa `call` e finalizar atendimento `finish`.
-- As operações "bônus" são furar fila `cutInLine` e abandonar fila de espera `giveup`.
+- As operações complementares são furar fila `cutInLine` e abandonar a fila de espera `giveUp`.
 
 ### Comandos
 
@@ -34,6 +59,8 @@ Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma
 - `$arrive` - Adiciona um cliente à fila de espera. Deve ser seguido pelo nome do cliente.
 - `$call` - Chama o próximo cliente na fila de espera para um caixa disponível. Deve ser seguido pelo número do caixa.
 - `$finish` - Finaliza o atendimento de um cliente em um caixa. Deve ser seguido pelo número do caixa.
+- `$cutInLine` - Insere um novo cliente imediatamente antes de outro cliente da fila. Deve ser seguido pelos nomes do novo cliente e do cliente que será ultrapassado.
+- `$giveUp` - Remove da fila o primeiro cliente com o nome informado.
 
 ## Guide
 
@@ -89,6 +116,15 @@ Espera: [carla, maria, rubia]
 - Verifique se o índice do caixa é válido e, se não for, emita a mensagem de erro `fail: caixa inexistente`.
 - Verifique se há alguém sendo atendido no caixa. Se não houver, emita a mensagem de erro `fail: caixa vazio`.
 - Retorne o cliente que foi atendido e libere o caixa, definindo-o como null.
+
+### Parte 6: Furar fila e desistir
+
+- Implemente `cutInLine(sneaky: Person, fool: string)` procurando o cliente-alvo somente na fila e inserindo o novo cliente imediatamente antes dele.
+- Se o cliente-alvo não estiver esperando, não altere a fila e informe `fail: pessoa nao esta na fila`.
+- Implemente `giveUp(name: string)` removendo somente a primeira ocorrência encontrada na fila.
+- Se o cliente não estiver na fila, não altere caixas nem fila e informe `fail: pessoa nao esta na fila`.
+
+Ao terminar, compare as duas coleções: inserir no meio da fila desloca posições relativas, enquanto chamar ou finalizar altera a relação entre a fila e um caixa específico.
 
 ## Answers
 
@@ -189,6 +225,46 @@ fail: caixa vazio
 
 $end
 
+```
+
+```sh
+#TEST_CASE operações da fila
+
+$init 2
+$arrive ana
+$arrive bia
+$arrive dora
+$cutInLine caio dora
+$show
+Caixas: [-----, -----]
+Espera: [ana, bia, caio, dora]
+
+#TEST_CASE desistir no meio
+
+$giveUp bia
+$show
+Caixas: [-----, -----]
+Espera: [ana, caio, dora]
+
+#TEST_CASE fila furada e desistência inválidas
+
+$cutInLine eva rita
+fail: pessoa nao esta na fila
+$giveUp rita
+fail: pessoa nao esta na fila
+$show
+Caixas: [-----, -----]
+Espera: [ana, caio, dora]
+
+#TEST_CASE desistir após atendimento
+
+$call 0
+$giveUp ana
+fail: pessoa nao esta na fila
+$show
+Caixas: [ana, -----]
+Espera: [caio, dora]
+$end
 ```
 
 ## Draft
