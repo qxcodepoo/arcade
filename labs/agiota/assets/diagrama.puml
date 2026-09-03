@@ -1,72 +1,56 @@
-
 @startuml
 
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-
-
 enum Label {
-  GIVE,
-  TAKE,
+  GIVE
+  TAKE
   PLUS
-  toString(): string
 }
 
 class Operation {
-  - id   : int
-  - name : string
+  - id: number
+  - name: string
   - label: Label
-  - value: int
+  - value: number
   __
-  + Operation(id: int, name: string, label: Label, value: int)
-  + toString() : String
-  __
-  + getId()   : int
-  + getName() : string
-  + getLabel(): Label
+  + Operation(id: number, name: string, label: Label, value: number)
+  + toString(): string
 }
 
 class Client {
   - name: string
-  - limite: int
-  - operations: List<Operation*>
+  - limit: number
+  - operations: Array<Operation>
   __
-  + Client(name: string, limite: int)
-  + toString() : String
-  __
-  + getName() : string
-  + getLimite() : int
-  + getOperations() : List<Operation*>
-  + addOperation(name: string, label: Label, value: int)
-  __
-  + getBalance() : int
+  + Client(name: string, limit: number)
+  + addOperation(operation: Operation): void
+  + balance(): number
+  + toString(): string
 }
 
 class Agiota {
-  - alive_list : List<Client>
-  - death_list : List<Client>
-  - alive_oper : List<Operation*>
-  - death_oper : List<Operation*>
-  - nextOpId : int
+  - clients: Map<string, Client>
+  - deadClients: Array<Client>
+  - operations: Array<Operation>
+  - deadOperations: Array<Operation>
+  - nextOperationId: number
   __
-  - searchClient(name: string) : int
-  - pushOperation(client: Client, name: string, label: Label, value: int)
+  - client(name: string): Client
+  - addOperation(client: Client, label: Label, value: number): void
   __
-  + Agiota()
-  + getClient(name: string) : Client*
-  + addClient(name: string, limite: int)
-  + give(name: string, value: int)
-  + take(name: string, value: int)
-  + kill(name: string)
-  + plus()
-  __
-  + toString() : String
+  + addClient(name: string, limit: number): void
+  + give(name: string, value: number): void
+  + take(name: string, value: number): void
+  + kill(name: string): void
+  + plus(): void
+  + clientText(name: string): string
+  + toString(): string
 }
 
-
-Client "1" o--  "0..*" Operation
-Agiota "1" *--  "0..*" Operation
-Agiota "1" *--  "0..*" Client
+Client "1" o-- "0..*" Operation
+Agiota "1" *-- "0..*" Operation
+Agiota "1" *-- "0..*" Client
 
 @enduml

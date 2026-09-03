@@ -1,6 +1,8 @@
 # Gerencie os empréstimos do agiota
 
 <!-- toc-table -->
+[Objetivo pedagógico](#objetivo-pedagógico) | [Regras](#regras) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
+-- | -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -12,6 +14,30 @@ Seu Plutolomeu é um agiota que empresta dinheiro a juros de 10%. Ele é uma pes
 Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empréstimos que ele tinha instalado em seu computador.
 
 ***
+
+## Objetivo pedagógico
+
+Esta atividade dá continuidade à agenda: em vez de localizar clientes em uma
+lista, o sistema usa o codenome como chave de um mapa. O objetivo principal é
+perceber que a estrutura de dados deve representar a identidade usada pelo
+domínio. Como objetivo secundário, as exceções separam falhas de regras de
+negócio da leitura de comandos e da apresentação das mensagens.
+
+## Regras
+
+- O codenome identifica unicamente cada cliente ativo.
+- O mapa de clientes ativos é a única fonte de verdade para cadastro e busca.
+- O limite é o máximo da dívida atual.
+- `give` só pode ser realizado quando a nova dívida não ultrapassar o limite.
+- `take` não pode ser maior que a dívida atual.
+- Os juros aumentam a dívida em 10%, arredondando para cima. Clientes sem
+  dívida não geram uma operação de juros de valor zero.
+- Uma operação possui valor positivo, identificador crescente e é compartilhada
+  pelo histórico global e pelo histórico do cliente.
+- Ao morrer, o cliente deixa o mapa de ativos. Seu histórico é movido para o
+  histórico de mortos e não participa mais de juros ou novas operações.
+- As classes do domínio não imprimem mensagens. Elas lançam `AgiotaError`; o
+  `Shell` traduz a falha para o formato observável `fail: ...`.
 
 ## Intro
 
@@ -51,9 +77,38 @@ Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empr�
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+![diagrama](assets/diagrama.png)
 
 [![youtube icon](assets/..//yousolver.webp)](https://youtu.be/XBJrKDd5fYY?si=HkQInss4B1x3HEYF)
+
+Implemente em incrementos pequenos:
+
+1. Modele `Operation` como um registro imutável do que aconteceu e `Client`
+   como o objeto que guarda seu histórico e calcula a dívida.
+2. Troque a busca linear por um `dict[str, Client]` em `Agiota`. A chave é o
+   codenome porque essa é a identidade do cliente no problema.
+3. Centralize a criação de operações em um método privado de coordenação, para
+   que a numeração e o compartilhamento dos objetos não sejam duplicados.
+4. Faça cada regra inválida lançar uma exceção de domínio simples. O `Shell`
+   deve capturá-la e preservar as mensagens do contrato.
+5. Implemente juros e morte como uma sequência verificável: os juros são
+   registrados, depois o cliente que ultrapassou o limite é movido junto com
+   suas operações.
+
+Essa divisão não pretende aumentar a quantidade de classes. `Client` tem o
+estado e as regras do próprio histórico; `Agiota` coordena vários clientes e
+seus históricos; `Operation` apenas representa um fato. Não há necessidade de
+um repositório ou serviço separado nesta etapa. A lista de operações do cliente
+é exposta como uma cópia imutável para que consultas não alterem o estado.
+
+Perguntas para revisão:
+
+- Por que uma lista seria uma representação menos direta para buscar clientes?
+- O que poderia ficar inconsistente se o saldo fosse armazenado além do
+  histórico?
+- Por que a operação deve ser criada uma única vez e compartilhada?
+- O que deixa de acontecer com um cliente depois que ele é movido para os
+  mortos?
 
 
 ## Shell
@@ -87,6 +142,9 @@ fail: cliente nao existe
 
 $give rubia 30
 fail: limite excedido
+
+$take rubia 70
+fail: pagamento excede divida
 
 $show
 :) maria 400/500
@@ -190,6 +248,15 @@ $show
 - id:4 plus:maria 43
 - id:7 plus:maria 48
 
+$end
+```
+
+```bash
+#TEST_CASE no_zero_interest
+$addCli clara 0
+$plus
+$show
+:) clara 0/0
 $end
 ```
 
