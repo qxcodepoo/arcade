@@ -7,16 +7,30 @@ left to right direction
 class Player {
   - label: number  
   - pos  : number
-  - free : boolean
+  - trapped : boolean
   __
   + Player(label: number)
-  + isFree()   : boolean
+  + isTrapped()   : boolean
   + toString() : string
   __
   + getLabel(): number
   + getPos()  : number
   + setPos(pos: number): void
-  + setFree(free : boolean): void
+  + setTrapped(trapped : boolean): void
+}
+
+enum EventType {
+  MOVED
+  TRAPPED
+  RELEASED
+  STAYED_TRAPPED
+  WON
+}
+
+class RoundEvent {
+  + eventType: EventType
+  + playerLabel: number
+  + position: number
 }
 
 class Board {
@@ -29,7 +43,7 @@ class Board {
   + toString(): string
   __
   + addTrap (pos  : number): void
-  + rollDice(value: number): void
+  + rollDice(value: number): Array<RoundEvent>
 }
 
 Board "1" *--  "2..*" Player : > has
