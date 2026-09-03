@@ -1,0 +1,42 @@
+@startuml
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+left to right direction
+
+class Phone {
+  - label: string
+  - number: string
+  + toString(): string
+}
+
+class Contact {
+  - name: string
+  - phones: Array<Phone>
+  + addPhone(phone: Phone): void
+  + removePhone(label: string): boolean
+  + firstPhone(): Phone | null
+  + hasNumber(number: string): boolean
+}
+
+class CallRegistry {
+  - callsByNumber: Map<string, number>
+  - history: Array<string>
+  + register(number: string): void
+  + count(number: string): number
+  + getHistory(): Array<string>
+}
+
+class Agenda {
+  - contacts: Map<string, Contact>
+  - registry: CallRegistry
+  + addContact(contact: Contact): void
+  + removeContact(name: string): boolean
+  + call(target: string): string | null
+  + speedList(): Array<Contact>
+  + historyLines(): Array<string>
+}
+
+Agenda "1" *-- "0..*" Contact
+Contact "1" *-- "0..*" Phone
+Agenda "1" *-- "1" CallRegistry : composes
+@enduml
