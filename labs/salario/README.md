@@ -1,98 +1,68 @@
-# @salario
+# Salário — regras de cálculo polimórficas
 
-<!-- toc-table -->
-<!-- toc-table -->
+<toc-table />
 
 ![cover](assets/cover.webp)
 
-A UFC está precisando de um novo sistema de geração de folhas de pagamento, você aceita o desafio?'
-
-Você deve desenvolver um sistema para calcular o salário de um funcionário de acordo com sua função e adicionais
-
 ## Intro
 
-- Cadastrar funcionario pelo nome.
-  - nome do funcionario é único
-  - funcionário pode ser professor, servidor tec. administrativo ou terceirizado
-- Mostrar funcionário
-- Remover funcionário
+Uma folha de pagamento reúne professores, servidores técnico-administrativos e
+terceirizados. Todos são funcionários, mas cada categoria calcula o salário
+base de forma diferente e possui limite próprio para diárias.
 
-### Regras de negócio parte 1
+O objetivo principal é usar uma abstração comum para substituir regras de
+cálculo sem condicionais na folha. Como objetivo secundário, a atividade mostra
+que um valor compartilhado, como bônus, deve ser calculado na coordenação e
+aplicado a todos os funcionários.
 
-- O salário de professor deve ser calculado com base na sua classe
-  - A 3000
-  - B 5000
-  - C 7000
-  - D 9000
-  - E 11000
-- O Sta(Servidor Técnico Administrativo) tem um salario base de 3000 e é acrescentado mais 300 de acordo com seu nível
-  - salario = 3000 + 300 * nivel
-- O salário do Ter(Terceirizado) é obtido do produto das horas trabalhadas e 4
-    e é acrescentado 500 se for insalubre
-  - salario = 4 * horas (+ 500 se insalubre)
+## Regras
 
-### Regras de negócio parte 2
+- O nome do funcionário é único.
+- Professor: A=`3000`, B=`5000`, C=`7000`, D=`9000`, E=`11000`.
+- Servidor: `3000 + 300 * nível`.
+- Terceirizado: `4 * horas`, mais `500` quando insalubre.
+- Professor recebe no máximo 2 diárias; servidor, 1; terceirizado, nenhuma.
+- Cada diária acrescenta `100` ao salário.
+- O bônus definido pela folha é dividido igualmente entre os funcionários.
+- Remover funcionário reduz o grupo que divide um novo bônus.
 
-- Adicionar diárias
-- Prof podem receber no máximo 2 diárias, Sta no máximo 1 e Ter não podem receber.
-- Diarias aumentam 100 reais no salario
+## Diagrama
 
-### Requisitos e Regras de negócio parte 3
-
-- Adicionar bônus. O valor do bônus é definido e então é dividido igualmente entre todos os funcionários.
-- O valor do bônus pode mudar e o salário deve ser recalculado.
-
-## Shell
-
-```bash
-#TEST_CASE begin
-$addProf david C
-$addProf elvis D
-$addSta gilmario 3
-$addTer helder 40 sim
-$showAll
-prof:david:C:7000
-prof:elvis:D:9000
-sta:gilmario:3:3900
-ter:helder:40:sim:660
-$rm elvis
-$showAll
-prof:david:C:7000
-sta:gilmario:3:3900
-ter:helder:40:sim:660
-
-#TEST_CASE diaria
-$addDiaria david
-$addDiaria david
-$addDiaria david
-fail: limite de diarias atingido
-$show david
-prof:david:C:7200
-$addDiaria gilmario
-$addDiaria gilmario
-fail: limite de diarias atingido
-$show gilmario
-sta:gilmario:3:4000
-$addDiaria helder
-fail: terc nao pode receber diaria
-
-#TEST_CASE bonus
-
-# um bonus de 600, para 3 funcionários vai dar 200 reais pra cada
-$setBonus 600
-$show gilmario 
-sta:gilmario:3:4200
-
-$setBonus 300
-$show gilmario
-sta:gilmario:3:4100
-$end
-```
+![Diagrama de classes](assets/diagrama.png)
 
 ## Guide
 
-- Faça com que prof, sta e ter sejam subclasses de Funcionário, ou seja herdem todos os atributos e métodos da classe Funcionário.
-- Utilize apenas um repositório (tire proveito do polimorfismo).
-- As classes filhas devem sobrescrever os métodos herdados da classe pai sempre que você achar necessário.
+1. Modele `Employee` com o comportamento comum e deixe o salário base e o
+   limite de diárias abstratos. A classe não deve conhecer o tipo concreto.
+2. Implemente as três fórmulas nas subclasses. Mantenha os dados necessários
+   junto da regra que os usa.
+3. Faça `Payroll` possuir o mapa de funcionários, controlar o bônus e delegar
+   diárias ao funcionário localizado.
+4. Calcule o bônus no momento da consulta. Assim alterar o bônus ou remover
+   alguém não exige reescrever salários armazenados.
+5. Trate limites de diárias como falhas de domínio e deixe o `Shell` apenas
+   converter argumentos e apresentar mensagens.
 
-![diagrama](assets/diagrama.webp)
+A herança é adequada aqui porque todas as categorias compartilham a identidade
+de funcionário e o contrato de salário, mas substituem uma regra central. O
+custo é manter subclasses com políticas distintas; o benefício é adicionar uma
+categoria sem espalhar testes de tipo pela folha.
+
+## Verificação
+
+Execute `python3 -m unittest discover src/py` e verifique fórmulas, limites de
+diárias, bônus dividido e remoção.
+
+## Shell
+
+```sh
+#TEST_CASE basic
+$addProf david C
+$addSta ana 3
+$addDiaria david
+$setBonus 200
+$showAll
+prof:david:C:7200
+sta:ana:3:4000
+$end
+```

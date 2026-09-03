@@ -1,46 +1,53 @@
-# @mensagem
+# Mensagem — inbox e leitura destrutiva
 
-<!-- toc-table -->
-<!-- toc-table -->
+<toc-table />
 
 ![cover](assets/cover.webp)
 
-Essa atividade é a base conceitual para simplificar a troca de mensagens entre dois usuários de um sistema. Cada usuário deve conter um _inbox_ que guarda as mensagens recebidas.
-
-***
-
 ## Intro
 
-- Adicionar usuários usando o nome como chave única.
-- Enviar mensagens de texto entre usuários.
-- Ler as mensagens não lidas de um usuário.
+Esta atividade apresenta o menor modelo útil para troca de mensagens: usuários
+são identificados por username, uma mensagem tem remetente e texto, e cada
+usuário mantém seu inbox.
 
-***
+O objetivo principal é separar cadastro, envio e leitura em responsabilidades
+pequenas. A regra de negócio central é que ler o inbox devolve as mensagens
+pendentes e as remove, simulando uma caixa de entrada consumível.
+
+## Regras
+
+- usernames são únicos.
+- Só usuários cadastrados podem enviar ou receber.
+- O destinatário recebe a mensagem no próprio inbox.
+- A leitura retorna as mensagens na ordem de chegada e limpa o inbox.
+- Um inbox vazio é exibido como `- empty -`.
+
+## Diagrama
+
+![Diagrama de classes](assets/diagrama.png)
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+Modele `Message` como valor imutável. Faça `User` possuir a fila de mensagens
+e `Messaging` possuir o mapa de usuários. O serviço coordena a busca e a
+entrega, mas não manipula o inbox por fora. Teste a leitura duas vezes para
+tornar visível o consumo da mensagem.
+
+## Verificação
+
+Execute `python3 -m unittest discover src/py` e verifique usuários inexistentes,
+ordem de mensagens e leitura única.
 
 ## Shell
 
-```python
-#TEST_CASE unique
+```sh
+#TEST_CASE basic
 $addUser david
 $addUser celia
 $sendMsg david celia voce esta com fome?
-$sendMsg david celia ganhei duas cortesias para comer no McLanches, bora?
-$inbox david
-- empty -
-$sendMsg david celia me avisa se quiser ir!
 $inbox celia
 david:voce esta com fome?
-david:ganhei duas cortesias para comer no McLanches, bora?
-david:me avisa se quiser ir!
-$sendMsg celia david na hora, te encontro la em 10 min
-$inbox david
-celia:na hora, te encontro la em 10 min
-$sendMsg david celia ja to aqui
 $inbox celia
-david:ja to aqui
+- empty -
 $end
 ```

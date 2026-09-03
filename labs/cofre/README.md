@@ -1,147 +1,72 @@
-# Seu porquinho cresceu
+# Cofre — polimorfismo por contrato de valor
 
-<!-- toc-table -->
-<!-- toc-table -->
+<toc-table />
 
 ![cover](assets/cover.webp)
 
 ## Intro
 
-O sistema deverá:
+Um cofrinho guarda moedas e itens. Os dois tipos têm valor, volume e uma
+descrição comum, mas continuam sendo conceitos diferentes. A atividade usa
+esse contrato para praticar polimorfismo sem criar uma hierarquia artificial.
 
-- Gerenciar um cofrinho do tipo Porquinho capaz de guardar moedas e itens.
-- As moedas devem ser criadas através de uma `enum`.
-- Ambos moedas e itens deve implementar a Interaface `Valuable`.
-- O volume do cofre incrementa conforme ele recebe itens e moedas.
-- A lógica da utilização do cofre é:
-  - Para inserir moedas e itens, o cofre deve estar inteiro.
-  - Para obter moedas e itens, o cofre deve estar quebrado.
-  - Ao quebrar, o volume do porco deve ser zerado e o status de broken deve ser alterado para `true`.
-  - Ao obter moedas e itens, você deve retornar os objetos armazenados.
-  - Calcular o valor e o volume atual do porco deve ser feito através do método getValue() e getVolume().
-  - Moedas e Itens devem ser armazenados em uma mesma lista de Valuables.
+O objetivo principal é modelar uma coleção heterogênea por meio de um contrato
+comum. Como objetivo secundário, a atividade reforça invariantes de estado:
+somente um cofre intacto recebe valores e somente um cofre quebrado permite
+extração.
 
-***
+## Regras
 
-## Draft
+- `Coin` possui os valores `M10`, `M25`, `M50` e `M100`, com volume próprio.
+- `Item` possui `label`, `value` e `volume`.
+- `Coin` e `Item` atendem ao contrato `Valuable` (`get_label`, `get_value`, `get_volume`).
+- O cofre não aceita um valor que ultrapasse sua capacidade.
+- Um cofre quebrado não recebe novos valores.
+- Quebrar o cofre zera o volume exibido, mas não apaga os valores guardados.
+- Extrações só podem ocorrer depois da quebra e removem apenas o tipo pedido.
+- O valor total é a soma dos valores que ainda estão guardados.
 
-<!-- links .cache/starter -->
-<!-- links -->
+## Diagrama
 
+![Diagrama de classes](assets/diagrama.png)
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+1. Defina o protocolo `Valuable` com os três métodos de consulta que o cofre
+   precisa. Não coloque nele operações específicas de moedas ou itens.
+2. Modele `Coin` com `Enum` e `Item` como valor imutável. Ambos devem poder ser
+   inseridos na mesma lista sem o `Pig` conhecer seus detalhes de construção.
+3. Faça o `Pig` controlar capacidade, estado quebrado e soma dos valores. A
+   classe é a dona das invariantes porque também possui a coleção.
+4. Implemente as extrações filtrando a coleção e substituindo-a pelo restante.
+   Verifique que extrair moedas não remove itens e vice-versa.
+5. Mantenha o `Shell` responsável por converter comandos e apresentar erros;
+   as regras e os cálculos devem permanecer testáveis sem entrada do terminal.
 
-[![youtube icon](assets/..//yousolver.webp)](https://youtu.be/vzGO1V1nGpY?si=mZZ9da229M9KTf3b)
+O contrato comum reduz o acoplamento: o cofre depende das propriedades que usa,
+não de uma classe concreta. O custo é exigir que cada novo valor forneça esse
+contrato. A extensão natural é adicionar outra classe valiosa sem alterar a
+capacidade, a soma ou o fluxo do cofre.
 
+## Verificação
+
+Execute `python3 -m unittest discover src/py` e confira capacidade cheia,
+tentativa de inserção após quebra, extração antes da quebra, extrações parciais
+e preservação dos valores restantes.
 
 ## Shell
 
 ```sh
-#TEST_CASE init
-$init 20
-$show
-[] : 0.00$ : 0/20 : intact
-
-#TEST_CASE insert
-$addCoin 10
-$show
-[M10:0.10:1] : 0.10$ : 1/20 : intact
-
-$addCoin 50
-$show
-[M10:0.10:1, M50:0.50:3] : 0.60$ : 4/20 : intact
-
-#TEST_CASE itens
-$addItem ouro 50.0 3
-$show
-[M10:0.10:1, M50:0.50:3, ouro:50.00:3] : 50.60$ : 7/20 : intact
-
-$addItem passaporte 0.0 2
-$show
-[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
-
-#TEST_CASE failed break
-$extractItems
-fail: you must break the pig first
-
-$extractCoins
-fail: you must break the pig first
-
-$show
-[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 9/20 : intact
-
-#TEST_CASE breaking
-$break
-$show
-[M10:0.10:1, M50:0.50:3, ouro:50.00:3, passaporte:0.00:2] : 50.60$ : 0/20 : broken
-
-#TEST_CASE extractItems
-
-$extractItems
-[ouro:50.00:3, passaporte:0.00:2]
-
-$show
-[M10:0.10:1, M50:0.50:3] : 0.60$ : 0/20 : broken
-
-#TEST_CASE extractCoins
-
-$extractCoins
-[M10:0.10:1, M50:0.50:3]
-
-$show
-[] : 0.00$ : 0/20 : broken
-$end
-```
-
-```sh
-#TEST_CASE
-$init 10
-
-$break
-
-$addCoin 10
-fail: the pig is broken
-
-$show
-[] : 0.00$ : 0/10 : broken
-
-$addItem bilhete 0.00 2
-fail: the pig is broken
-
-$show
-[] : 0.00$ : 0/10 : broken
-
-$end
-```
-
-```sh
-#TEST_CASE full coin
+#TEST_CASE basic
 $init 5
-
 $addCoin 10
-$addCoin 25
+$addItem gold 50.0 3
 $show
-[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
-
-$addCoin 50
-fail: the pig is full
-
-$show
-[M10:0.10:1, M25:0.25:2] : 0.35$ : 3/5 : intact
-
-#TEST_CASE full item
-$addItem ouro 100.0 1
-
-$show
-[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : intact
-
-$addItem pirulito 5.50 2
-fail: the pig is full
-
-$show
-[M10:0.10:1, M25:0.25:2, ouro:100.00:1] : 100.35$ : 4/5 : intact
-
+[M10:0.10:1, gold:50.00:3] : 50.10$ : 4/5 : intact
+$break
+$extractItems
+[gold:50.00:3]
+$extractCoins
+[M10:0.10:1]
 $end
 ```

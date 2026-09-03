@@ -1,66 +1,37 @@
-# @grupo
+# Grupo — contrato comum para chats
 
-<!-- toc-table -->
-<!-- toc-table -->
+<toc-table />
 
 ![cover](assets/cover.webp)
 
-- Usuários podem ser adicionados ao sistema e devem ter id único.
-- Os usuários podem criar grupos e convidar outros usuários do sistema.
-    - O id de um grupo deve ser único entre grupos e usuários.
-- Usuários podem abrir talks, que são chats entre dois usuário.
-    - O id de um talk é formado pelo id dos dois usuários que participam, separados por -.
-    - Se maria e abel abrem o chat, o id do chat é abel-maria, ordenando os nomes.
+## Intro
 
-```sh
-#TEST_CASE init
-$addUser goku
-$addUser sara
-$addUser tina
-$newGroup goku familia
-$invite goku sara familia
-$newTalk goku tina
-$notify goku
-[familia goku-tina]
-$notify sara
-[familia]
-$notify tina
-[goku-tina]
-```
+Usuários podem criar grupos e conversas individuais. Ambos enviam e leem
+mensagens, mas só grupos permitem convite e saída. A atividade usa uma classe
+abstrata para compartilhar o fluxo comum e deixar as capacidades específicas
+explícitas.
 
-- Todos os comandos para enviar zap e receber, ver notificações e etc devem funcionar para Talks e Grupos.
-- Se o usuário tentar sair de um Talk ou Convidar alguém, exiba uma mensagem de erro.
+## Regras
 
-```sh
-#TEST_CASE zap
-$zap goku familia to levando pizza
-$notify sara
-[familia(1)]
-$ler sara familia
-[goku: to levando pizza]
-$zap sara familia a tina ta aqui te esperando
-$zap goku goku-tina passa la em casa
-$notify tina
-[goku-tina(1)]
-$ler tina goku-tina
-[goku: passa la em casa]
-$zap tina goku-tina ja to aqui com a sara esperando
-$ler goku goku-tina
-[tina: ja to aqui com a sara esperando]
-$ler goku familia
-[sara: a tina ta aqui te esperando]
-$invite goku sara goku-tina
-fail: operacao de acionar usuarios nao suportada
-$leave goku goku-tina
-fail: operacao de sair do chat nao suportada
-$end
-```
+- Usuários têm ids únicos.
+- Um grupo começa com seu criador; conversas têm exatamente dois participantes.
+- Apenas participantes enviam e leem mensagens.
+- Cada participante possui mensagens não lidas próprias; o remetente não recebe sua mensagem.
+- Grupo aceita convite e saída; `Talk` rejeita essas operações.
+- O id de um talk é os dois nomes ordenados por hífen.
 
-## Guia de Atividade
+## Diagrama
 
-![diagrama](assets/diagrama.webp)
+![Diagrama de classes](assets/diagrama.png)
 
+## Guide
 
-## Créditos
+Extraia `Chat` porque grupo e talk têm o mesmo contrato de envio/leitura, mas
+políticas diferentes para convite e saída. `Messenger` possui o mapa e cria os
+objetos; não coloque essas regras no Shell. O padrão aqui é uma especialização
+por herança guiada por comportamento, não por reutilização acidental.
 
-Fica o agradecimento para turma de POO DD 2017.2 que fez nascer essa atividade comigo.
+## Verificação
+
+Execute `python3 -m unittest discover src/py` e verifique membros, mensagens
+independentes e operações não suportadas em talk.

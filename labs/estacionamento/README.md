@@ -1,129 +1,67 @@
-# Cobrando o valor de carros e motos
+# Estacionamento — polimorfismo por tipo de veículo
 
-<!-- toc-table -->
-<!-- toc-table -->
-
-![_](assets/cover.webp)
+<toc-table />
 
 ## Intro
 
-O sistema de estacionamento é responsável por gerenciar veículos em um estacionamento, registrando a entrada e saída de veículos, calculando o valor a ser pago pelo tempo de permanência e fornecendo informações sobre os veículos estacionados.
+Um estacionamento recebe veículos de tipos diferentes e precisa cobrar cada um
+de acordo com a sua regra. A atividade retoma herança e método abstrato para
+mostrar que uma operação comum pode variar sem transformar o estacionamento em
+uma sequência de condicionais.
 
-- Você deve utilizar herança para construir um sistema para gerenciar um estacionamento de bicicletas, carros e motos.
-- A classe Veículo é uma classe abstrata que possui os atributos `id`, `entrada` e `tipo`.
-- A classe Veículo possui um método abstrato `calcularValor()` que deve ser implementado pelas classes filhas.
-- A classe Veículo possui um método `toString()`.
+O objetivo principal é praticar polimorfismo: o estacionamento coordena a
+entrada, o tempo e a saída, enquanto cada veículo conhece sua própria tarifa.
+Como objetivo secundário, a atividade exercita composição e encapsulamento do
+estado da coleção de veículos.
 
-### Responsabilidades
+## Regras
 
-- **Registrar Entrada de Veículo:**
-  - O sistema deve permitir que novos veículos entrem no estacionamento, registrando o tipo de veículo e seu identificador.
-  - O tempo de entrada do veículo deve ser registrado.
+- A entrada recebe um tipo (`bike`, `moto` ou `carro`) e um identifier.
+- O veículo guarda o momento em que entrou; uma nova entrada usa o tempo atual.
+- Não podem existir dois veículos com o mesmo identifier.
+- `Bike` custa sempre `R$ 3.00`.
+- `Motorcycle` custa `minutes / 20`.
+- `Car` custa `minutes / 10`, com valor mínimo de `R$ 5.00`.
+- Pagar imprime o recibo e remove o veículo do estacionamento.
+- Um identifier inexistente não pode ser pago.
+- O tempo avançado não pode ser negativo.
 
-- **Registrar Saída de Veículo:**
-  - O sistema deve permitir que veículos saiam do estacionamento, registrando o tempo de saída do veículo.
-  - Com base no tempo de entrada e saída, o sistema deve calcular o valor a ser pago pelo estacionamento.
+O domínio não imprime nem interpreta comandos. `ParkingLot` coordena o estado,
+e `Vehicle.price_for` é o ponto de variação que cada tipo implementa. Assim, a
+regra de preço fica coesa com os dados e o comportamento do veículo, enquanto
+a classe coordenadora não precisa conhecer a fórmula de cada tipo.
 
-- **Calcular Valor a Pagar:**
-  - O valor a ser pago pelo estacionamento é calculado com base no tipo de veículo estacionado e no tempo de permanência.
-  - O cálculo do valor varia de acordo com o tipo de veículo:
-    - **Bike:** paga R$3 fixos.
-    - **Moto:** paga o valor em minutos dividido por 20.
-    - **Carro:** paga o valor em minutos dividido por 10, mas o valor mínimo é 5.00.
+## Diagrama
 
-- **Obter Lista de Veículos Estacionados:**
-  - O sistema deve ser capaz de fornecer uma lista de todos os veículos atualmente estacionados, incluindo o tipo de veículo, identificador e tempo de entrada.
+![Diagrama de classes](assets/diagrama.png)
 
 ## Guide
-[![youtube icon](../yousolver.webp)](https://youtu.be/PBabGC5nlPE?si=NgkxkLArCDVx52fJ)
 
-![_](assets/diagrama.webp)
+1. Modele `Vehicle` com o identifier, o horário de entrada e um método abstrato
+   para calcular o preço. Pergunte: qual comportamento é comum e qual varia?
+2. Crie `Bike`, `Motorcycle` e `Car`, implementando apenas a tarifa de cada
+   tipo. O mesmo código de saída deve poder chamar `price_for` sem testar a
+   classe concreta: esse é o polimorfismo em ação.
+3. Crie `ParkingLot` com o relógio e uma coleção indexada pelo identifier.
+   Coloque nele as regras de duplicidade, entrada, passagem do tempo e busca.
+4. Faça `pay` localizar o veículo, calcular o preço, gerar o recibo e removê-lo
+   apenas quando a operação for válida. Teste que uma falha não apaga o estado.
+5. Escreva o `Shell` como uma camada fina: converter argumentos, invocar o
+   domínio e apresentar mensagens. As exceções nomeadas distinguem falhas de
+   domínio sem espalhar mensagens pela modelagem.
 
-Você pode controlar o alinhamento e preenchimento com "_" que o método `toString()` deve retornar assim.
+A divisão não existe para aumentar o número de classes. Ela acompanha duas
+   responsabilidades reais: os veículos possuem fórmulas substituíveis, e o
+   estacionamento possui a ocupação e o relógio. O custo é manter uma classe
+   base e uma implementação para cada tarifa; o benefício é adicionar um novo
+   tipo sem alterar o fluxo de entrada e pagamento.
 
-```cpp
-//cpp
-virtual string toString() const {
-    stringstream ss;
-    ss << setw(10) << setfill('_') <<  tipo << " : " << setw(10) << setfill('_') << id << " : " << entrada;
-    return ss.str();
-}
-```
+## Verificação
 
-```java
-//java
-//Em java não existe método de alinhamento que permite escolher o caracter de preenchimento
-//Então vamos fazer uma adaptação
-public String toString() {
-    return String.format(
-        "%10s-:-%10s-:-%s", //alinhar a direita 10 caracteres inserindo espaços
-        this.tipo,
-        this.id,
-        this.horaEntrada
-    )
-        .replace(' ', '_') //substituir espaço por underline
-        .replace('-', ' '); //substituir hífen por espaço
-}
-```
+Execute os testes com `python3 -m unittest discover src/py` e verifique também:
 
-```ts
-//ts
-toString(): string {
-    return this.tipo.padStart(10, "_") + " : " + this.id.padStart(10, "_") + " : " + this.entrada;
-}
-```
-
-## Shell
-
-```sh
-
-#TEST_CASE entrada bike
-$show
-Hora atual: 0
-$tempo 30
-$estacionar bike elias
-$show
-______Bike : _____elias : 30
-Hora atual: 30
-
-#TEST_CASE entrada moto
-$tempo 20
-$estacionar moto abc1234
-$show
-______Bike : _____elias : 30
-______Moto : ___abc1234 : 50
-Hora atual: 50
-#TEST_CASE entrada carro
-$tempo 50
-$estacionar carro pog1000
-$show
-______Bike : _____elias : 30
-______Moto : ___abc1234 : 50
-_____Carro : ___pog1000 : 100
-Hora atual: 100
-$tempo 100
-$estacionar carro uva9999
-$tempo 30
-$show
-______Bike : _____elias : 30
-______Moto : ___abc1234 : 50
-_____Carro : ___pog1000 : 100
-_____Carro : ___uva9999 : 200
-Hora atual: 230
-
-#TEST_CASE saida
-$pagar elias
-Bike chegou 30 saiu 230. Pagar R$ 3.00
-$pagar abc1234
-Moto chegou 50 saiu 230. Pagar R$ 9.00
-$pagar pog1000
-Carro chegou 100 saiu 230. Pagar R$ 13.00
-$pagar uva9999
-Carro chegou 200 saiu 230. Pagar R$ 5.00
-$end
-```
-
-## Draft
-
-<!-- links .cache/starter -->
-<!-- links -->
+- a entrada de cada tipo e o registro do horário;
+- as fórmulas, incluindo o preço mínimo do carro;
+- identifier duplicado e pagamento inexistente;
+- remoção depois de um pagamento válido;
+- rejeição de tempo negativo e separação do domínio em relação ao `Shell`.

@@ -1,0 +1,35 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+class Person {
+  + name: string
+  + age: number
+  __
+  + Person(name: string, age: number)
+  + toString(): string
+}
+
+class Fusca {
+  - seats: Array<Person | null>
+  - km: number
+  __
+  + Fusca()
+  + enter(person: Person, index: number): void
+  + leave(index: number): Person | null
+  + drive(distance: number): void
+  + toString(): string
+}
+
+Fusca "1" o-- "0..4" Person
+
+class Shell {
+  __
+  + main(): void
+}
+
+Shell ..> Fusca : usa
+Shell ..> Person : cria
+
+@enduml

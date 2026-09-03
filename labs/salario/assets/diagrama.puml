@@ -1,0 +1,25 @@
+@startuml
+skinparam classAttributeIconSize 0
+abstract class Employee {
+  # name: string
+  # daily_count: number
+  + base_salary(): number
+  + add_daily(): void
+  + salary(bonus: number, total: number): number
+}
+class Professor
+class Staff
+class Contractor
+class Payroll {
+  - employees: Map<string, Employee>
+  - bonus: number
+  + add(employee: Employee): void
+  + remove(name: string): void
+  + add_daily(name: string): void
+  + set_bonus(value: number): void
+}
+Employee <|-- Professor
+Employee <|-- Staff
+Employee <|-- Contractor
+Payroll "1" *-- "0..*" Employee
+@enduml

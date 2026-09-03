@@ -1,0 +1,26 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+class Bermuda {
+  {static} + DEFAULT_SIZE: string
+  {static} - ALLOWED_SIZES: Array<string>
+  - size: string
+  __
+  + Bermuda(size: string)
+  - validateSize(size: string): void
+  + getSize(): string
+  + setSize(size: string): void
+  {static} + getAllowedSizes(): Array<string>
+  + toString(): string
+}
+
+class Shell {
+  __
+  + main(): void
+}
+
+Shell ..> Bermuda : usa
+
+@enduml

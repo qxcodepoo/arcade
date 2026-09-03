@@ -3,64 +3,64 @@
 skinparam defaultFontName "Source Code Pro"
 skinparam dpi 150
 
-
 class Pet {
-+ idPet: String
-+ especie: String
---
-+ Pet(idPet: String, especie: String)
-+ toString(): String
+  - id: number
+  - name: string
+  - species: string
+  __
+  + Pet(id: number, name: string, species: string)
+  + toString(): string
 }
 
 class Client {
-+ idClient: String
-+ pets: Map<String, Pet>
---
-+ Client (idClient: String)
-+ toString(): String
---
-+ addPet(pet: Pet): void
-+ getPet(idPet: String): Pet
-+ delPet(idPet: String): void
-+ listPets(): List<Pet>
+  - id: string
+  - name: string
+  - pets: Map<string, Pet>
+  __
+  + Client(id: string, name: string)
+  + addPet(pet: Pet): void
+  + getPet(name: string): Pet
+  + toString(): string
 }
 
 class Service {
-+ idService: String
-+ price: float
---
-+ Service(idService: String, price: float)
-+ toString(): String
+  - id: string
+  - price: number
+  __
+  + Service(id: string, price: number)
+  + toString(): string
 }
 
 class Sale {
-+ idSale: int
-+ idClient: String
-+ idPet: String
-+ idService: String
---
-+ Sale(idClient: String, idPet: String, idService: String)
-+ toString(): String
+  - id: number
+  - clientId: string
+  - petName: string
+  - serviceId: string
+  - price: number
+  __
+  + Sale(id: number, clientId: string, petName: string, serviceId: string, price: number)
+  + toString(): string
 }
 
 class Clinic {
-+ nextSaleId: int
-+ repServices: Map<String, Service>
-+ repClients: Map<String, Client>
-+ repSales: Map<Integer, Sale>
---
-+ addClient(cliente: Cliente): void
-+ getClient(idClient: String): Client
-+ delClient(idClient: String): void
-+ listClients(): List<Client>
---
-+ addService(nome: String, valor: String): void
-+ getService(idService: String): Service
-+ delService(idService: String): void
-+ listServices(): List<Service>
---
-+ sell(idCliente: String, nomeAnimal: String, IdServico: String): void
-+ listSales(): List<Sale>
-+ balance(): float
+  - clients: Map<string, Client>
+  - services: Map<string, Service>
+  - sales: Array<Sale>
+  - nextPetId: number
+  - nextSaleId: number
+  __
+  + addClient(id: string, name: string): void
+  + getClient(id: string): Client
+  + deleteClient(id: string): void
+  + addPet(clientId: string, name: string, species: string): void
+  + addService(id: string, price: number): void
+  + sell(clientId: string, petName: string, serviceId: string): void
+  + balance(): number
 }
+
+Client "1" *-- "0..*" Pet
+Clinic "1" *-- "0..*" Client
+Clinic "1" *-- "0..*" Service
+Clinic "1" *-- "0..*" Sale
+
 @enduml

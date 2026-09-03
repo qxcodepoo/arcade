@@ -1,0 +1,21 @@
+@startuml
+abstract class Chat {
+  # identifier: string
+  # members: Set<string>
+  + send(sender: string, text: string): void
+  + read(user: string): Array<Message>
+}
+class Group
+class Talk
+class Messenger {
+  - users: Set<string>
+  - chats: Map<string, Chat>
+  + create_group(owner: string, id: string): void
+  + create_talk(first: string, second: string): void
+}
+class Message
+Chat <|-- Group
+Chat <|-- Talk
+Messenger "1" *-- "0..*" Chat
+Chat "1" o-- "0..*" Message
+@enduml

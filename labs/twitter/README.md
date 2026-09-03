@@ -1,246 +1,70 @@
-# Twitter antes de ser bloqueado
+# Twitter — colaboração entre usuários e timelines
 
-<!-- toc-table -->
-<!-- toc-table -->
+<toc-table />
 
 ![cover](assets/cover.webp)
 
-Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow outros usuários do sistema. Ao twittar, a mensagem vai para timeline de todas as pessoas que a seguem. Ao dar like, todos os usuários em suas timelines vêem os likes.
-
-***
-
-## Vídeo
-
-[![_](assets/player.webp)](https://www.youtube.com/watch?v=75-YyuNrOsc)
-
-***
-
 ## Intro
 
-- cadastrar
-  - Adicionar usuário passando username.
-  - Mostrar os usuários cadastrados.
-- follow
-  - Seguir um outro usuário cadastrado.
-  - Mostrar a lista de seguidores.
-  - Mostrar a lista de seguidos.
-- twittar
-  - Twittar um tweet com várias palavras.
-    - O id de um tweet é único globalmente.
-    - O tweet de um usuário vai para o início da timeline de seus seguidores.
-    - O mesmo tweet vai também para sua própria timeline.
-  - Mostrar a timeline de um usuário.
-- like
-  - Dar like num tweet da sua timeline.
-- unfollow
-  - Deixar de seguir um usuário.
-  - Remover todos os tweets desse usuario da sua timeline.
-- retweet
-  - Retweetar um tweet da sua timeline.
-  - Um novo tweet é criado e ele contém uma referência ao tweet original.
-- remover
-  - Remover um usuário do sistema.
-  - Desfazer todos os vínculos de seguidores e seguidos dele.
-  - Marcar todos os tweets dele no sistema como deletados.
-  - Tweets deletados não aparecem nas timelines
-  - Se um tweet é deletado, nos rt deve aparecer "esse tweet foi removido".
+Esta atividade modela uma rede social pequena: usuários seguem usuários,
+publicam tweets, recebem timelines, curtem mensagens e podem retuitar um tweet.
+Também há remoção de usuários e dos tweets que eles publicaram.
 
-***
+O objetivo principal é praticar colaboração entre objetos e relações
+bidirecionais. Como objetivo secundário, a atividade mostra por que uma
+timeline deve ser um componente próprio, com responsabilidade de armazenar e
+consultar tweets sem transformar `User` ou `Twitter` em um objeto monolítico.
 
-## Draft
+## Regras
 
-<!-- links .cache/starter -->
-<!-- links -->
+- usernames e tweet ids são únicos.
+- Um usuário pode seguir outro usuário cadastrado; seguir a si mesmo não produz efeito.
+- Um tweet aparece na timeline do autor e dos seus seguidores no momento da publicação.
+- `like` só pode ser aplicado a um tweet presente na timeline do usuário.
+- Curtidas são compartilhadas pelo tweet e não aparecem duplicadas.
+- `unfollow` remove da timeline do seguidor os tweets do usuário deixado de seguir.
+- `rt` cria um novo tweet e mantém referência ao tweet original.
+- Remover usuário desfaz seus vínculos e marca seus tweets como removidos.
+- Tweets removidos não aparecem sozinhos; uma referência de retweet ainda pode informar que o original foi removido.
+
+## Diagrama
+
+![Diagrama de classes](assets/diagrama.png)
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+1. Modele `Tweet` como objeto compartilhado. Curtidas precisam alterar o tweet
+   visto por todas as timelines, não cópias desconectadas.
+2. Crie `Timeline` para encapsular a coleção de tweets e as operações de
+   receber, procurar e remover por autor. Isso dá coesão à leitura e à limpeza.
+3. Faça `User` manter relações de seguidores e seguidos em ambas as direções.
+   Toda alteração deve atualizar os dois lados, preservando a consistência.
+4. Faça `Twitter` localizar objetos e coordenar a criação, distribuição,
+   retweet e remoção. As regras de armazenamento da timeline permanecem nela.
+5. Implemente o `Shell` depois do domínio, convertendo texto e apresentando
+   exceções nomeadas. Teste relações, compartilhamento de curtidas e falhas.
+
+A atividade trabalha composição e delegação: `Twitter` possui usuários e
+tweets, `User` possui uma timeline, e a timeline recebe tweets compartilhados.
+O custo é coordenar referências entre objetos; o benefício é que cada mudança
+tem uma responsabilidade clara e a evolução não exige um único objeto com
+todas as regras.
+
+## Verificação
+
+Execute `python3 -m unittest discover src/py` e verifique publicação para
+seguidores, unfollow, curtidas, retweet, remoção e ids inexistentes.
 
 ## Shell
 
-```bash
-##################################
-#TEST_CASE cadastrar
-##################################
+```sh
+#TEST_CASE basic
 $add goku
 $add sara
-$add tina
-$show
-goku
-  seguidos   []
-  seguidores []
-sara
-  seguidos   []
-  seguidores []
-tina
-  seguidos   []
-  seguidores []
-
-##################################
-#TEST_CASE follow
-##################################
-
 $follow goku sara
-$follow goku tina
-$follow sara tina
-$show
-goku
-  seguidos   [sara, tina]
-  seguidores []
-sara
-  seguidos   [tina]
-  seguidores [goku]
-tina
-  seguidos   []
-  seguidores [goku, sara]
-
-##################################
-#TEST_CASE twittar
-##################################
-#twittar _userId _msg
-
-$twittar sara hoje estou triste
-$twittar tina ganhei chocolate
-$twittar sara partiu ru
-$twittar tina chocolate ruim
-$twittar goku internet maldita
-
+$twittar sara hoje estou feliz
+$like goku 0
 $timeline goku
-4:goku (internet maldita)
-3:tina (chocolate ruim)
-2:sara (partiu ru)
-1:tina (ganhei chocolate)
-0:sara (hoje estou triste)
-
-$timeline tina 
-3:tina (chocolate ruim)
-1:tina (ganhei chocolate)
-
-$timeline sara
-3:tina (chocolate ruim)
-2:sara (partiu ru)
-1:tina (ganhei chocolate)
-0:sara (hoje estou triste)
-
-##################################
-#TEST_CASE like
-##################################
-#like _username _idTw
-
-$like sara 1
-$like goku 1
-$like sara 3
-
-$timeline sara
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-$timeline goku
-4:goku (internet maldita)
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-
-##################################
-#TEST_CASE unfollow
-##################################
-
-$unfollow goku tina
-$show
-goku
-  seguidos   [sara]
-  seguidores []
-sara
-  seguidos   [tina]
-  seguidores [goku]
-tina
-  seguidos   []
-  seguidores [sara]
-
-$timeline goku
-4:goku (internet maldita)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
-##################################
-#TEST_CASE retweet
-##################################
-
-$timeline sara
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-$rt sara 3 olha goku, ela nao gostou do seu chocolate
-$timeline sara
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3:tina (chocolate ruim) [sara]
-3:tina (chocolate ruim) [sara]
-2:sara (partiu ru)
-1:tina (ganhei chocolate) [goku, sara]
-0:sara (hoje estou triste)
-
-$timeline goku
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3:tina (chocolate ruim) [sara]
-4:goku (internet maldita)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
-##################################
-#TEST_CASE erros
-##################################
-
-# lembre de tratar erros como
-$timeline bruno
-fail: usuario nao encontrado
-$follow goku kuririm
-fail: usuario nao encontrado
-$like sara 4
-fail: tweet nao existe
-
-##################################
-#TEST_CASE remover
-##################################
-$follow tina sara
-$show
-goku
-  seguidos   [sara]
-  seguidores []
-sara
-  seguidos   [tina]
-  seguidores [goku, tina]
-tina
-  seguidos   [sara]
-  seguidores [sara]
-
-$rm tina
-$show
-goku
-  seguidos   [sara]
-  seguidores []
-sara
-  seguidos   []
-  seguidores [goku]
-
-$timeline goku
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3: (esse tweet foi deletado)
-4:goku (internet maldita)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
-$timeline sara
-5:sara (olha goku, ela nao gostou do seu chocolate)
-    3: (esse tweet foi deletado)
-2:sara (partiu ru)
-0:sara (hoje estou triste)
-
+0:sara (hoje estou feliz) [goku]
 $end
-
 ```

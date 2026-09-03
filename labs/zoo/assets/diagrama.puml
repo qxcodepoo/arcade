@@ -1,0 +1,38 @@
+@startuml
+
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
+
+abstract class Animal {
+  + name: string
+  __
+  + Animal(name: string)
+  + {abstract} makeSound(): string
+  + {abstract} move(): string
+}
+
+class Lion {
+  + makeSound(): string
+  + move(): string
+}
+
+class Elephant {
+  + makeSound(): string
+  + move(): string
+}
+
+class Snake {
+  + makeSound(): string
+  + move(): string
+}
+
+class Presenter {
+  + present(animal: Animal): string
+}
+
+Animal <|-- Lion
+Animal <|-- Elephant
+Animal <|-- Snake
+Presenter ..> Animal : depends on
+
+@enduml

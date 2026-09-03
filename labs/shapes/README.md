@@ -1,112 +1,98 @@
-# Utilizando interface em círculos e retângulos
+# [TRAIN] Shapes: interface e substituição geométrica
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
 ## Intro
 
-O objetivo desta atividade é implementar um sistema para gerenciar formas geométricas. Você precisará criar classes para representar pontos, círculos e retângulos.
+Um programa de desenho precisa armazenar círculos e retângulos e apresentar
+suas medidas. As formas possuem dados diferentes, mas oferecem as mesmas
+operações geométricas.
 
-- **Descrição**
-  - A interface `Shape` define métodos que todas as formas geométricas devem implementar.
-  - A classe `Point2D` representa um ponto no plano bidimensional.
-  - As classes `Circle` e `Rectangle` implementam a interface `Shape` e representam um círculo e um retângulo, respectivamente.
+O objetivo principal é definir uma interface comum e escrever uma função que
+trate formas diferentes por substituição. Em Python, a interface é representada
+por um `Protocol`: uma classe pode ser usada como `Shape` quando possui o
+contrato necessário.
 
-### Interface Shape
+## Regras
 
-A interface `Shape` exige a implementação dos seguintes métodos (os métodos abaixo não são implementadas na classe Shape, apenas nas classes filhas):
+- `Point2D` representa uma coordenada imutável com `x` e `y`.
+- `Circle` possui centro e raio, calcula área e perímetro e é exibido como
+  `Circ: C=(x, y), R=r`.
+- `Rectangle` possui dois vértices opostos, calcula área e perímetro e é
+  exibido como `Rect: P1=(x1, y1) P2=(x2, y2)`.
+- A interface `Shape` exige `name()`, `area()` e `perimeter()`.
+- `info(shape: Shape)` deve funcionar para qualquer objeto compatível com a
+  interface, sem testar sua classe concreta.
+- `show` lista as formas na ordem de criação.
+- `info` lista área (`A`) e perímetro (`P`) na ordem de criação, com duas casas.
+- As formas são imutáveis depois de criadas.
 
-- `getArea()`: Retorna a área da forma.
-- `getPerimeter()`: Retorna o perímetro da forma.
-- `getName()`: Retorna o nome da forma.
+## Diagrama
 
-### Classe Point2D
-
-A classe `Point2D` representa um ponto no plano bidimensional e possui:
-
-- **Atributos:**
-  - `x`: coordenada x do ponto.
-  - `y`: coordenada y do ponto.
-- **Métodos:**
-  - `constructor(x: number, y: number)`: Inicializa os atributos x e y.
-  - `toString()`: Retorna a representação do ponto no formato `(x, y)`. Exemplo: `(0.00, 0.00)`.
-
-### Classe Circle
-
-A classe `Circle` implementa a interface `Shape` e representa um círculo. Deve incluir:
-
-- **Atributos:**
-  - `name`: Nome da forma, que é "Circ".
-  - `center`: Centro do círculo, representado por um `Point2D`.
-  - `radius`: Raio do círculo.
-- **Métodos:**
-  - `constructor(center: Point2D, radius: number)`: Inicializa os atributos center e radius.
-  - `getName()`: Retorna o nome "Circ".
-  - `getArea()`: Calcula e retorna a área do círculo usando a fórmula `π * raio²`.
-  - `getPerimeter()`: Calcula e retorna o perímetro do círculo usando a fórmula `2 * π * raio`.
-  - `toString()`: Retorna uma string no formato `Circ: C=(x, y), R=radius`.
-
-### Classe Rectangle
-
-A classe `Rectangle` também implementa a interface `Shape` e representa um retângulo. Deve incluir:
-
-- **Atributos:**
-  - `name`: Nome da forma, que é "Rect".
-  - `p1`: Um vértice do retângulo (ponto superior esquerdo), representado por um `Point2D`.
-  - `p2`: O vértice oposto do retângulo (ponto inferior direto), representado por um `Point2D`.
-- **Métodos:**
-  - `constructor(p1: Point2D, p2: Point2D)`: Inicializa os atributos p1 e p2.
-  - `getName()`: Retorna o nome "Rect".
-  - `getArea()`: Calcula e retorna a área do retângulo usando a fórmula `largura * altura`.
-    - `largura` é a diferença absoluta entre `x` de `p1` e `p2`.
-    - `altura` é a diferença absoluta entre `y` de `p1` e `p2`.
-  - `getPerimeter()`: Calcula e retorna o perímetro do retângulo usando a fórmula `2 * (largura + altura)`.
-  - `toString()`: Retorna uma string no formato "Rect: P1=(x1, y1) P2=(x2, y2)".
-
-### Função principal
-
-- Crie um vetor de shapes para gerenciar.
-- Nas ações `circle` e `rect`, instancie o objeto adequado e adicione-o ao vetor de shapes.
+![diagrama](assets/diagrama.png)
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+1. Crie `Point2D` imutável e use-o como centro ou vértice.
+2. Defina o `Protocol Shape` com as três operações comuns.
+3. Implemente `Circle` e `Rectangle` sem criar uma classe base concreta.
+4. Escreva `info(shape: Shape)` usando somente o contrato da interface.
+5. Armazene as formas em `list[Shape]` e implemente `show` e `info` por
+   percursos polimórficos.
 
-[![youtube icon](assets/..//yousolver.webp)](https://youtu.be/VMHI9mjIwZQ?si=jUgIc0AT9YY3Dc7K)
+O `Protocol` é suficiente porque o objetivo é o contrato comum, não o
+compartilhamento de estado ou implementação. `Point2D` permanece separado por
+ser um valor geométrico reutilizado pelas formas. Não há necessidade de uma
+classe `Calc` enquanto nenhuma operação adicional fizer parte do contrato.
 
+Perguntas de reflexão:
+
+- Por que `info` não precisa saber se recebeu um círculo ou um retângulo?
+- Qual é o benefício de usar uma lista de `Shape`?
+- Por que `Point2D` não precisa conhecer as formas que o utilizam?
+- Que nova forma poderia ser adicionada sem alterar `info`?
 
 ## Shell
 
-```sh
-#TEST_CASE creating figures
+```bash
+#TEST_CASE creating and showing
 $circle 2 3 5
-
-#TEST_CASE showing
 $show
 Circ: C=(2.00, 3.00), R=5.00
-
-#TEST_CASE creating more figures
 $rect 1 1 3 3
 $rect 2 4.53 5 10
 $circle 1 1 1.5
-
-#TEST_CASE showing all
 $show
 Circ: C=(2.00, 3.00), R=5.00
 Rect: P1=(1.00, 1.00) P2=(3.00, 3.00)
 Rect: P1=(2.00, 4.53) P2=(5.00, 10.00)
 Circ: C=(1.00, 1.00), R=1.50
+$end
+```
 
-
-#TEST_CASE showing area and perimeter
+```bash
+#TEST_CASE polymorphic information
+$circle 2 3 5
+$rect 1 1 3 3
+$rect 2 4.53 5 10
+$circle 1 1 1.5
 $info
 Circ: A=78.54 P=31.42
 Rect: A=4.00 P=8.00
 Rect: A=16.41 P=16.94
 Circ: A=7.07 P=9.42
+$end
+```
 
+```bash
+#TEST_CASE invalid command
+$triangle 0 0 2
+fail: invalid command
 $end
 ```
 

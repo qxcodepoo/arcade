@@ -1,137 +1,74 @@
-# Crie as contas poupança e corrente
+# Cadastro — contas com regras polimórficas
 
-<!-- toc-table -->
-<!-- toc-table -->
+<toc-table />
 
 ![cover](assets/cover.webp)
 
-O objetivo dessa atividade é implementar uma agência bancária simplificada. Deve ser capaz de cadastrar cliente. Cada cliente inicia com uma conta poupança e uma conta corrente. Contas correntes tem taxa de administração e contas poupanças rendem juros.
-
-## Vídeo
-
-[![_](assets/video.webp)](https://youtu.be/AfJ--C8ZqPY)
-
 ## Intro
 
-- Cadastrar um cliente com idCliente único
-  - Quando o cliente é cadastrado no sistema, automaticamente é aberta uma conta corrente e uma conta poupança para ele.
-- Mensalmente:
-  - Contas corrente vão receber uma tarifa de **20 reais** podendo inclusive ficar negativas.
-  - Contas poupança vão aumentar de 1 porcento.
-- Sua agência deve ter um mapa de clientes e um mapa de contas.
-- O cliente só tem duas contas, mas imagine que no futuro ele poderá ter várias.
-- As contas devem ser tratadas utilizando polimorfismo.
+Uma agência cadastra clientes e abre automaticamente uma conta corrente e uma
+conta poupança para cada um. As contas compartilham operações bancárias, mas
+possuem regras mensais diferentes.
 
-## Draft
+O objetivo principal é aplicar polimorfismo a regras de domínio: a agência
+percorre contas sem conhecer sua fórmula de atualização. Como objetivo
+secundário, a atividade exercita mapas para localizar contas e clientes por
+identidade.
 
-<!-- links .cache/starter -->
-<!-- links -->
+## Regras
+
+- O `client_id` identifica um cliente; cadastrá-lo novamente não cria contas.
+- Cada novo cliente recebe uma conta `CC` e uma conta `CP` em ids sequenciais.
+- Depósito aumenta o saldo.
+- Saque exige saldo suficiente e, quando falha, preserva o saldo.
+- Transferência saca da origem e deposita no destino.
+- Conta corrente reduz `R$ 20.00` no update mensal, podendo ficar negativa.
+- Conta poupança aumenta o saldo em `1%` no update mensal.
+- Conta inexistente produz `fail: conta nao encontrada`.
+
+## Diagrama
+
+![Diagrama de classes](assets/diagrama.png)
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+1. Modele `Account` com identidade, cliente, saldo e operações comuns. Faça a
+   atualização mensal ser abstrata, pois essa regra realmente varia por tipo.
+2. Crie `CheckingAccount` e `SavingsAccount`. A agência deve chamar o mesmo
+   método em ambas; não deve decidir o tipo com condicionais.
+3. Modele `Client` como dono da relação com suas contas e `BankAgency` como
+   coordenadora dos mapas de busca. Os mapas evitam percorrer toda a coleção
+   para encontrar uma identidade.
+4. Implemente transferência buscando as duas contas antes do saque. Assim uma
+   conta de destino ausente não produz uma retirada parcial.
+5. Mantenha o `Shell` limitado a conversão, chamadas e apresentação de falhas.
+   Teste as regras das contas diretamente, sem simular o terminal.
 
-[![youtube icon](../youguide.webp)](https://youtu.be/2Mk5c6p-d20?si=M2XqjolrOL7Hw-C3)
+A divisão acompanha razões reais para mudança: uma conta muda quando sua regra
+financeira muda, enquanto a agência muda quando o cadastro ou a coordenação
+muda. O custo é manter subclasses e referências cruzadas; o benefício é que um
+novo tipo de conta pode implementar `monthly_update` sem alterar a agência.
 
+## Verificação
+
+Execute `python3 -m unittest discover src/py` e confira criação idempotente de
+clientes, operações, falhas, transferência atômica e atualização mensal de cada
+tipo de conta.
 
 ## Shell
 
-```bash
-#TEST_CASE first clients
-# addCli _idCliente
-# adiciona um cliente na lista de clientes.
-# cria uma conta poupança e uma conta corrente para cada cliente usando numeração de forma sequencial.
-$addCli Almir
-$addCli Julia
-$addCli Maria
-
-# show mostra as contas do banco, com id:usuario:saldo:tipo
-# em tipo use CC para conta corrente e CP para conta poupança.
-$show
-- Clients
-Almir [0, 1]
-Julia [2, 3]
-Maria [4, 5]
-- Accounts
-0:Almir:0.00:CC
-1:Almir:0.00:CP
-2:Julia:0.00:CC
-3:Julia:0.00:CP
-4:Maria:0.00:CC
-5:Maria:0.00:CP
-
-######################################
-#TEST_CASE operações básicas
-#faça as operações básicas de saque, depósito e transferência entre contas
-#verifique se as contas existem antes de efetuar as operações
-# $saque _conta _value
-# para sacar verifique o saldo
-#
-# $deposito _conta _value
-#
-# $transf _contaDe _contaPara _value
-
+```sh
+#TEST_CASE basic
+$addCli Ana
 $deposito 0 100
 $deposito 1 200
-$deposito 2 50
-$deposito 3 300
-$saque 3 50
-$saque 0 70
-$saque 1 300
-fail: saldo insuficiente
-
-$show
-- Clients
-Almir [0, 1]
-Julia [2, 3]
-Maria [4, 5]
-- Accounts
-0:Almir:30.00:CC
-1:Almir:200.00:CP
-2:Julia:50.00:CC
-3:Julia:250.00:CP
-4:Maria:0.00:CC
-5:Maria:0.00:CP
-
-$transf 3 5 200
-$transf 0 4 25
-$transf 9 1 30
-fail: conta nao encontrada
-$transf 2 8 10
-fail: conta nao encontrada
-
-$show
-- Clients
-Almir [0, 1]
-Julia [2, 3]
-Maria [4, 5]
-- Accounts
-0:Almir:5.00:CC
-1:Almir:200.00:CP
-2:Julia:50.00:CC
-3:Julia:50.00:CP
-4:Maria:25.00:CC
-5:Maria:200.00:CP
-
-#TEST_CASE update mensal
-# No comando update todas as contas serão atualizadas.
-# Contas corrente vão receber uma tarifa de 20 reais podendo inclusive ficar negativas.
-# Contas poupança vão aumentar de 1 porcento.
+$transf 0 1 25
 $update
-
 $show
 - Clients
-Almir [0, 1]
-Julia [2, 3]
-Maria [4, 5]
+Ana [0, 1]
 - Accounts
-0:Almir:-15.00:CC
-1:Almir:202.00:CP
-2:Julia:30.00:CC
-3:Julia:50.50:CP
-4:Maria:5.00:CC
-5:Maria:202.00:CP
-
+0:Ana:55.00:CC
+1:Ana:227.25:CP
 $end
-
 ```

@@ -1,0 +1,20 @@
+@startuml
+class Messaging {
+  - users: Map<string, User>
+  + add_user(username: string): void
+  + send(sender: string, recipient: string, text: string): void
+  + inbox(username: string): string
+}
+class User {
+  + username: string
+  - inbox: Array<Message>
+  + receive(message: Message): void
+  + read_inbox(): Array<Message>
+}
+class Message {
+  + sender: string
+  + text: string
+}
+Messaging "1" *-- "0..*" User
+User "1" *-- "0..*" Message
+@enduml

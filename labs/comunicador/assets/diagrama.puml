@@ -1,0 +1,11 @@
+@startuml
+class Communicator {
+  - identifier: string
+  - inbox: Array<Message>
+  + send(receiver: string, text: string): void
+  + read(): Array<Message>
+}
+class Message
+Communicator "0..*" o-- "0..*" Communicator : authorized receivers
+Communicator "1" o-- "0..*" Message
+@enduml

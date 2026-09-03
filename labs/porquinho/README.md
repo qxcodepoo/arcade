@@ -5,265 +5,153 @@
 
 ![cover](assets/cover.webp)
 
-## Intro
+## Objetivo pedagógico
 
-A classe Pig (Porquinho) representa um cofre que permite aos usuários adicionar moedas e itens, que são armazenados com base no volume disponível. O cofre tem uma capacidade máxima de volume e pode ser quebrado para extrair o conteúdo.
+Esta atividade modela um porquinho com capacidade limitada que deixa de ser
+utilizável quando é quebrado. O objetivo principal é proteger invariantes de
+capacidade e de estado. Como objetivo secundário, a atividade pratica a
+composição de objetos e a imutabilidade de valores armazenados.
 
-### Responsabilidades
+## Regras
 
-- **Adicionar Moedas e Itens:**
-  - Os usuários podem adicionar moedas e itens ao cofrinho.
-  - A adição é limitada pela capacidade máxima de volume do porquinho.
+- `Coin` representa uma moeda com valor, volume e rótulo. As moedas disponíveis
+  são `C10`, `C25`, `C50` e `C100`.
+- `Item` representa um objeto identificado por rótulo e volume.
+- Moedas e itens são imutáveis depois de criados. Não há setters, pois alterar
+  um objeto já guardado poderia quebrar a capacidade do porquinho.
+- `Pig` começa intacto e vazio. Seu volume ocupado nunca ultrapassa a capacidade.
+- Uma adição que não cabe ou ocorre depois da quebra falha sem alterar o estado.
+- Quebrar o porquinho é uma transição terminal para as operações de adição.
+- Antes da quebra, não é possível extrair moedas ou itens.
+- Depois da quebra, a extração devolve os objetos e esvazia apenas a coleção
+  extraída. A lista devolvida é uma cópia.
+- Depois da quebra, o volume ocupado é `0`, pois o porquinho deixou de funcionar
+  como recipiente. O valor continua representando as moedas ainda guardadas.
+- As classes de domínio não imprimem mensagens. Elas lançam `PigError`; o
+  `Shell` converte as falhas para o texto observável.
 
-- **Quebrar o Cofrinho:**
-  - Os usuários podem quebrar o cofrinho para extrair seu conteúdo.
-  - Uma vez quebrado, o cofrinho não pode mais receber adições.
+## Diagrama
 
-- **Extrair Moedas e Itens:**
-  - Após quebrar o cofrinho, os usuários podem extrair as moedas e itens armazenados.
-  - As moedas e itens são removidos do cofrinho e retornados ao usuário.
-
-- **Obter Valor e Volume Total:**
-  - Os usuários podem verificar o valor total das moedas armazenadas no cofrinho.
-  - Também podem verificar o volume total ocupado pelos itens e moedas.
+![diagrama](assets/diagrama.png)
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+Implemente em incrementos pequenos:
 
-[![youtube icon](../yousolver.webp)](https://youtu.be/rR2bIGsJjaw?si=VMEWLD5vWozDPX02)
+1. Crie `Coin` e `Item` como registros imutáveis, com suas representações
+   textuais. O `Shell` pode selecionar as moedas predefinidas pelo código
+   recebido.
+2. Crie `Pig` com capacidade, coleções vazias e estado intacto. Implemente
+   `add_coin`, `add_item` e `volume`, verificando a capacidade antes da mutação.
+3. Implemente `value` e `__str__`. O cálculo do volume deve considerar moedas e
+   itens enquanto o porquinho estiver intacto.
+4. Implemente `break_pig` e bloqueie novas adições. Uma segunda quebra deve
+   falhar sem apagar o conteúdo.
+5. Implemente as extrações. Elas só podem ocorrer depois da quebra, devem
+   retornar os objetos e devem limpar apenas a coleção correspondente.
+6. Faça o `Shell` interpretar comandos e traduzir `PigError`; nenhuma classe de
+   domínio deve conhecer entrada ou saída.
 
-### Classe Coin
+A atividade usa somente três classes. `Coin` e `Item` representam objetos que
+   podem ser guardados; `Pig` possui esses objetos e protege as invariantes do
+   recipiente. Não há necessidade de uma classe para catálogo de moedas, um
+   gerenciador de itens ou getters e setters para todos os atributos.
 
-- A classe `Coin` possui os seguintes atributos:
-  - `value`: Valor da moeda.
-  - `volume`: Volume da moeda.
-  - `label`: Rótulo da moeda.
-- Além disso, a classe possui os seguintes métodos:
-  - `toString(): string`: Retorna uma representação em string da moeda no formato `f"{this.value.2f}, {this.volume}"`
-  - `getValue(): number`: Retorna o valor da moeda.
-  - `getVolume(): number`: Retorna o volume da moeda.
-  - `getLabel(): string`: Retorna o rótulo da moeda.
+Perguntas de reflexão:
 
-#### Método Estático
-
-A classe `Coin` possui métodos estáticos para criar instâncias de moedas com valores pré-definidos:
-
-```typescript
-public static C10 = new Coin(0.10, 1, "C10");
-public static C25 = new Coin(0.25, 2, "C25");
-public static C50 = new Coin(0.50, 3, "C50");
-public static C100 = new Coin(1.0, 4, "C100");
-```
-
-### Classe Item
-
-A classe `Item` possui os seguintes atributos:
-
-- `label`: Rótulo do item.
-- `volume`: Volume do item.
-
-Além disso, a classe possui os seguintes métodos:
-
-- `getLabel(): string`: Retorna o rótulo do item.
-- `getVolume(): number`: Retorna o volume do item.
-- `setVolume(volume: number): void`: Define o volume do item.
-- `setLabel(label: string): void`: Define o rótulo do item.
-- `toString(): string`: Retorna uma representação em string do item.
-  - Formato de retorno: `label:volume`
-
-### Classe Pig
-
-A classe `Pig` possui os seguintes atributos:
-
-- `items`: Array de itens.
-- `coins`: Array de moedas.
-- `volumeMax`: Volume máximo suportado pela "cochonilha".
-- `broken`: Indica se a "cochonilha" está quebrada ou não.
-
-1. **Definição da Classe Pig:**
-
-   - Definir a classe `Pig` com os atributos `items`, `coins`, `volumeMax` e `broken`.
-   - Implementar o construtor que recebe `volumeMax` como parâmetro e o atribui à propriedade `volumeMax`.
-   - Inicializar os arrays `items` e `coins` como vazios.
-   - Inicializar a propriedade `broken` como `false`.
-
-2. **Implementação dos Métodos:**
-
-   - **Método `addCoin(coin: Coin): boolean`**
-     - Aiciona uma moeda ao vetor de moedas.
-     - Parâmetros:
-       - `coin`: Moeda a ser adicionada.
-     - Retorna `true` se a adição for bem-sucedida, caso contrário, retorna `false`.
-     - Erro: `fail: the pig is broken` se o porquinho estiver quebrado.
-     - Erro: `fail: the pig is full` se o porquinho estiver cheio.
-
-   - **Método `addItem(item: Item): boolean`**
-     - Adiciona um item ao vetor de itens.
-     - Parâmetros:
-       - `item`: Item a ser adicionado.
-     - Retorna `true` se a adição for bem-sucedida, caso contrário, retorna `false`.
-     - Erro: `fail: the pig is broken` se o porquinho estiver quebrado.
-     - Erro: `fail: the pig is full` se o porquinho estiver cheio.
-
-   - **Método `getVolume(): number`**
-     - Retorna o volume total ocupado pelo conteúdo do porquinho.
-         **Passos:**
-
-    1. **Verificação de Estado:**
-       - Verifica se o porquinho está quebrada.
-         - Se estiver quebrado, retorna volume 0.
-
-    2. **Cálculo do Volume:**
-       - Inicializa a variável `volume` com valor 0.
-       - Percorre o array de itens e adiciona o volume de cada item à variável `volume`.
-       - Percorre o array de moedas e adiciona o volume de cada moeda à variável `volume`.
-       - Retorna o valor total de `volume`.
-
-   - **Método `getValue(): number`**
-     - Retorna o valor total das moedas no porquinho.
-     **Passos:**
-
-    1. **Cálculo do Valor:**
-       - Inicializa a variável `value` com valor 0.
-       - Percorre o array de moedas e adiciona o valor de cada moeda à variável `value`.
-       - Retorna o valor total de `value`.
-
-   - **Método `breakPig(): boolean`**
-     - Quebra o porquinho, tornando-o inutilizável.
-     - Define a propriedade `broken` como `true`.
-     - Retorna `true` se a quebra for bem-sucedida, caso contrário, retorna `false`.
-     - Erro: `fail: the pig is already broken` se o porquinho já estiver quebrado.
-
-   - **Método `extractCoins(): Coin[]`**
-     - Remove e retorna todas as moedas do porquinho.
-     - Retorna um array com todas as moedas removidas.
-     - Erro: `fail: you must break the pig first` se o porquinho não estiver quebrado.
-
-   - **Método `extractItems(): Item[]`**
-     - Remove e retorna todos os itens do porquinho.
-     - Retorna um array com todos os itens removidos.
-     - Erro: `fail: you must break the pig first` se o porquinho não estiver quebrado.
-
-   - **Método `toString(): string`**
-     - Retorna uma representação em string do estado atual do porquinho, incluindo se está intacto ou quebrado, a lista de moedas e itens armazenados, o valor total e o volume ocupado.
-     - Formato de retorno: `state=estado : coins=[moedas] : items=[itens] : value=valor : volume=volumeAtual/volumeMaximo`.
-
-## Draft
-
-<!-- links .cache/starter -->
-<!-- links -->
+- Por que a capacidade deve ser verificada antes de adicionar o objeto?
+- O que poderia ficar inconsistente se `Item` tivesse `setVolume`?
+- Por que o valor continua disponível depois da quebra, mas o volume passa a ser
+  zero?
+- Por que extrair moedas não deve extrair os itens automaticamente?
 
 ## Shell
 
-```py
-#TEST_CASE init
+```bash
+#TEST_CASE init and coins
 $init 20
 $show
 state=intact : coins=[] : items=[] : value=0.00 : volume=0/20
-
-#TEST_CASE insert
 $addCoin 10
 $addCoin 50
 $show
 state=intact : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=4/20
+$end
+```
 
-#TEST_CASE itens
-$addItem ouro 3
+```bash
+#TEST_CASE items and capacity
+$init 5
+$addCoin 10
+$addCoin 25
+$addItem ouro 1
 $show
-state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=7/20
-
-$addItem passaporte 2
+state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
+$addCoin 50
+fail: the pig is full
+$addItem pirulito 2
+fail: the pig is full
 $show
-state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
+$end
+```
 
-#TEST_CASE failed break
+```bash
+#TEST_CASE extraction before breaking
+$init 10
+$addCoin 10
+$addItem bilhete 2
 $extractItems
 fail: you must break the pig first
-[]
-
 $extractCoins
 fail: you must break the pig first
-[]
-
 $show
-state=intact : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=9/20
+state=intact : coins=[0.10:1] : items=[bilhete:2] : value=0.10 : volume=3/10
+$end
+```
 
-#TEST_CASE breaking
+```bash
+#TEST_CASE break and extraction
+$init 20
+$addCoin 10
+$addCoin 50
+$addItem ouro 3
 $break
 $show
-state=broken : coins=[0.10:1, 0.50:3] : items=[ouro:3, passaporte:2] : value=0.60 : volume=0/20
-
-#TEST_CASE getItems
-
+state=broken : coins=[0.10:1, 0.50:3] : items=[ouro:3] : value=0.60 : volume=0/20
+$addItem bilhete 1
+fail: the pig is broken
+$break
+fail: the pig is already broken
 $extractItems
-[ouro:3, passaporte:2]
-
+[ouro:3]
 $show
 state=broken : coins=[0.10:1, 0.50:3] : items=[] : value=0.60 : volume=0/20
-
-#TEST_CASE getCoins
-
 $extractCoins
 [0.10:1, 0.50:3]
-
 $show
 state=broken : coins=[] : items=[] : value=0.00 : volume=0/20
 $end
 ```
 
-***
-
-```sh
-#TEST_CASE
+```bash
+#TEST_CASE independent extraction
 $init 10
-
+$addCoin 100
+$addItem passport 2
 $break
-
-$addCoin 10
-fail: the pig is broken
-
-
+$extractItems
+[passport:2]
+$show
+state=broken : coins=[1.00:4] : items=[] : value=1.00 : volume=0/10
+$extractCoins
+[1.00:4]
 $show
 state=broken : coins=[] : items=[] : value=0.00 : volume=0/10
-
-$addItem bilhete 2
-fail: the pig is broken
-
-$show
-state=broken : coins=[] : items=[] : value=0.00 : volume=0/10
-
 $end
 ```
 
-***
+## Draft
 
-```sh
-#TEST_CASE full coin
-$init 5
-
-$addCoin 10
-$addCoin 25
-$show
-state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
-
-$addCoin 50
-fail: the pig is full
-
-$show
-state=intact : coins=[0.10:1, 0.25:2] : items=[] : value=0.35 : volume=3/5
-
-#TEST_CASE full item
-$addItem ouro 1
-
-$show
-state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
-
-$addItem pirulito 2
-fail: the pig is full
-
-$show
-state=intact : coins=[0.10:1, 0.25:2] : items=[ouro:1] : value=0.35 : volume=4/5
-
-$end
-```
+<!-- links .cache/starter -->
+<!-- links -->

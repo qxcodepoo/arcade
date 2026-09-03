@@ -1,171 +1,57 @@
-# @whatsapp
+# WhatsApp — grupos e estado de leitura por participante
 
-<!-- toc-table -->
-<!-- toc-table -->
+<toc-table />
 
 ![cover](assets/cover.webp)
 
 ## Intro
 
-- **$add**: adicionanar usuários.
-  - `$add _username_`
-    - Cria um usuário com esse username.
-    - Adiciona o objeto usuário à lista de usuários do sistema.
-  - `$users`
-    - Mostra os usuários cadastrados.
-  - Restrições:
-    - O username deve ser único no sistema.
-- **$create**: criar grupos de conversação.
-  - `$create _username_ _groupName_`
-    - Cria um grupo com um id inteiro único no sistema.
-    - O grupo criado deve ser armazenado na lista de grupos do sistema.
-    - O grupo criado deve ser adicionado na lista de grupos do usuário.
-    - O usuário deve ser adicionado na lista de usuários do grupo.
-    - O username deve corresponder a um usuário cadastrado.
-  - `$users`:
-    - Atualize para mostrar:
-    - Todos os usernames e o id e nome dos grupos que ele participa.
-    - Todos os grupos do sistema e os usernames dos usuários que participam dele.
-  - Restrições:
-    - O usuário deve ser um usuário cadastrado.
-- **$invite**: convidando outros usuários para um grupo que você participa.
-  - `$invite _owner_ _invitee_ _groupId_`
-    - Adicione o grupo na lista de grupos de `_invitee_`
-    - Adicione esse usuário no grupo com esse `_groupId_`
-  - Restrições:
-    - Ambos os usernames devem ser de distintos usuários cadastrados.
-    - O grupo com esse `_groupId_` deve ser um dos grupos do `_owner_`.
-- **$send** : envio de mensagens para o grupo.
-  - `$send _username_ _groupId_ _message_`
-    - A pessoa que manda as mensagens, tem que estar no grupo.
-    - Apenas quem está no grupo, poderá ler as mensagens.
-- Sair de um chat.
-- Ler as mensagens de um grupo.
-  - Um usuário pode ser as mensagens do grupo se ele está no grupo.
-  - Ao pedir as mensagens, o usuário receberá as mensagens não lidas que ele tem no grupo.
-  - Ao pedir as mensagens, o usuário não recebe as mensagens que ele mesmo enviou.
-- Ao pedir a lista de notificações, o usuário vê ao lado de cada grupo se ele possui mensagens não lidas.
+Usuários podem criar grupos, convidar participantes, enviar mensagens e ler
+apenas as mensagens ainda não lidas por eles. A atividade amplia `Mensagem`:
+agora a leitura não é propriedade de uma caixa global, mas do par participante
+e grupo.
 
----
+O objetivo principal é modelar composição e estado por participante. O grupo
+possui membros e controla a distribuição; o usuário mantém os grupos de que
+participa para consultas e notificações.
+
+## Regras
+
+- usernames são únicos e precisam existir para participar de uma operação.
+- O criador entra automaticamente no grupo.
+- Apenas membro pode enviar, ler ou convidar para o grupo.
+- Uma mensagem não é entregue novamente ao próprio remetente.
+- Cada membro lê e limpa somente suas próprias mensagens pendentes.
+- `notify` informa a quantidade não lida em cada grupo do usuário.
+
+## Diagrama
+
+![Diagrama de classes](assets/diagrama.png)
+
+## Guide
+
+Modele `Group` como dono dos membros e do mapa de mensagens pendentes por
+usuário. `WhatsApp` coordena os mapas globais e `User` mantém a relação de
+participação. Não use um único contador de leitura para o grupo: isso faria a
+leitura de uma pessoa apagar a mensagem para todas as outras.
+
+## Verificação
+
+Execute `python3 -m unittest discover src/py` e teste criação, convite,
+mensagem, leitura independente, notificação e acesso de não membros.
 
 ## Shell
 
 ```sh
-#TEST_CASE adicionar e mostrar usuários 
-# O comando "$add nomeUsuario" cria um novo usuário.
-# O comando "$allUsers" mostra todos usuários.
+#TEST_CASE basic
 $add goku
 $add sara
-$add tina
-
-$users
-goku []
-sara []
-tina []
-
-#TEST_CASE novo Chat, mostrar chats do usuário
-# O comando "$create nomeUser nomeChat" cria um novo chat.
-# O comando "$chats nomeUser" mostra os chats usuário.
-
-$create goku familia
-$create sara familia
-$create goku guerreiros
-
-$create kuririm casa
-fail: key kuririm not found
-
-$users
-goku [0:familia, 2:guerreiros]
-sara [1:familia]
-tina []
-
-#TEST_CASE invite
-#- Adicionar pessoas a um grupo.
-#    - A pessoa que adiciona deve já estar no grupo.
-#- Ver quem está em um grupo.
-#- Sair de um grupo.
-
-$invite goku sara 2
-$invite sara tina 2
-$invite tina goku 1
-fail: key 1 not found
-
-$users
-goku [0:familia, 2:guerreiros]
-sara [1:familia, 2:guerreiros]
-tina [2:guerreiros]
-
-$chats
-0:familia [goku]
-1:familia [sara]
-2:guerreiros [goku, sara, tina]
-
-#TEST_CASE leaving
-$leave sara 2
-
-$users
-goku [0:familia, 2:guerreiros]
-sara [1:familia]
-tina [2:guerreiros]
-
-
-
-#- Mandar mensagens para um grupo.
-#    - A pessoa que manda as mensagens, tem que estar no grupo.
-#    - Apenas quem está no grupo, poderá ler as mensagens.
-#- Ler as mensagens de um grupo.    
-#    - Um usuário pode ser as mensagens do grupo se ele está no grupo.
-#    - Ao pedir as mensagens, o usuário receberá as mensagens não lidas que ele tem no grupo.
-#    - Ao pedir as mensagens, o usuário não recebe as mensagens que ele mesmo enviou.
-#- Ao pedir a lista de notificações, o usuário vê ao lado de cada grupo se ele possui mensagens não lidas.
-
-#TEST_CASE mensagens
-$zap goku 2 oi, eu sou o goku
-$zap tina 2 oi goku
-
-$notify goku
-[guerreiros(1) homens]
-$notify tina
-[guerreiros(1)]
-
-$ler goku guerreiros
-[tina: oi goku]
-$ler tina guerreiros
-[goku: oi, eu sou o goku]
-
-$ler sara guerreiros
-fail: user sara nao esta no chat guerreiros
-
-$zap goku guerreiros vamos sair tina?
-$zap tina guerreiros voce ta com fome goku?
-$zap goku guerreiros to com saudade de voce.
-
-$notify tina
-[guerreiros(2)]
-$notify goku
-[guerreiros(1) homens]
-
-$ler goku guerreiros
-[tina: voce ta com fome goku?]
-$ler tina guerreiros
-[goku: vamos sair tina?]
-[goku: to com saudade de voce.]
+$create goku friends
+$invite goku sara 0
+$zap goku 0 hello
+$notify sara
+friends(1)
+$ler sara 0
+goku: hello
 $end
 ```
-
-- Opcionais:
-  - Enviar uma mensagem do sistema avisando quando um usuário entra ou sai de um Chat.
-
----
-
-## Guia de Resolução
-
-[GUIA](_guide.md)
-
-![diagrama](assets/diagrama.webp)
-
----
-
-## Créditos
-
-Fica o agradecimento para turma de POO DD 2017.2 que fez nascer essa atividade comigo.

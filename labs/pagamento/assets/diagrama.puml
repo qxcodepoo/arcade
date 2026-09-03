@@ -1,67 +1,45 @@
 @startuml
 
-' Configurações visuais
-skinparam classAttributeIconSize 0
-skinparam linetype ortho
+skinparam defaultFontName "Source Code Pro"
+skinparam dpi 150
 
-' 1. Classe Abstrata
-abstract class Pagamento {
-    + valor : float
-    + descricao : str
-    __
-    + resumo() : void
-    + validar_valor() : void
-    + {abstract} processar() : void
+abstract class PaymentMethod {
+  + {abstract} process(amount: number): string
 }
 
-' 2. Subclasses Concretas
-class CartaoCredito {
-    + numero : str
-    + nome_titular : str
-    + limite_disponivel : float
-    __
-    + processar() : void
+class CreditCard {
+  + holder: string
+  + limit: number
+  + process(amount: number): string
 }
 
 class Pix {
-    + chave : str
-    + banco : str
-    __
-    + processar() : void
+  + key: string
+  + bank: string
+  + process(amount: number): string
 }
 
 class Boleto {
-    + codigo_barras : str
-    + vencimento : str
-    __
-    + processar() : void
+  + barcode: string
+  + dueDate: string
+  + process(amount: number): string
 }
 
-' 3. Representação do Script/Função Global
-class "Client / Main" as Main << Script >> {
-    + pagamentos : List<Pagamento>
-    __
-    + processar_pagamento(p: Pagamento) : void
+class Payment {
+  + amount: number
+  + description: string
+  - method: PaymentMethod
+  + process(): string
 }
 
-' Relacionamentos
-Pagamento <|-- CartaoCredito
-Pagamento <|-- Pix
-Pagamento <|-- Boleto
+class processPayments {
+  + processPayments(payments: Array<Payment>): Array<string>
+}
 
-' A função global depende da abstração Pagamento para funcionar
-Main ..> Pagamento : <<usa>>
-
-note right of Pagamento::processar
-  Método abstrato:
-  Força as subclasses a
-  implementarem a lógica.
-end note
-
-note right of Main::processar_pagamento
-  Recebe qualquer objeto
-  que herde de Pagamento
-  (Polimorfismo)
-end note
+PaymentMethod <|.. CreditCard
+PaymentMethod <|.. Pix
+PaymentMethod <|.. Boleto
+Payment "1" *-- "1" PaymentMethod
+processPayments ..> Payment
 
 @enduml

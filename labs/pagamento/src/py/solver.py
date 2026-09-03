@@ -1,49 +1,75 @@
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
-class Pagamento(ABC):
-    def __init__(self, valor: float, descricao: str):
-        self.valor: float = valor
-        self.descricao = descricao
-    
-    def resumo(self) -> str:
-        return f"Pagamento de R$ {self.valor}: {self.descricao}"
-    
-    def validar_valor(self) -> None:
-        if self.valor <= 0:
-            raise ValueError("falhou: valor invalido")
-    
+
+class PaymentError(Exception):
+    """Base class for payment domain failures."""
+
+
+class InvalidAmountError(PaymentError):
+    pass
+
+
+class InsufficientLimitError(PaymentError):
+    pass
+
+
+class PaymentMethod(ABC):
     @abstractmethod
-    def processar(self):
-        pass
-    
-class CartaoCredito(Pagamento): #acoplamento forte
-    def __init__(self, num: int, nome: str, limite: float, valor: float, descricao: str):
-        super().__init__(valor, descricao)
-        self.num = num
-        self.nome = nome
-        self.limite: float = limite
-
-    def resumo(self):
-        return "Cartao de Credito: " + super().resumo()
-
-    def get_limite(self):
-        return self.limite
-
-    def processar(self):
-        if self.valor > self.limite:
-            print("pagamento recusado por limite insuficiente")
-            return
-        self.limite -= self.valor
+    def process(self, amount: float) -> str:
+        """Process an amount and return an observable result."""
 
 
-def processar_pagamentos(pagamentos: list[Pagamento]):
-    for pag in pagamentos:
-        pag.validar_valor()
-        print(pag.resumo())
-        pag.processar()
-        if isinstance(pag, CartaoCredito):
-            print(pag.get_limite())
+@dataclass
+class CreditCard(PaymentMethod):
+    holder: str
+    limit: float
 
-pag: Pagamento = CartaoCredito(nome= "David", descricao="Coxinha", limite=500.00, num=123, valor=0.50)
-pagamentos: list[Pagamento] = [pag]
-processar_pagamentos(pagamentos)
+    def process(self, amount: float) -> str:
+        if amount > self.limit:
+            raise InsufficientLimitError("insufficient credit limit")
+        self.limit -= amount
+        return f"Payment approved for {self.holder}. Remaining limit: {self.limit:.2f}"
+
+
+@dataclass(frozen=True)
+class Pix(PaymentMethod):
+    key: str
+    bank: str
+
+    def process(self, amount: float) -> str:
+        return f"PIX sent through {self.bank} using key {self.key}"
+
+
+@dataclass(frozen=True)
+class Boleto(PaymentMethod):
+    barcode: str
+    due_date: str
+
+    def process(self, amount: float) -> str:
+        return "Boleto generated. Waiting for payment..."
+
+
+@dataclass
+class Payment:
+    amount: float
+    description: str
+    method: PaymentMethod
+
+    def process(self) -> str:
+        if self.amount <= 0:
+            raise InvalidAmountError("invalid amount")
+        result: str = self.method.process(self.amount)
+        return f"Payment of R$ {self.amount:.2f}: {self.description}\n{result}"
+
+
+def process_payments(payments: list[Payment]) -> list[str]:
+    results: list[str] = []
+    for payment in payments:
+        try:
+            results.append(payment.process())
+        except PaymentError as error:
+            results.append(f"Error: {error}")
+    return results
