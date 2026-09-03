@@ -19,6 +19,18 @@ class Client {
   + toString(): string
 }
 
+enum ReserveResult {
+  OK
+  INVALID_INDEX
+  OCCUPIED
+  DUPLICATE_CLIENT
+}
+
+enum CancelResult {
+  OK
+  CLIENT_NOT_FOUND
+}
+
 class Theater {
   
   - seats : Array<Client | null>
@@ -27,8 +39,8 @@ class Theater {
   __
   + constructor(capacity : number)  
   __
-  + reserve(id : string, phone : string, index : number) : boolean
-  + cancel(id : string): void
+  + reserve(id : string, phone : string, index : number) : ReserveResult
+  + cancel(id : string): CancelResult
   + getSeats() : Array<Client | null>
   __
   + toString() : string

@@ -1,4 +1,4 @@
-# Cinema: posições fixas e ausência
+# [GUIDE] Cinema: posições fixas e ausência
 
 <!-- toc-table -->
 [Intro](#intro) | [Draft](#draft) | [Shell](#shell)
@@ -23,9 +23,9 @@ Esta atividade introduz vetor de tamanho fixo com posições significativas. Cad
   - A classe Sala `Theater` é responsável por gerenciar as operações relacionadas às cadeiras na sala de cinema.
     - Métodos a serem implementados:
       - públicos: são métodos acessados por outras classes.
-        - `reserve(id: string, phone: string, index: number)`: Reserva uma cadeira para um cliente com o ID e telefone especificados.
-        - `cancel(id: string)`: Cancela a reserva de uma cadeira para o cliente com o ID especificado.
-        - `getSeats(): Array<Client | null>`: Retorna um array contendo o estado atual de todas as cadeiras na sala.
+        - `reserve(id: string, phone: string, index: number)`: Retorna o resultado da tentativa de reservar uma cadeira para um cliente.
+        - `cancel(id: string)`: Retorna o resultado do cancelamento da reserva de um cliente.
+        - `getSeats(): Array<Client | null>`: Retorna uma cópia do estado atual das cadeiras, sem expor a coleção interna.
         - `toString(): string`: Retorna uma representação em string do estado atual das cadeiras na sala.
       - privados: são métodos apenas de uso interno, utilizados para auxiliar as operações da classe.
         - `search(name: string): number`: Procura o índice da cadeira reservada pelo cliente com o nome especificado.
@@ -33,8 +33,10 @@ Esta atividade introduz vetor de tamanho fixo com posições significativas. Cad
   - A classe `Client` é responsável por representar os clientes que reservam cadeiras na sala de cinema.
     - A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.
 
+Os resultados das operações pertencem ao domínio; o `Shell` é responsável por convertê-los nas mensagens exibidas nos casos de falha. A cópia retornada por `getSeats()` impede que um cliente altere diretamente a coleção e quebre a capacidade fixa ou a representação de cadeiras vazias.
 
-![diagrama](assets/diagrama.webp)
+
+![diagrama](assets/diagrama.png)
 
 [![youtube icon](../yousolver.webp)](https://youtu.be/T1eNw8HtDwY?si=LMVy6W6GHj6iOYda)
 
