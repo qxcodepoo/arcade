@@ -1,4 +1,4 @@
-# Calculadora: resultados de operação e mensagens no Shell
+# [CHECK] Calculadora: resultados de operação e mensagens na interface
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)

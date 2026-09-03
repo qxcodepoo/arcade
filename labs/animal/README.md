@@ -1,4 +1,4 @@
-# Animal: estado, comportamento e ciclo de vida
+# [GUIDE] Animal: estado, comportamento e ciclo de vida
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)

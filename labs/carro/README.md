@@ -1,4 +1,4 @@
-# Carro: separação inicial entre domínio e Shell
+# [ALONE] Carro: separação inicial entre domínio e interface
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

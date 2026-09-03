@@ -359,6 +359,7 @@ Ao criar ou revisar uma atividade, verifique:
 7. Execute `tko util mdpp README.md` quando o README for alterado.
 8. Execute `git diff --check`.
 9. Use `make all` apenas quando for necessário atualizar índices ou artefatos gerados e revise o diff completo.
+10. `tko run <codigo> README.md` para verificar consistência entre código e os testes definidos no README.
 
 ## Conduta esperada do agente
 

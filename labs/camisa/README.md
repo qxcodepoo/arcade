@@ -1,4 +1,4 @@
-# [GUIA] Comprando uma camisa XG
+# [TRAIN] Comprando uma camisa XG
 
 <!-- toc-table -->
 

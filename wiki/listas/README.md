@@ -1,4 +1,4 @@
-# Listas em Python: ações mais comuns
+# [GUIDE] Listas em Python: ações mais comuns
 
 <!-- toc-table -->
 [Intro](#intro) | [Criar e consultar](#criar-e-consultar) | [Percorrer](#percorrer) | [Inserir](#inserir) | [Remover](#remover) | [Buscar](#buscar) | [Filtrar e transformar](#filtrar-e-transformar) | [Copiar e ordenar](#copiar-e-ordenar) | [Cuidados](#cuidados) | [Referência completa](#referência-completa)

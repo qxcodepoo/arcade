@@ -1,4 +1,4 @@
-# Criando a Main
+# [GUIDE] Criando a Main
 
 ![_](assets/cover.webp)
 

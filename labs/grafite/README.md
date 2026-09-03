@@ -1,4 +1,4 @@
-# Grafite: agregação opcional e delegação
+# [TRAIN] Grafite: agregação opcional e delegação
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

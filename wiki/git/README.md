@@ -1,4 +1,4 @@
-# Introdução ao git
+# [GUIDE] Introdução ao git
 
 <!-- toc -->
 <!-- toc -->

@@ -1,4 +1,4 @@
-# [GUIA] Comprando uma chinela 40/41
+# [GUIDE] Comprando uma chinela 40/41
 
 <!-- toc-table -->
 

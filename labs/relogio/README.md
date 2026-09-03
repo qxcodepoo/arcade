@@ -1,4 +1,4 @@
-# Relógio: invariantes de tempo e atualização coordenada
+# [ALONE] Relógio: invariantes de tempo e atualização coordenada
 
 <!-- toc-table -->
 

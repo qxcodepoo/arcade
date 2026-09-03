@@ -15,8 +15,10 @@ class Phone:
     VALID_CHARS: ClassVar[str] = "0123456789()-."
 
     def is_valid(self) -> bool:
-        return bool(self.number) and all(
-            char in Phone.VALID_CHARS for char in self.number
+        return (
+            bool(self.number)
+            and any(char.isdigit() for char in self.number)
+            and all(char in Phone.VALID_CHARS for char in self.number)
         )
 
     def __str__(self) -> str:

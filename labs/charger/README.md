@@ -1,4 +1,4 @@
-# Charger: agregação e coordenação por etapas
+# [TRAIN] Charger: agregação e coordenação por etapas
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
