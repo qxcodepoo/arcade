@@ -1,4 +1,4 @@
-# Contato: encapsulamento de uma coleção de telefones
+# [TRAIN] Contato: encapsulamento de uma coleção de telefones
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
@@ -15,6 +15,10 @@ Como conhecimento prévio, você precisará saber criar classes simples e manipu
 
 `Phone` representa um telefone e conhece a regra de validade do seu número. `Contact` guarda o nome, o estado de favorito e sua coleção privada de telefones. O `Shell` apenas converte comandos, invoca esses comportamentos e apresenta seus resultados.
 
+O contato começa com nome vazio até que o comando `init` forneça um nome. O estado de favorito já faz parte do modelo porque atividades posteriores, especialmente `@agenda`, precisarão consultar e listar os contatos favoritos. Nesta atividade, esse estado é praticado apenas por meio de alternância e exibição.
+
+Esta atividade prepara o modelo local de um contato. `Phone` concentra a validade do próprio número, enquanto `Contact` protege sua coleção e seu estado de favorito. Ainda não existe uma coleção de contatos nem uma estrutura separada para favoritos: essas decisões pertencem às atividades seguintes.
+
 ## Regras
 
 ### Telefone
@@ -23,13 +27,15 @@ Como conhecimento prévio, você precisará saber criar classes simples e manipu
 - Um telefone é exibido no formato `label:number`, por exemplo, `home:3434`.
 - `is_valid()` retorna `true` somente quando o número:
   - não é vazio;
+  - contém pelo menos um dígito;
   - contém apenas caracteres de `0123456789()-.`.
 
 ### Contato
 
 - `Contact` recebe o nome no construtor.
+- O programa começa com um contato cujo nome é vazio (`""`); o comando `init` substitui esse contato por outro nomeado.
 - Um novo contato começa sem telefones e não favoritado.
-- A coleção de telefones pertence ao contato e não é exposta para alteração externa.
+- A coleção de telefones pertence ao contato e não é exposta para alteração externa. Assim, todo telefone armazenado é válido e a ordem da coleção só muda pelas operações do próprio contato.
 - `add_phone(label, number) -> bool`
   - Cria e adiciona o telefone ao final quando o número é válido, retornando `true`.
   - Retorna `false` e preserva a coleção quando o número é inválido.
@@ -39,6 +45,8 @@ Como conhecimento prévio, você precisará saber criar classes simples e manipu
   - Retorna `false` e preserva a coleção quando o índice é negativo ou não existe.
 - `toggle_favorite() -> None`
   - Alterna o estado de favorito.
+- O estado de favorito será reutilizado em atividades posteriores para consultar e listar contatos favoritos; nesta atividade, ele só precisa ser alternado e exibido.
+- O favorito é inicialmente apenas um atributo do contato. Ele não deve ser duplicado em uma lista ou mapa nesta atividade.
 - O contato é exibido como `- name [phones]` quando não é favorito e como `@ name [phones]` quando é favorito.
   - Sem telefones: `- ana []`.
   - Com telefones: `@ ana [home:3434, mobile:(85)9.9999-0000]`.
@@ -69,9 +77,9 @@ Implemente a atividade em incrementos pequenos e execute os casos correspondente
 
 - Crie a `dataclass Phone` com `label` e `number`.
 - Implemente sua representação textual.
-- Faça `is_valid` conferir se o texto não está vazio e se todos os caracteres pertencem ao conjunto permitido.
+- Faça `is_valid` conferir se o texto não está vazio, contém pelo menos um dígito e se todos os caracteres pertencem ao conjunto permitido.
 
-Verificação: confira diretamente que `Phone("home", "85-99").is_valid()` é verdadeiro e que um número vazio ou contendo letras é falso.
+Verificação: confira diretamente que `Phone("home", "85-99").is_valid()` é verdadeiro e que um número vazio, contendo letras ou formado apenas por pontuação é falso.
 
 ### 2. Encapsule a coleção
 
@@ -98,6 +106,7 @@ Verificação: após uma tentativa inválida, use `show` e confirme que os telef
 ### 5. Revise estado simples e conecte o Shell
 
 - Implemente `toggle_favorite` como uma alternância do booleano atual.
+- Mantenha o estado de favorito no contato: ele será usado por `@agenda` para localizar e exibir favoritos, embora aqui a única operação seja alternar esse estado.
 - Use `match/case` diretamente sobre `line.split()` para interpretar os comandos.
 - Mantenha mensagens e impressão fora do domínio.
 
@@ -105,9 +114,12 @@ Perguntas de reflexão:
 
 - Qual invariante ficaria vulnerável se a lista interna fosse devolvida diretamente?
 - Por que `Phone` valida o número, mas `Contact` decide se ele entra na coleção?
+- Por que vale a pena manter o estado de favorito agora, mesmo que a listagem de favoritos só apareça em uma atividade posterior?
 - A divisão em duas classes acrescenta algum custo? Que mudança futura torna esse custo justificável?
 
 Na atividade `@agenda`, este modelo será colocado dentro de outra coleção e receberá uma busca por seus campos.
+
+Em `@agenda`, o contato continuará sendo a fonte das regras de telefone e do estado de favorito. A agenda acrescentará a identidade dos contatos e consultas sobre o conjunto, mas não manterá uma segunda coleção de favoritos. O índice secundário persistente e a redundância intencional serão introduzidos futuramente em `@favoritos`, quando o custo de sincronização puder ser comparado com o benefício de uma consulta especializada.
 
 ## Shell
 
@@ -156,6 +168,18 @@ $addPhone mobile 9a99
 fail: invalid number
 $show
 - ana [home:3434]
+$end
+```
+
+### Número sem dígito
+
+```bash
+#TEST_CASE number_without_digit
+$init ana
+$addPhone home -()
+fail: invalid number
+$show
+- ana []
 $end
 ```
 

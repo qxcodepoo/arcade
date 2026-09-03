@@ -11,15 +11,21 @@
 
 O objetivo desta atividade é organizar contatos por uma identidade única. O nome funciona como chave de um mapa: ele permite localizar, alterar ou remover um contato sem depender de sua posição em uma lista.
 
-Esta atividade continua `@contato`. Você reutilizará `Phone` e `Contact`, acrescentará a busca pelos campos que o contato encapsula e criará `Agenda` para coordenar vários contatos.
+Esta atividade continua [`@contato`](../contato/README.md). Você reutilizará o mesmo modelo de `Phone` e `Contact`, acrescentará a busca pelos campos que o contato encapsula e criará `Agenda` para coordenar vários contatos. A regra de validade do telefone permanece a mesma: o número deve ser não vazio, conter pelo menos um dígito e usar somente os caracteres permitidos.
 
 O `Shell` interpreta comandos e apresenta falhas. `Agenda` garante a unicidade dos nomes, `Contact` controla seus telefones e `Phone` valida o próprio número.
+
+### Progressão pedagógica
+
+Em `contato`, o foco está em proteger a coleção de telefones e manter válidos os dados de um único contato. Em `agenda`, esse objeto passa a fazer parte de um conjunto identificado por chave: `Agenda` localiza contatos, enquanto `Contact` continua responsável por seus próprios dados e comportamentos.
+
+O favorito ainda é apenas um atributo de `Contact`. A consulta `get_favorites()` percorre o mapa principal e produz uma lista temporária, sem manter uma segunda estrutura. Essa escolha evita redundância e mantém o mapa como única fonte de verdade. A manutenção de um mapa ou conjunto persistente de favoritos, com o custo de sincronização correspondente, será estudada futuramente em [`@favoritos`](../favoritos/README.md).
 
 ## Regras
 
 ### Modelo reutilizado
 
-- `Phone` mantém `label` e `number`, usa o formato `label:number` e aceita somente números não vazios formados por `0123456789()-.`.
+- `Phone` mantém `label` e `number`, usa o formato `label:number` e aceita somente números não vazios, com pelo menos um dígito, formados por `0123456789()-.`.
 - `Phone.matches(pattern) -> bool` verifica se o padrão aparece no label ou no número.
 - `Contact` mantém nome, favorito e uma coleção privada de telefones.
 - `Contact.matches(pattern) -> bool` verifica o nome e delega a busca em label e número aos telefones.
@@ -41,7 +47,7 @@ O `Shell` interpreta comandos e apresenta falhas. `Agenda` garante a unicidade d
   - Retorna uma nova lista com os contatos cujo nome, label ou número contenha o padrão.
 - `get_favorites() -> list[Contact]`
   - Retorna uma nova lista apenas com os contatos favoritos.
-- Busca, favoritos e exibição completa usam ordem alfabética por nome. O mapa interno continua sendo a única fonte de verdade e não precisa ser reordenado.
+- Busca, favoritos e exibição completa usam ordem alfabética por nome. Favoritos são uma consulta derivada, não uma segunda coleção persistente. O mapa interno continua sendo a única fonte de verdade e não precisa ser reordenado.
 - A agenda não expõe o mapa interno.
 
 ### Comandos
@@ -80,6 +86,8 @@ Comece com o modelo concluído em `@contato` e evolua apenas o que a nova respon
 
 Verificação: procure separadamente por um trecho do nome, do label e do número.
 
+Confirme também que a regra de `Phone.is_valid()` continua igual à de `@contato`: um texto formado apenas por pontuação deve ser recusado. A evolução da atividade não deve alterar uma invariante já estabelecida.
+
 ### 2. Modele identidade com um mapa
 
 - Crie `Agenda` com um dicionário privado inicialmente vazio.
@@ -104,7 +112,7 @@ Verificação: tente operar sobre um contato inexistente e confira que nenhum co
 - Ordene essa lista pelo nome antes de retorná-la.
 - Use o mesmo critério para a representação completa da agenda.
 
-Não mantenha ao mesmo tempo um mapa e uma lista ordenada: seriam duas fontes de verdade que precisariam permanecer sincronizadas.
+Não mantenha ao mesmo tempo um mapa e uma lista ordenada de contatos, nem uma lista persistente de favoritos: seriam estruturas redundantes que precisariam permanecer sincronizadas. A consulta derivada é suficiente nesta etapa; um índice secundário persistente será o tema de `@favoritos`.
 
 ### 5. Conecte o Shell
 
@@ -117,6 +125,7 @@ Perguntas de reflexão:
 - Por que o nome é uma chave adequada neste problema? O que mudaria se contatos pudessem ter nomes iguais?
 - Por que a busca pertence a `Contact`, mesmo sendo iniciada por `Agenda`?
 - Em que situação manter uma segunda estrutura ordenada seria justificável apesar do custo de sincronização?
+- Por que uma lista persistente de favoritos pertence a `@favoritos`, e não a esta atividade? Qual benefício precisaria compensar o risco de inconsistência?
 
 ## Shell
 
@@ -259,6 +268,18 @@ $search Ana
 $search ANA
 $show
 - Ana []
+- ana []
+$end
+```
+
+### Regra de telefone herdada de `contato`
+
+```bash
+#TEST_CASE phone_without_digit
+$addContact ana
+$addPhone ana home -()
+fail: invalid number
+$show
 - ana []
 $end
 ```
