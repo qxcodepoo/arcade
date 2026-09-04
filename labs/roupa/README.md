@@ -44,7 +44,10 @@ O diagrama mostra `Garment` com o atributo privado `size`. A constante indica o 
 - Implemente o `Shell` apenas para interpretar comandos, chamar o domínio e imprimir resultados.
 - Confira nos testes os casos de tamanho inválido, tamanho válido e estado preservado após uma falha.
 
-Pergunta de reflexão: qual invariante seria quebrada se `size` fosse público?
+Perguntas de reflexão
+- qual invariante seria quebrada se `size` fosse público?
+- é melhor iniciar no construtor com uma string vazia ou com o tamanho padrão? Por quê?
+
 
 ## Shell
 

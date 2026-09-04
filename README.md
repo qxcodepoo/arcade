@@ -44,112 +44,176 @@ Marcadores pedagógicos
     - representar falhas com booleanos ou enumerações;
     - utilizar retornos antecipados (`early return`).
   - Princípio relacionado, quando necessário:
-    - responsabilidade.
+    - responsabilidade: a classe que possui o estado também protege suas regras.
 - [ ] `@toalha          type=self gain=2 hard=1 size=1` [[GUIDE] Toalha: estado e comportamento em uma classe coesa](labs/toalha/README.md)
   - Descrição: a toalha deve controlar seu estado de umidade e fornecer métodos para enxugar, torcer e consultar seu estado.
   - Domínio: o quanto a toalha enxuga depende do seu tamanho e ela não pode suportar água além de sua capacidade.
-  - Objetivo: identificar estado e comportamento em uma classe coesa.
+  - Objetivos: identificar estado e comportamento em uma classe coesa.
 - [ ] `@animal          type=diff gain=2 hard=1 size=1` [[GUIDE] Animal: estado, comportamento e ciclo de vida](labs/animal/README.md)
   - Descrição: gerenciar um animal que nasce, cresce e morre. Faz barulho diferente conforme a espécie e o estado de vida.
   - Domínio: Envelhecer faz o animal morrer, impede ele de continuar envelhecendo e de fazer barulho após a morte.
-  - Objetivo: modelar o ciclo de vida de um objeto por seu estado.
+  - Objetivos: modelar o ciclo de vida de um objeto por seu estado.
 - [ ] `@enxugar         type=diff gain=2 hard=1 size=2` [[TRAIN] Enxugar: comportamento observável e interface](labs/enxugar/README.md)
   - Descrição: evolução da atividade da toalha, mas agora com a camada de testes de requisição e resposta.
   - Domínio: o mesmo da toalha.
-  - Objetivo: manipular entrada e saída de forma separada do domínio, testando apenas o comportamento observável.
+  - Objetivos: manipular entrada e saída de forma separada do domínio, testando apenas o comportamento observável.
 - [ ] `@carro           type=diff gain=3 hard=2 size=2` [[ALONE] Carro: separação inicial entre domínio e interface](labs/carro/README.md)
   - Descrição: o carro gerencia entrada, saída de pessoas, combustível e kilomentragem.
   - Domínio: o carro não pode controla o limite de pessoas e possui regras para que a ação de dirigir seja completada.
-  - Objetivo: manipular erros como enumerações e treinar técnicas de `early return`.
+  - Objetivos: manipular erros como enumerações e treinar técnicas de `early return`.
 - [ ] `@calculadora     type=diff gain=3 hard=2 size=2` [[CHECK] Calculadora: resultados de operação e mensagens na interface](labs/calculadora/README.md)
   - Descrição: a calculadora possui bateria, realiza operações matemáticas e as guarda no display.
   - Domínio: A calculadora não pode realizar operações sem bateria e nem dividir por zero.
-  - Objetivo: manipular erros como enumerações e treinar técnicas de `early return`.
+  - Objetivos: manipular erros como enumerações e treinar técnicas de `early return`.
 
-Projetos               | toalha | animal | enxugar | carro | calculadora
------------------------|--------|--------|---------|-------|------------
-ciclo de vida          | ❌      | ✅      | ❌       | ❌     | ❌
-falhas como enumeração | ❌      | ❌      | ❌       | ✅     | ✅
-testes automáticos     | ❌      | ❌      | ✅       | ✅     | ✅
-early return           | ❌      | ❌      | ❌       | ✅     | ✅
+| Projetos               | toalha | animal | enxugar | carro | calculadora |
+|------------------------|--------|--------|---------|-------|-------------|
+| ciclo de vida          | .      | SIM    | .       | .     | .           |
+| falhas como enumeração | .      | .      | .       | SIM   | SIM         |
+| testes automáticos     | .      | .      | SIM     | SIM   | SIM         |
+| early return           | .      | .      | .       | SIM   | SIM         |
 
 ---
 
 ## Encapsulamento e Invariantes <!-- @access -->
 
 - Introdução
-  - Habilidades trabalhadas:
-    - atributos privados;
-    - estado válido;
-    - validação dentro da classe responsável;
-    - operações que preservam invariantes;
-    - falhas e estado após falhas;
-    - diferença entre encapsular e criar getters/setters para tudo.
-  - Conceitos principais: encapsulamento, invariante e contrato.
+  - Objetivos de aprendizagem:
+    - controlar atributos privados por operações do objeto;
+    - reconhecer e preservar o estado válido de um objeto;
+    - validar alterações na classe que possui a regra;
+    - verificar que uma falha não altera o estado anterior;
+    - separar a validação do domínio das mensagens da interface.
+  - Conceitos:
+    - encapsulamento e atributo privado;
+    - invariante e estado válido;
+    - getter, setter e consulta sem alteração;
+    - validação, sucesso e falha;
+    - construtor e valor inicial válido;
+    - domínio, Shell e interface.
+  - Técnicas de programação:
+    - inicializar o objeto em um estado válido;
+    - validar antes de alterar atributos;
+    - retornar sucesso ou falha sem imprimir mensagens no domínio;
+    - preservar o estado após uma operação recusada;
+    - usar getters para consultas e setters somente quando houver regra de alteração;
+    - testar valores válidos, inválidos, limites e sequências de operações.
+  - Princípio relacionado, quando necessário:
+    - responsabilidade: a classe que possui o estado também protege suas regras.
+    - invariante: a classe deve preservar seu estado válido em todas as operações e não dar acesso externo a atributos privados.
+    - dry: don't repeat yourself, não repita a validação em outro lugar que não seja o setter.
 - [ ] `@chinela         type=self gain=1 hard=1 size=1` [[GUIDE] Comprando uma chinela 40/41](labs/chinela/README.md)
-  - Objetivo: preservar uma regra simples de compra dentro do objeto.
-  - Conceitos: encapsulamento, invariante e operação válida.
-  - Técnicas: validar no componente responsável e manter o estado após falha.
-  - Pré-requisito: classes, atributos e métodos básicos.
+  - Descrição: a chinela controla seu tamanho por meio de operações de consulta e alteração.
+  - Domínio: o tamanho deve ser par e permanecer entre 20 e 50; uma tentativa inválida não pode alterar o valor atual.
+  - Objetivo: proteger uma regra simples com atributo privado, getter e setter validador.
 - [ ] `@camisa          type=self gain=1 hard=1 size=1` [[TRAIN] Comprando uma camisa XG](labs/camisa/README.md)
-  - Objetivo: preservar a invariante de tamanho válido em uma camisa.
-  - Conceitos: encapsulamento, atributo privado, getter, setter e invariante.
-  - Técnicas: validar antes de alterar, retornar cópias e preservar o estado após falha.
-  - Pré-requisito: classes, atributos privados e validação básica.
+  - Descrição: a camisa guarda um tamanho textual e informa os tamanhos permitidos.
+  - Domínio: o objeto começa com um tamanho válido e aceita somente `PP`, `P`, `M`, `G`, `GG` ou `XG`, mantendo o estado anterior em caso de falha.
+  - Objetivo: consolidar a validação de um conjunto de valores e a inicialização segura no construtor.
 - [ ] `@roupa           type=diff gain=2 hard=1 size=1` [[TRAIN] Roupa: extensão testável de Camisa](labs/roupa/README.md)
-  - Objetivo: tornar a regra de tamanho testável por uma interface separada.
-  - Conceitos: domínio, Shell, separação de interesses, getter, setter e invariante.
-  - Técnicas: isolar regras da entrada e saída e testar estado preservado após falha.
-  - Pré-requisito: encapsulamento, validação e funções básicas.
+  - Descrição: a roupa recebe comandos para consultar e alterar seu tamanho por meio de um `Shell`.
+  - Domínio: a classe aceita apenas tamanhos permitidos e retorna falha sem mudar o tamanho anterior; as mensagens pertencem ao `Shell`.
+  - Objetivo: tornar a regra de tamanho testável ao separar domínio, comandos e apresentação de falhas.
 - [ ] `@relogio         type=diff gain=3 hard=2 size=2` [[ALONE] Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
-  - Objetivo: proteger uma hora válida e atualizá-la de forma coordenada.
-  - Conceitos: invariantes, setters validadores, transição de estado e representação.
-  - Técnicas: validar campos independentemente, coordenar virada de minuto e separar estado de exibição.
-  - Pré-requisito: encapsulamento, validação e condicionais.
+  - Descrição: o relógio controla hora, minuto e modo de exibição, além de avançar um minuto por vez.
+  - Domínio: atributos com valores válidos; validação individual de cada atributo, passagem do tempo, mostrar a hora em 24h ou AM/PM não altera a hora interna.
+  - Objetivo: o validações independentes de cada atributo e manter o estado interno variando a forma como a hora é exibida.
+
+| Projetos                | chinela | camisa | roupa | relógio |
+|-------------------------|---------|--------|-------|---------|
+| falhas como enumeração  | .       | .      | .     | .       |
+| validação de construtor | .       | SIM    | SIM   | SIM     |
+| uso de arrays internos  | -       | SIM    | SIM   | .       |
+| testes automáticos      | .       | SIM    | SIM   | SIM     |
+| lógica complexa         | .       | .      | .     | SIM     |
 
 
 ## Relações entre objetos: agregação e delegação <!-- @agreg -->
 
-- Conceitos abordados neste módulo:
-  - agregação;
-  - posse e colaboração;
-  - delegação;
-  - multiplicidade;
-  - ciclos de vida independentes.
-- Conceitos principais: agregação, delegação e multiplicidade.
 
-
-___
+- Introdução
+  - Objetivos de aprendizagem:
+    - distinguir posse de agregação entre objetos;
+    - representar referências opcionais e a multiplicidade de uma relação;
+    - delegar uma regra ao objeto que possui os dados necessários;
+    - coordenar objetos sem transferir indevidamente seus dados ou responsabilidades;
+    - comunicar resultados do domínio sem imprimir mensagens nas classes.
+  - Conceitos:
+    - agregação, posse e ciclo de vida independente;
+    - referência opcional, ausência e multiplicidade `0..1`;
+    - colaboração, coordenação e delegação;
+    - resultado de domínio, booleano e enumeração;
+    - transferência de recurso entre objetos.
+  - Técnicas de programação:
+    - representar a ausência de um objeto por `T | null`;
+    - inserir e remover objetos, devolvendo o objeto removido quando necessário;
+    - validar pré-condições antes de alterar o estado;
+    - concentrar cálculos e alterações no objeto que possui o estado;
+    - usar retornos explícitos para que o `Shell` apresente as falhas;
+    - testar falhas, estado preservado e sequências de colaboração.
+  - Princípio relacionado, quando necessário:
+    - responsabilidade: cada objeto protege suas próprias regras, e o coordenador apenas organiza a colaboração.
 - [ ] `@motoca          type=diff gain=3 hard=2 size=3` [[GUIDE] Motoca: agregação opcional e delegação](labs/motoca/README.md)
-  - Objetivo: modelar uma agregação opcional entre uma motoca e uma pessoa.
-  - Conceitos: agregação, posse, multiplicidade e delegação.
-  - Técnicas: controlar referências opcionais, retornar objetos removidos e separar domínio do Shell.
-  - Pré-requisito: classes, encapsulamento e referências opcionais.
+  - Descrição: a motoca controla tempo de uso e a pessoa que a ocupa, permitindo entrar, sair, comprar tempo e dirigir.
+  - Domínio: há no máximo uma pessoa na motoca; ela continua existindo depois de sair, e a corrida depende de pessoa, tempo disponível e idade compatível com o tamanho da motoca.
+  - Objetivos: modelar uma agregação opcional e delegar à pessoa a verificação de que pode dirigir.
 - [ ] `@grafite         type=diff gain=3 hard=3 size=3` [[TRAIN] Grafite: agregação opcional e delegação](labs/grafite/README.md)
-  - Objetivo: delegar ao grafite as regras de desgaste durante a escrita.
-  - Conceitos: agregação, delegação, responsabilidade e resultados de domínio.
-  - Técnicas: dividir responsabilidades entre componentes e testar cada falha observável.
-  - Pré-requisito: agregação, delegação e encapsulamento.
-- [ ] `@motouber        type=diff gain=3 hard=3 size=3` [[ALONE] MotoUber: colaboração entre objetos e transferência de recurso](labs/motouber/README.md)
-  - Objetivo: coordenar uma corrida entre pessoas sem transferir a posse de seus dados.
-  - Conceitos: colaboração, agregação, delegação e transferência de recurso.
-  - Técnicas: manter dinheiro em `Person`, coordenar pagamentos e representar resultados.
-  - Pré-requisito: objetos colaborativos, delegação e condicionais.
+  - Descrição: a lapiseira recebe, remove e usa um grafite para escrever páginas.
+  - Domínio: ela comporta no máximo um grafite de espessura compatível; o grafite calcula seu desgaste por dureza e nunca pode ficar menor que `10mm`.
+  - Objetivos: delegar o desgaste ao grafite e coordenar a escrita por resultados explícitos do domínio.
+- [ ] `@motouber        type=diff gain=3 hard=3 size=3` [[ALONE] MotoUber: colaboração e transferência de recurso](labs/motouber/README.md)
+  - Descrição: o Uber coordena uma corrida com motorista, passageiro e custo acumulado.
+  - Domínio: o motorista permanece associado ao Uber, o passageiro sai ao fim da corrida e cada pessoa mantém seu próprio dinheiro; em caso de saldo insuficiente, o Uber completa o pagamento ao motorista.
+  - Objetivos: coordenar a transferência de dinheiro sem retirar essa responsabilidade de `Person` e representar os resultados da corrida.
+
+| Projetos                  | motoca | grafite | motouber |
+|---------------------------|--------|---------|----------|
+| agregação opcional        | SIM    | SIM     | SIM      |
+| objeto removido devolvido | SIM    | SIM     | SIM      |
+| regra delegada            | SIM    | SIM     | SIM      |
+| falha como enumeração     | SIM    | SIM     | SIM      |
+| testes automáticos        | SIM    | SIM     | SIM      |
 
 
-## Aprofundamento <!-- @aprofundamento -->
+## Desafios de agregação e estados <!-- @aprofundamento -->
 
-
+- Introdução
+  - Objetivos de aprendizagem:
+    - coordenar componentes com ciclos de vida independentes;
+    - preservar invariantes distribuídas entre objetos que colaboram;
+    - modelar transições que dependem da combinação de estados;
+    - distinguir um estado temporário de um estado terminal;
+    - registrar e preservar a causa de uma transição terminal.
+  - Conceitos:
+    - agregação, referência opcional e ciclo de vida independente;
+    - fonte de energia, capacidade e carga;
+    - coordenação de estados e transição condicional;
+    - estado terminal, causa de morte e operação sem efeito;
+    - enumeração, booleano e resultado de domínio.
+  - Técnicas de programação:
+    - delegar consumo, recarga e limites ao componente que possui esses dados;
+    - coordenar operações sem alterar diretamente o estado interno de outro objeto;
+    - validar pré-condições e preservar o estado após uma falha;
+    - bloquear ações que não podem ocorrer depois de uma transição terminal;
+    - construir e testar o comportamento em etapas, incluindo fronteiras e sequências de operações.
+  - Princípio relacionado, quando necessário:
+    - responsabilidade: cada componente preserva suas regras, enquanto o objeto coordenador decide quando combiná-las.
 - [ ] `@charger         type=diff gain=3 hard=3 size=3` [[TRAIN] Charger: agregação e coordenação por etapas](labs/charger/README.md)
-  - Objetivo: coordenar o uso de bateria e carregador em etapas incrementais.
-  - Conceitos: agregação, coordenação, invariantes e ciclos de vida independentes.
-  - Técnicas: delegar consumo e recarga, preservar capacidade e testar transições.
-  - Pré-requisito: agregação, delegação e invariantes.
+  - Descrição: o notebook pode receber bateria e carregador, ligar, desligar e acumular tempo de uso.
+  - Domínio: bateria e carregador existem fora do notebook; a bateria mantém carga entre zero e sua capacidade, e o notebook muda seu comportamento conforme as fontes de energia conectadas.
+  - Objetivos: coordenar consumo e recarga por etapas, delegando os limites de carga à bateria e reagindo à falta de energia.
 - [ ] `@tamagotchi      type=diff gain=3 hard=3 size=3` [[CHECK] Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
-  - Objetivo: coordenar ações sobre um pet que pode alcançar um estado terminal.
-  - Conceitos: composição, invariante, causa de morte e estado terminal.
-  - Técnicas: delegar alterações ao pet e bloquear ações depois da morte.
-  - Pré-requisito: composição, delegação e invariantes.
+  - Descrição: o jogo coordena brincadeiras, banho e sono de um pet com energia, limpeza e idade.
+  - Domínio: o pet mantém energia e limpeza em seus limites, registra a primeira causa de morte e não aceita novas alterações depois de morto.
+  - Objetivos: delegar ao pet as transições de estado e coordenar ações que respeitam o estado terminal.
+
+| Projetos                        | charger | tamagotchi |
+|---------------------------------|---------|------------|
+| agregação de componente externo | SIM     | SIM        |
+| invariantes no componente       | SIM     | SIM        |
+| coordenação de estados          | SIM     | SIM        |
+| transição terminal              | .       | SIM        |
+| testes automáticos              | SIM     | SIM        |
 
 
 ## Coleções lineares <!-- @arrays -->
