@@ -2,12 +2,19 @@
 
 Este repositório é uma coleção de exercícios e projetos relacionados à Programação Orientada a Objetos (POO). Ele é organizado em diferentes seções, cada uma focada em um aspecto específico da POO, como classes, objetos, herança, polimorfismo, entre outros.
 
-Marcadores pedagógicos
-
-- GUIDE — leitura, referência ou exemplo guiado
-- TRAIN — prática com consulta
-- ALONE — tentativa independente
-- CHECK — verificação do domínio
+- Marcadores pedagógicos
+  - Tipo de atividade
+    - GUIDE — leitura, referência ou exemplo guiado
+    - TRAIN — prática com consulta
+    - ALONE — tentativa independente
+    - CHECK — verificação do domínio
+  - Nível de complexidade lógica
+    - 1 - Mínima: aplicação direta de uma regra.
+    - 2 - Baixa: poucas decisões independentes.
+    - 3 - Média: combinação de condições ou operações.
+    - 4 - Média-alta: regras interdependentes e casos especiais.
+    - 5 - Alta: decisões encadeadas e necessidade de decomposição.
+    - 6 - Muito alta: várias regras coordenadas, estados ou estratégias possíveis.
 
 ## Material de referência <!-- @refs -->
 
@@ -66,12 +73,13 @@ Marcadores pedagógicos
   - Domínio: A calculadora não pode realizar operações sem bateria e nem dividir por zero.
   - Objetivos: manipular erros como enumerações e treinar técnicas de `early return`.
 
-| Projetos               | toalha | animal | enxugar | carro | calculadora |
-|------------------------|--------|--------|---------|-------|-------------|
-| ciclo de vida          | .      | SIM    | .       | .     | .           |
-| falhas como enumeração | .      | .      | .       | SIM   | SIM         |
-| testes automáticos     | .      | .      | SIM     | SIM   | SIM         |
-| early return           | .      | .      | .       | SIM   | SIM         |
+| Projetos              | toalha | animal | enxugar | carro | calculadora |
+|-----------------------|--------|--------|---------|-------|-------------|
+| erros comunicados via | bool   | bool   | bool    | enum  | enum        |
+| testes automáticos    | .      | .      | SIM     | SIM   | SIM         |
+| ciclo de vida         | .      | SIM    | .       | .     | .           |
+| early return          | .      | .      | .       | SIM   | SIM         |
+| lógica                | mínima | baixa  | baixa   | média | média       |
 
 ---
 
@@ -106,26 +114,26 @@ Marcadores pedagógicos
   - Descrição: a chinela controla seu tamanho por meio de operações de consulta e alteração.
   - Domínio: o tamanho deve ser par e permanecer entre 20 e 50; uma tentativa inválida não pode alterar o valor atual.
   - Objetivo: proteger uma regra simples com atributo privado, getter e setter validador.
-- [ ] `@camisa          type=self gain=1 hard=1 size=1` [[TRAIN] Comprando uma camisa XG](labs/camisa/README.md)
+- [ ] `@camisa          type=self gain=1 hard=2 size=1` [[TRAIN] Comprando uma camisa XG](labs/camisa/README.md)
   - Descrição: a camisa guarda um tamanho textual e informa os tamanhos permitidos.
   - Domínio: o objeto começa com um tamanho válido e aceita somente `PP`, `P`, `M`, `G`, `GG` ou `XG`, mantendo o estado anterior em caso de falha.
   - Objetivo: consolidar a validação de um conjunto de valores e a inicialização segura no construtor.
-- [ ] `@roupa           type=diff gain=2 hard=1 size=1` [[TRAIN] Roupa: extensão testável de Camisa](labs/roupa/README.md)
+- [ ] `@roupa           type=diff gain=2 hard=2 size=1` [[TRAIN] Roupa: extensão testável de Camisa](labs/roupa/README.md)
   - Descrição: a roupa recebe comandos para consultar e alterar seu tamanho por meio de um `Shell`.
   - Domínio: a classe aceita apenas tamanhos permitidos e retorna falha sem mudar o tamanho anterior; as mensagens pertencem ao `Shell`.
   - Objetivo: tornar a regra de tamanho testável ao separar domínio, comandos e apresentação de falhas.
-- [ ] `@relogio         type=diff gain=3 hard=2 size=2` [[ALONE] Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
+- [ ] `@relogio         type=diff gain=3 hard=3 size=2` [[ALONE] Relógio: invariantes de tempo e atualização coordenada](labs/relogio/README.md)
   - Descrição: o relógio controla hora, minuto e modo de exibição, além de avançar um minuto por vez.
   - Domínio: atributos com valores válidos; validação individual de cada atributo, passagem do tempo, mostrar a hora em 24h ou AM/PM não altera a hora interna.
   - Objetivo: o validações independentes de cada atributo e manter o estado interno variando a forma como a hora é exibida.
 
 | Projetos                | chinela | camisa | roupa | relógio |
 |-------------------------|---------|--------|-------|---------|
-| falhas como enumeração  | .       | .      | .     | .       |
+| erros comunicados por   | bool    | bool   | bool  | bool    |
+| testes automáticos      | .       | SIM    | SIM   | SIM     |
 | validação de construtor | .       | SIM    | SIM   | SIM     |
 | uso de arrays internos  | -       | SIM    | SIM   | .       |
-| testes automáticos      | .       | SIM    | SIM   | SIM     |
-| lógica complexa         | .       | .      | .     | SIM     |
+| lógica                  | mínima  | baixa  | baixa | média   |
 
 
 ## Relações entre objetos: agregação e delegação <!-- @agreg -->
@@ -161,18 +169,19 @@ Marcadores pedagógicos
   - Descrição: a lapiseira recebe, remove e usa um grafite para escrever páginas.
   - Domínio: ela comporta no máximo um grafite de espessura compatível; o grafite calcula seu desgaste por dureza e nunca pode ficar menor que `10mm`.
   - Objetivos: delegar o desgaste ao grafite e coordenar a escrita por resultados explícitos do domínio.
-- [ ] `@motouber        type=diff gain=3 hard=3 size=3` [[ALONE] MotoUber: colaboração e transferência de recurso](labs/motouber/README.md)
+- [ ] `@motouber        type=diff gain=3 hard=4 size=3` [[ALONE] MotoUber: colaboração e transferência de recurso](labs/motouber/README.md)
   - Descrição: o Uber coordena uma corrida com motorista, passageiro e custo acumulado.
   - Domínio: o motorista permanece associado ao Uber, o passageiro sai ao fim da corrida e cada pessoa mantém seu próprio dinheiro; em caso de saldo insuficiente, o Uber completa o pagamento ao motorista.
   - Objetivos: coordenar a transferência de dinheiro sem retirar essa responsabilidade de `Person` e representar os resultados da corrida.
 
-| Projetos                  | motoca | grafite | motouber |
-|---------------------------|--------|---------|----------|
-| agregação opcional        | SIM    | SIM     | SIM      |
-| objeto removido devolvido | SIM    | SIM     | SIM      |
-| regra delegada            | SIM    | SIM     | SIM      |
-| falha como enumeração     | SIM    | SIM     | SIM      |
-| testes automáticos        | SIM    | SIM     | SIM      |
+| Projetos                  | motoca    | grafite   | motouber   |
+|---------------------------|-----------|-----------|------------|
+| erros comunicados por     | enum/null | enum/null | enum/null  |
+| agregação nullable        | SIM       | SIM       | SIM        |
+| objeto removido devolvido | SIM       | SIM       | SIM        |
+| regra delegada            | SIM       | SIM       | SIM        |
+| testes automáticos        | SIM       | SIM       | SIM        |
+| lógica                    | baixa     | média     | média-alta |
 
 
 ## Desafios de agregação e estados <!-- @aprofundamento -->
@@ -198,93 +207,131 @@ Marcadores pedagógicos
     - construir e testar o comportamento em etapas, incluindo fronteiras e sequências de operações.
   - Princípio relacionado, quando necessário:
     - responsabilidade: cada componente preserva suas regras, enquanto o objeto coordenador decide quando combiná-las.
-- [ ] `@charger         type=diff gain=3 hard=3 size=3` [[TRAIN] Charger: agregação e coordenação por etapas](labs/charger/README.md)
-  - Descrição: o notebook pode receber bateria e carregador, ligar, desligar e acumular tempo de uso.
-  - Domínio: bateria e carregador existem fora do notebook; a bateria mantém carga entre zero e sua capacidade, e o notebook muda seu comportamento conforme as fontes de energia conectadas.
-  - Objetivos: coordenar consumo e recarga por etapas, delegando os limites de carga à bateria e reagindo à falta de energia.
 - [ ] `@tamagotchi      type=diff gain=3 hard=3 size=3` [[CHECK] Tamagotchi: coordenação, invariantes e estado terminal](labs/tamagotchi/README.md)
   - Descrição: o jogo coordena brincadeiras, banho e sono de um pet com energia, limpeza e idade.
   - Domínio: o pet mantém energia e limpeza em seus limites, registra a primeira causa de morte e não aceita novas alterações depois de morto.
   - Objetivos: delegar ao pet as transições de estado e coordenar ações que respeitam o estado terminal.
+- [ ] `@charger         type=diff gain=3 hard=3 size=3` [[TRAIN] Charger: agregação e coordenação por etapas](labs/charger/README.md)
+  - Descrição: o notebook pode receber bateria e carregador, ligar, desligar e acumular tempo de uso.
+  - Domínio: bateria e carregador existem fora do notebook; a bateria mantém carga entre zero e sua capacidade, e o notebook muda seu comportamento conforme as fontes de energia conectadas.
+  - Objetivos: coordenar consumo e recarga por etapas, delegando os limites de carga à bateria e reagindo à falta de energia.
 
-| Projetos                        | charger | tamagotchi |
-|---------------------------------|---------|------------|
-| agregação de componente externo | SIM     | SIM        |
-| invariantes no componente       | SIM     | SIM        |
-| coordenação de estados          | SIM     | SIM        |
-| transição terminal              | .       | SIM        |
-| testes automáticos              | SIM     | SIM        |
+| Projetos                        | tamagotchi | charger   |
+|---------------------------------|------------|-----------|
+| agregação de componente externo | SIM        | SIM       |
+| invariantes no componente       | SIM        | SIM       |
+| coordenação de estados          | SIM        | SIM       |
+| testes automáticos              | SIM        | SIM       |
+| erros comunidados por           | enum       | enum/null |
+| lógica                          | média-alta | alta      |
+| transição terminal              | SIM        | .         |
+
+
 
 
 ## Coleções lineares <!-- @arrays -->
 
-- Conceitos abordados neste módulo:
-  - Array<T> ou lista de objetos;
-  - multiplicidade 0..*;
-  - adicionar, remover, buscar e percorrer;
-  - ordem de chegada e ordem de remoção;
-  - fila e pilha como usos simples de uma lista;
-  - encapsular a coleção;
-  - evitar devolver uma coleção interna mutável;
-  - separar operações sobre um item de operações sobre o conjunto.
-- Conceitos principais: coleção, multiplicidade, busca e coordenação.
-
-
-___
+- Introdução
+  - Objetivos de aprendizagem:
+    - manipular coleções lineares mantendo ordem, duplicatas e posições;
+    - distinguir inserção, remoção, busca, filtro e percurso;
+    - escolher entre alterar a lista, devolver um elemento ou criar uma nova coleção;
+    - encapsular uma coleção quando ela pertence ao estado de um objeto;
+    - coordenar o movimento de objetos entre coleções relacionadas.
+  - Conceitos:
+    - `Array<T>`, lista de objetos e multiplicidade `0..*`;
+    - índice, extremidades, ordem de chegada e ordem de remoção;
+    - busca, filtro, cópia rasa e ordenação;
+    - fila e operações sobre uma coleção;
+    - coleção interna, composição e exposição controlada;
+    - referência opcional e coleção de muitos objetos.
+  - Técnicas de programação:
+    - percorrer elementos diretamente ou com índice quando a posição importar;
+    - inserir e remover nas extremidades, validando coleção vazia e limites;
+    - interromper a busca após remover a primeira ocorrência;
+    - filtrar uma coleção sem modificar indevidamente suas posições;
+    - devolver cópias quando a coleção interna não puder ser alterada por clientes;
+    - mover objetos entre listas sem recriá-los e delegar regras ao objeto que possui o estado.
+  - Princípio relacionado, quando necessário:
+    - encapsulamento: a classe proprietária protege a coleção e concentra as regras que mantêm seu estado válido.
 - [ ] `@+listas         type=wiki gain=1 hard=1 size=1` [[GUIDE] Listas em Python: ações mais comuns](wiki/listas/README.md)
-  - Objetivo: consultar e manipular listas de forma idiomática em Python.
-  - Conceitos: lista, índice, mutação, cópia, ordenação e filtragem.
-  - Técnicas: percorrer, inserir, remover, buscar, filtrar e escolher entre cópia e alteração local.
-  - Pré-requisito: laços, funções e coleções básicas.
+  - Descrição: uma referência prática para criar, percorrer, inserir, remover, buscar, filtrar, copiar e ordenar listas de pessoas.
+  - Domínio: uma lista mantém elementos ordenados por índice; algumas operações a alteram, enquanto cópia, filtro e ordenação podem produzir outra lista.
+  - Objetivos: escolher operações idiomáticas de lista e reconhecer quando uma consulta ou alteração modifica a coleção original.
 - [ ] `@array           type=diff gain=2 hard=1 size=1` [[GUIDE] Array: manipulação direta de uma coleção de pessoas](labs/array/README.md)
-  - Objetivo: aplicar diretamente as operações fundamentais em uma coleção linear.
-  - Conceitos: lista de objetos, posição, extremidades, busca e filtro.
-  - Técnicas: inserir, remover, percorrer, interromper buscas e preservar fronteiras.
-  - Pré-requisito: listas, laços e condicionais.
+  - Descrição: uma lista de pessoas recebe comandos para inserir e remover nas extremidades, remover pelo nome e filtrar por idade.
+  - Domínio: a coleção começa vazia, preserva a ordem e não muda ao remover de uma lista vazia ou buscar um nome inexistente; a remoção por nome afeta apenas a primeira ocorrência.
+  - Objetivos: praticar diretamente as operações fundamentais de uma lista antes de encapsulá-las em uma classe.
 - [ ] `@contato         type=diff gain=2 hard=1 size=2` [[TRAIN] Contato: encapsulamento de uma coleção de telefones](labs/contato/README.md)
-  - Objetivo: encapsular uma coleção pertencente a um contato.
-  - Conceitos: composição, coleção interna, validação e estado válido.
-  - Técnicas: dividir responsabilidades, preservar invariantes e retornar cópias.
-  - Pré-requisito: listas, classes e encapsulamento básico.
+  - Descrição: um contato mantém nome, favorito e uma coleção privada de telefones.
+  - Domínio: somente telefones válidos entram na coleção, a ordem só muda pelas operações do contato e uma remoção por índice inválido preserva o estado.
+  - Objetivos: encapsular uma coleção, delegar a validação do número a `Phone` e separar o domínio das mensagens do `Shell`.
 - [ ] `@pula-pula       type=diff gain=1 hard=1 size=1` [[TRAIN] Pula-pula: filas e movimentação de crianças](labs/pula-pula/README.md)
-  - Objetivo: modelar uma fila com entradas, saídas e movimentação.
-  - Conceitos: ordem, posição, fila e operações sobre coleções.
-  - Técnicas: atualizar estado em sequências e testar fronteiras da coleção.
-  - Pré-requisito: listas, filas e atualização de estado.
+  - Descrição: o pula-pula controla uma fila de espera e uma lista de crianças brincando.
+  - Domínio: as crianças mantêm sua ordem nas listas, entram e saem por operações de fila e podem ser removidas pelo nome em qualquer uma das duas coleções.
+  - Objetivos: coordenar movimentos entre coleções lineares e perceber que a posição representa uma ordem variável, não um lugar fixo.
 - [ ] `@lapiseira       type=diff gain=1 hard=1 size=1` [[ALONE] Lapiseira: extensão do grafite com tambor](labs/lapiseira/README.md)
-  - Objetivo: estender um objeto existente sem quebrar suas regras.
-  - Conceitos: composição, delegação, capacidade e estado compartilhado.
-  - Técnicas: reutilizar uma classe coesa e coordenar operações entre objetos.
-  - Pré-requisito: listas, composição e delegação.
+  - Descrição: a lapiseira possui um grafite em uso no bico e vários grafites reserva em um tambor.
+  - Domínio: grafites compatíveis entram no fim do tambor, o próximo sai do começo para o bico e o grafite em uso preserva suas próprias regras de desgaste e tamanho mínimo.
+  - Objetivos: combinar uma referência opcional com uma coleção linear, reutilizando e delegando as regras de `Lead`.
+
+| Projetos                 | listas | array | contato    | pula-pula | lapiseira |
+|--------------------------|--------|-------|------------|-----------|-----------|
+| relação entre objetos    | .      | .     | composição | agregação | agregação |
+| busca ou filtro          | SIM    | SIM   | .          | SIM       | .         |
+| erros comunicados por    | .      | .     | bool       | bool/null | enum/null |
+| ordem como regra         | SIM    | SIM   | SIM        | SIM       | SIM       |
+| coleção encapsulada      | .      | .     | SIM        | SIM       | SIM       |
+| movimento entre coleções | .      | .     | .          | SIM       | SIM       |
+| testes automáticos       | .      | SIM   | SIM        | SIM       | SIM       |
 
 
 ## Posições fixas e ausência <!-- @slots -->
 
-- Conceitos abordados neste módulo:
-  - vetor de tamanho fixo;
-  - índice como informação do domínio;
-  - posição ocupada e posição vazia;
-  - uso de `T | null` para representar ausência;
-  - busca em vetor com posições vazias;
-  - comparação entre ausência por `null` e objeto vazio.
-- Conceitos principais: posição, ausência, nulidade e busca.
-
-___
+- Introdução
+  - Objetivos de aprendizagem:
+    - representar coleções cuja capacidade e posições são definidas desde a criação;
+    - tratar o índice como parte da regra do domínio, e não apenas como detalhe da implementação;
+    - distinguir posição ocupada de posição vazia;
+    - comparar ausência representada por `T | null` e por um objeto que representa o estado vazio;
+    - coordenar uma fila variável com posições fixas sem perder a consistência entre elas.
+  - Conceitos:
+    - vetor de tamanho fixo, capacidade e índice;
+    - ocupação, ausência, nulidade e objeto vazio;
+    - busca em uma coleção com posições vazias;
+    - fila de espera e posição de atendimento;
+    - saldo, quantidade e arrecadação como estados relacionados.
+  - Técnicas de programação:
+    - inicializar todas as posições com `null` ou com objetos vazios;
+    - validar limites e ocupação antes de acessar ou alterar uma posição;
+    - preservar o estado quando uma reserva, atendimento ou compra for recusada;
+    - devolver cópias de coleções internas quando a capacidade precisar permanecer protegida;
+    - movimentar um objeto da fila para uma posição fixa sem duplicá-lo;
+    - testar índices inválidos, posições vazias, posições ocupadas e valores de fronteira.
+  - Princípio relacionado, quando necessário:
+    - encapsulamento: o objeto que possui as posições garante sua capacidade, ocupação e representação de ausência.
 - [ ] `@cinema          type=diff gain=1 hard=1 size=1` [[GUIDE] Cinema: posições fixas e ausência](labs/cinema/README.md)
-  - Objetivo: representar posições fixas e lugares ainda vazios.
-  - Conceitos: índice, capacidade, ausência e vetor de tamanho fixo.
-  - Técnicas: validar limites, distinguir vazio de objeto e expor cópias.
-  - Pré-requisito: listas, índices e validação de limites.
+  - Descrição: o cinema reserva, cancela e consulta cadeiras de uma sala.
+  - Domínio: cada índice representa uma cadeira fixa que contém um `Client` ou `null`; não é possível reservar uma posição inexistente, já ocupada ou para um cliente que já está na sala.
+  - Objetivos: modelar ausência em um vetor de tamanho fixo, validar posições e proteger a coleção interna com uma cópia.
 - [ ] `@budega          type=diff gain=2 hard=1 size=1` [[TRAIN] Budega: fila e posições fixas](labs/budega/README.md)
-  - Objetivo: combinar fila de espera com posições fixas de atendimento.
-  - Conceitos: fila, índice, ocupação, remoção e movimentação.
-  - Técnicas: coordenar coleções relacionadas e testar entrada no meio e desistência.
-  - Pré-requisito: filas, índices e coleções de tamanho fixo.
+  - Descrição: o mercantil controla clientes em uma fila de espera e em caixas de atendimento.
+  - Domínio: a fila cresce e diminui, mas os caixas têm quantidade e índices fixos; chamar um cliente remove-o da fila antes de ocupar um caixa, e falhas não mudam nenhuma coleção.
+  - Objetivos: comparar uma fila variável com posições fixas e coordenar a movimentação de clientes entre elas.
 - [ ] `@junkfood        type=diff gain=1 hard=1 size=1` [[ALONE] Junkfood: posições fixas e objeto vazio](labs/junkfood/README.md)
-  - Objetivo: modelar uma máquina com compartimentos fixos e produto vazio.
-  - Conceitos: ausência, objeto vazio, capacidade e invariantes.
-  - Técnicas: encapsular posições, rejeitar operações inválidas e calcular receita.
-  - Pré-requisito: vetores de tamanho fixo, ausência e invariantes.
+  - Descrição: a máquina de vendas controla espirais fixas, saldo, compras, troco e arrecadação.
+  - Domínio: cada posição sempre contém um `Slot`; uma espiral vazia é um objeto com quantidade zero, e uma compra só reduz saldo e quantidade quando há índice, produto e dinheiro válidos.
+  - Objetivos: comparar o objeto vazio com `null`, preservar invariantes de saldo e quantidade e calcular arrecadação sem apagá-la ao devolver o troco.
+
+| Projetos              | cinema | budega | junkfood     |
+| --------------------- | ------ | ------ | ------------ |
+| erros comunicados por |        |        |              |
+| capacidade fixa       | SIM    | SIM    | SIM          |
+| tipo de ausência      | null   | null   | objeto vazio |
+| fila variável         | .      | SIM    | .            |
+| validação de índice   | SIM    | SIM    | SIM          |
+| testes automáticos    | SIM    | SIM    | SIM          |
+| lógica                | baixa  | média  | média-alta   |
 
 
 
