@@ -1,3 +1,11 @@
+---
+description: uma referência prática para criar, percorrer, inserir, remover, buscar,
+  filtrar, copiar e ordenar listas de pessoas.
+domain: uma lista mantém elementos ordenados por índice; algumas operações a alteram,
+  enquanto cópia, filtro e ordenação podem produzir outra lista.
+objectives: escolher operações idiomáticas de lista e reconhecer quando uma consulta
+  ou alteração modifica a coleção original.
+---
 # [GUIDE] Listas em Python
 
 <!-- toc-table -->

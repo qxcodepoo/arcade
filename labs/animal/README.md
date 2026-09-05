@@ -1,3 +1,10 @@
+---
+description: gerenciar um animal que nasce, cresce e morre. Faz barulho diferente
+  conforme a espécie e o estado de vida.
+domain: Envelhecer faz o animal morrer, impede ele de continuar envelhecendo e de
+  fazer barulho após a morte.
+objectives: modelar o ciclo de vida de um objeto por seu estado.
+---
 # [GUIDE] Animal que morre
 
 <!-- toc-table -->

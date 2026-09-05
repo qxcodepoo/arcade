@@ -1,3 +1,11 @@
+---
+description: a lapiseira possui um grafite em uso no bico e vários grafites reserva
+  em um tambor.
+domain: grafites compatíveis entram no fim do tambor, o próximo sai do começo para
+  o bico e o grafite em uso preserva suas próprias regras de desgaste e tamanho mínimo.
+objectives: combinar uma referência opcional com uma coleção linear, reutilizando
+  e delegando as regras de `Lead`.
+---
 # [ALONE] Lapiseira com tambor de grafites
 
 <!-- toc-table -->

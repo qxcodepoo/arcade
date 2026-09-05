@@ -1,3 +1,10 @@
+---
+description: um contato mantém nome, favorito e uma coleção privada de telefones.
+domain: somente telefones válidos entram na coleção, a ordem só muda pelas operações
+  do contato e uma remoção por índice inválido preserva o estado.
+objectives: encapsular uma coleção, delegar a validação do número a `Phone` e separar
+  o domínio das mensagens do `Shell`.
+---
 # [TRAIN] Contato com telefones
 
 <!-- toc-table -->
@@ -23,9 +30,9 @@ Esta atividade prepara o modelo local de um contato. `Phone` concentra a validad
 
 ### Telefone
 
-- `Phone` possui os campos públicos `label: str` e `number: str`.
+- `Phone` possui os campos públicos `label: string` e `number: string`.
 - Um telefone é exibido no formato `label:number`, por exemplo, `home:3434`.
-- `is_valid()` retorna `true` somente quando o número:
+- `isValid()` retorna `true` somente quando o número:
   - não é vazio;
   - contém pelo menos um dígito;
   - contém apenas caracteres de `0123456789()-.`.
@@ -36,14 +43,14 @@ Esta atividade prepara o modelo local de um contato. `Phone` concentra a validad
 - O programa começa com um contato cujo nome é vazio (`""`); o comando `init` substitui esse contato por outro nomeado.
 - Um novo contato começa sem telefones e não favoritado.
 - A coleção de telefones pertence ao contato e não é exposta para alteração externa. Assim, todo telefone armazenado é válido e a ordem da coleção só muda pelas operações do próprio contato.
-- `add_phone(label, number) -> bool`
+- `addPhone(label: string, number: string): boolean`
   - Cria e adiciona o telefone ao final quando o número é válido, retornando `true`.
   - Retorna `false` e preserva a coleção quando o número é inválido.
   - Labels podem se repetir.
-- `remove_phone(index) -> bool`
+- `removePhone(index: number): boolean`
   - Remove o telefone da posição indicada e retorna `true`.
   - Retorna `false` e preserva a coleção quando o índice é negativo ou não existe.
-- `toggle_favorite() -> None`
+- `toggleFavorite(): void`
   - Alterna o estado de favorito.
 - O estado de favorito será reutilizado em atividades posteriores para consultar e listar contatos favoritos; nesta atividade, ele só precisa ser alternado e exibido.
 - O favorito é inicialmente apenas um atributo do contato. Ele não deve ser duplicado em uma lista ou mapa nesta atividade.
@@ -77,9 +84,9 @@ Implemente a atividade em incrementos pequenos e execute os casos correspondente
 
 - Crie a `dataclass Phone` com `label` e `number`.
 - Implemente sua representação textual.
-- Faça `is_valid` conferir se o texto não está vazio, contém pelo menos um dígito e se todos os caracteres pertencem ao conjunto permitido.
+- Faça `isValid` conferir se o texto não está vazio, contém pelo menos um dígito e se todos os caracteres pertencem ao conjunto permitido.
 
-Verificação: confira diretamente que `Phone("home", "85-99").is_valid()` é verdadeiro e que um número vazio, contendo letras ou formado apenas por pontuação é falso.
+Verificação: confira diretamente que `Phone("home", "85-99").isValid()` é verdadeiro e que um número vazio, contendo letras ou formado apenas por pontuação é falso.
 
 ### 2. Encapsule a coleção
 
@@ -91,7 +98,7 @@ Antes dessa divisão, qualquer parte do programa poderia inserir um telefone inv
 
 ### 3. Adicione apenas telefones válidos
 
-- Crie o telefone recebido por `add_phone` e delegue a validação a ele.
+- Crie o telefone recebido por `addPhone` e delegue a validação a ele.
 - Adicione-o somente quando for válido.
 - Retorne um booleano para que o `Shell` decida se deve mostrar a mensagem de falha.
 
@@ -105,7 +112,7 @@ Verificação: após uma tentativa inválida, use `show` e confirme que os telef
 
 ### 5. Revise estado simples e conecte o Shell
 
-- Implemente `toggle_favorite` como uma alternância do booleano atual.
+- Implemente `toggleFavorite` como uma alternância do booleano atual.
 - Mantenha o estado de favorito no contato: ele será usado por `@agenda` para localizar e exibir favoritos, embora aqui a única operação seja alternar esse estado.
 - Use `match/case` diretamente sobre `line.split()` para interpretar os comandos.
 - Mantenha mensagens e impressão fora do domínio.

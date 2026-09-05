@@ -1,3 +1,9 @@
+---
+description: a chinela controla seu tamanho por meio de operações de consulta e alteração.
+domain: o tamanho deve ser par e permanecer entre 20 e 50; uma tentativa inválida
+  não pode alterar o valor atual.
+objectives: proteger uma regra simples com atributo privado, getter e setter validador.
+---
 # [GUIDE] Chinela de números pares
 
 <!-- toc-table -->

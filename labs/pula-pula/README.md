@@ -1,3 +1,10 @@
+---
+description: o pula-pula controla uma fila de espera e uma lista de crianças brincando.
+domain: as crianças mantêm sua ordem nas listas, entram e saem por operações de fila
+  e podem ser removidas pelo nome em qualquer uma das duas coleções.
+objectives: coordenar movimentos entre coleções lineares e perceber que a posição
+  representa uma ordem variável, não um lugar fixo.
+---
 # [TRAIN] Pula-pula com crianças
 
 <!-- toc-table -->

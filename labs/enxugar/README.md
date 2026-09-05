@@ -1,3 +1,10 @@
+---
+description: evolução da atividade da toalha, mas agora com a camada de testes de
+  requisição e resposta.
+domain: o mesmo da toalha.
+objectives: manipular entrada e saída de forma separada do domínio, testando apenas
+  o comportamento observável.
+---
 # [TRAIN] Enxugar: Toalha com testes
 
 <!-- toc-table -->

@@ -1,3 +1,12 @@
+---
+description: a máquina de vendas controla espirais fixas, saldo, compras, troco e
+  arrecadação.
+domain: cada posição sempre contém um `Slot`; uma espiral vazia é um objeto com quantidade
+  zero, e uma compra só reduz saldo e quantidade quando há índice, produto e dinheiro
+  válidos.
+objectives: comparar o objeto vazio com `null`, preservar invariantes de saldo e quantidade
+  e calcular arrecadação sem apagá-la ao devolver o troco.
+---
 # [ALONE] Junkfood: posições fixas e objeto vazio
 
 <!-- toc-table -->

@@ -1,3 +1,12 @@
+---
+description: o notebook pode receber bateria e carregador, ligar, desligar e acumular
+  tempo de uso.
+domain: bateria e carregador existem fora do notebook; a bateria mantém carga entre
+  zero e sua capacidade, e o notebook muda seu comportamento conforme as fontes de
+  energia conectadas.
+objectives: coordenar consumo e recarga por etapas, delegando os limites de carga
+  à bateria e reagindo à falta de energia.
+---
 # [TRAIN] Notebook com bateria e carregador
 
 <!-- toc-table -->

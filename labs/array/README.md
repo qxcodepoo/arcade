@@ -1,3 +1,12 @@
+---
+description: uma lista de pessoas recebe comandos para inserir e remover nas extremidades,
+  remover pelo nome e filtrar por idade.
+domain: a coleção começa vazia, preserva a ordem e não muda ao remover de uma lista
+  vazia ou buscar um nome inexistente; a remoção por nome afeta apenas a primeira
+  ocorrência.
+objectives: praticar diretamente as operações fundamentais de uma lista antes de encapsulá-las
+  em uma classe.
+---
 # [GUIDE] Coleção de pessoas
 
 <!-- toc-table -->

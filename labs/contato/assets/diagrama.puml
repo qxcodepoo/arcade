@@ -4,7 +4,7 @@ skinparam classAttributeIconSize 0
 class Phone {
   + label: string
   + number: string
-  + is_valid(): boolean
+  + isValid(): boolean
   + toString(): string
 }
 
@@ -15,9 +15,9 @@ class Contact {
   + name: string {readOnly}
   + favorite: boolean {readOnly}
   + Contact(name: string)
-  + add_phone(label: string, number: string): boolean
-  + remove_phone(index: number): boolean
-  + toggle_favorite(): void
+  + addPhone(label: string, number: string): boolean
+  + removePhone(index: number): boolean
+  + toggleFavorite(): void
   + toString(): string
 }
 

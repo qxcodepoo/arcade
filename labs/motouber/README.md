@@ -1,3 +1,11 @@
+---
+description: o Uber coordena uma corrida com motorista, passageiro e custo acumulado.
+domain: o motorista permanece associado ao Uber, o passageiro sai ao fim da corrida
+  e cada pessoa mantém seu próprio dinheiro; em caso de saldo insuficiente, o Uber
+  completa o pagamento ao motorista.
+objectives: coordenar a transferência de dinheiro sem retirar essa responsabilidade
+  de `Person` e representar os resultados da corrida.
+---
 # [ALONE] Passeando e pagando o MotoUber
 
 <!-- toc-table -->

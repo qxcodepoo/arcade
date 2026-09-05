@@ -1,3 +1,10 @@
+---
+description: a camisa guarda um tamanho textual e informa os tamanhos permitidos.
+domain: o objeto começa com um tamanho válido e aceita somente `PP`, `P`, `M`, `G`,
+  `GG` ou `XG`, mantendo o estado anterior em caso de falha.
+objectives: consolidar a validação de um conjunto de valores e a inicialização segura
+  no construtor.
+---
 # [TRAIN] Camisa de tamanho fixo
 
 <!-- toc-table -->

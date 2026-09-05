@@ -116,17 +116,24 @@ def write_front_matter(path: Path, fields: dict[str, str]) -> None:
     path.write_text(f"---\n{header}---\n{body}", encoding="utf-8")
 
 
-def save(index_text: str) -> int:
-    """Copy metadata from the index to linked activity READMEs."""
+def save(index_text: str) -> tuple[str, int]:
+    """Copy metadata to activity READMEs and remove it from the index."""
     lines: list[str] = index_text.splitlines(keepends=True)
     changed: int = 0
-    for start, end, path in activity_entries(lines):
+    for start, end, path in reversed(activity_entries(lines)):
         fields: dict[str, str] = read_index_fields(lines, start, end)
         if len(fields) != 3 or not path.is_file():
             continue
         write_front_matter(path, fields)
+        retained: list[str] = []
+        for line in lines[start + 1 : end]:
+            match: re.Match[str] | None = FIELD_RE.match(line.rstrip("\n"))
+            if match is not None and FIELD_KEYS.get(match.group(2).lower(), "") in fields:
+                continue
+            retained.append(line)
+        lines[start + 1 : end] = retained
         changed += 1
-    return changed
+    return "".join(lines), changed
 
 
 def load(index_text: str) -> tuple[str, int]:
@@ -173,8 +180,8 @@ def parse_args() -> argparse.Namespace:
         description="Synchronize activity metadata with README YAML front matter."
     )
     mode: argparse._MutuallyExclusiveGroup = parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument("--save", action="store_true", help="copy metadata from the index to activities")
-    mode.add_argument("--load", action="store_true", help="copy metadata from activities to the index")
+    mode.add_argument("--save", action="store_true", help="copy metadata to activities and remove it from the index")
+    mode.add_argument("--load", action="store_true", help="copy metadata to the index without changing activity YAML")
     return parser.parse_args()
 
 
@@ -182,7 +189,10 @@ def main() -> None:
     args: argparse.Namespace = parse_args()
     index_text: str = INDEX.read_text(encoding="utf-8")
     if args.save:
-        count: int = save(index_text)
+        updated_index: str
+        count: int
+        updated_index, count = save(index_text)
+        INDEX.write_text(updated_index, encoding="utf-8")
         print(f"saved {count} activities")
         return
     updated_index: str
