@@ -1,4 +1,4 @@
-# [ALONE] Relógio: invariantes de tempo e atualização coordenada
+# [ALONE] Hora 24h ou AM/PM
 
 <!-- toc-table -->
 

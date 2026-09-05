@@ -1,4 +1,4 @@
-# [ALONE] MotoUber: colaboração entre objetos e transferência de recurso
+# [ALONE] Passeando e pagando o MotoUber
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

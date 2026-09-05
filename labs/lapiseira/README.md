@@ -1,4 +1,4 @@
-# [ALONE] Lapiseira: extensão do grafite com tambor
+# [ALONE] Lapiseira com tambor de grafites
 
 <!-- toc-table -->
 [Intro](#intro) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)

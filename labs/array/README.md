@@ -1,4 +1,4 @@
-# [GUIDE] Array: manipulação direta de uma coleção de pessoas
+# [GUIDE] Coleção de pessoas
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

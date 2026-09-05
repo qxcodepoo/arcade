@@ -1,4 +1,4 @@
-# [CHECK] Tamagotchi: coordenação, invariantes e estado terminal
+# [CHECK] Brinque até matar o Tamagotchi
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

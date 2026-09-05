@@ -1,4 +1,4 @@
-# [TRAIN] Roupa: extensão testável de Camisa
+# [TRAIN] Roupa: camisa com testes
 
 <!-- toc-table -->
 

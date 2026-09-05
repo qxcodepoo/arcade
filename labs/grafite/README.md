@@ -1,4 +1,4 @@
-# [TRAIN] Grafite: agregação opcional e delegação
+# [TRAIN] Lapiseira de um Grafite
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

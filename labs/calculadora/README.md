@@ -1,4 +1,4 @@
-# [CHECK] Calculadora: resultados de operação e mensagens na interface
+# [CHECK] Calculadora à bateria
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)

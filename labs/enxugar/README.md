@@ -1,4 +1,4 @@
-# [TRAIN] Enxugar: comportamento observável e interface
+# [TRAIN] Enxugar: Toalha com testes
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

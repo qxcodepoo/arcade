@@ -1,4 +1,4 @@
-# [TRAIN] Contato: encapsulamento de uma coleção de telefones
+# [TRAIN] Contato com telefones
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

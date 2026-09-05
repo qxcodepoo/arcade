@@ -1,4 +1,4 @@
-# [TRAIN] Comprando uma camisa XG
+# [TRAIN] Camisa de tamanho fixo
 
 <!-- toc-table -->
 

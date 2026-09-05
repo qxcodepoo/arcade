@@ -1,4 +1,4 @@
-# [ALONE] Carro: separação inicial entre domínio e interface
+# [ALONE] Carro dirigível
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

@@ -1,4 +1,4 @@
-# [GUIDE] Comprando uma chinela 40/41
+# [GUIDE] Chinela de números pares
 
 <!-- toc-table -->
 

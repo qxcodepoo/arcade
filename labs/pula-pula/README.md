@@ -1,4 +1,4 @@
-# [TRAIN] Pula-pula: filas e movimentação de crianças
+# [TRAIN] Pula-pula com crianças
 
 <!-- toc-table -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)

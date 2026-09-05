@@ -1,4 +1,4 @@
-# [TRAIN] Charger: agregação e coordenação por etapas
+# [TRAIN] Notebook com bateria e carregador
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)

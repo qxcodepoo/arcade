@@ -1,4 +1,4 @@
-# [GUIDE] Toalha: estado e comportamento em uma classe coesa
+# [GUIDE] Toalha que enxuga
 
 <!-- toc-table -->
 <!-- toc-table -->
