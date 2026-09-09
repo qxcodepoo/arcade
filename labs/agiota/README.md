@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: aplicar mapas e exceções a um histórico de operações.
+    - Conceitos: mapa, exceção de domínio, histórico, invariante e ciclo de vida.
+    - Técnicas: calcular estado derivado, tratar falhas e coordenar mudanças de estado.
+    - Pré-requisito: mapas, exceções e cálculo de estado derivado.
+---
 # Gerencie os empréstimos do agiota
 
 <!-- toc-table -->

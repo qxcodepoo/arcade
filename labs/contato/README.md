@@ -1,9 +1,8 @@
 ---
-description: um contato mantém nome, favorito e uma coleção privada de telefones.
-domain: somente telefones válidos entram na coleção, a ordem só muda pelas operações
-  do contato e uma remoção por índice inválido preserva o estado.
-objectives: encapsular uma coleção, delegar a validação do número a `Phone` e separar
-  o domínio das mensagens do `Shell`.
+index_content: |2
+    - Descrição: um contato mantém nome, favorito e uma coleção privada de telefones.
+    - Domínio: somente telefones válidos entram na coleção, a ordem só muda pelas operações do contato e uma remoção por índice inválido preserva o estado.
+    - Objetivos: encapsular uma coleção, delegar a validação do número a `Phone` e separar o domínio das mensagens do `Shell`.
 ---
 # [TRAIN] Contato com telefones
 

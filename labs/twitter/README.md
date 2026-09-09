@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: coordenar relações entre usuários e distribuição de tweets sem centralizar todas as regras.
+    - Conceitos: composição, delegação, relações bidirecionais, coleção compartilhada e estado derivado.
+    - Técnicas: encapsular timeline, manter vínculos consistentes e tratar remoção e referências.
+    - Pré-requisito: mapas, polimorfismo, coleções e relações bidirecionais.
+---
 # Twitter — colaboração entre usuários e timelines
 
 <toc-table />

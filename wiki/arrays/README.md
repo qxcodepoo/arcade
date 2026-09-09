@@ -1,0 +1,25 @@
+---
+index_content: |2
+    - Objetivos de aprendizagem:
+      - manipular coleções lineares mantendo ordem, duplicatas e posições;
+      - distinguir inserção, remoção, busca, filtro e percurso;
+      - escolher entre alterar a lista, devolver um elemento ou criar uma nova coleção;
+      - encapsular uma coleção quando ela pertence ao estado de um objeto;
+      - coordenar o movimento de objetos entre coleções relacionadas.
+    - Conceitos:
+      - `Array<T>`, lista de objetos e multiplicidade `0..*`;
+      - índice, extremidades, ordem de chegada e ordem de remoção;
+      - busca, filtro, cópia rasa e ordenação;
+      - fila e operações sobre uma coleção;
+      - coleção interna, composição e exposição controlada;
+      - referência opcional e coleção de muitos objetos.
+    - Técnicas de programação:
+      - percorrer elementos diretamente ou com índice quando a posição importar;
+      - inserir e remover nas extremidades, validando coleção vazia e limites;
+      - interromper a busca após remover a primeira ocorrência;
+      - filtrar uma coleção sem modificar indevidamente suas posições;
+      - devolver cópias quando a coleção interna não puder ser alterada por clientes;
+      - mover objetos entre listas sem recriá-los e delegar regras ao objeto que possui o estado.
+    - Princípio relacionado, quando necessário:
+      - encapsulamento: a classe proprietária protege a coleção e concentra as regras que mantêm seu estado válido.
+---

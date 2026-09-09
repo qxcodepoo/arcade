@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: aplicar polimorfismo por composição a métodos de pagamento.
+    - Conceitos: contrato abstrato, delegação, composição e exceções de domínio.
+    - Técnicas: injetar comportamento, processar coleções heterogêneas e isolar falhas.
+    - Pré-requisito: classes abstratas, composição e exceções básicas.
+---
 # [TRAIN] Pagamento: composição de métodos de pagamento
 
 <!-- toc-table -->

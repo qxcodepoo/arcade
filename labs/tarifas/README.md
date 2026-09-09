@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: modelar um histórico financeiro que preserve operações e permita extorno seletivo.
+    - Conceitos: encapsulamento, invariantes, comandos e consultas.
+    - Técnicas: registrar eventos, validar saldo e operar por índices sem apagar histórico.
+    - Pré-requisito: coleções, exceções e encapsulamento.
+---
 # Operações de saque, depósito, extrato
 
 <!-- toc-table -->

@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: modelar mensagens não lidas de forma independente para cada membro de um grupo.
+    - Conceitos: composição, multiplicidade, estado derivado e delegação.
+    - Técnicas: controlar convites, participação, leitura destrutiva e notificações.
+    - Pré-requisito: composição, coleções e leitura destrutiva.
+---
 # WhatsApp — grupos e estado de leitura por participante
 
 <toc-table />

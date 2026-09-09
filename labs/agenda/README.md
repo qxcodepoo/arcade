@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: localizar contatos pela identidade usando um mapa.
+    - Conceitos: chave única, mapa, busca por identidade e fonte única de verdade.
+    - Técnicas: encapsular dicionários, validar entradas e separar domínio do Shell.
+    - Pré-requisito: dicionários, classes e validação básica.
+---
 # Agenda: contatos por identidade em um mapa
 
 <!-- toc-table -->

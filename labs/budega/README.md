@@ -1,10 +1,8 @@
 ---
-description: o mercantil controla clientes em uma fila de espera e em caixas de atendimento.
-domain: a fila cresce e diminui, mas os caixas têm quantidade e índices fixos; chamar
-  um cliente remove-o da fila antes de ocupar um caixa, e falhas não mudam nenhuma
-  coleção.
-objectives: comparar uma fila variável com posições fixas e coordenar a movimentação
-  de clientes entre elas.
+index_content: |2
+    - Descrição: o mercantil controla clientes em uma fila de espera e em caixas de atendimento.
+    - Domínio: a fila cresce e diminui, mas os caixas têm quantidade e índices fixos; chamar um cliente remove-o da fila antes de ocupar um caixa, e falhas não mudam nenhuma coleção.
+    - Objetivos: comparar uma fila variável com posições fixas e coordenar a movimentação de clientes entre elas.
 ---
 # [TRAIN] Budega: fila e posições fixas
 

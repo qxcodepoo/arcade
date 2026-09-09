@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: variar o cálculo da tarifa sem espalhar condicionais na coordenação.
+    - Conceitos: classe abstrata, método abstrato, composição e delegação polimórfica.
+    - Técnicas: implementar tarifas substituíveis, proteger a coleção por operações do domínio e tratar falhas nomeadas.
+    - Pré-requisito: polimorfismo, coleções e exceções básicas.
+---
 # Estacionamento — polimorfismo por tipo de veículo
 
 <toc-table />

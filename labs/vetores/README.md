@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: preservar ordem e duplicatas em uma coleção linear.
+    - Conceitos: sequência, índice, busca e mutação controlada.
+    - Técnicas: inserir, alterar, localizar e tratar limites.
+    - Pré-requisito: listas, índices e validação de limites.
+---
 # Vetores — coleção linear e índices
 
 <toc-table />

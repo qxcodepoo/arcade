@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: manter consistente o vínculo entre pacientes e médicos.
+    - Conceitos: associação bidirecional, multiplicidade, identidade e invariantes.
+    - Técnicas: validar especialidade antes de atualizar os dois lados.
+    - Pré-requisito: associações bidirecionais, multiplicidade e invariantes.
+---
 # Paciente — vínculos bidirecionais no hospital
 
 <toc-table />

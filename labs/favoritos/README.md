@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: criar uma forma secundária de acesso sem duplicar os contatos.
+    - Conceitos: índice, conjunto, redundância intencional e consistência.
+    - Técnicas: manter uma fonte de verdade e sincronizar estruturas relacionadas.
+    - Pré-requisito: mapas, conjuntos e encapsulamento.
+---
 # [TRAIN] Favoritos: índice secundário e consistência
 
 <!-- toc-table -->

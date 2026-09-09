@@ -1,11 +1,8 @@
 ---
-description: o porquinho armazena moedas e itens até sua capacidade e pode ser quebrado
-  para permitir extrações.
-domain: moedas e itens são imutáveis; adições só ocorrem enquanto o porquinho está
-  intacto e há volume disponível; depois da quebra, novas adições falham e moedas
-  ou itens podem ser extraídos separadamente.
-objectives: proteger capacidade e estado terminal, compor coleções de objetos imutáveis
-  e preservar o estado após operações recusadas.
+index_content: |2
+    - Descrição: o porquinho armazena moedas e itens até sua capacidade e pode ser quebrado para permitir extrações.
+    - Domínio: moedas e itens são imutáveis; adições só ocorrem enquanto o porquinho está intacto e há volume disponível; depois da quebra, novas adições falham e moedas ou itens podem ser extraídos separadamente.
+    - Objetivos: proteger capacidade e estado terminal, compor coleções de objetos imutáveis e preservar o estado após operações recusadas.
 ---
 # Guardando moedas e itens em um cofrinho
 

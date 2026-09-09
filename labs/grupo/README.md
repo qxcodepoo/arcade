@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: tratar grupo e conversa individual por um contrato comum de chat.
+    - Conceitos: classe abstrata, herança, especialização por comportamento e composição.
+    - Técnicas: compartilhar envio/leitura, restringir capacidades e manter estado por participante.
+    - Pré-requisito: classes abstratas, herança e polimorfismo.
+---
 # Grupo — contrato comum para chats
 
 <toc-table />

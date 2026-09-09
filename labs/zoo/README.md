@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: tratar espécies diferentes por meio de um contrato comum.
+    - Conceitos: classe abstrata, herança, substituição e despacho polimórfico.
+    - Técnicas: implementar métodos abstratos e escrever clientes dependentes da abstração.
+    - Pré-requisito: classes, herança, composição e delegação.
+---
 # [ALONE] Zoo: contrato comum e comportamento polimórfico
 
 <!-- toc-table -->

@@ -1,9 +1,8 @@
 ---
-description: a lapiseira recebe, remove e usa um grafite para escrever páginas.
-domain: ela comporta no máximo um grafite de espessura compatível; o grafite calcula
-  seu desgaste por dureza e nunca pode ficar menor que `10mm`.
-objectives: delegar o desgaste ao grafite e coordenar a escrita por resultados explícitos
-  do domínio.
+index_content: |2
+    - Descrição: a lapiseira recebe, remove e usa um grafite para escrever páginas.
+    - Domínio: ela comporta no máximo um grafite de espessura compatível; o grafite calcula seu desgaste por dureza e nunca pode ficar menor que `10mm`.
+    - Objetivos: delegar o desgaste ao grafite e coordenar a escrita por resultados explícitos do domínio.
 ---
 # [TRAIN] Lapiseira de um Grafite
 

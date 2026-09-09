@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: proteger notas por meio de uma sessão autenticada.
+    - Conceitos: encapsulamento, estado de sessão, composição e imutabilidade.
+    - Técnicas: validar credenciais, controlar acesso e associar notas ao usuário.
+    - Pré-requisito: mapas, encapsulamento e validação de credenciais.
+---
 # Anotações — sessão e notas privadas
 
 <toc-table />

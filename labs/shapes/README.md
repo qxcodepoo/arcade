@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: tratar formas geométricas por meio de uma interface comum.
+    - Conceitos: interface, contrato, substituição e polimorfismo.
+    - Técnicas: usar `Protocol`, manter coleção heterogênea e delegar cálculos às formas.
+    - Pré-requisito: contratos, coleções e delegação.
+---
 # [TRAIN] Shapes: interface e substituição geométrica
 
 <!-- toc-table -->

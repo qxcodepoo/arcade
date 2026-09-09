@@ -1,0 +1,25 @@
+---
+index_content: |2
+    - Objetivos de aprendizagem:
+      - compreender objetos como entidades com estado e comportamento;
+      - distinguir classe, objeto, atributo e método;
+      - compreender a separação entre domínio e interface;
+      - testar o comportamento observável do modelo por meio de requisições e respostas.
+    - Conceitos:
+      - classe e objeto;
+      - estado e comportamento;
+      - identidade;
+      - construtor;
+      - representação textual;
+      - domínio, Shell e interface;
+      - requisição, resposta e resultado.
+    - Técnicas de programação:
+      - controlar o acesso ao estado por meio de métodos;
+      - nomear operações segundo suas intenções;
+      - separar regras de domínio da apresentação;
+      - testar por meio da interface pública;
+      - representar falhas com booleanos ou enumerações;
+      - utilizar retornos antecipados (`early return`).
+    - Princípio relacionado, quando necessário:
+      - responsabilidade: a classe que possui o estado também protege suas regras.
+---

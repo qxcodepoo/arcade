@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: separar cadastro, envio e leitura em um modelo pequeno e testável.
+    - Conceitos: composição, coleção de objetos, imutabilidade e comando/consulta.
+    - Técnicas: consumir uma fila de mensagens, validar identidades e manter o domínio sem impressão.
+    - Pré-requisito: classes, coleções e encapsulamento básico.
+---
 # Mensagem — inbox e leitura destrutiva
 
 <toc-table />

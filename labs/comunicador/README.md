@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: acrescentar mensagens sem misturar inbox e autorização ao domínio hospitalar.
+    - Conceitos: composição, delegação, encapsulamento e estado consumível.
+    - Técnicas: restringir receivers, entregar mensagens e testar leitura destrutiva.
+    - Pré-requisito: composição, autorização e filas de mensagens.
+---
 # Comunicador — envio autorizado por composição
 
 <toc-table />

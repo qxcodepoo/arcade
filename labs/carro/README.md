@@ -1,8 +1,8 @@
 ---
-description: o carro gerencia entrada, saída de pessoas, combustível e kilomentragem.
-domain: o carro não pode controla o limite de pessoas e possui regras para que a ação
-  de dirigir seja completada.
-objectives: manipular erros como enumerações e treinar técnicas de `early return`.
+index_content: |2
+    - Descrição: o carro gerencia entrada, saída de pessoas, combustível e kilomentragem.
+    - Domínio: o carro não pode controla o limite de pessoas e possui regras para que a ação de dirigir seja completada.
+    - Objetivos: manipular erros como enumerações e treinar técnicas de `early return`.
 ---
 # [ALONE] Carro dirigível
 

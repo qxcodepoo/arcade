@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synchronize activity metadata between the root index and activity READMEs."""
+"""Synchronize index entry content with linked README YAML front matter."""
 
 from __future__ import annotations
 
@@ -8,16 +8,12 @@ import re
 from pathlib import Path
 from typing import Any
 
-import yaml
+import yaml  # type: ignore[import-untyped]
 
 
 ROOT: Path = Path(__file__).resolve().parent
 INDEX: Path = ROOT / "README.md"
-ENTRY_RE: re.Pattern[str] = re.compile(r"^- \[ \].*\(([^)]+/README\.md)\)")
-FIELD_RE: re.Pattern[str] = re.compile(
-    r"^(\s*)-\s+(Descrição|Domínio|Objetivos?|description|domain|objectives):\s*(.*)$",
-    re.IGNORECASE,
-)
+ENTRY_RE: re.Pattern[str] = re.compile(r"^(\s*)- \[ \].*\(([^)]+/README\.md)\)")
 KEY_ALIASES: dict[str, tuple[str, ...]] = {
     "description": ("description", "Descrição"),
     "domain": ("domain", "Domínio"),
@@ -28,44 +24,47 @@ INDEX_LABELS: dict[str, str] = {
     "domain": "Domínio",
     "objectives": "Objetivos",
 }
-FIELD_KEYS: dict[str, str] = {
-    "description": "description",
-    "descrição": "description",
-    "domain": "domain",
-    "domínio": "domain",
-    "objectives": "objectives",
-    "objetivos": "objectives",
-    "objetivo": "objectives",
-}
 
 
-def activity_entries(lines: list[str]) -> list[tuple[int, int, Path]]:
-    """Return index ranges and linked README paths for activity entries."""
+class LiteralString(str):
+    """A string represented with YAML's literal block style."""
+
+
+def represent_literal_string(dumper: yaml.SafeDumper, value: LiteralString) -> yaml.Node:
+    """Keep Markdown readable in the front matter."""
+    return dumper.represent_scalar("tag:yaml.org,2002:str", value, style="|")
+
+
+yaml.SafeDumper.add_representer(LiteralString, represent_literal_string)
+
+
+def entry_starts(lines: list[str]) -> list[tuple[int, int, Path]]:
+    """Return each linked README entry with its indentation level."""
     entries: list[tuple[int, int, Path]] = []
-    starts: list[tuple[int, Path]] = []
     for line_number, line in enumerate(lines):
         match: re.Match[str] | None = ENTRY_RE.match(line.rstrip("\n"))
-        if match is not None:
-            starts.append((line_number, ROOT / match.group(1)))
-
-    for position, (start, path) in enumerate(starts):
-        end: int = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
-        entries.append((start, end, path))
+        if match is None:
+            continue
+        indent: int = len(match.group(1))
+        entries.append((line_number, indent, ROOT / match.group(2)))
     return entries
 
 
-def read_index_fields(lines: list[str], start: int, end: int) -> dict[str, str]:
-    """Read the three metadata fields from one index entry."""
-    fields: dict[str, str] = {}
-    for line in lines[start + 1 : end]:
-        match: re.Match[str] | None = FIELD_RE.match(line.rstrip("\n"))
-        if match is None:
+def child_end(lines: list[str], start: int, entry_indent: int) -> int:
+    """Return the first line that does not belong to an entry's child block."""
+    position: int = start + 1
+    last_content: int = position
+    while position < len(lines):
+        line: str = lines[position]
+        if not line.strip():
+            position += 1
             continue
-        label: str = match.group(2).lower()
-        key: str = FIELD_KEYS.get(label, "")
-        if key in ("description", "domain", "objectives"):
-            fields[key] = match.group(3).strip()
-    return fields
+        indentation: int = len(line) - len(line.lstrip(" "))
+        if indentation <= entry_indent:
+            break
+        last_content = position + 1
+        position += 1
+    return last_content
 
 
 def front_matter(text: str) -> tuple[dict[str, Any], str]:
@@ -86,8 +85,8 @@ def front_matter(text: str) -> tuple[dict[str, Any], str]:
     return data, body
 
 
-def metadata_from_yaml(data: dict[str, Any]) -> dict[str, str]:
-    """Read canonical metadata, accepting Portuguese key aliases too."""
+def legacy_metadata_from_yaml(data: dict[str, Any]) -> dict[str, str]:
+    """Read the metadata format used before index_content."""
     result: dict[str, str] = {}
     for canonical, aliases in KEY_ALIASES.items():
         for alias in aliases:
@@ -98,15 +97,10 @@ def metadata_from_yaml(data: dict[str, Any]) -> dict[str, str]:
     return result
 
 
-def write_front_matter(path: Path, fields: dict[str, str]) -> None:
-    """Merge metadata into a README front matter and preserve its body."""
+def write_front_matter(path: Path, data: dict[str, Any]) -> None:
+    """Write front matter data while preserving the README body."""
     text: str = path.read_text(encoding="utf-8")
-    data: dict[str, Any]
-    body: str
-    data, body = front_matter(text)
-    for key in ("description", "domain", "objectives"):
-        if key in fields:
-            data[key] = fields[key]
+    _existing, body = front_matter(text)
     header: str = yaml.safe_dump(
         data,
         allow_unicode=True,
@@ -117,89 +111,79 @@ def write_front_matter(path: Path, fields: dict[str, str]) -> None:
 
 
 def save(index_text: str) -> tuple[str, int]:
-    """Copy metadata to activity READMEs and remove it from the index."""
+    """Store each linked entry's complete child Markdown as index_content."""
     lines: list[str] = index_text.splitlines(keepends=True)
     changed: int = 0
-    for start, end, path in reversed(activity_entries(lines)):
-        fields: dict[str, str] = read_index_fields(lines, start, end)
-        if len(fields) != 3 or not path.is_file():
+    for start, indent, path in reversed(entry_starts(lines)):
+        end: int = child_end(lines, start, indent)
+        content: str = "".join(lines[start + 1 : end])
+        if not content or not path.is_file():
             continue
-        write_front_matter(path, fields)
-        retained: list[str] = []
-        for line in lines[start + 1 : end]:
-            match: re.Match[str] | None = FIELD_RE.match(line.rstrip("\n"))
-            if match is not None and FIELD_KEYS.get(match.group(2).lower(), "") in fields:
-                continue
-            retained.append(line)
-        lines[start + 1 : end] = retained
+
+        data: dict[str, Any]
+        _body: str
+        data, _body = front_matter(path.read_text(encoding="utf-8"))
+        for aliases in KEY_ALIASES.values():
+            for key in aliases:
+                data.pop(key, None)
+        data["index_content"] = LiteralString(content)
+        write_front_matter(path, data)
+        lines[start + 1 : end] = []
         changed += 1
     return "".join(lines), changed
 
 
+def legacy_content(data: dict[str, Any]) -> str | None:
+    """Build the old three-field block for READMEs not yet migrated."""
+    fields: dict[str, str] = legacy_metadata_from_yaml(data)
+    if len(fields) != len(INDEX_LABELS):
+        return None
+    return "".join(f"  - {INDEX_LABELS[key]}: {fields[key]}\n" for key in INDEX_LABELS)
+
+
 def load(index_text: str) -> tuple[str, int]:
-    """Copy metadata from linked activity READMEs to the index."""
+    """Restore each linked entry's child Markdown from YAML front matter."""
     lines: list[str] = index_text.splitlines(keepends=True)
     changed: int = 0
-    for start, end, path in reversed(activity_entries(lines)):
+    for start, indent, path in reversed(entry_starts(lines)):
         if not path.is_file():
             continue
         data: dict[str, Any]
         _body: str
         data, _body = front_matter(path.read_text(encoding="utf-8"))
-        fields: dict[str, str] = metadata_from_yaml(data)
-        if len(fields) != 3:
+        stored: Any = data.get("index_content")
+        content: str | None = stored if isinstance(stored, str) else legacy_content(data)
+        if content is None:
             continue
-
-        existing: dict[str, int] = {}
-        for line_number in range(start + 1, end):
-            match: re.Match[str] | None = FIELD_RE.match(lines[line_number].rstrip("\n"))
-            if match is None:
-                continue
-            label: str = match.group(2).lower()
-            key: str = FIELD_KEYS.get(label, "")
-            if key in fields and key not in existing:
-                existing[key] = line_number
-
-        if len(existing) == 3:
-            for key, line_number in existing.items():
-                lines[line_number] = f"  - {INDEX_LABELS[key]}: {fields[key]}\n"
-        else:
-            insert_at: int = start + 1
-            new_lines: list[str] = [
-                f"  - {INDEX_LABELS['description']}: {fields['description']}\n",
-                f"  - {INDEX_LABELS['domain']}: {fields['domain']}\n",
-                f"  - {INDEX_LABELS['objectives']}: {fields['objectives']}\n",
-            ]
-            lines[insert_at:insert_at] = new_lines
+        end: int = child_end(lines, start, indent)
+        lines[start + 1 : end] = content.splitlines(keepends=True)
         changed += 1
     return "".join(lines), changed
 
 
 def parse_args() -> argparse.Namespace:
     parser: argparse.ArgumentParser = argparse.ArgumentParser(
-        description="Synchronize activity metadata with README YAML front matter."
+        description="Synchronize index entry content with README YAML front matter."
     )
     mode: argparse._MutuallyExclusiveGroup = parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument("--save", action="store_true", help="copy metadata to activities and remove it from the index")
-    mode.add_argument("--load", action="store_true", help="copy metadata to the index without changing activity YAML")
+    mode.add_argument("--save", action="store_true", help="copy child Markdown to READMEs and remove it from the index")
+    mode.add_argument("--load", action="store_true", help="restore child Markdown from README YAML")
     return parser.parse_args()
 
 
 def main() -> None:
     args: argparse.Namespace = parse_args()
     index_text: str = INDEX.read_text(encoding="utf-8")
+    updated_index: str
+    count: int
     if args.save:
-        updated_index: str
-        count: int
         updated_index, count = save(index_text)
         INDEX.write_text(updated_index, encoding="utf-8")
-        print(f"saved {count} activities")
+        print(f"saved {count} entries")
         return
-    updated_index: str
-    count = 0
     updated_index, count = load(index_text)
     INDEX.write_text(updated_index, encoding="utf-8")
-    print(f"loaded {count} activities")
+    print(f"loaded {count} entries")
 
 
 if __name__ == "__main__":

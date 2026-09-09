@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: substituir regras de salário por categoria sem condicionais na folha.
+    - Conceitos: abstração, herança, método abstrato, delegação e estado derivado.
+    - Técnicas: encapsular políticas de cálculo, validar limites e dividir bônus dinamicamente.
+    - Pré-requisito: polimorfismo, abstrações e cálculo de valores.
+---
 # Salário — regras de cálculo polimórficas
 
 <toc-table />

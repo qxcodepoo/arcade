@@ -1,9 +1,8 @@
 ---
-description: a toalha deve controlar seu estado de umidade e fornecer métodos para
-  enxugar, torcer e consultar seu estado.
-domain: o quanto a toalha enxuga depende do seu tamanho e ela não pode suportar água
-  além de sua capacidade.
-objectives: identificar estado e comportamento em uma classe coesa.
+index_content: |2
+    - Descrição: a toalha deve controlar seu estado de umidade e fornecer métodos para enxugar, torcer e consultar seu estado.
+    - Domínio: o quanto a toalha enxuga depende do seu tamanho e ela não pode suportar água além de sua capacidade.
+    - Objetivos: identificar estado e comportamento em uma classe coesa.
 ---
 # [GUIDE] Toalha que enxuga
 

@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: adicionar histórico e ranking por composição.
+    - Conceitos: composição, delegação, colaboração e ciclo de vida independente.
+    - Técnicas: extrair responsabilidade, manter consistência entre objetos e testar progressivamente.
+    - Pré-requisito: índices secundários, composição e coleções.
+---
 # [TRAIN] Ligação: composição para histórico e ranking
 
 <!-- toc-table -->

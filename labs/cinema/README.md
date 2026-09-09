@@ -1,10 +1,8 @@
 ---
-description: o cinema reserva, cancela e consulta cadeiras de uma sala.
-domain: cada índice representa uma cadeira fixa que contém um `Client` ou `null`;
-  não é possível reservar uma posição inexistente, já ocupada ou para um cliente que
-  já está na sala.
-objectives: modelar ausência em um vetor de tamanho fixo, validar posições e proteger
-  a coleção interna com uma cópia.
+index_content: |2
+    - Descrição: o cinema reserva, cancela e consulta cadeiras de uma sala.
+    - Domínio: cada índice representa uma cadeira fixa que contém um `Client` ou `null`; não é possível reservar uma posição inexistente, já ocupada ou para um cliente que já está na sala.
+    - Objetivos: modelar ausência em um vetor de tamanho fixo, validar posições e proteger a coleção interna com uma cópia.
 ---
 # [GUIDE] Cinema: posições fixas e ausência
 

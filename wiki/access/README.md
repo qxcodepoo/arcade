@@ -1,0 +1,27 @@
+---
+index_content: |2
+    - Objetivos de aprendizagem:
+      - controlar atributos privados por operações do objeto;
+      - reconhecer e preservar o estado válido de um objeto;
+      - validar alterações na classe que possui a regra;
+      - verificar que uma falha não altera o estado anterior;
+      - separar a validação do domínio das mensagens da interface.
+    - Conceitos:
+      - encapsulamento e atributo privado;
+      - invariante e estado válido;
+      - getter, setter e consulta sem alteração;
+      - validação, sucesso e falha;
+      - construtor e valor inicial válido;
+      - domínio, Shell e interface.
+    - Técnicas de programação:
+      - inicializar o objeto em um estado válido;
+      - validar antes de alterar atributos;
+      - retornar sucesso ou falha sem imprimir mensagens no domínio;
+      - preservar o estado após uma operação recusada;
+      - usar getters para consultas e setters somente quando houver regra de alteração;
+      - testar valores válidos, inválidos, limites e sequências de operações.
+    - Princípio relacionado, quando necessário:
+      - responsabilidade: a classe que possui o estado também protege suas regras.
+      - invariante: a classe deve preservar seu estado válido em todas as operações e não dar acesso externo a atributos privados.
+      - dry: don't repeat yourself, não repita a validação em outro lugar que não seja o setter.
+---

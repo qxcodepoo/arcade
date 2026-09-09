@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: modelar moedas e itens por um contrato comum em uma coleção heterogênea.
+    - Conceitos: protocolo, polimorfismo, enum, imutabilidade e invariantes de estado.
+    - Técnicas: filtrar e substituir a coleção, calcular agregados e nomear falhas de domínio.
+    - Pré-requisito: contratos, enums, coleções e invariantes.
+---
 # Cofre — polimorfismo por contrato de valor
 
 <toc-table />

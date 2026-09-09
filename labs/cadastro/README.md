@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: aplicar regras mensais diferentes sem condicionar a coordenação pelo tipo da conta.
+    - Conceitos: classe abstrata, herança, mapas, composição e delegação polimórfica.
+    - Técnicas: manter invariantes de saldo, realizar transferência atômica e atualizar uma coleção heterogênea.
+    - Pré-requisito: herança, mapas, polimorfismo e invariantes.
+---
 # Cadastro — contas com regras polimórficas
 
 <toc-table />

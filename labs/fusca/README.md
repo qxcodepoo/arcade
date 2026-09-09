@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: aplicar exceções nomeadas a regras de ocupação e direção.
+    - Conceitos: posição fixa, composição, `IndexError` e exceção de domínio.
+    - Técnicas: receber objetos, preservar posições, validar pré-condições e traduzir falhas no Shell.
+    - Pré-requisito: composição, posições fixas e exceções básicas.
+---
 # [TRAIN] Fusca: posições, exceções e direção
 
 <!-- toc-table -->

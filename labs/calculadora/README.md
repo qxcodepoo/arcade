@@ -1,8 +1,8 @@
 ---
-description: a calculadora possui bateria, realiza operações matemáticas e as guarda
-  no display.
-domain: A calculadora não pode realizar operações sem bateria e nem dividir por zero.
-objectives: manipular erros como enumerações e treinar técnicas de `early return`.
+index_content: |2
+    - Descrição: a calculadora possui bateria, realiza operações matemáticas e as guarda no display.
+    - Domínio: A calculadora não pode realizar operações sem bateria e nem dividir por zero.
+    - Objetivos: manipular erros como enumerações e treinar técnicas de `early return`.
 ---
 # [CHECK] Calculadora à bateria
 

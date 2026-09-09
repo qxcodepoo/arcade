@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: compreender commits, histórico, restauração e resolução de conflitos.
+    - Conceitos: versionamento, integração e recuperação.
+    - Técnicas: usar Git local e remoto e documentar decisões.
+    - Pré-requisito: comandos básicos de Git e trabalho com repositórios.
+---
 # Git — fluxo de trabalho e recuperação
 
 <toc-table />

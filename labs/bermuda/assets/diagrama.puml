@@ -12,9 +12,14 @@ class Bermuda {
   - validateSize(size: string): void
   + getSize(): string
   + setSize(size: string): void
-  {static} + getAllowedSizes(): Array<string>
+  + getAllowedSizes(): Array<string>
   + toString(): string
 }
+
+note right of Bermuda::validateSize
+  Regra compartilhada pelo construtor
+  e por setSize.
+end note
 
 class Shell {
   __

@@ -1,10 +1,8 @@
 ---
-description: o relógio controla hora, minuto e modo de exibição, além de avançar um
-  minuto por vez.
-domain: atributos com valores válidos; validação individual de cada atributo, passagem
-  do tempo, mostrar a hora em 24h ou AM/PM não altera a hora interna.
-objectives: o validações independentes de cada atributo e manter o estado interno
-  variando a forma como a hora é exibida.
+index_content: |2
+    - Descrição: o relógio controla hora, minuto e modo de exibição, além de avançar um minuto por vez.
+    - Domínio: atributos com valores válidos; validação individual de cada atributo, passagem do tempo, mostrar a hora em 24h ou AM/PM não altera a hora interna.
+    - Objetivos: o validações independentes de cada atributo e manter o estado interno variando a forma como a hora é exibida.
 ---
 # [ALONE] Hora 24h ou AM/PM
 

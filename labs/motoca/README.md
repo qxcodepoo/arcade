@@ -1,11 +1,8 @@
 ---
-description: a motoca controla tempo de uso e a pessoa que a ocupa, permitindo entrar,
-  sair, comprar tempo e dirigir.
-domain: há no máximo uma pessoa na motoca; ela continua existindo depois de sair,
-  e a corrida depende de pessoa, tempo disponível e idade compatível com o tamanho
-  da motoca.
-objectives: modelar uma agregação opcional e delegar à pessoa a verificação de que
-  pode dirigir.
+index_content: |2
+    - Descrição: a motoca controla tempo de uso e a pessoa que a ocupa, permitindo entrar, sair, comprar tempo e dirigir.
+    - Domínio: há no máximo uma pessoa na motoca; ela continua existindo depois de sair, e a corrida depende de pessoa, tempo disponível e idade compatível com o tamanho da motoca.
+    - Objetivos: modelar uma agregação opcional e delegar à pessoa a verificação de que pode dirigir.
 ---
 # [GUIDE] Criança andando de Motoca 
 

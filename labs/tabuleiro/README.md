@@ -1,3 +1,10 @@
+---
+index_content: |2
+    - Objetivo: coordenar coleções durante uma simulação de turnos.
+    - Conceitos: composição, ordem de eventos, estado terminal e invariantes.
+    - Técnicas: separar componentes coesos e testar sequências completas de interação.
+    - Pré-requisito: coleções, composição, invariantes e sequências de operações.
+---
 # [CHECK] Tabuleiro: coleções na simulação de turnos
 
 <!-- toc-table -->

@@ -1,10 +1,8 @@
 ---
-description: o jogo coordena brincadeiras, banho e sono de um pet com energia, limpeza
-  e idade.
-domain: o pet mantém energia e limpeza em seus limites, registra a primeira causa
-  de morte e não aceita novas alterações depois de morto.
-objectives: delegar ao pet as transições de estado e coordenar ações que respeitam
-  o estado terminal.
+index_content: |2
+    - Descrição: o jogo coordena brincadeiras, banho e sono de um pet com energia, limpeza e idade.
+    - Domínio: o pet mantém energia e limpeza em seus limites, registra a primeira causa de morte e não aceita novas alterações depois de morto.
+    - Objetivos: delegar ao pet as transições de estado e coordenar ações que respeitam o estado terminal.
 ---
 # [CHECK] Brinque até matar o Tamagotchi
 

@@ -1,10 +1,8 @@
 ---
-description: a roupa recebe comandos para consultar e alterar seu tamanho por meio
-  de um `Shell`.
-domain: a classe aceita apenas tamanhos permitidos e retorna falha sem mudar o tamanho
-  anterior; as mensagens pertencem ao `Shell`.
-objectives: tornar a regra de tamanho testável ao separar domínio, comandos e apresentação
-  de falhas.
+index_content: |2
+    - Descrição: a roupa recebe comandos para consultar e alterar seu tamanho por meio de um `Shell`.
+    - Domínio: a classe aceita apenas tamanhos permitidos e retorna falha sem mudar o tamanho anterior; as mensagens pertencem ao `Shell`.
+    - Objetivos: tornar a regra de tamanho testável ao separar domínio, comandos e apresentação de falhas.
 ---
 # [TRAIN] Roupa: camisa com testes
 
