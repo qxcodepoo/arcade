@@ -1,4 +1,4 @@
-# [GUIDE] Padrão para atividades de código
+# [INTRO] Padrão para atividades de código
 
 <!-- toc-table -->
 <!-- toc-table -->

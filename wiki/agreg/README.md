@@ -19,6 +19,9 @@ index_content: |2
       - concentrar cálculos e alterações no objeto que possui o estado;
       - usar retornos explícitos para que o `Shell` apresente as falhas;
       - testar falhas, estado preservado e sequências de colaboração.
-    - Princípio relacionado, quando necessário:
+    - Princípios relacionados:
       - responsabilidade: cada objeto protege suas próprias regras, e o coordenador apenas organiza a colaboração.
+      - delegação: cada componente é responsável por suas próprias regras, e o coordenador apenas organiza a colaboração.
 ---
+# [INTRO] Introdução Agregação e Delegação
+#

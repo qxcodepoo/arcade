@@ -1,4 +1,4 @@
-# [GUIDE] Relacionamentos
+# [INTRO] Relacionamentos
 
 <!-- toc -->
 <!-- toc -->

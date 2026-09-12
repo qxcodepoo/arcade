@@ -1,4 +1,4 @@
-# Competências trabalhadas
+# [INTRO] Competências trabalhadas
 
 Este documento resume as competências e habilidades desenvolvidas pela
 progressão de atividades do repositório.

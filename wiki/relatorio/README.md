@@ -1,4 +1,4 @@
-# [GUIDE] Como fazer os códigos e relatórios
+# [INTRO] Como fazer os códigos e relatórios
 
 <!-- toc -->
 <!-- toc -->

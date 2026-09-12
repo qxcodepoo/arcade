@@ -22,3 +22,4 @@ index_content: |2
     - Princípio relacionado, quando necessário:
       - encapsulamento: o objeto que possui as posições garante sua capacidade, ocupação e representação de ausência.
 ---
+# [INTRO] Introdução Posições fixas e ausência

@@ -4,7 +4,7 @@ index_content: |2
     - Domínio: moedas e itens são imutáveis; adições só ocorrem enquanto o porquinho está intacto e há volume disponível; depois da quebra, novas adições falham e moedas ou itens podem ser extraídos separadamente.
     - Objetivos: proteger capacidade e estado terminal, compor coleções de objetos imutáveis e preservar o estado após operações recusadas.
 ---
-# Guardando moedas e itens em um cofrinho
+# [TRAIN] Guardando moedas e itens em um cofrinho
 
 <!-- toc-table -->
 <!-- toc-table -->

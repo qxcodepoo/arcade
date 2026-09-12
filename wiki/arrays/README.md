@@ -23,3 +23,4 @@ index_content: |2
     - Princípio relacionado, quando necessário:
       - encapsulamento: a classe proprietária protege a coleção e concentra as regras que mantêm seu estado válido.
 ---
+# [INTRO] Introdução Coleções lineares

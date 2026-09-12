@@ -20,8 +20,9 @@ index_content: |2
       - preservar o estado após uma operação recusada;
       - usar getters para consultas e setters somente quando houver regra de alteração;
       - testar valores válidos, inválidos, limites e sequências de operações.
-    - Princípio relacionado, quando necessário:
+    - Princípios relacionados:
       - responsabilidade: a classe que possui o estado também protege suas regras.
       - invariante: a classe deve preservar seu estado válido em todas as operações e não dar acesso externo a atributos privados.
       - dry: don't repeat yourself, não repita a validação em outro lugar que não seja o setter.
 ---
+# [INTRO] Introdução Encapsulamento e Invariantes

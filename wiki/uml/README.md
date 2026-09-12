@@ -1,4 +1,4 @@
-# [GUIDE] Relacionamentos Resumo
+# [INTRO] Relacionamentos Resumo
 
 ![_](assets/diagrama.webp)
 

@@ -1,4 +1,4 @@
-# Trabalhos futuros
+# [INTRO] Trabalhos futuros
 
 Este documento registra competências intermediárias que podem ampliar o curso
 sem depender de web, banco de dados ou frameworks específicos.

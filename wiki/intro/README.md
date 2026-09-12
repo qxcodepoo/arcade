@@ -20,6 +20,8 @@ index_content: |2
       - testar por meio da interface pública;
       - representar falhas com booleanos ou enumerações;
       - utilizar retornos antecipados (`early return`).
-    - Princípio relacionado, quando necessário:
+    - Princípios relacionados:
       - responsabilidade: a classe que possui o estado também protege suas regras.
 ---
+# [INTRO] Introdução Classes e Objetos
+#
