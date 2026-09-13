@@ -1,0 +1,29 @@
+---
+index_content: |2
+    - `type` = orientação e condição de estudo
+      - `INTRO` — leitura introdutória, sem necessidade de prática;
+      - `GUIDE` — leitura, referência ou exemplo guiado;
+      - `TRAIN` — prática com consulta permitida;
+      - `ALONE` — tentativa independente, antes de buscar ajuda;
+      - `CHECK` — atividade projetada para ser realizada sem consulta, verificando o domínio do conteúdo.
+    - `eval` = Mecanismo de avaliação
+      - `none` — material de referência - sem avaliação;
+      - `self` — autoavaliação;
+      - `diff` — avaliação automática por comparação de entrada e saída.
+    - `g` = gain (valor pedagógico);
+      - `1` — complementar: variação, redundância ou treino não essencial;
+      - `2` — consolidação: reforça ou transfere conceitos importantes;
+      - `3` — central: introduz, desenvolve ou verifica uma aprendizagem essencial.
+    - `l` = logic (profundidade lógica);
+      - `1` - Mínimo: aplicação direta de uma regra;
+      - `2` - Baixo: poucas decisões independentes;
+      - `3` - Médio: combinação de condições ou operações;
+      - `4` - Médio-alto: regras interdependentes e casos especiais;
+      - `5` - Alto: decisões encadeadas e necessidade de decomposição;
+      - `6` - Muito alto: várias regras coordenadas, estados ou estratégias possíveis.
+    - `s` = size (tamanho da atividade).
+      - `1` — Pequeno: poucos elementos;
+      - `2` — Médio: quantidade intermediária de elementos;
+      - `3` — Grande: muitos elementos ou componentes
+---
+# [INTRO] Marcadores pedagógicos
