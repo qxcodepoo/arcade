@@ -8,14 +8,14 @@ class Towel:
         self.__size: str = size
         self.__wetness: int = 0
 
-    def dry(self, amount: int) -> bool:
+    def absorb(self, water_amount: int) -> bool:
         max_wetness: int = self.get_max_wetness()
 
-        if self.__wetness + amount > max_wetness:
+        if self.__wetness + water_amount > max_wetness:
             self.__wetness = max_wetness
             return False
 
-        self.__wetness += amount
+        self.__wetness += water_amount
         return True
 
     def wring_out(self) -> None:
@@ -58,8 +58,8 @@ def main() -> None:
             case ["show"]:
                 print(towel)
             case ["dry", amount_text]:
-                amount: int = int(amount_text)
-                if not towel.dry(amount):
+                water_amount: int = int(amount_text)
+                if not towel.absorb(water_amount):
                     print(SOAKED_TOWEL_MSG)
             case ["is_dry"]:
                 if towel.is_dry():

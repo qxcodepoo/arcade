@@ -8,10 +8,10 @@ class Slipper:
     def __init__(self) -> None:
         self.__size: int = Slipper.MIN_SIZE
 
-    def getSize(self) -> int:
+    def get_size(self) -> int:
         return self.__size
 
-    def setSize(self, size: int) -> bool:
+    def set_size(self, size: int) -> bool:
         if size < Slipper.MIN_SIZE:
             return False
         if size > Slipper.MAX_SIZE:
@@ -29,11 +29,11 @@ def main() -> None:
     while True:
         print("Enter slipper size")
         size: int = int(input())
-        if slipper.setSize(size):
+        if slipper.set_size(size):
             break
         print(INVALID_SIZE_MSG)
 
-    print("Congratulations, you bought a slipper size", slipper.getSize())
+    print("Congratulations, you bought a slipper size", slipper.get_size())
 
 
 if __name__ == "__main__":

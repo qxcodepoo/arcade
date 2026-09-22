@@ -49,20 +49,81 @@ O foco é praticar colaboração entre objetos: `Uber` coordena a corrida, enqua
 
 ## Diagrama
 
-[![diagrama](assets/diagrama.png)](assets/diagrama.png)
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class Person {
+        -name : string
+        -money : number
+        +constructor(name: string, money: number)
+        +getName() string
+        +getMoney() number
+        +pay(amount: number) number
+        +addMoney(amount: number) void
+        +toString() string
+    }
+
+    class SetPassengerResult {
+        <<enumeration>>
+        OK
+        DRIVER_NOT_SET
+        ALREADY_SET
+    }
+
+    class LeaveResult {
+        <<enumeration>>
+        OK
+        DRIVER_NOT_SET
+        PASSENGER_NOT_SET
+        INSUFFICIENT_MONEY
+    }
+
+    class LeaveResponse {
+        +passenger : Person | null
+        +result : LeaveResult
+    }
+
+    class Uber {
+        -driver : Person | null
+        -passenger : Person | null
+        -tripCost : number
+        +constructor()
+        +setDriver(driver: Person) boolean
+        +setPassenger(passenger: Person) SetPassengerResult
+        +drive(distance: number) boolean
+        +leave() LeaveResponse
+        +toString() string
+    }
+
+    class Shell {
+        +main() void
+    }
+
+    Uber "1" o-- "0..1" Person : driver
+    Uber "1" o-- "0..1" Person : passenger
+    Uber ..> SetPassengerResult : returns
+    Uber ..> LeaveResponse : returns
+    LeaveResponse --> LeaveResult
+    Shell ..> Uber : commands
+```
 
 ## Guide
 
-- Crie a classe `Person` com os atributos nome e dinheiro.
+- Crie a classe `Person` com os atributos `name` e `money`.
 - Faça `Person` concentrar as operações sobre seu dinheiro, como pagar e receber.
-- Crie a classe `Uber` com os atributos custo, motorista e passageiro.
+- Use os métodos `getName`, `getMoney` e `addMoney` para expor apenas as operações necessárias sobre uma pessoa; no código Python, prefira `get_name`, `get_money` e `add_money`.
+- Crie a classe `Uber` com os atributos `tripCost`, `driver` e `passenger`.
 - Ambas as classes devem ter atributos privados.
 - Faça `setPassenger` recusar passageiro quando não houver motorista.
 - Faça `drive` aumentar o custo apenas quando houver passageiro.
 - Crie resultados de domínio para as operações, sem retornar mensagens diretamente.
 - Use `boolean` para os métodos que possuem apenas uma falha possível e `SetPassengerResult` para `setPassenger`, que possui duas falhas possíveis.
-- Faça `leave` devolver o passageiro removido junto com um `LeaveResult`.
+- Faça `leave` devolver o passageiro removido junto com um `LeaveResult` — a representação conceitual desse par é `LeaveResponse`.
 - O `Shell` deve mostrar a falha antes de `{passageiro} left` quando o pagamento for parcial.
+
+Os nomes do diagrama seguem o padrão de leitura do TypeScript (`getName`, `setPassenger`, `tripCost`); na implementação Python, os métodos e variáveis equivalentes usam `snake_case` (`get_name`, `set_passenger`, `trip_cost`).
 
 Perguntas de reflexão: por que `Uber` coordena a corrida, mas `Person` mantém o próprio dinheiro? Por que o `Shell` converte o resultado de `setPassenger` em mensagem?
 
@@ -173,3 +234,4 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- MERMAID -->

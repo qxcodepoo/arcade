@@ -1,42 +1,42 @@
-DEAD_ANIMAL: str = "warning: animal is dead"
+DEAD_ANIMAL_MSG: str = "warning: animal is dead"
 INVALID_COMMAND_MSG: str = "fail: invalid command"
 
 
 class Animal:
-    DEAD_AGE: int = 4
+    DEAD_STAGE: int = 4
 
     def __init__(self, species: str, noise: str) -> None:
         self.species: str = species
         self.noise: str = noise
-        self.age: int = 0
+        self.life_stage: int = 0
 
     def make_sound(self) -> str:
-        if self.age == 0:
+        if self.life_stage == 0:
             return "---"
 
-        if self.age == Animal.DEAD_AGE:
+        if self.life_stage == Animal.DEAD_STAGE:
             return "RIP"
 
         return self.noise
 
-    def age_by(self, increment: int) -> bool:
-        if self.age == Animal.DEAD_AGE:
+    def grow(self, stages: int) -> bool:
+        if self.life_stage == Animal.DEAD_STAGE:
             return False
 
-        self.age += increment
+        self.life_stage += stages
 
-        if self.age >= Animal.DEAD_AGE:
-            self.age = Animal.DEAD_AGE
+        if self.life_stage >= Animal.DEAD_STAGE:
+            self.life_stage = Animal.DEAD_STAGE
             return False
 
         return True
 
     def __str__(self) -> str:
-        return f"{self.species}:{self.age}:{self.noise}"
+        return f"{self.species}:{self.life_stage}:{self.noise}"
 
 
 def main() -> None:
-    animal: Animal = Animal("", "")
+    current_animal: Animal = Animal("", "")
 
     while True:
         line: str = input()
@@ -46,14 +46,14 @@ def main() -> None:
             case ["end"]:
                 break
             case ["init", species, noise]:
-                animal = Animal(species, noise)
+                current_animal = Animal(species, noise)
             case ["show"]:
-                print(animal)
+                print(current_animal)
             case ["noise"]:
-                print(animal.make_sound())
-            case ["grow", increment]:
-                if not animal.age_by(int(increment)):
-                    print(DEAD_ANIMAL)
+                print(current_animal.make_sound())
+            case ["grow", stages]:
+                if not current_animal.grow(int(stages)):
+                    print(DEAD_ANIMAL_MSG)
             case _:
                 print(INVALID_COMMAND_MSG)
 

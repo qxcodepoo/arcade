@@ -1,68 +1,74 @@
-from enum import Enum
+import enum
 
+## Domínio
 
-class DriveResult(Enum):
-    OK = "ok"
-    NO_PASSENGERS = "no_passengers"
-    INCOMPLETE = "incomplete"
-    NO_GAS = "no_gas"
-
-
-CAR_FULL_MSG: str = "fail: car is full"
-CAR_EMPTY_MSG: str = "fail: car is empty"
-NO_GAS_MSG: str = "fail: empty tank"
-INCOMPLETE_TRIP_MSG: str = "fail: incomplete trip"
-INVALID_COMMAND_MSG: str = "fail: invalid command"
-
+class DriveResult(enum.Enum):
+    OK = enum.auto()
+    NO_PASSENGERS = enum.auto()
+    INCOMPLETE = enum.auto()
+    NO_GAS = enum.auto()
 
 class Car:
     def __init__(self) -> None:
-        self.pass_: int = 0
-        self.pass_max: int = 2
-        self.gas: int = 0
-        self.gas_max: int = 100
-        self.km: int = 0
+        self.passenger_count: int = 0
+        self.max_passengers: int = 2
+        self.fuel_amount: int = 0
+        self.max_fuel: int = 100
+        self.distance_traveled: int = 0
 
     def enter(self) -> bool:
-        if self.pass_ < self.pass_max:
-            self.pass_ += 1
+        if self.passenger_count < self.max_passengers:
+            self.passenger_count += 1
             return True
 
         return False
 
     def leave(self) -> bool:
-        if self.pass_ > 0:
-            self.pass_ -= 1
+        if self.passenger_count > 0:
+            self.passenger_count -= 1
             return True
 
         return False
 
-    def fuel(self, gas: int) -> None:
-        self.gas += gas
+    def refuel(self, liters: int) -> None:
+        self.fuel_amount += liters
 
-        if self.gas > self.gas_max:
-            self.gas = self.gas_max
+        if self.fuel_amount > self.max_fuel:
+            self.fuel_amount = self.max_fuel
 
-    def drive(self, km: int) -> DriveResult:
-        if self.pass_ == 0:
+    def drive(self, distance: int) -> DriveResult:
+        if self.passenger_count == 0:
             return DriveResult.NO_PASSENGERS
 
-        if self.gas == 0:
+        if self.fuel_amount == 0:
             return DriveResult.NO_GAS
 
-        if self.gas < km:
-            self.km += self.gas
-            self.gas = 0
+        if self.fuel_amount < distance:
+            self.distance_traveled += self.fuel_amount
+            self.fuel_amount = 0
             return DriveResult.INCOMPLETE
 
-        self.gas -= km
-        self.km += km
-
+        self.fuel_amount -= distance
+        self.distance_traveled += distance
         return DriveResult.OK
 
     def __str__(self) -> str:
-        return f"pass: {self.pass_}, gas: {self.gas}, km: {self.km}"
+        return f"pass: {self.passenger_count}, gas: {self.fuel_amount}, km: {self.distance_traveled}"
 
+
+# INTERFACE
+
+CAR_FULL_MSG: str = "fail: car is full"
+CAR_EMPTY_MSG: str = "fail: car is empty"
+INVALID_COMMAND_MSG: str = "fail: invalid command"
+
+def drive_result_to_message(result: DriveResult) -> str:
+    return {
+        DriveResult.OK: "ok: drove successfully",
+        DriveResult.NO_PASSENGERS: "fail: car is empty",
+        DriveResult.INCOMPLETE: "fail: incomplete trip",
+        DriveResult.NO_GAS: "fail: empty tank",
+    }[result]
 
 def main() -> None:
     car: Car = Car()
@@ -82,18 +88,12 @@ def main() -> None:
             case ["leave"]:
                 if not car.leave():
                     print(CAR_EMPTY_MSG)
-            case ["fuel", increment]:
-                car.fuel(int(increment))
+            case ["refuel", liters]:
+                car.refuel(int(liters))
             case ["drive", distance]:
-                match car.drive(int(distance)):
-                    case DriveResult.NO_PASSENGERS:
-                        print(CAR_EMPTY_MSG)
-                    case DriveResult.NO_GAS:
-                        print(NO_GAS_MSG)
-                    case DriveResult.INCOMPLETE:
-                        print(INCOMPLETE_TRIP_MSG)
-                    case DriveResult.OK:
-                        pass
+                result = car.drive(int(distance))
+                if result != DriveResult.OK:
+                    print(drive_result_to_message(result))
             case _:
                 print(INVALID_COMMAND_MSG)
 

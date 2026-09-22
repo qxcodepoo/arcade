@@ -30,16 +30,16 @@ class Lead:
         self.__hardness: str = hardness
         self.__size: int = size
 
-    def getThickness(self) -> float:
+    def get_thickness(self) -> float:
         return self.__thickness
 
-    def getHardness(self) -> str:
+    def get_hardness(self) -> str:
         return self.__hardness
 
-    def getSize(self) -> int:
+    def get_size(self) -> int:
         return self.__size
 
-    def getWearPerPage(self) -> int:
+    def get_wear_per_page(self) -> int:
         if self.__hardness == "HB":
             return 1
         if self.__hardness == "2B":
@@ -49,12 +49,12 @@ class Lead:
         return 6
 
     def consume(self, amount: int) -> bool:
-        finalSize: int = self.__size - amount
-        if finalSize < Lead.MIN_SIZE:
+        final_size: int = self.__size - amount
+        if final_size < Lead.MIN_SIZE:
             self.__size = Lead.MIN_SIZE
             return False
 
-        self.__size = finalSize
+        self.__size = final_size
         return True
 
     def __str__(self) -> str:
@@ -64,53 +64,53 @@ class Lead:
 class Pencil:
     def __init__(self, thickness: float) -> None:
         self.__thickness: float = thickness
-        self.__tip: Lead | None = None
+        self.__lead: Lead | None = None
 
-    def getThickness(self) -> float:
+    def get_thickness(self) -> float:
         return self.__thickness
 
-    def hasLead(self) -> bool:
-        return self.__tip is not None
+    def has_lead(self) -> bool:
+        return self.__lead is not None
 
     def insert(self, lead: Lead) -> InsertResult:
-        if self.hasLead():
+        if self.has_lead():
             return InsertResult.ALREADY_HAS_LEAD
-        if self.__thickness != lead.getThickness():
+        if self.__thickness != lead.get_thickness():
             return InsertResult.WRONG_THICKNESS
 
-        self.__tip = lead
+        self.__lead = lead
         return InsertResult.OK
 
     def remove(self) -> Lead | None:
-        lead: Lead | None = self.__tip
-        self.__tip = None
+        lead: Lead | None = self.__lead
+        self.__lead = None
         return lead
 
-    def writePage(self) -> WriteResult:
-        if self.__tip is None:
+    def write_page(self) -> WriteResult:
+        if self.__lead is None:
             return WriteResult.NO_LEAD
-        if self.__tip.getSize() == Lead.MIN_SIZE:
+        if self.__lead.get_size() == Lead.MIN_SIZE:
             return WriteResult.INSUFFICIENT
-        if not self.__tip.consume(self.__tip.getWearPerPage()):
+        if not self.__lead.consume(self.__lead.get_wear_per_page()):
             return WriteResult.INCOMPLETE
 
         return WriteResult.OK
 
     def __str__(self) -> str:
-        leadText: str = "null"
-        if self.__tip is not None:
-            leadText = f"[{self.__tip}]"
-        return f"thickness: {self.__thickness:.1f}, lead: {leadText}"
+        lead_text: str = "null"
+        if self.__lead is not None:
+            lead_text = f"[{self.__lead}]"
+        return f"thickness: {self.__thickness:.1f}, lead: {lead_text}"
 
 
-def printInsertResult(result: InsertResult) -> None:
+def print_insert_result(result: InsertResult) -> None:
     if result == InsertResult.ALREADY_HAS_LEAD:
         print(ALREADY_HAS_LEAD_MSG)
     elif result == InsertResult.WRONG_THICKNESS:
         print(WRONG_THICKNESS_MSG)
 
 
-def printWriteResult(result: WriteResult) -> None:
+def print_write_result(result: WriteResult) -> None:
     if result == WriteResult.NO_LEAD:
         print(NO_LEAD_MSG)
     elif result == WriteResult.INSUFFICIENT:
@@ -135,12 +135,12 @@ def main() -> None:
                 print(pencil)
             case ["insert", thickness, hardness, size]:
                 lead: Lead = Lead(float(thickness), hardness, int(size))
-                printInsertResult(pencil.insert(lead))
+                print_insert_result(pencil.insert(lead))
             case ["remove"]:
                 if pencil.remove() is None:
                     print(NO_LEAD_MSG)
             case ["write"]:
-                printWriteResult(pencil.writePage())
+                print_write_result(pencil.write_page())
             case _:
                 print(INVALID_COMMAND_MSG)
 

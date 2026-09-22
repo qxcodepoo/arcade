@@ -31,4 +31,4 @@ Use this skill only for the repository's general activity index, normally the ro
 
 ## Verification
 
-After changing the general index, run `tko util mdpp README.md` and `git diff --check`. Review the generated formatting to ensure the activity lists remain continuous and the separators still follow these rules.
+After changing the general index, run `tko tool mdpp README.md` and `git diff --check`. Review the generated formatting to ensure the activity lists remain continuous and the separators still follow these rules.

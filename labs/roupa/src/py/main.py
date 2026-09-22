@@ -7,17 +7,17 @@ class Garment:
 
     def __init__(self, size: str) -> None:
         self.__size: str = Garment.DEFAULT_SIZE
-        self.setSize(size)
+        self.set_size(size)
 
-    def getSize(self) -> str:
+    def get_size(self) -> str:
         return self.__size
 
     @staticmethod
-    def getAllowedSizes() -> list[str]:
+    def get_allowed_sizes() -> list[str]:
         return ["PP", "P", "M", "G", "GG", "XG"]
 
-    def setSize(self, size: str) -> bool:
-        if size not in Garment.getAllowedSizes():
+    def set_size(self, size: str) -> bool:
+        if size not in Garment.get_allowed_sizes():
             return False
 
         self.__size = size
@@ -40,7 +40,7 @@ def main() -> None:
             case ["show"]:
                 print(garment)
             case ["size", size]:
-                if not garment.setSize(size):
+                if not garment.set_size(size):
                     print(INVALID_SIZE_MSG)
             case _:
                 print(INVALID_COMMAND_MSG)

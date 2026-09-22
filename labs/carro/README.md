@@ -13,7 +13,7 @@ index_content: |2
 
 ![cover](assets/cover.webp)
 
-## Intro <!-- @intro -->
+## Intro
 
 Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de embarcar e desembarcar pessoas, abastecer e andar. A atividade também introduz uma primeira separação de responsabilidades entre lógica de negócio e interação com o usuário.
 
@@ -24,15 +24,15 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 - `drive` deve retornar um valor do tipo `DriveResult`, pois possui falhas distintas.
 - O Shell deve interpretar cada retorno e decidir qual mensagem apresentar ao usuário.
 
-## Regras <!-- @regras -->
+## Regras
 
 - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Suporta até 2 pessoas e até 100 litros de combustível.
 - Construtor do Carro
-  - `pass`: 0 passageiros.
-  - `km`: 0 quilômetros percorridos.
-  - `passMax`: Máximo de 2 pessoas.
-  - `gas`: 0 litros de gasolina.
-  - `gasMax`: Máximo de 100 litros de gasolina.
+  - `passengerCount`: 0 passageiros.
+  - `distanceTraveled`: 0 quilômetros percorridos.
+  - `maxPassengers`: Máximo de 2 pessoas.
+  - `fuelAmount`: 0 litros de combustível.
+  - `maxFuel`: Máximo de 100 litros de combustível.
 - Mostrar `$show`
   - Imprime a chamada do método `toString` do carro.
   - `toString` - Retorna uma string com o estado atual do carro no formato:
@@ -45,7 +45,7 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
   - Desembarca uma pessoa por vez.
   - Se não houver ninguém no carro, emite a mensagem de erro.
     - `fail: car is empty`.
-- Abastecer certa quantidade `$fuel increment`
+- Abastecer certa quantidade `$refuel liters`
   - Abastece o tanque com a quantidade de litros de combustível passada.
   - Caso tente abastecer acima do limite, descarta o valor excedente.
 - Dirigir certa distância `$drive distance`
@@ -60,23 +60,56 @@ Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de em
 
 ## Diagrama <!-- @diagrama -->
 
-O diagrama separa o domínio (`Car` e `DriveResult`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos e interpreta os resultados.
+O diagrama separa o domínio (`Car` e `DriveResult`) da interface (`Shell`). `Car` mantém apenas o estado e as regras do carro; `Shell` lê comandos, converte os resultados em mensagens e os apresenta.
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: { "fontFamily": "monospace" } }%%
+classDiagram
+    direction TB
 
-## Guide <!-- @guide -->
+    class DriveResult {
+        <<enumeration>>
+        OK
+        NO_PASSENGERS
+        INCOMPLETE
+        NO_GAS
+    }
 
-[![youtube icon](assets/youguide.webp)](https://youtu.be/LM6KM4eLi3U)
+    class Car {
+        -passengerCount : number
+        -maxPassengers : number
+        -fuelAmount : number
+        -maxFuel : number
+        -distanceTraveled : number
+        +constructor()
+        +enter() boolean
+        +leave() boolean
+        +refuel(liters : number) void
+        +drive(distance : number) DriveResult
+        +toString() string
+    }
+
+    class Shell {
+        +driveResultToMessage(result : DriveResult) string
+        +main() void
+    }
+
+    Car ..> DriveResult : returns
+    Shell ..> Car : creates and uses
+    Shell ..> DriveResult : converts and presents
+```
+
+## Guide
 
 - Comece pelo construtor e pelo `toString`, conferindo o estado inicial com `$show`.
 - Implemente `enter` e `leave`, retornando `false` quando a operação não puder ser feita.
-- Implemente `fuel`, garantindo que o tanque não ultrapasse `gasMax`.
+- Implemente `refuel`, garantindo que o tanque não ultrapasse `maxFuel`.
 - Implemente `drive`, preservando a ordem das validações: primeiro passageiro, depois combustível.
-- No `Shell`, declare constantes para as mensagens e traduza os retornos diretamente na `main`: cada `false` de `enter` e `leave` deve usar sua mensagem específica, e cada `DriveResult` de `drive` deve ser tratado no `switch` correspondente.
+- No `Shell`, declare constantes para as mensagens e traduza os retornos na interface: cada `false` de `enter` e `leave` deve usar sua mensagem específica, e cada `DriveResult` de `drive` deve passar por `driveResultToMessage`.
 
 Pergunta de reflexão: que problema surgiria se `drive` imprimisse as mensagens diretamente dentro de `Car`?
 
-## Shell <!-- @shell -->
+## Shell
 
 ```bash
 #TEST_CASE init
@@ -112,8 +145,8 @@ $end
 ***
 
 ```bash
-#TEST_CASE fuel
-$fuel 60
+#TEST_CASE refuel
+$refuel 60
 $show
 pass: 0, gas: 60, km: 0
 
@@ -136,15 +169,14 @@ $show
 pass: 1, gas: 0, km: 60
 
 #TEST_CASE fill tank
-$fuel 200
+$refuel 200
 $show
 pass: 1, gas: 100, km: 60
 $end
 #
 ```
 
-## Draft <!-- @draft -->
+## Draft
 
 <!-- links .cache/starter -->
 <!-- links -->
-## labs

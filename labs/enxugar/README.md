@@ -23,20 +23,42 @@ Esta versão acrescenta um `Shell` para testar o comportamento observável sem m
 
 - A classe `Towel` possui cor `color`, tamanho `size` e umidade `wetness`.
 - O construtor recebe cor e tamanho e inicia `wetness` com `0`.
-- `wringOut()` zera a umidade.
-- `getMaxWetness()` retorna `10` para `P`, `20` para `M` e `30` para `G`.
-- `dry(amount)` aumenta a umidade sem ultrapassar o limite; retorna `true` quando absorve tudo e `false` quando absorve apenas o possível.
-- `isDry()` retorna `true` quando a umidade é `0`.
-- O `toString` retorna `Color: {color}, Size: {size}, Wetness: {wetness}`.
+- `wring_out()` zera a umidade.
+- `get_max_wetness()` retorna `10` para `P`, `20` para `M` e `30` para `G`.
+- `absorb(water_amount)` aumenta a umidade sem ultrapassar o limite; retorna `true` quando absorve tudo e `false` quando absorve apenas o possível.
+- `is_dry()` retorna `true` quando a umidade é `0`.
+- O `__str__` retorna `Color: {color}, Size: {size}, Wetness: {wetness}`.
 - `Towel` não deve ler entrada nem imprimir dados; o `Shell` interpreta os retornos e apresenta as mensagens.
-- Se `dry(amount)` retornar `false`, o `Shell` deve imprimir `fail: towel is soaked`.
+- Se `absorb(water_amount)` retornar `false`, o `Shell` deve imprimir `fail: towel is soaked`.
 - A classe permanece única porque suas regras formam um comportamento coeso. Não crie classes separadas para cor, tamanho ou umidade nesta etapa.
 
 ## Diagrama
 
-O diagrama representa uma classe simples e coesa. A atividade reforça a separação inicial entre domínio e `Shell`, sem antecipar modificadores de acesso do próximo bloco.
+`Towel` mantém seus atributos protegidos e concentra as regras de umidade. O `Shell` apenas interpreta comandos, chama o domínio e apresenta `fail: towel is soaked` quando a absorção ultrapassa a capacidade.
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: { "fontFamily": "monospace" } }%%
+classDiagram
+    direction TB
+
+    class Towel {
+        -color : string
+        -size : string
+        -wetness : number
+        +constructor(color : string, size : string)
+        +wringOut() void
+        +getMaxWetness() number
+        +absorb(waterAmount : number) boolean
+        +isDry() boolean
+        +toString() string
+    }
+
+    class Shell {
+        +main() void
+    }
+
+    Shell ..> Towel : creates and uses
+```
 
 ## Guide
 
@@ -44,9 +66,9 @@ O diagrama representa uma classe simples e coesa. A atividade reforça a separa�
 
 [Vídeo de apoio](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
-- Comece pelo construtor e pelo `toString`, usando `$create` e `$show`.
-- Implemente `getMaxWetness`, porque `dry` depende desse limite.
-- Faça `dry` retornar `false` quando a toalha não conseguir absorver toda a quantidade.
+- Comece pelo construtor e por `__str__`, usando `$create` e `$show`.
+- Implemente `get_max_wetness`, porque `absorb` depende desse limite.
+- Faça `absorb` retornar `false` quando a toalha não conseguir absorver toda a quantidade.
 - No `Shell`, transforme esse `false` em `fail: towel is soaked`.
 
 Pergunta de reflexão: por que o limite de umidade pertence à `Towel` e não ao `Shell`?
@@ -123,3 +145,5 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+
+<!-- MERMAID -->

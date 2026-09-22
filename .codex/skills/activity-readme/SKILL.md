@@ -108,7 +108,7 @@ When reviewing a refactoring, record the smell or risk, the change, unchanged be
 
 ## Diagrams
 
-Every activity with a diagram keeps `assets/diagrama.puml` as source and the generated image. Use TypeScript-like types as the common notation:
+Every activity with a diagram includes an inline Mermaid `classDiagram` in its README. Use `labs/carro/README.md` as the formatting model: initialize the diagram with a monospace font, set its direction explicitly, and use TypeScript-like types as the common notation:
 
 - `number`, `boolean`, `string`, and `void`;
 - `Array<T>` for variable-size indexed collections;
@@ -119,11 +119,9 @@ Every activity with a diagram keeps `assets/diagrama.puml` as source and the gen
 
 Do not use `None`, `Optional`, `undefined`, pointers, language-specific collections, or tuples as the default model notation. Represent the entry point as `main(): void`, without incidental language arguments or parsing helpers. The diagram communicates relevant responsibilities and relationships, not every implementation detail.
 
-Generate the diagram from `assets/diagrama.puml` with:
+When updating an activity that still has the legacy `assets/diagrama.png` or `assets/diagrama.puml`, remove those obsolete artifacts after migrating the diagram to Mermaid. Do not create new PNG, PUML, or PlantUML diagram artifacts for activity READMEs.
 
-```bash
-plantuml diagrama.puml
-```
+Before finalizing an activity, propose improvements to the names of methods, attributes, variables, and classes. Prefer names that reveal domain intent, distinguish state from operation parameters, avoid unexplained abbreviations, and follow the target language's conventions; apply the improvements only when they preserve or deliberately update the documented contract.
 
 ## Reference implementations
 
@@ -143,7 +141,7 @@ Before completing an activity README, verify:
 4. classes own the right rules, state, invariants, and lifecycles;
 5. the Shell contains no domain logic;
 6. the division improves cohesion, coupling, maintenance, extension, or tests;
-7. names reveal domain intent and methods have one conceptual operation;
+7. names reveal domain intent and methods have one conceptual operation; naming improvements were considered and proposed where useful;
 8. dependencies are explicit and necessary;
 9. tests cover behavior, boundaries, failures, state after failures, and collaboration as relevant;
 10. the diagram matches the taught model;
@@ -156,11 +154,12 @@ Before completing an activity README, verify:
 
 - Read the README, code, tests, and diagram before changing an existing activity.
 - Check consistency among rules, examples, diagram, tests, and implementations.
-- Generate or validate the diagram source and image.
+- Validate the inline Mermaid diagram and confirm that obsolete PNG/PUML artifacts were removed when the activity was updated.
 - Compile and run available languages.
 - For `eval=test`, run success, failure, boundary, sequence, and state-preservation scenarios.
 - For `eval=self`, validate examples and the verification route.
-- Run `tko util mdpp README.md` when the README changes.
+- Run `tko tool mdpp README.md` when the README changes.
+- Do not run `tko index` against an activity README; build the general index only from the repository root using its central `README.md`.
 - Run `git diff --check`.
 - Use `make all` only when index or generated artifacts need updating, then review the complete diff.
 - Run `tko run <codigo> README.md` when checking consistency between code and README tests.

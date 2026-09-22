@@ -21,32 +21,53 @@ O foco é modelar estado e comportamento em uma classe simples: `Animal` guarda 
 
 ## Regras
 
-- O animal tem uma espécie `species`, um estágio `age` de vida e um barulho `noise` que ele faz.
-- O construtor recebe a espécie e o barulho e inicia o estágio com `0`.
-- O `toString` do animal deve retornar `{species}:{age}:{noise}`.
+- O animal tem uma espécie `species`, um estágio interno `life_stage` e um barulho `noise` que ele faz.
+- O construtor recebe a espécie e o barulho e inicia `life_stage` com `0`.
+- O `__str__` do animal deve retornar `{species}:{life_stage}:{noise}`.
 - Os estágios são: `0` Filhote, `1` Criança, `2` Adulto, `3` Idoso e `4` Morto.
-- A classe `Animal` deve declarar a constante `DEAD_AGE` com o valor `4`, evitando espalhar esse limite pelos métodos.
-- O método `ageBy` avança o estágio conforme o parâmetro `increment`.
+- A classe `Animal` deve declarar a constante `DEAD_STAGE` com o valor `4`, evitando espalhar esse limite pelos métodos.
+- O método `grow` avança o estágio conforme o parâmetro `stages`.
   - Retorna `true` se o animal não morrer.
   - Retorna `false` se já estiver morto ou acabar morrendo.
   - A camada de interação mostra `warning: animal is dead` quando o método retornar `false`.
-- O método `makeSound` retorna o som do animal.
+- O método `make_sound` retorna o som do animal.
   - Filhote emite `---`.
   - Animal morto emite `RIP`.
 - A classe `Animal` não lê nem imprime dados. A camada de interação é responsável pela entrada e saída.
 
 ## Diagrama
 
-O diagrama mostra apenas a classe `Animal`, que concentra o estado e as regras do ciclo de vida. A classe não foi dividida porque espécie, idade e som mudam juntos neste problema.
+O diagrama mostra a classe `Animal`, que concentra o estado e as regras do ciclo de vida, e `Main`, que lê comandos e apresenta resultados. A classe não foi dividida porque espécie, estágio de vida e som mudam juntos neste problema.
 
-![_](assets/diagrama.png)
+```mermaid
+%%{init: { "fontFamily": "monospace" } }%%
+classDiagram
+    direction TB
+
+    class Animal {
+        +DEAD_STAGE : number$
+        -species : string
+        -noise : string
+        -lifeStage : number
+        +constructor(species : string, noise : string)
+        +makeSound() string
+        +grow(stages : number) boolean
+        +toString() string
+    }
+
+    class Main {
+        +main() void
+    }
+
+    Main ..> Animal : creates and uses
+```
 
 ## Guide
 
-- Comece pelo construtor e pelo `toString`, que permitem conferir o estado inicial.
-- Depois implemente `makeSound`, separando os casos de filhote, adulto e morto.
-- Implemente `ageBy` por último, garantindo que a idade nunca passe de `DEAD_AGE`.
-- Deixe o `Shell` responsável por imprimir `warning: animal is dead` quando `ageBy` retornar `false`.
+- Comece pelo construtor e por `__str__`, que permitem conferir o estado inicial.
+- Depois implemente `make_sound`, separando os casos de filhote, adulto e morto.
+- Implemente `grow` por último, garantindo que `life_stage` nunca passe de `DEAD_STAGE`.
+- Deixe a `main` responsável por imprimir `warning: animal is dead` quando `grow` retornar `false`.
 
 Pergunta de reflexão: por que `Animal` retorna um booleano em vez de imprimir a mensagem de morte diretamente?
 
@@ -161,3 +182,5 @@ $end
 
 <!-- links .cache/cheat -->
 <!-- links -->
+
+<!-- MERMAID -->

@@ -34,7 +34,7 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
   - A classe Grafite `Lead` é responsável por armazenar as informações do grafite.
     - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
     - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
-    - O método `getWearPerPage` retorna a quantidade de grafite gasta por folha.
+    - O método `get_wear_per_page` retorna a quantidade de grafite gasta por folha.
       - Um grafite `HB` gasta `1mm` por folha.
       - Um grafite `2B` gasta `2mm` por folha.
       - Um grafite `4B` gasta `4mm` por folha.
@@ -64,14 +64,70 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
 
 ## Diagrama
 
-![diagrama](assets/diagrama.webp)
+`Pencil` agrega no máximo um `Lead`, que mantém ciclo de vida independente. `Lead` calcula e aplica seu próprio desgaste; `Pencil` coordena inserção, remoção e escrita, interpretando os resultados das operações.
+
+```mermaid
+%%{init: { "fontFamily": "monospace" } }%%
+classDiagram
+    direction TB
+
+    class InsertResult {
+        <<enumeration>>
+        OK
+        ALREADY_HAS_LEAD
+        WRONG_THICKNESS
+    }
+
+    class WriteResult {
+        <<enumeration>>
+        OK
+        NO_LEAD
+        INSUFFICIENT
+        INCOMPLETE
+    }
+
+    class Lead {
+        +MIN_SIZE : number$
+        -thickness : number
+        -hardness : string
+        -size : number
+        +constructor(thickness : number, hardness : string, size : number)
+        +getThickness() number
+        +getHardness() string
+        +getSize() number
+        +getWearPerPage() number
+        +consume(amount : number) boolean
+        +toString() string
+    }
+
+    class Pencil {
+        -thickness : number
+        -lead : Lead | null
+        +constructor(thickness : number)
+        +getThickness() number
+        +hasLead() boolean
+        +insert(lead : Lead) InsertResult
+        +remove() Lead | null
+        +writePage() WriteResult
+        +toString() string
+    }
+
+    class Shell {
+        +main() void
+    }
+
+    Pencil "1" o-- "0..1" Lead : aggregates
+    Pencil ..> InsertResult : returns
+    Pencil ..> WriteResult : returns
+    Shell ..> Pencil : creates and uses
+```
 
 ## Guide
 
 - Parte 1: Inserir
   - Crie a classe Grafite `Lead` com espessura, dureza e tamanho.
   - Crie a classe Lapiseira `Pencil` com o atributo ponta `tip` inicializado como `null`.
-  - Implemente o método `hasLead` que retorna `true` se houver grafite na lapiseira.
+  - Implemente o método `has_lead` que retorna `true` se houver grafite na lapiseira.
   - Crie o `InsertResult` e faça `insert` retornar o resultado específico da inserção, sem imprimir mensagens.
   - Implemente o método `toString` que mostra a lapiseira e o grafite presente.
 
@@ -80,8 +136,8 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
   - Verifique se o método `remove` retorna o grafite removido ou `null` se não havia grafite.
 
 - Parte 3: Escrever na Folha
-  - Crie o `WriteResult` e implemente `writePage`, retornando o resultado específico sem imprimir mensagens.
-  - Implemente o método `getWearPerPage` que retorna a quantidade de grafite gasto por folha.
+  - Crie o `WriteResult` e implemente `write_page`, retornando o resultado específico sem imprimir mensagens.
+  - Implemente o método `get_wear_per_page` que retorna a quantidade de grafite gasto por folha.
   - Implemente `consume(amount)` em `Lead`, mantendo o tamanho mínimo de `10mm`.
   - Verifique se a lapiseira consegue escrever na folha.
   - Faça as verificações antes de escrever na folha.
@@ -208,3 +264,5 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+
+<!-- MERMAID -->

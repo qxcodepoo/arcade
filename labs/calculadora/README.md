@@ -17,19 +17,19 @@ index_content: |2
 
 O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
-O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora altera `display` e `battery`, enquanto o `Shell` mostra as falhas. Cada operação usa o retorno que melhor descreve suas possibilidades: `sum` retorna `boolean`, pois só pode falhar por falta de bateria, e `division` retorna `DivisionResult`, pois possui dois tipos de falha.
+O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora altera `display` e `battery`, enquanto o `Shell` mostra as falhas. Cada operação usa o retorno que melhor descreve suas possibilidades: `add` retorna `boolean`, pois só pode falhar por falta de bateria, e `divide` retorna `DivisionResult`, pois possui dois tipos de falha.
 
 ## Regras
 
 - Descrição
-  - A calculadora possui um display `display` e uma bateria `battery`. Ela guarda o valor atual da bateria e o valor máximo `batteryMax`.
+  - A calculadora possui um display `display` e uma bateria `battery`. Ela guarda o valor atual da bateria e o valor máximo `maxBattery`.
   - O display é onde o resultado das operações é armazenado.
   - A bateria é a quantidade de energia que a calculadora possui.
   - Cada operação gasta um ponto de bateria.
   - A calculadora não pode realizar operações se não houver bateria.
   - A calculadora não pode realizar divisões por zero.
 - Construtor
-  - Requisição `$init batteryMax`
+  - Requisição `$init maxBattery`
   - Receba o máximo de bateria como parâmetro no construtor da Calculadora.
 - `toString`
   - Deve ser invocado na requisição `$show`.
@@ -37,19 +37,20 @@ O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora
     - `display = {display:.2f}, battery = {battery}`
     - Exemplo: `display = 0.00, battery = 0`
 - Recarregar
-  - Requisição: `$charge increment`
-  - Adiciona carga à bateria, mas não pode ultrapassar o limite.
+  - Requisição: `$charge amount`
+  - Adiciona `amount` à bateria, mas não pode ultrapassar `maxBattery`.
+  - Valores negativos não alteram a bateria.
 - Somar
-  - Requisição: `$sum a b`
+  - Requisição: `$sum left right`
   - Soma dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: insufficient battery`.
-  - O método `sum(a: number, b: number): boolean` retorna `true` quando realiza a soma e `false` quando não há bateria. Em caso de falha, mantém o display.
+  - O método `add(left: number, right: number): boolean` retorna `true` quando realiza a soma e `false` quando não há bateria. Em caso de falha, mantém o display.
 - Divisão
-  - Requisição: `$div num den`
+  - Requisição: `$div numerator denominator`
   - Divide dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: insufficient battery`.
   - Se houver divisão por zero, consome um ponto de bateria, mantém o display anterior e emite a mensagem `fail: division by zero`.
-  - O método `division(num: number, den: number): DivisionResult` retorna `OK`, `NO_BATTERY` ou `DIVISION_BY_ZERO`.
+  - O método `divide(numerator: number, denominator: number): DivisionResult` retorna `OK`, `NO_BATTERY` ou `DIVISION_BY_ZERO`.
 - Separe as responsabilidades:
   - A classe Calculadora não deve conter nenhuma operação de impressão.
   - A classe Shell não deve ter lógica de negócios.
@@ -58,16 +59,44 @@ O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora
 
 `Calculator` permanece como uma classe coesa nesta etapa: bateria, display e operações fazem parte da simulação de uma calculadora. Extrair `Battery` será uma evolução possível em outro bloco, quando o ciclo de vida do componente for um objetivo explícito.
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: { "fontFamily": "monospace" } }%%
+classDiagram
+    direction TB
+
+    class DivisionResult {
+        <<enumeration>>
+        OK
+        NO_BATTERY
+        DIVISION_BY_ZERO
+    }
+
+    class Calculator {
+        -battery : number
+        -maxBattery : number
+        -display : number
+        +constructor(maxBattery : number)
+        +charge(amount : number) void
+        +add(left : number, right : number) boolean
+        +divide(numerator : number, denominator : number) DivisionResult
+        +toString() string
+    }
+
+    class Shell {
+        +main() void
+    }
+
+    Calculator ..> DivisionResult : returns
+    Shell ..> Calculator : creates and uses
+    Shell ..> DivisionResult : interprets
+```
 
 ## Guide
 
-[Vídeo de apoio](https://youtu.be/oZYwuP3CKJM?si=uVdiZn8tXbwUGH41)
-
 - Comece pelo construtor, garantindo que `display` e `battery` iniciem em `0`.
-- Implemente `chargeBattery` limitando a bateria a `batteryMax`.
-- Implemente `sum` retornando `boolean` e `division` retornando `DivisionResult`.
-- No `Shell`, traduza o `false` de `sum` e cada valor de `DivisionResult` para a mensagem literal definida nas regras.
+- Implemente `charge` limitando a bateria a `maxBattery` e ignorando valores negativos.
+- Implemente `add` retornando `boolean` e `divide` retornando `DivisionResult`.
+- No `Shell`, traduza o `false` de `add` e cada valor de `DivisionResult` para a mensagem literal definida nas regras.
 
 Pergunta de reflexão: por que a divisão por zero mantém o `display`, mas ainda consome bateria?
 
@@ -112,6 +141,14 @@ display = 0.00, battery = 4
 #TEST_CASE boundary
 
 $charge 2
+$show
+display = 0.00, battery = 5
+```
+
+```bash
+#TEST_CASE negative charge
+
+$charge -2
 $show
 display = 0.00, battery = 5
 ```
@@ -219,3 +256,5 @@ $end
 
 <!-- links .cache/cheat -->
 <!-- links -->
+
+<!-- MERMAID -->

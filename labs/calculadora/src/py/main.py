@@ -13,38 +13,38 @@ INVALID_COMMAND_MSG: str = "fail: invalid command"
 
 
 class Calculator:
-    def __init__(self, battery_max: int) -> None:
-        self.battery_max: int = battery_max
+    def __init__(self, max_battery: int) -> None:
+        self.max_battery: int = max_battery
         self.battery: int = 0
         self.display: float = 0.0
 
-    def charge_battery(self, increment: int) -> None:
-        if increment < 0:
+    def charge(self, amount: int) -> None:
+        if amount < 0:
             return
 
-        self.battery += increment
+        self.battery += amount
 
-        if self.battery > self.battery_max:
-            self.battery = self.battery_max
+        if self.battery > self.max_battery:
+            self.battery = self.max_battery
 
-    def sum(self, a: int, b: int) -> bool:
+    def add(self, left: int, right: int) -> bool:
         if self.battery == 0:
             return False
 
         self.battery -= 1
-        self.display = float(a + b)
+        self.display = float(left + right)
         return True
 
-    def division(self, num: int, den: int) -> DivisionResult:
+    def divide(self, numerator: int, denominator: int) -> DivisionResult:
         if self.battery == 0:
             return DivisionResult.NO_BATTERY
 
         self.battery -= 1
 
-        if den == 0:
+        if denominator == 0:
             return DivisionResult.DIVISION_BY_ZERO
 
-        self.display = num / den
+        self.display = numerator / denominator
         return DivisionResult.OK
 
     def __str__(self) -> str:
@@ -61,17 +61,17 @@ def main() -> None:
         match line.split():
             case ["end"]:
                 break
-            case ["init", battery_max]:
-                calculator = Calculator(int(battery_max))
+            case ["init", max_battery]:
+                calculator = Calculator(int(max_battery))
             case ["show"]:
                 print(calculator)
-            case ["charge", increment]:
-                calculator.charge_battery(int(increment))
-            case ["sum", a, b]:
-                if not calculator.sum(int(a), int(b)):
+            case ["charge", amount]:
+                calculator.charge(int(amount))
+            case ["sum", left, right]:
+                if not calculator.add(int(left), int(right)):
                     print(NO_BATTERY_MSG)
-            case ["div", num, den]:
-                match calculator.division(int(num), int(den)):
+            case ["div", numerator, denominator]:
+                match calculator.divide(int(numerator), int(denominator)):
                     case DivisionResult.NO_BATTERY:
                         print(NO_BATTERY_MSG)
                     case DivisionResult.DIVISION_BY_ZERO:

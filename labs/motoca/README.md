@@ -41,7 +41,64 @@ O foco é praticar agregação: a pessoa existe fora da motoca, pode entrar, sai
 
 ## Diagrama
 
-![diagrama](assets/diagrama.png)
+`Motorcycle` agrega no máximo uma `Person`, que tem ciclo de vida independente. `Person` decide se pode dirigir; `Motorcycle` coordena tempo, ocupação e resultados da corrida; `Shell` interpreta os enums e apresenta as mensagens.
+
+```mermaid
+%%{init: { "fontFamily": "monospace" } }%%
+classDiagram
+    direction TB
+
+    class EnterResult {
+        <<enumeration>>
+        OK
+        TOO_OLD
+        BUSY
+    }
+
+    class DriveResult {
+        <<enumeration>>
+        OK
+        BUY_TIME_FIRST
+        EMPTY_MOTORCYCLE
+        TIME_FINISHED
+    }
+
+    class Person {
+        -name : string
+        -age : number
+        +constructor(name : string, age : number)
+        +getName() string
+        +getAge() number
+        +canDrive(maxAge : number) boolean
+        +toString() string
+    }
+
+    class Motorcycle {
+        -person : Person | null
+        -size : number
+        -remainingMinutes : number
+        +constructor(size : number)
+        +enter(person : Person) EnterResult
+        +leave() Person | null
+        +buy(minutes : number) void
+        +drive(minutes : number) DriveResult
+        +getPerson() Person | null
+        +getSize() number
+        +getTime() number
+        +toString() string
+    }
+
+    class Shell {
+        +main() void
+    }
+
+    Motorcycle "1" o-- "0..1" Person : aggregates
+    Motorcycle ..> EnterResult : returns
+    Motorcycle ..> DriveResult : returns
+    Shell ..> Motorcycle : creates and uses
+    Shell ..> EnterResult : interprets
+    Shell ..> DriveResult : interprets
+```
 
 ## Guide
 
@@ -49,31 +106,31 @@ O foco é praticar agregação: a pessoa existe fora da motoca, pode entrar, sai
   - Crie a classe `Person` com os atributos `age` e `name`.
   - Defina os atributos como privados.
   - Crie o construtor da classe que recebe `name` como uma string e `age` como um número.
-  - Crie o método `canDrive(maxAge: number): boolean` para informar se a idade da pessoa está dentro do limite recebido.
-  - Crie os métodos `getAge()` e `getName()` para retornar a idade e o nome da pessoa, respectivamente.
+  - Crie o método `can_drive(max_age: number): boolean` para informar se a idade da pessoa está dentro do limite recebido.
+  - Crie os métodos `get_age()` e `get_name()` para retornar a idade e o nome da pessoa, respectivamente.
   - Crie o método `toString()` para retornar uma string no formato `name:age`.
 - Parte 1: Inserir
   - Crie a classe `Motorcycle` com os atributos `size`, `time` e `person`.
   - Inicialize os atributos no construtor, onde `size` vem do parâmetro, `time` inicia com 0 e `person` inicia como `null`.
-  - Crie o método `enter(person: Person): boolean` que permite inserir uma pessoa na motoca.
-  - Verifique se há uma pessoa na motoca. Se houver, retorne falha e deixe o `Shell` imprimir "fail: busy motorcycle".
-  - Caso contrário, insira a pessoa na motoca e retorne verdadeiro.
+  - Crie o método `enter(person: Person): EnterResult` que permite inserir uma pessoa na motoca.
+  - Verifique se há uma pessoa na motoca. Se houver, retorne `BUSY` e deixe o `Shell` imprimir "fail: busy motorcycle".
+  - Verifique se a pessoa pode dirigir, passando o tamanho da motoca como idade máxima. Se não puder, retorne `TOO_OLD` e deixe o `Shell` imprimir "fail: too old to drive".
+  - Caso contrário, insira a pessoa na motoca e retorne `OK`.
   - Crie o método `toString()` para mostrar o estado da motoca.
 - Parte 2: Remover
   - Crie o método `leave(): Person | null` que permite remover a pessoa da motoca.
   - Verifique se há uma pessoa na motoca. Se não houver, retorne nulo e deixe o `Shell` imprimir "fail: empty motorcycle".
   - Caso contrário, remova a pessoa da motoca e retorne a pessoa removida.
 - Parte 3: Comprar Tempo
-  - Crie o método `buy(time: number)` que permite comprar tempo em minutos para utilizar a motoca.
-  - Incremente o tempo da motoca com o tempo passado como parâmetro.
+  - Crie o método `buy(minutes: number)` que permite comprar tempo em minutos para utilizar a motoca.
+  - Incremente os minutos restantes da motoca com o valor passado como parâmetro.
 - Parte 4: Dirigir
   - Crie uma enum `DriveResult` para representar o resultado da tentativa de dirigir.
-  - Crie o método `drive(time: number): DriveResult` que permite dirigir a motoca por um tempo determinado.
+  - Crie o método `drive(minutes: number): DriveResult` que permite dirigir a motoca por um tempo determinado.
   - Verifique se há tempo disponível na motoca. Se não houver, retorne `BUY_TIME_FIRST`.
   - Verifique se há uma pessoa na motoca. Se não houver, retorne `EMPTY_MOTORCYCLE`.
-  - Pergunte à pessoa na motoca se ela pode dirigir, passando o tamanho da motoca como idade máxima. Se ela não puder, retorne `TOO_OLD_TO_DRIVE`.
   - Se o tempo disponível for menor que o tempo solicitado, zere o tempo da motoca e retorne `TIME_FINISHED`.
-  - Atualize o tempo da motoca.
+  - Atualize os minutos restantes da motoca.
   - Se a viagem for realizada normalmente, retorne `OK`.
 Pergunta de reflexão: por que `leave` devolve a pessoa removida em vez de apenas apagar a referência?
 
@@ -92,6 +149,16 @@ size:10, time:0, person:(marcos:4)
 #TEST_CASE busy motorcycle
 $enter marisa 2
 fail: busy motorcycle
+
+$show
+size:10, time:0, person:(marcos:4)
+$end
+```
+
+```bash
+#TEST_CASE busy motorcycle
+$enter marisa 12
+fail: too old to drive
 
 $show
 size:10, time:0, person:(marcos:4)
@@ -167,10 +234,11 @@ $end
 $init 10
 $buy 20
 $enter andreina 23
-$drive 15
 fail: too old to drive
+$drive 15
+fail: empty motorcycle
 $show
-size:10, time:20, person:(andreina:23)
+size:10, time:20, person:(empty)
 $end
 ```
 
