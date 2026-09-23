@@ -7,7 +7,7 @@ index_content: |2
 # [ALONE] Carro dirigível
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+[Intro](#intro) | [Regras](#regras) | [Diagrama ](#diagrama-) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
@@ -17,25 +17,25 @@ index_content: |2
 
 Nesta atividade, vamos implementar um carro ecológico. Ele deve ser capaz de embarcar e desembarcar pessoas, abastecer e andar. A atividade também introduz uma primeira separação de responsabilidades entre lógica de negócio e interação com o usuário.
 
-- A classe Car representa o carro e deve conter seu estado e suas regras de negócio.
-- A classe Shell representa a interface de linha de comando e deve cuidar da leitura dos comandos e da apresentação dos resultados.
-- A classe Car não deve utilizar System.out.
-- `enter` e `leave` devem retornar `boolean`, pois cada um possui apenas uma forma de falha relevante.
-- `drive` deve retornar um valor do tipo `DriveResult`, pois possui falhas distintas.
+- A classe `Car` representa o carro e deve conter seu estado e suas regras de negócio.
+- A classe `Shell` representa a interface de linha de comando e deve cuidar da leitura dos comandos e da apresentação dos resultados.
+- A classe `Car` não deve ler entrada nem imprimir saída.
+- `enter(): Boolean` e `leave(): Boolean` retornam `false` quando a operação não pode ser realizada.
+- `drive(distance: Int): DriveResult` retorna o resultado da tentativa, pois há falhas distintas.
 - O Shell deve interpretar cada retorno e decidir qual mensagem apresentar ao usuário.
 
 ## Regras
 
 - O carro deve ser inicializado com o tanque vazio, sem ninguém dentro e com 0 quilômetros percorridos. Suporta até 2 pessoas e até 100 litros de combustível.
-- Construtor do Carro
-  - `passengerCount`: 0 passageiros.
-  - `distanceTraveled`: 0 quilômetros percorridos.
-  - `maxPassengers`: Máximo de 2 pessoas.
-  - `fuelAmount`: 0 litros de combustível.
-  - `maxFuel`: Máximo de 100 litros de combustível.
+- Construtor `Car()`
+  - `passengerCount: Int` começa em `0`.
+  - `distanceTraveled: Int` começa em `0` quilômetros percorridos.
+  - `maxPassengers: Int` é `2`.
+  - `fuelAmount: Int` começa em `0` litros de combustível.
+  - `maxFuel: Int` é `100` litros de combustível.
 - Mostrar `$show`
-  - Imprime a chamada do método `toString` do carro.
-  - `toString` - Retorna uma string com o estado atual do carro no formato:
+  - Imprime a chamada de `toString(): String` do carro.
+  - `toString(): String` retorna o estado atual do carro no formato:
     - `pass: {pass}, gas: {gas}, km: {km}`.
 - Entrar `$enter`
   - Embarca uma pessoa por vez, mas não além do máximo.
@@ -76,36 +76,35 @@ classDiagram
     }
 
     class Car {
-        -passengerCount : number
-        -maxPassengers : number
-        -fuelAmount : number
-        -maxFuel : number
-        -distanceTraveled : number
-        +constructor()
-        +enter() boolean
-        +leave() boolean
-        +refuel(liters : number) void
-        +drive(distance : number) DriveResult
-        +toString() string
+        -var passengerCount : Int
+        -val maxPassengers : Int
+        -var fuelAmount : Int
+        -val maxFuel : Int
+        -var distanceTraveled : Int
+        +Car()
+        +enter() Boolean
+        +leave() Boolean
+        +refuel(liters : Int) Unit
+        +drive(distance : Int) DriveResult
+        +toString() String
     }
 
     class Shell {
-        +driveResultToMessage(result : DriveResult) string
-        +main() void
+        +main() Unit
     }
 
     Car ..> DriveResult : returns
     Shell ..> Car : creates and uses
-    Shell ..> DriveResult : converts and presents
+
 ```
 
 ## Guide
 
-- Comece pelo construtor e pelo `toString`, conferindo o estado inicial com `$show`.
-- Implemente `enter` e `leave`, retornando `false` quando a operação não puder ser feita.
-- Implemente `refuel`, garantindo que o tanque não ultrapasse `maxFuel`.
-- Implemente `drive`, preservando a ordem das validações: primeiro passageiro, depois combustível.
-- No `Shell`, declare constantes para as mensagens e traduza os retornos na interface: cada `false` de `enter` e `leave` deve usar sua mensagem específica, e cada `DriveResult` de `drive` deve passar por `driveResultToMessage`.
+- Comece pelo construtor e por `toString(): String`, conferindo o estado inicial com `$show`.
+- Implemente `enter(): Boolean` e `leave(): Boolean`, retornando `false` quando a operação não puder ser feita.
+- Implemente `refuel(liters: Int)`, garantindo que o tanque não ultrapasse `maxFuel`.
+- Implemente `drive(distance: Int): DriveResult`, preservando a ordem das validações: primeiro passageiro, depois combustível.
+- No `Shell`, declare constantes para as mensagens e traduza os retornos na interface: cada `false` de `enter()` e `leave()` deve usar sua mensagem específica, e cada `DriveResult` de `drive()` deve ser traduzido para a mensagem correspondente.
 
 Pergunta de reflexão: que problema surgiria se `drive` imprimisse as mensagens diretamente dentro de `Car`?
 

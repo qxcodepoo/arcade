@@ -7,8 +7,8 @@ index_content: |2
 # [TRAIN] Budega: fila e posições fixas
 
 <!-- toc-table -->
-[Intro](#intro) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
--- | -- | -- | -- | --
+[Intro](#intro) | [Objetivos pedagógicos](#objetivos-pedagógicos) | [Diagrama](#diagrama) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -25,7 +25,7 @@ O objetivo principal é distinguir uma fila de tamanho variável de um vetor de 
 
 ### Conhecimentos prévios
 
-É necessário conhecer variáveis, condicionais, laços, funções, listas, índices, objetos e o uso de `nil`/`None` para representar ausência. A implementação canônica desta atividade é feita em Python.
+É necessário conhecer variáveis, condicionais, laços, funções, listas, índices, objetos e o uso de `null` para representar ausência.
 
 ### Elementos observáveis
 
@@ -45,16 +45,13 @@ O objetivo principal é distinguir uma fila de tamanho variável de um vetor de 
 - operações inválidas preservam o estado anterior.
 
 - A classe `Market` representa o estabelecimento, com atributos como caixas de atendimento `counters` e uma fila de espera de clientes `waiting`.
-- Os caixas `counters` são modelados como um vetor de clientes de tamanho fixo. Uma posição do caixa terá o valor `null` para indicar que o caixa está vazio ou terá um objeto cliente.
-  - typescript: `counters: (Person | null)[]`
-  - java: `ArrayList<Person> counters`
-  - cpp: `vector<Person*> counters`
-- A fila de espera `queue` é uma lista de clientes de tamanho variável. Todo cliente que chega é inserido no final da fila. Todo cliente que é chamado para um caixa é removido do início da fila.
-  - typescript: `waiting: Person[]`
-  - java: `LinkedList<Person> waiting`
-  - cpp: `list<Person*> waiting`
-- As operações principais incluem chegar cliente `arrive`, chamar no caixa `call` e finalizar atendimento `finish`.
-- As operações complementares são furar fila `cutInLine` e abandonar a fila de espera `giveUp`.
+- Os caixas `counters` são modelados como um vetor de tamanho fixo, `Array<Person?>`. Cada posição contém um cliente ou `null` quando está vazia.
+- A fila de espera `waiting` é uma `MutableList<Person>` de tamanho variável. Quem chega entra no final; quem é chamado sai do início.
+- `arrive(person: Person): Unit` adiciona uma pessoa ao final da fila.
+- `call(index: Int): CallResult` chama a primeira pessoa da fila para um caixa disponível.
+- `finish(index: Int): Pair<Person?, FinishResult>` libera um caixa e retorna a pessoa atendida junto com o resultado da operação.
+- `cutInLine(sneaky: Person, targetName: String): Boolean` insere uma pessoa antes da primeira ocorrência do nome indicado; retorna `false` se o alvo não estiver na fila.
+- `giveUp(name: String): Person?` remove e retorna a primeira pessoa encontrada com esse nome, ou `null` se não estiver na fila.
 
 ### Comandos
 
@@ -68,69 +65,110 @@ Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma
 - `$cutInLine` - Insere um novo cliente imediatamente antes de outro cliente da fila. Deve ser seguido pelos nomes do novo cliente e do cliente que será ultrapassado.
 - `$giveUp` - Remove da fila o primeiro cliente com o nome informado.
 
+## Diagrama
+
+`Market` coordena duas coleções com comportamentos diferentes: `waiting` é uma fila variável, enquanto `counters` é um vetor fixo de posições que podem estar vazias. `Person` é criada pelo `Shell` e pode passar da fila para um caixa ou sair do atendimento.
+
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class CallResult {
+        <<enumeration>>
+        OK
+        INVALID_COUNTER
+        BUSY_COUNTER
+        EMPTY_WAITING
+    }
+
+    class FinishResult {
+        <<enumeration>>
+        OK
+        INVALID_COUNTER
+        EMPTY_COUNTER
+    }
+
+    class Person {
+        +val name : String
+        +Person(name : String)
+        +toString() String
+    }
+
+    class Market {
+        -val counters : Array~Person?~
+        -val waiting : MutableList~Person~
+        +Market(counterCount : Int)
+        -validateCounter(index : Int) Boolean
+        +arrive(person : Person) Unit
+        +call(index : Int) CallResult
+        +finish(index : Int) Pair~Person?, FinishResult~
+        +cutInLine(sneaky : Person, targetName : String) Boolean
+        +giveUp(name : String) Person?
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Market "1" o-- "0..*" Person : waiting
+    Market "1" o-- "0..*" Person : counters
+    Market ..> CallResult : returns
+    Market ..> FinishResult : returns
+    Shell ..> Market : commands
+```
+
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+### Parte 1: Classe `Person`
 
-[![youtube icon](../youguide.webp)](https://youtu.be/5-GqCN0VPpQ?si=SkROsibr5OC4tdnZ)
-
-### Parte 1: Classe Cliente
-
-- Crie a classe `Cliente` com os atributos `nome`.
-- Defina os atributos como privados.
-- Crie o construtor da classe que recebe o `nome` como uma string.
-- Crie o método `getNome()` para retornar o nome do cliente.
-- Crie o método `toString()` para retornar uma string no formato "nome".
+- Crie `Person` com a propriedade imutável `name: String`.
+- Implemente `toString()` para retornar somente o nome da pessoa.
 
 ### Parte 2: Classe Mercantil
 
 #### Construtor
 
-- Implemente o construtor da classe `Market`, que recebe a quantidade de caixas como parâmetro.
-- Inicialize os atributos da classe, incluindo o vetor de caixas e a fila de espera.
-- Preencha o vetor de caixas com `null` para indicar que todos os caixas estão vazios.
+- Implemente `Market(counterCount: Int)` com `counters: Array<Person?>` e `waiting: MutableList<Person>`.
+- Inicialize cada posição do vetor com `null` e comece com a fila vazia.
 
 #### Método `toString()`
 
-- Implemente o método `toString()` para retornar uma representação em string do estado atual do mercantil. Exemplo
+- Implemente `toString()` para representar o estado atual do mercantil. Exemplo:
 
 ```txt
 Caixas: [-----, -----]
 Espera: [carla, maria, rubia]
 ```
 
-- Pesquise na sua linguagem e aprenda a utilizar os métodos map, join se existirem.
-- Use a função `map()` para percorrer o vetor de caixas e a fila de espera e criar uma string que represente cada caixa e cada cliente na fila.
-- Utilize if e else ou operador ternário para verificar se cada caixa está vazio ou ocupado e ajustar a representação de acordo.
-- Junte as strings individuais de cada caixa e da fila de espera usando o método `join()` para criar uma representação coerente do estado do mercantil.
-- Retorne a string resultante.
+- Use `joinToString()` para percorrer `counters` e `waiting` e montar uma representação de cada coleção.
+- Para cada caixa, represente `null` por `-----` e uma posição ocupada pelo nome da pessoa.
+- Retorne as linhas `Caixas: [...]` e `Espera: [...]` separadas por uma quebra de linha.
 
 ### Parte 3: Chegar
 
-- Na classe `Market`, crie o método `arrive(person: Person): void` que permite que uma pessoa chegue na fila de espera.
-- Adicione a pessoa ao final da fila de espera.
+- Em `Market`, implemente `arrive(person: Person): Unit` adicionando a pessoa ao final de `waiting`.
 
 ### Parte 4: Chamar Cliente
 
-- Na classe `Market`, crie o método `call(index: number): void` que permite chamar o primeiro cliente da lista de espera para ser atendido em um caixa específico.
-- Se não houver ninguém na fila de espera, emita a mensagem de erro "fail: sem clientes".
-- Se o caixa estiver ocupado, imprima a mensagem de erro "fail: caixa ocupado".
+- Implemente `call(index: Int): CallResult`. Primeiro valide o índice, depois confira se o caixa está vazio e se há alguém esperando; somente então mova a primeira pessoa para o caixa.
+- Use `CallResult` para distinguir `INVALID_COUNTER`, `BUSY_COUNTER` e `EMPTY_WAITING`. O Shell converte esses resultados em mensagens.
 
 ### Parte 5: Finalizar Atendimento
 
-- Na classe `Market`, crie o método `finish(index: number): Pessoa | null` que permite finalizar o atendimento de um cliente em um caixa específico.
-- Verifique se o índice do caixa é válido e, se não for, emita a mensagem de erro `fail: caixa inexistente`.
-- Verifique se há alguém sendo atendido no caixa. Se não houver, emita a mensagem de erro `fail: caixa vazio`.
-- Retorne o cliente que foi atendido e libere o caixa, definindo-o como null.
+- Implemente `finish(index: Int): Pair<Person?, FinishResult>`. Para índice inválido ou caixa vazio, devolva a pessoa `null` e o resultado correspondente sem alterar o estado.
+- Quando houver uma pessoa no caixa, remova-a, deixando a posição como `null`, e devolva a pessoa junto com `FinishResult.OK`.
 
 ### Parte 6: Furar fila e desistir
 
-- Implemente `cutInLine(sneaky: Person, fool: string)` procurando o cliente-alvo somente na fila e inserindo o novo cliente imediatamente antes dele.
-- Se o cliente-alvo não estiver esperando, não altere a fila e informe `fail: pessoa nao esta na fila`.
-- Implemente `giveUp(name: string)` removendo somente a primeira ocorrência encontrada na fila.
-- Se o cliente não estiver na fila, não altere caixas nem fila e informe `fail: pessoa nao esta na fila`.
+- Implemente `cutInLine(sneaky: Person, targetName: String)` procurando o alvo somente em `waiting` e inserindo a nova pessoa antes dele. Se não houver alvo, retorne `false` sem alterar a fila.
+- Implemente `giveUp(name: String): Person?` removendo somente a primeira ocorrência encontrada em `waiting`. Se não houver pessoa com esse nome, retorne `null` sem alterar o estado.
+- O Shell converte os resultados de falha em `fail: pessoa nao esta na fila`.
 
 Ao terminar, compare as duas coleções: inserir no meio da fila desloca posições relativas, enquanto chamar ou finalizar altera a relação entre a fila e um caixa específico.
+
+`finish` usa um `Pair<Person?, FinishResult>` para devolver a pessoa atendida e o resultado em conjunto, sem criar uma classe de resposta. O Shell traduz os resultados do domínio para as mensagens do contrato externo.
 
 ## Answers
 
@@ -277,3 +315,5 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- MERMAID -->
+<!-- KOTLIN -->

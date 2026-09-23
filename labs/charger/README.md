@@ -25,10 +25,10 @@ O objetivo principal é praticar agregação e coordenação sem transferir para
 - `Battery` e `Charger` são criados fora do `Notebook` e continuam existindo quando removidos.
 - Os atributos de domínio devem ser privados.
 - As classes de domínio não leem entrada nem imprimem mensagens.
-- Métodos de domínio retornam `bool`, enums ou componentes removidos. Mensagens pertencem ao `Shell`.
+- Métodos de domínio retornam `Boolean`, enums ou componentes removidos. Mensagens pertencem ao `Shell`.
 - `Battery` inicia com `charge` igual a `capacity` e mantém `0 <= charge <= capacity`.
-- `Battery.consume(minutes)` reduz a carga. Quando não há carga suficiente, zera a bateria e informa falha.
-- `Battery.recharge(amount)` aumenta a carga sem ultrapassar a capacidade.
+- `Battery.consume(minutes: Int): Boolean` reduz a carga. Quando não há carga suficiente, zera a bateria e informa falha.
+- `Battery.recharge(amount: Int): Unit` aumenta a carga sem ultrapassar a capacidade.
 - O `Notebook` pode ser ligado quando possui bateria com carga ou carregador.
 - Em uso somente com bateria, o notebook consome uma unidade de carga por minuto.
 - Em uso somente com carregador, o notebook acumula minutos de uso.
@@ -51,7 +51,61 @@ As mensagens observáveis são:
 
 ## Diagrama
 
-[![diagram](assets/diagrama.png)](assets/diagrama.png)
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class UseResult {
+        <<enumeration>>
+        OK
+        NOTEBOOK_OFF
+        DISCHARGED
+    }
+
+    class Battery {
+        -val capacity : Int
+        -var charge : Int
+        +Battery(capacity : Int)
+        +getCapacity() Int
+        +getCharge() Int
+        +consume(minutes : Int) Boolean
+        +recharge(amount : Int) Unit
+        +toString() String
+    }
+
+    class Charger {
+        -val power : Int
+        +Charger(power : Int)
+        +getPower() Int
+        +toString() String
+    }
+
+    class Notebook {
+        -var inUse : Boolean
+        -var usageMinutes : Int
+        -var battery : Battery?
+        -var charger : Charger?
+        +Notebook()
+        +turnOn() Boolean
+        +turnOff() Unit
+        +use(minutes : Int) UseResult
+        +setBattery(battery : Battery) Unit
+        +removeBattery() Battery?
+        +setCharger(charger : Charger) Boolean
+        +removeCharger() Charger?
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Notebook "1" o-- "0..1" Battery : aggregates
+    Notebook "1" o-- "0..1" Charger : aggregates
+    Notebook ..> UseResult : returns
+    Shell ..> Notebook : commands
+```
 
 ## Guide
 
@@ -59,7 +113,7 @@ Implemente e execute uma etapa por vez. Os testes do Shell estão ordenados para
 
 ### 1. Estado mínimo do Notebook
 
-Crie `Notebook` com o estado privado `inUse` e o acumulador `usage`. Implemente `turnOn`, `turnOff`, `use` e `toString`. Primeiro, o notebook deve iniciar desligado e recusar o uso quando estiver desligado ou não possuir uma fonte de energia.
+Crie `Notebook` com o estado privado `inUse` e o acumulador `usageMinutes`. Implemente `turnOn`, `turnOff`, `use` e `toString`. Primeiro, o notebook deve iniciar desligado e recusar o uso quando estiver desligado ou não possuir uma fonte de energia.
 
 Use `UseResult` para distinguir `OK`, `NOTEBOOK_OFF` e `DISCHARGED`. O `Shell` converte esses valores nas mensagens do contrato.
 
@@ -71,7 +125,7 @@ Adicione a referência opcional à bateria no `Notebook`, com `setBattery` e `re
 
 ### 3. Charger e agregação
 
-Crie `Charger` com `power`. Adicione uma referência opcional no `Notebook`. `setCharger` deve retornar `false` quando já houver carregador; `removeCharger` retorna o objeto removido ou `None`.
+Crie `Charger` com `power`. Adicione uma referência opcional no `Notebook`. `setCharger` deve retornar `false` quando já houver carregador; `removeCharger` retorna o objeto removido ou `null`.
 
 A existência do carregador permite ligar e usar o notebook sem bateria. Quando ele for a única fonte de energia e for removido, o notebook deve desligar.
 
@@ -80,6 +134,8 @@ A existência do carregador permite ligar e usar o notebook sem bateria. Quando 
 Quando houver bateria e carregador, `Notebook.use` deve delegar as operações de consumo e recarga aos componentes. A bateria deve permanecer limitada à capacidade, inclusive quando a recarga calculada for maior que o espaço disponível.
 
 Reflita: quais regras seriam quebradas se `Notebook` recebesse um setter genérico para `charge`? Qual é o ciclo de vida de cada objeto? Por que as remoções retornam o objeto, em vez de apenas apagarem a referência?
+
+No diagrama, as propriedades e os parâmetros usam a notação Kotlin (`usageMinutes : Int`), e os métodos mostram o tipo de retorno depois da assinatura (`use(minutes : Int) UseResult`). Os nomes dos comandos do Shell permanecem em `camelCase` porque fazem parte do contrato externo.
 
 ## Shell
 
@@ -190,3 +246,4 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- MERMAID -->

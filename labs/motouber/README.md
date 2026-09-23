@@ -28,7 +28,9 @@ O foco é praticar colaboração entre objetos: `Uber` coordena a corrida, enqua
 - A moto pode ter um motorista e pode ter um passageiro.
 - A moto deve registrar o custo atual da corrida.
 - O passageiro deve pagar o motorista quando descer da moto.
-- Motorista e Passageiro são pessoas que têm nome e dinheiro.
+- Motorista e passageiro são pessoas com `name: String` e `money: Int`.
+- `pay(amount: Int): Int` desconta e retorna o valor que a pessoa consegue pagar, limitado ao dinheiro disponível.
+- `addMoney(amount: Int): Unit` acrescenta dinheiro ao saldo da pessoa.
 - O passageiro não pode subir na moto se não tiver motorista.
 - Quando o passageiro entra na moto, começa a contagem do custo da corrida.
 - Cada km percorrido aumenta o custo da corrida em 1 real.
@@ -41,10 +43,12 @@ O foco é praticar colaboração entre objetos: `Uber` coordena a corrida, enqua
   - Se não houver motorista, o `Shell` deve imprimir `fail: driver is not set`.
   - Se já houver passageiro, o `Shell` deve imprimir `fail: passenger is already set`.
 - `$drive distancia` aumenta o custo da corrida quando há passageiro.
+  - Se ainda não houver motorista, o `Shell` deve imprimir `fail: driver is not set`.
 - `$leavePass` remove o passageiro e realiza o pagamento.
-  - Se não houver motorista, o resultado deve indicar `DRIVER_NOT_SET`.
-  - Se não houver passageiro, o resultado deve indicar `PASSENGER_NOT_SET`.
-  - O passageiro sai mesmo quando não consegue pagar o custo integral. O resultado deve indicar `INSUFFICIENT_MONEY`.
+  - `leave(): Pair<Person?, LeaveResult>` retorna o passageiro removido como primeiro valor e o resultado como segundo valor.
+  - Se não houver motorista, o par contém `null` e `DRIVER_NOT_SET`.
+  - Se não houver passageiro, o par contém `null` e `PASSENGER_NOT_SET`.
+  - O passageiro sai mesmo quando não consegue pagar o custo integral. O par contém o passageiro e `INSUFFICIENT_MONEY`.
   - Nesse caso, o `Shell` deve imprimir `fail: passenger does not have enough money` antes de mostrar o passageiro saindo com o dinheiro restante.
 
 ## Diagrama
@@ -55,14 +59,14 @@ classDiagram
     direction LR
 
     class Person {
-        -name : string
-        -money : number
-        +constructor(name: string, money: number)
-        +getName() string
-        +getMoney() number
-        +pay(amount: number) number
-        +addMoney(amount: number) void
-        +toString() string
+        -val name : String
+        -var money : Int
+        +Person(name : String, money : Int)
+        +getName() String
+        +getMoney() Int
+        +pay(amount : Int) Int
+        +addMoney(amount : Int) Unit
+        +toString() String
     }
 
     class SetPassengerResult {
@@ -80,50 +84,45 @@ classDiagram
         INSUFFICIENT_MONEY
     }
 
-    class LeaveResponse {
-        +passenger : Person | null
-        +result : LeaveResult
-    }
-
     class Uber {
-        -driver : Person | null
-        -passenger : Person | null
-        -tripCost : number
-        +constructor()
-        +setDriver(driver: Person) boolean
-        +setPassenger(passenger: Person) SetPassengerResult
-        +drive(distance: number) boolean
-        +leave() LeaveResponse
-        +toString() string
+        -var driver : Person?
+        -var passenger : Person?
+        -var tripCost : Int
+        +Uber()
+        +setDriver(driver : Person) Boolean
+        +setPassenger(passenger : Person) SetPassengerResult
+        +drive(distance : Int) Boolean
+        +leave() Pair~Person?, LeaveResult~
+        +toString() String
     }
 
     class Shell {
-        +main() void
+        +main() Unit
     }
 
     Uber "1" o-- "0..1" Person : driver
     Uber "1" o-- "0..1" Person : passenger
     Uber ..> SetPassengerResult : returns
-    Uber ..> LeaveResponse : returns
-    LeaveResponse --> LeaveResult
+    Uber ..> LeaveResult : returns
     Shell ..> Uber : commands
 ```
 
 ## Guide
 
-- Crie a classe `Person` com os atributos `name` e `money`.
+- Crie a classe `Person` com as propriedades `name: String` e `money: Int`.
 - Faça `Person` concentrar as operações sobre seu dinheiro, como pagar e receber.
-- Use os métodos `getName`, `getMoney` e `addMoney` para expor apenas as operações necessárias sobre uma pessoa; no código Python, prefira `get_name`, `get_money` e `add_money`.
+- Use os métodos `getName(): String`, `getMoney(): Int` e `addMoney(amount: Int): Unit` para expor apenas as operações necessárias sobre uma pessoa.
 - Crie a classe `Uber` com os atributos `tripCost`, `driver` e `passenger`.
 - Ambas as classes devem ter atributos privados.
 - Faça `setPassenger` recusar passageiro quando não houver motorista.
 - Faça `drive` aumentar o custo apenas quando houver passageiro.
 - Crie resultados de domínio para as operações, sem retornar mensagens diretamente.
-- Use `boolean` para os métodos que possuem apenas uma falha possível e `SetPassengerResult` para `setPassenger`, que possui duas falhas possíveis.
-- Faça `leave` devolver o passageiro removido junto com um `LeaveResult` — a representação conceitual desse par é `LeaveResponse`.
+- Use `Boolean` para os métodos que possuem apenas uma falha possível e `SetPassengerResult` para `setPassenger`, que possui duas falhas possíveis.
+- Faça `leave(): Pair<Person?, LeaveResult>` devolver o passageiro removido e o resultado. O primeiro valor do par é o passageiro (ou `null`); o segundo é o `LeaveResult`.
+- No `Shell`, use `val (passenger, result) = uber.leave()` para acessar os dois valores do par.
 - O `Shell` deve mostrar a falha antes de `{passageiro} left` quando o pagamento for parcial.
 
-Os nomes do diagrama seguem o padrão de leitura do TypeScript (`getName`, `setPassenger`, `tripCost`); na implementação Python, os métodos e variáveis equivalentes usam `snake_case` (`get_name`, `set_passenger`, `trip_cost`).
+As propriedades, parâmetros, tipos e assinaturas do diagrama seguem a notação Kotlin (`name : String`, `setPassenger(passenger : Person) SetPassengerResult`, `tripCost : Int`).
 
 Perguntas de reflexão: por que `Uber` coordena a corrida, mas `Person` mantém o próprio dinheiro? Por que o `Shell` converte o resultado de `setPassenger` em mensagem?
 

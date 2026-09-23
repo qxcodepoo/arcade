@@ -33,15 +33,16 @@ A composição significa que `Agenda` possui um `CallRegistry` e delega a ele o 
 
 ### Modelo existente
 
-- `Phone` mantém `label` e `number`.
-- `Contact` mantém seu nome e uma coleção privada de telefones.
-- `Agenda` mantém contatos únicos em `dict[str, Contact]` e continua responsável por adicionar/remover contatos e telefones.
+- `Phone` mantém `label : String` e `number : String`.
+- `Contact` mantém `name : String` e uma coleção privada `MutableList<Phone>`.
+- `Agenda` mantém contatos únicos em `MutableMap<String, Contact>` e continua responsável por adicionar/remover contatos e telefones.
 - Adicionar um contato com nome já existente incorpora seus telefones ao contato atual.
 - `rmFone name label` remove o telefone identificado pelo label.
+- `agenda` mostra os contatos por ordem alfabética e `init` reinicia a agenda e o registro.
 
 ### CallRegistry
 
-- `CallRegistry` mantém `calls_by_number: dict[str, int]`.
+- `CallRegistry` mantém `callsByNumber : MutableMap<String, Int>` e `callsHistory : MutableList<String>`.
 - Cada chamada incrementa a contagem do número e adiciona o número ao histórico, preservando a ordem das chamadas.
 - Números desconhecidos também são registrados.
 - O registro não armazena cópias de `Contact` e não depende da posição de um contato na agenda.
@@ -64,21 +65,68 @@ A composição significa que `Agenda` possui um `CallRegistry` e delega a ele o 
 
 ## Diagrama
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "monospace"}}}%%
+classDiagram
+    direction LR
+
+    class Phone {
+        +val label : String
+        +val number : String
+    }
+
+    class Contact {
+        +val name : String
+        -val phones : MutableList~Phone~
+        +addPhone(phone : Phone) Unit
+        +removePhone(label : String) Boolean
+        +getPhones() List~Phone~
+        +firstPhone() Phone?
+        +hasNumber(number : String) Boolean
+    }
+
+    class CallRegistry {
+        -val callsByNumber : MutableMap~String, Int~
+        -val callsHistory : MutableList~String~
+        +register(number : String) Unit
+        +count(number : String) Int
+        +history() List~String~
+    }
+
+    class Agenda {
+        -val contacts : MutableMap~String, Contact~
+        -val registry : CallRegistry
+        +addContact(contact : Contact) Unit
+        +removeContact(name : String) Boolean
+        +removePhone(name : String, label : String) Boolean
+        +call(target : String) String?
+        +callCount(contact : Contact) Int
+        +contactForNumber(number : String) Contact?
+        +speedList() List~Contact~
+        +historyLines() List~String~
+        +allContacts() List~Contact~
+    }
+
+    main() Unit
+
+    Agenda "1" *-- "0..*" Contact
+    Agenda "1" *-- "1" CallRegistry
+    Contact "1" *-- "0..*" Phone
+```
 
 `Agenda` e `CallRegistry` possuem ciclos de vida relacionados, mas responsabilidades distintas. A composição permite adicionar histórico e ranking sem fazer `Agenda` absorver as regras próprias de ligações.
 
 ## Guide
 
-### 1. Reutilize `Phone`, `Contact` e `Agenda`
+### 1. Recrie o modelo da agenda
 
-Comece com o modelo de `agenda`. Preserve a validação de telefones, o encapsulamento de `Contact` e o mapa de contatos. Não coloque a contagem dentro de `Phone` ou `Contact`: uma mesma ligação deve ser contabilizada pelo número, inclusive quando ele aparece em contatos diferentes.
+Modele `Phone`, `Contact` e `Agenda` com propriedades e coleções Kotlin. Mantenha os telefones privados em `Contact` e os contatos indexados pelo nome em `Agenda`. Não coloque a contagem dentro de `Phone` ou `Contact`: uma mesma ligação deve ser contabilizada pelo número, inclusive quando ele aparece em contatos diferentes.
 
 ### 2. Crie o colaborador especializado
 
 Implemente `CallRegistry` com um mapa de contagens e uma lista de números chamados. Ele deve oferecer operações pequenas: registrar uma chamada, consultar a contagem de um número e retornar uma cópia do histórico.
 
-Esse é o ponto em que a composição aparece: `Agenda` contém um `CallRegistry`, mas não reimplementa sua estrutura interna. Cada classe tem uma razão de mudança própria.
+Esse é o ponto em que a composição aparece: `Agenda` contém um `CallRegistry`, mas não reimplementa sua estrutura interna. A agenda coordena os componentes, `CallRegistry` cuida dos registros e `Contact` cuida dos telefones. Os telefones acompanham o ciclo de vida do contato; o registro é criado junto com a agenda. A divisão deixa cada regra localizada, ao custo de mais uma classe e de delegação entre objetos.
 
 ### 3. Delegue a ligação
 
@@ -180,3 +228,5 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+
+<!-- KOTLIN -->

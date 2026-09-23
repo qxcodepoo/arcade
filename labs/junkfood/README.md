@@ -1,23 +1,23 @@
 ---
 index_content: |2
     - Descrição: a máquina de vendas controla espirais fixas, saldo, compras, troco e arrecadação.
-    - Domínio: cada posição sempre contém um `Slot`; uma espiral vazia é um objeto com quantidade zero, e uma compra só reduz saldo e quantidade quando há índice, produto e dinheiro válidos.
-    - Objetivos: comparar o objeto vazio com `null`, preservar invariantes de saldo e quantidade e calcular arrecadação sem apagá-la ao devolver o troco.
+    - Domínio: cada posição sempre contém um `Slot` imutável; índices e quantidades inválidos lançam exceções, e uma compra só altera saldo, quantidade e arrecadação quando pode ser concluída.
+    - Objetivos: distinguir exceções de resultados normais, representar espirais vazias com objetos e preservar o histórico de vendas ao devolver o troco.
 ---
-# [ALONE] Junkfood: posições fixas e objeto vazio
+# [ALONE] Junkfood: exceções e objeto vazio
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução)
--- | -- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Exceções](#exceções) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução) | [Draft](#draft)
+-- | -- | -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
 ## Intro
 
-Máquinas de junk food só servem pra 2 coisas, 1 vender comidas que fazem mal pra saúde, 2 rejeitar as notas velhas que você tem.
+Uma máquina de lanches vende produtos guardados em espirais e rejeita valores de dinheiro inválidos.
 
-O objetivo dessa atividade é implementar uma classe responsável por uma máquina de vender JunkFood. Na máquina existem várias espirais (slots). Uma espiral contém uma certa quantidade de produtos do mesmo tipo e mesmo preço. O usuário coloca o dinheiro, compra o produto e recebe o troco.
+O objetivo desta atividade é implementar uma máquina de venda. Ela possui espirais fixas; cada espiral contém uma quantidade de produtos do mesmo tipo e preço. A pessoa insere dinheiro, compra um produto e pode receber o saldo restante como troco.
 
 Esta atividade também usa posições fixas, mas com uma decisão diferente de `cinema` e `budega`: cada posição sempre contém um objeto `Slot`. Quando a espiral está vazia, o próprio `Slot` guarda `empty`, quantidade `0` e preço `0.00`. Assim, o aluno pode comparar duas formas de representar ausência: uma posição com `null` ou um objeto que representa o estado vazio.
 
@@ -29,109 +29,116 @@ Esta atividade também usa posições fixas, mas com uma decisão diferente de `
 
 ### Objetivos pedagógicos
 
-O objetivo principal é comparar duas formas de representar ausência em posições fixas: uma posição `None`, como em `cinema` e `budega`, e um objeto `Slot` que representa explicitamente o estado vazio. Como objetivos secundários, a atividade trabalha invariantes de quantidade e saldo e a separação entre regras da máquina e apresentação do Shell.
+O objetivo principal é comparar duas formas de representar ausência em posições fixas: uma posição nullable, como em `cinema` e `budega`, e um objeto `Slot` que representa explicitamente a espiral vazia. Como objetivos secundários, a atividade trabalha invariantes de quantidade e saldo e a separação entre regras da máquina e apresentação do Shell.
 
 ### Conhecimentos prévios
 
-São necessários objetos, listas, índices, condicionais, laços, métodos, valores numéricos e o uso de `None` para representar ausência. A implementação canônica desta atividade é feita em Python.
+São necessários objetos, listas, índices, condicionais, laços, métodos, valores numéricos e o uso básico de `try`/`catch`.
 
 ### Invariantes e comportamento observável
 
 - a quantidade de espirais permanece fixa até um novo `init`;
 - cada posição sempre contém um `Slot` independente;
-- uma quantidade negativa não é aceita;
+- a capacidade da máquina e a quantidade do produto não podem ser negativas;
 - o saldo só aumenta com dinheiro válido e diminui após uma compra válida;
 - o troco zera somente o saldo atual;
 - uma compra recusada não altera quantidade, saldo ou arrecadação;
 - `arrecadacao` é a soma dos preços das vendas e não representa lucro econômico, pois custos não fazem parte do modelo.
 
-- **Responsabilidades**
-  - Na classe Slot
-    - Inicialize as variáveis do construtor
-      - name: string = "empty",
-      - qtd: number = 0 e
-      - preco: number = 0.0
-    - Implemente os gets e sets
-    - Crie o retorno do toString como no modelo: `[   empty : 0 U : 0.00 RS]`
-  - A classe `Machine` é responsável por gerenciar as operações da máquina de vendas.
-    - Métodos a serem implementados:
-      - `getSlot(index: number) : Slot`:  Se houver slot nessa posição, retorna.
-      - `setSlot(indice: number, name: string, qtd: number, price: number)`: Altera o valor slot na posição indice.
-        - erro: `fail: indice nao existe`.
-      - `limpar(indice: number)`: Limpa as informações do slot nessa posição.
-      - `inserirDinheiro(value: number)`: Insere dinheiro na máquina.
-      - `pedirTroco(): number`: Retorna o troco para o cliente.
-      - `comprar(ind: number)`: Realiza a compra de um produto de um slot na máquina. A compra só pode ser realizada se existir produto nessa posição, se o saldo for suficiente e se a quantidade do produto for maior que zero. Caso positivo, quantidade é reduzida em 1 e o valor do produto é decrementado no saldo.
-        - erros: `fail: indice nao existe`, `fail: saldo insuficiente`, `fail: espiral sem produtos`.
-      - `getSaldo(): number`: Retorna o saldo atual na máquina.
-      - `getRevenue(): number`: Retorna a arrecadação acumulada com as vendas, sem zerá-la.
-      - `toString(): string`: Retorna uma representação em string do estado atual da máquina.
+## Regras
 
-## Draft
+- `Machine(capacity: Int)` cria uma lista de tamanho fixo; capacidade negativa lança `IllegalArgumentException`.
+- `Slot` é imutável e armazena `name: String`, `quantity: Int` e `price: Double`. Quantidade negativa lança `IllegalArgumentException`.
+- `getSlot(index: Int): Slot`, `setSlot(index: Int, name: String, quantity: Int, price: Double): Unit`, `clearSlot(index: Int): Unit` e `buyItem(index: Int)` lançam `IndexOutOfBoundsException` para índices inválidos.
+- `setSlot` substitui o objeto da posição; `clearSlot` o substitui por um `Slot` vazio. Falhas preservam o estado anterior.
+- `insertCash(value: Double): Boolean` retorna `true` para valores positivos e `false` para zero ou valores negativos.
+- `withdrawCash(): Double` devolve o saldo e o zera; a arrecadação acumulada não muda.
+- `buyItem(index: Int): Pair<BuyResult, String?>` mantém `INSUFFICIENT_BALANCE` e `EMPTY_SLOT` como resultados esperados. Uma compra válida substitui o `Slot` por uma cópia com uma unidade a menos, atualiza saldo e arrecadação e retorna o nome do produto.
+- `getRevenue(): Double` consulta a arrecadação sem alterá-la.
+- `toString(): String` mostra o saldo e todas as espirais no formato dos casos de teste.
+- As mensagens de falha e sucesso pertencem ao Shell; o domínio não lê nem imprime texto.
 
-<!-- links .cache/starter -->
-<!-- links -->
+## Exceções
 
+- `IndexOutOfBoundsException` comunica índices fora dos limites em operações da máquina.
+- `IllegalArgumentException` comunica capacidade ou quantidade negativas. A validação da quantidade pertence a `Slot`, que garante a própria invariante.
+- O Shell captura as exceções junto ao comando correspondente e preserva as mensagens existentes. `insertCash` usa `Boolean`, enquanto saldo insuficiente e espiral vazia continuam em `BuyResult` por serem resultados esperados da compra.
+
+## Diagrama
+
+Cada posição de `Machine` contém sempre um `Slot`; o estado vazio é representado por um objeto com `name: "empty"`, quantidade zero e preço zero. `Machine` cria esses objetos e coordena saldo, compras e arrecadação.
+
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class BuyResult {
+        <<enumeration>>
+        OK
+        INSUFFICIENT_BALANCE
+        EMPTY_SLOT
+    }
+
+    class IndexOutOfBoundsException {
+        <<exception>>
+    }
+
+    class IllegalArgumentException {
+        <<exception>>
+    }
+
+    class Slot {
+        +val name : String
+        +val quantity : Int
+        +val price : Double
+        +Slot(name : String, quantity : Int, price : Double)
+        +toString() String
+    }
+
+    class Machine {
+        -val slots : MutableList~Slot~
+        -var cash : Double
+        -var revenue : Double
+        +Machine(capacity : Int)
+        -validateIndex(index : Int) Unit
+        +getSlot(index : Int) Slot
+        +setSlot(index : Int, name : String, quantity : Int, price : Double) Unit
+        +clearSlot(index : Int) Unit
+        +insertCash(value : Double) Boolean
+        +withdrawCash() Double
+        +getCash() Double
+        +getRevenue() Double
+        +buyItem(index : Int) Pair~BuyResult, String?~
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Machine "1" *-- "0..*" Slot : fixed positions
+    Machine ..> BuyResult : returns
+    Machine ..> IndexOutOfBoundsException : throws
+    Machine ..> IllegalArgumentException : throws
+    Shell ..> Machine : commands
+```
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
+Implemente em pequenos passos:
 
-[![youtube icon](../yousolver.webp)](https://youtu.be/BPVmEHlR5Ww?si=q4WIfz4_6EMC1CcY)
+1. Crie `Slot` como um `data class` com propriedades `val` e valores padrão para o objeto vazio. Valide `quantity >= 0` no construtor e formate `toString()` com duas casas decimais.
+2. Crie `Machine(capacity: Int)`. Valide capacidade não negativa antes de criar a lista e inicialize cada posição com um `Slot` vazio.
+3. Implemente `validateIndex` e use-a em `getSlot`, `setSlot`, `clearSlot` e `buyItem`. Lance `IndexOutOfBoundsException` antes de acessar a lista.
+4. Em `setSlot`, construa o novo `Slot` antes de substituir a posição. Se a quantidade for inválida, a exceção deixa o estado anterior intacto. Em `clearSlot`, substitua a posição pelo objeto vazio.
+5. Faça `insertCash` retornar `false` para valores não positivos e `true` após atualizar o saldo. `withdrawCash` zera somente o saldo disponível, sem apagar a arrecadação.
+6. Em `buyItem`, mantenha `INSUFFICIENT_BALANCE` e `EMPTY_SLOT` como resultados. Na compra válida, substitua o `Slot` por `slot.copy(quantity = slot.quantity - 1)`, atualize saldo e arrecadação e retorne o nome do produto.
+7. No Shell, capture as exceções junto aos comandos que podem lançá-las e traduza-as para as mensagens documentadas. Converta o Boolean e o par de `buyItem` em saídas sem colocar mensagens no domínio.
 
-***
+`Slot` é necessário porque até uma espiral vazia tem uma posição estável e um estado representável; assim não há posições `null`. Como `Slot` é imutável, o estado só muda quando `Machine` substitui um objeto, e `getSlot` não permite contornar a validação de quantidade. O saldo representa dinheiro disponível para troco, enquanto `revenue` registra vendas passadas. O par `Pair<BuyResult, String?>` devolve o resultado e o nome comprado sem exigir uma classe de resposta.
 
-- Faça primeiro a classe Espiral.
-- No construtor da class Maquina receba a quantidade de espirais. Para iniciar o vetor de espirais você pode fazer um laço inserindo qtd Espirais no vetor (Java).
-
-- Exemplo em Java
-
-```java
-class Espiral{
-    ...
-    public Espiral({
-    ...
-    }
-}
-
-class Machine{
-    ...
-    espirais : ArrayList<Espiral>;
-    public Machine(nespirais : number){
-        this.espirais = new ArrayList<>();
-        for(int i = 0; i < nespirais; i++){
-            this.espirais.add(new Espiral("empty", 0, 0f)); //adicionando nespirais vazias
-        }
-    }
-}
-```
-
-- Exemplo c++
-
-```c++
-//c++
-class Espiral{
-    //atributos
-    Espiral(){
-        //inicializacao
-    }
-}
-class Maquina{
-    std::vector<Espiral> espirais;
-    //outros atributos
-public:
-    //invocando o construtor na lista de inicialização
-    Maquina(int nespirais): espirais{nespirais}{ 
-    }
-}
-```
-
-### Parte 3: saldo, compras e arrecadação
-
-- Faça o Shell traduzir os resultados das operações em mensagens, mantendo as regras dentro de `Machine`.
-- A compra válida deve reduzir uma unidade, retirar o preço do saldo e somar o mesmo valor à arrecadação.
-- O comando `$revenue` deve exibir `arrecadacao: valor`, sem alterar o saldo ou a arrecadação.
-- Diferencie saldo temporário, que pode ser devolvido como troco, de arrecadação histórica, que permanece acumulada.
+Os comandos do Shell permanecem em português por fazerem parte do contrato. Os nomes da API e os tipos do diagrama usam Kotlin. Considere como a máquina poderia futuramente oferecer reembolso de uma compra sem apagar o histórico de vendas.
 
 ## Shell
 
@@ -172,6 +179,8 @@ saldo: 0.00
 1 [ xaverde : 3 U : 5.00 RS]
 2 [   empty : 0 U : 0.00 RS]
 $set 4 ovo 2 4.30
+fail: indice nao existe
+$limpar 4
 fail: indice nao existe
 
 #TEST_CASE dinheiro
@@ -259,6 +268,44 @@ arrecadacao: 2.50
 $end
 ```
 
+```bash
+#TEST_CASE argumentos invalidos preservam o estado
+$init 1
+$set 0 pao 2 1.50
+$set 0 pao -1 2.00
+fail: quantidade invalida
+$show
+saldo: 0.00
+0 [     pao : 2 U : 1.50 RS]
+$dinheiro 0
+fail: valor invalido
+$dinheiro -2
+fail: valor invalido
+$show
+saldo: 0.00
+0 [     pao : 2 U : 1.50 RS]
+$end
+```
+
+```bash
+#TEST_CASE capacidade invalida preserva a maquina
+$init 1
+$set 0 agua 1 2.00
+$init -1
+fail: capacidade invalida
+$show
+saldo: 0.00
+0 [    agua : 1 U : 2.00 RS]
+$end
+```
+
 ## Resolução
 
 Não assista sem antes tentar resolver o problema: [LINK](https://youtu.be/wabygPIeP2w)
+
+## Draft
+
+<!-- links .cache/starter -->
+<!-- links -->
+<!-- MERMAID -->
+<!-- KOTLIN -->

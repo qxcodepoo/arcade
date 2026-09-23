@@ -21,16 +21,16 @@ O foco é modelar estado e comportamento em uma classe simples: `Animal` guarda 
 
 ## Regras
 
-- O animal tem uma espécie `species`, um estágio interno `life_stage` e um barulho `noise` que ele faz.
-- O construtor recebe a espécie e o barulho e inicia `life_stage` com `0`.
-- O `__str__` do animal deve retornar `{species}:{life_stage}:{noise}`.
+- O animal tem uma espécie `species: String`, um estágio interno `lifeStage: Int` e um barulho `noise: String`.
+- O construtor `Animal(species: String, noise: String)` inicia `lifeStage` com `0`.
+- `toString(): String` retorna `{species}:{lifeStage}:{noise}`.
 - Os estágios são: `0` Filhote, `1` Criança, `2` Adulto, `3` Idoso e `4` Morto.
 - A classe `Animal` deve declarar a constante `DEAD_STAGE` com o valor `4`, evitando espalhar esse limite pelos métodos.
-- O método `grow` avança o estágio conforme o parâmetro `stages`.
+- O método `grow(stages: Int): Boolean` avança o estágio conforme o parâmetro `stages`.
   - Retorna `true` se o animal não morrer.
   - Retorna `false` se já estiver morto ou acabar morrendo.
   - A camada de interação mostra `warning: animal is dead` quando o método retornar `false`.
-- O método `make_sound` retorna o som do animal.
+- O método `makeSound(): String` retorna o som do animal.
   - Filhote emite `---`.
   - Animal morto emite `RIP`.
 - A classe `Animal` não lê nem imprime dados. A camada de interação é responsável pela entrada e saída.
@@ -45,18 +45,18 @@ classDiagram
     direction TB
 
     class Animal {
-        +DEAD_STAGE : number$
-        -species : string
-        -noise : string
-        -lifeStage : number
-        +constructor(species : string, noise : string)
-        +makeSound() string
-        +grow(stages : number) boolean
-        +toString() string
+        +DEAD_STAGE : Int$
+        -species : String
+        -noise : String
+        -lifeStage : Int
+        +Animal(species : String, noise : String)
+        +makeSound() String
+        +grow(stages : Int) Boolean
+        +toString() String
     }
 
     class Main {
-        +main() void
+        +main() Unit
     }
 
     Main ..> Animal : creates and uses
@@ -64,10 +64,10 @@ classDiagram
 
 ## Guide
 
-- Comece pelo construtor e por `__str__`, que permitem conferir o estado inicial.
-- Depois implemente `make_sound`, separando os casos de filhote, adulto e morto.
-- Implemente `grow` por último, garantindo que `life_stage` nunca passe de `DEAD_STAGE`.
-- Deixe a `main` responsável por imprimir `warning: animal is dead` quando `grow` retornar `false`.
+- Comece pelo construtor e por `toString()`, que permitem conferir o estado inicial.
+- Depois implemente `makeSound()`, separando os casos de filhote, adulto e morto.
+- Implemente `grow(stages: Int): Boolean` por último, garantindo que `lifeStage` nunca passe de `DEAD_STAGE`.
+- Deixe `main()` responsável por imprimir `warning: animal is dead` quando `grow` retornar `false`.
 
 Pergunta de reflexão: por que `Animal` retorna um booleano em vez de imprimir a mensagem de morte diretamente?
 

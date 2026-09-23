@@ -1,13 +1,15 @@
 ---
 index_content: |2
-    - Objetivo: aplicar regras mensais diferentes sem condicionar a coordenação pelo tipo da conta.
-    - Conceitos: classe abstrata, herança, mapas, composição e delegação polimórfica.
-    - Técnicas: manter invariantes de saldo, realizar transferência atômica e atualizar uma coleção heterogênea.
-    - Pré-requisito: herança, mapas, polimorfismo e invariantes.
+    - Descrição: cadastrar clientes, operar contas correntes e poupanças e aplicar suas regras mensais.
+    - Domínio: cada cliente é cadastrado uma vez, saques exigem saldo suficiente e transferências validam as duas contas antes de retirar o valor.
+    - Objetivos: delegar atualizações mensais por polimorfismo e localizar clientes e contas por mapas.
 ---
 # Cadastro — contas com regras polimórficas
 
-<toc-table />
+<!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Verificação](#verificação) | [Shell](#shell)
+-- | -- | -- | -- | -- | --
+<!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
@@ -24,23 +26,83 @@ identidade.
 
 ## Regras
 
-- O `client_id` identifica um cliente; cadastrá-lo novamente não cria contas.
-- Cada novo cliente recebe uma conta `CC` e uma conta `CP` em ids sequenciais.
-- Depósito aumenta o saldo.
-- Saque exige saldo suficiente e, quando falha, preserva o saldo.
-- Transferência saca da origem e deposita no destino.
-- Conta corrente reduz `R$ 20.00` no update mensal, podendo ficar negativa.
-- Conta poupança aumenta o saldo em `1%` no update mensal.
-- Conta inexistente produz `fail: conta nao encontrada`.
+- `Account` é abstrata e possui `identifier : Int`, `clientId : String`, `balance : Double`, `typeCode : String` e `monthlyUpdate() : Unit`.
+- Cada `clientId` cadastrado em `BankAgency` cria uma `CheckingAccount` (`CC`) e uma `SavingsAccount` (`CP`) com identifiers sequenciais; repetir o cadastro não altera as contas.
+- `deposit(value : Double)` aumenta o saldo; `withdraw(value : Double)` exige saldo suficiente e lança `InsufficientBalanceError` sem alterar o saldo se falhar.
+- `transferTo(other : Account, value : Double)` saca da origem e deposita no destino. `BankAgency.transfer` localiza ambas as contas antes de iniciar a transferência.
+- A atualização mensal de `CheckingAccount` subtrai `20.0`, podendo deixar o saldo negativo; `SavingsAccount` multiplica o saldo por `1.01`.
+- Conta inexistente lança `AccountNotFoundError` com a mensagem `fail: conta nao encontrada`.
+- O Shell apresenta a falha de saldo como `fail: saldo insuficiente` e argumentos numéricos inválidos como `fail: argumento invalido`.
 
 ## Diagrama
 
-![Diagrama de classes](assets/diagrama.png)
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "monospace"}}}%%
+classDiagram
+    direction LR
+
+    class Account {
+        <<abstract>>
+        +val identifier : Int
+        +val clientId : String
+        +var balance : Double
+        +val typeCode : String
+        +deposit(value : Double) Unit
+        +withdraw(value : Double) Unit
+        +transferTo(other : Account, value : Double) Unit
+        +monthlyUpdate() Unit
+    }
+
+    class CheckingAccount {
+        +val typeCode : String
+        +monthlyUpdate() Unit
+    }
+
+    class SavingsAccount {
+        +val typeCode : String
+        +monthlyUpdate() Unit
+    }
+
+    class Client {
+        +val identifier : String
+        +val accounts : MutableList~Account~
+        +addAccount(account : Account) Unit
+    }
+
+    class BankAgency {
+        -val clients : MutableMap~String, Client~
+        -val accounts : MutableMap~Int, Account~
+        -var nextAccountId : Int
+        +addClient(clientId : String) Unit
+        +deposit(identifier : Int, value : Double) Unit
+        +withdraw(identifier : Int, value : Double) Unit
+        +transfer(source : Int, target : Int, value : Double) Unit
+        +monthlyUpdate() Unit
+    }
+
+    class Main {
+        +main() Unit
+    }
+
+    class AccountError
+    class AccountNotFoundError
+    class InsufficientBalanceError
+
+    Account <|-- CheckingAccount
+    Account <|-- SavingsAccount
+    AccountError <|-- AccountNotFoundError
+    AccountError <|-- InsufficientBalanceError
+    Client "1" o-- "0..*" Account : references
+    BankAgency "1" *-- "0..*" Client
+    BankAgency "1" *-- "0..*" Account
+    Main ..> BankAgency : uses
+```
 
 ## Guide
 
-1. Modele `Account` com identidade, cliente, saldo e operações comuns. Faça a
-   atualização mensal ser abstrata, pois essa regra realmente varia por tipo.
+1. Modele `Account` com `identifier : Int`, `clientId : String`,
+   `balance : Double` e as operações comuns. Faça `monthlyUpdate()` abstrato,
+   pois essa regra realmente varia por tipo.
 2. Crie `CheckingAccount` e `SavingsAccount`. A agência deve chamar o mesmo
    método em ambas; não deve decidir o tipo com condicionais.
 3. Modele `Client` como dono da relação com suas contas e `BankAgency` como
@@ -54,13 +116,13 @@ identidade.
 A divisão acompanha razões reais para mudança: uma conta muda quando sua regra
 financeira muda, enquanto a agência muda quando o cadastro ou a coordenação
 muda. O custo é manter subclasses e referências cruzadas; o benefício é que um
-novo tipo de conta pode implementar `monthly_update` sem alterar a agência.
+novo tipo de conta pode implementar `monthlyUpdate()` sem alterar a agência.
 
 ## Verificação
 
-Execute `python3 -m unittest discover src/py` e confira criação idempotente de
-clientes, operações, falhas, transferência atômica e atualização mensal de cada
-tipo de conta.
+Execute `tko run . -l kt` para conferir criação idempotente de clientes,
+operações, falhas, transferência atômica e atualização mensal de cada tipo de
+conta.
 
 ## Shell
 
@@ -79,3 +141,21 @@ Ana [0, 1]
 1:Ana:227.25:CP
 $end
 ```
+
+```sh
+#TEST_CASE failures preserve balances
+$addCli Ana
+$saque 0 1
+fail: saldo insuficiente
+$transf 0 9 10
+fail: conta nao encontrada
+$show
+- Clients
+Ana [0, 1]
+- Accounts
+0:Ana:0.00:CC
+1:Ana:0.00:CP
+$end
+```
+
+<!-- KOTLIN -->

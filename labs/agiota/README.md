@@ -1,275 +1,227 @@
 ---
 index_content: |2
-    - Objetivo: aplicar mapas e exceções a um histórico de operações.
-    - Conceitos: mapa, exceção de domínio, histórico, invariante e ciclo de vida.
-    - Técnicas: calcular estado derivado, tratar falhas e coordenar mudanças de estado.
-    - Pré-requisito: mapas, exceções e cálculo de estado derivado.
+    - Objetivo: representar clientes pelo codenome em um mapa.
+    - Conceitos: identidade por chave, unicidade, composição e exceções de domínio.
+    - Técnicas: localizar um cliente e delegar mudanças de dívida à classe que a possui.
+    - Pré-requisito: classes, mapas e exceções.
 ---
-# Gerencie os empréstimos do agiota
+# [TRAIN] Agiota: clientes identificados por codenome
 
 <!-- toc-table -->
-[Objetivo pedagógico](#objetivo-pedagógico) | [Regras](#regras) | [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell) | [Credits](#credits)
--- | -- | -- | -- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
-Ptolomeu é o agiota mais carismático de MoneyVille. Sem "nenhuma razão" foi denunciado e acabou indo pra cadeira. O problema foi que ele afirma que quem implementou o software de controle dos empréstimos e quem apagou os registro dos defuntos foi você.
+## Intro
 
-Seu Plutolomeu é um agiota que empresta dinheiro a juros de 10%. Ele é uma pessoa "muito carismática e amiga de todos". De vez em quando os clientes dele desaparecem, mas ele diz que é só coincidência. "A vida é um sopro e basta estar vivo pra morrer", segundo ele.
+Ptolomeu empresta dinheiro aos clientes, identificados por um codenome. O
+programa precisa localizar cada cliente para conferir seu limite, registrar um
+empréstimo ou receber um pagamento. Um mapa expressa diretamente essa identidade
+e evita percorrer uma lista ou cadastrar o mesmo codenome duas vezes.
 
-Vamos abstrair um pouco da história de Plutolomeu e analisar o sistema de empréstimos que ele tinha instalado em seu computador.
+### Objetivo pedagógico
 
-***
-
-## Objetivo pedagógico
-
-Esta atividade dá continuidade à agenda: em vez de localizar clientes em uma
-lista, o sistema usa o codenome como chave de um mapa. O objetivo principal é
-perceber que a estrutura de dados deve representar a identidade usada pelo
-domínio. Como objetivo secundário, as exceções separam falhas de regras de
-negócio da leitura de comandos e da apresentação das mensagens.
+O objetivo principal é escolher um mapa porque o cliente é localizado por uma
+chave única. Como objetivo secundário, a atividade pratica exceções para
+proteger as regras da dívida e delegar cada mudança ao objeto que a possui.
 
 ## Regras
 
-- O codenome identifica unicamente cada cliente ativo.
-- O mapa de clientes ativos é a única fonte de verdade para cadastro e busca.
-- O limite é o máximo da dívida atual.
-- `give` só pode ser realizado quando a nova dívida não ultrapassar o limite.
-- `take` não pode ser maior que a dívida atual.
-- Os juros aumentam a dívida em 10%, arredondando para cima. Clientes sem
-  dívida não geram uma operação de juros de valor zero.
-- Uma operação possui valor positivo, identificador crescente e é compartilhada
-  pelo histórico global e pelo histórico do cliente.
-- Ao morrer, o cliente deixa o mapa de ativos. Seu histórico é movido para o
-  histórico de mortos e não participa mais de juros ou novas operações.
-- As classes do domínio não imprimem mensagens. Elas lançam `AgiotaError`; o
-  `Shell` traduz a falha para o formato observável `fail: ...`.
+- `Client(codename: String, creditLimit: Int)` começa com dívida zero. O limite zero é válido.
+- `borrow(amount: Int)` exige um valor positivo e não permite ultrapassar `creditLimit`.
+- `pay(amount: Int)` exige um valor positivo e não permite pagar mais que a dívida atual.
+- Falhas nas regras de dívida lançam `LoanError`; uma operação recusada não altera o cliente.
+- `LendingOffice` guarda cada cliente uma vez em um `MutableMap<String, Client>` cuja chave é o codenome.
+- `addClient(codename: String, creditLimit: Int)` lança `LoanError("client already exists")` se o codenome já estiver cadastrado.
+- `borrow`, `pay` e `removeClient` lançam `LoanError("client not found")` para codenomes desconhecidos.
+- `clients()` retorna uma lista ordenada por codenome; a lista não permite alterar o mapa interno.
+- `show` exibe cada cliente como `:) codename debt/creditLimit`. Cadastro, empréstimo, pagamento e remoção bem-sucedidos não imprimem saída.
+- O `Shell` aceita `addClient codename creditLimit`, `borrow codename amount`, `pay codename amount`, `removeClient codename`, `show` e `end`.
+- As falhas são `fail: client already exists`, `fail: client not found`, `fail: credit limit exceeded`, `fail: payment exceeds debt`, `fail: amount must be positive` e `fail: invalid command`.
+- `show` não imprime linhas quando não há clientes. O Shell ecoa cada comando com `$` antes de processá-lo.
 
-## Intro
+## Diagrama
 
-- Cadastrar Clientes
-  - Cada cliente cadastrado tem um codenome único e um limite de crédito que ele pode ficar devendo ao agiota.
-- Emprestar Dinheiro.
-  - Empréstimos são salvos como Transações de GIVE (porque ele dá com todo carinho) e são armazenadas tanto na lista do agiota como nos objetos dos clientes.
-  - Cada transação deve receber do sistema um identificador numérico crescente.
-  - A primeira transação tem id 0. A segunda tem id 1 e etc.
-  - Uma transação tem um id inteiro, um nome de cliente, um label e um valor numérico.
-  - Os labels das transções podem ser
-    - GIVE: quando o agiota dá dinheiro pra pessoa.
-    - TAKE: quando o agiota "pega" o dinheiro da pessoa.
-    - PLUS: quando o agiota decide que é hora de cobrar juros e as dívidas de todos aumentam em 10%.
-  - Os valores das transações sempre são positivos. Ptolomeu não entende números negativos. O que define se é entrada ou saída é o label.
-- Mostrar todos os clientes com o saldo de cada um.
-- Mostrar o histórico de transações de Ptolomeu.
-- Receber dinheiro.
-  - Clientes pagam os empréstimos aos poucos. (As vezes, eles não pagam, mas seu Ptolomeu dá um jeito de pegar).
-- Matar um cliente.
-  - As vezes Ptolomeu dá um chá de sumiço em quem não paga suas dívidas.
-    - Pra não deixar pontas soltas ele move o cliente da lista de clientes vivos para a lista de clientes mortos.
-    - Também retira as transações relacionadas ao cliente morto do histórico de transações dos vivos e move para o histórico de transações dos mortos.
-    - Ele disse que quando você implmentou, você queria apagar complementamente os mortos do sistema, mas ele disse que ia ficar com saudade, por isso pediu a lista dos mortos.
-- O Classe cliente:
-  - Não possui um objeto saldo. Para calcular o saldo, percorra o vetor de operações do cliente somando o que for entrada (GIVE) e retirando do que for saída (TAKE, PLUS).
-- Na hora de efetuar os juros.
-  - Se por acaso alguém, por causa dos juros, tiver devendo mais do que o limite, essa pessoa também vai pro saco. Perdão, pra lista do mortos.
-- As transações:
-  - O mesmo objeto transação é compartilhado entre o histórico do agiota e o histórico do cliente correspondente.
-- A lista dos mortos não são mortos de verdade, estão mortos no coração de Ptolomeu apenas, porque ele desistiu de cobrar a dívida. É o que ele disse pra polícia.
+`LendingOffice` associa cada codenome a um cliente e localiza o objeto antes de
+delegar uma operação. `Client` protege o limite e a dívida; não há uma lista
+externa de clientes nem um estado duplicado para o saldo.
 
-## Draft
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
 
-<!-- links .cache/starter -->
-<!-- links -->
+    class Client {
+        +val codename : String
+        +val creditLimit : Int
+        +val debt : Int
+        -var currentDebt : Int
+        +Client(codename : String, creditLimit : Int)
+        +borrow(amount : Int) Unit
+        +pay(amount : Int) Unit
+        +toString() String
+    }
+
+    class LendingOffice {
+        -val clientsByCodename : MutableMap~String, Client~
+        +LendingOffice()
+        +addClient(codename : String, creditLimit : Int) Unit
+        +borrow(codename : String, amount : Int) Unit
+        +pay(codename : String, amount : Int) Unit
+        +removeClient(codename : String) Unit
+        +clients() List~Client~
+    }
+
+    class LoanError {
+        +LoanError(message : String)
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    LendingOffice "1" *-- "0..*" Client : indexes by codename
+    LendingOffice ..> LoanError : raises
+    Client ..> LoanError : raises
+    Shell ..> LendingOffice : commands
+```
 
 ## Guide
 
-![diagrama](assets/diagrama.png)
-
-[![youtube icon](assets/..//yousolver.webp)](https://youtu.be/XBJrKDd5fYY?si=HkQInss4B1x3HEYF)
-
 Implemente em incrementos pequenos:
 
-1. Modele `Operation` como um registro imutável do que aconteceu e `Client`
-   como o objeto que guarda seu histórico e calcula a dívida.
-2. Troque a busca linear por um `dict[str, Client]` em `Agiota`. A chave é o
-   codenome porque essa é a identidade do cliente no problema.
-3. Centralize a criação de operações em um método privado de coordenação, para
-   que a numeração e o compartilhamento dos objetos não sejam duplicados.
-4. Faça cada regra inválida lançar uma exceção de domínio simples. O `Shell`
-   deve capturá-la e preservar as mensagens do contrato.
-5. Implemente juros e morte como uma sequência verificável: os juros são
-   registrados, depois o cliente que ultrapassou o limite é movido junto com
-   suas operações.
+1. Crie `Client` com `codename`, `creditLimit` e dívida inicial zero. Ao final,
+   o cliente deve impedir empréstimo acima do limite e pagamento acima da dívida.
+2. Faça `LendingOffice` guardar clientes em um mapa indexado pelo codenome.
+   Recuse duplicidades sem substituir o objeto que já foi cadastrado.
+3. Implemente `borrow` e `pay` na coordenadora localizando o cliente e delegando
+   a regra financeira. Uma chave desconhecida deve falhar sem criar um cliente.
+4. Adicione a remoção e uma consulta ordenada de clientes. A remoção apaga a
+   associação do mapa; não há histórico ou lista de clientes removidos.
+5. Conecte o `Shell`: converta argumentos, chame o domínio, transforme
+   `LoanError` em mensagens e formate `show`.
 
-Essa divisão não pretende aumentar a quantidade de classes. `Client` tem o
-estado e as regras do próprio histórico; `Agiota` coordena vários clientes e
-seus históricos; `Operation` apenas representa um fato. Não há necessidade de
-um repositório ou serviço separado nesta etapa. A lista de operações do cliente
-é exposta como uma cópia imutável para que consultas não alterem o estado.
+Antes da divisão, um único objeto teria de localizar clientes e também garantir
+as regras de cada dívida. Agora `LendingOffice` conhece a identidade e a coleção;
+`Client` conhece seu limite e saldo. Essa separação permite testar as regras do
+cliente sem construir uma agenda inteira. Ela também tem um custo: operações
+precisam passar pela coordenadora para encontrar o cliente certo.
 
 Perguntas para revisão:
 
-- Por que uma lista seria uma representação menos direta para buscar clientes?
-- O que poderia ficar inconsistente se o saldo fosse armazenado além do
-  histórico?
-- Por que a operação deve ser criada uma única vez e compartilhada?
-- O que deixa de acontecer com um cliente depois que ele é movido para os
-  mortos?
+- Por que um mapa representa melhor o codenome único que uma lista?
+- Por que `Client`, em vez de `LendingOffice`, valida limite e pagamento?
+- O que poderia ficar inconsistente se o saldo fosse público ou atualizado no
+  `Shell`?
+- Se mais tarde fosse necessário guardar cada pagamento, qual classe deveria
+  ser dona desse histórico e que comportamento novo justificaria esse custo?
 
 
 ## Shell
 
 ```bash
-#TEST_CASE cadastrar
-$addCli maria 500
-$addCli rubia 60
-$addCli maria 300
-fail: cliente ja existe
-
-#TEST_CASE emprestar
-$give maria 300
-$give rubia 50
-$give maria 100
-
-#TEST_CASE show
-# Mostra os cliente ordenados por codenome
-# Mostra as operações pela ordem que elas ocorreram
+#TEST_CASE add_clients
+$addClient maria 500
+$addClient rubia 60
+$addClient maria 300
+fail: client already exists
 $show
-
-:) maria 400/500
-:) rubia 50/60
-+ id:0 give:maria 300
-+ id:1 give:rubia 50
-+ id:2 give:maria 100
-
-# __case erros no emprestimo
-$give bruno 30
-fail: cliente nao existe
-
-$give rubia 30
-fail: limite excedido
-
-$take rubia 70
-fail: pagamento excede divida
-
-$show
-:) maria 400/500
-:) rubia 50/60
-+ id:0 give:maria 300
-+ id:1 give:rubia 50
-+ id:2 give:maria 100
-
-#TEST_CASE receber dinheiro
-$take maria 350
-$take rubia 1
-$take maria 10
-
-$show
-:) maria 40/500
-:) rubia 49/60
-+ id:0 give:maria 300
-+ id:1 give:rubia 50
-+ id:2 give:maria 100
-+ id:3 take:maria 350
-+ id:4 take:rubia 1
-+ id:5 take:maria 10
-
-#TEST_CASE getCli
-$showCli maria
-maria 40/500
-id:0 give:maria 300
-id:2 give:maria 100
-id:3 take:maria 350
-id:5 take:maria 10
-
-#TEST_CASE matar
-$kill maria
-$show
-:) rubia 49/60
-+ id:1 give:rubia 50
-+ id:4 take:rubia 1
-:( maria 40/500
-- id:0 give:maria 300
-- id:2 give:maria 100
-- id:3 take:maria 350
-- id:5 take:maria 10
-
-$end
-```
-
-***
-
-```bash
-#TEST_CASE cadastrar
-$addCli maria 500
-$addCli rubia 60
-$addCli josue 200
-
-$give maria 430
-$give josue 170
-$give rubia 30
-
-#TEST_CASE show
-$show
-:) josue 170/200
-:) maria 430/500
-:) rubia 30/60
-+ id:0 give:maria 430
-+ id:1 give:josue 170
-+ id:2 give:rubia 30
-
-# aumenta a divida de todos de 10%
-# arredondado pra cima
-#TEST_CASE rendimento
-$plus
-
-$show
-:) josue 187/200
-:) maria 473/500
-:) rubia 33/60
-+ id:0 give:maria 430
-+ id:1 give:josue 170
-+ id:2 give:rubia 30
-+ id:3 plus:josue 17
-+ id:4 plus:maria 43
-+ id:5 plus:rubia 3
-
-#TEST_CASE cobrar e matar
-# se na hora do juros, o valor passar
-# do limite, eles morrem
-
-$plus
-
-$show
-:) rubia 37/60
-+ id:2 give:rubia 30
-+ id:5 plus:rubia 3
-+ id:8 plus:rubia 4
-:( josue 206/200
-:( maria 521/500
-- id:1 give:josue 170
-- id:3 plus:josue 17
-- id:6 plus:josue 19
-- id:0 give:maria 430
-- id:4 plus:maria 43
-- id:7 plus:maria 48
-
+:) maria 0/500
+:) rubia 0/60
 $end
 ```
 
 ```bash
-#TEST_CASE no_zero_interest
-$addCli clara 0
-$plus
+#TEST_CASE borrow_and_pay
+$addClient maria 500
+$borrow maria 300
+$borrow maria 100
+$pay maria 350
+$show
+:) maria 50/500
+$end
+```
+
+```bash
+#TEST_CASE credit_limit_preserves_debt
+$addClient rubia 60
+$borrow rubia 50
+$borrow rubia 20
+fail: credit limit exceeded
+$addClient clara 0
+$borrow clara 1
+fail: credit limit exceeded
 $show
 :) clara 0/0
+:) rubia 50/60
 $end
 ```
 
-## Credits
+```bash
+#TEST_CASE payment_preserves_debt
+$addClient rubia 60
+$borrow rubia 50
+$pay rubia 70
+fail: payment exceeds debt
+$show
+:) rubia 50/60
+$end
+```
 
-- Então assim ficou Ptolomeu, depois de ir para a prisão e ver sua fortuna confiscada.
-- Se foi presídio, zoológico ou hospital psiquiátrico, ninguém comenta, só sabemos que ele nunca mais foi visto. Pelo menos não em Moneyville.
+```bash
+#TEST_CASE positive_amounts
+$addClient nora 100
+$borrow nora 0
+fail: amount must be positive
+$borrow nora -10
+fail: amount must be positive
+$borrow nora 10
+$pay nora 0
+fail: amount must be positive
+$pay nora -1
+fail: amount must be positive
+$pay nora 1
+$show
+:) nora 9/100
+$end
+```
 
-![_](assets/ptolomeu.webp)
+```bash
+#TEST_CASE missing_client
+$borrow bruno 30
+fail: client not found
+$pay bruno 10
+fail: client not found
+$removeClient bruno
+fail: client not found
+$show
+$end
+```
+
+```bash
+#TEST_CASE remove_client
+$addClient maria 500
+$borrow maria 300
+$removeClient maria
+$show
+$borrow maria 1
+fail: client not found
+$end
+```
+
+```bash
+#TEST_CASE invalid_command_and_amount
+$addClient maria not-a-number
+fail: invalid command
+$unknown
+fail: invalid command
+$end
+```
+
+## Draft
+
+<!-- links .cache/starter -->
+<!-- links -->
+<!-- KOTLIN -->

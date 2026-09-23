@@ -7,8 +7,8 @@ index_content: |2
 # [TRAIN] Pula-pula com crianças
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | --
+[Intro](#intro) | [Diagrama](#diagrama) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -28,6 +28,46 @@ O foco é perceber que a posição na lista muda conforme as operações acontec
 
 ***
 
+## Diagrama
+
+`Trampoline` mantém duas ordens variáveis de crianças: a fila `waiting` e a lista `playing`. As crianças são criadas pelo `Shell` e apenas referenciadas pelo pula-pula, por isso a relação é uma agregação.
+
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class Kid {
+        -val name : String
+        -val age : Int
+        +Kid(name : String, age : Int)
+        +getName() String
+        +getAge() Int
+        +toString() String
+    }
+
+    class Trampoline {
+        -val waiting : MutableList~Kid~
+        -val playing : MutableList~Kid~
+        +Trampoline()
+        +arrive(kid : Kid) Unit
+        +enter() Unit
+        +leave() Unit
+        +removeKid(name : String) Kid?
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Trampoline "1" o-- "0..*" Kid : waiting
+    Trampoline "1" o-- "0..*" Kid : playing
+    Shell ..> Trampoline : commands
+```
+
+***
+
 ## Draft
 
 <!-- links .cache/starter -->
@@ -35,9 +75,17 @@ O foco é perceber que a posição na lista muda conforme as operações acontec
 
 ## Guide
 
-![diagrama](assets/diagrama.webp)
-
 [![youtube icon](../youguide.webp)](https://youtu.be/Uu94DgZYa_M?si=AzLR2so6o5CLiZTz)
+
+`Kid` guarda nome e idade. `Trampoline` coordena duas `MutableList<Kid>`: `waiting` e `playing`. As listas ficam privadas, e as operações do pula-pula definem como as crianças mudam entre elas.
+
+- `arrive(kid)` insere a criança no início de `waiting`.
+- `enter()` remove a última criança de `waiting` e a insere no início de `playing`, mantendo a ordem de chegada.
+- `leave()` remove a última criança de `playing` e a coloca no início de `waiting`.
+- `removeKid(name)` procura primeiro em `waiting`, depois em `playing`, e devolve a criança removida ou `null`.
+- `toString()` deve mostrar as duas listas como `[waiting] => [playing]`.
+
+Os comandos do Shell (`arrive`, `enter`, `leave` e `remove`) permanecem iguais por serem parte do contrato externo.
 
 ## Shell
 
@@ -119,3 +167,5 @@ $show
 [] => []
 $end
 ```
+
+<!-- MERMAID -->

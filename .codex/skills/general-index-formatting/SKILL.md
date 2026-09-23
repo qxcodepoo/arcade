@@ -16,6 +16,7 @@ Use this skill only for the repository's general activity index, normally the ro
   - `Objetivos:` states the learning outcome, not an implementation checklist.
 - Do not add `Conceitos`, `Técnicas` or `Pré-requisito` to individual entries; these belong in the module introduction when relevant.
 - Preserve any existing `[GUIA]` marker when an activity title is renamed.
+- Keep descriptions in Portuguese. If an entry names API elements, types, or signatures, use Kotlin naming and type notation consistently.
 
 ## Module layout
 

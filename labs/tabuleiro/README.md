@@ -8,6 +8,8 @@ index_content: |2
 # [CHECK] Tabuleiro: coleções na simulação de turnos
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)
+-- | -- | -- | -- | -- | --
 
 ![cover](assets/cover.webp)
 
@@ -30,13 +32,21 @@ ___
 
 Questão adaptada da maratona ACM 2003 por @WladimirTavares
 
+## Regras
+
+- Há um tabuleiro com `boardSize` casas numeradas de `1` até `boardSize`; todos começam na posição `0`.
+- Os jogadores jogam na ordem da lista. A cada rodada, o primeiro jogador rola e vai para o fim da ordem.
+- Se o jogador não estiver preso, avança o valor rolado. Chegar ou passar de `boardSize` encerra a partida e dá a vitória.
+- Há exatamente três armadilhas. Cair em uma prende o jogador; em rodadas seguintes, resultado ímpar o mantém preso e resultado par o liberta sem mover.
+- Uma partida encerrada não aceita novas jogadas. Os valores de rolagem são inteiros; não há validação adicional do intervalo do D20.
+
 ## Objetivos pedagógicos
 
 O objetivo principal é consolidar o uso de coleções para coordenar uma simulação de turnos. Como objetivos secundários, a atividade trabalha o encapsulamento do estado de cada jogador e a transição para um estado terminal quando alguém vence.
 
 ### Conhecimentos prévios
 
-São necessários objetos, listas, condicionais, laços, métodos, índices e valores booleanos. A implementação canônica desta atividade é feita em Python.
+São necessários objetos, listas, condicionais, laços, métodos, índices e valores booleanos.
 
 ### Invariantes e elementos observáveis
 
@@ -50,18 +60,62 @@ São necessários objetos, listas, condicionais, laços, métodos, índices e va
 
 Valores de rolagem são tratados como inteiros nos testes. O contexto usa um D20, mas a atividade não cria uma validação adicional de intervalo para manter o foco na simulação.
 
-___
+## Diagrama
 
-## Drafts
+`Board` cria e ordena os jogadores, registra as armadilhas e encerra a partida quando alguém vence. Cada `rollDice` retira o primeiro jogador, produz eventos e o recoloca no fim da ordem enquanto a partida estiver ativa.
 
-<!-- links .cache/starter -->
-<!-- links -->
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class EventType {
+        <<enumeration>>
+        MOVED
+        TRAPPED
+        RELEASED
+        STAYED_TRAPPED
+        WON
+    }
+
+    class Player {
+        +val label : Int
+        +var position : Int
+        +var trapped : Boolean
+    }
+
+    class RoundEvent {
+        +val eventType : EventType
+        +val playerLabel : Int
+        +val position : Int
+    }
+
+    class Board {
+        -val boardSize : Int
+        -val traps : MutableList~Int~
+        -var running : Boolean
+        -val players : MutableList~Player~
+        +Board(boardSize : Int, playerCount : Int)
+        +addTrap(position : Int) Unit
+        +rollDice(value : Int) List~RoundEvent~
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Board "1" *-- "0..*" Player : turn order
+    Board ..> RoundEvent : creates
+    RoundEvent --> EventType
+    Shell ..> Board : commands
+```
+
+O diagrama usa os tipos e as coleções de Kotlin, além de distinguir propriedades imutáveis (`val`) das mutáveis (`var`). Nomes de propriedades e funções seguem `camelCase`, assim como os comandos do Shell, que fazem parte do contrato externo.
 
 ## Guide
 
 [![youtube icon](../youguide.webp)](https://youtu.be/x3_hlVYdCdU?si=g0fR-AAgvzkMxU9G)
-
-![diagrama](assets/diagrama.webp)
 
 Comece modelando `Player`, que possui sua posição e o estado `trapped`. Depois modele `Board`, que possui a lista de jogadores, as posições das armadilhas e o estado de execução.
 
@@ -69,10 +123,6 @@ Uma rodada deve retirar o primeiro jogador da lista, aplicar a regra corresponde
 
 Ao testar, verifique tanto a mensagem produzida quanto a posição, o estado de prisão, a ordem dos turnos e o fato de que uma partida encerrada não muda mais.
 
-
-<!-- load diagrama.puml fenced=ts:filter -->
-
-<!-- load -->
 
 ___
 
@@ -165,3 +215,11 @@ player1: .....1
 traps__: ......
 $end
 ```
+
+## Drafts
+
+<!-- links .cache/starter -->
+<!-- links -->
+
+<!-- MERMAID -->
+<!-- KOTLIN -->

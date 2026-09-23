@@ -42,7 +42,7 @@ State the observable behavior before implementation details. Every activity shou
 
 Keep the title and index name focused on the principal objective, with at most one directly related secondary objective. Do not present implementation details, class counts, return formats, or consequences as separate objectives. Preserve an existing `[GUIA]` marker when renaming an activity.
 
-The executable contract is in English: identifiers, Shell commands, observable messages, enums, constants, and values used by code or tests. Pedagogical explanations, narrative rules, guides, reflections, and design justifications remain in Portuguese. Keep messages, formats, scores, and accents identical across rules, examples, tests, and code. Avoid implicit requirements.
+The executable contract is in English: identifiers, Shell commands, observable messages, enums, constants, and values used by code or tests. Pedagogical explanations, narrative rules, guides, reflections, and design justifications remain in Portuguese. Kotlin is the single reference language for activity descriptions and executable solutions. Use Kotlin identifiers, signatures, types, and collection names in READMEs and diagrams; do not mix in TypeScript or Python notation. Keep messages, formats, scores, and accents identical across rules, examples, tests, and code. Avoid implicit requirements.
 
 ## README structure
 
@@ -108,16 +108,16 @@ When reviewing a refactoring, record the smell or risk, the change, unchanged be
 
 ## Diagrams
 
-Every activity with a diagram includes an inline Mermaid `classDiagram` in its README. Use `labs/carro/README.md` as the formatting model: initialize the diagram with a monospace font, set its direction explicitly, and use TypeScript-like types as the common notation:
+Every activity with a diagram includes an inline Mermaid `classDiagram` in its README. Use `labs/motoca/README.md` as the formatting model: initialize the diagram with a monospace font, set its direction explicitly, and use Kotlin types and notation:
 
-- `number`, `boolean`, `string`, and `void`;
-- `Array<T>` for variable-size indexed collections;
-- `Map<K, V>` for key-value structures;
-- `T | null` for absence;
+- `Int`, `Double`, `Boolean`, `String`, and `Unit` for common types;
+- `List~T~`, `MutableList~T~`, and `Map~K, V~` for collections in Mermaid source;
+- `T?` for nullable values;
 - UML multiplicities such as `0..1` and `0..*`;
-- UML visibility modifiers `+`, `-`, and `#`.
+- UML visibility modifiers `+`, `-`, and `#`, with `val` or `var` when mutability is relevant.
+- A static member ends with `$`, for example `+DEAD_STAGE : Int$`.
 
-Do not use `None`, `Optional`, `undefined`, pointers, language-specific collections, or tuples as the default model notation. Represent the entry point as `main(): void`, without incidental language arguments or parsing helpers. The diagram communicates relevant responsibilities and relationships, not every implementation detail.
+Format properties and parameters as `name : Type`, with spaces around the colon. Format methods without a colon after the closing parenthesis, for example `+drive(minutes : Int) DriveResult`; show the return type after the signature. Use Mermaid's `~` generic delimiters for collection types. Represent the entry point as `main() Unit`, without incidental language arguments or parsing helpers. The diagram communicates relevant responsibilities and relationships, not every implementation detail.
 
 When updating an activity that still has the legacy `assets/diagrama.png` or `assets/diagrama.puml`, remove those obsolete artifacts after migrating the diagram to Mermaid. Do not create new PNG, PUML, or PlantUML diagram artifacts for activity READMEs.
 
@@ -125,9 +125,9 @@ Before finalizing an activity, propose improvements to the names of methods, att
 
 ## Reference implementations
 
-Each problem has a canonical Python response implementation. It must pass strict type checking, and every variable, attribute, parameter, and return created in the solution must have an explicit annotation. Java, Kotlin, and other languages are transpositions of the canonical model when requested; do not reintroduce `src/cpp` or `src/ts` without explicit request.
+Each activity's canonical executable solution is Kotlin, stored under `src/kt` and run with `tko run . -l kt`. Keep the solution and any code examples in the README in Kotlin. Use Kotlin's nullability, collection, visibility, and mutability features directly instead of translating another language's model mechanically. Keep Shell parsing and output in the entry point; domain classes should not read input or print messages.
 
-Preserve the same conceptual model across languages without forcing line-by-line translation. In Python command programs, `main` uses `match/case` directly on `line.split()`, destructuring arguments in patterns such as `case ["drive", distance]`. Keep language choices subordinate to the domain concept and avoid advanced features that hide it.
+Preserve the activity's command contract and exit behavior when implementing or reviewing its Kotlin solution. Prefer clear, idiomatic Kotlin and explicit types on public APIs and state whose type is not obvious; local types may be inferred when that improves readability.
 
 When changing `eval=test`, preserve the Shell contract and change tests only when the domain rule changes. When changing `eval=self`, keep examples and verification aligned with the conceptual model without turning the tutorial into a rigid output contract.
 
@@ -155,7 +155,7 @@ Before completing an activity README, verify:
 - Read the README, code, tests, and diagram before changing an existing activity.
 - Check consistency among rules, examples, diagram, tests, and implementations.
 - Validate the inline Mermaid diagram and confirm that obsolete PNG/PUML artifacts were removed when the activity was updated.
-- Compile and run available languages.
+- Compile and run the Kotlin solution with `tko run . -l kt`.
 - For `eval=test`, run success, failure, boundary, sequence, and state-preservation scenarios.
 - For `eval=self`, validate examples and the verification route.
 - Run `tko tool mdpp README.md` when the README changes.

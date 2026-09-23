@@ -21,15 +21,15 @@ Esta versão acrescenta um `Shell` para testar o comportamento observável sem m
 
 ## Regras
 
-- A classe `Towel` possui cor `color`, tamanho `size` e umidade `wetness`.
-- O construtor recebe cor e tamanho e inicia `wetness` com `0`.
-- `wring_out()` zera a umidade.
-- `get_max_wetness()` retorna `10` para `P`, `20` para `M` e `30` para `G`.
-- `absorb(water_amount)` aumenta a umidade sem ultrapassar o limite; retorna `true` quando absorve tudo e `false` quando absorve apenas o possível.
-- `is_dry()` retorna `true` quando a umidade é `0`.
-- O `__str__` retorna `Color: {color}, Size: {size}, Wetness: {wetness}`.
+- A classe `Towel` possui cor `color: String`, tamanho `size: String` e umidade `wetness: Int`.
+- O construtor `Towel(color: String = "", size: String = "P")` inicia `wetness` com `0`.
+- `wringOut(): Unit` zera a umidade.
+- `getMaxWetness(): Int` retorna `10` para `P`, `20` para `M` e `30` para `G`.
+- `absorb(waterAmount: Int): Boolean` aumenta a umidade sem ultrapassar o limite; retorna `true` quando absorve tudo e `false` quando absorve apenas o possível.
+- `isDry(): Boolean` retorna `true` quando a umidade é `0`.
+- `toString(): String` retorna `Color: {color}, Size: {size}, Wetness: {wetness}`.
 - `Towel` não deve ler entrada nem imprimir dados; o `Shell` interpreta os retornos e apresenta as mensagens.
-- Se `absorb(water_amount)` retornar `false`, o `Shell` deve imprimir `fail: towel is soaked`.
+- Se `absorb(waterAmount)` retornar `false`, o `Shell` deve imprimir `fail: towel is soaked`.
 - A classe permanece única porque suas regras formam um comportamento coeso. Não crie classes separadas para cor, tamanho ou umidade nesta etapa.
 
 ## Diagrama
@@ -42,19 +42,19 @@ classDiagram
     direction TB
 
     class Towel {
-        -color : string
-        -size : string
-        -wetness : number
-        +constructor(color : string, size : string)
-        +wringOut() void
-        +getMaxWetness() number
-        +absorb(waterAmount : number) boolean
-        +isDry() boolean
-        +toString() string
+        -val color : String
+        -val size : String
+        -var wetness : Int
+        +Towel(color : String = "", size : String = "P")
+        +wringOut() Unit
+        +getMaxWetness() Int
+        +absorb(waterAmount : Int) Boolean
+        +isDry() Boolean
+        +toString() String
     }
 
     class Shell {
-        +main() void
+        +main() Unit
     }
 
     Shell ..> Towel : creates and uses
@@ -66,8 +66,8 @@ classDiagram
 
 [Vídeo de apoio](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
-- Comece pelo construtor e por `__str__`, usando `$create` e `$show`.
-- Implemente `get_max_wetness`, porque `absorb` depende desse limite.
+- Comece pelo construtor e por `toString()`, usando `$create` e `$show`.
+- Implemente `getMaxWetness()`, porque `absorb` depende desse limite.
 - Faça `absorb` retornar `false` quando a toalha não conseguir absorver toda a quantidade.
 - No `Shell`, transforme esse `false` em `fail: towel is soaked`.
 

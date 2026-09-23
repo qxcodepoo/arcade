@@ -21,21 +21,21 @@ O foco é observar como uma classe junta estado e comportamento: a própria `Tow
 
 ## Regras
 
-- A classe Toalha `Towel` possui os atributos cor `color`, tamanho `size` e umidade `wetness`.
-- O construtor recebe a cor e o tamanho e inicia `wetness` com `0`.
-- O método absorver `absorb` recebe uma quantidade inteira `water_amount` e aumenta `wetness` sem ultrapassar o limite.
-  - Se `water_amount` for negativo, retorna `false` e preserva `wetness`.
+- A classe Toalha `Towel` possui as propriedades privadas cor `color: String`, tamanho `size: String` e umidade `wetness: Int`.
+- O construtor `Towel(color: String, size: String)` inicia `wetness` com `0`.
+- O método `absorb(waterAmount: Int): Boolean` recebe uma quantidade de água e aumenta `wetness` sem ultrapassar o limite.
+  - Se `waterAmount` for negativo, retorna `false` e preserva `wetness`.
   - Se a quantidade ultrapassar a capacidade, armazena apenas o limite e retorna `false`.
   - Caso consiga absorver toda a quantidade, retorna `true`.
-- O método torcer `wring_out` zera `wetness`.
-- O método `max_wetness` retorna o limite de umidade conforme o tamanho:
+- O método `wringOut(): Unit` zera `wetness`.
+- O método `maxWetness(): Int` retorna o limite de umidade conforme o tamanho:
   - `P` -> `10`
   - `M` -> `20`
   - `G` -> `30`
-- O método `is_dry` retorna `true` quando `wetness` é `0` e `false` caso contrário.
-- `__str__` retorna o estado no formato `{color} {size} {wetness}`.
+- O método `isDry(): Boolean` retorna `true` quando `wetness` é `0` e `false` caso contrário.
+- `toString(): String` retorna o estado no formato `{color} {size} {wetness}`.
 - A classe `Towel` não deve ler entrada nem imprimir dados.
-- Use o programa de demonstração para verificar o comportamento da classe.
+- Use a função `main()` do programa de demonstração Kotlin para verificar o comportamento da classe.
 
 ## Diagrama
 
@@ -47,19 +47,19 @@ classDiagram
     direction TB
 
     class Towel {
-        +color : string
-        +size : string
-        +wetness : number
-        +constructor(color : string, size : string)
-        +maxWetness() number
-        +absorb(waterAmount : number) boolean
-        +wringOut() void
-        +isDry() boolean
-        +toString() string
+        -val color : String
+        -val size : String
+        -var wetness : Int
+        +Towel(color : String, size : String)
+        +maxWetness() Int
+        +absorb(waterAmount : Int) Boolean
+        +wringOut() Unit
+        +isDry() Boolean
+        +toString() String
     }
 
     class Main {
-        +main() void
+        +main() Unit
     }
 
     Main ..> Towel : creates and uses
@@ -70,11 +70,11 @@ classDiagram
 Implemente e verifique a classe em partes: estado inicial, absorção, limite de umidade, torção e consulta de estado.
 
 - Comece pelo construtor e confira se uma toalha nova sempre inicia com `wetness` igual a `0`.
-- Implemente `max_wetness` antes de `absorb`, porque o limite depende do tamanho.
-- Em `absorb`, rejeite quantidades negativas e aumente a umidade apenas até o limite retornado por `max_wetness`.
-- Em `wring_out`, volte a umidade para `0`.
-- Em `is_dry`, apenas consulte o estado, sem alterar a toalha.
+- Implemente `maxWetness(): Int` antes de `absorb`, porque o limite depende do tamanho.
+- Em `absorb(waterAmount: Int): Boolean`, rejeite quantidades negativas e aumente a umidade apenas até o limite retornado por `maxWetness`.
+- Em `wringOut()`, volte a umidade para `0`.
+- Em `isDry()`, apenas consulte o estado, sem alterar a toalha.
 
 Pergunta de reflexão: se o cálculo do limite ficasse espalhado pelo programa de demonstração, que mudança seria mais difícil quando surgisse um novo tamanho?
 
-Verifique estes casos: uma toalha `P` começa seca, `absorb(5)` resulta em `wetness = 5`, `absorb(10)` limita a umidade em `10` e retorna `false`, `absorb(-1)` preserva a umidade, e `wring_out()` faz `is_dry()` retornar `true`.
+Verifique estes casos: uma toalha `P` começa seca, `absorb(5)` resulta em `wetness = 5`, `absorb(10)` limita a umidade em `10` e retorna `false`, `absorb(-1)` preserva a umidade, e `wringOut()` faz `isDry()` retornar `true`.

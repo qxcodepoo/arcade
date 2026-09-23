@@ -24,8 +24,8 @@ Descreva em poucas linhas o projeto que o aluno vai implementar.
 ### Modelo
 
 - Classe `NomeEmIngles`
-  - Atributo `attribute`: descreva o valor guardado.
-  - Atributo `limit`: descreva o limite, se existir.
+  - Propriedade `attribute : Int`: descreva o valor guardado.
+  - Propriedade `limit : Int`: descreva o limite, se existir.
   - Invariantes:
     - `...`
   - Construtor
@@ -72,11 +72,9 @@ O aluno deve criar um código de teste ou demonstração cobrindo:
 
 Use a convenção definida em [Padrão para atividades de código](README.md#diagramas).
 
-O arquivo fonte deve ser `assets/diagrama.puml`. Gere a imagem na pasta `assets` com `plantuml diagrama.puml`.
+Escreva o diagrama como Mermaid `classDiagram` diretamente neste README e use os tipos e a formatação Kotlin definidos no padrão.
 
 ## Guide
-
-![diagrama](assets/diagrama.png)
 
 Implemente a atividade em partes.
 

@@ -1,9 +1,8 @@
 ---
 index_content: |2
-    - Objetivo: tratar formas geométricas por meio de uma interface comum.
-    - Conceitos: interface, contrato, substituição e polimorfismo.
-    - Técnicas: usar `Protocol`, manter coleção heterogênea e delegar cálculos às formas.
-    - Pré-requisito: contratos, coleções e delegação.
+    - Descrição: criar e consultar círculos e retângulos em uma coleção de formas geométricas.
+    - Domínio: as coordenadas e dimensões das formas permanecem imutáveis depois da criação.
+    - Objetivos: definir uma interface comum e processar formas diferentes por substituição polimórfica.
 ---
 # [TRAIN] Shapes: interface e substituição geométrica
 
@@ -21,19 +20,20 @@ suas medidas. As formas possuem dados diferentes, mas oferecem as mesmas
 operações geométricas.
 
 O objetivo principal é definir uma interface comum e escrever uma função que
-trate formas diferentes por substituição. Em Python, a interface é representada
-por um `Protocol`: uma classe pode ser usada como `Shape` quando possui o
-contrato necessário.
+trate formas diferentes por substituição. A interface `Shape` declara o
+contrato; cada forma implementa suas operações sem depender de uma classe base
+concreta.
 
 ## Regras
 
-- `Point2D` representa uma coordenada imutável com `x` e `y`.
+- `Point2D` representa uma coordenada imutável com `x : Double` e `y : Double`.
 - `Circle` possui centro e raio, calcula área e perímetro e é exibido como
   `Circ: C=(x, y), R=r`.
 - `Rectangle` possui dois vértices opostos, calcula área e perímetro e é
   exibido como `Rect: P1=(x1, y1) P2=(x2, y2)`.
-- A interface `Shape` exige `name()`, `area()` e `perimeter()`.
-- `info(shape: Shape)` deve funcionar para qualquer objeto compatível com a
+- A interface `Shape` exige `name() : String`, `area() : Double` e
+  `perimeter() : Double`.
+- `info(shape : Shape) : String` deve funcionar para qualquer implementação da
   interface, sem testar sua classe concreta.
 - `show` lista as formas na ordem de criação.
 - `info` lista área (`A`) e perímetro (`P`) na ordem de criação, com duas casas.
@@ -41,21 +41,67 @@ contrato necessário.
 
 ## Diagrama
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "monospace"}}}%%
+classDiagram
+    direction LR
+
+    class Shape {
+        <<interface>>
+        +name() String
+        +area() Double
+        +perimeter() Double
+    }
+
+    class Point2D {
+        +val x : Double
+        +val y : Double
+        +toString() String
+    }
+
+    class Circle {
+        +val center : Point2D
+        +val radius : Double
+        +name() String
+        +area() Double
+        +perimeter() Double
+        +toString() String
+    }
+
+    class Rectangle {
+        +val p1 : Point2D
+        +val p2 : Point2D
+        +name() String
+        +area() Double
+        +perimeter() Double
+        +toString() String
+    }
+
+    class Main {
+        +info(shape : Shape) String
+        +main() Unit
+    }
+
+    Shape <|.. Circle
+    Shape <|.. Rectangle
+    Circle "1" *-- "1" Point2D
+    Rectangle "1" *-- "2" Point2D
+    Main ..> Shape : uses
+```
 
 ## Guide
 
 1. Crie `Point2D` imutável e use-o como centro ou vértice.
-2. Defina o `Protocol Shape` com as três operações comuns.
+2. Defina a `interface Shape` com as três operações comuns.
 3. Implemente `Circle` e `Rectangle` sem criar uma classe base concreta.
-4. Escreva `info(shape: Shape)` usando somente o contrato da interface.
-5. Armazene as formas em `list[Shape]` e implemente `show` e `info` por
+4. Escreva `info(shape : Shape)` usando somente o contrato da interface.
+5. Armazene as formas em `MutableList<Shape>` e implemente `show` e `info` por
    percursos polimórficos.
 
-O `Protocol` é suficiente porque o objetivo é o contrato comum, não o
+A interface é suficiente porque o objetivo é o contrato comum, não o
 compartilhamento de estado ou implementação. `Point2D` permanece separado por
 ser um valor geométrico reutilizado pelas formas. Não há necessidade de uma
-classe `Calc` enquanto nenhuma operação adicional fizer parte do contrato.
+classe calculadora enquanto nenhuma operação adicional fizer parte do contrato.
 
 Perguntas de reflexão:
 
@@ -107,3 +153,5 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+
+<!-- KOTLIN -->

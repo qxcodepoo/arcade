@@ -52,7 +52,7 @@ Toda nova atividade de código deve usar estas seções base, nesta ordem.
   - Deve deixar claro o que pertence ao domínio e o que pertence ao Shell.
 - `Regras`
   - Deve ser o contrato do problema.
-  - Deve listar atributos, estado inicial, construtor ou comando de inicialização, formato de exibição, operações, limites e mensagens de falha.
+  - Deve listar propriedades, estado inicial, construtor ou comando de inicialização, formato de exibição, operações, limites e mensagens de falha usando a notação Kotlin.
 - `Diagrama`
   - Deve apresentar o modelo de classes e as relações relevantes para a atividade.
   - Deve seguir a convenção definida em [Diagramas](#diagramas).
@@ -71,7 +71,7 @@ Toda nova atividade de código deve usar estas seções base, nesta ordem.
 ### Regras de escrita
 
 - Escreva primeiro o comportamento observável, depois detalhes de implementação.
-- Use nomes em português para explicar o domínio e identificadores em inglês para código quando fizer sentido: `Pessoa` / `Person`, `abastecer` / `fuel`.
+- Escreva explicações em português e use Kotlin para identificadores, assinaturas e tipos: `Person`, `fuel(liters : Int) Unit`.
 - Defina todo formato textual que será comparado nos testes, incluindo espaços, pontuação, casas decimais e acentos.
 - Para cada operação, informe entrada, efeito no estado, saída em caso normal e saída em caso de falha.
 - Evite misturar regra de negócio com regra de Shell. A classe de domínio não deve ler entrada nem imprimir saída.
@@ -128,31 +128,37 @@ Checklist antes de publicar uma atividade:
 - Atividades com Shell cobrem sucesso, erro e estado depois do erro.
 - Atividades sem Shell têm exemplos de uso ou um roteiro mínimo de verificação.
 - A regra de separação entre domínio e interação está explícita quando houver interface de entrada e saída.
-- O diagrama de classes usa os tipos da convenção TypeScript e explicita nulidade com `| null`.
-- O arquivo `assets/diagrama.puml` existe e a imagem foi gerada a partir dele com `plantuml diagrama.puml`.
+- O diagrama de classes usa a notação Kotlin descrita em [Diagramas](#diagramas), inclusive para propriedades, parâmetros, retornos e nulabilidade.
+- O diagrama Mermaid está escrito diretamente no README; não há imagem nem arquivo PlantUML separado.
 - O `Draft` existe com os marcadores de links quando houver esqueleto.
-- `tko util mdpp README.md` roda sem quebrar o Markdown.
+- `tko tool mdpp README.md` roda sem quebrar o Markdown.
 
 ## Diagramas
 
-Os diagramas de classes devem usar uma convenção de tipos baseada em TypeScript. Ela é um meio-termo didático entre as linguagens usadas nas turmas e não representa código que precise ser compilado diretamente.
+Os diagramas de classes devem usar tipos e nomes Kotlin para que a documentação e as soluções de referência compartilhem um só modelo.
 
-- Use `number`, `string` e `boolean` para tipos primitivos.
-- Use `Tipo | null` quando um atributo ou retorno puder representar ausência de valor.
-- Use `Array<Tipo>` para coleções indexadas de tamanho variável.
+- Use `Int`, `Double`, `String`, `Boolean` e `Unit` para tipos comuns.
+- Use `Tipo?` quando uma propriedade ou retorno puder representar ausência de valor.
+- Use `List<Tipo>` ou `MutableList<Tipo>` para coleções ordenadas, conforme possam ser alteradas pelo objeto.
 - Use `Map<K, V>` para estruturas chave-valor.
+- Escreva propriedades e parâmetros como `name : String`, com espaços antes e depois de `:`.
+- Escreva métodos sem dois-pontos entre a assinatura e o tipo de retorno, por exemplo `+drive(minutes : Int) DriveResult`.
 - Use a multiplicidade UML nas associações, por exemplo `0..1` para uma referência opcional e `0..*` para uma coleção.
-- Use `null` como representação comum de ausência; não use `None`, `Optional`, `undefined`, ponteiros ou coleções específicas de uma linguagem.
+- Marque membros estáticos com `$` no fim da linha, por exemplo `+DEAD_STAGE : Int$`.
 - Não use tuplas como padrão. Quando os valores tiverem significado próprio, modele atributos nomeados.
 - Preserve os modificadores UML (`+`, `-`, `#`) para indicar a visibilidade.
-- O arquivo fonte deve ser `assets/diagrama.puml`; gere a imagem a partir da pasta `assets` com `plantuml diagrama.puml`.
+- Escreva o diagrama como um bloco Mermaid `classDiagram` no README, com fonte monoespaçada e direção explícita. Use `~` para delimitar tipos genéricos no Mermaid, como `MutableList~Player~`.
 
 Exemplo:
 
-```plantuml
+```mermaid
+%%{init: { "fontFamily": "monospace" } }%%
+classDiagram
+    direction TB
+
 class Notebook {
-  - battery: Battery | null
-  + removeBattery(): Battery | null
+  -battery : Battery?
+  +removeBattery() Battery?
 }
 
 Notebook "1" o-- "0..1" Battery : aggregates

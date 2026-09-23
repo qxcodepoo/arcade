@@ -7,8 +7,8 @@ index_content: |2
 # [GUIDE] Cinema: posições fixas e ausência
 
 <!-- toc-table -->
-[Intro](#intro) | [Draft](#draft) | [Shell](#shell)
--- | -- | --
+[Intro](#intro) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
@@ -29,28 +29,77 @@ Esta atividade introduz vetor de tamanho fixo com posições significativas. Cad
   - A classe Sala `Theater` é responsável por gerenciar as operações relacionadas às cadeiras na sala de cinema.
     - Métodos a serem implementados:
       - públicos: são métodos acessados por outras classes.
-        - `reserve(id: string, phone: string, index: number)`: Retorna o resultado da tentativa de reservar uma cadeira para um cliente.
-        - `cancel(id: string)`: Retorna o resultado do cancelamento da reserva de um cliente.
-        - `getSeats(): Array<Client | null>`: Retorna uma cópia do estado atual das cadeiras, sem expor a coleção interna.
-        - `toString(): string`: Retorna uma representação em string do estado atual das cadeiras na sala.
+        - `reserve(clientId: String, phone: String, index: Int): ReserveResult`: retorna o resultado da tentativa de reservar uma cadeira para um cliente.
+        - `cancel(clientId: String): Boolean`: retorna `true` quando cancela a reserva ou `false` quando o cliente não está no cinema.
+        - `getSeats(): Array<Client?>`: retorna uma cópia do estado atual das cadeiras, sem expor a coleção interna.
+        - `toString(): String`: retorna uma representação textual do estado atual das cadeiras na sala.
       - privados: são métodos apenas de uso interno, utilizados para auxiliar as operações da classe.
-        - `search(name: string): number`: Procura o índice da cadeira reservada pelo cliente com o nome especificado.
-        - `verifyIndex(index: number)`: Verifica se um índice de cadeira é válido na sala.
+        - `search(clientId: String): Int`: procura o índice da cadeira reservada pelo ID do cliente, ou `-1` se não for encontrado.
+        - `verifyIndex(index: Int): Boolean`: verifica se um índice de cadeira é válido na sala.
   - A classe `Client` é responsável por representar os clientes que reservam cadeiras na sala de cinema.
     - A classe possui métodos para obter e definir o ID e telefone do cliente, bem como uma representação em string do cliente.
 
 Os resultados das operações pertencem ao domínio; o `Shell` é responsável por convertê-los nas mensagens exibidas nos casos de falha. A cópia retornada por `getSeats()` impede que um cliente altere diretamente a coleção e quebre a capacidade fixa ou a representação de cadeiras vazias.
 
 
-![diagrama](assets/diagrama.png)
+## Diagrama
 
-[![youtube icon](../yousolver.webp)](https://youtu.be/T1eNw8HtDwY?si=LMVy6W6GHj6iOYda)
+`Theater` possui um vetor de tamanho fixo e cada posição pode conter um `Client` ou `null`. O teatro cria os clientes durante a reserva e controla a coleção interna; a cópia retornada por `getSeats` não substitui esse estado.
 
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
 
-## Draft
+    class ReserveResult {
+        <<enumeration>>
+        OK
+        INVALID_INDEX
+        OCCUPIED
+        DUPLICATE_CLIENT
+    }
 
-<!-- links .cache/starter -->
-<!-- links -->
+    class Client {
+        -var id : String
+        -var phone : String
+        +Client(id : String, phone : String)
+        +getId() String
+        +setId(clientId : String) Unit
+        +getPhone() String
+        +setPhone(phone : String) Unit
+        +toString() String
+    }
+
+    class Theater {
+        -val seats : Array~Client?~
+        +Theater(capacity : Int)
+        -search(clientId : String) Int
+        -verifyIndex(index : Int) Boolean
+        +reserve(clientId : String, phone : String, index : Int) ReserveResult
+        +cancel(clientId : String) Boolean
+        +getSeats() Array~Client?~
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Theater "1" *-- "0..*" Client : seats
+    Theater ..> ReserveResult : returns
+    Shell ..> Theater : commands
+```
+
+No diagrama, propriedades, parâmetros, tipos e assinaturas seguem a notação Kotlin (`clientId : String`, `getSeats() Array<Client?>`). Os setters foram preservados porque fazem parte do contrato didático atual. Os nomes dos comandos do Shell permanecem iguais por fazerem parte do contrato externo.
+
+## Guide
+
+- Inicialize `seats` com `Array(capacity) { null }`, mantendo exatamente a quantidade de cadeiras criada.
+- Faça `verifyIndex` validar o índice antes de acessar o vetor.
+- Em `reserve`, verifique índice inválido, cadeira ocupada e cliente duplicado antes de criar e armazenar `Client`.
+- Em `cancel`, procure o cliente pelo ID e substitua a posição encontrada por `null`.
+- Faça `getSeats()` retornar `seats.copyOf()` para que mudanças na cópia não alterem a sala.
+- Formate `toString()` exibindo `-` nas posições vazias e o cliente nas ocupadas.
 
 ## Shell
 
@@ -113,3 +162,9 @@ $show
 [- - - joao:3131]
 $end
 ```
+
+## Draft
+
+<!-- links .cache/starter -->
+<!-- links -->
+<!-- MERMAID -->

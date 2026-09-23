@@ -29,27 +29,27 @@ Esta atividade prepara o modelo local de um contato. `Phone` concentra a validad
 
 ### Telefone
 
-- `Phone` possui os campos públicos `label: string` e `number: string`.
+- `Phone` possui as propriedades públicas somente de leitura `label: String` e `number: String`.
 - Um telefone é exibido no formato `label:number`, por exemplo, `home:3434`.
-- `isValid()` retorna `true` somente quando o número:
+- `isValid(): Boolean` retorna `true` somente quando o número:
   - não é vazio;
   - contém pelo menos um dígito;
   - contém apenas caracteres de `0123456789()-.`.
 
 ### Contato
 
-- `Contact` recebe o nome no construtor.
+- `Contact(name: String)` recebe o nome no construtor.
 - O programa começa com um contato cujo nome é vazio (`""`); o comando `init` substitui esse contato por outro nomeado.
 - Um novo contato começa sem telefones e não favoritado.
 - A coleção de telefones pertence ao contato e não é exposta para alteração externa. Assim, todo telefone armazenado é válido e a ordem da coleção só muda pelas operações do próprio contato.
-- `addPhone(label: string, number: string): boolean`
+- `addPhone(label: String, number: String): Boolean`
   - Cria e adiciona o telefone ao final quando o número é válido, retornando `true`.
   - Retorna `false` e preserva a coleção quando o número é inválido.
   - Labels podem se repetir.
-- `removePhone(index: number): boolean`
+- `removePhone(index: Int): Boolean`
   - Remove o telefone da posição indicada e retorna `true`.
   - Retorna `false` e preserva a coleção quando o índice é negativo ou não existe.
-- `toggleFavorite(): void`
+- `toggleFavorite(): Unit`
   - Alterna o estado de favorito.
 - O estado de favorito será reutilizado em atividades posteriores para consultar e listar contatos favoritos; nesta atividade, ele só precisa ser alternado e exibido.
 - O favorito é inicialmente apenas um atributo do contato. Ele não deve ser duplicado em uma lista ou mapa nesta atividade.
@@ -73,7 +73,38 @@ Mutações bem-sucedidas são silenciosas. As mensagens de falha pertencem ao `S
 
 `Contact` possui seus telefones: eles são criados para entrar nessa coleção e não possuem ciclo de vida independente neste problema. A composição também deixa visível que somente o contato altera a lista.
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class Phone {
+        +VALID_CHARS : String$
+        +val label : String
+        +val number : String
+        +Phone(label : String, number : String)
+        +isValid() Boolean
+        +toString() String
+    }
+
+    class Contact {
+        +val name : String
+        +var favorite : Boolean
+        -val phones : MutableList~Phone~
+        +Contact(name : String)
+        +addPhone(label : String, number : String) Boolean
+        +removePhone(index : Int) Boolean
+        +toggleFavorite() Unit
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Contact "1" *-- "0..*" Phone : owns
+    Shell ..> Contact : commands
+```
 
 ## Guide
 
@@ -81,15 +112,15 @@ Implemente a atividade em incrementos pequenos e execute os casos correspondente
 
 ### 1. Modele e valide um telefone
 
-- Crie a `dataclass Phone` com `label` e `number`.
-- Implemente sua representação textual.
-- Faça `isValid` conferir se o texto não está vazio, contém pelo menos um dígito e se todos os caracteres pertencem ao conjunto permitido.
+- Crie `Phone` com as propriedades `val label: String` e `val number: String`.
+- Implemente `toString()` no formato `label:number`.
+- Faça `isValid(): Boolean` conferir se o texto não está vazio, contém pelo menos um dígito e se todos os caracteres pertencem ao conjunto permitido.
 
 Verificação: confira diretamente que `Phone("home", "85-99").isValid()` é verdadeiro e que um número vazio, contendo letras ou formado apenas por pontuação é falso.
 
 ### 2. Encapsule a coleção
 
-- Crie `Contact` com nome, favorito falso e uma lista privada vazia.
+- Crie `Contact` com `name`, `favorite` falso e uma `MutableList<Phone>` privada e vazia. A propriedade `favorite` pode ser lida e alterada diretamente; `toggleFavorite()` oferece a operação conveniente usada pelo comando para inverter seu valor.
 - Implemente a exibição percorrendo os telefones na ordem em que foram inseridos.
 - Não crie um getter que devolva a lista interna: clientes devem pedir operações ao contato.
 
@@ -113,7 +144,7 @@ Verificação: após uma tentativa inválida, use `show` e confirme que os telef
 
 - Implemente `toggleFavorite` como uma alternância do booleano atual.
 - Mantenha o estado de favorito no contato: ele será usado por `@agenda` para localizar e exibir favoritos, embora aqui a única operação seja alternar esse estado.
-- Use `match/case` diretamente sobre `line.split()` para interpretar os comandos.
+- Use `when` sobre as partes de `line.trim().split(Regex("\\s+"))` para interpretar os comandos.
 - Mantenha mensagens e impressão fora do domínio.
 
 Perguntas de reflexão:
@@ -122,6 +153,8 @@ Perguntas de reflexão:
 - Por que `Phone` valida o número, mas `Contact` decide se ele entra na coleção?
 - Por que vale a pena manter o estado de favorito agora, mesmo que a listagem de favoritos só apareça em uma atividade posterior?
 - A divisão em duas classes acrescenta algum custo? Que mudança futura torna esse custo justificável?
+
+O diagrama usa tipos e assinaturas Kotlin. `VALID_CHARS` termina com `$` por ser uma constante estática da classe. `toggleFavorite()` é uma operação conveniente para inverter `favorite`; a propriedade também pode ser alterada diretamente. Os comandos do Shell mantêm `camelCase` por fazerem parte do contrato externo.
 
 Na atividade `@agenda`, este modelo será colocado dentro de outra coleção e receberá uma busca por seus campos.
 
@@ -267,3 +300,4 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- MERMAID -->

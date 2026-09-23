@@ -8,24 +8,24 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Material de referência <!-- @refs -->
 
-- [ ] `eval=none            ` [[INTRO] Marcadores pedagógicos](wiki/pedagogic/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Competências trabalhadas](wiki/competencias/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Trabalhos futuros](wiki/trabalhos_futuros/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução ao git](wiki/git/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Relacionamentos](wiki/relacionamento/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Relacionamentos Resumo](wiki/uml/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Como fazer os códigos e relatórios](wiki/relatorio/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Padrão para atividades de código](wiki/atividade_codigo/README.md) <!-- DONE -->
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Criando a Main](wiki/main/README.md) <!-- DONE -->
+- [ ] `eval=none            ` [[INTRO] Marcadores pedagógicos](wiki/pedagogic/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Competências trabalhadas](wiki/competencias/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Trabalhos futuros](wiki/trabalhos_futuros/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução ao git](wiki/git/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Relacionamentos](wiki/relacionamento/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Relacionamentos Resumo](wiki/uml/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Como fazer os códigos e relatórios](wiki/relatorio/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Padrão para atividades de código](wiki/atividade_codigo/README.md)
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Criando a Main](wiki/main/README.md)
 
 ## Classes e Objetos <!-- @intro -->
 
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução Classes e Objetos](wiki/intro/README.md) <!-- DONE -->
-- [ ] `eval=self g=2 l=1 s=1` [[GUIDE] Toalha que enxuga](labs/toalha/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Animal que morre](labs/animal/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Enxugar: Toalha com testes](labs/enxugar/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=3 l=2 s=1` [[ALONE] Carro dirigível](labs/carro/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=3 l=2 s=2` [[CHECK] Calculadora à bateria](labs/calculadora/README.md) <!-- DONE MERMAID -->
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução Classes e Objetos](wiki/intro/README.md)
+- [ ] `eval=self g=2 l=1 s=1` [[GUIDE] Toalha que enxuga](labs/toalha/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Animal que morre](labs/animal/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Enxugar: Toalha com testes](labs/enxugar/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=1` [[ALONE] Carro dirigível](labs/carro/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=2` [[CHECK] Calculadora à bateria](labs/calculadora/README.md) <!-- KOTLIN -->
 
 | Projetos              | toalha | animal | enxugar | carro | calculadora |
 |-----------------------|--------|--------|---------|-------|-------------|
@@ -39,11 +39,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Encapsulamento e Invariantes <!-- @access -->
 
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução Encapsulamento e Invariantes](wiki/access/README.md) <!-- DONE -->
-- [ ] `eval=self g=1 l=1 s=1` [[GUIDE] Chinela de números pares](labs/chinela/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=self g=1 l=1 s=2` [[TRAIN] Camisa de tamanho fixo](labs/camisa/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Roupa: camisa com testes](labs/roupa/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=3 l=2 s=2` [[ALONE] Hora 24h ou AM/PM](labs/relogio/README.md) <!-- DONE MERMAID -->
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução Encapsulamento e Invariantes](wiki/access/README.md)
+- [ ] `eval=self g=1 l=1 s=1` [[GUIDE] Chinela de números pares](labs/chinela/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=2` [[TRAIN] Camisa de tamanho fixo](labs/camisa/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Roupa: camisa com testes](labs/roupa/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=2` [[ALONE] Hora 24h ou AM/PM](labs/relogio/README.md) <!-- KOTLIN -->
 
 | Projetos                | chinela | camisa | roupa | relógio |
 |-------------------------|---------|--------|-------|---------|
@@ -56,10 +56,10 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Relações entre objetos: agregação e delegação <!-- @agreg -->
 
-- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução Agregação e Delegação](wiki/agreg/README.md) <!-- DONE -->
-- [ ] `eval=diff g=3 l=2 s=3` [[GUIDE] Criança andando de Motoca](labs/motoca/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=3 l=3 s=3` [[TRAIN] Lapiseira de um Grafite](labs/grafite/README.md) <!-- DONE MERMAID -->
-- [ ] `eval=diff g=3 l=4 s=3` [[ALONE] Passeando e pagando o MotoUber](labs/motouber/README.md) <!-- DONE MERMAID -->
+- [ ] `eval=none g=1 l=1 s=1` [[INTRO] Introdução Agregação e Delegação](wiki/agreg/README.md)
+- [ ] `eval=diff g=3 l=2 s=3` [[GUIDE] Criança andando de Motoca](labs/motoca/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=3 s=3` [[TRAIN] Lapiseira de um Grafite](labs/grafite/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=4 s=3` [[ALONE] Passeando e pagando o MotoUber](labs/motouber/README.md) <!-- KOTLIN -->
 
 | Projetos                  | motoca    | grafite   | motouber   |
 |---------------------------|-----------|-----------|------------|
@@ -73,9 +73,9 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 ## Desafios de agregação e estados <!-- @agchal -->
 
-- [ ] `eval=none            ` [[INTRO] Desafios de agregação e estados](wiki/agcha/README.md) <!-- DONE -->
-- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Brinque até matar o Tamagotchi](labs/tamagotchi/README.md) <!-- DONE -->
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Notebook com bateria e carregador](labs/charger/README.md) <!-- DONE -->
+- [ ] `eval=none            ` [[INTRO] Desafios de agregação e estados](wiki/agcha/README.md)
+- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Brinque até matar o Tamagotchi](labs/tamagotchi/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Notebook com bateria e carregador](labs/charger/README.md) <!-- KOTLIN -->
 
 | Projetos                        | tamagotchi | charger   |
 |---------------------------------|------------|-----------|
@@ -91,11 +91,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 ## Coleções lineares <!-- @arrays -->
 
 - [ ] `eval=none            ` [[INTRO] Introdução Coleções lineares](wiki/arrays/README.md)
-- [ ] `eval=none            ` [[GUIDE] Listas em Python](wiki/listas/README.md) <!-- DONE -->
-- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Coleção de pessoas](labs/array/README.md) <!-- DONE -->
-- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Contato com telefones](labs/contato/README.md) <!-- DONE -->
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Pula-pula com crianças](labs/pula-pula/README.md) <!-- DONE -->
-- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Lapiseira com tambor de grafites](labs/lapiseira/README.md) <!-- DONE -->
+- [ ] `eval=none            ` [[GUIDE] Listas em Python](wiki/listas/README.md)
+- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Coleção de pessoas](labs/array/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Contato com telefones](labs/contato/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Pula-pula com crianças](labs/pula-pula/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Lapiseira com tambor de grafites](labs/lapiseira/README.md) <!-- KOTLIN -->
 
 | Projetos                 | listas | array | contato    | pula-pula | lapiseira |
 |--------------------------|--------|-------|------------|-----------|-----------|
@@ -112,29 +112,28 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 ## Posições fixas e ausência <!-- @slots -->
 
 - [ ] `eval=none            ` [[INTRO] Introdução Posições fixas e ausência](wiki/slots/README.md)
-- [ ] `eval=diff g=1 l=1 s=1` [[GUIDE] Cinema: posições fixas e ausência](labs/cinema/README.md) <!-- DONE -->
-- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Budega: fila e posições fixas](labs/budega/README.md) <!-- DONE -->
-- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Junkfood: posições fixas e objeto vazio](labs/junkfood/README.md) <!-- DONE -->
+- [ ] `eval=diff g=1 l=1 s=1` [[GUIDE] Cinema: posições fixas e ausência](labs/cinema/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Budega: fila e posições fixas](labs/budega/README.md) <!-- KOTLIN -->
 
-| Projetos              | cinema | budega | junkfood     |
-| --------------------- | ------ | ------ | ------------ |
-| erros comunicados por | bool   | bool   | enum/null    |
-| capacidade fixa       | SIM    | SIM    | SIM          |
-| tipo de ausência      | null   | null   | objeto vazio |
-| fila variável         | .      | SIM    | .            |
-| validação de índice   | SIM    | SIM    | SIM          |
-| testes automáticos    | SIM    | SIM    | SIM          |
-| esforço               | baixo  | médio  | médio-alto   |
-
-
+| Projetos              | cinema | budega |
+| --------------------- | ------ | ------ |
+| erros comunicados por | bool   | bool   |
+| capacidade fixa       | SIM    | SIM    |
+| tipo de ausência      | null   | null   |
+| fila variável         | .      | SIM    |
+| validação de índice   | SIM    | SIM    |
+| testes automáticos    | SIM    | SIM    |
+| esforço               | baixo  | médio  |
 
 ## Exceções <!-- @exception -->
 
 - [ ] `eval=none            ` [[INTRO] Exceções](wiki/exception/README.md)
-- [ ] `eval=diff g=3 l=1 s=1` [[TRAIN] Bermuda: exceções para invariantes de tamanho](labs/bermuda/README.md)
-- [ ] `eval=diff g=3 l=2 s=1` [[TRAIN] Fusca: posições, exceções e direção](labs/fusca/README.md)
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Guardando moedas e itens em um cofrinho](labs/porquinho/README.md)
-- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Tabuleiro: coleções na simulação de turnos](labs/tabuleiro/README.md)
+- [ ] `eval=diff g=3 l=1 s=1` [[TRAIN] Bermuda: exceções para invariantes de tamanho](labs/bermuda/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Birita: fila, caixas e exceções](labs/birita/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Junkfood: exceções e objeto vazio](labs/junkfood/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=1` [[TRAIN] Fusca: posições, exceções e direção](labs/fusca/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Guardando moedas e itens em um cofrinho](labs/porquinho/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Tabuleiro: coleções na simulação de turnos](labs/tabuleiro/README.md) <!-- KOTLIN -->
 
 
 ## Mapas <!-- @crud -->
@@ -154,9 +153,9 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 
 ___
-- [ ] `eval=diff g=3 l=2 s=1` [Agenda: contatos por identidade em um mapa](labs/agenda/README.md)
-- [ ] `eval=diff g=1 l=1 s=1` [Gerencie os empréstimos do agiota](labs/agiota/README.md)
-- [ ] `eval=diff g=1 l=1 s=1` [Meu Petshop](labs/petshop/README.md)
+- [ ] `eval=diff g=3 l=2 s=1` [Agenda: contatos por identidade em um mapa](labs/agenda/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Agiota: clientes identificados por codenome](labs/agiota/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [Meu Petshop](labs/petshop/README.md) <!-- KOTLIN -->
 
 
 
@@ -166,8 +165,8 @@ Neste bloco, você aprenderá a manter diferentes formas de acesso aos mesmos ob
 
 
 ___
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Favoritos: índice secundário e consistência](labs/favoritos/README.md)
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Ligação: composição para histórico e ranking](labs/ligacao/README.md)
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Favoritos: índice secundário e consistência](labs/favoritos/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Ligação: composição para histórico e ranking](labs/ligacao/README.md) <!-- KOTLIN -->
 
 
 ## Polimorfismo <!-- @polimorfismo -->
@@ -187,22 +186,22 @@ ___
   - DIP, quando o domínio precisar deixar de depender de uma implementação concreta.
 
 ___
-- [ ] `eval=self g=1 l=1 s=1` [[ALONE] Zoo: contrato comum e comportamento polimórfico](labs/zoo/README.md)
-- [ ] `eval=self g=1 l=1 s=1` [[TRAIN] Pagamento: composição de métodos de pagamento](labs/pagamento/README.md)
-- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Shapes: interface e substituição geométrica](labs/shapes/README.md)
-- [ ] `eval=self g=3 l=1 s=1` [Estacionamento — polimorfismo por tipo de veículo](labs/estacionamento/README.md)
-- [ ] `eval=diff g=3 l=1 s=1` [Cofre — polimorfismo por contrato de valor](labs/cofre/README.md)
-- [ ] `eval=diff g=3 l=1 s=1` [Cadastro — contas com regras polimórficas](labs/cadastro/README.md)
+- [ ] `eval=self g=1 l=1 s=1` [[ALONE] Zoo: contrato comum e comportamento polimórfico](labs/zoo/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=1` [[TRAIN] Pagamento: composição de métodos de pagamento](labs/pagamento/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Shapes: interface e substituição geométrica](labs/shapes/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=3 l=1 s=1` [Estacionamento — polimorfismo por tipo de veículo](labs/estacionamento/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=1 s=1` [Cofre — polimorfismo por contrato de valor](labs/cofre/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=1 s=1` [Cadastro — contas com regras polimórficas](labs/cadastro/README.md) <!-- KOTLIN -->
 
 
 
 ## TODO <!-- @todo lang=X -->
 
-- [ ] `eval=diff g=1 l=1 s=1` [Twitter — colaboração entre usuários e timelines](labs/twitter/README.md)
-- [ ] `eval=diff g=1 l=1 s=1` [Salário — regras de cálculo polimórficas](labs/salario/README.md)
-- [ ] `eval=diff g=2 l=1 s=1` [Mensagem — inbox e leitura destrutiva](labs/mensagem/README.md)
-- [ ] `eval=self g=1 l=1 s=1` [Comunicador — envio autorizado por composição](labs/comunicador/README.md)
-- [ ] `eval=self g=2 l=1 s=1` [Paciente — vínculos bidirecionais no hospital](labs/paciente/README.md)
+- [ ] `eval=diff g=1 l=1 s=1` [Twitter — colaboração entre usuários e timelines](labs/twitter/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [Salário — regras de cálculo polimórficas](labs/salario/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [Mensagem — inbox e leitura destrutiva](labs/mensagem/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=1` [Comunicador — envio autorizado por composição](labs/comunicador/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=2 l=1 s=1` [Paciente — vínculos bidirecionais no hospital](labs/paciente/README.md) <!-- KOTLIN -->
 - [ ] `eval=diff g=3 l=1 s=1` [WhatsApp — grupos e estado de leitura por participante](labs/whatsapp/README.md)
 - [ ] `eval=self g=3 l=1 s=1` [Grupo — contrato comum para chats](labs/grupo/README.md)
 - [ ] `eval=self g=1 l=1 s=1` [Vetores — coleção linear e índices](labs/vetores/README.md)

@@ -17,9 +17,9 @@ index_content: |2
 
 O objetivo desta atividade é praticar as operações fundamentais de uma coleção linear usando uma lista de pessoas: inserir nas extremidades, remover, buscar e filtrar.
 
-Como conhecimento prévio, você precisará de variáveis, condicionais, laços, funções e listas básicas em Python.
+Como conhecimento prévio, você precisará de variáveis, condicionais, laços, funções e listas básicas.
 
-Você implementará uma `dataclass Person`, que guarda o nome e a idade de uma pessoa. A função `main` manterá uma `list[Person]`, interpretará os comandos do `Shell` e aplicará as operações diretamente nessa lista.
+Você implementará uma `Person`, que guarda o nome e a idade de uma pessoa. A função `main` manterá uma `MutableList<Person>`, interpretará os comandos do `Shell` e aplicará as operações diretamente nessa lista.
 
 Ainda não criaremos uma classe para gerenciar a coleção. Nesta atividade, a própria lista e suas operações são o conceito estudado; uma classe adicional esconderia justamente as manipulações que queremos observar.
 
@@ -27,7 +27,7 @@ Ainda não criaremos uma classe para gerenciar a coleção. Nesta atividade, a p
 
 ### Pessoa e coleção
 
-- `Person` possui os campos públicos `name: str` e `age: int`.
+- `Person` possui as propriedades públicas `name: String` e `age: Int`.
 - Uma pessoa é exibida no formato `name:age`, por exemplo, `ana:20`.
 - A coleção começa vazia e é exibida entre colchetes, com as pessoas separadas por vírgula e espaço.
   - Coleção vazia: `[]`.
@@ -61,9 +61,25 @@ Todos os comandos de alteração são silenciosos, removam ou não algum element
 
 ## Diagrama
 
-`Person` representa somente os dados de uma pessoa. A multiplicidade `0..*` indica que a lista mantida pela função `main` pode conter nenhuma ou várias pessoas.
+`Person` representa somente os dados de uma pessoa. A multiplicidade `0..*` indica que a lista mutável mantida pela função `main` pode conter nenhuma ou várias pessoas.
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class Person {
+        +val name : String
+        +val age : Int
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Shell ..> Person : creates and stores in MutableList~Person~
+```
 
 ## Guide
 
@@ -71,16 +87,16 @@ Implemente e teste uma operação de cada vez. Ao fim de cada etapa, execute os 
 
 ### 1. Represente e exiba pessoas
 
-- Crie `Person` com `@dataclass` e os campos públicos `name: str` e `age: int`.
-- Na `main`, crie uma variável `people: list[Person]`, inicialmente vazia.
-- Implemente `show` percorrendo a lista para produzir exatamente o formato `[ana:20, bia:15]`.
+- Crie `Person` com as propriedades públicas `val name: String` e `val age: Int`, e sobrescreva `toString()` para retornar `name:age`.
+- Na `main`, crie uma variável `people: MutableList<Person>`, inicialmente vazia, usando `mutableListOf()`.
+- Implemente `show` para exibir a lista no formato `[ana:20, bia:15]`.
 
 Verificação: `show` deve exibir `[]` antes de qualquer inserção.
 
 ### 2. Insira nas extremidades
 
-- Em `pushBack`, use a operação da lista que acrescenta um elemento ao final.
-- Em `pushFront`, insira a nova pessoa na posição inicial.
+- Em `pushBack`, use `add` para acrescentar uma pessoa ao final.
+- Em `pushFront`, use `add(0, person)` para inserir a nova pessoa na posição inicial.
 - Observe que inserir sempre no início inverte a ordem de chegada dessas pessoas.
 
 Verificação: insira pessoas com os dois comandos e confira a ordem usando `show`.
@@ -88,7 +104,7 @@ Verificação: insira pessoas com os dois comandos e confira a ordem usando `sho
 ### 3. Remova pelas extremidades
 
 - Antes de remover, verifique se a lista contém algum elemento.
-- `popBack` retira o último elemento, enquanto `popFront` retira o primeiro.
+- `popBack` retira o último elemento com `removeAt(lastIndex)`, enquanto `popFront` retira o primeiro com `removeAt(0)`.
 - Não imprima falha quando a lista estiver vazia: a coleção deve apenas continuar vazia.
 
 Verificação: remova até esvaziar a lista e tente remover novamente.
@@ -103,7 +119,7 @@ Verificação: cadastre o mesmo nome duas vezes e confirme que apenas a primeira
 
 ### 5. Filtre pela idade
 
-- Em `removeBelowAge`, mantenha somente as pessoas cuja idade seja maior ou igual ao limite.
+- Em `removeBelowAge`, use `removeAll` para retirar as pessoas cuja idade seja menor que o limite.
 - Confira a fronteira: uma pessoa com idade igual ao argumento não deve ser removida.
 
 Verificação: experimente um limite que preserve algumas pessoas e outro que remova todas.
@@ -113,6 +129,8 @@ Perguntas de reflexão:
 - Por que `removeName` precisa interromper a busca, mas `removeBelowAge` precisa examinar a coleção inteira?
 - Que custo a inserção ou remoção no início de uma lista pode ter em comparação com a mesma operação no final?
 - Se várias regras próprias da coleção surgissem depois, em que momento uma classe gerenciadora passaria a ajudar?
+
+O diagrama usa `MutableList~Person~` para representar a lista mantida pela função `main`. Os nomes `pushBack`, `pushFront`, `removeName` e `removeBelowAge` permanecem em `camelCase` porque são comandos do contrato externo do Shell.
 
 ## Shell
 
@@ -253,3 +271,4 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- MERMAID -->

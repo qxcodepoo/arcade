@@ -51,7 +51,7 @@ Vamos implementar o modelo do twitter. Os usuários se cadastram e podem follow 
 ##################################
 # Repositório de Usuários
 ##################################
-#TEST_CASE cadastrar
+#ARCHIVED_TEST_CASE cadastrar
 $addUser goku
 $addUser sara
 $addUser tina
@@ -69,7 +69,7 @@ tina
 ##################################
 # Seguir e ser seguido
 ##################################
-#TEST_CASE seguir
+#ARCHIVED_TEST_CASE seguir
 
 $follow goku sara
 $follow goku tina
@@ -88,7 +88,7 @@ tina
 ##################################
 # Voa passarinho
 ##################################
-#TEST_CASE twittar
+#ARCHIVED_TEST_CASE twittar
 #twittar _userId _msg
 
 $twittar sara hoje estou triste
@@ -117,7 +117,7 @@ $timeline sara
 ##################################
 # Gostei dei like
 ##################################
-#TEST_CASE like
+#ARCHIVED_TEST_CASE like
 #like _username _idTw
 
 $like sara 1
@@ -141,7 +141,7 @@ $timeline goku
 ##################################
 # Errinhos
 ##################################
-#TEST_CASE erros
+#ARCHIVED_TEST_CASE erros
 
 # lembre de tratar erros como
 $timeline bruno

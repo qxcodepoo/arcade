@@ -1,15 +1,18 @@
 # Meu Petshop
 
-<!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
+
+## Intro
 
 Uma clínica veterinária precisa cadastrar clientes, seus animais, os serviços
 oferecidos e as vendas realizadas. O sistema deve localizar cada informação
 pela identidade que faz sentido para aquela parte do domínio.
 
-## Objetivo pedagógico
+### Objetivo pedagógico
 
 O objetivo principal é escolher mapas quando as entidades são localizadas por
 chaves únicas. Como objetivo secundário, a atividade mostra como relacionar
@@ -34,14 +37,92 @@ Conceitos e técnicas trabalhados:
 - Uma venda só é criada se o cliente, o animal e o serviço existirem.
 - A venda registra o preço do serviço no momento da venda. Alterações futuras
   no cadastro do serviço não devem modificar o histórico.
+- `Clinic.sell(clientId: String, petName: String, serviceId: String)` lança
+  `ClinicError` se o cliente, o animal ou o serviço não existir, sem criar uma venda.
 - Excluir um cliente remove seu cadastro e seus animais, mas não apaga vendas
   já realizadas.
 - O domínio não imprime mensagens. As falhas são lançadas como `ClinicError` e
   convertidas pelo `Shell` para mensagens `fail: ...`.
+- `Pet(id: Int, name: String, species: String)`, `Service(id: String, price: Double)`
+  e `Sale(id: Int, clientId: String, petName: String, serviceId: String, price: Double)`
+  representam registros imutáveis.
+- Preços e faturamento são exibidos com uma casa decimal. A apresentação de
+  clientes, animais, serviços e vendas preserva a ordem de cadastro.
 
 ## Diagrama
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class ClinicError {
+        +ClinicError(message : String)
+    }
+
+    class Pet {
+        +val id : Int
+        +val name : String
+        +val species : String
+        +toString() String
+    }
+
+    class Client {
+        +val id : String
+        +val name : String
+        -val petsByName : MutableMap~String, Pet~
+        +Client(id : String, name : String)
+        +addPet(pet : Pet) Unit
+        +getPet(name : String) Pet
+        +pets() List~Pet~
+        +toString() String
+    }
+
+    class Service {
+        +val id : String
+        +val price : Double
+        +toString() String
+    }
+
+    class Sale {
+        +val id : Int
+        +val clientId : String
+        +val petName : String
+        +val serviceId : String
+        +val price : Double
+        +toString() String
+    }
+
+    class Clinic {
+        -val clients : MutableMap~String, Client~
+        -val services : MutableMap~String, Service~
+        -val sales : MutableList~Sale~
+        -var nextPetId : Int
+        -var nextSaleId : Int
+        +Clinic()
+        +addClient(id : String, name : String) Unit
+        +getClient(id : String) Client
+        +deleteClient(id : String) Unit
+        +addPet(clientId : String, name : String, species : String) Unit
+        +addService(id : String, price : Double) Unit
+        +sell(clientId : String, petName : String, serviceId : String) Unit
+        +clientsText() String
+        +servicesText() String
+        +salesText() String
+        +balance() Double
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Client "1" *-- "0..*" Pet : owns
+    Clinic "1" *-- "0..*" Client : registers
+    Clinic "1" o-- "0..*" Service : offers
+    Clinic "1" *-- "0..*" Sale : records
+    Shell ..> Clinic : commands
+    Clinic ..> ClinicError : raises
+```
 
 ## Guide
 
@@ -164,3 +245,4 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- KOTLIN -->

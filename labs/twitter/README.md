@@ -1,13 +1,15 @@
 ---
 index_content: |2
-    - Objetivo: coordenar relações entre usuários e distribuição de tweets sem centralizar todas as regras.
-    - Conceitos: composição, delegação, relações bidirecionais, coleção compartilhada e estado derivado.
-    - Técnicas: encapsular timeline, manter vínculos consistentes e tratar remoção e referências.
-    - Pré-requisito: mapas, polimorfismo, coleções e relações bidirecionais.
+    - Descrição: usuários seguem uns aos outros, publicam tweets e consultam timelines compartilhadas.
+    - Domínio: usernames e ids de tweets são únicos, relações de seguir são bidirecionais e remoções limpam vínculos.
+    - Objetivos: coordenar objetos colaboradores e manter timelines e curtidas consistentes com tweets compartilhados.
 ---
 # Twitter — colaboração entre usuários e timelines
 
-<toc-table />
+<!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Verificação](#verificação) | [Shell](#shell)
+-- | -- | -- | -- | -- | --
+<!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
@@ -24,19 +26,77 @@ consultar tweets sem transformar `User` ou `Twitter` em um objeto monolítico.
 
 ## Regras
 
-- usernames e tweet ids são únicos.
-- Um usuário pode seguir outro usuário cadastrado; seguir a si mesmo não produz efeito.
-- Um tweet aparece na timeline do autor e dos seus seguidores no momento da publicação.
-- `like` só pode ser aplicado a um tweet presente na timeline do usuário.
-- Curtidas são compartilhadas pelo tweet e não aparecem duplicadas.
-- `unfollow` remove da timeline do seguidor os tweets do usuário deixado de seguir.
-- `rt` cria um novo tweet e mantém referência ao tweet original.
-- Remover usuário desfaz seus vínculos e marca seus tweets como removidos.
-- Tweets removidos não aparecem sozinhos; uma referência de retweet ainda pode informar que o original foi removido.
+- `Twitter` cadastra usernames uma única vez e cria ids de tweet sequenciais começando em `0`.
+- `User.follow(other : User)` registra a relação nos dois usuários; seguir a si mesmo não altera o estado.
+- `tweet(username : String, text : String)` publica na timeline do autor e de seus seguidores atuais.
+- `like(username : String, identifier : Int)` só funciona para um tweet da timeline do usuário. As curtidas pertencem ao `Tweet` compartilhado e usernames não se repetem.
+- `unfollow(follower : String, followed : String)` remove a relação nos dois lados e os tweets daquele autor da timeline do seguidor.
+- `retweet(username : String, identifier : Int, text : String)` cria um novo tweet com referência ao original.
+- Remover um usuário desfaz seus vínculos e marca seus tweets como removidos. Um tweet removido não aparece sozinho; um retweet continua visível e mantém a referência ao original.
+- Usuário inexistente lança `UserNotFoundError` com `fail: usuario nao encontrado`; tweet ausente na timeline lança `TweetNotFoundError` com `fail: tweet nao existe`.
+- `Timeline` exibe tweets por id decrescente, com curtidas ordenadas alfabeticamente.
+- Os comandos do Shell são `add`, `show`, `follow`, `unfollow`, `twittar`, `timeline`, `like`, `rt`, `rm` e `end`.
 
 ## Diagrama
 
-![Diagrama de classes](assets/diagrama.png)
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "monospace"}}}%%
+classDiagram
+    direction LR
+
+    class Twitter {
+        -val users : MutableMap~String, User~
+        -val tweets : MutableMap~Int, Tweet~
+        -var nextTweetId : Int
+        +user(username : String) User
+        +addUser(username : String) Unit
+        +follow(follower : String, followed : String) Unit
+        +unfollow(follower : String, followed : String) Unit
+        +tweet(username : String, text : String) Tweet
+        +like(username : String, identifier : Int) Unit
+        +retweet(username : String, identifier : Int, text : String) Tweet
+        +removeUser(username : String) Unit
+    }
+
+    class User {
+        +val username : String
+        +val followers : MutableMap~String, User~
+        +val following : MutableMap~String, User~
+        +val timeline : Timeline
+        +follow(other : User) Unit
+        +unfollow(other : User) Unit
+    }
+
+    class Timeline {
+        -val tweets : MutableMap~Int, Tweet~
+        +receive(tweet : Tweet) Unit
+        +removeAuthor(username : String) Unit
+        +find(identifier : Int) Tweet
+    }
+
+    class Tweet {
+        +val identifier : Int
+        +val author : String
+        +val text : String
+        +var original : Tweet?
+        +val likes : MutableSet~String~
+        +var deleted : Boolean
+        +like(username : String) Unit
+    }
+
+    class TwitterError
+    class UserNotFoundError
+    class TweetNotFoundError
+
+    TwitterError <|-- UserNotFoundError
+    TwitterError <|-- TweetNotFoundError
+    Twitter "1" *-- "0..*" User
+    Twitter "1" *-- "0..*" Tweet
+    User "0..*" -- "0..*" User : follows
+    User "1" *-- "1" Timeline
+    Timeline "1" o-- "0..*" Tweet : references
+    Tweet "0..*" --> "0..1" Tweet : original
+```
 
 ## Guide
 
@@ -48,19 +108,20 @@ consultar tweets sem transformar `User` ou `Twitter` em um objeto monolítico.
    Toda alteração deve atualizar os dois lados, preservando a consistência.
 4. Faça `Twitter` localizar objetos e coordenar a criação, distribuição,
    retweet e remoção. As regras de armazenamento da timeline permanecem nela.
-5. Implemente o `Shell` depois do domínio, convertendo texto e apresentando
+5. Implemente o `main()` depois do domínio, convertendo texto e apresentando
    exceções nomeadas. Teste relações, compartilhamento de curtidas e falhas.
 
 A atividade trabalha composição e delegação: `Twitter` possui usuários e
-tweets, `User` possui uma timeline, e a timeline recebe tweets compartilhados.
-O custo é coordenar referências entre objetos; o benefício é que cada mudança
-tem uma responsabilidade clara e a evolução não exige um único objeto com
-todas as regras.
+tweets; cada usuário possui sua `Timeline`, que
+referencia os mesmos tweets do registro central. Usuários e tweets são criados
+e removidos pela rede; as timelines pertencem aos usuários. Essa colaboração
+mantém curtidas compartilhadas e centraliza as regras de vínculo, ao custo de
+coordenar referências bidirecionais e limpar essas relações durante a remoção.
 
 ## Verificação
 
-Execute `python3 -m unittest discover src/py` e verifique publicação para
-seguidores, unfollow, curtidas, retweet, remoção e ids inexistentes.
+Execute `tko run . -l kt` para verificar publicação para seguidores, unfollow,
+curtidas, retweet, remoção e ids inexistentes.
 
 ## Shell
 
@@ -75,3 +136,42 @@ $timeline goku
 0:sara (hoje estou feliz) [goku]
 $end
 ```
+
+```sh
+#TEST_CASE shared likes and unfollow
+$add goku
+$add sara
+$follow goku sara
+$twittar sara hello
+$like goku 0
+$timeline sara
+0:sara (hello) [goku]
+$unfollow goku sara
+$timeline goku
+$end
+```
+
+```sh
+#TEST_CASE missing references
+$add goku
+$like goku 0
+fail: tweet nao existe
+$timeline nobody
+fail: usuario nao encontrado
+$end
+```
+
+```sh
+#TEST_CASE retweet remains after original author removal
+$add goku
+$add sara
+$follow goku sara
+$twittar sara original
+$rt goku 0 quote
+$rm sara
+$timeline goku
+1:goku (quote)
+$end
+```
+
+<!-- KOTLIN -->

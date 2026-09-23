@@ -10,7 +10,6 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | --
-<!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
@@ -26,33 +25,33 @@ O `Shell` interpreta comandos e apresenta falhas. `Agenda` garante a unicidade d
 
 Em `contato`, o foco está em proteger a coleção de telefones e manter válidos os dados de um único contato. Em `agenda`, esse objeto passa a fazer parte de um conjunto identificado por chave: `Agenda` localiza contatos, enquanto `Contact` continua responsável por seus próprios dados e comportamentos.
 
-O favorito ainda é apenas um atributo de `Contact`. A consulta `get_favorites()` percorre o mapa principal e produz uma lista temporária, sem manter uma segunda estrutura. Essa escolha evita redundância e mantém o mapa como única fonte de verdade. A manutenção de um mapa ou conjunto persistente de favoritos, com o custo de sincronização correspondente, será estudada futuramente em [`@favoritos`](../favoritos/README.md).
+O favorito ainda é apenas um atributo de `Contact`. A consulta `getFavorites()` percorre o mapa principal e produz uma lista temporária, sem manter uma segunda estrutura. Essa escolha evita redundância e mantém o mapa como única fonte de verdade. A manutenção de um mapa ou conjunto persistente de favoritos, com o custo de sincronização correspondente, será estudada futuramente em [`@favoritos`](../favoritos/README.md).
 
 ## Regras
 
 ### Modelo reutilizado
 
 - `Phone` mantém `label` e `number`, usa o formato `label:number` e aceita somente números não vazios, com pelo menos um dígito, formados por `0123456789()-.`.
-- `Phone.matches(pattern) -> bool` verifica se o padrão aparece no label ou no número.
+- `Phone.matches(pattern: String): Boolean` verifica se o padrão aparece no label ou no número.
 - `Contact` mantém nome, favorito e uma coleção privada de telefones.
-- `Contact.matches(pattern) -> bool` verifica o nome e delega a busca em label e número aos telefones.
+- `Contact.matches(pattern: String): Boolean` verifica o nome e delega a busca em label e número aos telefones.
 - A busca diferencia letras maiúsculas e minúsculas.
 - A representação permanece `- name [phones]` ou `@ name [phones]`.
 
 ### Agenda
 
-- `Agenda` guarda seus contatos em `dict[str, Contact]`.
+- `Agenda` guarda seus contatos em um `MutableMap<String, Contact>` privado.
 - O nome do contato é a chave e deve ser único.
-- `add_contact(name) -> bool`
+- `addContact(name: String): Boolean`
   - Cria um contato vazio e retorna `true` quando a chave ainda não existe.
   - Retorna `false` e preserva o contato existente quando o nome está duplicado.
-- `get_contact(name) -> Contact | None`
-  - Retorna o contato associado ao nome ou `None` quando ele não existe.
-- `remove_contact(name) -> bool`
+- `getContact(name: String): Contact?`
+  - Retorna o contato associado ao nome ou `null` quando ele não existe.
+- `removeContact(name: String): Boolean`
   - Remove o contato e retorna `true`, ou retorna `false` sem alterar o mapa.
-- `search(pattern) -> list[Contact]`
+- `search(pattern: String): List<Contact>`
   - Retorna uma nova lista com os contatos cujo nome, label ou número contenha o padrão.
-- `get_favorites() -> list[Contact]`
+- `getFavorites(): List<Contact>`
   - Retorna uma nova lista apenas com os contatos favoritos.
 - Busca, favoritos e exibição completa usam ordem alfabética por nome. Favoritos são uma consulta derivada, não uma segunda coleção persistente. O mapa interno continua sendo a única fonte de verdade e não precisa ser reordenado.
 - A agenda não expõe o mapa interno.
@@ -79,7 +78,52 @@ Mutações bem-sucedidas e consultas sem resultados são silenciosas.
 
 `Agenda` possui contatos identificados pelo nome, e cada `Contact` possui seus telefones. `Agenda` coordena sem assumir as regras internas de `Contact` ou `Phone`.
 
-![diagrama](assets/diagrama.png)
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class Phone {
+        +VALID_CHARS : String$
+        +val label : String
+        +val number : String
+        +Phone(label : String, number : String)
+        +isValid() Boolean
+        +matches(pattern : String) Boolean
+        +toString() String
+    }
+
+    class Contact {
+        +val name : String
+        +var favorite : Boolean
+        -val phones : MutableList~Phone~
+        +Contact(name : String)
+        +addPhone(label : String, number : String) Boolean
+        +removePhone(index : Int) Boolean
+        +toggleFavorite() Unit
+        +matches(pattern : String) Boolean
+        +toString() String
+    }
+
+    class Agenda {
+        -val contacts : MutableMap~String, Contact~
+        +Agenda()
+        +addContact(name : String) Boolean
+        +getContact(name : String) Contact?
+        +removeContact(name : String) Boolean
+        +search(pattern : String) List~Contact~
+        +getFavorites() List~Contact~
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Agenda "1" *-- "0..*" Contact : keyed by name
+    Contact "1" *-- "0..*" Phone : owns
+    Shell ..> Agenda : commands
+```
 
 ## Guide
 
@@ -93,13 +137,13 @@ Comece com o modelo concluído em `@contato` e evolua apenas o que a nova respon
 
 Verificação: procure separadamente por um trecho do nome, do label e do número.
 
-Confirme também que a regra de `Phone.is_valid()` continua igual à de `@contato`: um texto formado apenas por pontuação deve ser recusado. A evolução da atividade não deve alterar uma invariante já estabelecida.
+Confirme também que a regra de `Phone.isValid()` continua igual à de `@contato`: um texto formado apenas por pontuação deve ser recusado. A evolução da atividade não deve alterar uma invariante já estabelecida.
 
 ### 2. Modele identidade com um mapa
 
-- Crie `Agenda` com um dicionário privado inicialmente vazio.
+- Crie `Agenda` com um `MutableMap<String, Contact>` privado inicialmente vazio.
 - Use o nome como chave e o próprio `Contact` como valor.
-- Implemente `add_contact`, `get_contact` e `remove_contact` usando a chave.
+- Implemente `addContact`, `getContact` e `removeContact` usando a chave.
 - Recuse nomes duplicados em vez de substituir silenciosamente o objeto e seus telefones.
 
 Uma lista exigiria percorrer contatos para localizar cada nome e permitiria duplicidades acidentais. O mapa representa diretamente a identidade única, ao custo de introduzir uma nova estrutura e de ordenar os valores quando a apresentação exigir.
@@ -107,15 +151,15 @@ Uma lista exigiria percorrer contatos para localizar cada nome e permitiria dupl
 ### 3. Preserve as responsabilidades ao coordenar
 
 - `Agenda` conhece a associação entre nome e contato.
-- Depois de localizar um contato, use `Contact.add_phone`, `remove_phone` ou `toggle_favorite`.
+- Depois de localizar um contato, use `Contact.addPhone`, `removePhone` ou `toggleFavorite`.
 - Não altere a coleção de telefones dentro de `Agenda`.
-- O `Shell` converte `None` e booleanos nas mensagens literais do contrato.
+- O `Shell` converte `null` e booleanos nas mensagens literais do contrato.
 
 Verificação: tente operar sobre um contato inexistente e confira que nenhum contato foi criado como efeito colateral.
 
 ### 4. Produza consultas ordenadas
 
-- Para `search` e `get_favorites`, percorra os valores do mapa, filtre e crie uma nova lista.
+- Para `search` e `getFavorites`, percorra os valores do mapa, filtre e crie uma nova lista.
 - Ordene essa lista pelo nome antes de retorná-la.
 - Use o mesmo critério para a representação completa da agenda.
 
@@ -123,7 +167,7 @@ Não mantenha ao mesmo tempo um mapa e uma lista ordenada de contatos, nem uma l
 
 ### 5. Conecte o Shell
 
-- Use `match/case` diretamente sobre `line.split()`.
+- Use `when` para interpretar os argumentos de cada comando.
 - Separe os comandos de criação do contato e adição do telefone.
 - Imprima somente resultados de consultas e falhas definidas no contrato.
 
@@ -313,3 +357,4 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- KOTLIN -->

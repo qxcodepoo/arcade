@@ -17,12 +17,12 @@ index_content: |2
 
 O objetivo dessa atividade é implementar uma calculadora que utiliza bateria. Se há bateria, ela executa operações de soma e divisão. É possível também mostrar a quantidade de bateria e recarregar a calculadora. Ela avisa quando está sem bateria e se há tentativa de divisão por 0.
 
-O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora altera `display` e `battery`, enquanto o `Shell` mostra as falhas. Cada operação usa o retorno que melhor descreve suas possibilidades: `add` retorna `boolean`, pois só pode falhar por falta de bateria, e `divide` retorna `DivisionResult`, pois possui dois tipos de falha.
+O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora altera `display` e `battery`, enquanto o `Shell` mostra as falhas. Cada operação usa o retorno que melhor descreve suas possibilidades: `add(left: Int, right: Int): Boolean` só pode falhar por falta de bateria, e `divide(numerator: Int, denominator: Int): DivisionResult` possui dois tipos de falha.
 
 ## Regras
 
 - Descrição
-  - A calculadora possui um display `display` e uma bateria `battery`. Ela guarda o valor atual da bateria e o valor máximo `maxBattery`.
+  - A calculadora possui um display `display: Double` e uma bateria `battery: Int`. Ela guarda o valor atual da bateria e o valor máximo `maxBattery: Int`.
   - O display é onde o resultado das operações é armazenado.
   - A bateria é a quantidade de energia que a calculadora possui.
   - Cada operação gasta um ponto de bateria.
@@ -30,7 +30,7 @@ O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora
   - A calculadora não pode realizar divisões por zero.
 - Construtor
   - Requisição `$init maxBattery`
-  - Receba o máximo de bateria como parâmetro no construtor da Calculadora.
+  - Receba o máximo de bateria como parâmetro no construtor `Calculator(maxBattery: Int)`.
 - `toString`
   - Deve ser invocado na requisição `$show`.
   - Retorna a representação da calculadora no formato:
@@ -44,13 +44,13 @@ O foco é separar a regra da calculadora das mensagens do `Shell`: a calculadora
   - Requisição: `$sum left right`
   - Soma dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: insufficient battery`.
-  - O método `add(left: number, right: number): boolean` retorna `true` quando realiza a soma e `false` quando não há bateria. Em caso de falha, mantém o display.
+  - O método `add(left: Int, right: Int): Boolean` retorna `true` quando realiza a soma e `false` quando não há bateria. Em caso de falha, mantém o display.
 - Divisão
   - Requisição: `$div numerator denominator`
   - Divide dois valores e guarda no display.
   - Se não houver bateria, emita a mensagem `fail: insufficient battery`.
   - Se houver divisão por zero, consome um ponto de bateria, mantém o display anterior e emite a mensagem `fail: division by zero`.
-  - O método `divide(numerator: number, denominator: number): DivisionResult` retorna `OK`, `NO_BATTERY` ou `DIVISION_BY_ZERO`.
+  - O método `divide(numerator: Int, denominator: Int): DivisionResult` retorna `OK`, `NO_BATTERY` ou `DIVISION_BY_ZERO`.
 - Separe as responsabilidades:
   - A classe Calculadora não deve conter nenhuma operação de impressão.
   - A classe Shell não deve ter lógica de negócios.
@@ -72,45 +72,39 @@ classDiagram
     }
 
     class Calculator {
-        -battery : number
-        -maxBattery : number
-        -display : number
-        +constructor(maxBattery : number)
-        +charge(amount : number) void
-        +add(left : number, right : number) boolean
-        +divide(numerator : number, denominator : number) DivisionResult
-        +toString() string
+        -var battery : Int
+        -val maxBattery : Int
+        -var display : Double
+        +Calculator(maxBattery : Int)
+        +charge(amount : Int) Unit
+        +add(left : Int, right : Int) Boolean
+        +divide(numerator : Int, denominator : Int) DivisionResult
+        +toString() String
     }
 
     class Shell {
-        +main() void
+        +main() Unit
     }
 
     Calculator ..> DivisionResult : returns
     Shell ..> Calculator : creates and uses
-    Shell ..> DivisionResult : interprets
 ```
 
 ## Guide
 
 - Comece pelo construtor, garantindo que `display` e `battery` iniciem em `0`.
-- Implemente `charge` limitando a bateria a `maxBattery` e ignorando valores negativos.
-- Implemente `add` retornando `boolean` e `divide` retornando `DivisionResult`.
+- Implemente `charge(amount: Int)` limitando a bateria a `maxBattery` e ignorando valores negativos.
+- Implemente `add(left: Int, right: Int): Boolean` e `divide(numerator: Int, denominator: Int): DivisionResult`.
 - No `Shell`, traduza o `false` de `add` e cada valor de `DivisionResult` para a mensagem literal definida nas regras.
 
 Pergunta de reflexão: por que a divisão por zero mantém o `display`, mas ainda consome bateria?
 
-- Como formatar com duas casas decimais em diferentes linguagens.
+- Para manter o ponto decimal independentemente da localidade do sistema, formate o display com `Locale.US`.
 
-```java
-// java
-public String toString() {
-    // Dependendo da configuração do sistema, o java usa vírgula nos decimais. 
-    // Para contornar isso e gerar sempre com ponto, usamos a classe Decimal Format
-    DecimalFormat df = new DecimalFormat("0.00");
-    return String.format("display = %s, battery = %d", df.format(this.display).replace(',','.'), this.battery);
+```kotlin
+override fun toString(): String {
+    return String.format(Locale.US, "display = %.2f, battery = %d", display, battery)
 }
-
 ```
 
 ## Shell

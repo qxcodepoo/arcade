@@ -7,11 +7,13 @@ index_content: |2
 # [TRAIN] Guardando moedas e itens em um cofrinho
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Exceções](#exceções) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
-## Objetivo pedagógico
+## Intro
 
 Esta atividade modela um porquinho com capacidade limitada que deixa de ser
 utilizável quando é quebrado. O objetivo principal é proteger invariantes de
@@ -20,12 +22,17 @@ composição de objetos e a imutabilidade de valores armazenados.
 
 ## Regras
 
-- `Coin` representa uma moeda com valor, volume e rótulo. As moedas disponíveis
-  são `C10`, `C25`, `C50` e `C100`.
-- `Item` representa um objeto identificado por rótulo e volume.
+- `Coin` é uma `data class` imutável com `value: Double`, `volume: Int` e `label: String`. Os códigos disponíveis são `10`, `25`, `50` e `100`.
+- `Item` é uma `data class` imutável com `label: String` e `volume: Int`.
 - Moedas e itens são imutáveis depois de criados. Não há setters, pois alterar
   um objeto já guardado poderia quebrar a capacidade do porquinho.
-- `Pig` começa intacto e vazio. Seu volume ocupado nunca ultrapassa a capacidade.
+- `Pig(capacity: Int)` começa intacto e vazio. Seu volume ocupado nunca ultrapassa a capacidade.
+- `addCoin(coin: Coin): Unit` e `addItem(item: Item): Unit` lançam `PigError` se o porquinho estiver quebrado ou o objeto não couber.
+- `breakPig(): Unit` muda o estado para quebrado uma única vez.
+- `extractCoins(): List<Coin>` e `extractItems(): List<Item>` só funcionam depois da quebra; cada método devolve uma cópia e esvazia somente sua coleção.
+- `value(): Double` soma o valor das moedas que ainda estão guardadas.
+- `volume(): Int` soma os volumes enquanto intacto e retorna `0` depois da quebra.
+- `toString(): String` mostra estado, coleções, valor e volume no formato dos testes.
 - Uma adição que não cabe ou ocorre depois da quebra falha sem alterar o estado.
 - Quebrar o porquinho é uma transição terminal para as operações de adição.
 - Antes da quebra, não é possível extrair moedas ou itens.
@@ -33,30 +40,79 @@ composição de objetos e a imutabilidade de valores armazenados.
   extraída. A lista devolvida é uma cópia.
 - Depois da quebra, o volume ocupado é `0`, pois o porquinho deixou de funcionar
   como recipiente. O valor continua representando as moedas ainda guardadas.
-- As classes de domínio não imprimem mensagens. Elas lançam `PigError`; o
-  `Shell` converte as falhas para o texto observável.
+- As classes de domínio não imprimem mensagens. Elas lançam `PigError`; o Shell converte as falhas para o texto observável.
+
+## Exceções
+
+`PigError` comunica as regras de estado e capacidade. O `Shell` captura essa exceção e apresenta a mensagem nela contida com o prefixo `fail:`. Moedas inválidas e comandos malformados são tratados pelo Shell, pois não correspondem a uma operação válida do domínio.
 
 ## Diagrama
 
-![diagrama](assets/diagrama.png)
+`Pig` compõe coleções de `Coin` e `Item`, que são valores imutáveis. O recipiente começa intacto, controla a capacidade e, depois de quebrado, permite apenas as extrações.
+
+```mermaid
+%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class PigError {
+        <<exception>>
+    }
+
+    class Coin {
+        <<immutable>>
+        +val value : Double
+        +val volume : Int
+        +val label : String
+        +Coin(value : Double, volume : Int, label : String)
+        +toString() String
+    }
+
+    class Item {
+        <<immutable>>
+        +val label : String
+        +val volume : Int
+        +Item(label : String, volume : Int)
+        +toString() String
+    }
+
+    class Pig {
+        -val capacity : Int
+        -val coins : MutableList~Coin~
+        -val items : MutableList~Item~
+        -var broken : Boolean
+        +Pig(capacity : Int)
+        -checkCanAdd(volume : Int) Unit
+        +addCoin(coin : Coin) Unit
+        +addItem(item : Item) Unit
+        +breakPig() Unit
+        +extractCoins() List~Coin~
+        +extractItems() List~Item~
+        +value() Double
+        +volume() Int
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Pig "1" *-- "0..*" Coin : stores
+    Pig "1" *-- "0..*" Item : stores
+    Pig ..> PigError : throws
+    Shell ..> Pig : commands
+```
 
 ## Guide
 
 Implemente em incrementos pequenos:
 
-1. Crie `Coin` e `Item` como registros imutáveis, com suas representações
-   textuais. O `Shell` pode selecionar as moedas predefinidas pelo código
-   recebido.
-2. Crie `Pig` com capacidade, coleções vazias e estado intacto. Implemente
-   `add_coin`, `add_item` e `volume`, verificando a capacidade antes da mutação.
-3. Implemente `value` e `__str__`. O cálculo do volume deve considerar moedas e
-   itens enquanto o porquinho estiver intacto.
-4. Implemente `break_pig` e bloqueie novas adições. Uma segunda quebra deve
-   falhar sem apagar o conteúdo.
-5. Implemente as extrações. Elas só podem ocorrer depois da quebra, devem
-   retornar os objetos e devem limpar apenas a coleção correspondente.
-6. Faça o `Shell` interpretar comandos e traduzir `PigError`; nenhuma classe de
-   domínio deve conhecer entrada ou saída.
+1. Crie `Coin` e `Item` como `data class` imutáveis e implemente `toString()` no formato que aparece nos testes. O Shell seleciona a moeda pelo código recebido.
+2. Crie `Pig(capacity: Int)` com coleções vazias e estado intacto. Implemente `volume`, `addCoin` e `addItem`, verificando primeiro o estado e a capacidade.
+3. Implemente `value` e `toString`. O volume considera moedas e itens somente enquanto o porquinho está intacto; o valor das moedas continua disponível após a quebra.
+4. Implemente `breakPig` como transição terminal. Uma segunda quebra lança `PigError` sem apagar conteúdo.
+5. Implemente as extrações somente para o estado quebrado. Devolva uma cópia e limpe apenas a coleção extraída.
+6. No Shell, mapeie códigos de moeda, crie itens, capture `PigError` e converta os resultados para a saída observável. O domínio não deve conhecer entrada ou saída.
 
 A atividade usa somente três classes. `Coin` e `Item` representam objetos que
    podem ser guardados; `Pig` possui esses objetos e protege as invariantes do
@@ -161,3 +217,5 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- MERMAID -->
+<!-- KOTLIN -->

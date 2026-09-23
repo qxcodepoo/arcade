@@ -23,7 +23,7 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
 
 - Descrição
   - A lapiseira é capaz de iniciar, inserir e remover grafite, além de escrever em uma folha.
-  - Para inserir um grafite, é necessário especificar o calibre (float), a dureza (string) e o tamanho em mm (int).
+  - Para inserir um grafite, é necessário especificar o calibre (`Double`), a dureza (`String`) e o tamanho em mm (`Int`).
   - A remoção do grafite só é possível se houver algum na lapiseira.
   - A escrita na folha só é possível se houver grafite suficiente e se o tamanho do grafite for superior a 10mm.
   - A quantidade de grafite gasto varia de acordo com a dureza do grafite. Quanto mais macio, mais ele se desgasta.
@@ -34,19 +34,20 @@ O foco é praticar agregação e delegação: o grafite conhece seu próprio des
   - A classe Grafite `Lead` é responsável por armazenar as informações do grafite.
     - `thickness` é a espessura e terá valores como 0.3, 0.5, 0.7.
     - `hardness` é a dureza e poderá ter os seguintes valores: `HB, 2B, 4B, 6B`.
-    - O método `get_wear_per_page` retorna a quantidade de grafite gasta por folha.
+    - O método `getWearPerPage()` retorna a quantidade de grafite gasta por folha.
       - Um grafite `HB` gasta `1mm` por folha.
       - Um grafite `2B` gasta `2mm` por folha.
       - Um grafite `4B` gasta `4mm` por folha.
       - Um grafite `6B` gasta `6mm` por folha.
-    - `size` representa o tamanho do grafite em `milímetros`.
-    - O método `consume(amount)` reduz o tamanho sem permitir que ele fique abaixo de `10mm` e informa se o consumo completo foi possível.
+    - `size: Int` representa o tamanho do grafite em milímetros.
+    - O método `consume(amount: Int): Boolean` reduz o tamanho sem permitir que ele fique abaixo de `10mm` e informa se o consumo completo foi possível.
   - A classe `Pencil` é responsável por gerenciar as operações de inserção, remoção de grafite e escrita na folha.
     - Ela agrega no máximo um objeto `Lead`, criado fora da lapiseira.
-    - E também possui um indicador de espessura `thickness`.
+  - Ela também possui uma propriedade `thickness: Double` que indica a espessura aceita.
 - Comandos
   - Todos os comandos seguem o modelo `$comando arg1 arg2 ...`.
-  - `$init thickness` - Inicializa a lapiseira com uma determinada espessura.
+  - `$init thickness` - Inicializa uma nova lapiseira com a espessura informada, sem grafite.
+  - `$insert thickness hardness size` - Insere um grafite na lapiseira.
     - erros:
       - `fail: wrong thickness` - Se a espessura do grafite for diferente da espessura da lapiseira.
       - `fail: already has lead` - Se já houver um grafite na lapiseira.
@@ -87,33 +88,33 @@ classDiagram
     }
 
     class Lead {
-        +MIN_SIZE : number$
-        -thickness : number
-        -hardness : string
-        -size : number
-        +constructor(thickness : number, hardness : string, size : number)
-        +getThickness() number
-        +getHardness() string
-        +getSize() number
-        +getWearPerPage() number
-        +consume(amount : number) boolean
-        +toString() string
+        +MIN_SIZE : Int$
+        -val thickness : Double
+        -val hardness : String
+        -var size : Int
+        +Lead(thickness : Double, hardness : String, size : Int)
+        +getThickness() Double
+        +getHardness() String
+        +getSize() Int
+        +getWearPerPage() Int
+        +consume(amount : Int) Boolean
+        +toString() String
     }
 
     class Pencil {
-        -thickness : number
-        -lead : Lead | null
-        +constructor(thickness : number)
-        +getThickness() number
-        +hasLead() boolean
+        -val thickness : Double
+        -var lead : Lead?
+        +Pencil(thickness : Double)
+        +getThickness() Double
+        +hasLead() Boolean
         +insert(lead : Lead) InsertResult
-        +remove() Lead | null
+        +remove() Lead?
         +writePage() WriteResult
-        +toString() string
+        +toString() String
     }
 
     class Shell {
-        +main() void
+        +main() Unit
     }
 
     Pencil "1" o-- "0..1" Lead : aggregates
@@ -126,19 +127,19 @@ classDiagram
 
 - Parte 1: Inserir
   - Crie a classe Grafite `Lead` com espessura, dureza e tamanho.
-  - Crie a classe Lapiseira `Pencil` com o atributo ponta `tip` inicializado como `null`.
-  - Implemente o método `has_lead` que retorna `true` se houver grafite na lapiseira.
-  - Crie o `InsertResult` e faça `insert` retornar o resultado específico da inserção, sem imprimir mensagens.
-  - Implemente o método `toString` que mostra a lapiseira e o grafite presente.
+  - Crie a classe `Pencil` com a propriedade `lead: Lead?` inicializada como `null`.
+  - Implemente o método `hasLead(): Boolean` que retorna `true` se houver grafite na lapiseira.
+  - Crie o enum `InsertResult` e faça `insert(lead: Lead): InsertResult` retornar o resultado específico da inserção, sem imprimir mensagens.
+  - Implemente `toString(): String` para mostrar a lapiseira e o grafite presente.
 
 - Parte 2: Remover Grafite
-  - Implemente o método `remove` que retira o grafite da lapiseira, se houver.
-  - Verifique se o método `remove` retorna o grafite removido ou `null` se não havia grafite.
+  - Implemente o método `remove(): Lead?` que retira o grafite da lapiseira, se houver.
+  - Verifique se `remove()` retorna o grafite removido ou `null` se não havia grafite.
 
 - Parte 3: Escrever na Folha
-  - Crie o `WriteResult` e implemente `write_page`, retornando o resultado específico sem imprimir mensagens.
-  - Implemente o método `get_wear_per_page` que retorna a quantidade de grafite gasto por folha.
-  - Implemente `consume(amount)` em `Lead`, mantendo o tamanho mínimo de `10mm`.
+  - Crie o enum `WriteResult` e implemente `writePage(): WriteResult`, retornando o resultado específico sem imprimir mensagens.
+  - Implemente o método `getWearPerPage()` que retorna a quantidade de grafite gasto por folha.
+  - Implemente `consume(amount: Int)` em `Lead`, mantendo o tamanho mínimo de `10mm`.
   - Verifique se a lapiseira consegue escrever na folha.
   - Faça as verificações antes de escrever na folha.
   - Para ver se o grafite será suficiente para escrever na folha, verifique qual o tamanho final que ele teria se fizesse a folha completa.

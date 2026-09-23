@@ -21,18 +21,18 @@ O objetivo principal é separar o objeto que guarda os atributos e invariantes (
 
 ## Regras
 
-- `Pet` guarda `energyMax`, `cleanMax`, `energy`, `clean`, `age`, `alive` e `deathCause`.
+- `Pet` guarda `energyMax: Int`, `cleanMax: Int`, `energy: Int`, `clean: Int`, `age: Int`, `alive: Boolean` e `deathCause: DeathCause`.
 - O construtor recebe `energyMax` e `cleanMax`; energia e limpeza começam no máximo, e idade começa em zero.
 - `DeathCause` possui `NONE`, `WEAKNESS` e `DIRT`.
 - `Pet` mantém energia e limpeza entre zero e seus respectivos máximos.
-- `loseEnergy(amount)` reduz a energia e registra `WEAKNESS` quando ela chega a zero.
-- `loseClean(amount)` reduz a limpeza e registra `DIRT` quando ela chega a zero.
+- `loseEnergy(amount: Int): Unit` reduz a energia e registra `WEAKNESS` quando ela chega a zero.
+- `loseClean(amount: Int): Unit` reduz a limpeza e registra `DIRT` quando ela chega a zero.
 - Depois de morto, `Game` não inicia novas ações que alterem o estado do pet.
-- `advanceAge(amount)` aumenta a idade sem permitir alterações posteriores à morte.
-- `restoreEnergy()` e `restoreClean()` levam o atributo ao máximo enquanto o pet estiver vivo.
+- `advanceAge(amount: Int): Unit` aumenta a idade sem permitir alterações posteriores à morte.
+- `restoreEnergy(): Unit` e `restoreClean(): Unit` levam o atributo ao máximo enquanto o pet estiver vivo.
 - Um pet vivo mostra `energy:{energy}/{energyMax}, clean:{clean}/{cleanMax}, age:{age}`.
 - Um pet morto acrescenta `, death:{deathCause}` usando os textos `weakness` ou `dirt`.
-- `Game` agrega um `Pet` recebido no construtor e coordena `play`, `shower` e `sleep`.
+- `Game` agrega um `Pet` recebido no construtor e coordena `play(): Boolean`, `shower(): Boolean` e `sleep(): Boolean`.
 - `play()` reduz energia em 2, limpeza em 3 e avança a idade em 1.
 - `shower()` reduz energia em 3, restaura a limpeza ao máximo e avança a idade em 2.
 - `sleep()` exige pelo menos 5 unidades de energia perdidas, restaura a energia e avança a idade pela energia perdida.
@@ -48,7 +48,60 @@ A única falha de interação exibida é `fail: not sleepy`. Comandos desconheci
 
 ## Diagrama
 
-![diagram](assets/diagrama.png)
+```mermaid
+%%{init: {'fontFamily': 'monospace'}}%%
+classDiagram
+    direction LR
+
+    class DeathCause {
+        <<enumeration>>
+        NONE
+        WEAKNESS
+        DIRT
+    }
+
+    class Pet {
+        -val energyMax : Int
+        -val cleanMax : Int
+        -var energy : Int
+        -var clean : Int
+        -var age : Int
+        -var alive : Boolean
+        -var deathCause : DeathCause
+        +Pet(energyMax : Int, cleanMax : Int)
+        +isAlive() Boolean
+        +getEnergy() Int
+        +getEnergyMax() Int
+        +getClean() Int
+        +getCleanMax() Int
+        +getAge() Int
+        +loseEnergy(amount : Int) Unit
+        +loseClean(amount : Int) Unit
+        +advanceAge(amount : Int) Unit
+        +restoreEnergy() Unit
+        +restoreClean() Unit
+        +toString() String
+    }
+
+    class Game {
+        -val pet : Pet
+        +Game(pet : Pet)
+        +isAlive() Boolean
+        +isSleepy() Boolean
+        +play() Boolean
+        +shower() Boolean
+        +sleep() Boolean
+        +toString() String
+    }
+
+    class Shell {
+        +main() Unit
+    }
+
+    Game "1" o-- "1" Pet : aggregates
+    Pet ..> DeathCause : records
+    Shell ..> Game : commands
+```
 
 ## Guide
 
@@ -56,7 +109,7 @@ Implemente uma etapa e execute os testes correspondentes antes de avançar.
 
 ### 1. Pet e estado inicial
 
-Crie `DeathCause` e `Pet`. Inicialize energia e limpeza no máximo, idade em zero e o pet como vivo. Implemente `toString` e as consultas necessárias para que o estado inicial possa ser conferido.
+Crie `DeathCause` e `Pet`. Inicialize `energyMax` e `cleanMax`, mantendo energia e limpeza no máximo, idade em zero e o pet como vivo. Implemente `toString()` e as consultas necessárias para que o estado inicial possa ser conferido.
 
 ### 2. Invariantes e morte
 
@@ -68,7 +121,9 @@ Crie `Game` recebendo um `Pet` já existente. Implemente `play` e `shower`, dele
 
 ### 4. Sono e estado terminal
 
-Implemente `isSleepy` e `sleep`. O jogo deve devolver `false` para uma tentativa de dormir sem sono, mas aceitar dormir depois da morte como uma operação sem efeito. O `Shell` deve imprimir a mensagem somente quando `sleep` retornar `false`.
+Implemente `is_sleepy` e `sleep`. O jogo deve devolver `false` para uma tentativa de dormir sem sono, mas aceitar dormir depois da morte como uma operação sem efeito. O `Shell` deve imprimir a mensagem somente quando `sleep` retornar `false`.
+
+No diagrama, propriedades e parâmetros usam a notação Kotlin (`energyMax : Int`), e os métodos mostram o retorno depois da assinatura (`loseEnergy(amount : Int) Unit`). Os nomes dos comandos do Shell permanecem parte do contrato externo.
 
 Reflita: por que `Pet` deve controlar a morte? O que fica mais difícil de preservar quando o cliente pode alterar `energy`, `clean` ou `age` diretamente?
 
@@ -194,3 +249,4 @@ $end
 
 <!-- links .cache/starter -->
 <!-- links -->
+<!-- MERMAID -->

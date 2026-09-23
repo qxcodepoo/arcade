@@ -1,13 +1,15 @@
 ---
 index_content: |2
-    - Objetivo: modelar moedas e itens por um contrato comum em uma coleção heterogênea.
-    - Conceitos: protocolo, polimorfismo, enum, imutabilidade e invariantes de estado.
-    - Técnicas: filtrar e substituir a coleção, calcular agregados e nomear falhas de domínio.
-    - Pré-requisito: contratos, enums, coleções e invariantes.
+    - Descrição: guardar moedas e itens no mesmo cofre, respeitando sua capacidade e extrações após a quebra.
+    - Domínio: só cofres intactos recebem valores, o volume não excede a capacidade e a quebra preserva o conteúdo.
+    - Objetivos: modelar uma coleção heterogênea por interface e manter as invariantes de estado no cofre.
 ---
 # Cofre — polimorfismo por contrato de valor
 
-<toc-table />
+<!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Verificação](#verificação) | [Shell](#shell)
+-- | -- | -- | -- | -- | --
+<!-- toc-table -->
 
 ![cover](assets/cover.webp)
 
@@ -24,29 +26,89 @@ extração.
 
 ## Regras
 
-- `Coin` possui os valores `M10`, `M25`, `M50` e `M100`, com volume próprio.
-- `Item` possui `label`, `value` e `volume`.
-- `Coin` e `Item` atendem ao contrato `Valuable` (`get_label`, `get_value`, `get_volume`).
-- O cofre não aceita um valor que ultrapasse sua capacidade.
-- Um cofre quebrado não recebe novos valores.
-- Quebrar o cofre zera o volume exibido, mas não apaga os valores guardados.
-- Extrações só podem ocorrer depois da quebra e removem apenas o tipo pedido.
-- O valor total é a soma dos valores que ainda estão guardados.
+- `Valuable` exige `label : String`, `value : Double` e `volume : Int`.
+- `Coin` é um enum com valores `M10`, `M25`, `M50` e `M100`, cada qual com valor e volume próprios.
+- `Item` é imutável e possui `label`, `value` e `volume`.
+- `Pig` recebe uma capacidade `maxVolume : Int` e guarda `MutableList<Valuable>`.
+- `add(valuable : Valuable)` rejeita valores que excedem a capacidade e cofres quebrados, lançando `PigFullError` ou `PigBrokenError`.
+- `breakPig()` muda o estado para quebrado; repetir a operação lança `PigAlreadyBrokenError`.
+- Depois da quebra, `volume` exibido passa a `0`, mas `value` e os valores guardados permanecem.
+- `extractCoins() : List<Coin>` e `extractItems() : List<Item>` só funcionam após a quebra e removem apenas o tipo solicitado.
+- Os erros preservam as mensagens `fail: the pig is broken`, `fail: the pig is full`, `fail: the pig is already broken` e `fail: you must break the pig first`.
 
 ## Diagrama
 
-![Diagrama de classes](assets/diagrama.png)
+```mermaid
+%%{init: {"theme": "base", "themeVariables": {"fontFamily": "monospace"}}}%%
+classDiagram
+    direction LR
+
+    class Valuable {
+        <<interface>>
+        +val label : String
+        +val value : Double
+        +val volume : Int
+    }
+
+    class Coin {
+        <<enumeration>>
+        M10
+        M25
+        M50
+        M100
+        +val label : String
+        +val value : Double
+        +val volume : Int
+    }
+
+    class Item {
+        +val label : String
+        +val value : Double
+        +val volume : Int
+    }
+
+    class Pig {
+        +val maxVolume : Int
+        -var broken : Boolean
+        -val valuables : MutableList~Valuable~
+        +val volume : Int
+        +val value : Double
+        +add(valuable : Valuable) Unit
+        +breakPig() Unit
+        +extractCoins() List~Coin~
+        +extractItems() List~Item~
+    }
+
+    class Main {
+        +main() Unit
+    }
+
+    class PigError
+    class PigBrokenError
+    class PigFullError
+    class PigAlreadyBrokenError
+
+    Valuable <|.. Coin
+    Valuable <|.. Item
+    PigError <|-- PigBrokenError
+    PigError <|-- PigFullError
+    PigError <|-- PigAlreadyBrokenError
+    Pig "1" o-- "0..*" Valuable : stores
+    Main ..> Pig : uses
+```
 
 ## Guide
 
-1. Defina o protocolo `Valuable` com os três métodos de consulta que o cofre
-   precisa. Não coloque nele operações específicas de moedas ou itens.
-2. Modele `Coin` com `Enum` e `Item` como valor imutável. Ambos devem poder ser
-   inseridos na mesma lista sem o `Pig` conhecer seus detalhes de construção.
+1. Defina a interface `Valuable` com as propriedades `label : String`,
+   `value : Double` e `volume : Int`. Não coloque nela operações específicas de
+   moedas ou itens.
+2. Modele `Coin` como `enum class` e `Item` como `data class` imutável. Ambos
+   devem poder ser inseridos na mesma lista sem o `Pig` conhecer seus detalhes
+   de construção.
 3. Faça o `Pig` controlar capacidade, estado quebrado e soma dos valores. A
    classe é a dona das invariantes porque também possui a coleção.
-4. Implemente as extrações filtrando a coleção e substituindo-a pelo restante.
-   Verifique que extrair moedas não remove itens e vice-versa.
+4. Implemente as extrações filtrando a coleção por tipo e removendo apenas os
+   elementos extraídos. Verifique que extrair moedas não remove itens e vice-versa.
 5. Mantenha o `Shell` responsável por converter comandos e apresentar erros;
    as regras e os cálculos devem permanecer testáveis sem entrada do terminal.
 
@@ -57,9 +119,9 @@ capacidade, a soma ou o fluxo do cofre.
 
 ## Verificação
 
-Execute `python3 -m unittest discover src/py` e confira capacidade cheia,
-tentativa de inserção após quebra, extração antes da quebra, extrações parciais
-e preservação dos valores restantes.
+Execute `tko run . -l kt` e confira capacidade cheia, tentativa de inserção
+após quebra, extração antes da quebra, extrações parciais e preservação dos
+valores restantes.
 
 ## Shell
 
@@ -77,3 +139,5 @@ $extractCoins
 [M10:0.10:1]
 $end
 ```
+
+<!-- KOTLIN -->
