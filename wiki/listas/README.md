@@ -7,8 +7,19 @@ index_content: |2
 # [GUIDE] Listas em Python
 
 <!-- toc -->
-[Intro](#intro) | [Criar e consultar](#criar-e-consultar) | [Percorrer](#percorrer) | [Inserir](#inserir) | [Remover](#remover) | [Buscar](#buscar) | [Filtrar e transformar](#filtrar-e-transformar) | [Copiar e ordenar](#copiar-e-ordenar) | [Cuidados](#cuidados) | [Referência completa](#referência-completa)
--- | -- | -- | -- | -- | -- | -- | -- | -- | --
+- [Intro](#intro)
+- [Criar e consultar](#criar-e-consultar)
+- [Percorrer](#percorrer)
+- [Inserir](#inserir)
+- [Remover](#remover)
+- [Buscar](#buscar)
+- [Filtrar e transformar](#filtrar-e-transformar)
+- [Copiar e ordenar](#copiar-e-ordenar)
+- [Cuidados](#cuidados)
+  - [Não use o retorno de uma mutação como se fosse a lista](#não-use-o-retorno-de-uma-mutação-como-se-fosse-a-lista)
+  - [Não remova vários elementos durante um laço direto](#não-remova-vários-elementos-durante-um-laço-direto)
+  - [Escolha a operação pela intenção](#escolha-a-operação-pela-intenção)
+- [Referência completa](#referência-completa)
 <!-- toc -->
 
 ## Intro

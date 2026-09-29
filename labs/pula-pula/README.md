@@ -71,6 +71,8 @@ classDiagram
 ## Draft
 
 <!-- links .cache/starter -->
+- java
+  - [Shell.java](.cache/starter/java/Shell.java)
 <!-- links -->
 
 ## Guide
