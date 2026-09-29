@@ -64,7 +64,6 @@ classDiagram
 
 `Towel` concentra apenas o estado e as regras de umidade. O `Shell` lê comandos e decide o que apresentar.
 
-[Vídeo de apoio](https://youtu.be/S956ep2PSzI?si=q9IYxafhWjaDVHTp)
 
 - Comece pelo construtor e por `toString()`, usando `$create` e `$show`.
 - Implemente `getMaxWetness()`, porque `absorb` depende desse limite.

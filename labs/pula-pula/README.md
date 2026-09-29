@@ -77,7 +77,6 @@ classDiagram
 
 ## Guide
 
-[![youtube icon](../youguide.webp)](https://youtu.be/Uu94DgZYa_M?si=AzLR2so6o5CLiZTz)
 
 `Kid` guarda nome e idade. `Trampoline` coordena duas `MutableList<Kid>`: `waiting` e `playing`. As listas ficam privadas, e as operações do pula-pula definem como as crianças mudam entre elas.
 

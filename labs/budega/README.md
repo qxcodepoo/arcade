@@ -172,7 +172,6 @@ Ao terminar, compare as duas coleções: inserir no meio da fila desloca posiç�
 
 ## Answers
 
-[Resolução](https://youtu.be/Z7karsbg1ok)
 
 ## Shell
 

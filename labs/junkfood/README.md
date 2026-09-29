@@ -301,7 +301,6 @@ $end
 
 ## Resolução
 
-Não assista sem antes tentar resolver o problema: [LINK](https://youtu.be/wabygPIeP2w)
 
 ## Draft
 

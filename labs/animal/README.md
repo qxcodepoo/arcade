@@ -71,9 +71,7 @@ classDiagram
 
 Pergunta de reflexão: por que `Animal` retorna um booleano em vez de imprimir a mensagem de morte diretamente?
 
-- Na seção de [Cheat](#cheat) ou no vídeo abaixo, você pode conferir as respostas dessa atividade.
-
-[![youtube icon](assets/yousolver.webp)](https://youtu.be/QZfjLVrk7p8)
+- Na seção de [Cheat](#cheat), você pode conferir as respostas dessa atividade.
 
 ## Shell
 

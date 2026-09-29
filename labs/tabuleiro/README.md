@@ -115,7 +115,6 @@ O diagrama usa os tipos e as coleções de Kotlin, além de distinguir proprieda
 
 ## Guide
 
-[![youtube icon](../youguide.webp)](https://youtu.be/x3_hlVYdCdU?si=g0fR-AAgvzkMxU9G)
 
 Comece modelando `Player`, que possui sua posição e o estado `trapped`. Depois modele `Board`, que possui a lista de jogadores, as posições das armadilhas e o estado de execução.
 

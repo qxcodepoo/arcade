@@ -12,7 +12,7 @@ index_content: |2
 -- | -- | -- | -- | -- | -- | --
 <!-- toc-table -->
 
-![cover](../carro/assets/cover.webp)
+![cover](assets/cover.webp)
 
 ## Intro
 

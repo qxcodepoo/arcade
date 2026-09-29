@@ -47,7 +47,6 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 
 ![diagrama](assets/diagrama.webp)
 
-[![youtube icon](../youguide.webp)](https://youtu.be/KrjZsvprPq8?si=Jkc_90NZ6DrKElMH)
 
 
 ***

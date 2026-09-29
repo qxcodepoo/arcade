@@ -61,8 +61,6 @@ classDiagram
 
 ## Guide
 
-[Vídeo de apoio](https://youtu.be/pC3DMuHVFHE?si=XIylk3z3zABCD0hj)
-
 Implemente a classe `Slipper` antes do loop. O ponto principal é garantir que apenas `setSize()` consiga alterar a propriedade privada.
 
 Pergunta de reflexão: o que poderia acontecer se o código do loop alterasse o tamanho diretamente?

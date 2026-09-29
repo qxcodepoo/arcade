@@ -17,7 +17,7 @@ index_content: |2
 
 O objetivo desta atividade é organizar contatos por uma identidade única. O nome funciona como chave de um mapa: ele permite localizar, alterar ou remover um contato sem depender de sua posição em uma lista.
 
-Esta atividade continua [`@contato`](../contato/README.md). Você reutilizará o mesmo modelo de `Phone` e `Contact`, acrescentará a busca pelos campos que o contato encapsula e criará `Agenda` para coordenar vários contatos. A regra de validade do telefone permanece a mesma: o número deve ser não vazio, conter pelo menos um dígito e usar somente os caracteres permitidos.
+Esta atividade continua `@contato`. Você reutilizará o mesmo modelo de `Phone` e `Contact`, acrescentará a busca pelos campos que o contato encapsula e criará `Agenda` para coordenar vários contatos. A regra de validade do telefone permanece a mesma: o número deve ser não vazio, conter pelo menos um dígito e usar somente os caracteres permitidos.
 
 O `Shell` interpreta comandos e apresenta falhas. `Agenda` garante a unicidade dos nomes, `Contact` controla seus telefones e `Phone` valida o próprio número.
 
@@ -25,7 +25,7 @@ O `Shell` interpreta comandos e apresenta falhas. `Agenda` garante a unicidade d
 
 Em `contato`, o foco está em proteger a coleção de telefones e manter válidos os dados de um único contato. Em `agenda`, esse objeto passa a fazer parte de um conjunto identificado por chave: `Agenda` localiza contatos, enquanto `Contact` continua responsável por seus próprios dados e comportamentos.
 
-O favorito ainda é apenas um atributo de `Contact`. A consulta `getFavorites()` percorre o mapa principal e produz uma lista temporária, sem manter uma segunda estrutura. Essa escolha evita redundância e mantém o mapa como única fonte de verdade. A manutenção de um mapa ou conjunto persistente de favoritos, com o custo de sincronização correspondente, será estudada futuramente em [`@favoritos`](../favoritos/README.md).
+O favorito ainda é apenas um atributo de `Contact`. A consulta `getFavorites()` percorre o mapa principal e produz uma lista temporária, sem manter uma segunda estrutura. Essa escolha evita redundância e mantém o mapa como única fonte de verdade. A manutenção de um mapa ou conjunto persistente de favoritos, com o custo de sincronização correspondente, será estudada futuramente em `@favoritos`.
 
 ## Regras
 

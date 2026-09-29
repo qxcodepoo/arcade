@@ -16,7 +16,7 @@ index_content: |2
 
 ## Intro
 
-Esta atividade continua [`agenda`](../agenda/README.md) e introduz uma mudança deliberada na forma de consultar favoritos. Em `agenda`, favoritos são um atributo de `Contact` e uma consulta percorre o mapa principal. Aqui a agenda também mantém um índice secundário com as chaves dos contatos favoritos.
+Esta atividade continua `agenda` e introduz uma mudança deliberada na forma de consultar favoritos. Em `agenda`, favoritos são um atributo de `Contact` e uma consulta percorre o mapa principal. Aqui a agenda também mantém um índice secundário com as chaves dos contatos favoritos.
 
 O objetivo principal é compreender como um índice secundário pode acelerar uma consulta e cria uma obrigação de consistência. Como objetivos secundários, a atividade trabalha a fonte de verdade e a integridade referencial entre o mapa e o índice.
 
