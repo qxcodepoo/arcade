@@ -10,7 +10,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Verificação](#verificação) | [Draft](#draft)
 -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ## Intro
 
@@ -117,6 +117,6 @@ Kaa: hiss, slither
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 
 <!-- KOTLIN -->

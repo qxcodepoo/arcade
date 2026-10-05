@@ -10,7 +10,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Exceções](#exceções) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -64,7 +64,7 @@ ocupação, idade mínima e presença do motorista.
 ## Diagrama
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -219,6 +219,6 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- MERMAID -->
 <!-- KOTLIN -->

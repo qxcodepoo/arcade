@@ -15,7 +15,7 @@
 - [Composição](#composição)
 - [Agregação](#agregação)
 - [Classes Associativas](#classes-associativas)
-<!-- toc -->
+<!-- end -->
 
 Todos os diagramas desse tutorial foram criados com o plantuml. Você pode ver mais em [LINK](https://plantuml.com/class-diagram).
 

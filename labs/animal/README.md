@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft) | [Cheat](#cheat)
 -- | -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -174,11 +174,11 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 
 ## Cheat
 
 <!-- links .cache/cheat -->
-<!-- links -->
+<!-- end -->
 
 <!-- MERMAID -->

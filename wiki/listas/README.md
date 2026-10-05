@@ -20,7 +20,7 @@ index_content: |2
   - [Não remova vários elementos durante um laço direto](#não-remova-vários-elementos-durante-um-laço-direto)
   - [Escolha a operação pela intenção](#escolha-a-operação-pela-intenção)
 - [Referência completa](#referência-completa)
-<!-- toc -->
+<!-- end -->
 
 ## Intro
 

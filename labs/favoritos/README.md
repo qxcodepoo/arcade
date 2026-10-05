@@ -10,7 +10,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -75,7 +75,7 @@ Mutações bem-sucedidas e consultas sem resultados são silenciosas.
 `contacts` é a fonte de verdade. `favoriteIds` é um índice secundário derivado: ele melhora o acesso aos favoritos, mas precisa ser atualizado em toda operação que altera a relação entre contato e favorito.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -227,5 +227,5 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- KOTLIN -->

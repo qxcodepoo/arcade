@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -47,7 +47,7 @@ Os resultados das operações pertencem ao domínio; o `Shell` é responsável p
 `Theater` possui um vetor de tamanho fixo e cada posição pode conter um `Client` ou `null`. O teatro cria os clientes durante a reserva e controla a coleção interna; a cópia retornada por `getSeats` não substitui esse estado.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -166,5 +166,5 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- MERMAID -->

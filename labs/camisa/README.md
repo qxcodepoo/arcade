@@ -103,4 +103,4 @@ Verifique os limites e o estado após falha: `PP`, `P`, `M`, `G`, `GG` e `XG` de
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->

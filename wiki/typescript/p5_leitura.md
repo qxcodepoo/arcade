@@ -4,7 +4,7 @@
 - [Instalação](#instalação)
 - [Relembrando o P5](#relembrando-o-p5)
 - [Funções úteis](#funções-úteis)
-<!-- toc -->
+<!-- end -->
 
 ## Instalação
 

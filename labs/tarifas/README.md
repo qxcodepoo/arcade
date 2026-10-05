@@ -10,7 +10,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -41,7 +41,7 @@ O objetivo dessa atividade é implementar uma classe responsável por gerenciar 
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 
 ## Guide
 

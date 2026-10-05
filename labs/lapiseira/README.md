@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)
 -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -207,5 +207,5 @@ $end
 <!-- links .cache/starter -->
 - java
   - [Shell.java](.cache/starter/java/Shell.java)
-<!-- links -->
+<!-- end -->
 <!-- MERMAID -->

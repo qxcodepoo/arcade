@@ -5,7 +5,7 @@
 - [ts: Debian](#ts-debian)
 - [Rodando projetos modo texto](#rodando-projetos-modo-texto)
 - [Para quem usa Arch](#para-quem-usa-arch)
-<!-- toc -->
+<!-- end -->
 
 ## ts: Windows
 

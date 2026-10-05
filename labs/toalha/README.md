@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide)
 -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![_](assets/cover.webp)
 

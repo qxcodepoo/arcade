@@ -52,7 +52,7 @@ Conceitos e técnicas trabalhados:
 ## Diagrama
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -244,5 +244,5 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- KOTLIN -->

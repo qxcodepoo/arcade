@@ -65,7 +65,7 @@ Valores de rolagem são tratados como inteiros nos testes. O contexto usa um D20
 `Board` cria e ordena os jogadores, registra as armadilhas e encerra a partida quando alguém vence. Cada `rollDice` retira o primeiro jogador, produz eventos e o recoloca no fim da ordem enquanto a partida estiver ativa.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -218,7 +218,7 @@ $end
 ## Drafts
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 
 <!-- MERMAID -->
 <!-- KOTLIN -->

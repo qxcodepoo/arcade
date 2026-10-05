@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Objetivos pedagógicos](#objetivos-pedagógicos) | [Diagrama](#diagrama) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -70,7 +70,7 @@ Todos os comandos seguem o modelo `$comando arg1 arg2 ...`. Em caso de erro, uma
 `Market` coordena duas coleções com comportamentos diferentes: `waiting` é uma fila variável, enquanto `counters` é um vetor fixo de posições que podem estar vazias. `Person` é criada pelo `Shell` e pode passar da fila para um caixa ou sair do atendimento.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -313,6 +313,6 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- MERMAID -->
 <!-- KOTLIN -->

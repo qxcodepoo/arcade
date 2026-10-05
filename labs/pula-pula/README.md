@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Diagrama](#diagrama) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
 -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -33,7 +33,7 @@ O foco é perceber que a posição na lista muda conforme as operações acontec
 `Trampoline` mantém duas ordens variáveis de crianças: a fila `waiting` e a lista `playing`. As crianças são criadas pelo `Shell` e apenas referenciadas pelo pula-pula, por isso a relação é uma agregação.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -73,7 +73,7 @@ classDiagram
 <!-- links .cache/starter -->
 - java
   - [Shell.java](.cache/starter/java/Shell.java)
-<!-- links -->
+<!-- end -->
 
 ## Guide
 

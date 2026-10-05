@@ -6,7 +6,7 @@
 - [node](#node)
   - [node: Windows](#node-windows)
   - [node: Debian](#node-debian)
-<!-- toc -->
+<!-- end -->
 
 ## bash
 

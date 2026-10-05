@@ -14,7 +14,7 @@
 - [Desfazendo alterações e vendo diferenças](#desfazendo-alterações-e-vendo-diferenças)
 - [Desafio](#desafio)
 - [Guia rápido](#guia-rápido)
-<!-- toc -->
+<!-- end -->
 
 - [Link para instalação e orientações iniciais](https://www.webdevdrops.com/git-no-windows-github/)
 

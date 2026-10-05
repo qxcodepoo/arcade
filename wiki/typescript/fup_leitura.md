@@ -17,7 +17,7 @@
 - [if e ternário](#if-e-ternário)
 - [while](#while)
 - [for](#for)
-<!-- toc -->
+<!-- end -->
 
 ## Criação de variáveis
 

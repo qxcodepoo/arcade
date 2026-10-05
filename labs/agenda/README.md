@@ -79,7 +79,7 @@ Mutações bem-sucedidas e consultas sem resultados são silenciosas.
 `Agenda` possui contatos identificados pelo nome, e cada `Contact` possui seus telefones. `Agenda` coordena sem assumir as regras internas de `Contact` ou `Phone`.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -356,5 +356,5 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- KOTLIN -->

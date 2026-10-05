@@ -9,7 +9,7 @@
   - [Resultado2](#resultado2)
 - [Parte 3 - Colisão entre múltiplos retângulos](#parte-3---colisão-entre-múltiplos-retângulos)
   - [Draft3](#draft3)
-<!-- toc -->
+<!-- end -->
 
 - Pegue o Retângulo que você criou na atividade [Pontos e Círculos](vector2d_pratica.md)
 

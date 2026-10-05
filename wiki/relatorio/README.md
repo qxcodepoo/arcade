@@ -6,7 +6,7 @@
   - [Exemplo 1](#exemplo-1)
   - [Exemplo 2](#exemplo-2)
   - [Exemplo 3](#exemplo-3)
-<!-- toc -->
+<!-- end -->
 
 ![_](assets/cover.webp)
 

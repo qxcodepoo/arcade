@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Exceções](#exceções) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução) | [Draft](#draft)
 -- | -- | -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -69,7 +69,7 @@ São necessários objetos, listas, índices, condicionais, laços, métodos, val
 Cada posição de `Machine` contém sempre um `Slot`; o estado vazio é representado por um objeto com `name: "empty"`, quantidade zero e preço zero. `Machine` cria esses objetos e coordena saldo, compras e arrecadação.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -305,6 +305,6 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- MERMAID -->
 <!-- KOTLIN -->

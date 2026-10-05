@@ -9,7 +9,7 @@ index_content: |2
 <!-- toc-table -->
 [Intro](#intro) | [Objetivos pedagógicos](#objetivos-pedagógicos) | [Regras](#regras) | [Exceções](#exceções) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 
@@ -79,7 +79,7 @@ Não é necessário criar uma exceção própria: a biblioteca padrão já possu
 `Market` é dono das duas coleções. A fila tem tamanho variável, enquanto o vetor de caixas mantém posições fixas. Uma operação com índice inválido lança uma exceção padrão; os outros resultados normais são retornados para o Shell.
 
 ```mermaid
-%%{init: {'theme': 'base', 'fontFamily': 'monospace'}}%%
+%%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
@@ -220,6 +220,6 @@ $end
 ## Draft
 
 <!-- links .cache/starter -->
-<!-- links -->
+<!-- end -->
 <!-- MERMAID -->
 <!-- KOTLIN -->

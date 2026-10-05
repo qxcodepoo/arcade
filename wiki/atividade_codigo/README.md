@@ -3,7 +3,7 @@
 <!-- toc-table -->
 [Intro](#intro) | [Tipos](#tipos) | [Elementos](#elementos) | [Shell](#shell) | [Template](#template) | [Diagramas](#diagramas)
 -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ## Intro
 
