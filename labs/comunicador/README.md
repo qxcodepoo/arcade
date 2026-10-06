@@ -98,5 +98,3 @@ fail:patient nao conhece doctor
 
 Confira também que autorizar `patient` em `doctor` não autoriza automaticamente
 o caminho inverso e que mensagens sucessivas são lidas na ordem de chegada.
-
-<!-- KOTLIN -->

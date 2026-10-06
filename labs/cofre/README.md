@@ -139,5 +139,3 @@ $extractCoins
 [M10:0.10:1]
 $end
 ```
-
-<!-- KOTLIN -->

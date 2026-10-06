@@ -146,5 +146,3 @@ Error: invalid amount
 
 <!-- links .cache/starter -->
 <!-- end -->
-
-<!-- KOTLIN -->

@@ -151,5 +151,3 @@ Execute `tko run . -l kt` e interaja com os comandos `estacionar`, `tempo`,
 - identifier duplicado e pagamento inexistente;
 - remoção depois de um pagamento válido;
 - rejeição de tempo negativo e separação do domínio em relação ao `Shell`.
-
-<!-- KOTLIN -->

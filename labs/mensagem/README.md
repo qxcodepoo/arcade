@@ -123,5 +123,3 @@ $inbox david
 - empty -
 $end
 ```
-
-<!-- KOTLIN -->

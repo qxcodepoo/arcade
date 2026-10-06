@@ -99,5 +99,3 @@ Med: dr_a:clinica Pacs: [ana]
 Med: dr_b:cardio Pacs: [ana]
 Med: dr_c:clinica Pacs: []
 ```
-
-<!-- KOTLIN -->

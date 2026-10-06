@@ -69,23 +69,23 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
     - utilizar retornos antecipados (`early return`).
   - Princípios relacionados:
     - responsabilidade: a classe que possui o estado também protege suas regras.
-- [ ] `eval=self g=2 l=1 s=1` [[GUIDE] Toalha que enxuga](labs/toalha/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=2 l=1 s=1` [[GUIDE] Toalha que enxuga](labs/toalha/README.md)
   - Descrição: a toalha deve controlar seu estado de umidade e fornecer métodos para enxugar, torcer e consultar seu estado.
   - Domínio: o quanto a toalha enxuga depende do seu tamanho e ela não pode suportar água além de sua capacidade.
   - Objetivos: identificar estado e comportamento em uma classe coesa.
-- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Animal que morre](labs/animal/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Animal que morre](labs/animal/README.md)
   - Descrição: gerenciar um animal que nasce, cresce e morre. Faz barulho diferente conforme a espécie e o estado de vida.
   - Domínio: Envelhecer faz o animal morrer, impede ele de continuar envelhecendo e de fazer barulho após a morte.
   - Objetivos: modelar o ciclo de vida de um objeto por seu estado.
-- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Enxugar: Toalha com testes](labs/enxugar/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Enxugar: Toalha com testes](labs/enxugar/README.md)
   - Descrição: evolução da atividade da toalha, mas agora com a camada de testes de requisição e resposta.
   - Domínio: o mesmo da toalha.
   - Objetivos: manipular entrada e saída de forma separada do domínio, testando apenas o comportamento observável.
-- [ ] `eval=diff g=3 l=2 s=1` [[ALONE] Carro dirigível](labs/carro/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=1` [[ALONE] Carro dirigível](labs/carro/README.md)
   - Descrição: o carro gerencia entrada, saída de pessoas, combustível e kilomentragem.
   - Domínio: o carro não pode controla o limite de pessoas e possui regras para que a ação de dirigir seja completada.
   - Objetivos: manipular erros como enumerações e treinar técnicas de `early return`.
-- [ ] `eval=diff g=3 l=2 s=2` [[CHECK] Calculadora à bateria](labs/calculadora/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=2` [[CHECK] Calculadora à bateria](labs/calculadora/README.md)
   - Descrição: a calculadora possui bateria, realiza operações matemáticas e as guarda no display.
   - Domínio: A calculadora não pode realizar operações sem bateria e nem dividir por zero.
   - Objetivos: manipular erros como enumerações e treinar técnicas de `early return`.
@@ -127,19 +127,19 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
     - responsabilidade: a classe que possui o estado também protege suas regras.
     - invariante: a classe deve preservar seu estado válido em todas as operações e não dar acesso externo a atributos privados.
     - dry: don't repeat yourself, não repita a validação em outro lugar que não seja o setter.
-- [ ] `eval=self g=1 l=1 s=1` [[GUIDE] Chinela de números pares](labs/chinela/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=1` [[GUIDE] Chinela de números pares](labs/chinela/README.md)
   - Descrição: a chinela controla seu tamanho por meio de operações de consulta e alteração.
   - Domínio: o tamanho deve ser par e permanecer entre 20 e 50; uma tentativa inválida não pode alterar o valor atual.
   - Objetivos: proteger uma regra simples com atributo privado, getter e setter validador.
-- [ ] `eval=self g=1 l=1 s=2` [[TRAIN] Camisa de tamanho fixo](labs/camisa/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=2` [[TRAIN] Camisa de tamanho fixo](labs/camisa/README.md)
   - Descrição: a camisa guarda um tamanho textual e informa os tamanhos permitidos.
   - Domínio: o objeto começa com um tamanho válido e aceita somente `PP`, `P`, `M`, `G`, `GG` ou `XG`, mantendo o estado anterior em caso de falha.
   - Objetivos: consolidar a validação de um conjunto de valores e a inicialização segura no construtor.
-- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Roupa: camisa com testes](labs/roupa/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Roupa: camisa com testes](labs/roupa/README.md)
   - Descrição: a roupa recebe comandos para consultar e alterar seu tamanho por meio de um `Shell`.
   - Domínio: a classe aceita apenas tamanhos permitidos e retorna falha sem mudar o tamanho anterior; as mensagens pertencem ao `Shell`.
   - Objetivos: tornar a regra de tamanho testável ao separar domínio, comandos e apresentação de falhas.
-- [ ] `eval=diff g=3 l=2 s=2` [[ALONE] Hora 24h ou AM/PM](labs/relogio/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=2` [[ALONE] Hora 24h ou AM/PM](labs/relogio/README.md)
   - Descrição: o relógio controla hora, minuto e modo de exibição, além de avançar um minuto por vez.
   - Domínio: atributos com valores válidos; validação individual de cada atributo, passagem do tempo, mostrar a hora em 24h ou AM/PM não altera a hora interna.
   - Objetivos: o validações independentes de cada atributo e manter o estado interno variando a forma como a hora é exibida.
@@ -178,15 +178,15 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - Princípios relacionados:
     - responsabilidade: cada objeto protege suas próprias regras, e o coordenador apenas organiza a colaboração.
     - delegação: cada componente é responsável por suas próprias regras, e o coordenador apenas organiza a colaboração.
-- [ ] `eval=diff g=3 l=2 s=3` [[GUIDE] Criança andando de Motoca](labs/motoca/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=3` [[GUIDE] Criança andando de Motoca](labs/motoca/README.md)
   - Descrição: a motoca controla tempo de uso e a pessoa que a ocupa, permitindo entrar, sair, comprar tempo e dirigir.
   - Domínio: há no máximo uma pessoa na motoca; ela continua existindo depois de sair, e a corrida depende de pessoa, tempo disponível e idade compatível com o tamanho da motoca.
   - Objetivos: modelar uma agregação opcional e delegar à pessoa a verificação de que pode dirigir.
-- [ ] `eval=diff g=3 l=3 s=3` [[TRAIN] Lapiseira de um Grafite](labs/grafite/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=3 s=3` [[TRAIN] Lapiseira de um Grafite](labs/grafite/README.md)
   - Descrição: a lapiseira recebe, remove e usa um grafite para escrever páginas.
   - Domínio: ela comporta no máximo um grafite de espessura compatível; o grafite calcula seu desgaste por dureza e nunca pode ficar menor que `10mm`.
   - Objetivos: delegar o desgaste ao grafite e coordenar a escrita por resultados explícitos do domínio.
-- [ ] `eval=diff g=3 l=4 s=3` [[ALONE] Passeando e pagando o MotoUber](labs/motouber/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=4 s=3` [[ALONE] Passeando e pagando o MotoUber](labs/motouber/README.md)
   - Descrição: o Uber coordena uma corrida com motorista, passageiro e custo acumulado.
   - Domínio: o motorista permanece associado ao Uber, o passageiro sai ao fim da corrida e cada pessoa mantém seu próprio dinheiro; em caso de saldo insuficiente, o Uber completa o pagamento ao motorista.
   - Objetivos: coordenar a transferência de dinheiro sem retirar essa responsabilidade de `Person` e representar os resultados da corrida.
@@ -225,11 +225,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - Princípio relacionado, quando necessário:
     - responsabilidade: cada componente preserva suas regras, enquanto o objeto coordenador decide quando combiná-las.
     - delegação: cada componente é responsável por suas próprias regras, e o coordenador apenas organiza a colaboração.
-- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Brinque até matar o Tamagotchi](labs/tamagotchi/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Brinque até matar o Tamagotchi](labs/tamagotchi/README.md)
   - Descrição: o jogo coordena brincadeiras, banho e sono de um pet com energia, limpeza e idade.
   - Domínio: o pet mantém energia e limpeza em seus limites, registra a primeira causa de morte e não aceita novas alterações depois de morto.
   - Objetivos: delegar ao pet as transições de estado e coordenar ações que respeitam o estado terminal.
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Notebook com bateria e carregador](labs/charger/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Notebook com bateria e carregador](labs/charger/README.md)
   - Descrição: o notebook pode receber bateria e carregador, ligar, desligar e acumular tempo de uso.
   - Domínio: bateria e carregador existem fora do notebook; a bateria mantém carga entre zero e sua capacidade, e o notebook muda seu comportamento conforme as fontes de energia conectadas.
   - Objetivos: coordenar consumo e recarga por etapas, delegando os limites de carga à bateria e reagindo à falta de energia.
@@ -274,19 +274,19 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
   - Descrição: uma referência prática para criar, percorrer, inserir, remover, buscar, filtrar, copiar e ordenar listas de pessoas.
   - Domínio: uma lista mantém elementos ordenados por índice; algumas operações a alteram, enquanto cópia, filtro e ordenação podem produzir outra lista.
   - Objetivos: escolher operações idiomáticas de lista e reconhecer quando uma consulta ou alteração modifica a coleção original.
-- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Coleção de pessoas](labs/array/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[GUIDE] Coleção de pessoas](labs/array/README.md)
   - Descrição: uma lista de pessoas recebe comandos para inserir e remover nas extremidades, remover pelo nome e filtrar por idade.
   - Domínio: a coleção começa vazia, preserva a ordem e não muda ao remover de uma lista vazia ou buscar um nome inexistente; a remoção por nome afeta apenas a primeira ocorrência.
   - Objetivos: praticar diretamente as operações fundamentais de uma lista antes de encapsulá-las em uma classe.
-- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Contato com telefones](labs/contato/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Contato com telefones](labs/contato/README.md)
   - Descrição: um contato mantém nome, favorito e uma coleção privada de telefones.
   - Domínio: somente telefones válidos entram na coleção, a ordem só muda pelas operações do contato e uma remoção por índice inválido preserva o estado.
   - Objetivos: encapsular uma coleção, delegar a validação do número a `Phone` e separar o domínio das mensagens do `Shell`.
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Pula-pula com crianças](labs/pula-pula/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Pula-pula com crianças](labs/pula-pula/README.md)
   - Descrição: o pula-pula controla uma fila de espera e uma lista de crianças brincando.
   - Domínio: as crianças mantêm sua ordem nas listas, entram e saem por operações de fila e podem ser removidas pelo nome em qualquer uma das duas coleções.
   - Objetivos: coordenar movimentos entre coleções lineares e perceber que a posição representa uma ordem variável, não um lugar fixo.
-- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Lapiseira com tambor de grafites](labs/lapiseira/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Lapiseira com tambor de grafites](labs/lapiseira/README.md)
   - Descrição: a lapiseira possui um grafite em uso no bico e vários grafites reserva em um tambor.
   - Domínio: grafites compatíveis entram no fim do tambor, o próximo sai do começo para o bico e o grafite em uso preserva suas próprias regras de desgaste e tamanho mínimo.
   - Objetivos: combinar uma referência opcional com uma coleção linear, reutilizando e delegando as regras de `Lead`.
@@ -327,11 +327,11 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
     - testar índices inválidos, posições vazias, posições ocupadas e valores de fronteira.
   - Princípio relacionado, quando necessário:
     - encapsulamento: o objeto que possui as posições garante sua capacidade, ocupação e representação de ausência.
-- [ ] `eval=diff g=1 l=1 s=1` [[GUIDE] Cinema: posições fixas e ausência](labs/cinema/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[GUIDE] Cinema: posições fixas e ausência](labs/cinema/README.md)
   - Descrição: o cinema reserva, cancela e consulta cadeiras de uma sala.
   - Domínio: cada índice representa uma cadeira fixa que contém um `Client` ou `null`; não é possível reservar uma posição inexistente, já ocupada ou para um cliente que já está na sala.
   - Objetivos: modelar ausência em um vetor de tamanho fixo, validar posições e proteger a coleção interna com uma cópia.
-- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Budega: fila e posições fixas](labs/budega/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Budega: fila e posições fixas](labs/budega/README.md)
   - Descrição: o mercantil controla clientes em uma fila de espera e em caixas de atendimento.
   - Domínio: a fila cresce e diminui, mas os caixas têm quantidade e índices fixos; chamar um cliente remove-o da fila antes de ocupar um caixa, e falhas não mudam nenhuma coleção.
   - Objetivos: comparar uma fila variável com posições fixas e coordenar a movimentação de clientes entre elas.
@@ -349,29 +349,29 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 ## Exceções <!-- @exception -->
 
 - [ ] `eval=none            ` [[INTRO] Exceções](wiki/exception/README.md)
-- [ ] `eval=diff g=3 l=1 s=1` [[TRAIN] Bermuda: exceções para invariantes de tamanho](labs/bermuda/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=1 s=1` [[TRAIN] Bermuda: exceções para invariantes de tamanho](labs/bermuda/README.md)
   - Objetivo: usar `IllegalArgumentException` para comunicar uma alteração de estado inválida.
   - Conceitos: exceção padrão, `require`, `try/catch` e invariante.
   - Técnicas: validar no construtor e no setter, preservar estado e traduzir falhas no Shell.
   - Pré-requisito: encapsulamento, invariantes e `try/except` básicos.
-- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Birita: fila, caixas e exceções](labs/birita/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=2` [[TRAIN] Birita: fila, caixas e exceções](labs/birita/README.md)
   - Descrição: o mercantil controla clientes em uma fila de espera e em caixas de atendimento.
   - Domínio: a fila cresce e diminui; os caixas têm quantidade fixa; índices inexistentes lançam exceção, enquanto resultados esperados são devolvidos pelo domínio.
   - Objetivos: distinguir exceções de resultados normais de uma operação e preservar o estado quando uma operação falha.
-- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Junkfood: exceções e objeto vazio](labs/junkfood/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[ALONE] Junkfood: exceções e objeto vazio](labs/junkfood/README.md)
   - Descrição: a máquina de vendas controla espirais fixas, saldo, compras, troco e arrecadação.
   - Domínio: cada posição sempre contém um `Slot` imutável; índices e quantidades inválidos lançam exceções, e uma compra só altera saldo, quantidade e arrecadação quando pode ser concluída.
   - Objetivos: distinguir exceções de resultados normais, representar espirais vazias com objetos e preservar o histórico de vendas ao devolver o troco.
-- [ ] `eval=diff g=3 l=2 s=1` [[TRAIN] Fusca: posições, exceções e direção](labs/fusca/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=1` [[TRAIN] Fusca: posições, exceções e direção](labs/fusca/README.md)
   - Objetivo: aplicar exceções nomeadas a regras de ocupação e direção.
   - Conceitos: posição fixa, composição, exceções padrão e exceções de domínio.
   - Técnicas: receber objetos, preservar posições, validar pré-condições e traduzir falhas no Shell.
   - Pré-requisito: composição, posições fixas e exceções básicas.
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Guardando moedas e itens em um cofrinho](labs/porquinho/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Guardando moedas e itens em um cofrinho](labs/porquinho/README.md)
   - Descrição: o porquinho armazena moedas e itens até sua capacidade e pode ser quebrado para permitir extrações.
   - Domínio: moedas e itens são imutáveis; adições só ocorrem enquanto o porquinho está intacto e há volume disponível; depois da quebra, novas adições falham e moedas ou itens podem ser extraídos separadamente.
   - Objetivos: proteger capacidade e estado terminal, compor coleções de objetos imutáveis e preservar o estado após operações recusadas.
-- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Tabuleiro: coleções na simulação de turnos](labs/tabuleiro/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[CHECK] Tabuleiro: coleções na simulação de turnos](labs/tabuleiro/README.md)
   - Objetivo: coordenar coleções durante uma simulação de turnos.
   - Conceitos: composição, ordem de eventos, estado terminal e invariantes.
   - Técnicas: separar componentes coesos e testar sequências completas de interação.
@@ -395,17 +395,17 @@ Este repositório é uma coleção de exercícios e projetos relacionados à Pro
 
 
 ___
-- [ ] `eval=diff g=3 l=2 s=1` [Agenda: contatos por identidade em um mapa](labs/agenda/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=2 s=1` [Agenda: contatos por identidade em um mapa](labs/agenda/README.md)
   - Objetivo: localizar contatos pela identidade usando um mapa.
   - Conceitos: chave única, mapa, busca por identidade e fonte única de verdade.
   - Técnicas: encapsular dicionários, validar entradas e separar domínio do Shell.
   - Pré-requisito: dicionários, classes e validação básica.
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Agiota: clientes identificados por codenome](labs/agiota/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Agiota: clientes identificados por codenome](labs/agiota/README.md)
   - Objetivo: representar clientes pelo codenome em um mapa.
   - Conceitos: identidade por chave, unicidade, composição e exceções de domínio.
   - Técnicas: localizar um cliente e delegar mudanças de dívida à classe que a possui.
   - Pré-requisito: classes, mapas e exceções.
-- [ ] `eval=diff g=1 l=1 s=1` [Meu Petshop](labs/petshop/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [Meu Petshop](labs/petshop/README.md)
 
 
 
@@ -415,12 +415,12 @@ Neste bloco, você aprenderá a manter diferentes formas de acesso aos mesmos ob
 
 
 ___
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Favoritos: índice secundário e consistência](labs/favoritos/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Favoritos: índice secundário e consistência](labs/favoritos/README.md)
   - Objetivo: criar uma forma secundária de acesso sem duplicar os contatos.
   - Conceitos: índice, conjunto, redundância intencional e consistência.
   - Técnicas: manter uma fonte de verdade e sincronizar estruturas relacionadas.
   - Pré-requisito: mapas, conjuntos e encapsulamento.
-- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Ligação: composição para histórico e ranking](labs/ligacao/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [[TRAIN] Ligação: composição para histórico e ranking](labs/ligacao/README.md)
   - Objetivo: adicionar histórico e ranking por composição.
   - Conceitos: composição, delegação, colaboração e ciclo de vida independente.
   - Técnicas: extrair responsabilidade, manter consistência entre objetos e testar progressivamente.
@@ -444,28 +444,28 @@ ___
   - DIP, quando o domínio precisar deixar de depender de uma implementação concreta.
 
 ___
-- [ ] `eval=self g=1 l=1 s=1` [[ALONE] Zoo: contrato comum e comportamento polimórfico](labs/zoo/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=1` [[ALONE] Zoo: contrato comum e comportamento polimórfico](labs/zoo/README.md)
   - Objetivo: tratar espécies diferentes por meio de um contrato comum.
   - Conceitos: classe abstrata, herança, substituição e despacho polimórfico.
   - Técnicas: implementar métodos abstratos e escrever clientes dependentes da abstração.
   - Pré-requisito: classes, herança, composição e delegação.
-- [ ] `eval=self g=1 l=1 s=1` [[TRAIN] Pagamento: composição de métodos de pagamento](labs/pagamento/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=1` [[TRAIN] Pagamento: composição de métodos de pagamento](labs/pagamento/README.md)
   - Descrição: processar pagamentos por cartão, Pix e boleto e continuar após falhas individuais.
   - Domínio: o valor precisa ser positivo, o cartão não pode exceder seu limite e uma falha não altera o limite nem interrompe os pagamentos seguintes.
   - Objetivos: aplicar polimorfismo por composição e tratar falhas específicas sem acoplar o processamento aos métodos concretos.
-- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Shapes: interface e substituição geométrica](labs/shapes/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [[TRAIN] Shapes: interface e substituição geométrica](labs/shapes/README.md)
   - Descrição: criar e consultar círculos e retângulos em uma coleção de formas geométricas.
   - Domínio: as coordenadas e dimensões das formas permanecem imutáveis depois da criação.
   - Objetivos: definir uma interface comum e processar formas diferentes por substituição polimórfica.
-- [ ] `eval=self g=3 l=1 s=1` [Estacionamento — polimorfismo por tipo de veículo](labs/estacionamento/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=3 l=1 s=1` [Estacionamento — polimorfismo por tipo de veículo](labs/estacionamento/README.md)
   - Descrição: estacionar veículos, avançar o relógio e cobrar pela permanência conforme o tipo de veículo.
   - Domínio: identifiers devem ser únicos, o tempo não pode retroceder e um pagamento inválido mantém o veículo estacionado.
   - Objetivos: variar as tarifas por herança polimórfica e manter a coordenação do estacionamento independente das fórmulas.
-- [ ] `eval=diff g=3 l=1 s=1` [Cofre — polimorfismo por contrato de valor](labs/cofre/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=1 s=1` [Cofre — polimorfismo por contrato de valor](labs/cofre/README.md)
   - Descrição: guardar moedas e itens no mesmo cofre, respeitando sua capacidade e extrações após a quebra.
   - Domínio: só cofres intactos recebem valores, o volume não excede a capacidade e a quebra preserva o conteúdo.
   - Objetivos: modelar uma coleção heterogênea por interface e manter as invariantes de estado no cofre.
-- [ ] `eval=diff g=3 l=1 s=1` [Cadastro — contas com regras polimórficas](labs/cadastro/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=3 l=1 s=1` [Cadastro — contas com regras polimórficas](labs/cadastro/README.md)
   - Descrição: cadastrar clientes, operar contas correntes e poupanças e aplicar suas regras mensais.
   - Domínio: cada cliente é cadastrado uma vez, saques exigem saldo suficiente e transferências validam as duas contas antes de retirar o valor.
   - Objetivos: delegar atualizações mensais por polimorfismo e localizar clientes e contas por mapas.
@@ -474,23 +474,23 @@ ___
 
 ## TODO <!-- @todo lang=X -->
 
-- [ ] `eval=diff g=1 l=1 s=1` [Twitter — colaboração entre usuários e timelines](labs/twitter/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [Twitter — colaboração entre usuários e timelines](labs/twitter/README.md)
   - Descrição: usuários seguem uns aos outros, publicam tweets e consultam timelines compartilhadas.
   - Domínio: usernames e ids de tweets são únicos, relações de seguir são bidirecionais e remoções limpam vínculos.
   - Objetivos: coordenar objetos colaboradores e manter timelines e curtidas consistentes com tweets compartilhados.
-- [ ] `eval=diff g=1 l=1 s=1` [Salário — regras de cálculo polimórficas](labs/salario/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=1 l=1 s=1` [Salário — regras de cálculo polimórficas](labs/salario/README.md)
   - Descrição: calcular salários para professores, servidores e terceirizados, com diárias e bônus compartilhado.
   - Domínio: nomes são únicos, limites de diárias dependem da categoria e o bônus é dividido entre os funcionários atuais.
   - Objetivos: delegar fórmulas por polimorfismo e calcular valores derivados na folha sem condicionar por categoria.
-- [ ] `eval=diff g=2 l=1 s=1` [Mensagem — inbox e leitura destrutiva](labs/mensagem/README.md) <!-- KOTLIN -->
+- [ ] `eval=diff g=2 l=1 s=1` [Mensagem — inbox e leitura destrutiva](labs/mensagem/README.md)
   - Descrição: cadastrar usuários, enviar mensagens e consumir cada inbox em ordem de chegada.
   - Domínio: só usuários cadastrados participam do envio e a leitura remove as mensagens que devolve.
   - Objetivos: separar cadastro, envio e leitura em objetos coesos e manter o domínio independente da entrada e saída.
-- [ ] `eval=self g=1 l=1 s=1` [Comunicador — envio autorizado por composição](labs/comunicador/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=1 l=1 s=1` [Comunicador — envio autorizado por composição](labs/comunicador/README.md)
   - Descrição: enviar mensagens entre comunicadores autorizados e consumir o inbox durante a leitura.
   - Domínio: a autorização é direcional, somente destinatários registrados recebem mensagens e ler esvazia o inbox.
   - Objetivos: separar autorização e armazenamento da operação de envio por composição e delegação.
-- [ ] `eval=self g=2 l=1 s=1` [Paciente — vínculos bidirecionais no hospital](labs/paciente/README.md) <!-- KOTLIN -->
+- [ ] `eval=self g=2 l=1 s=1` [Paciente — vínculos bidirecionais no hospital](labs/paciente/README.md)
   - Descrição: cadastrar pacientes e médicos e relacioná-los em um hospital.
   - Domínio: IDs são únicos, um paciente não se relaciona com dois médicos da mesma especialidade e os dois lados do vínculo permanecem consistentes.
   - Objetivos: modelar uma associação bidirecional e validar suas regras antes de atualizar os objetos relacionados.

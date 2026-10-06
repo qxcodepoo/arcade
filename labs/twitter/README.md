@@ -173,5 +173,3 @@ $timeline goku
 1:goku (quote)
 $end
 ```
-
-<!-- KOTLIN -->

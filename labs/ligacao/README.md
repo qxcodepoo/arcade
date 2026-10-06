@@ -228,5 +228,3 @@ $end
 
 <!-- links .cache/starter -->
 <!-- end -->
-
-<!-- KOTLIN -->
