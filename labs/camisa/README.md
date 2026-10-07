@@ -98,7 +98,7 @@ val shirt: Shirt = Shirt(Shirt.DEFAULT_SIZE)
 
 Verifique os limites e o estado após falha: `PP`, `P`, `M`, `G`, `GG` e `XG` devem ser aceitos; `XXL` deve ser rejeitado; depois de criar a camisa com `P`, uma tentativa inválida deve manter `getSize()` igual a `P`. Cada chamada de `getAllowedSizes()` deve devolver uma lista nova.
 
-<!-- MERMAID -->
+
 
 ## Draft
 

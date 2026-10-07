@@ -1,26 +1,22 @@
 ---
 index_content: |2
     - Objetivos de aprendizagem:
-      - manipular coleções lineares mantendo ordem, duplicatas e posições;
-      - distinguir inserção, remoção, busca, filtro e percurso;
-      - escolher entre alterar a lista, devolver um elemento ou criar uma nova coleção;
-      - encapsular uma coleção quando ela pertence ao estado de um objeto;
-      - coordenar o movimento de objetos entre coleções relacionadas.
+      - distinguir vetores de tamanho fixo de filas de tamanho variável;
+      - preservar invariantes quando um argumento ou índice é inválido;
+      - comunicar argumentos inválidos por uma exceção padrão e posições inexistentes por uma exceção de domínio;
+      - capturar exceções no Shell e apresentar mensagens sem alterar o domínio.
     - Conceitos:
-      - `Array<T>`, lista de objetos e multiplicidade `0..*`;
-      - índice, extremidades, ordem de chegada e ordem de remoção;
-      - busca, filtro, cópia rasa e ordenação;
-      - fila e operações sobre uma coleção;
-      - coleção interna, composição e exposição controlada;
-      - referência opcional e coleção de muitos objetos.
+      - `Array<T?>`, `MutableList<T>` e índice;
+      - capacidade fixa, ordem de chegada e posição vazia;
+      - invariante, `IllegalArgumentException` e `CounterNotFoundException`;
+      - exceção estrutural e resultado esperado de uma operação.
     - Técnicas de programação:
-      - percorrer elementos diretamente ou com índice quando a posição importar;
-      - inserir e remover nas extremidades, validando coleção vazia e limites;
-      - interromper a busca após remover a primeira ocorrência;
-      - filtrar uma coleção sem modificar indevidamente suas posições;
-      - devolver cópias quando a coleção interna não puder ser alterada por clientes;
-      - mover objetos entre listas sem recriá-los e delegar regras ao objeto que possui o estado.
+      - validar antes de alterar um objeto ou acessar uma posição;
+      - lançar uma exceção padrão para argumentos inválidos e uma exceção própria para posições inexistentes;
+      - preservar o estado quando uma operação falha;
+      - mover uma pessoa da fila para um caixa sem duplicá-la;
+      - capturar exceções no Shell e converter resultados em mensagens.
     - Princípio relacionado, quando necessário:
       - encapsulamento: a classe proprietária protege a coleção e concentra as regras que mantêm seu estado válido.
 ---
-# [INTRO] Introdução Coleções lineares
+# [INTRO] Introdução Vetores e exceções

@@ -1,10 +1,10 @@
 ---
 index_content: |2
     - Descrição: o mercantil controla clientes em uma fila de espera e em caixas de atendimento.
-    - Domínio: a fila cresce e diminui, mas os caixas têm quantidade e índices fixos; chamar um cliente remove-o da fila antes de ocupar um caixa, e falhas não mudam nenhuma coleção.
-    - Objetivos: comparar uma fila variável com posições fixas e coordenar a movimentação de clientes entre elas.
+    - Domínio: a fila cresce e diminui, mas os caixas têm quantidade e índices fixos; índices inválidos lançam exceção e falhas não mudam nenhuma coleção.
+    - Objetivos: comparar uma fila variável com posições fixas e aplicar exceções aos índices inválidos.
 ---
-# [TRAIN] Budega: fila e posições fixas
+# [GUIDE] Budega: fila e posições fixas
 
 <!-- toc-table -->
 [Intro](#intro) | [Objetivos pedagógicos](#objetivos-pedagógicos) | [Diagrama](#diagrama) | [Guide](#guide) | [Answers](#answers) | [Shell](#shell) | [Draft](#draft)
@@ -17,11 +17,11 @@ index_content: |2
 
 Este é um projeto de modelagem e implementação de um mercantil, que simula o funcionamento de caixas de atendimento e uma fila de espera. Para isso, serão implementadas duas classes principais: Pessoa `Person` e Mercado `Market`.
 
-Esta atividade serve como referência para comparar dois usos de coleções no mesmo domínio. A fila de espera cresce e diminui conforme clientes chegam ou são chamados. Os caixas, por outro lado, formam um vetor de tamanho fixo: cada posição representa um caixa específico e pode estar vazia ou ocupada.
+Esta atividade serve como referência para comparar dois usos de coleções no mesmo domínio. A fila de espera cresce e diminui conforme clientes chegam ou são chamados. Os caixas, por outro lado, formam um vetor de tamanho fixo: cada posição representa um caixa específico e pode estar vazia ou ocupada. Acesso a um índice de caixa inexistente lança `CounterNotFoundException`.
 
 ## Objetivos pedagógicos
 
-O objetivo principal é distinguir uma fila de tamanho variável de um vetor de posições fixas e escolher a operação adequada para cada coleção. Como objetivos secundários, a atividade trabalha a coordenação entre coleções e a preservação do estado válido após operações recusadas.
+O objetivo principal é distinguir uma fila de tamanho variável de um vetor de posições fixas e escolher a operação adequada para cada coleção. A atividade também pratica uma exceção de domínio para posições inexistentes e a preservação do estado após falhas.
 
 ### Conhecimentos prévios
 
@@ -48,10 +48,11 @@ O objetivo principal é distinguir uma fila de tamanho variável de um vetor de 
 - Os caixas `counters` são modelados como um vetor de tamanho fixo, `Array<Person?>`. Cada posição contém um cliente ou `null` quando está vazia.
 - A fila de espera `waiting` é uma `MutableList<Person>` de tamanho variável. Quem chega entra no final; quem é chamado sai do início.
 - `arrive(person: Person): Unit` adiciona uma pessoa ao final da fila.
-- `call(index: Int): CallResult` chama a primeira pessoa da fila para um caixa disponível.
-- `finish(index: Int): Pair<Person?, FinishResult>` libera um caixa e retorna a pessoa atendida junto com o resultado da operação.
+- `call(index: Int): CallResult` chama a primeira pessoa da fila para um caixa disponível; índice inválido lança `CounterNotFoundException`.
+- `finish(index: Int): Boolean` libera um caixa e retorna `true` quando ele estava ocupado ou `false` quando estava vazio; índice inválido lança `CounterNotFoundException`.
+- `CounterNotFoundException` deriva de `Exception` sem guardar dados adicionais; o Shell apresenta `fail: caixa inexistente`.
 - `cutInLine(sneaky: Person, targetName: String): Boolean` insere uma pessoa antes da primeira ocorrência do nome indicado; retorna `false` se o alvo não estiver na fila.
-- `giveUp(name: String): Person?` remove e retorna a primeira pessoa encontrada com esse nome, ou `null` se não estiver na fila.
+- `giveUp(name: String): Boolean` remove a primeira pessoa encontrada com esse nome e retorna `true`; se não estiver na fila, retorna `false` sem alterar o estado.
 
 ### Comandos
 
@@ -77,16 +78,16 @@ classDiagram
     class CallResult {
         <<enumeration>>
         OK
-        INVALID_COUNTER
         BUSY_COUNTER
         EMPTY_WAITING
     }
 
-    class FinishResult {
-        <<enumeration>>
-        OK
-        INVALID_COUNTER
-        EMPTY_COUNTER
+    class CounterNotFoundException {
+        <<exception>>
+    }
+
+    class Exception {
+        <<exception>>
     }
 
     class Person {
@@ -99,23 +100,28 @@ classDiagram
         -val counters : Array~Person?~
         -val waiting : MutableList~Person~
         +Market(counterCount : Int)
-        -validateCounter(index : Int) Boolean
+        -validateCounter(index : Int) Unit
         +arrive(person : Person) Unit
         +call(index : Int) CallResult
-        +finish(index : Int) Pair~Person?, FinishResult~
+        +finish(index : Int) Boolean
         +cutInLine(sneaky : Person, targetName : String) Boolean
-        +giveUp(name : String) Person?
+        +giveUp(name : String) Boolean
         +toString() String
     }
 
     class Shell {
+        -var market : Market
+        -var running : Boolean
+        -val callMessages : Map~CallResult, String~
+        -process() Unit
         +main() Unit
     }
 
     Market "1" o-- "0..*" Person : waiting
     Market "1" o-- "0..*" Person : counters
     Market ..> CallResult : returns
-    Market ..> FinishResult : returns
+    Market ..> CounterNotFoundException : throws
+    Exception <|-- CounterNotFoundException
     Shell ..> Market : commands
 ```
 
@@ -152,28 +158,61 @@ Espera: [carla, maria, rubia]
 
 ### Parte 4: Chamar Cliente
 
-- Implemente `call(index: Int): CallResult`. Primeiro valide o índice, depois confira se o caixa está vazio e se há alguém esperando; somente então mova a primeira pessoa para o caixa.
-- Use `CallResult` para distinguir `INVALID_COUNTER`, `BUSY_COUNTER` e `EMPTY_WAITING`. O Shell converte esses resultados em mensagens.
+- Declare `CounterNotFoundException` como uma subclasse de `Exception`, sem atributos próprios.
+- Implemente `call(index: Int): CallResult`. Primeiro valide o índice, lançando `CounterNotFoundException` quando ele não representar um caixa. Depois confira se o caixa está vazio e se há alguém esperando; somente então mova a primeira pessoa para o caixa.
+- Use `CallResult` para distinguir `BUSY_COUNTER` e `EMPTY_WAITING`. O Shell captura a exceção de índice e converte os resultados em mensagens.
 
 ### Parte 5: Finalizar Atendimento
 
-- Implemente `finish(index: Int): Pair<Person?, FinishResult>`. Para índice inválido ou caixa vazio, devolva a pessoa `null` e o resultado correspondente sem alterar o estado.
-- Quando houver uma pessoa no caixa, remova-a, deixando a posição como `null`, e devolva a pessoa junto com `FinishResult.OK`.
+- Implemente `finish(index: Int): Boolean`. Para índice inválido, lance `CounterNotFoundException`; para caixa vazio, retorne `false` sem alterar o estado.
+- Quando houver uma pessoa no caixa, deixe a posição como `null` e retorne `true`.
 
 ### Parte 6: Furar fila e desistir
 
 - Implemente `cutInLine(sneaky: Person, targetName: String)` procurando o alvo somente em `waiting` e inserindo a nova pessoa antes dele. Se não houver alvo, retorne `false` sem alterar a fila.
-- Implemente `giveUp(name: String): Person?` removendo somente a primeira ocorrência encontrada em `waiting`. Se não houver pessoa com esse nome, retorne `null` sem alterar o estado.
+- Implemente `giveUp(name: String): Boolean` removendo somente a primeira ocorrência encontrada em `waiting`. Retorne `true` quando remover e `false` quando o nome não estiver na fila, sem alterar o estado nesse caso.
 - O Shell converte os resultados de falha em `fail: pessoa nao esta na fila`.
 
 Ao terminar, compare as duas coleções: inserir no meio da fila desloca posições relativas, enquanto chamar ou finalizar altera a relação entre a fila e um caixa específico.
 
-`finish` usa um `Pair<Person?, FinishResult>` para devolver a pessoa atendida e o resultado em conjunto, sem criar uma classe de resposta. O Shell traduz os resultados do domínio para as mensagens do contrato externo.
+Índices inválidos são falhas de acesso ao vetor; caixa ocupado, fila vazia e caixa vazio são resultados das operações. O Shell traduz ambos para as mensagens do contrato externo. `callMessages` associa os valores de `CallResult` a textos porque essa enumeração pertence ao domínio; as outras mensagens ficam diretamente nas chamadas de saída da interface.
+
+O `Shell` começa com dois caixas e `running = true`. `process()` lê uma linha por
+vez; `end` define `running = false` e encerra o laço de `main()`. O laço captura
+`NumberFormatException` para mostrar
+`fail: conversao invalida` e `CounterNotFoundException` para mostrar
+`fail: caixa inexistente`. No Shell Kotlin, o acesso a um argumento ausente lança
+`IndexOutOfBoundsException`, capturada como `fail: parametros insuficientes`.
+Um comando desconhecido mostra `cmd invalido`.
 
 ## Answers
 
 
 ## Shell
+
+```sh
+#TEST_CASE shell inicial e falhas de entrada
+
+$show
+Caixas: [-----, -----]
+Espera: []
+$call x
+fail: conversao invalida
+$call 2
+fail: caixa inexistente
+$call -1
+fail: caixa inexistente
+$finish -1
+fail: caixa inexistente
+$giveUp
+fail: parametros insuficientes
+$qualquer
+cmd invalido
+$show
+Caixas: [-----, -----]
+Espera: []
+$end
+```
 
 ```sh
 #TEST_CASE iniciar
@@ -314,4 +353,3 @@ $end
 
 <!-- links .cache/starter -->
 <!-- end -->
-<!-- MERMAID -->

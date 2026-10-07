@@ -5,7 +5,7 @@ index_content: |2
     - Técnicas: validar no construtor e no setter, preservar estado e traduzir falhas no Shell.
     - Pré-requisito: encapsulamento, invariantes e `try/except` básicos.
 ---
-# [TRAIN] Bermuda: exceções para invariantes de tamanho
+# [GUIDE] Bermuda: exceções para invariantes de tamanho
 
 <!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
@@ -76,12 +76,7 @@ Implemente em etapas:
 4. Faça `getAllowedSizes(): List<String>` retornar uma cópia, sem expor a lista interna.
 5. No Shell, capture `IllegalArgumentException` ao executar `init` ou `size`. Só substitua a instância atual quando a construção terminar com sucesso.
 
-`validateSize` existe porque o construtor e `setSize` precisam garantir a mesma
-invariante: o tamanho atual deve estar na coleção de tamanhos permitidos. Ao
-concentrar a regra em um método, os dois pontos não duplicam a condição. Cada
-operação só altera o estado depois que a validação termina com sucesso. Não é
-necessário chamar `setSize` no construtor: a validação não depende de um estado
-já criado, e o construtor pode estabelecer o primeiro estado válido diretamente.
+`validateSize` existe porque o construtor e `setSize` precisam garantir a mesma invariante: o tamanho atual deve estar na coleção de tamanhos permitidos. Ao concentrar a regra em um método, os dois pontos não duplicam a condição. Cada operação só altera o estado depois que a validação termina com sucesso. Não é necessário chamar `setSize` no construtor: a validação não depende de um estado já criado, e o construtor pode estabelecer o primeiro estado válido diretamente.
 
 Não crie uma exceção própria nesta atividade: `IllegalArgumentException` já
 comunica adequadamente um argumento incompatível com o contrato.
@@ -147,4 +142,3 @@ $end
 
 <!-- links .cache/starter -->
 <!-- end -->
-<!-- MERMAID -->

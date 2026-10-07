@@ -1,25 +1,20 @@
 ---
 index_content: |2
     - Objetivos de aprendizagem:
-      - representar coleções cuja capacidade e posições são definidas desde a criação;
-      - tratar o índice como parte da regra do domínio, e não apenas como detalhe da implementação;
+      - representar posições fixas que podem conter um objeto ou `null`;
       - distinguir posição ocupada de posição vazia;
-      - comparar ausência representada por `T | null` e por um objeto que representa o estado vazio;
-      - coordenar uma fila variável com posições fixas sem perder a consistência entre elas.
+      - aplicar regras de ocupação e direção sobre objetos agregados.
     - Conceitos:
-      - vetor de tamanho fixo, capacidade e índice;
-      - ocupação, ausência, nulidade e objeto vazio;
-      - busca em uma coleção com posições vazias;
-      - fila de espera e posição de atendimento;
-      - saldo, quantidade e arrecadação como estados relacionados.
+      - `Array<T?>`, capacidade e índice;
+      - nulidade, ocupação e agregação;
+      - busca em uma coleção com posições vazias.
     - Técnicas de programação:
-      - inicializar todas as posições com `null` ou com objetos vazios;
+      - inicializar todas as posições com `null`;
       - validar limites e ocupação antes de acessar ou alterar uma posição;
-      - preservar o estado quando uma reserva, atendimento ou compra for recusada;
+      - preservar o estado quando uma reserva ou entrada for recusada;
       - devolver cópias de coleções internas quando a capacidade precisar permanecer protegida;
-      - movimentar um objeto da fila para uma posição fixa sem duplicá-lo;
       - testar índices inválidos, posições vazias, posições ocupadas e valores de fronteira.
     - Princípio relacionado, quando necessário:
       - encapsulamento: o objeto que possui as posições garante sua capacidade, ocupação e representação de ausência.
 ---
-# [INTRO] Introdução Posições fixas e ausência
+# [INTRO] Introdução Listas nullable e agregação

@@ -100,5 +100,3 @@ fun main(): Unit {
 ```
 
 Verifique pelo menos estes casos: `20` e `50` devem ser aceitos; `19`, `51` e qualquer tamanho ímpar devem ser rejeitados; depois de uma rejeição, o tamanho anterior deve permanecer válido. Por exemplo, após aceitar `20`, chame `setSize(21)` e depois `setSize(50)`: a tentativa com `21` deve retornar `false` sem alterar `size`, e `50` deve ser aceito.
-
-<!-- MERMAID -->

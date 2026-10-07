@@ -180,5 +180,3 @@ $end
 
 <!-- links .cache/cheat -->
 <!-- end -->
-
-<!-- MERMAID -->
