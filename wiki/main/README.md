@@ -2,41 +2,48 @@
 
 ![_](assets/cover.webp)
 
-- Em c++:
-  - Código: [main.cpp](main.cpp)
-
-- Em java:
-  - Código: [Main.java](Main.java)
-
-- Em typescript:
-  - Código: [main.ts](main.ts)
-
 ## Guide
 
-O modelo básico da main é:
+Em Kotlin, o `Shell` lê um comando por vez, chama as operações do domínio e
+apresenta os resultados. Este exemplo mantém uma lista de números para mostrar
+o fluxo da `main`:
 
-```py
-def main():
-    
-    coisa = Coisa(); // Elemento a ser manipulado
+```kotlin
+import java.util.Locale
 
-    while True:
-        line = input();         // lê a linha
-        args = line.split(" "); // quebra em array de palavras
-        cmd = args[0]           // o comando é a primeira palavra
-        print("$" + line);      // mostra a linha lida
+class Shell {
+    private val numbers: MutableList<Int> = mutableListOf()
+    private var running: Boolean = true
 
-        if cmd == "end":
-            break;
-        elif cmd == "nome do comando":
-            valor = int(args[1])
-            nome = args[2]
-            coisa.funcaoTal(valor, nome)
+    private fun process(): Unit {
+        val line: String = readln()
+        println("\$$line")
+        val args: List<String> = line.split(" ")
 
-        elif cmd == "outro comando":
-            //outra invocacao
-        else:
-            write("fail: comando invalido");
+        when (args[0]) {
+            "end" -> running = false
+            "show" -> println(numbers)
+            "push" -> numbers.addAll(args.drop(1).map { it.toInt() })
+            "erase" -> numbers.removeAt(args[1].toInt())
+            "media" -> println(String.format(Locale.US, "%.2f", numbers.average()))
+            else -> println("fail: comando invalido")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: NumberFormatException) {
+                println("fail: conversao invalida")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: indice ou parametro invalido")
+            }
+        }
+    }
+}
+
+fun main(): Unit = Shell().main()
 ```
 
 ## Shell

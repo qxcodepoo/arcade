@@ -1,15 +1,12 @@
-const val INVALID_COMMAND_MSG: String = "fail: comando invalido"
-const val INVALID_INDEX_MSG: String = "fail: cadeira nao existe"
-const val OCCUPIED_SEAT_MSG: String = "fail: cadeira ja esta ocupada"
-const val DUPLICATE_CLIENT_MSG: String = "fail: cliente ja esta no cinema"
-const val CLIENT_NOT_FOUND_MSG: String = "fail: cliente nao esta no cinema"
-
 enum class ReserveResult {
     OK,
-    INVALID_INDEX,
     OCCUPIED,
     DUPLICATE_CLIENT,
 }
+
+class InvalidCapacityException : Exception()
+
+class InvalidSeatIndexException : Exception()
 
 class Client(id: String, phone: String) {
     private var id: String = id
@@ -31,7 +28,14 @@ class Client(id: String, phone: String) {
 }
 
 class Theater(capacity: Int) {
-    private val seats: Array<Client?> = Array(capacity) { null }
+    private val seats: Array<Client?>
+
+    init {
+        if (capacity < 0) {
+            throw InvalidCapacityException()
+        }
+        seats = Array(capacity) { null }
+    }
 
     private fun search(clientId: String): Int {
         for (index in seats.indices) {
@@ -43,12 +47,14 @@ class Theater(capacity: Int) {
         return -1
     }
 
-    private fun verifyIndex(index: Int): Boolean = index in seats.indices
+    private fun validateIndex(index: Int): Unit {
+        if (index !in seats.indices) {
+            throw InvalidSeatIndexException()
+        }
+    }
 
     fun reserve(clientId: String, phone: String, index: Int): ReserveResult {
-        if (!verifyIndex(index)) {
-            return ReserveResult.INVALID_INDEX
-        }
+        validateIndex(index)
         if (seats[index] != null) {
             return ReserveResult.OCCUPIED
         }
@@ -76,32 +82,50 @@ class Theater(capacity: Int) {
         }
 }
 
-fun main(): Unit {
-    var theater: Theater = Theater(0)
+class Shell {
+    private var theater: Theater = Theater(0)
+    private var running: Boolean = true
 
-    while (true) {
-        val line: String = readlnOrNull() ?: break
+    private fun process(): Unit {
+        val line: String = readln()
         println("\$$line")
 
-        val parts: List<String> = line.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-        when {
-            parts == listOf("end") -> break
-            parts == listOf("show") -> println(theater)
-            parts.size == 2 && parts[0] == "init" -> theater = Theater(parts[1].toInt())
-            parts.size == 4 && parts[0] == "reserve" -> {
-                when (theater.reserve(parts[1], parts[2], parts[3].toInt())) {
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "show" -> println(theater)
+            "init" -> theater = Theater(args[1].toInt())
+            "reserve" -> {
+                when (theater.reserve(args[1], args[2], args[3].toInt())) {
                     ReserveResult.OK -> Unit
-                    ReserveResult.INVALID_INDEX -> println(INVALID_INDEX_MSG)
-                    ReserveResult.OCCUPIED -> println(OCCUPIED_SEAT_MSG)
-                    ReserveResult.DUPLICATE_CLIENT -> println(DUPLICATE_CLIENT_MSG)
+                    ReserveResult.OCCUPIED -> println("fail: cadeira ja esta ocupada")
+                    ReserveResult.DUPLICATE_CLIENT -> println("fail: cliente ja esta no cinema")
                 }
             }
-            parts.size == 2 && parts[0] == "cancel" -> {
-                if (!theater.cancel(parts[1])) {
-                    println(CLIENT_NOT_FOUND_MSG)
+            "cancel" -> {
+                if (!theater.cancel(args[1])) {
+                    println("fail: cliente nao esta no cinema")
                 }
             }
-            else -> println(INVALID_COMMAND_MSG)
+            else -> println("fail: comando invalido")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: NumberFormatException) {
+                println("fail: conversao invalida")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: parametros insuficientes")
+            } catch (_: InvalidCapacityException) {
+                println("fail: capacidade invalida")
+            } catch (_: InvalidSeatIndexException) {
+                println("fail: cadeira nao existe")
+            }
         }
     }
 }
+
+fun main(): Unit = Shell().main()

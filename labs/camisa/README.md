@@ -7,6 +7,9 @@ index_content: |2
 # [TRAIN] Camisa de tamanho fixo
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Draft](#draft)
+-- | -- | -- | -- | --
+<!-- end -->
 
 ![_](assets/cover.webp)
 

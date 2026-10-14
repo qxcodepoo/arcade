@@ -1,5 +1,7 @@
-const val GAME_OVER_MSG: String = "game is over"
-const val INVALID_COMMAND_MSG: String = "invalid command"
+class InvalidBoardSizeException : Exception()
+class InvalidPlayerCountException : Exception()
+class InvalidTrapPositionException : Exception()
+class InvalidRollException : Exception()
 
 enum class EventType {
     MOVED,
@@ -9,31 +11,46 @@ enum class EventType {
     WON,
 }
 
-data class RoundEvent(
+class RoundEvent(
     val eventType: EventType,
     val playerLabel: Int,
     val position: Int,
 )
 
-data class Player(
+class Player(
     val label: Int,
     var position: Int = 0,
     var trapped: Boolean = false,
 )
 
 class Board(private val boardSize: Int, playerCount: Int) {
+    init {
+        if (boardSize <= 0) {
+            throw InvalidBoardSizeException()
+        }
+        if (playerCount <= 0) {
+            throw InvalidPlayerCountException()
+        }
+    }
+
     private val traps: MutableList<Int> = mutableListOf()
     private var running: Boolean = true
     private val players: MutableList<Player> =
         List(playerCount) { index -> Player(index + 1) }.toMutableList()
 
     fun addTrap(position: Int): Unit {
+        if (position !in 1 until boardSize) {
+            throw InvalidTrapPositionException()
+        }
         traps.add(position)
     }
 
     fun rollDice(value: Int): List<RoundEvent> {
         if (!running) {
             return emptyList()
+        }
+        if (value <= 0) {
+            throw InvalidRollException()
         }
 
         val player: Player = players.removeAt(0)
@@ -49,7 +66,7 @@ class Board(private val boardSize: Int, playerCount: Int) {
                     RoundEvent(EventType.STAYED_TRAPPED, player.label, player.position),
                 )
             }
-        } else if (player.position + value >= finishPosition) {
+        } else if (value >= finishPosition - player.position) {
             player.position = finishPosition
             running = false
             events.add(RoundEvent(EventType.WON, player.label, player.position))
@@ -83,41 +100,59 @@ class Board(private val boardSize: Int, playerCount: Int) {
     }
 }
 
-fun printEvents(events: List<RoundEvent>): Unit {
-    for (event in events) {
-        val player: String = "player${event.playerLabel}"
-        when (event.eventType) {
-            EventType.MOVED -> println("$player andou para ${event.position}")
-            EventType.TRAPPED -> println("$player caiu em uma armadilha")
-            EventType.RELEASED -> println("$player se libertou")
-            EventType.STAYED_TRAPPED -> println("$player continua preso")
-            EventType.WON -> println("$player ganhou")
-        }
-    }
-}
+class Shell {
+    private var board: Board = Board(10, 2)
+    private var running: Boolean = true
 
-fun main(): Unit {
-    var board: Board = Board(10, 2)
+    private fun process(): Unit {
+        val line: String = readln()
+        println("\$$line")
 
-    while (true) {
-        val line: String = readLine() ?: break
-        println("$" + line)
-
-        val parts: List<String> = line.trim().split(Regex("\\s+"))
-        when (parts[0]) {
-            "end" -> break
-            "init" -> board = Board(parts[2].toInt(), parts[1].toInt())
-            "addTrap" -> board.addTrap(parts[1].toInt())
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "init" -> board = Board(args[2].toInt(), args[1].toInt())
+            "addTrap" -> board.addTrap(args[1].toInt())
             "roll" -> {
-                val events: List<RoundEvent> = board.rollDice(parts[1].toInt())
+                val events: List<RoundEvent> = board.rollDice(args[1].toInt())
                 if (events.isEmpty()) {
-                    println(GAME_OVER_MSG)
-                } else {
-                    printEvents(events)
+                    println("game is over")
+                }
+                for (event in events) {
+                    val player: String = "player${event.playerLabel}"
+                    when (event.eventType) {
+                        EventType.MOVED -> println("$player andou para ${event.position}")
+                        EventType.TRAPPED -> println("$player caiu em uma armadilha")
+                        EventType.RELEASED -> println("$player se libertou")
+                        EventType.STAYED_TRAPPED -> println("$player continua preso")
+                        EventType.WON -> println("$player ganhou")
+                    }
                 }
             }
-            "show" -> println(board.toString())
-            else -> println(INVALID_COMMAND_MSG)
+            "show" -> println(board)
+            else -> println("invalid command")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: InvalidBoardSizeException) {
+                println("fail: invalid board size")
+            } catch (_: InvalidPlayerCountException) {
+                println("fail: invalid player count")
+            } catch (_: InvalidTrapPositionException) {
+                println("fail: invalid trap position")
+            } catch (_: InvalidRollException) {
+                println("fail: invalid roll")
+            } catch (_: NumberFormatException) {
+                println("fail: invalid conversion")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: insufficient parameters")
+            }
         }
     }
 }
+
+fun main(): Unit = Shell().main()

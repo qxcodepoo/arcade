@@ -7,6 +7,9 @@ index_content: |2
 # [TRAIN] Roupa: camisa com testes
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
+<!-- end -->
 
 ![_](assets/cover.webp)
 

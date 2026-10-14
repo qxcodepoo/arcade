@@ -7,6 +7,9 @@ index_content: |2
 # [GUIDE] Criança andando de Motoca 
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
+<!-- end -->
 
 ![cover](assets/cover.webp)
 

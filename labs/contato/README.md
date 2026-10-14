@@ -1,7 +1,7 @@
 ---
 index_content: |2
     - Descrição: um contato mantém nome, favorito e uma coleção privada de telefones.
-    - Domínio: somente telefones válidos entram na coleção, a ordem só muda pelas operações do contato e uma remoção por índice inválido preserva o estado.
+    - Domínio: somente telefones válidos entram na coleção, a ordem só muda pelas operações do contato e um índice de telefone inexistente lança exceção sem alterar o estado.
     - Objetivos: encapsular uma coleção, delegar a validação do número a `Phone` e separar o domínio das mensagens do `Shell`.
 ---
 # [TRAIN] Contato com telefones
@@ -46,9 +46,9 @@ Esta atividade prepara o modelo local de um contato. `Phone` concentra a validad
   - Cria e adiciona o telefone ao final quando o número é válido, retornando `true`.
   - Retorna `false` e preserva a coleção quando o número é inválido.
   - Labels podem se repetir.
-- `removePhone(index: Int): Boolean`
-  - Remove o telefone da posição indicada e retorna `true`.
-  - Retorna `false` e preserva a coleção quando o índice é negativo ou não existe.
+- `removePhone(index: Int): Unit`
+  - Remove o telefone da posição indicada quando ela existe.
+  - Lança `InvalidPhoneIndexException` e preserva a coleção quando o índice é negativo ou não existe.
 - `toggleFavorite(): Unit`
   - Alterna o estado de favorito.
 - O estado de favorito será reutilizado em atividades posteriores para consultar e listar contatos favoritos; nesta atividade, ele só precisa ser alternado e exibido.
@@ -61,13 +61,14 @@ Esta atividade prepara o modelo local de um contato. `Phone` concentra a validad
 
 - `init name`: substitui o contato atual por um novo contato vazio e não favoritado.
 - `addPhone label number`: tenta adicionar um telefone; exibe `fail: invalid number` se o número for inválido.
-- `removePhone index`: tenta remover por índice; exibe `fail: invalid index` se o argumento não for um inteiro ou a posição não existir.
+- `removePhone index`: tenta remover por índice; exibe `fail: invalid index` se a posição não existir.
 - `toggleFavorite`: alterna o favorito sem produzir saída.
 - `show`: exibe o contato.
 - `end`: encerra o programa.
 - Qualquer outro comando exibe `fail: invalid command`.
+- Um argumento numérico que não pode ser convertido exibe `fail: invalid conversion`; um argumento ausente exibe `fail: insufficient parameters`. O shell continua aceitando comandos após essas falhas.
 
-Mutações bem-sucedidas são silenciosas. As mensagens de falha pertencem ao `Shell`; as classes de domínio não imprimem.
+Mutações bem-sucedidas são silenciosas. `Phone.isValid()` permite que `Contact.addPhone` recuse normalmente um número inválido; `InvalidPhoneIndexException` indica que a posição solicitada não representa um telefone. As mensagens de falha pertencem ao `Shell`; as classes de domínio não imprimem.
 
 ## Diagrama
 
@@ -77,6 +78,10 @@ Mutações bem-sucedidas são silenciosas. As mensagens de falha pertencem ao `S
 %%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
+
+    class InvalidPhoneIndexException {
+        <<exception>>
+    }
 
     class Phone {
         +VALID_CHARS : String$
@@ -93,7 +98,7 @@ classDiagram
         -val phones : MutableList~Phone~
         +Contact(name : String)
         +addPhone(label : String, number : String) Boolean
-        +removePhone(index : Int) Boolean
+        +removePhone(index : Int) Unit
         +toggleFavorite() Unit
         +toString() String
     }
@@ -103,6 +108,7 @@ classDiagram
     }
 
     Contact "1" *-- "0..*" Phone : owns
+    Contact ..> InvalidPhoneIndexException : throws
     Shell ..> Contact : commands
 ```
 
@@ -136,15 +142,16 @@ Verificação: após uma tentativa inválida, use `show` e confirme que os telef
 
 ### 4. Remova por posição
 
-- Confira os dois limites do índice antes de alterar a lista.
-- Remova e retorne `true` apenas quando a posição existir.
-- Trate a conversão textual do índice no `Shell`, pois ela pertence à interface.
+- Confira os dois limites do índice antes de alterar a lista e lance `InvalidPhoneIndexException` quando a posição não existir.
+- Remova o telefone somente depois dessa validação. A exceção deixa o estado anterior intacto.
+- Converta o texto do índice com `toInt()` no `Shell`; uma falha de conversão é diferente de uma posição inexistente.
 
 ### 5. Revise estado simples e conecte o Shell
 
 - Implemente `toggleFavorite` como uma alternância do booleano atual.
 - Mantenha o estado de favorito no contato: ele será usado por `@agenda` para localizar e exibir favoritos, embora aqui a única operação seja alternar esse estado.
-- Use `when` sobre as partes de `line.trim().split(Regex("\\s+"))` para interpretar os comandos.
+- Use `line.split(" ")`, acesse os argumentos diretamente e interprete o primeiro com `when`.
+- Capture `NumberFormatException`, `IndexOutOfBoundsException` e `InvalidPhoneIndexException` em `Shell.main()`, com mensagens diferentes para conversão inválida, argumento ausente e posição inexistente.
 - Mantenha mensagens e impressão fora do domínio.
 
 Perguntas de reflexão:
@@ -249,8 +256,25 @@ $removePhone -1
 fail: invalid index
 $removePhone 1
 fail: invalid index
+$show
+- david [oi:88]
+$end
+```
+
+### Argumentos inválidos preservam o estado e o shell continua
+
+```bash
+#TEST_CASE invalid_arguments
+$init david
+$addPhone oi 88
 $removePhone first
-fail: invalid index
+fail: invalid conversion
+$removePhone
+fail: insufficient parameters
+$addPhone mobile
+fail: insufficient parameters
+$init
+fail: insufficient parameters
 $show
 - david [oi:88]
 $end

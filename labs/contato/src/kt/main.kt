@@ -1,6 +1,4 @@
-const val INVALID_NUMBER_MSG: String = "fail: invalid number"
-const val INVALID_INDEX_MSG: String = "fail: invalid index"
-const val INVALID_COMMAND_MSG: String = "fail: invalid command"
+class InvalidPhoneIndexException : Exception()
 
 class Phone(val label: String, val number: String) {
     companion object {
@@ -29,12 +27,11 @@ class Contact(val name: String) {
         return true
     }
 
-    fun removePhone(index: Int): Boolean {
+    fun removePhone(index: Int): Unit {
         if (index !in phones.indices) {
-            return false
+            throw InvalidPhoneIndexException()
         }
         phones.removeAt(index)
-        return true
     }
 
     fun toggleFavorite(): Unit {
@@ -48,31 +45,43 @@ class Contact(val name: String) {
     }
 }
 
-fun main(): Unit {
-    var contact: Contact = Contact("")
+class Shell {
+    private var contact: Contact = Contact("")
+    private var running: Boolean = true
 
-    while (true) {
-        val line: String = readlnOrNull() ?: break
+    private fun process(): Unit {
+        val line: String = readln()
         println("\$$line")
 
-        val parts: List<String> = line.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-        when {
-            parts == listOf("end") -> break
-            parts.size == 2 && parts[0] == "init" -> contact = Contact(parts[1])
-            parts.size == 3 && parts[0] == "addPhone" -> {
-                if (!contact.addPhone(parts[1], parts[2])) {
-                    println(INVALID_NUMBER_MSG)
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "init" -> contact = Contact(args[1])
+            "addPhone" -> {
+                if (!contact.addPhone(args[1], args[2])) {
+                    println("fail: invalid number")
                 }
             }
-            parts.size == 2 && parts[0] == "removePhone" -> {
-                val index: Int? = parts[1].toIntOrNull()
-                if (index == null || !contact.removePhone(index)) {
-                    println(INVALID_INDEX_MSG)
-                }
+            "removePhone" -> contact.removePhone(args[1].toInt())
+            "toggleFavorite" -> contact.toggleFavorite()
+            "show" -> println(contact)
+            else -> println("fail: invalid command")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: NumberFormatException) {
+                println("fail: invalid conversion")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: insufficient parameters")
+            } catch (_: InvalidPhoneIndexException) {
+                println("fail: invalid index")
             }
-            parts == listOf("toggleFavorite") -> contact.toggleFavorite()
-            parts == listOf("show") -> println(contact)
-            else -> println(INVALID_COMMAND_MSG)
         }
     }
 }
+
+fun main(): Unit = Shell().main()

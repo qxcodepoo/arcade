@@ -7,6 +7,9 @@ index_content: |2
 # [ALONE] Hora 24h ou AM/PM
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | --
+<!-- end -->
 
 ![cover](assets/cover.webp)
 

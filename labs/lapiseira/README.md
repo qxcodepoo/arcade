@@ -1,19 +1,19 @@
 ---
 index_content: |2
-    - Descrição: a lapiseira possui um grafite em uso no bico e vários grafites reserva em um tambor.
-    - Domínio: grafites compatíveis entram no fim do tambor, o próximo sai do começo para o bico e o grafite em uso preserva suas próprias regras de desgaste e tamanho mínimo.
-    - Objetivos: combinar uma referência opcional com uma coleção linear, reutilizando e delegando as regras de `Lead`.
+    - Descrição: guardar grafites reservas em um tambor e mover um grafite para o bico.
+    - Domínio: os grafites entram no fim do tambor e saem do início; o bico pode estar vazio, e grafites inválidos não entram no tambor.
+    - Objetivos: distinguir uma lista ordenada de uma referência nullable e coordenar objetos agregados.
 ---
 # [ALONE] Lapiseira com tambor de grafites
 
 <!-- toc-table -->
-[Intro](#intro) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Drafts](#drafts)
--- | -- | -- | -- | --
+[Intro](#intro) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- end -->
 
 ![cover](assets/cover.webp)
 
-Faça o modelo de uma lapiseira que pode conter vários.
+Faça o modelo de uma lapiseira com um grafite no bico e vários grafites reservas no tambor.
 
 ## Intro
 
@@ -23,6 +23,7 @@ O foco é acrescentar uma coleção linear ao modelo anterior, distinguindo uma 
 
 - Iniciar lapiseira
   - Inicia uma lapiseira de determinado calibre sem grafite.
+  - O calibre deve ser um número finito e não negativo; `0.0` representa a lapiseira vazia inicial do `Shell`.
   - Lapiseiras possuem um bico e um tambor.
   - O bico guarda o grafite que está em uso.
   - O tambor guarda os grafites reservas.
@@ -32,6 +33,7 @@ O foco é acrescentar uma coleção linear ao modelo anterior, distinguindo uma 
     - a dureza: `String`.
     - o comprimento em mm: `Int`.
   - `insert(lead: Lead): Boolean` retorna `false` se o calibre não for compatível e `true` quando insere o grafite.
+  - `Lead` exige calibre finito e positivo, dureza `HB`, `2B`, `4B` ou `6B` e comprimento de pelo menos `10mm`. Um grafite inválido é recusado antes da inserção.
   - O grafite é colocado como o ÚLTIMO grafite do tambor.
 - Puxar grafite
   - `pull(): Pair<Boolean, Lead?>` combina a retirada do bico e a retirada do tambor.
@@ -48,7 +50,7 @@ O foco é acrescentar uma coleção linear ao modelo anterior, distinguindo uma 
   - O último centímetro de um grafite não pode ser aproveitado, quando o grafite estiver com 10mm, não é mais possível escrever e o grafite deve ser retirado.
   - Se não houver grafite suficiente para terminar a folha, avise que o texto ficou incompleto.
 
-As classes de domínio retornam resultados e não imprimem mensagens. O `Shell` interpreta os valores booleanos, o par retornado por `pull` e o `WriteResult` para apresentar falhas.
+As classes de domínio retornam resultados e não imprimem mensagens. Calibre incompatível, tambor vazio e falhas de escrita são resultados esperados; construtores com dados inválidos lançam `InvalidPencilThicknessException` ou `InvalidLeadException`. O `Shell` traduz resultados e exceções em mensagens.
 
 ## Diagrama
 
@@ -65,6 +67,14 @@ classDiagram
         NO_LEAD
         INSUFFICIENT
         INCOMPLETE
+    }
+
+    class InvalidLeadException {
+        <<exception>>
+    }
+
+    class InvalidPencilThicknessException {
+        <<exception>>
     }
 
     class Lead {
@@ -91,23 +101,31 @@ classDiagram
     }
 
     class Shell {
+        -var pencil : Pencil
+        -var running : Boolean
+        -process() Unit
         +main() Unit
     }
 
     Pencil "1" o-- "0..1" Lead : tip
     Pencil "1" o-- "0..*" Lead : barrel
     Pencil ..> WriteResult : returns
+    Lead ..> InvalidLeadException : throws
+    Pencil ..> InvalidPencilThicknessException : throws
     Shell ..> Pencil : commands
 ```
 
 ## Guide
 
 - Comece reutilizando `Lead` e as regras de desgaste de `Grafite`.
+- Valide os dados na construção: `Pencil` aceita calibre finito e não negativo; `Lead` exige calibre finito e positivo, dureza entre `HB`, `2B`, `4B` e `6B`, e comprimento de pelo menos `10mm`.
+- Em `consume(amount: Int)`, rejeite valores negativos e nunca aumente o comprimento. Uma tentativa de consumo incompleto deixa o grafite com `10mm`; a escrita com `10mm` retorna `INSUFFICIENT` sem consumo.
 - Adicione `barrel: MutableList<Lead>` a `Pencil`. `insert` deve colocar o grafite compatível no final do tambor.
 - Faça `insert` retornar `false` para calibre incompatível e `true` quando inserir no final do tambor.
 - Implemente `pull(): Pair<Boolean, Lead?>`: retire e devolva o grafite do bico quando ocupado; caso contrário, carregue o primeiro grafite do tambor; retorne falha apenas quando ambos estiverem vazios.
 - Mantenha `writePage` para delegar o consumo a `Lead`, usando `WriteResult` para os resultados da escrita.
 - Deixe o `Shell` imprimir uma falha quando `insert` ou `pull` retornar `false`.
+- Organize o `Shell` em `process()` e `main()`, use `split(" ")` e acesse os argumentos diretamente. Capture `NumberFormatException` e `IndexOutOfBoundsException` para entrada malformada, além das exceções dos construtores. Coloque cada mensagem diretamente no `println` correspondente.
 
 O diagrama usa tipos e assinaturas Kotlin. `length` representa o comprimento restante do grafite, distinguindo-o do calibre `thickness`. Em `pull`, o primeiro valor do `Pair` informa se a operação teve sucesso e o segundo devolve um grafite removido, se houver. Quando o bico está ocupado, `$pull` retira o grafite; quando está vazio, tenta carregar o próximo do tambor.
 
@@ -151,6 +169,27 @@ calibre: 0.5, bico: [], tambor: <>
 #TEST_CASE pull with empty tip and barrel
 $pull
 fail: nao existe grafite no barril
+$end
+```
+
+```bash
+#TEST_CASE invalid construction and input preserve state
+$init 0.5
+$insert 0.5 HB 20
+$init -0.5
+fail: calibre invalido
+$insert 0.5 XX 20
+fail: grafite invalido
+$insert 0.5 HB 9
+fail: grafite invalido
+$insert -0.5 HB 20
+fail: grafite invalido
+$insert 0.5 HB idade
+fail: conversao invalida
+$insert 0.5 HB
+fail: parametros insuficientes
+$show
+calibre: 0.5, bico: [], tambor: <[0.5:HB:20]>
 $end
 ```
 
@@ -201,10 +240,3 @@ $show
 calibre: 0.9, bico: [], tambor: <>
 $end
 ```
-
-## Drafts
-
-<!-- links .cache/starter -->
-- java
-  - [Shell.java](.cache/starter/java/Shell.java)
-<!-- end -->

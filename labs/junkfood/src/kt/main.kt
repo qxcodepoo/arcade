@@ -1,12 +1,9 @@
 import java.util.Locale
 
-const val INVALID_COMMAND_MSG: String = "fail: comando invalido"
-const val INVALID_INDEX_MSG: String = "fail: indice nao existe"
-const val INVALID_QUANTITY_MSG: String = "fail: quantidade invalida"
-const val INVALID_CAPACITY_MSG: String = "fail: capacidade invalida"
-const val INVALID_VALUE_MSG: String = "fail: valor invalido"
-const val INSUFFICIENT_BALANCE_MSG: String = "fail: saldo insuficiente"
-const val EMPTY_SLOT_MSG: String = "fail: espiral sem produtos"
+class InvalidSlotIndexException : Exception()
+class InvalidCapacityException : Exception()
+class InvalidQuantityException : Exception()
+class InvalidPriceException : Exception()
 
 enum class BuyResult {
     OK,
@@ -14,13 +11,18 @@ enum class BuyResult {
     EMPTY_SLOT,
 }
 
-data class Slot(
+class Slot(
     val name: String = "empty",
     val quantity: Int = 0,
     val price: Double = 0.0,
 ) {
     init {
-        require(quantity >= 0)
+        if (quantity < 0) {
+            throw InvalidQuantityException()
+        }
+        if (!price.isFinite() || price < 0.0) {
+            throw InvalidPriceException()
+        }
     }
 
     override fun toString(): String =
@@ -29,7 +31,9 @@ data class Slot(
 
 class Machine(capacity: Int) {
     init {
-        require(capacity >= 0)
+        if (capacity < 0) {
+            throw InvalidCapacityException()
+        }
     }
 
     private val slots: MutableList<Slot> = MutableList(capacity) { Slot() }
@@ -38,7 +42,7 @@ class Machine(capacity: Int) {
 
     private fun validateIndex(index: Int): Unit {
         if (index !in slots.indices) {
-            throw IndexOutOfBoundsException("slot index: $index")
+            throw InvalidSlotIndexException()
         }
     }
 
@@ -58,7 +62,7 @@ class Machine(capacity: Int) {
     }
 
     fun insertCash(value: Double): Boolean {
-        if (value <= 0.0) {
+        if (!value.isFinite() || value <= 0.0 || !(cash + value).isFinite()) {
             return false
         }
         cash += value
@@ -78,13 +82,13 @@ class Machine(capacity: Int) {
     fun buyItem(index: Int): Pair<BuyResult, String?> {
         validateIndex(index)
         val slot: Slot = slots[index]
-        if (cash < slot.price) {
-            return BuyResult.INSUFFICIENT_BALANCE to null
-        }
         if (slot.quantity == 0) {
             return BuyResult.EMPTY_SLOT to null
         }
-        slots[index] = slot.copy(quantity = slot.quantity - 1)
+        if (cash < slot.price) {
+            return BuyResult.INSUFFICIENT_BALANCE to null
+        }
+        slots[index] = Slot(slot.name, slot.quantity - 1, slot.price)
         cash -= slot.price
         revenue += slot.price
         return BuyResult.OK to slot.name
@@ -98,71 +102,59 @@ class Machine(capacity: Int) {
     }
 }
 
-fun main(): Unit {
-    var machine: Machine = Machine(0)
+class Shell {
+    private var machine: Machine = Machine(0)
+    private var running: Boolean = true
 
-    while (true) {
-        val line: String = readlnOrNull() ?: break
+    private fun process(): Unit {
+        val line: String = readln()
         println("\$$line")
 
-        val parts: List<String> = line.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-        when {
-            parts == listOf("end") -> break
-            parts == listOf("show") -> println(machine)
-            parts.size == 2 && parts[0] == "init" -> {
-                val capacity: Int = parts[1].toInt()
-                try {
-                    machine = Machine(capacity)
-                } catch (_: IllegalArgumentException) {
-                    println(INVALID_CAPACITY_MSG)
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "show" -> println(machine)
+            "init" -> machine = Machine(args[1].toInt())
+            "set" -> machine.setSlot(args[1].toInt(), args[2], args[3].toInt(), args[4].toDouble())
+            "limpar" -> machine.clearSlot(args[1].toInt())
+            "dinheiro" -> {
+                if (!machine.insertCash(args[1].toDouble())) {
+                    println("fail: valor invalido")
                 }
             }
-            parts.size == 5 && parts[0] == "set" -> {
-                val index: Int = parts[1].toInt()
-                val name: String = parts[2]
-                val quantity: Int = parts[3].toInt()
-                val price: Double = parts[4].toDouble()
-                try {
-                    machine.setSlot(index, name, quantity, price)
-                } catch (_: IndexOutOfBoundsException) {
-                    println(INVALID_INDEX_MSG)
-                } catch (_: IllegalArgumentException) {
-                    println(INVALID_QUANTITY_MSG)
+            "troco" -> println(String.format(Locale.US, "voce recebeu %.2f RS", machine.withdrawCash()))
+            "comprar" -> {
+                val (result: BuyResult, productName: String?) = machine.buyItem(args[1].toInt())
+                when (result) {
+                    BuyResult.OK -> println("voce comprou um $productName")
+                    BuyResult.INSUFFICIENT_BALANCE -> println("fail: saldo insuficiente")
+                    BuyResult.EMPTY_SLOT -> println("fail: espiral sem produtos")
                 }
             }
-            parts.size == 2 && parts[0] == "limpar" -> {
-                val index: Int = parts[1].toInt()
-                try {
-                    machine.clearSlot(index)
-                } catch (_: IndexOutOfBoundsException) {
-                    println(INVALID_INDEX_MSG)
-                }
+            "revenue" -> println(String.format(Locale.US, "arrecadacao: %.2f", machine.getRevenue()))
+            else -> println("fail: comando invalido")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: InvalidSlotIndexException) {
+                println("fail: indice nao existe")
+            } catch (_: InvalidCapacityException) {
+                println("fail: capacidade invalida")
+            } catch (_: InvalidQuantityException) {
+                println("fail: quantidade invalida")
+            } catch (_: InvalidPriceException) {
+                println("fail: preco invalido")
+            } catch (_: NumberFormatException) {
+                println("fail: conversao invalida")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: parametros insuficientes")
             }
-            parts.size == 2 && parts[0] == "dinheiro" -> {
-                if (!machine.insertCash(parts[1].toDouble())) {
-                    println(INVALID_VALUE_MSG)
-                }
-            }
-            parts == listOf("troco") -> {
-                println(String.format(Locale.US, "voce recebeu %.2f RS", machine.withdrawCash()))
-            }
-            parts.size == 2 && parts[0] == "comprar" -> {
-                val index: Int = parts[1].toInt()
-                try {
-                    val (result: BuyResult, productName: String?) = machine.buyItem(index)
-                    when (result) {
-                        BuyResult.OK -> println("voce comprou um $productName")
-                        BuyResult.INSUFFICIENT_BALANCE -> println(INSUFFICIENT_BALANCE_MSG)
-                        BuyResult.EMPTY_SLOT -> println(EMPTY_SLOT_MSG)
-                    }
-                } catch (_: IndexOutOfBoundsException) {
-                    println(INVALID_INDEX_MSG)
-                }
-            }
-            parts == listOf("revenue") -> {
-                println(String.format(Locale.US, "arrecadacao: %.2f", machine.getRevenue()))
-            }
-            else -> println(INVALID_COMMAND_MSG)
         }
     }
 }
+
+fun main(): Unit = Shell().main()

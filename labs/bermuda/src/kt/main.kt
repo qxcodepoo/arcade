@@ -1,5 +1,4 @@
-const val INVALID_COMMAND_MSG: String = "fail: invalid command"
-const val INVALID_SIZE_MSG: String = "fail: invalid size"
+class InvalidSizeException : Exception()
 
 class Bermuda(size: String) {
     companion object {
@@ -7,13 +6,16 @@ class Bermuda(size: String) {
         private val ALLOWED_SIZES: List<String> = listOf("P", "M", "G", "GG")
 
         private fun validateSize(size: String): Unit {
-            require(size in ALLOWED_SIZES)
+            if (size !in ALLOWED_SIZES) {
+                throw InvalidSizeException()
+            }
         }
 
         fun getAllowedSizes(): List<String> = ALLOWED_SIZES.toList()
     }
 
     private var size: String
+    private var quantity: Int = 0
 
     init {
         validateSize(size)
@@ -27,27 +29,52 @@ class Bermuda(size: String) {
         this.size = size
     }
 
-    override fun toString(): String = "size: ($size)"
+    fun setQuantity(quantity: Int): Boolean {
+        if (quantity < 0) {
+            return false
+        }
+        this.quantity = quantity
+        return true
+    }
+
+    override fun toString(): String = "size: ($size)\nquantity: ($quantity)"
 }
 
-fun main(): Unit {
-    var bermuda: Bermuda = Bermuda(Bermuda.DEFAULT_SIZE)
+class Shell {
+    private var bermuda: Bermuda = Bermuda(Bermuda.DEFAULT_SIZE)
+    private var running: Boolean = true
 
-    while (true) {
-        val line: String = readlnOrNull() ?: break
+    private fun process(): Unit {
+        val line: String = readln()
         println("\$$line")
-
-        try {
-            val parts: List<String> = line.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-            when {
-                parts == listOf("end") -> break
-                parts == listOf("show") -> println(bermuda)
-                parts.size == 2 && parts[0] == "init" -> bermuda = Bermuda(parts[1])
-                parts.size == 2 && parts[0] == "size" -> bermuda.setSize(parts[1])
-                else -> println(INVALID_COMMAND_MSG)
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "show" -> println(bermuda)
+            "init" -> bermuda = Bermuda(args[1])
+            "size" -> bermuda.setSize(args[1])
+            "setQuantity" -> {
+                if (!bermuda.setQuantity(args[1].toInt())) {
+                    println("fail: invalid quantity")
+                }
             }
-        } catch (_: IllegalArgumentException) {
-            println(INVALID_SIZE_MSG)
+            else -> println("fail: invalid command")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: InvalidSizeException) {
+                println("fail: invalid size")
+            } catch (_: NumberFormatException) {
+                println("fail: invalid conversion")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: insufficient parameters")
+            }
         }
     }
 }
+
+fun main(): Unit = Shell().main()

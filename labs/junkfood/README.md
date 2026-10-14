@@ -1,14 +1,14 @@
 ---
 index_content: |2
     - Descrição: a máquina de vendas controla espirais fixas, saldo, compras, troco e arrecadação.
-    - Domínio: cada posição sempre contém um `Slot` imutável; índices e quantidades inválidos lançam exceções, e uma compra só altera saldo, quantidade e arrecadação quando pode ser concluída.
+    - Domínio: cada posição sempre contém um `Slot` imutável; capacidade, índice, quantidade e preço inválidos lançam exceções, e uma compra só altera saldo, quantidade e arrecadação quando pode ser concluída.
     - Objetivos: distinguir exceções de resultados normais, representar espirais vazias com objetos e preservar o histórico de vendas ao devolver o troco.
 ---
 # [ALONE] Junkfood: exceções e objeto vazio
 
 <!-- toc-table -->
-[Intro](#intro) | [Regras](#regras) | [Exceções](#exceções) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Resolução](#resolução) | [Draft](#draft)
--- | -- | -- | -- | -- | -- | -- | --
+[Intro](#intro) | [Regras](#regras) | [Exceções](#exceções) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
+-- | -- | -- | -- | -- | -- | --
 <!-- end -->
 
 ![cover](assets/cover.webp)
@@ -39,7 +39,7 @@ São necessários objetos, listas, índices, condicionais, laços, métodos, val
 
 - a quantidade de espirais permanece fixa até um novo `init`;
 - cada posição sempre contém um `Slot` independente;
-- a capacidade da máquina e a quantidade do produto não podem ser negativas;
+- a capacidade da máquina, a quantidade e o preço do produto não podem ser negativos; o preço deve ser finito;
 - o saldo só aumenta com dinheiro válido e diminui após uma compra válida;
 - o troco zera somente o saldo atual;
 - uma compra recusada não altera quantidade, saldo ou arrecadação;
@@ -47,22 +47,23 @@ São necessários objetos, listas, índices, condicionais, laços, métodos, val
 
 ## Regras
 
-- `Machine(capacity: Int)` cria uma lista de tamanho fixo; capacidade negativa lança `IllegalArgumentException`.
-- `Slot` é imutável e armazena `name: String`, `quantity: Int` e `price: Double`. Quantidade negativa lança `IllegalArgumentException`.
-- `getSlot(index: Int): Slot`, `setSlot(index: Int, name: String, quantity: Int, price: Double): Unit`, `clearSlot(index: Int): Unit` e `buyItem(index: Int)` lançam `IndexOutOfBoundsException` para índices inválidos.
+- `Machine(capacity: Int)` cria uma lista de tamanho fixo; capacidade negativa lança `InvalidCapacityException`. Capacidade zero é válida.
+- `Slot` é imutável e armazena `name: String`, `quantity: Int` e `price: Double`. Quantidade negativa lança `InvalidQuantityException`; preço negativo, `NaN` ou infinito lança `InvalidPriceException`. Quantidade e preço zero são permitidos para representar um `Slot` vazio ou um produto esgotado.
+- `getSlot(index: Int): Slot`, `setSlot(index: Int, name: String, quantity: Int, price: Double): Unit`, `clearSlot(index: Int): Unit` e `buyItem(index: Int)` lançam `InvalidSlotIndexException` para índices inválidos.
 - `setSlot` substitui o objeto da posição; `clearSlot` o substitui por um `Slot` vazio. Falhas preservam o estado anterior.
-- `insertCash(value: Double): Boolean` retorna `true` para valores positivos e `false` para zero ou valores negativos.
+- `insertCash(value: Double): Boolean` retorna `true` para valores positivos e finitos que mantêm o saldo finito; retorna `false` para zero, valores negativos, `NaN`, infinito ou soma que transborde.
 - `withdrawCash(): Double` devolve o saldo e o zera; a arrecadação acumulada não muda.
-- `buyItem(index: Int): Pair<BuyResult, String?>` mantém `INSUFFICIENT_BALANCE` e `EMPTY_SLOT` como resultados esperados. Uma compra válida substitui o `Slot` por uma cópia com uma unidade a menos, atualiza saldo e arrecadação e retorna o nome do produto.
+- `buyItem(index: Int): Pair<BuyResult, String?>` mantém `INSUFFICIENT_BALANCE` e `EMPTY_SLOT` como resultados esperados. Primeiro verifica se há produto; somente depois compara saldo e preço. Quando a espiral está vazia e o saldo é insuficiente, retorna `EMPTY_SLOT`. Uma compra válida substitui o `Slot` por uma cópia com uma unidade a menos, atualiza saldo e arrecadação e retorna o nome do produto.
 - `getRevenue(): Double` consulta a arrecadação sem alterá-la.
 - `toString(): String` mostra o saldo e todas as espirais no formato dos casos de teste.
 - As mensagens de falha e sucesso pertencem ao Shell; o domínio não lê nem imprime texto.
 
 ## Exceções
 
-- `IndexOutOfBoundsException` comunica índices fora dos limites em operações da máquina.
-- `IllegalArgumentException` comunica capacidade ou quantidade negativas. A validação da quantidade pertence a `Slot`, que garante a própria invariante.
-- O Shell captura as exceções junto ao comando correspondente e preserva as mensagens existentes. `insertCash` usa `Boolean`, enquanto saldo insuficiente e espiral vazia continuam em `BuyResult` por serem resultados esperados da compra.
+- `InvalidSlotIndexException` comunica uma espiral inexistente. Ela é diferente de `IndexOutOfBoundsException`, que no Shell indica um argumento ausente.
+- `InvalidCapacityException`, `InvalidQuantityException` e `InvalidPriceException` impedem a construção de objetos inválidos antes de alterar a máquina. A validação de quantidade e preço pertence a `Slot`.
+- O Shell usa `line.split(" ")`, acessa os argumentos diretamente e captura as exceções em `main()`. Conversão numérica inválida produz `fail: conversao invalida`; argumento ausente produz `fail: parametros insuficientes`; preço inválido produz `fail: preco invalido`.
+- `insertCash` usa `Boolean`, enquanto saldo insuficiente e espiral vazia continuam em `BuyResult` por serem resultados esperados da compra. Dinheiro inválido produz `fail: valor invalido`.
 
 ## Diagrama
 
@@ -80,11 +81,19 @@ classDiagram
         EMPTY_SLOT
     }
 
-    class IndexOutOfBoundsException {
+    class InvalidSlotIndexException {
         <<exception>>
     }
 
-    class IllegalArgumentException {
+    class InvalidCapacityException {
+        <<exception>>
+    }
+
+    class InvalidQuantityException {
+        <<exception>>
+    }
+
+    class InvalidPriceException {
         <<exception>>
     }
 
@@ -119,8 +128,10 @@ classDiagram
 
     Machine "1" *-- "0..*" Slot : fixed positions
     Machine ..> BuyResult : returns
-    Machine ..> IndexOutOfBoundsException : throws
-    Machine ..> IllegalArgumentException : throws
+    Machine ..> InvalidSlotIndexException : throws
+    Machine ..> InvalidCapacityException : throws
+    Slot ..> InvalidQuantityException : throws
+    Slot ..> InvalidPriceException : throws
     Shell ..> Machine : commands
 ```
 
@@ -128,13 +139,13 @@ classDiagram
 
 Implemente em pequenos passos:
 
-1. Crie `Slot` como um `data class` com propriedades `val` e valores padrão para o objeto vazio. Valide `quantity >= 0` no construtor e formate `toString()` com duas casas decimais.
+1. Crie `Slot` como uma classe comum com propriedades `val` e valores padrão para o objeto vazio. Valide quantidade não negativa e preço finito e não negativo no construtor; formate `toString()` com duas casas decimais.
 2. Crie `Machine(capacity: Int)`. Valide capacidade não negativa antes de criar a lista e inicialize cada posição com um `Slot` vazio.
-3. Implemente `validateIndex` e use-a em `getSlot`, `setSlot`, `clearSlot` e `buyItem`. Lance `IndexOutOfBoundsException` antes de acessar a lista.
-4. Em `setSlot`, construa o novo `Slot` antes de substituir a posição. Se a quantidade for inválida, a exceção deixa o estado anterior intacto. Em `clearSlot`, substitua a posição pelo objeto vazio.
-5. Faça `insertCash` retornar `false` para valores não positivos e `true` após atualizar o saldo. `withdrawCash` zera somente o saldo disponível, sem apagar a arrecadação.
-6. Em `buyItem`, mantenha `INSUFFICIENT_BALANCE` e `EMPTY_SLOT` como resultados. Na compra válida, substitua o `Slot` por `slot.copy(quantity = slot.quantity - 1)`, atualize saldo e arrecadação e retorne o nome do produto.
-7. No Shell, capture as exceções junto aos comandos que podem lançá-las e traduza-as para as mensagens documentadas. Converta o Boolean e o par de `buyItem` em saídas sem colocar mensagens no domínio.
+3. Implemente `validateIndex` e use-a em `getSlot`, `setSlot`, `clearSlot` e `buyItem`. Lance `InvalidSlotIndexException` antes de acessar a lista.
+4. Em `setSlot`, construa o novo `Slot` antes de substituir a posição. Se quantidade ou preço forem inválidos, a exceção deixa o estado anterior intacto. Em `clearSlot`, substitua a posição pelo objeto vazio.
+5. Faça `insertCash` retornar `false` para valores não positivos ou não finitos e para uma soma que transborde. `withdrawCash` zera somente o saldo disponível, sem apagar a arrecadação.
+6. Em `buyItem`, verifique primeiro se a espiral possui produto e depois se o saldo cobre o preço. Mantenha `EMPTY_SLOT` e `INSUFFICIENT_BALANCE` como resultados. Na compra válida, substitua o `Slot` por `Slot(slot.name, slot.quantity - 1, slot.price)`, atualize saldo e arrecadação e retorne o nome do produto.
+7. No Shell, use `split(" ")` e acesse os argumentos diretamente. Capture as exceções em `main()` e traduza-as para as mensagens documentadas. Converta o `Boolean` e o par de `buyItem` em saídas sem colocar mensagens no domínio.
 
 `Slot` é necessário porque até uma espiral vazia tem uma posição estável e um estado representável; assim não há posições `null`. Como `Slot` é imutável, o estado só muda quando `Machine` substitui um objeto, e `getSlot` não permite contornar a validação de quantidade. O saldo representa dinheiro disponível para troco, enquanto `revenue` registra vendas passadas. O par `Pair<BuyResult, String?>` devolve o resultado e o nome comprado sem exigir uma classe de resposta.
 
@@ -253,7 +264,7 @@ arrecadacao: 2.50
 $troco
 voce recebeu 0.00 RS
 $comprar 0
-fail: saldo insuficiente
+fail: espiral sem produtos
 $revenue
 arrecadacao: 2.50
 $set 0 pao 0 2.50
@@ -299,7 +310,56 @@ saldo: 0.00
 $end
 ```
 
-## Resolução
+```bash
+#TEST_CASE preco invalido preserva a espiral
+$init 1
+$set 0 agua 2 1.50
+$set 0 suco 2 -1
+fail: preco invalido
+$set 0 suco 2 NaN
+fail: preco invalido
+$set 0 suco 2 Infinity
+fail: preco invalido
+$show
+saldo: 0.00
+0 [    agua : 2 U : 1.50 RS]
+$end
+```
+
+```bash
+#TEST_CASE dinheiro invalido preserva o saldo
+$init 0
+$dinheiro 2
+$dinheiro NaN
+fail: valor invalido
+$dinheiro Infinity
+fail: valor invalido
+$dinheiro -1
+fail: valor invalido
+$show
+saldo: 2.00
+$end
+```
+
+```bash
+#TEST_CASE entrada invalida preserva a maquina
+$init 1
+$set 0 agua 1 2.00
+$set 0 suco quantidade 3.00
+fail: conversao invalida
+$set 0 suco 2
+fail: parametros insuficientes
+$comprar texto
+fail: conversao invalida
+$comprar
+fail: parametros insuficientes
+$limpar 1
+fail: indice nao existe
+$show
+saldo: 0.00
+0 [    agua : 1 U : 2.00 RS]
+$end
+```
 
 
 ## Draft

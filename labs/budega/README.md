@@ -86,10 +86,6 @@ classDiagram
         <<exception>>
     }
 
-    class Exception {
-        <<exception>>
-    }
-
     class Person {
         +val name : String
         +Person(name : String)
@@ -112,7 +108,6 @@ classDiagram
     class Shell {
         -var market : Market
         -var running : Boolean
-        -val callMessages : Map~CallResult, String~
         -process() Unit
         +main() Unit
     }
@@ -121,7 +116,6 @@ classDiagram
     Market "1" o-- "0..*" Person : counters
     Market ..> CallResult : returns
     Market ..> CounterNotFoundException : throws
-    Exception <|-- CounterNotFoundException
     Shell ..> Market : commands
 ```
 
@@ -175,7 +169,7 @@ Espera: [carla, maria, rubia]
 
 Ao terminar, compare as duas coleções: inserir no meio da fila desloca posições relativas, enquanto chamar ou finalizar altera a relação entre a fila e um caixa específico.
 
-Índices inválidos são falhas de acesso ao vetor; caixa ocupado, fila vazia e caixa vazio são resultados das operações. O Shell traduz ambos para as mensagens do contrato externo. `callMessages` associa os valores de `CallResult` a textos porque essa enumeração pertence ao domínio; as outras mensagens ficam diretamente nas chamadas de saída da interface.
+Índices inválidos são falhas de acesso ao vetor; caixa ocupado, fila vazia e caixa vazio são resultados das operações. O Shell traduz ambos para as mensagens do contrato externo. Um `when` no comando `call` converte cada valor de `CallResult` diretamente na saída correspondente.
 
 O `Shell` começa com dois caixas e `running = true`. `process()` lê uma linha por
 vez; `end` define `running = false` e encerra o laço de `main()`. O laço captura

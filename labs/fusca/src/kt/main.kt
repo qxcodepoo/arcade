@@ -1,13 +1,16 @@
-const val INVALID_COMMAND_MSG: String = "fail: invalid command"
-const val INVALID_SEAT_MSG: String = "fail: invalid seat"
-const val OCCUPIED_SEAT_MSG: String = "fail: occupied seat"
-const val PERSON_TOO_YOUNG_MSG: String = "fail: person is too young for this seat"
-const val DRIVER_NOT_SET_MSG: String = "fail: driver is not set"
-const val INVALID_DISTANCE_MSG: String = "fail: distance must be positive"
+class InvalidSeatIndexException : RuntimeException()
 
-class OccupiedSeatException : RuntimeException()
-class PersonTooYoungException : RuntimeException()
-class DriverNotSetException : RuntimeException()
+enum class EnterResult {
+    OK,
+    OCCUPIED_SEAT,
+    PERSON_TOO_YOUNG,
+}
+
+enum class DriveResult {
+    OK,
+    DRIVER_NOT_SET,
+    INVALID_DISTANCE,
+}
 
 data class Person(val name: String, val age: Int) {
     override fun toString(): String = "$name:$age"
@@ -23,19 +26,20 @@ class Fusca {
 
     private fun checkSeatIndex(index: Int): Unit {
         if (index !in seats.indices) {
-            throw IndexOutOfBoundsException("invalid seat index")
+            throw InvalidSeatIndexException()
         }
     }
 
-    fun enter(person: Person, index: Int): Unit {
+    fun enter(person: Person, index: Int): EnterResult {
         checkSeatIndex(index)
         if (seats[index] != null) {
-            throw OccupiedSeatException()
+            return EnterResult.OCCUPIED_SEAT
         }
         if (index == 0 && person.age < 18 || index == 1 && person.age < 10) {
-            throw PersonTooYoungException()
+            return EnterResult.PERSON_TOO_YOUNG
         }
         seats[index] = person
+        return EnterResult.OK
     }
 
     fun leave(index: Int): Person? {
@@ -45,12 +49,15 @@ class Fusca {
         return person
     }
 
-    fun drive(distance: Int): Unit {
+    fun drive(distance: Int): DriveResult {
         if (seats[0] == null) {
-            throw DriverNotSetException()
+            return DriveResult.DRIVER_NOT_SET
         }
-        require(distance > 0)
+        if (distance <= 0) {
+            return DriveResult.INVALID_DISTANCE
+        }
         distanceKm += distance
+        return DriveResult.OK
     }
 
     override fun toString(): String {
@@ -62,39 +69,50 @@ class Fusca {
     }
 }
 
-fun main(): Unit {
-    val fusca: Fusca = Fusca()
+class Shell {
+    private val fusca: Fusca = Fusca()
+    private var running: Boolean = true
 
-    while (true) {
-        val line: String = readlnOrNull() ?: break
+    private fun process(): Unit {
+        val line: String = readln()
         println("\$$line")
 
-        try {
-            val parts: List<String> = line.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-            when {
-                parts == listOf("end") -> break
-                parts == listOf("show") -> println(fusca)
-                parts.size == 4 && parts[0] == "enter" -> {
-                    fusca.enter(Person(parts[1], parts[2].toInt()), parts[3].toInt())
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "show" -> println(fusca)
+            "enter" -> {
+                when (fusca.enter(Person(args[1], args[2].toInt()), args[3].toInt())) {
+                    EnterResult.OK -> Unit
+                    EnterResult.OCCUPIED_SEAT -> println("fail: occupied seat")
+                    EnterResult.PERSON_TOO_YOUNG -> println("fail: person is too young for this seat")
                 }
-                parts.size == 2 && parts[0] == "leave" -> {
-                    fusca.leave(parts[1].toInt())?.let { println(it) }
-                }
-                parts.size == 2 && parts[0] == "drive" -> fusca.drive(parts[1].toInt())
-                else -> println(INVALID_COMMAND_MSG)
             }
-        } catch (_: IndexOutOfBoundsException) {
-            println(INVALID_SEAT_MSG)
-        } catch (_: OccupiedSeatException) {
-            println(OCCUPIED_SEAT_MSG)
-        } catch (_: PersonTooYoungException) {
-            println(PERSON_TOO_YOUNG_MSG)
-        } catch (_: DriverNotSetException) {
-            println(DRIVER_NOT_SET_MSG)
-        } catch (_: NumberFormatException) {
-            println(INVALID_COMMAND_MSG)
-        } catch (_: IllegalArgumentException) {
-            println(INVALID_DISTANCE_MSG)
+            "leave" -> fusca.leave(args[1].toInt())?.let { println(it) }
+            "drive" -> {
+                when (fusca.drive(args[1].toInt())) {
+                    DriveResult.OK -> Unit
+                    DriveResult.DRIVER_NOT_SET -> println("fail: driver is not set")
+                    DriveResult.INVALID_DISTANCE -> println("fail: distance must be positive")
+                }
+            }
+            else -> println("fail: invalid command")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: NumberFormatException) {
+                println("fail: invalid conversion")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: insufficient parameters")
+            } catch (_: InvalidSeatIndexException) {
+                println("fail: invalid seat")
+            }
         }
     }
 }
+
+fun main(): Unit = Shell().main()

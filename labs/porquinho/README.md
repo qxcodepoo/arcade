@@ -1,7 +1,7 @@
 ---
 index_content: |2
     - Descrição: o porquinho armazena moedas e itens até sua capacidade e pode ser quebrado para permitir extrações.
-    - Domínio: moedas e itens são imutáveis; adições só ocorrem enquanto o porquinho está intacto e há volume disponível; depois da quebra, novas adições falham e moedas ou itens podem ser extraídos separadamente.
+    - Domínio: capacidade e volumes são validados na construção; adições só ocorrem enquanto o porquinho está intacto e há espaço; depois da quebra, moedas ou itens podem ser extraídos separadamente.
     - Objetivos: proteger capacidade e estado terminal, compor coleções de objetos imutáveis e preservar o estado após operações recusadas.
 ---
 # [TRAIN] Guardando moedas e itens em um cofrinho
@@ -22,14 +22,15 @@ composição de objetos e a imutabilidade de valores armazenados.
 
 ## Regras
 
-- `Coin` é uma `data class` imutável com `value: Double`, `volume: Int` e `label: String`. Os códigos disponíveis são `10`, `25`, `50` e `100`.
-- `Item` é uma `data class` imutável com `label: String` e `volume: Int`.
+- `Coin` é uma classe com propriedades `val value: Double`, `val volume: Int` e `val label: String`. Valor não finito ou não positivo e volume não positivo são rejeitados pelo construtor com `IllegalArgumentException`. Os códigos disponíveis no Shell são `10`, `25`, `50` e `100`.
+- `Item` é uma classe com propriedades `val label: String` e `val volume: Int`. Volume não positivo lança `InvalidItemVolumeException`.
 - Moedas e itens são imutáveis depois de criados. Não há setters, pois alterar
-  um objeto já guardado poderia quebrar a capacidade do porquinho.
-- `Pig(capacity: Int)` começa intacto e vazio. Seu volume ocupado nunca ultrapassa a capacidade.
-- `addCoin(coin: Coin): Unit` e `addItem(item: Item): Unit` lançam `PigError` se o porquinho estiver quebrado ou o objeto não couber.
-- `breakPig(): Unit` muda o estado para quebrado uma única vez.
-- `extractCoins(): List<Coin>` e `extractItems(): List<Item>` só funcionam depois da quebra; cada método devolve uma cópia e esvazia somente sua coleção.
+  um objeto já guardado poderia quebrar a capacidade do porquinho. Ao inserir,
+  `Pig` cria um novo objeto com os mesmos valores, de modo que o objeto armazenado pertence ao recipiente.
+- `Pig(capacity: Int)` começa intacto e vazio. Capacidade negativa lança `InvalidCapacityException`; capacidade zero é válida. Seu volume ocupado nunca ultrapassa a capacidade.
+- `addCoin(coin: Coin): AddResult` e `addItem(item: Item): AddResult` retornam `OK`, `BROKEN` ou `FULL`. Apenas `OK` altera a coleção.
+- `breakPig(): Boolean` muda o estado para quebrado e retorna `true`; retorna `false` se já estava quebrado.
+- `extractCoins(): List<Coin>?` e `extractItems(): List<Item>?` retornam `null` antes da quebra. Depois dela, cada método devolve uma cópia, inclusive uma lista vazia quando não restam objetos, e esvazia somente sua coleção.
 - `value(): Double` soma o valor das moedas que ainda estão guardadas.
 - `volume(): Int` soma os volumes enquanto intacto e retorna `0` depois da quebra.
 - `toString(): String` mostra estado, coleções, valor e volume no formato dos testes.
@@ -40,23 +41,38 @@ composição de objetos e a imutabilidade de valores armazenados.
   extraída. A lista devolvida é uma cópia.
 - Depois da quebra, o volume ocupado é `0`, pois o porquinho deixou de funcionar
   como recipiente. O valor continua representando as moedas ainda guardadas.
-- As classes de domínio não imprimem mensagens. Elas lançam `PigError`; o Shell converte as falhas para o texto observável.
+- As classes de domínio não imprimem mensagens. O Shell traduz os resultados das operações e as exceções de construção para o texto observável.
 
 ## Exceções
 
-`PigError` comunica as regras de estado e capacidade. O `Shell` captura essa exceção e apresenta a mensagem nela contida com o prefixo `fail:`. Moedas inválidas e comandos malformados são tratados pelo Shell, pois não correspondem a uma operação válida do domínio.
+Capacidade e volume inválidos impedem a construção de `Pig` ou `Item`. A tentativa de `init` que falha conserva o porquinho anterior; a tentativa de criar um item inválido não o adiciona. O Shell usa `when` para criar a moeda correspondente aos códigos `10`, `25`, `50` e `100`. Um código desconhecido produz `fail: invalid coin`.
+
+Porquinho cheio ou quebrado, segunda quebra e extração antes da quebra são resultados esperados das operações, portanto são comunicados por `AddResult`, `Boolean` ou `null`. O Shell usa `line.split(" ")`, acessa os argumentos diretamente e captura as exceções em `main()`. Conversão inválida produz `fail: invalid conversion`; argumento ausente produz `fail: insufficient parameters`. As mensagens das operações permanecem as mesmas dos casos anteriores.
+
+Antes de `init`, somente `init` e `end` são aceitos; os demais comandos produzem `fail: invalid command`.
 
 ## Diagrama
 
-`Pig` compõe coleções de `Coin` e `Item`, que são valores imutáveis. O recipiente começa intacto, controla a capacidade e, depois de quebrado, permite apenas as extrações.
+`Pig` compõe coleções de `Coin` e `Item`, que são objetos imutáveis recriados ao entrar. O recipiente começa intacto, controla a capacidade e, depois de quebrado, permite apenas as extrações.
 
 ```mermaid
 %%{init: {'fontFamily': 'monospace'}}%%
 classDiagram
     direction LR
 
-    class PigError {
+    class InvalidCapacityException {
         <<exception>>
+    }
+
+    class InvalidItemVolumeException {
+        <<exception>>
+    }
+
+    class AddResult {
+        <<enumeration>>
+        OK
+        BROKEN
+        FULL
     }
 
     class Coin {
@@ -83,11 +99,11 @@ classDiagram
         -var broken : Boolean
         +Pig(capacity : Int)
         -checkCanAdd(volume : Int) Unit
-        +addCoin(coin : Coin) Unit
-        +addItem(item : Item) Unit
-        +breakPig() Unit
-        +extractCoins() List~Coin~
-        +extractItems() List~Item~
+        +addCoin(coin : Coin) AddResult
+        +addItem(item : Item) AddResult
+        +breakPig() Boolean
+        +extractCoins() List~Coin~?
+        +extractItems() List~Item~?
         +value() Double
         +volume() Int
         +toString() String
@@ -99,7 +115,9 @@ classDiagram
 
     Pig "1" *-- "0..*" Coin : stores
     Pig "1" *-- "0..*" Item : stores
-    Pig ..> PigError : throws
+    Pig ..> InvalidCapacityException : throws
+    Item ..> InvalidItemVolumeException : throws
+    Pig ..> AddResult : returns
     Shell ..> Pig : commands
 ```
 
@@ -107,17 +125,17 @@ classDiagram
 
 Implemente em incrementos pequenos:
 
-1. Crie `Coin` e `Item` como `data class` imutáveis e implemente `toString()` no formato que aparece nos testes. O Shell seleciona a moeda pelo código recebido.
-2. Crie `Pig(capacity: Int)` com coleções vazias e estado intacto. Implemente `volume`, `addCoin` e `addItem`, verificando primeiro o estado e a capacidade.
+1. Crie `Coin` e `Item` como classes comuns com propriedades `val` e implemente `toString()` no formato que aparece nos testes. Rejeite moedas com valor não finito ou não positivo ou volume não positivo, e itens com volume não positivo. O Shell cria a moeda pelo código recebido usando `when`.
+2. Crie `Pig(capacity: Int)` com coleções vazias e estado intacto. Rejeite capacidade negativa. Implemente `volume`, `addCoin` e `addItem`, verificando primeiro o estado e o espaço disponível. Devolva `AddResult` e crie um novo `Coin` ou `Item` com os valores recebidos apenas quando o resultado for `OK`.
 3. Implemente `value` e `toString`. O volume considera moedas e itens somente enquanto o porquinho está intacto; o valor das moedas continua disponível após a quebra.
-4. Implemente `breakPig` como transição terminal. Uma segunda quebra lança `PigError` sem apagar conteúdo.
-5. Implemente as extrações somente para o estado quebrado. Devolva uma cópia e limpe apenas a coleção extraída.
-6. No Shell, mapeie códigos de moeda, crie itens, capture `PigError` e converta os resultados para a saída observável. O domínio não deve conhecer entrada ou saída.
+4. Implemente `breakPig` como transição terminal. Uma segunda quebra retorna `false` sem apagar conteúdo.
+5. Implemente as extrações somente para o estado quebrado. Antes dele, retorne `null`; depois, devolva uma cópia e limpe apenas a coleção extraída.
+6. No Shell, use `when` para escolher a moeda pelo código, crie itens, apresente os resultados e capture as exceções de construção e de entrada. O domínio não deve conhecer entrada ou saída.
 
-A atividade usa somente três classes. `Coin` e `Item` representam objetos que
-   podem ser guardados; `Pig` possui esses objetos e protege as invariantes do
-   recipiente. Não há necessidade de uma classe para catálogo de moedas, um
-   gerenciador de itens ou getters e setters para todos os atributos.
+`Coin` e `Item` representam objetos que podem ser guardados; `Pig` possui esses
+objetos e protege as invariantes do recipiente. Não há necessidade de uma classe
+para selecionar moedas, um gerenciador de itens ou getters e setters para todos
+os atributos.
 
 Perguntas de reflexão:
 
@@ -210,6 +228,64 @@ $extractCoins
 [1.00:4]
 $show
 state=broken : coins=[] : items=[] : value=0.00 : volume=0/10
+$end
+```
+
+### Construção inválida preserva o estado
+
+```bash
+#TEST_CASE invalid construction
+$init 4
+$addCoin 10
+$init -1
+fail: invalid capacity
+$addItem pedra 0
+fail: invalid volume
+$addItem pedra -2
+fail: invalid volume
+$show
+state=intact : coins=[0.10:1] : items=[] : value=0.10 : volume=1/4
+$end
+```
+
+### Capacidade zero, limite exato e extração vazia
+
+```bash
+#TEST_CASE capacity boundaries
+$init 0
+$addCoin 10
+fail: the pig is full
+$init 4
+$addItem livro 4
+$show
+state=intact : coins=[] : items=[livro:4] : value=0.00 : volume=4/4
+$break
+$extractCoins
+[]
+$extractItems
+[livro:4]
+$extractItems
+[]
+$end
+```
+
+### Entrada inválida não interrompe o shell
+
+```bash
+#TEST_CASE malformed input
+$show
+fail: invalid command
+$init 5
+$addCoin 30
+fail: invalid coin
+$addItem pedra muito
+fail: invalid conversion
+$addItem pedra
+fail: insufficient parameters
+$init
+fail: insufficient parameters
+$show
+state=intact : coins=[] : items=[] : value=0.00 : volume=0/5
 $end
 ```
 

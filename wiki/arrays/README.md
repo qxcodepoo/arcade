@@ -3,16 +3,17 @@ index_content: |2
     - Objetivos de aprendizagem:
       - distinguir vetores de tamanho fixo de filas de tamanho variável;
       - preservar invariantes quando um argumento ou índice é inválido;
-      - comunicar argumentos inválidos por uma exceção padrão e posições inexistentes por uma exceção de domínio;
+      - comunicar tamanho inválido e posições inexistentes por exceções nomeadas;
+      - distinguir um tamanho inválido de uma quantidade negativa comunicada por `Boolean`;
       - capturar exceções no Shell e apresentar mensagens sem alterar o domínio.
     - Conceitos:
       - `Array<T?>`, `MutableList<T>` e índice;
       - capacidade fixa, ordem de chegada e posição vazia;
-      - invariante, `IllegalArgumentException` e `CounterNotFoundException`;
+      - invariante, `InvalidSizeException` e `CounterNotFoundException`;
       - exceção estrutural e resultado esperado de uma operação.
     - Técnicas de programação:
       - validar antes de alterar um objeto ou acessar uma posição;
-      - lançar uma exceção padrão para argumentos inválidos e uma exceção própria para posições inexistentes;
+      - lançar exceções nomeadas para tamanho inválido e posição inexistente;
       - preservar o estado quando uma operação falha;
       - mover uma pessoa da fila para um caixa sem duplicá-la;
       - capturar exceções no Shell e converter resultados em mensagens.

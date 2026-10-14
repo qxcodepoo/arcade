@@ -1,14 +1,14 @@
 ---
 index_content: |2
-    - Descrição: o pula-pula controla uma fila de espera e uma lista de crianças brincando.
-    - Domínio: as crianças mantêm sua ordem nas listas, entram e saem por operações de fila e podem ser removidas pelo nome em qualquer uma das duas coleções.
-    - Objetivos: coordenar movimentos entre coleções lineares e perceber que a posição representa uma ordem variável, não um lugar fixo.
+    - Descrição: mover crianças entre a fila de espera e a lista das que estão brincando.
+    - Domínio: cada movimento respeita a ordem da lista e mantém a mesma criança; a remoção procura pelo nome.
+    - Objetivos: coordenar listas ordenadas e transferir objetos agregados sem recriá-los.
 ---
 # [TRAIN] Pula-pula com crianças
 
 <!-- toc-table -->
-[Intro](#intro) | [Diagrama](#diagrama) | [Draft](#draft) | [Guide](#guide) | [Shell](#shell)
--- | -- | -- | -- | --
+[Intro](#intro) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell)
+-- | -- | -- | --
 <!-- end -->
 
 ![cover](assets/cover.webp)
@@ -68,13 +68,6 @@ classDiagram
 
 ***
 
-## Draft
-
-<!-- links .cache/starter -->
-- java
-  - [Shell.java](.cache/starter/java/Shell.java)
-<!-- end -->
-
 ## Guide
 
 
@@ -87,6 +80,7 @@ classDiagram
 - `toString()` deve mostrar as duas listas como `[waiting] => [playing]`.
 
 Os comandos do Shell (`arrive`, `enter`, `leave` e `remove`) permanecem iguais por serem parte do contrato externo.
+O `Shell` separa cada linha com `split(" ")` e acessa os argumentos necessários ao comando. Em `main()`, captura `NumberFormatException` para mostrar `fail: conversao invalida` e `IndexOutOfBoundsException` para mostrar `fail: parametros insuficientes`. Em ambos os casos, continua recebendo comandos sem alterar o pula-pula.
 
 ## Shell
 
@@ -129,6 +123,23 @@ $show
 $remove livia
 $show
 [mario:5] => []
+$end
+```
+
+```bash
+#TEST_CASE invalid age keeps state and shell running
+$arrive ana 5
+$arrive bia idade
+fail: conversao invalida
+$arrive bia
+fail: parametros insuficientes
+$remove
+fail: parametros insuficientes
+$show
+[ana:5] => []
+$arrive bia 4
+$show
+[bia:4, ana:5] => []
 $end
 ```
 

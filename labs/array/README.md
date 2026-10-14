@@ -1,8 +1,8 @@
 ---
 index_content: |2
-    - Descrição: uma lista de pessoas recebe comandos para inserir e remover nas extremidades, remover pelo nome e filtrar por idade.
-    - Domínio: a coleção começa vazia, preserva a ordem e não muda ao remover de uma lista vazia ou buscar um nome inexistente; a remoção por nome afeta apenas a primeira ocorrência.
-    - Objetivos: praticar diretamente as operações fundamentais de uma lista antes de encapsulá-las em uma classe.
+    - Descrição: inserir, remover, buscar e filtrar pessoas em uma lista ordenada.
+    - Domínio: as operações nas extremidades e as remoções preservam a ordem das pessoas restantes.
+    - Objetivos: praticar operações básicas de `MutableList<Person>` e percorrer uma coleção de objetos.
 ---
 # [GUIDE] Coleção de pessoas
 

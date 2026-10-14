@@ -7,6 +7,9 @@ index_content: |2
 # [GUIDE] Chinela de números pares
 
 <!-- toc-table -->
+[Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide)
+-- | -- | -- | --
+<!-- end -->
 
 ![_](assets/cover.webp)
 

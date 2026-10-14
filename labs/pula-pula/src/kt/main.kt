@@ -1,5 +1,3 @@
-const val INVALID_COMMAND_MSG: String = "fail: invalid command"
-
 class Kid(name: String, age: Int) {
     private val name: String = name
     private val age: Int = age
@@ -46,28 +44,43 @@ class Trampoline {
     }
 }
 
-fun main(): Unit {
-    val trampoline: Trampoline = Trampoline()
+class Shell {
+    private val trampoline: Trampoline = Trampoline()
+    private var running: Boolean = true
 
-    while (true) {
-        val line: String = readlnOrNull() ?: break
+    private fun process(): Unit {
+        val line: String = readln()
         println("\$$line")
 
-        val parts: List<String> = line.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-        when {
-            parts == listOf("end") -> break
-            parts == listOf("show") -> println(trampoline)
-            parts.size == 3 && parts[0] == "arrive" -> {
-                trampoline.arrive(Kid(parts[1], parts[2].toInt()))
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "show" -> println(trampoline)
+            "arrive" -> {
+                trampoline.arrive(Kid(args[1], args[2].toInt()))
             }
-            parts == listOf("enter") -> trampoline.enter()
-            parts == listOf("leave") -> trampoline.leave()
-            parts.size == 2 && parts[0] == "remove" -> {
-                if (trampoline.removeKid(parts[1]) == null) {
-                    println("fail: ${parts[1]} nao esta no pula-pula")
+            "enter" -> trampoline.enter()
+            "leave" -> trampoline.leave()
+            "remove" -> {
+                if (trampoline.removeKid(args[1]) == null) {
+                    println("fail: ${args[1]} nao esta no pula-pula")
                 }
             }
-            else -> println(INVALID_COMMAND_MSG)
+            else -> println("fail: invalid command")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: NumberFormatException) {
+                println("fail: conversao invalida")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: parametros insuficientes")
+            }
         }
     }
 }
+
+fun main(): Unit = Shell().main()

@@ -1,11 +1,7 @@
 import java.util.Locale
 
-const val INVALID_COMMAND_MSG: String = "fail: comando invalido"
-const val WRONG_THICKNESS_MSG: String = "fail: calibre incompatível"
-const val BARREL_EMPTY_MSG: String = "fail: nao existe grafite no barril"
-const val NO_LEAD_MSG: String = "fail: nao existe grafite no bico"
-const val INSUFFICIENT_SIZE_MSG: String = "fail: tamanho insuficiente"
-const val INCOMPLETE_PAGE_MSG: String = "fail: folha incompleta"
+class InvalidLeadException : RuntimeException()
+class InvalidPencilThicknessException : RuntimeException()
 
 enum class WriteResult {
     OK,
@@ -15,6 +11,12 @@ enum class WriteResult {
 }
 
 class Lead(thickness: Double, hardness: String, length: Int) {
+    init {
+        if (!thickness.isFinite() || thickness <= 0.0 || hardness !in setOf("HB", "2B", "4B", "6B") || length < 10) {
+            throw InvalidLeadException()
+        }
+    }
+
     private val thickness: Double = thickness
     private val hardness: String = hardness
     private var length: Int = length
@@ -31,6 +33,7 @@ class Lead(thickness: Double, hardness: String, length: Int) {
     fun getThickness(): Double = thickness
 
     fun consume(amount: Int): Boolean {
+        require(amount >= 0)
         val finalLength: Int = length - amount
         if (finalLength < 10) {
             length = 10
@@ -47,6 +50,12 @@ class Lead(thickness: Double, hardness: String, length: Int) {
 }
 
 class Pencil(thickness: Double) {
+    init {
+        if (!thickness.isFinite() || thickness < 0.0) {
+            throw InvalidPencilThicknessException()
+        }
+    }
+
     private val thickness: Double = thickness
     private var tip: Lead? = null
     private val barrel: MutableList<Lead> = mutableListOf()
@@ -74,7 +83,7 @@ class Pencil(thickness: Double) {
 
     fun writePage(): WriteResult {
         val currentLead: Lead = tip ?: return WriteResult.NO_LEAD
-        if (currentLead.getLength() == 10) {
+        if (currentLead.getLength() <= 10) {
             return WriteResult.INSUFFICIENT
         }
         if (!currentLead.consume(currentLead.getWearPerPage())) {
@@ -91,39 +100,58 @@ class Pencil(thickness: Double) {
     }
 }
 
-fun main(): Unit {
-    var pencil: Pencil = Pencil(0.0)
+class Shell {
+    private var pencil: Pencil = Pencil(0.0)
+    private var running: Boolean = true
 
-    while (true) {
-        val line: String = readlnOrNull() ?: break
+    private fun process(): Unit {
+        val line: String = readln()
         println("\$$line")
 
-        val parts: List<String> = line.trim().split(Regex("\\s+")).filter { it.isNotEmpty() }
-        when {
-            parts == listOf("end") -> break
-            parts == listOf("show") -> println(pencil)
-            parts.size == 2 && parts[0] == "init" -> pencil = Pencil(parts[1].toDouble())
-            parts.size == 4 && parts[0] == "insert" -> {
-                val lead: Lead = Lead(parts[1].toDouble(), parts[2], parts[3].toInt())
+        val args: List<String> = line.split(" ")
+        when (args[0]) {
+            "end" -> running = false
+            "show" -> println(pencil)
+            "init" -> pencil = Pencil(args[1].toDouble())
+            "insert" -> {
+                val lead: Lead = Lead(args[1].toDouble(), args[2], args[3].toInt())
                 if (!pencil.insert(lead)) {
-                    println(WRONG_THICKNESS_MSG)
+                    println("fail: calibre incompatível")
                 }
             }
-            parts == listOf("pull") -> {
+            "pull" -> {
                 val (success, _) = pencil.pull()
                 if (!success) {
-                    println(BARREL_EMPTY_MSG)
+                    println("fail: nao existe grafite no barril")
                 }
             }
-            parts == listOf("write") -> {
+            "write" -> {
                 when (pencil.writePage()) {
                     WriteResult.OK -> Unit
-                    WriteResult.NO_LEAD -> println(NO_LEAD_MSG)
-                    WriteResult.INSUFFICIENT -> println(INSUFFICIENT_SIZE_MSG)
-                    WriteResult.INCOMPLETE -> println(INCOMPLETE_PAGE_MSG)
+                    WriteResult.NO_LEAD -> println("fail: nao existe grafite no bico")
+                    WriteResult.INSUFFICIENT -> println("fail: tamanho insuficiente")
+                    WriteResult.INCOMPLETE -> println("fail: folha incompleta")
                 }
             }
-            else -> println(INVALID_COMMAND_MSG)
+            else -> println("fail: comando invalido")
+        }
+    }
+
+    fun main(): Unit {
+        while (running) {
+            try {
+                process()
+            } catch (_: NumberFormatException) {
+                println("fail: conversao invalida")
+            } catch (_: IndexOutOfBoundsException) {
+                println("fail: parametros insuficientes")
+            } catch (_: InvalidPencilThicknessException) {
+                println("fail: calibre invalido")
+            } catch (_: InvalidLeadException) {
+                println("fail: grafite invalido")
+            }
         }
     }
 }
+
+fun main(): Unit = Shell().main()

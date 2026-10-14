@@ -1,8 +1,9 @@
 # Meu Petshop
 
+<!-- toc-table -->
 [Intro](#intro) | [Regras](#regras) | [Diagrama](#diagrama) | [Guide](#guide) | [Shell](#shell) | [Draft](#draft)
 -- | -- | -- | -- | -- | --
-<!-- toc-table -->
+<!-- end -->
 
 ![cover](assets/cover.webp)
 

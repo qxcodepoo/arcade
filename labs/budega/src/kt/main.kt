@@ -77,11 +77,7 @@ class Market(counterCount: Int) {
 class Shell {
     private var market: Market = Market(2)
     private var running: Boolean = true
-    private val callMessages: Map<CallResult, String> = mapOf(
-        CallResult.OK to "",
-        CallResult.BUSY_COUNTER to "fail: caixa ocupado",
-        CallResult.EMPTY_WAITING to "fail: sem clientes",
-    )
+
     private fun process(): Unit {
         val line: String = readln()
         println("\$$line")
@@ -92,9 +88,10 @@ class Shell {
             "init" -> market = Market(args[1].toInt())
             "arrive" -> market.arrive(Person(args[1]))
             "call" -> {
-                val message: String = callMessages.getValue(market.call(args[1].toInt()))
-                if (message.isNotEmpty()) {
-                    println(message)
+                when (market.call(args[1].toInt())) {
+                    CallResult.OK -> Unit
+                    CallResult.BUSY_COUNTER -> println("fail: caixa ocupado")
+                    CallResult.EMPTY_WAITING -> println("fail: sem clientes")
                 }
             }
             "finish" -> {
