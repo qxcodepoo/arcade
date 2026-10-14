@@ -524,9 +524,9 @@ ___
   - Conceitos: encapsulamento, invariantes, comandos e consultas.
   - Técnicas: registrar eventos, validar saldo e operar por índices sem apagar histórico.
   - Pré-requisito: coleções, exceções e encapsulamento.
-## wiki
-- [ ] `eval=diff            ` [Pesquisa sobre C++](wiki/cpp/README.md)
-- [ ] `eval=diff            ` [[INTRO] Exceções](wiki/exception/README.md)
-- [ ] `eval=diff            ` [NÃO TEM TÍTULO](wiki/fixas/README.md)
-- [ ] `eval=diff            ` [[GUIDE] Listas em Python](wiki/listas/README.md)
-- [ ] `eval=diff            ` [[INTRO] Introdução Listas nullable e agregação](wiki/slots/README.md)
+## wiki <!-- @wiki -->
+- [ ] `eval=none            ` [Pesquisa sobre C++](wiki/cpp/README.md)
+- [ ] `eval=none            ` [[INTRO] Exceções](wiki/exception/README.md)
+- [ ] `eval=none            ` [NÃO TEM TÍTULO](wiki/fixas/README.md)
+- [ ] `eval=none            ` [[GUIDE] Listas em Python](wiki/listas/README.md)
+- [ ] `eval=none            ` [[INTRO] Introdução Listas nullable e agregação](wiki/slots/README.md)
